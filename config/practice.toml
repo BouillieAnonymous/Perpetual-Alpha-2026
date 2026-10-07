@@ -1,0 +1,15 @@
+# All times, candles and daily risk boundaries use UTC.
+[bot]
+database = "data/practice.sqlite3"
+phase = "practice"
+poll_seconds = 30
+stale_seconds = 90
+allocation = 0.10
+daily_loss_limit = 0.02
+drawdown_limit = 0.05
+max_spread_bps = 20
+slippage_bps = 20
+scored_start = "2026-10-19"
+scored_end = "2026-11-06"
+# Set only after organizer confirmation. Omission means UNKNOWN, not zero.
+# minimum_volume = 100000
