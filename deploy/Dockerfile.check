@@ -1,0 +1,7 @@
+FROM python:3.12-slim@sha256:05cda9777409a9c3ffddd94a4c476b79f0769a0b4857f0c7ed9226b6800b0d6f
+WORKDIR /app
+COPY requirements-check.txt /app/requirements-check.txt
+RUN pip install --no-cache-dir -r /app/requirements-check.txt
+COPY check-venue.py /app/check-venue.py
+USER 1000:1000
+CMD ["python", "-u", "/app/check-venue.py"]

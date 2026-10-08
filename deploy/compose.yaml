@@ -1,0 +1,21 @@
+services:
+  connection-check:
+    build:
+      context: .
+      dockerfile: Dockerfile.check
+    image: perpetual-alpha-connection-check:2026-10-08
+    init: true
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 256m
+    cpus: 0.5
+    volumes:
+      - /opt/perpetual-alpha/data:/data
+    tmpfs:
+      - /tmp
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
