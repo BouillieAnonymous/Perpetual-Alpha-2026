@@ -15,5 +15,11 @@ secrets/
 *.pem
 data/
 logs/
+*.log
+*.p12
+*.pfx
+*.secret
+private_key*
+*keystore*.json
 reports/
 *.sqlite*

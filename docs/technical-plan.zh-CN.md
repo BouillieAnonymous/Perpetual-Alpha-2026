@@ -14,10 +14,10 @@
 | Python | 系统 Python 3.14.4；仓库声明 `>=3.11,<3.14`，版本尚未对齐 |
 | Git / SSH | 本地 Git 2.53.0；服务器 ubuntu 密钥登录已验证 |
 | Docker / Compose | 在 Ubuntu 内执行失败，提示启用 Docker Desktop 的 WSL 集成；尚不可认定可用 |
-| 代码 | 已增加初始化脚本、只读诊断脚本和 Compose；完整采集与交易程序待开发 |
+| 代码 | 已实现只读报价采集、固定格式、SQLite、状态查询、单进程与重启；策略／执行接口已预留，交易尚未实现 |
 | 服务器 | Ubuntu 26.04 x86_64、2 CPU、约 3.7 GiB 内存、38 GiB 根盘；NTP 同步；Docker 29.8.2、Compose 5.6.0 已安装 |
 
-旧代码固定 BTC、10% 仓位和亏损限制，不代表已经确定的策略与风险参数。后续需要参数化，现阶段未修改。
+旧配置中的固定 BTC、10% 仓位和亏损限制已移除；当前仅有可配置采集资产，不预设交易策略或风险数值。
 
 ## 2. 服务器配置
 
@@ -49,8 +49,8 @@ flowchart LR
 ```
 
 - 输入：行情、盘口、新闻和账户分别定义记录类型，共享来源、资产、事件时间、接收时间与有效性；保留原始数据。不提前接入所有可能来源。
-- 处理：返回目标仓位或定义明确的动作，包含信号 ID、生成时间、有效期、策略版本与原因。接口语义双方共同确认，输出端不猜测买卖动作的含义。
-- 输出：拒绝过期或重复信号，检查行情与账户状态、数量和价格规则、交易额度、价差与滑点；处理下单、撤单、拒单和部分成交。超时先查状态，真实仓位以接口为准。
+- 处理：固定返回目标仓位 Decision（协议 1.0），包含决策 ID、输入上下文 ID、时间、有效期、策略版本和原因；不返回含义模糊的买卖指令。完整格式见第 12 节。
+- 输出：拒绝过期或重复信号，检查行情与账户状态、数量和价格规则、交易额度、价差与滑点；后续实现下单、撤单、拒单和部分成交。超时先查状态，真实仓位以接口为准。
 
 执行端可以估算成本，未来收益需要策略提供预测期限和估计。首版先做成本估算与基础限制；有可信预测后再接“收益覆盖成本”的开仓门槛。减少风险的退出不受盈利门槛阻拦，但仍要检查执行结果。
 
@@ -103,7 +103,7 @@ sudo docker compose run --rm connection-check
 | SSH / 系统初始化 | 密钥、系统更新、时间与防火墙检查 | 密钥、系统与内核更新、重启、NTP、UFW 和目录已验证 |
 | 本地运行环境 | Python 与依赖对齐，Docker / Compose 可用 | 部分检查，尚未通过 |
 | 本地只读版本 | 真正读取 `par` 数据、存储、日志和正常退出 | 待开发 |
-| 服务器只读部署 | 接口与持久化 | 诊断通过，包括主机重启后新容器读回数据库；持续采集待开发 |
+| 服务器只读部署 | 接口与持久化 | 持续 REST 采集已启动；报价质量、去重、数据库恢复与单进程检查通过 |
 | 监控与恢复 | 数据、错误、磁盘、断线与重启 | 主机重启与测试数据保留已通过；常驻监控与订单恢复待实施 |
 | 账户与测试订单 | 查询、撤单、成交核对、剩余仓位确认 | 待实施 |
 | 正式交易 | 策略、风控、资格跟踪、稳定版本与操作手册完成 | 待实施 |
@@ -122,34 +122,57 @@ Agent 不持有交易私钥；执行端不运行 Agent 生成的任意代码。�
 
 ## 7. 下一步与比赛结束处理
 
-服务器基础环境和首次只读接口检查已完成；下一步开发持续输入端。尚未接入交易授权或执行订单，本地环境仍需单独对齐。
+服务器基础环境和只读持续报价输入已完成；下一步扩展数据类型并对齐队友接口。尚未接入交易授权或执行订单，本地环境仍需单独对齐。
 
 正式交易计划为 10 月 19 日至 11 月 6 日，报告截止 11 月 9 日，具体时间持续核对主办方通知。交易结束后先保存数据、确认账户风险并验证备份，再按照实际账单和取消条款处理服务器，不自动在比赛结束当日删机。
 
 关联：[项目总览](project-plan.zh-CN.md)、[数据与交易规则](data-development.zh-CN.md)、[研究与实验](research-ideas.zh-CN.md)。
 
 
-## 8. 目标代码结构（待实现）
+## 8. 实际程序结构与后续模块
+
+本地项目根目录：`D:\development\Perpetual Alpha 2026`。服务器项目根目录：`/opt/perpetual-alpha`。以下是已经存在的文件，不是仅供参考的目标目录。
 
 ```text
-src/perpetual_alpha/
-  cli.py                 命令入口：连接检查、采集、状态查看
-  config.py              加载并验证运行配置
-  models.py              共享数据类型
-  market_data.py         比赛行情与市场规格读取
-  account.py             账户、订单和成交查询
-  storage.py             原始快照、规范化数据和事件保存
-  strategy.py            信号与目标仓位接口，策略待定
-  risk.py                数据、额度和账户风险检查
-  execution.py           下单、撤单、成交核对，后续实现
-  runtime.py             调度、生命周期与恢复
-  reporting.py           数据覆盖、运行与交易摘要
-config/                  可共享配置；不保存私钥
-docs/                    设计、数据说明与操作手册
-tests/                   关键计算、订单状态与恢复测试
-deploy/                  Dockerfile、Compose 与部署说明，后续创建
-data/、logs/             运行产生的内容，不进入代码仓库
+Perpetual Alpha 2026/
+├── src/perpetual_alpha/       程序代码
+│   ├── cli.py                实际启动入口；采集、单次检查、查看状态与停止
+│   ├── config.py             读取和校验只读采集配置
+│   ├── market_data.py        比赛 REST 查询、标准格式、数据有效性检查
+│   ├── storage.py            SQLite 保存、去重、最新样本与运行心跳
+│   ├── interfaces.py         策略／执行协议与目标仓位类型；尚未调用
+│   ├── models.py             早期模型与精度工具；当前采集主流程未使用
+│   └── __init__.py           包和版本信息
+├── config/collector.toml     本地默认采集配置
+├── deploy/
+│   ├── Dockerfile            持续采集程序的容器构建文件
+│   ├── compose.yaml          持续服务、挂载、健康检查与重启策略
+│   ├── bootstrap-server.sh   服务器基础环境初始化脚本
+│   ├── Dockerfile.check      一次性连接检查的容器构建文件
+│   ├── check-venue.py         REST／WebSocket 和存储诊断
+│   └── requirements-check.txt 固定依赖版本
+├── tests/test_foundation.py  数据校验、去重与重新打开数据库的测试
+├── docs/                     项目文档，README.md 为入口
+└── pyproject.toml            Python 项目与命令声明
 ```
+
+### 已实现的运行链路
+
+**Compose 启动 → cli.py 加载 config.py → market_data.py 读取与标准化 → storage.py 保存 → 心跳、状态检查与日志。**
+
+服务器当前启动命令为 `python -u -m perpetual_alpha.cli collect`。Dockerfile 将代码复制到容器的 `/app/src/perpetual_alpha`；服务器上的源码副本位于 `/opt/perpetual-alpha/src/perpetual_alpha`。修改源码后需要重新构建并更新容器，单纯修改服务器文件不会自动改变正在运行的镜像。
+
+服务器生效的配置位于 `/opt/perpetual-alpha/config/collector.toml`，挂载至容器 `/app/config/collector.toml`。数据库位于 `/opt/perpetual-alpha/data/market.sqlite3`，挂载至 `/data/market.sqlite3`。数据库、日志与凭证不是源代码，不进入 Git。
+
+### 三段框架现在完成了多少
+
+| 部分 | 已实现 | 尚未实现 |
+|---|---|---|
+| 输入端 | 比赛 BTC／ETH 报价、标准格式、SQLite 与质量检查 | K 线、外部行情、新闻与账户数据 |
+| 中间处理端 | Strategy 协议、目标仓位数据类型 | 队友的实际策略、Agent／强化学习及调用调度 |
+| 输出端 | Execution 协议、服务日志和状态查看 | 真正下单、撤单、账户核对和交易风控 |
+
+当前服务只采集，不能交易。后续 account.py、risk.py、execution.py、strategy.py 等具体实现尚未创建，不把接口类型视为已经具备交易功能。cli.py 当前承担简化调度；复杂度增加后再拆 runtime.py。具体操作见本文件第 11 节。
 
 ## 9. 信息、成本与全账户检查
 
@@ -239,3 +262,218 @@ data/、logs/             运行产生的内容，不进入代码仓库
 系统可用更新与虚拟机内核更新已完成，并执行一次主机重启。重启后内核为 `7.0.0-38-generic`，密钥登录正常，Docker 为 active／enabled，NTP 已同步，UFW 仍只允许 SSH 入站。新容器再次完成 REST／WebSocket 检查，并报告数据库已有 1 次成功记录，验证主机重启与容器重建后数据保留。诊断容器 Python 为 3.12.15。
 
 部署文件位于仓库 `deploy/`：`bootstrap-server.sh`、`Dockerfile.check`、`requirements-check.txt`、`compose.yaml`、`check-venue.py`。诊断无交易密钥、无签名动作、无订单。此结果不代表 24 小时稳定性、账户授权、交易执行或订单恢复已验收。
+
+## 11. 基础框架第一版：已在服务器运行
+
+10 月 8 日已实现并部署 collector 常驻服务。每 30 秒读取 par 的市场上下文与 BTC／ETH 盘口，将报价、标记价、参考价、资金费率、原始响应、事件时间和接收时间保存到 SQLite。BTC／ETH 是采集示例，不代表最终交易资产；此版使用 REST 轮询，WebSocket 仍由诊断检查验证，K 线、新闻、外部数据和账户尚未接入常驻服务。
+
+数据格式 schema_version=1；source 为 hyperliquid-testnet/par。event_ms 是盘口时间，received_ms 是盘口接收时间，context_received_ms 仅为上下文接收时间，不冒充其交易所事件时间。每个盘口时间戳只保留一条该资产记录。数据缺失、过期、非有限数值、错误市场或倒挂报价拒绝保存；错误记录到运行状态并退避重试。有效性需由消费端根据当前时间重新检查。
+
+实现文件：config.py、market_data.py、storage.py、cli.py；interfaces.py 预留 Strategy 和 Execution 协议。TargetPosition 明确为有符号目标资产数量；决策 ID、版本、原因与有效期统一放在 Decision 中（第 12 节）。协议暂未调用，不会产生订单。旧 practice.toml 和固定仓位／亏损配置已移除；当前 collector.toml 仅包含只读采集设置。
+
+服务器数据位于 `/opt/perpetual-alpha/data/market.sqlite3`，采用 WAL 与重复事件去重。配置为 `/opt/perpetual-alpha/config/collector.toml`。Docker Compose 采用 unless-stopped 重启策略，单进程文件锁阻止同一数据库上的重复采集；SIGTERM 正常保存状态后关闭。healthcheck 失败显示不健康，不会由 Docker 自动触发重启；需要查看日志或人工处理。
+
+登录后操作：
+
+```bash
+cd /opt/perpetual-alpha/deploy
+# 查看服务与最近日志
+sudo docker compose ps
+sudo docker compose logs --tail 30 collector
+# 查看各资产样本量、时效和运行状态
+sudo docker compose exec -T collector python -m perpetual_alpha.cli status
+# 停止／启动／重启（只读采集，无订单）
+sudo docker compose stop collector
+sudo docker compose up -d collector
+sudo docker compose restart collector
+```
+
+一次性 `check` 使用同一数据库时，需要先停止常驻 collector，否则文件锁会拒绝第二个采集进程。健康状态检查使用只读数据库连接，不持有采集锁；UTC 用于日志和数据。自动重试等待可被停止信号打断，网络查询仍有超时限制。
+
+已验收：错误市场／过期／倒挂数据拒绝、重复记录与数据库重新打开保留、真实报价读取、重复进程拒绝、容器正常停止与重新启动。未验收：长时间稳定性、全部资产采集、断网恢复演练、自动告警、策略调用、账户查询和交易。用户 WSL 尚未运行同一镜像，不能把服务器通过当作本地也已通过。
+
+## 12. 三段之间的固定接口：协议 1.0
+
+本节是双方实现时共同遵守的接口约定。项目选择为：**输入按需求提供可扩展数据集，策略只返回最终目标仓位，执行回报实际处理结果。**不由策略直接调用下单接口。格式现在确定，不代表策略调度、数据集适配器或交易执行已经完成。Python 类型及决策 JSON 校验在 `src/perpetual_alpha/interfaces.py`。
+
+### 12.1 共用规则
+
+- `protocol_version` 为字符串 `1.0`；不兼容版本明确拒绝，不猜字段含义。
+- 时间统一为 UTC Unix 毫秒整数。价格、资金、数量和收益率在接口 JSON 中使用十进制字符串，禁止 NaN／Infinity。程序内部用 Decimal 处理交易数量；已有采集数据库浮点列不直接作为交易精度依据。
+- `symbol` 是完整比赛代码，例如 par:BTC；外部标的按其来源代码记录，不能冒充比赛资产。
+- 数值未知用 null，数据没有或不可用要明确标状态，不能把缺失转成零。时间为 null 表示源未提供，不能虚构交易所时间。
+- 大量历史数据放数据服务／存储中按窗口读取，不把无限历史、完整新闻库或任意代码塞进一条策略请求。
+- 增加数据集、来源、字段、历史长度不改信号和执行协议。修改既有字段的意义、单位或目标表达方式需要新版本并共同确认。
+
+### 12.2 策略声明数据需求：DataRequest
+
+策略的 `requirements()` 返回需求列表，各 dataset_id 唯一。
+
+| 固定字段 | 格式与含义 |
+|---|---|
+| dataset_id | 策略读取该数据集的稳定名称，例如 btc_quotes |
+| source | 已登记的来源，例如 hyperliquid-testnet/par |
+| kind | 数据类型，例如 quote、candle、news、feature |
+| symbols | 标的代码数组；宏观等无特定标的数据可为空 |
+| fields | 需要的字段数组，对应数据集的字段定义 |
+| lookback_ms | 需要的历史长度，毫秒；0 表示只请求最新记录 |
+| max_records | 正整数记录上限；返回最新窗口，按事件时间升序 |
+| max_age_ms | 最新数据允许的接收时效，毫秒；交易行情还须检查源时间 |
+| required | boolean；必需数据未就绪则不进入正常开仓决策 |
+| parameters | 数据类型参数对象，例如 K 线 interval="1h"；只允许适配器支持的 JSON 参数，默认空对象 |
+
+字段单位由数据集元信息明确给出。例如 quote 的 bid／ask 使用 USD/BTC，资金费率使用每小时小数率，成交量注明资产单位或名义金额。fields 不支持的项目必须报告 missing 或 error，不偷偷换另一个市场数据。当前支持的数据范围以实际适配器为准，不承诺新闻或 K 线已实现。
+
+### 12.3 输入端 → 策略端：StrategyContext
+
+固定外壳如下，datasets 的条目数量和每条 records 长度可以改变：
+
+```json
+{
+  "protocol_version": "1.0",
+  "context_id": "ctx-unique-id",
+  "asof_ms": 1791424800000,
+  "datasets": {
+    "btc_quotes": {
+      "schema_version": "quote/1.0",
+      "source": "hyperliquid-testnet/par",
+      "kind": "quote",
+      "parameters": {},
+      "status": "ready",
+      "required": true,
+      "truncated": false,
+      "error": null,
+      "units": {"bid": "USD/BTC", "ask": "USD/BTC"},
+      "records": [
+        {
+          "record_id": "par:BTC:1791424799000",
+          "symbol": "par:BTC",
+          "event_ms": 1791424799000,
+          "received_ms": 1791424799300,
+          "data": {"bid": "83000.0", "ask": "83010.0"}
+        }
+      ]
+    }
+  },
+  "account": null,
+  "execution_reports": []
+}
+```
+
+示例数值仅说明格式。datasets 状态固定为 ready／missing／stale／error；没有数据时 records=[]，保留该需求条目。部分所需字段或历史不足时必须说明 error，不称作 ready。超过窗口上限截取最近记录并标 truncated=true。数据集 data 字段可以增减，但必须同步 fields、units 和该数据集 schema_version；策略不能依赖未声明的字段。
+
+输入冻结在 asof_ms：只能给出截至该时刻实际收到的信息，不给未来接收、未来收盘或后来修订的版本。无源事件时间时 event_ms=null，按 received_ms 处理。K 线数据另需 open_ms、close_ms、is_closed；采用收盘策略时只给满足窗口且已经收到的完整 K 线。每个数据集独立带时间和状态，不假设新闻、盘口与小时 K 线天然同步。
+
+账户未接入时 account=null，不能造一个零余额账户。有账户时结构固定为 observed_ms、status、equity_usd、available_margin_usd、positions、open_orders；金额为字符串，未知金额为 null。positions 条目为 symbol、quantity、mark_price；open_orders 条目为 order_id、symbol、side（buy／sell）、remaining_quantity、reduce_only。数量为资产单位，positions.quantity 带方向。账户状态 ready／stale／error；真实资产量为零才填写 "0"。交易执行端必须另行复查，不因策略输入中 account 显示 ready 就直接相信旧状态。
+
+execution_reports 是此前该策略决策的执行反馈列表，元素采用下面的回报格式，不包含其他队伍账户。
+
+### 12.4 策略端 → 输出端：Decision
+
+固定选择**目标仓位**，不同时支持目标比例、订单数量变化和裸 buy／sell。JSON 格式：
+
+```json
+{
+  "protocol_version": "1.0",
+  "decision_id": "decision-unique-id",
+  "context_id": "ctx-unique-id",
+  "strategy_id": "baseline",
+  "strategy_version": "v1",
+  "created_ms": 1791424800000,
+  "expires_ms": 1791424860000,
+  "targets": [{"symbol": "par:BTC", "quantity": "0.001"}],
+  "reason": "strategy explanation"
+}
+```
+
+quantity 是**希望最终实际持有的有符号资产数量**：正数做多，负数做空，"0" 表示该资产目标空仓。例如实际已有 0.0004 BTC、目标 0.001 BTC，执行端根据真实仓位及未完成订单计算差额，不再买入整整 0.001 BTC。账户净值百分比由策略先换算，不把 "0.1" 混用为 10% 或 0.1 BTC。
+
+- targets=[] 是不提出新目标；未出现在列表中的资产保持原目标／持仓，不自动平仓。
+- 不提出新目标不等于取消旧挂单。挂单有效期、风控撤单和旧决策处理由执行端负责。
+- 同一批 targets 内每个 symbol 只出现一次；quantity 必须是有限十进制字符串。不存在的市场、精度或最小金额不符合、过期或未来生成的决策由输出端拒绝，不自动放大。
+- 每次新决策使用新 decision_id；同一个 ID 的重试内容必须一致。执行端持久化去重，重复请求返回已有处理状态，不创建新订单；同 ID 不同内容拒绝并记 ID_CONFLICT。
+- v1 targets **不保证多资产同时成交或整批原子执行**。配对策略必须处理单边成交风险；不能将此接口当作双边成交保证。
+- v1 不让策略指定杠杆、交易私钥、任意订单参数或代码。执行端根据独立配置和真实状态进行检查，可以拒绝；不悄悄改变目标数量。将来如需要风险缩量，应明确记录批准目标，而非直接伪称达到原目标。
+- 反向目标由输出端确认原仓位处理完后再增开反向风险；超时查状态，不盲目重发。是否允许新决策取代旧目标必须由输出端明示并记录；默认同一资产仍有未确认请求时拒绝新目标，reason_code=BUSY。
+
+协议不强迫策略预测收益。v1 不包含未经验证的收益／置信度门槛；首版只估成本与执行限制。若以后需要预测周期、期望收益等字段，新增明确版本，退出仍不受盈利门槛阻拦。
+
+### 12.5 输出端 → 策略与记录端：ExecutionReport
+
+```json
+{
+  "protocol_version": "1.0",
+  "report_id": "report-unique-id",
+  "decision_id": "decision-unique-id",
+  "sequence": 1,
+  "observed_ms": 1791424801000,
+  "status": "accepted",
+  "reason_code": "OK",
+  "message": "target accepted; not yet filled",
+  "items": [
+    {
+      "symbol": "par:BTC",
+      "target_quantity": "0.001",
+      "actual_quantity": "0.0004",
+      "filled_quantity": "0",
+      "order_ids": [],
+      "error": null
+    }
+  ]
+}
+```
+
+| 固定状态 | 含义 |
+|---|---|
+| accepted | 请求通过检查，尚不代表提交或成交 |
+| running | 正在执行／等待订单确认 |
+| partial | 一部分已经执行，目标未全部达成 |
+| completed | 已核实达到所有列出的目标，且无相关未确认订单；空 targets 为无动作完成 |
+| rejected | 执行前拒绝；涉及的资产未因该请求创建新订单 |
+| failed | 已确认无法继续；可能已有部分成交，必须报告实际风险 |
+| unknown | 请求或账户结果尚不能确定；应查询核对，不能视为失败后重发 |
+
+report_id 每次回报唯一；sequence 从 1 开始对同一 decision_id 递增。filled_quantity 是该决策累计净成交资产量（买入正、卖出负），不是最终账户仓位；actual_quantity 由最新账户核对得到，无法核实时为 null。order_ids 使用字符串，含所有本决策相关订单；items.error 记录该资产错误。
+
+reason_code 初始固定为 OK、INVALID_INPUT、UNSUPPORTED_VERSION、EXPIRED、FUTURE_SIGNAL、ID_CONFLICT、BUSY、DATA_UNAVAILABLE、ACCOUNT_UNAVAILABLE、RISK_LIMIT、ORDER_RULE、VENUE_REJECTED、NETWORK_UNKNOWN、INTERNAL_ERROR。新增原因码需要约定；message 为解释文字，不代替状态或原因码。
+
+状态以回报而不是 HTTP 成功判断。accepted 和 running 不代表赚钱，也不代表持仓已改变。跨资产部分失败不能只返回一个成功 boolean。
+
+### 12.6 实现边界与后续接入
+
+当前已经更新 Python DataRequest、Decision、TargetPosition、ExecutionReport 类型，以及 Decision JSON 序列化／校验和测试。输入 StrategyContext 的组装、请求满足判断、回报持久化、ID 去重、风控、真实执行与序列管理尚待实现；不能因格式已确定就当成这些行为已工作。已有采集行与本协议 context 的不同格式需由适配器转换，不要求重写全部历史库。
+
+验证：5 项基础与接口测试通过，涵盖数量字符串的往返、空目标的无动作语义、重复资产／非有限数量／版本／有效期拒绝，以及不能在实际仓位未知时报告 completed。测试在服务器容器中挂载最新源码执行，未重启或改变现有只读采集服务，也未接入真实交易。
+
+输入和策略可以先在同一 Python 进程传对象，独立 Agent 时再用相同 JSON 接入内部 API。传输方式不改变目标语义。下一步与队友确认其第一批 DataRequest，再实现采集库 → StrategyContext 的适配器，不根据尚未选择的模型提前收集所有数据。
+
+## 13. 本地官方 SDK 与账户只读接入
+
+10 月 8 日已完成第一、二阶段。Windows 项目内 `.venv` 使用 Python 3.11.15，官方 SDK 0.24.0；运行入口与 PowerShell 步骤见[根目录 README](../README.md)。沿用已有结构，新增 api_client.py 和三个检查脚本，没有替换服务器采集程序。
+
+用户截图的 API Wallet 为 `0x02fcacbbb73bbefe8f541f6ce46919842cf0fb06`。Testnet userRole 返回角色 agent，对应 Team Wallet 为 `0x37bc6c61a2408474c15e3a0c69f44e83bb26970a`；再通过该 Team Wallet 的 extraAgents 核对了代理地址和名称 pa26-bot-dev。公开地址已配置到本地忽略的 .env；未取得、载入或保存任何交易私钥。
+
+| 实际只读验收 | 结果 |
+|---|---|
+| check_connection.py | par metadata 十种资产；BTC／ETH 报价和双边 L2 盘口通过 |
+| check_account.py | unifiedAccount；USDPR total=1000000.0、hold=0.0；仓位、挂单、近期成交均为空 |
+| check_api_wallet.py | pa26-bot-dev 授权存在且未过期；未验证签名密钥持有 |
+| 自动测试 | 7 项基础／协议／只读客户端测试通过；Windows 沙箱测试临时目录改用项目 .cache/test-tmp |
+| test_order.py | 确认直接运行被 TRADING_DISABLED 拒绝，无密钥加载、无订单 |
+
+SDK Info 固定 Testnet 地址、skip_ws=True、perp_dexs=[par]、15 秒超时。适用账户查询显式使用 dex=par，账户地址始终为 Team Wallet；把 agent 地址误填为 Team Wallet 会被拒绝。API 客户端没有 Exchange、账户管理或签名方法。此前 WebSocket 诊断与当前 SDK REST 检查分开记录，不宣称本地 SDK WebSocket 已验收。
+
+统一账户下 par marginSummary.accountValue 返回 0，不能据此否定 spotClearinghouseState 的实际 USDPR 余额；余额不是自由保证金，后续交易阶段需查询实际交易额度。当前账户结果只反映查询时刻。
+
+第三阶段待用户确认后开展：本地手动配置 API Wallet 私钥、Exchange 接入、独立交易开关和执行恢复。当前 test_order.py 是禁用占位，即便修改 ENABLE_TRADING 也不能下单。未授权代理、切换模式、生成主钱包或部署账户配置到服务器。
+
+
+## 14. G02：API Wallet 小额交易链路验收（2026-10-08）
+
+用户重新配置 API Wallet 并明确授权交易测试。新签名地址 0x6755835c4bddd1eff7d1412cd6050f75148e29c9 与本地密钥匹配，extraAgents 授权有效；Team Wallet 不变。仅加载 API 私钥，没有读取 Team Wallet 私钥，没有修改账户模式或程序授权代理。此前第 13 节为当时只读阶段快照。
+
+本地 test_order.py --execute 实测：1 倍交叉杠杆设置成功；挂单 62124093852 已确认 canceled；买单 62124099005 成交 0.0002 BTC，均价 83141；只减仓卖单 62124102941 成交 0.0002 BTC，均价 82977。已实现状态查询、撤单、成交读取与实际仓位核对。最终所有 par 仓位和挂单为空，USDPR 余额 999999.9373。价差损失 0.0328、手续费 0.0299，总成本 0.0627 USDPR。
+
+订单意图先持久化到忽略的 data/order-test.jsonl，记录 client ID、订单状态、成交和账户，不记录密钥或签名载荷。交易入口默认禁用；--execute 才加载 API 密钥并调用 Exchange。每笔测试订单上限 25 USDPR；未知结果停止并查询，不自动重复提交；失败留下锁及剩余风险记录。
+
+10 项自动测试通过；实际网络超时、拒单、部分成交、断网和崩溃恢复尚未故障演练。此 gate 证明本地正常执行链路，不代表策略／风控／三段接口全部集成或服务器交易已部署。服务器只读采集继续运行，未部署交易私钥。
