@@ -14,7 +14,7 @@ def query(payload):
         return json.load(response)
 
 
-def normalize(symbol, context, book, received_ms, stale_seconds):
+def normalize(symbol, context, book, received_ms, stale_seconds, context_received_ms=None):
     event_ms = int(book["time"])
     if book.get("coin") != symbol:
         raise ValueError("Unexpected market in order book")
@@ -29,11 +29,12 @@ def normalize(symbol, context, book, received_ms, stale_seconds):
     return dict(symbol=symbol, event_ms=event_ms, received_ms=received_ms, bid=bid, ask=ask,
                 mark=mark, oracle=oracle, funding=funding,
                 raw={"context": context, "book": book}, source="hyperliquid-testnet/par",
-                schema_version=1)
+                schema_version=1, context_received_ms=context_received_ms)
 
 
 def snapshots(symbols, stale_seconds):
     metadata, contexts = query({"type": "metaAndAssetCtxs", "dex": "par"})
+    context_received_ms = int(time.time() * 1000)
     if len(metadata["universe"]) != len(contexts):
         raise ValueError("Metadata/context length mismatch")
     mapping = dict(zip((x["name"] for x in metadata["universe"]), contexts))
@@ -41,4 +42,5 @@ def snapshots(symbols, stale_seconds):
         if symbol not in mapping:
             raise ValueError(f"Unknown competition market: {symbol}")
         book = query({"type": "l2Book", "coin": symbol})
-        yield normalize(symbol, mapping[symbol], book, int(time.time() * 1000), stale_seconds)
+        yield normalize(symbol, mapping[symbol], book, int(time.time() * 1000), stale_seconds,
+                        context_received_ms)

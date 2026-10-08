@@ -33,10 +33,19 @@ def status(config):
 
 
 def collect(config, once=False):
+    import fcntl
+
     stopped = threading.Event()
     for signum in (signal.SIGINT, signal.SIGTERM):
         signal.signal(signum, lambda *_: stopped.set())
     Path(config["database"]).parent.mkdir(parents=True, exist_ok=True)
+    lock = open(config["database"] + ".lock", "a")
+    try:
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except BlockingIOError:
+        lock.close()
+        logging.error("another_collector_is_running")
+        return 1
     store = Store(config["database"])
     errors = 0
     logging.info("starting mode=read-only symbols=%s schema=1", config["symbols"])
@@ -59,7 +68,10 @@ def collect(config, once=False):
                 return 0
             stopped.wait(min(300, config["poll_seconds"] * 2 ** min(errors, 3)))
     finally:
+        if not once:
+            store.heartbeat(error="stopped")
         store.close()
+        lock.close()
         logging.info("collector_stopped")
     return 0
 

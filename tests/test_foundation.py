@@ -26,6 +26,9 @@ class FoundationTests(unittest.TestCase):
             path = str(Path(directory) / "test.sqlite3")
             row = normalize("par:BTC", self.context, self.book, 100001, 90)
             store = Store(path)
+            self.assertEqual(store.latest("par:BTC")["schema_version"], 1)
+            self.assertEqual(store.latest("par:BTC")["bid"], 99)
+            self.assertIsNone(store.latest("par:ETH"))
             store.save(row)
             row["bid"] = 98
             store.save(row)

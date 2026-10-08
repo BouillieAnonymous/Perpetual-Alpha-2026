@@ -23,8 +23,14 @@ class Store:
             self.connection.execute(
                 "INSERT OR IGNORE INTO snapshots VALUES (?,?,?,?,?,?,?,?,?)",
                 (row["symbol"], row["event_ms"], row["received_ms"], row["bid"], row["ask"],
-                 row["mark"], row["oracle"], row["funding"], json.dumps(row["raw"])),
+                 row["mark"], row["oracle"], row["funding"], json.dumps(row)),
             )
+
+    def latest(self, symbol):
+        record = self.connection.execute(
+            "SELECT raw_json FROM snapshots WHERE symbol=? ORDER BY event_ms DESC LIMIT 1", (symbol,)
+        ).fetchone()
+        return json.loads(record[0]) if record else None
 
     def heartbeat(self, error=None, success=False):
         now = int(time.time() * 1000)
