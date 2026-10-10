@@ -172,4 +172,4 @@
 
 第一项交付：真实 par 数据样例、字段说明、来源、覆盖范围、缺口和时间单位；确认未误读默认市场。外部数据必须注明授权与来源，不把其他市场的价格、成交量、盘口或成本冒充比赛数据。
 
-关联：[项目总览](project-plan.zh-CN.md)、[系统与部署](technical-plan.zh-CN.md)、[研究与实验](research-ideas.zh-CN.md)。
+关联：[项目总览](project-plan.zh-CN.md)、[系统与部署](technical-plan.zh-CN.md)、[研究与实验](strategy-development.zh-CN.md)。

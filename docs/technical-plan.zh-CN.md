@@ -126,7 +126,7 @@ Agent 不持有交易私钥；执行端不运行 Agent 生成的任意代码。�
 
 正式交易计划为 10 月 19 日至 11 月 6 日，报告截止 11 月 9 日，具体时间持续核对主办方通知。交易结束后先保存数据、确认账户风险并验证备份，再按照实际账单和取消条款处理服务器，不自动在比赛结束当日删机。
 
-关联：[项目总览](project-plan.zh-CN.md)、[数据与交易规则](data-development.zh-CN.md)、[研究与实验](research-ideas.zh-CN.md)。
+关联：[项目总览](project-plan.zh-CN.md)、[数据与交易规则](data-development.zh-CN.md)、[研究与实验](strategy-development.zh-CN.md)。
 
 
 ## 8. 实际程序结构与后续模块

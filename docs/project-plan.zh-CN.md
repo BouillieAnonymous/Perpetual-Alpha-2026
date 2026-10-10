@@ -65,7 +65,7 @@
 | 10 月 8 日 | 保留四份正文和一个目录，不再复制队友稿 | 后续直接修改对应章节 |
 | 10 月 8 日 | 固定三段接口协议 1.0：可扩展数据需求／上下文、目标仓位 Decision、ExecutionReport | 数据集适配与策略／执行接入待实施；格式见技术文档第 12 节 |
 
-技术细节见[系统与部署](technical-plan.zh-CN.md)，市场事实见[数据与交易规则](data-development.zh-CN.md)，策略假设与验证见[研究与实验](research-ideas.zh-CN.md)。
+技术细节见[系统与部署](technical-plan.zh-CN.md)，市场事实见[数据与交易规则](data-development.zh-CN.md)，策略假设与验证见[研究与实验](strategy-development.zh-CN.md)。
 
 ## 7. Gate G01：服务器连接与基础测试
 
