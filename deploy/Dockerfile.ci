@@ -1,0 +1,8 @@
+# Built on the image created by the existing server Dockerfile; no duplicate base-image pin.
+FROM perpetual-alpha-runtime:ci
+USER root
+COPY config/requirements-ci.txt /tmp/requirements-ci.txt
+RUN pip install --no-cache-dir -r /tmp/requirements-ci.txt
+COPY --chown=1000:1000 . /app
+ENV PYTHONUTF8=1
+USER 1000:1000

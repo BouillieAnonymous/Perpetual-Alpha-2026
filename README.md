@@ -58,7 +58,7 @@ flowchart TB
 
 ## 自动代码检查（CI）
 
-每次 push / PR 自动检查 Python 3.11–3.13（Linux）及 3.12（Windows）：Ruff、离线回归测试、JSON Schema 与样例、端到端 Dry Run。点击上方 CI 状态查看结果；检查失败时查看对应 job 的日志并修复。CI 不使用交易密钥，也不部署或运行真实交易。它是自动验证，业务逻辑仍需人工审查；运行方法和合并限制说明见[CI 文档](docs/continuous-integration.zh-CN.md)。
+每次 push / PR 自动构建与服务器相同的 Linux amd64 应用容器（Python 3.12.15、31 个锁定运行依赖），在容器中检查环境版本、Ruff、离线回归测试、JSON Schema 与样例、端到端 Dry Run。点击上方 CI 状态查看结果；检查失败时查看对应 job 的日志并修复。CI 不使用交易密钥，也不部署或运行真实交易。它是自动验证，业务逻辑仍需人工审查；运行方法和合并限制说明见[CI 文档](docs/continuous-integration.zh-CN.md)。
 
 ## Windows PowerShell：本地 API 验收
 

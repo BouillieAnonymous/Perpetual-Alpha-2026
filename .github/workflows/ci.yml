@@ -15,17 +15,9 @@ concurrency:
 
 jobs:
   checks:
-    name: Python ${{ matrix.python }} / ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    timeout-minutes: 15
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest]
-        python: ["3.11", "3.12", "3.13"]
-        include:
-          - os: windows-latest
-            python: "3.12"
+    name: Server container / Python 3.12.15
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
     defaults:
       run:
         shell: bash
@@ -39,27 +31,25 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Set up Python
-        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
-        with:
-          python-version: ${{ matrix.python }}
-          cache: pip
-          cache-dependency-path: |
-            pyproject.toml
-            deploy/requirements-check.txt
-            config/requirements-ci.txt
+      - name: Build the deployed runtime image
+        run: docker build --platform linux/amd64 -f deploy/Dockerfile -t perpetual-alpha-runtime:ci .
 
-      - name: Install project and check tools
-        run: python -m pip install -r deploy/requirements-check.txt -r config/requirements-ci.txt -e .
+      - name: Build the check layer
+        run: docker build --platform linux/amd64 -f deploy/Dockerfile.ci -t perpetual-alpha-checks:ci .
+
+      - name: Verify server Python and pinned dependencies
+        run: |
+          docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_runtime.py
+          docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python -m pip check
 
       - name: Check Python code
-        run: python -m ruff check . --output-format=github
+        run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python -m ruff check . --no-cache --output-format=github
 
       - name: Run offline regression tests
-        run: python -m unittest discover -s tests -v
+        run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python -m unittest discover -s tests -v
 
       - name: Validate contract schemas and examples
-        run: python scripts/validate_schemas.py
+        run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_schemas.py
 
       - name: Run offline multi-asset simulation
-        run: python -m perpetual_alpha.cli dry-run --journal .cache/ci-dry-run.sqlite3
+        run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python -m perpetual_alpha.cli dry-run --journal /tmp/ci-dry-run.sqlite3

@@ -22,3 +22,9 @@ dependency compatibility checks passed, and all seven unit tests passed.
 The deployed collector remained unchanged. Local Docker/Compose versions and the operating system are not aligned by this Python setup.
 
 `.venv/`, `.cache/`, and `.env` are local files excluded from Git.
+
+## CI environment
+
+GitHub Actions builds the existing `deploy/Dockerfile` as a Linux amd64 image, then adds the tools from `config/requirements-ci.txt` using `deploy/Dockerfile.ci`. Checks run inside that image as UID 1000 with networking disabled and a read-only root filesystem. `scripts/validate_runtime.py` verifies `.python-version` and all 31 pinned runtime packages; `pip check` validates dependency compatibility.
+
+The documented server host is Ubuntu 26.04 x86_64. GitHub's Ubuntu 24.04 runner only hosts Docker; CI matches the application's container image, not the server kernel, resources or networking. It does not connect to or deploy onto the server. See [CI instructions](docs/continuous-integration.zh-CN.md).
