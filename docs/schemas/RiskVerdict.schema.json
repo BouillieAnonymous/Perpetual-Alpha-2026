@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RiskVerdict",
+  "$comment": "Structural validation only; use Python contract validators for cross-field invariants.",
+  "type": "object",
+  "properties": {
+    "verdict_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decision_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decision_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "rule_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "checked_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "approved",
+        "rejected",
+        "deferred"
+      ]
+    },
+    "reason_code": {
+      "type": "string",
+      "enum": [
+        "ACCOUNT_UNAVAILABLE",
+        "BUSY",
+        "DATA_UNAVAILABLE",
+        "EXPIRED",
+        "FUTURE_SIGNAL",
+        "ID_CONFLICT",
+        "INTERNAL_ERROR",
+        "INVALID_INPUT",
+        "NETWORK_UNKNOWN",
+        "OK",
+        "ORDER_RULE",
+        "RISK_LIMIT",
+        "UNSUPPORTED_VERSION",
+        "VENUE_REJECTED"
+      ]
+    },
+    "account_snapshot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "market_snapshot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "risk_snapshot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "simulated": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string",
+      "const": "risk-verdict/0.1",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "verdict_id",
+    "decision_id",
+    "decision_digest",
+    "rule_version",
+    "checked_ms",
+    "status",
+    "reason_code",
+    "account_snapshot_id",
+    "market_snapshot_id",
+    "risk_snapshot_id",
+    "evidence",
+    "simulated",
+    "schema_version"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "approved"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "reason_code": {
+            "const": "OK"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "reason_code": {
+            "not": {
+              "const": "OK"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

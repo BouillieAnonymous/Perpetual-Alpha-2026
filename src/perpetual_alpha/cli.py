@@ -78,12 +78,16 @@ def collect(config, once=False):
 
 def main():
     parser = argparse.ArgumentParser(description="Perpetual Alpha public read-only framework")
-    parser.add_argument("command", choices=["collect", "check", "status"])
-    parser.add_argument("--config", default="config/collector.toml")
+    parser.add_argument("command", choices=["collect", "check", "status", "dry-run"])
+    parser.add_argument("--config")
+    parser.add_argument("--journal", default="data/dry-run/journal.sqlite3")
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(asctime)sZ %(levelname)s %(message)s")
     logging.Formatter.converter = time.gmtime
-    config = settings(args.config)
+    if args.command == "dry-run":
+        from .dry_run import print_run
+        return print_run(args.config or "config/dry-run.toml", args.journal)
+    config = settings(args.config or "config/collector.toml")
     return status(config) if args.command == "status" else collect(config, once=args.command == "check")
 
 

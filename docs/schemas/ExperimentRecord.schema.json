@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ExperimentRecord",
+  "$comment": "Structural validation only; use Python contract validators for cross-field invariants.",
+  "type": "object",
+  "properties": {
+    "experiment_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "candidate_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "candidate_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "data_snapshot_ref": {
+      "type": "string"
+    },
+    "data_available_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "splits": {
+      "type": "object",
+      "required": [
+        "train",
+        "validation",
+        "test"
+      ],
+      "properties": {
+        "train": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "validation": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "test": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      },
+      "additionalProperties": false
+    },
+    "cost_assumptions": {
+      "type": "string"
+    },
+    "fill_assumptions": {
+      "type": "string"
+    },
+    "parameter_search_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "failures": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reproduce_entrypoint": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string",
+      "const": "experiment/0.1",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "experiment_id",
+    "candidate_id",
+    "candidate_version",
+    "created_ms",
+    "data_snapshot_ref",
+    "data_available_ms",
+    "splits",
+    "cost_assumptions",
+    "fill_assumptions",
+    "parameter_search_count",
+    "metrics",
+    "failures",
+    "reproduce_entrypoint",
+    "schema_version"
+  ],
+  "additionalProperties": false
+}

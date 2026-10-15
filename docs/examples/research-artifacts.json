@@ -1,0 +1,75 @@
+{
+  "task": {
+    "task_id": "demo-task",
+    "hypothesis": "Synthetic mark-versus-oracle comparison",
+    "creator": "human-demo",
+    "created_ms": 100,
+    "symbols": [
+      "par:BTC",
+      "par:ETH"
+    ],
+    "data_requirements": [
+      "stored-quotes"
+    ],
+    "schema_version": "research-task/0.1"
+  },
+  "candidate": {
+    "candidate_id": "demo-candidate",
+    "task_id": "demo-task",
+    "version": "demo-v1",
+    "created_ms": 200,
+    "forecast_horizon_ms": 3600000,
+    "rules_or_config": {
+      "rule": "mark-versus-oracle",
+      "fixture": true
+    },
+    "code_version": "demo-code-version",
+    "dependency_version": "demo-dependency-lock",
+    "schema_version": "strategy-candidate/0.1"
+  },
+  "experiment": {
+    "experiment_id": "demo-experiment",
+    "candidate_id": "demo-candidate",
+    "candidate_version": "demo-v1",
+    "created_ms": 1000,
+    "data_snapshot_ref": "synthetic-snapshot-only",
+    "data_available_ms": 900,
+    "splits": {
+      "train": [
+        0,
+        100
+      ],
+      "validation": [
+        100,
+        200
+      ],
+      "test": [
+        200,
+        300
+      ]
+    },
+    "cost_assumptions": "Synthetic example, not evaluated fees",
+    "fill_assumptions": "Synthetic immediate fills",
+    "parameter_search_count": 1,
+    "metrics": {
+      "example_net_return": "0"
+    },
+    "failures": [
+      "No real backtest performed"
+    ],
+    "reproduce_entrypoint": "python -m perpetual_alpha.cli dry-run",
+    "schema_version": "experiment/0.1"
+  },
+  "approval": {
+    "approval_id": "demo-review",
+    "candidate_id": "demo-candidate",
+    "candidate_version": "demo-v1",
+    "created_ms": 1100,
+    "status": "evaluated",
+    "reviewer": "human-reviewer-example",
+    "basis": "Illustration only; not an actual approval",
+    "experiment_id": "demo-experiment",
+    "deployment_scope": "offline-only",
+    "schema_version": "strategy-approval/0.1"
+  }
+}

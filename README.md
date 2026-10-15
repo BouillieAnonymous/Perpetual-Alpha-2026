@@ -1,6 +1,58 @@
 # Perpetual Alpha 2026
 
-当前可运行：服务器只读采集框架、本地官方 SDK 只读 API 检查，以及手动小额 Testnet 交易验收。交易默认关闭。项目设计仍集中在 [docs 文档入口](docs/README.md)，本页仅说明如何运行。
+当前可运行：架构 v0.2 的离线多资产 Dry Run、服务器只读采集框架、本地官方 SDK 只读 API 检查，以及手动小额 Testnet 交易验收。交易默认关闭。项目设计仍集中在 [docs 文档入口](docs/README.md)，本页展示架构及运行方法。
+
+
+## 系统架构 v0.2
+
+架构框架见[系统架构设计 v0.2](docs/architecture-v0.2.zh-CN.md)。图中包含目标模块及未来预留边界，不代表所有模块已实现；用户已批准第一轮模拟实现；协议 1.0 保持现有语义。实际能力见[首轮实现说明](docs/architecture-implementation.zh-CN.md)。
+
+```mermaid
+flowchart TB
+    SRC[比赛与可选外部市场数据] --> DATA[Shared Data Layer\n采集/归一化/质量/历史]
+    DATA --> CTX[StrategyContext]
+    DATA --> RS[Risk Data / Market Risk Estimator]
+
+    subgraph RESEARCH[Quant Research｜独立研究路径]
+       RAG[Human Research / Research Agent] <--> TOOL[Research Tools\n因子/回测/评价]
+       TOOL --> EXP[Experiment Registry]
+       EXP --> REVIEW[Review & Approval]
+    end
+    DATA --> RAG
+
+    subgraph TRADING[Quant Trading｜可替换的决策模块]
+       RULE[Traditional Strategy / ML] --> FCAST[Multi-Asset Forecast]
+       AGENT[Trading Agent / Tools] --> FCAST
+       FCAST --> PORT[Portfolio Construction]
+       PORT --> DEC[Decision v1.0]
+       AGENT -.未来扩展.-> INTENT[Trading Intent Adapter｜仅预留]
+       INTENT -.未来需审核转换.-> PORT
+    end
+
+    CTX --> RULE
+    CTX --> AGENT
+    CTX --> PORT
+    RS --> PORT
+    REVIEW -.批准的策略与配置版本.-> RULE
+    REVIEW -.批准的 Agent 配置版本.-> AGENT
+
+    DEC --> RISK[Independent Risk Gate]
+    RISK --> EXEC[Single Execution Engine]
+    EXEC --> REPORT[ExecutionReport v1.0]
+    REPORT --> JOURNAL[Journal / Monitoring / Evaluation]
+    JOURNAL -.当时可用的反馈.-> CTX
+    JOURNAL -.已归档的研究数据.-> TOOL
+```
+
+## 架构模拟运行
+
+```powershell
+.\.venv\Scripts\python.exe -m perpetual_alpha.cli dry-run
+```
+
+完全离线，使用合成 BTC/ETH 行情和账户；同一 Context 对照传统规则与模拟 Agent，只有配置选定版本进入 Portfolio → Risk Gate → Mock Execution。默认 Agent 对 ETH 弃权，BTC 使用固定演示数量。输出及日志显式标记模拟，不调用 LLM 或签名下单；真实采集及手动 Testnet 工具保持独立。
+
+演示配置在 `config/dry-run.toml`，日志默认保存在 `data/dry-run/journal.sqlite3`。运行/替换方法、研究 Registry、异常语义与真实交易缺口见[实现与验证](docs/architecture-implementation.zh-CN.md)，完整输出见[样例](docs/examples/dry-run.json)。
 
 ## Windows PowerShell：本地 API 验收
 

@@ -1,0 +1,273 @@
+{
+  "mode": "dry-run",
+  "simulated": true,
+  "fixture": true,
+  "context": {
+    "protocol_version": "1.0",
+    "context_id": "dry-run:9de987b390e24419810c05961812358e",
+    "asof_ms": 1792000000000,
+    "datasets": {
+      "par:BTC_quotes": {
+        "schema_version": "quote/1.0",
+        "source": "hyperliquid-testnet/par",
+        "kind": "quote",
+        "parameters": {},
+        "status": "ready",
+        "required": true,
+        "truncated": false,
+        "error": null,
+        "units": {
+          "bid": "USDPR/base-asset",
+          "ask": "USDPR/base-asset",
+          "mark": "USDPR/base-asset",
+          "oracle": "USDPR/base-asset"
+        },
+        "records": [
+          {
+            "record_id": "par:BTC:1791999999000",
+            "symbol": "par:BTC",
+            "event_ms": 1791999999000,
+            "received_ms": 1791999999500,
+            "data": {
+              "bid": "79999",
+              "ask": "80001",
+              "mark": "80000",
+              "oracle": "79998"
+            }
+          }
+        ]
+      },
+      "par:ETH_quotes": {
+        "schema_version": "quote/1.0",
+        "source": "hyperliquid-testnet/par",
+        "kind": "quote",
+        "parameters": {},
+        "status": "ready",
+        "required": true,
+        "truncated": false,
+        "error": null,
+        "units": {
+          "bid": "USDPR/base-asset",
+          "ask": "USDPR/base-asset",
+          "mark": "USDPR/base-asset",
+          "oracle": "USDPR/base-asset"
+        },
+        "records": [
+          {
+            "record_id": "par:ETH:1791999999000",
+            "symbol": "par:ETH",
+            "event_ms": 1791999999000,
+            "received_ms": 1791999999500,
+            "data": {
+              "bid": "2999",
+              "ask": "3001",
+              "mark": "3000",
+              "oracle": "2998"
+            }
+          }
+        ]
+      }
+    },
+    "account": {
+      "available_margin_usd": "1000",
+      "equity_usd": "1000",
+      "observed_ms": 1792000000000,
+      "open_orders": [],
+      "positions": [],
+      "status": "ready"
+    },
+    "execution_reports": []
+  },
+  "forecasts": [
+    {
+      "forecast_batch_id": "dry-run:9de987b390e24419810c05961812358e:rule-demo",
+      "context_id": "dry-run:9de987b390e24419810c05961812358e",
+      "producer_id": "rule-demo",
+      "producer_version": "0.1",
+      "created_ms": 1792000000000,
+      "items": [
+        {
+          "symbol": "par:BTC",
+          "asof_ms": 1792000000000,
+          "expires_ms": 1792000060000,
+          "horizon_ms": 3600000,
+          "status": "ready",
+          "direction": "up",
+          "evidence_refs": [
+            "par:BTC_quotes"
+          ],
+          "reason": "DEMO ONLY: mark versus oracle",
+          "expected_return": null,
+          "prob_up": null,
+          "prob_down": null,
+          "forecast_vol": null,
+          "quantiles": null,
+          "distribution_ref": null,
+          "calibration_id": null,
+          "model_version": null,
+          "prompt_version": null
+        },
+        {
+          "symbol": "par:ETH",
+          "asof_ms": 1792000000000,
+          "expires_ms": 1792000060000,
+          "horizon_ms": 3600000,
+          "status": "ready",
+          "direction": "up",
+          "evidence_refs": [
+            "par:ETH_quotes"
+          ],
+          "reason": "DEMO ONLY: mark versus oracle",
+          "expected_return": null,
+          "prob_up": null,
+          "prob_down": null,
+          "forecast_vol": null,
+          "quantiles": null,
+          "distribution_ref": null,
+          "calibration_id": null,
+          "model_version": null,
+          "prompt_version": null
+        }
+      ],
+      "schema_version": "forecast/0.1"
+    },
+    {
+      "forecast_batch_id": "dry-run:9de987b390e24419810c05961812358e:mock-agent",
+      "context_id": "dry-run:9de987b390e24419810c05961812358e",
+      "producer_id": "mock-agent",
+      "producer_version": "0.1",
+      "created_ms": 1792000000000,
+      "items": [
+        {
+          "symbol": "par:BTC",
+          "asof_ms": 1792000000000,
+          "expires_ms": 1792000060000,
+          "horizon_ms": 3600000,
+          "status": "ready",
+          "direction": "up",
+          "evidence_refs": [
+            "par:BTC_quotes"
+          ],
+          "reason": "DEMO ONLY: mark versus oracle",
+          "expected_return": null,
+          "prob_up": null,
+          "prob_down": null,
+          "forecast_vol": null,
+          "quantiles": null,
+          "distribution_ref": null,
+          "calibration_id": null,
+          "model_version": null,
+          "prompt_version": null
+        },
+        {
+          "symbol": "par:ETH",
+          "asof_ms": 1792000000000,
+          "expires_ms": 1792000060000,
+          "horizon_ms": 3600000,
+          "status": "abstain",
+          "direction": null,
+          "evidence_refs": [],
+          "reason": "MOCK AGENT: configured abstention",
+          "expected_return": null,
+          "prob_up": null,
+          "prob_down": null,
+          "forecast_vol": null,
+          "quantiles": null,
+          "distribution_ref": null,
+          "calibration_id": null,
+          "model_version": null,
+          "prompt_version": null
+        }
+      ],
+      "schema_version": "forecast/0.1"
+    }
+  ],
+  "selected_producer": "mock-agent",
+  "risk_snapshot": {
+    "snapshot_id": "dry-run:9de987b390e24419810c05961812358e:risk",
+    "asof_ms": 1792000000000,
+    "status": "ready",
+    "method": "mock-fixture-not-historical",
+    "model_version": "demo-0.1",
+    "symbols": [
+      "par:BTC",
+      "par:ETH"
+    ],
+    "estimation_window_ms": 7200000,
+    "return_interval_ms": 3600000,
+    "sample_count": 2,
+    "volatilities": {
+      "par:BTC": "0.01",
+      "par:ETH": "0.01"
+    },
+    "covariance": [
+      [
+        "0.0001",
+        "0"
+      ],
+      [
+        "0",
+        "0.0001"
+      ]
+    ],
+    "units": "simple-return-per-interval",
+    "annualization": "none",
+    "errors": [],
+    "simulated": true,
+    "schema_version": "risk-snapshot/0.1"
+  },
+  "decision": {
+    "protocol_version": "1.0",
+    "decision_id": "dry-run:9de987b390e24419810c05961812358e:decision",
+    "context_id": "dry-run:9de987b390e24419810c05961812358e",
+    "strategy_id": "mock-agent",
+    "strategy_version": "0.1",
+    "created_ms": 1792000000000,
+    "expires_ms": 1792000030000,
+    "reason": "SIMULATED fixed quantities; policy=fixed-quantity-demo-0.1",
+    "targets": [
+      {
+        "symbol": "par:BTC",
+        "quantity": "0.0002"
+      }
+    ]
+  },
+  "risk_verdict": {
+    "account_snapshot_id": "account:1ae5c52bf9d3229a334c9f7556511b4587ebf042e82a5f19f8da93b0e25773c0",
+    "checked_ms": 1792000000000,
+    "decision_digest": "537fd79618ca06c40cc0d3129f7bb88f00847f44315228782c2df67c98514af5",
+    "decision_id": "dry-run:9de987b390e24419810c05961812358e:decision",
+    "evidence": [
+      "SIMULATED checks passed; no production margin/liquidation model"
+    ],
+    "market_snapshot_id": "market:c40cf75ca4173dd0f82a20aa9f9e16ce7394e37bc6c797c3b2cef097c6869be8",
+    "reason_code": "OK",
+    "risk_snapshot_id": "dry-run:9de987b390e24419810c05961812358e:risk",
+    "rule_version": "demo-gate-0.1",
+    "schema_version": "risk-verdict/0.1",
+    "simulated": true,
+    "status": "approved",
+    "verdict_id": "dry-run:9de987b390e24419810c05961812358e:decision:risk:1792000000000"
+  },
+  "execution_report": {
+    "protocol_version": "1.0",
+    "report_id": "dry-run:9de987b390e24419810c05961812358e:decision:2",
+    "decision_id": "dry-run:9de987b390e24419810c05961812358e:decision",
+    "sequence": 2,
+    "observed_ms": 1792000000000,
+    "status": "completed",
+    "reason_code": "OK",
+    "message": "SIMULATED ONLY: no orders or exchange fills",
+    "items": [
+      {
+        "symbol": "par:BTC",
+        "target_quantity": "0.0002",
+        "actual_quantity": "0.0002",
+        "filled_quantity": "0.0002",
+        "order_ids": [],
+        "error": null
+      }
+    ]
+  },
+  "journal": "data/dry-run/journal.sqlite3"
+}

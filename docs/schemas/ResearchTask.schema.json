@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ResearchTask",
+  "$comment": "Structural validation only; use Python contract validators for cross-field invariants.",
+  "type": "object",
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "hypothesis": {
+      "type": "string",
+      "minLength": 1
+    },
+    "creator": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "symbols": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^par:.+$"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "data_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "schema_version": {
+      "type": "string",
+      "const": "research-task/0.1",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "task_id",
+    "hypothesis",
+    "creator",
+    "created_ms",
+    "symbols",
+    "data_requirements",
+    "schema_version"
+  ],
+  "additionalProperties": false
+}

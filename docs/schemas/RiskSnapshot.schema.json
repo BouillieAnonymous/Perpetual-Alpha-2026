@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RiskSnapshot",
+  "$comment": "Structural validation only; use Python contract validators for cross-field invariants.",
+  "type": "object",
+  "properties": {
+    "snapshot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "asof_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ready",
+        "missing",
+        "stale",
+        "error"
+      ]
+    },
+    "method": {
+      "type": "string"
+    },
+    "model_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "symbols": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^par:.+$"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "estimation_window_ms": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "return_interval_ms": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "sample_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "volatilities": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "covariance": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    },
+    "units": {
+      "type": "string",
+      "const": "simple-return-per-interval"
+    },
+    "annualization": {
+      "type": "string",
+      "const": "none"
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "simulated": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string",
+      "const": "risk-snapshot/0.1",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "asof_ms",
+    "status",
+    "method",
+    "model_version",
+    "symbols",
+    "estimation_window_ms",
+    "return_interval_ms",
+    "sample_count",
+    "volatilities",
+    "covariance",
+    "units",
+    "annualization",
+    "errors",
+    "simulated",
+    "schema_version"
+  ],
+  "additionalProperties": false
+}

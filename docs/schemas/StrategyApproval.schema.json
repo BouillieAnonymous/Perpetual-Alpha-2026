@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StrategyApproval",
+  "$comment": "Structural validation only; use Python contract validators for cross-field invariants.",
+  "type": "object",
+  "properties": {
+    "approval_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "candidate_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "candidate_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "evaluated",
+        "rejected",
+        "approved",
+        "retired"
+      ]
+    },
+    "reviewer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "basis": {
+      "type": "string",
+      "minLength": 1
+    },
+    "experiment_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "deployment_scope": {
+      "type": "string",
+      "const": "offline-only"
+    },
+    "schema_version": {
+      "type": "string",
+      "const": "strategy-approval/0.1",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "approval_id",
+    "candidate_id",
+    "candidate_version",
+    "created_ms",
+    "status",
+    "reviewer",
+    "basis",
+    "experiment_id",
+    "deployment_scope",
+    "schema_version"
+  ],
+  "additionalProperties": false
+}
