@@ -130,4 +130,4 @@ $env:TEMP = $env:TMP
 
 2026-10-15 验证结果：35 项测试全部通过。覆盖现有协议/只读/手动交易保护的回归、新契约校验、数据时间冻结、单/多资产、规则/模拟 Agent 对照、neutral/abstain/error、混合期限拒绝、缺数据/过期/账户不明、独立 Gate 拒绝/延后、控制版本、去重与冲突、unknown/BUSY 重启持久化、研究人工状态链以及完整离线 Dry Run。端到端测试封锁 urllib 网络调用和签名 Exchange 构造。
 
-本轮未运行真实账户/行情网络检查、真实下单或服务器部署。当前环境未安装 Ruff 和第三方 JSON Schema 验证器，测试验证 Python 校验与导出 Schema 的一致性，不声称通过这些额外工具检查。
+首轮架构实施未运行真实账户/行情网络检查、真实下单或服务器部署。随后于 2026-10-15 添加 [GitHub Actions CI](continuous-integration.zh-CN.md)，已用 Ruff 检查代码，并用第三方 Draft 2020-12 验证器检查全部 Schema 与样例；上述 35 项回归测试继续通过。

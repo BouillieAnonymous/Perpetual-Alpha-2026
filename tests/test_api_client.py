@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 
-from perpetual_alpha.api_client import ReadOnlyClient, TESTNET_URL, account_ready
+from perpetual_alpha.api_client import TESTNET_URL, ReadOnlyClient, account_ready
 
 
 class ReadOnlyClientTests(unittest.TestCase):

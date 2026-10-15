@@ -1,5 +1,7 @@
 # Perpetual Alpha 2026
 
+[![CI](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/workflows/ci.yml)
+
 当前可运行：架构 v0.2 的离线多资产 Dry Run、服务器只读采集框架、本地官方 SDK 只读 API 检查，以及手动小额 Testnet 交易验收。交易默认关闭。项目设计仍集中在 [docs 文档入口](docs/README.md)，本页展示架构及运行方法。
 
 
@@ -53,6 +55,10 @@ flowchart TB
 完全离线，使用合成 BTC/ETH 行情和账户；同一 Context 对照传统规则与模拟 Agent，只有配置选定版本进入 Portfolio → Risk Gate → Mock Execution。默认 Agent 对 ETH 弃权，BTC 使用固定演示数量。输出及日志显式标记模拟，不调用 LLM 或签名下单；真实采集及手动 Testnet 工具保持独立。
 
 演示配置在 `config/dry-run.toml`，日志默认保存在 `data/dry-run/journal.sqlite3`。运行/替换方法、研究 Registry、异常语义与真实交易缺口见[实现与验证](docs/architecture-implementation.zh-CN.md)，完整输出见[样例](docs/examples/dry-run.json)。
+
+## 自动代码检查（CI）
+
+每次 push / PR 自动检查 Python 3.11–3.13（Linux）及 3.12（Windows）：Ruff、离线回归测试、JSON Schema 与样例、端到端 Dry Run。点击上方 CI 状态查看结果；检查失败时查看对应 job 的日志并修复。CI 不使用交易密钥，也不部署或运行真实交易。它是自动验证，业务逻辑仍需人工审查；运行方法和合并限制说明见[CI 文档](docs/continuous-integration.zh-CN.md)。
 
 ## Windows PowerShell：本地 API 验收
 

@@ -9,7 +9,7 @@ from eth_account import Account
 from hyperliquid.exchange import Exchange
 from hyperliquid.utils.types import Cloid
 
-from .api_client import ReadOnlyClient, TESTNET_URL, account_ready, load_public_settings
+from .api_client import TESTNET_URL, ReadOnlyClient, account_ready, load_public_settings
 
 
 class ExecutionClient:

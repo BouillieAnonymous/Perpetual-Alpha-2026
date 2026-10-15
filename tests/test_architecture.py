@@ -7,14 +7,25 @@ from decimal import Decimal
 from pathlib import Path
 from unittest.mock import patch
 
-from perpetual_alpha.context import ContextBuilder, SOURCE
+from perpetual_alpha.context import SOURCE, ContextBuilder
 from perpetual_alpha.contracts import Forecast, ForecastBatch, RiskSnapshot, RiskVerdict
 from perpetual_alpha.dry_run import open_collector_readonly, run
-from perpetual_alpha.forecasting import MockAgentForecastProducer, MockRiskEstimator, RuleForecastProducer, checked_forecast
+from perpetual_alpha.forecasting import (
+    MockAgentForecastProducer,
+    MockRiskEstimator,
+    RuleForecastProducer,
+    checked_forecast,
+)
 from perpetual_alpha.interfaces import DataRequest, Decision, TargetPosition
 from perpetual_alpha.journal import Journal
 from perpetual_alpha.portfolio import FixedQuantityPortfolio, PortfolioUnavailable
-from perpetual_alpha.research import ExperimentRecord, ResearchRegistry, ResearchTask, StrategyApproval, StrategyCandidate
+from perpetual_alpha.research import (
+    ExperimentRecord,
+    ResearchRegistry,
+    ResearchTask,
+    StrategyApproval,
+    StrategyCandidate,
+)
 from perpetual_alpha.risk import DemoRiskGate
 from perpetual_alpha.schemas import CONTRACTS, schema_for
 from perpetual_alpha.simulation import MockExecution

@@ -6,7 +6,7 @@ from decimal import Decimal
 from pathlib import Path
 from uuid import uuid4
 
-from .context import ContextBuilder, SOURCE
+from .context import SOURCE, ContextBuilder
 from .forecasting import MockAgentForecastProducer, MockRiskEstimator, RuleForecastProducer, checked_forecast
 from .interfaces import decimal_string, timestamp
 from .journal import Journal

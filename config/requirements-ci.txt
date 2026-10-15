@@ -1,0 +1,3 @@
+# Check tools only. Production runtime dependencies remain in deploy/requirements-check.txt.
+ruff==0.17.0
+jsonschema==4.26.0

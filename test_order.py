@@ -1,7 +1,7 @@
 """Manual small test: resting order/cancel, IOC entry, reduce-only exit."""
 import argparse
 import os
-from decimal import Decimal, ROUND_CEILING
+from decimal import ROUND_CEILING, Decimal
 from pathlib import Path
 
 from perpetual_alpha.execution import ExecutionClient

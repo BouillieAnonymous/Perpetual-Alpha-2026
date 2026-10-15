@@ -1,6 +1,6 @@
-from dataclasses import dataclass, field
-from decimal import Decimal, ROUND_DOWN
 import math
+from dataclasses import dataclass, field
+from decimal import ROUND_DOWN, Decimal
 
 
 def number(value) -> float:
