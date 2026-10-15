@@ -487,3 +487,8 @@ SDK Info 固定 Testnet 地址、skip_ws=True、perp_dexs=[par]、15 秒超时�
 用户提供的[系统架构设计 v0.2](architecture-v0.2.zh-CN.md)已归档到开发文档，README 展示其架构图。用户明确批准第 11 节模拟骨架、Forecast 最小字段与责任边界，并确认固定数量演示政策。新增契约独立管理 schema_version；原稿的真实交易开放决策和未来预留功能仍待定。
 
 [首轮实现与运行](architecture-implementation.zh-CN.md)维护实际模块、样例、测试和缺口。本轮新增离线 Dry Run 与独立 Research Registry；未修改服务器只读采集部署，未连接真实 LLM 或自动交易，未改变现有手动交易工具。
+
+
+## 17. Forecast 集成稳定化 v0.2.1
+
+针对 10 月 18 日团队集成，保持第 12 节协议 1.0 和 forecast/0.1 不变，修复 Forecast 时间顺序、统一 ForecastProducer/AgentAdapter、显式 ProducerRegistry 和多 Producer 的 DataRequest 协调。每个 Producer 使用共同截止时点的独立数据视图，只有选定 ID/版本进入 Portfolio、独立风控和 MockExecution。LT 的可复制 Adapter、注册与运行命令、错误语义、测试及限制集中维护于[集成接口交接](forecast-integration-v0.2.1.zh-CN.md)。

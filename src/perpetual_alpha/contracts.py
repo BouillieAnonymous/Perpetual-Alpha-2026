@@ -271,6 +271,5 @@ class MarketRiskEstimator(Protocol):
     def estimate(self, context: dict[str, Any]) -> RiskSnapshot: ...
 
 
-class AgentAdapter(Protocol):
-    """Reserved read-only prediction boundary; no real adapter configured in this release."""
-    def forecast(self, context: dict[str, Any]) -> ForecastBatch: ...
+class AgentAdapter(ForecastProducer, Protocol):
+    """Trading Agent adapters implement the same read-only boundary as every forecast producer."""

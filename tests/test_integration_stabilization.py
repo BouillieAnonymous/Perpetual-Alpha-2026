@@ -111,6 +111,44 @@ class StabilizationTests(unittest.TestCase):
             self.checked()
         self.assertEqual(self.producer.seen, [])
 
+    def test_t02_context_source_account_feedback_and_complete_fields_are_verified(self):
+        from perpetual_alpha.forecasting import ForecastUnavailable
+
+        original = copy.deepcopy(self.context)
+        for mutate in (
+            lambda c: c["datasets"]["lt_btc"].update(source="wrong-source"),
+            lambda c: c["datasets"]["lt_btc"]["records"][0]["data"].pop("ask"),
+            lambda c: c.update(account={"observed_ms": 100001}),
+            lambda c: c.update(execution_reports=[{"observed_ms": 100001}]),
+        ):
+            with self.subTest(mutate=mutate):
+                self.context = copy.deepcopy(original)
+                mutate(self.context)
+                with self.assertRaises(ForecastUnavailable):
+                    self.checked()
+
+    def test_t02_undeclared_assets_evidence_and_adapter_errors_remain_unavailable(self):
+        from perpetual_alpha.forecasting import ForecastUnavailable
+
+        for failure in (TimeoutError("timeout"), RuntimeError("failed")):
+            with patch.object(self.producer, "forecast", side_effect=failure), self.assertRaises(ForecastUnavailable):
+                self.checked()
+        for changes in ({"symbol": "par:GOLD"}, {"evidence_refs": ("unregistered",)}):
+            self.clock.now = 100000
+            def invalid(context):
+                batch = IndependentProducer.forecast(self.producer, context)
+                return replace(batch, items=(replace(batch.items[0], **changes),))
+            with patch.object(self.producer, "forecast", side_effect=invalid), self.assertRaises(ForecastUnavailable):
+                self.checked()
+
+    def test_t02_context_too_old_at_receive_even_within_inference_budget(self):
+        from perpetual_alpha.forecasting import ForecastUnavailable
+
+        with self.assertRaises(ForecastUnavailable) as failed:
+            checked_forecast(self.producer, self.context, clock=self.clock,
+                             max_inference_ms=10000, max_input_age_ms=5000)
+        self.assertEqual(failed.exception.reason_code, "STALE_INPUT")
+
     def test_t02_requirements_failure_is_not_retried_in_error_handler(self):
         from perpetual_alpha.forecasting import ForecastUnavailable
 
@@ -149,6 +187,9 @@ class StabilizationTests(unittest.TestCase):
         other.producer_version = "other-v2"
         with self.assertRaises(ValueError):
             registry.register(other)
+        self.producer.producer_version = "changed-after-registration"
+        with self.assertRaises(ValueError):
+            registry.resolve("independent-lt")
 
     def test_t06_requests_are_collected_for_all_producers_and_scoped(self):
         from perpetual_alpha.producers import ProducerPlan
@@ -193,14 +234,19 @@ class RunnerIntegrationTests(unittest.TestCase):
         self.path = Path(self.directory.name)
         self.config = load_config(ROOT / "config/dry-run.toml")
         self.clock = Clock(self.config["asof_ms"])
+        self.run_count = 0
 
     def tearDown(self):
         self.directory.cleanup()
 
-    def run_custom(self, *, selected="independent-lt", missing_eth=False, unsupported=False, delay=8000):
+    def run_custom(self, *, selected="independent-lt", missing_eth=False, unsupported=False,
+                   delay=8000, modify_batch=None, broken_requirements=False):
         from perpetual_alpha.producers import ProducerRegistry
 
         config = self.config
+        self.clock.now = config["asof_ms"]
+        self.run_count += 1
+        self.journal_path = self.path / f"journal-{self.run_count}.sqlite3"
         config.update(selected_producer=selected, selected_producer_version="test-v1",
                       shadow_producers=["btc-only" if selected == "independent-lt" else "independent-lt"],
                       max_inference_ms=10000)
@@ -210,6 +256,11 @@ class RunnerIntegrationTests(unittest.TestCase):
         if unsupported:
             original = dummy.requirements()
             dummy.requirements = lambda: (original[0], replace(original[1], kind="news"))
+        if modify_batch is not None:
+            forecast = dummy.forecast
+            dummy.forecast = lambda context: modify_batch(forecast(context))
+        if broken_requirements:
+            dummy.requirements = unittest.mock.Mock(side_effect=RuntimeError("broken requirements"))
         registry = ProducerRegistry()
         registry.register(btc)
         registry.register(dummy)
@@ -223,7 +274,7 @@ class RunnerIntegrationTests(unittest.TestCase):
             with patch("perpetual_alpha.dry_run.load_config", return_value=config), \
                     patch("urllib.request.urlopen", side_effect=AssertionError("No network")), \
                     patch("perpetual_alpha.execution.Exchange", side_effect=AssertionError("No signing")):
-                result = run("unused", self.path / "journal.sqlite3", registry=registry,
+                result = run("unused", self.journal_path, registry=registry,
                              clock=self.clock, data_connection=store.connection)
         finally:
             store.close()
@@ -242,7 +293,7 @@ class RunnerIntegrationTests(unittest.TestCase):
         result, _, _ = self.run_custom(selected="btc-only", missing_eth=True)
         self.assertEqual(result["execution_report"]["status"], "completed")
         self.assertEqual([t["symbol"] for t in result["decision"]["targets"]], ["par:BTC"])
-        journal = Journal(self.path / "journal.sqlite3")
+        journal = Journal(self.journal_path)
         try:
             events = journal.events()
             self.assertTrue(any(e["kind"] == "producer-unavailable" and
@@ -251,13 +302,32 @@ class RunnerIntegrationTests(unittest.TestCase):
         finally:
             journal.close()
 
+    def test_t04_valid_shadow_is_recorded_without_controlling_positions(self):
+        result, _, _ = self.run_custom(selected="btc-only")
+        self.assertEqual({b["producer_id"] for b in result["forecasts"]}, {"btc-only", "independent-lt"})
+        self.assertEqual([t["symbol"] for t in result["decision"]["targets"]], ["par:BTC"])
+        self.assertEqual(result["decision"]["created_ms"], self.config["asof_ms"])
+
+    def test_t04_shadow_timeout_cannot_age_out_the_controller(self):
+        result, _, _ = self.run_custom(selected="btc-only", delay=100000)
+        self.assertEqual(result["execution_report"]["status"], "completed")
+        self.assertEqual(result["failures"]["independent-lt"]["reason_code"], "INFERENCE_TIMEOUT")
+
+    def test_t08_shadow_unsupported_source_and_failed_declaration_are_isolated(self):
+        result, _, _ = self.run_custom(selected="btc-only", unsupported=True)
+        self.assertEqual(result["execution_report"]["status"], "completed")
+        result, dummy, _ = self.run_custom(selected="btc-only", broken_requirements=True)
+        self.assertEqual(result["execution_report"]["status"], "completed")
+        self.assertEqual(result["failures"]["independent-lt"]["reason_code"], "INVALID_PRODUCER")
+        self.assertEqual(dummy.requirements.call_count, 1)
+
     def test_t09_selected_missing_or_unsupported_data_never_executes(self):
         for kwargs in ({"missing_eth": True}, {"unsupported": True}):
             with self.subTest(kwargs=kwargs):
                 result, _, _ = self.run_custom(**kwargs)
                 self.assertEqual(result["status"], "blocked")
                 self.assertNotIn("execution_report", result)
-                journal = Journal(self.path / "journal.sqlite3")
+                journal = Journal(self.journal_path)
                 try:
                     self.assertFalse(any(e["kind"] == "decision" for e in journal.events()))
                 finally:
@@ -267,6 +337,35 @@ class RunnerIntegrationTests(unittest.TestCase):
         result, _, _ = self.run_custom(delay=11000)
         self.assertEqual(result["status"], "blocked")
         self.assertEqual(result["failures"]["independent-lt"]["reason_code"], "INFERENCE_TIMEOUT")
+
+    def test_t10_neutral_abstain_error_and_unpredicted_assets_keep_existing_semantics(self):
+        result, _, _ = self.run_custom(modify_batch=lambda b: replace(b, items=(
+            replace(b.items[0], direction="neutral"), replace(b.items[1], status="abstain", direction=None))))
+        self.assertEqual(result["decision"]["targets"], [])
+        result, _, _ = self.run_custom(modify_batch=lambda b: replace(b, items=(b.items[0],)))
+        self.assertEqual([t["symbol"] for t in result["decision"]["targets"]], ["par:BTC"])
+        result, _, _ = self.run_custom(modify_batch=lambda b: replace(b, items=(
+            replace(b.items[0], status="error", direction=None),)))
+        self.assertEqual(result["status"], "blocked")
+        self.assertNotIn("decision", result)
+
+    def test_t12_copyable_dummy_example_runs_without_any_real_model(self):
+        from perpetual_alpha.dry_run import built_in_registry
+        from perpetual_alpha.examples.lt_adapter import DummyLTProducer
+
+        config_path = ROOT / "config/dry-run-lt.toml"
+        config = load_config(config_path)
+        registry = built_in_registry(config, clock=self.clock)
+        registry.register(DummyLTProducer(self.clock, lambda: self.clock.advance(8000)))
+        with patch("urllib.request.urlopen", side_effect=AssertionError("No network")), \
+                patch("perpetual_alpha.execution.Exchange", side_effect=AssertionError("No signing")):
+            result = run(config_path, self.path / "dummy.sqlite3", registry=registry, clock=self.clock)
+        self.assertEqual(result["execution_report"]["status"], "completed")
+        self.assertEqual(result["decision"]["strategy_version"], "offline-0.1")
+        self.assertEqual(result["decision"]["created_ms"], config["asof_ms"] + 8000)
+        self.assertEqual(result["execution_report"]["protocol_version"], "1.0")
+        self.assertTrue(all(b["schema_version"] == "forecast/0.1" for b in result["forecasts"]))
+        self.assertTrue(all(b["created_ms"] == config["asof_ms"] + 8000 for b in result["forecasts"]))
 
 
 if __name__ == "__main__":

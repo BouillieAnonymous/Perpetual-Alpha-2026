@@ -8,6 +8,7 @@
 | [系统架构设计 v0.2](architecture-v0.2.zh-CN.md) | 研究与交易模块如何分工？ | 用户批准用于首轮模拟的架构、Forecast／Portfolio／Risk 边界与开放决策 |
 | [架构首轮实现与运行](architecture-implementation.zh-CN.md) | 架构哪些部分已运行，如何替换？ | 离线 Dry Run、演示政策、契约与样例、研究 Registry、异常处理、测试与真实交易缺口 |
 | [GitHub Actions 自动检查](continuous-integration.zh-CN.md) | 每次提交自动检查什么，失败如何处理？ | CI 触发条件、服务器同镜像环境、测试与静态检查、查看结果与本地复现 |
+| [Forecast 集成稳定化 v0.2.1](forecast-integration-v0.2.1.zh-CN.md) | LT 如何独立接入与对照？ | 时间语义、统一 Adapter、白名单注册、请求协调与 selected/shadow 隔离、可运行 Dummy 示例 |
 | [系统接口与部署](technical-plan.zh-CN.md) | 程序怎么接、怎么跑？ | 三段结构、信号接口、成本与风险检查、环境、服务器、部署和恢复 |
 | [数据来源与交易规则](data-development.zh-CN.md) | 能交易什么、数据从哪里来？ | 资产、官方接口与限制、外部和历史数据、标准格式与质量 |
 | [策略开发与头脑风暴](strategy-development.zh-CN.md) | 哪些想法值得验证、结果怎样？ | 三份外部资料、宏观假设、全部策略候选、Agent／RL、筛选与实验 |

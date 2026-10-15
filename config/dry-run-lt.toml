@@ -1,0 +1,31 @@
+# Synthetic LT adapter example only. No network, secrets, or real trading.
+[simulation]
+mode = "dry-run"
+selected_producer = "dummy-lt"
+selected_producer_version = "offline-0.1"
+shadow_producers = ["rule-demo", "mock-agent"]
+max_inference_ms = 10000
+symbols = ["par:BTC", "par:ETH"]
+abstain_symbols = ["par:ETH"]
+asof_ms = 1792000000000
+horizon_ms = 3600000
+forecast_ttl_ms = 60000
+decision_ttl_ms = 30000
+max_age_ms = 60000
+policy_version = "fixed-quantity-demo-0.1"
+risk_rule_version = "demo-gate-0.1"
+gross_limit_usd = "100"
+equity_usd = "1000"
+available_margin_usd = "1000"
+
+[simulation.quantities]
+"par:BTC" = "0.0002"
+"par:ETH" = "0.001"
+
+[simulation.quantity_limits]
+"par:BTC" = "0.001"
+"par:ETH" = "0.01"
+
+[simulation.fixture_prices]
+"par:BTC" = "80000"
+"par:ETH" = "3000"
