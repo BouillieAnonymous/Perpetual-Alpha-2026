@@ -51,8 +51,8 @@ class FixedQuantityPortfolio:
         for item in batch.items:
             if item.symbol not in self.quantities or item.symbol not in risk.symbols:
                 raise PortfolioUnavailable("Unsupported forecast asset")
-            if item.expires_ms <= now_ms or item.asof_ms > now_ms:
-                raise PortfolioUnavailable("Expired or future forecast")
+            if item.expires_ms <= now_ms or item.asof_ms != context["asof_ms"]:
+                raise PortfolioUnavailable("Expired forecast or mismatched information cutoff")
             if item.horizon_ms != self.horizon_ms:
                 raise PortfolioUnavailable("Mixed or unsupported forecast horizons")
             if item.status == "ready" and item.direction in {"up", "down"}:

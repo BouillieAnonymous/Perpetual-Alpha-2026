@@ -51,5 +51,7 @@ jobs:
       - name: Validate contract schemas and examples
         run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_schemas.py
 
-      - name: Run offline multi-asset simulation
-        run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python -m perpetual_alpha.cli dry-run --journal /tmp/ci-dry-run.sqlite3
+      - name: Run offline multi-asset simulations
+        run: |
+          docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python -m perpetual_alpha.cli dry-run --journal /tmp/ci-dry-run.sqlite3
+          docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python -m perpetual_alpha.examples.lt_adapter --journal /tmp/lt-ci-dry-run.sqlite3

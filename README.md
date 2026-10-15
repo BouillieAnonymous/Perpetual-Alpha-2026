@@ -56,6 +56,16 @@ flowchart TB
 
 演示配置在 `config/dry-run.toml`，日志默认保存在 `data/dry-run/journal.sqlite3`。运行/替换方法、研究 Registry、异常语义与真实交易缺口见[实现与验证](docs/architecture-implementation.zh-CN.md)，完整输出见[样例](docs/examples/dry-run.json)。
 
+## LT / 自定义预测模块集成
+
+统一实现 ForecastProducer 的 ID、版本、requirements() 和 forecast()，通过显式 Registry 注册；控制版本与影子版本使用各自数据视图。时间语义、失败处理和交接方法见[集成稳定化 v0.2.1](docs/forecast-integration-v0.2.1.zh-CN.md)。完全离线的独立 Adapter 可直接运行：
+
+```powershell
+.\.venv\Scripts\python.exe -m perpetual_alpha.examples.lt_adapter --journal data/dry-run/lt-review.sqlite3
+```
+
+示例仅模拟 8 秒推理延迟及 BTC/ETH 数据需求，不接真实 LLM 或订单；原 Dry Run 入口与协议版本保持不变。
+
 ## 自动代码检查（CI）
 
 每次 push / PR 自动构建与服务器相同的 Linux amd64 应用容器（Python 3.12.15、31 个锁定运行依赖），在容器中检查环境版本、Ruff、离线回归测试、JSON Schema 与样例、端到端 Dry Run。点击上方 CI 状态查看结果；检查失败时查看对应 job 的日志并修复。CI 不使用交易密钥，也不部署或运行真实交易。它是自动验证，业务逻辑仍需人工审查；运行方法和合并限制说明见[CI 文档](docs/continuous-integration.zh-CN.md)。
