@@ -195,3 +195,9 @@
 用户随后提供队友聊天截图：建议考虑 DeepSeek V4.1 Flash、对照已经后训练的 Fin-R1，并重点研究 Jev。消息同时保留对本项目适配方式的疑问；“Jev 是唯一起关键作用的方向”是队友研究判断，不作为已验证事实。Jev 暂对应 TypeSafe 同名模型，截图未附链接。
 
 资料及核实摘要见[学习文档第 11 节](agent-learning-resources.zh-CN.md#11-10-月-14-日会后新增deepseekfin-r1-与-jev)。本次仅增加候选记录，不代表选定模型、采购 API、改分工或部署。
+
+## 11. 2026 年 10 月 16 日：架构审查反馈与开发基线
+
+用户审阅 Architecture v0.3 技术审查后，接受独立 Core/Agent、HTTP Pull、定时任务、严格 as-of、单活动 Core/SQLite 事务 Outbox、首版串行控制及独立分析/处理/执行生命周期。首轮开发范围收敛为 PR0–PR2，每个 PR 提交测试结果后审核；资金风险阈值、退出政策及真实交易权限仍待单独决定。
+
+详细政策、审查问题的处理、测试配置提案和分阶段文件计划统一维护在[开发基线 v0.3](development-baseline-v0.3.zh-CN.md)；源码核查证据归档于[技术审查报告](architecture-v0.3-review.zh-CN.md)。本次按用户要求从 main 建独立文档分支归档并提交 PR，不直接修改 main，不开始 PR0 代码实现，不部署或发送订单。
