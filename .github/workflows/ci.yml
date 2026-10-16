@@ -55,3 +55,8 @@ jobs:
         run: |
           docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python -m perpetual_alpha.cli dry-run --journal /tmp/ci-dry-run.sqlite3
           docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python -m perpetual_alpha.examples.lt_adapter --journal /tmp/lt-ci-dry-run.sqlite3
+
+      - name: Verify fixture-only Core and Dummy in separate containers
+        run: |
+          docker build --platform linux/amd64 -f deploy/Dockerfile.mock-http -t perpetual-alpha-mock-http:ci .
+          python3 scripts/validate_mock_http_containers.py

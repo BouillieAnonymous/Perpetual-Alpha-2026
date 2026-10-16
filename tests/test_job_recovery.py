@@ -13,7 +13,7 @@ from perpetual_alpha.runtime.ingress import IngressRejected, Principal
 from perpetual_alpha.runtime.jobs import JobQueue
 from perpetual_alpha.runtime.outbox import Outbox
 from perpetual_alpha.runtime.scheduler import Schedule, Scheduler
-from perpetual_alpha.runtime.store import RuntimeStore
+from perpetual_alpha.runtime.store import SCHEMA_VERSION, RuntimeStore
 from perpetual_alpha.transport.messages import ClaimRequest, CompleteRequest, ForecastSubmission
 
 
@@ -170,7 +170,7 @@ class RecoveryTests(unittest.TestCase):
         results = self.race([operation, operation], 100000)
         self.assertEqual(results, [{"result": "initialized"}, {"result": "initialized"}])
         with RuntimeStore(self.path).connection() as c:
-            self.assertEqual(c.execute("PRAGMA user_version").fetchone()[0], 1)
+            self.assertEqual(c.execute("PRAGMA user_version").fetchone()[0], SCHEMA_VERSION)
 
     def test_concurrent_scheduler_ticks_materialize_one_job(self):
         from runtime_support import job

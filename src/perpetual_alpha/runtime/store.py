@@ -9,7 +9,7 @@ from ..journal import canonical
 from .contracts import decode
 
 APPLICATION_ID = 0x50414A31
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
 
 class RuntimeStore:
@@ -48,13 +48,15 @@ class RuntimeStore:
                     raise ValueError("Not an empty database or Perpetual Alpha runtime database")
                 if version > SCHEMA_VERSION or (application == APPLICATION_ID and version == 0):
                     raise ValueError("Unsupported runtime schema version")
-                if version == 0:
-                    sql = (Path(__file__).parent / "migrations/001_runtime.sql").read_text(encoding="utf-8")
+                for target, filename in ((1, "001_runtime.sql"), (2, "002_mock_http.sql")):
+                    if version >= target:
+                        continue
+                    sql = (Path(__file__).parent / "migrations" / filename).read_text(encoding="utf-8")
                     for statement in sql.split(";"):
                         if statement.strip():
                             connection.execute(statement)
                     connection.execute(f"PRAGMA application_id={APPLICATION_ID}")
-                    connection.execute(f"PRAGMA user_version={SCHEMA_VERSION}")
+                    connection.execute(f"PRAGMA user_version={target}")
                 connection.commit()
             except BaseException:
                 connection.rollback()

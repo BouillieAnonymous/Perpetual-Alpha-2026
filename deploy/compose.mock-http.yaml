@@ -1,0 +1,46 @@
+# Fixture-only example, no published ports and no internet egress.
+services:
+  core:
+    image: ${MOCK_HTTP_IMAGE:-perpetual-alpha-mock-http:local}
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    networks: [agent]
+    volumes: [core-state:/data]
+    secrets: [core-auth]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/healthz',timeout=2).close()"]
+      interval: 2s
+      timeout: 3s
+      retries: 15
+    mem_limit: 256m
+    cpus: 1
+    pids_limit: 100
+  worker:
+    image: ${MOCK_HTTP_IMAGE:-perpetual-alpha-mock-http:local}
+    command: [python, -u, -m, perpetual_alpha.transport.dummy_worker, --core-url, "http://core:8080", --token-file, /run/secrets/worker-token, --state, /state/worker.json]
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    networks: [agent]
+    volumes: [worker-state:/state]
+    secrets: [worker-token]
+    depends_on:
+      core:
+        condition: service_healthy
+    mem_limit: 128m
+    cpus: 1
+    pids_limit: 100
+networks:
+  agent:
+    internal: true
+volumes:
+  core-state:
+  worker-state:
+secrets:
+  core-auth:
+    file: ${MOCK_HTTP_SECRET_DIR:?Set an external synthetic credential directory}/core-auth.json
+  worker-token:
+    file: ${MOCK_HTTP_SECRET_DIR:?Set an external synthetic credential directory}/worker-token

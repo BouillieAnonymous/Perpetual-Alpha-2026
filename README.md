@@ -138,3 +138,7 @@ if (-not (Test-Path .env)) { Copy-Item .env.example .env }
 持续报价采集、三段接口协议、部署路径和停止／重启方法见 [系统与部署](docs/technical-plan.zh-CN.md)。本次 API 只读模块是在本地环境运行验收，未将账户或私钥配置发送到服务器，现有服务器采集服务继续运行。
 
 官方依据：[比赛参与指南](https://perpetual-alpha26.github.io/docs/)、[Hyperliquid Python SDK](https://github.com/hyperliquid-dex/hyperliquid-python-sdk)。
+
+## PR2 HTTP 模拟闭环
+
+独立 Core/Dummy 进程、双容器及恢复验收见 [PR2 通信闭环](docs/http-loop-pr2.zh-CN.md)。仅使用合成数据与 Mock Execution。
