@@ -29,9 +29,9 @@ def configuration():
                           "min_notional_usd": {"par:BTC": "0", "par:ETH": "0"}, "order_timeout_ms": 30000}}
 
 
-def enqueue(queue, principal, now, *, name="one", symbols=("par:BTC",), direction="up"):
+def enqueue(queue, principal, now, *, name="one", symbols=("par:BTC",), direction="up", scope="mock-account"):
     job = AnalysisJob("paper-job-"+name, "paper-context-"+name, principal.producer_id, principal.producer_version,
-                      "mock-account", 1, "control", symbols, now, now, now+120000, "queued", 0, 0,
+                      scope, 1, "control", symbols, now, now, now+120000, "queued", 0, 0,
                       JobLimits(10, 100, 262144, 2, 90000, 20000))
     sim = load_config(Path(__file__).resolve().parents[1]/"config/mock-http.toml")["simulation"]
     ctx, reqs = context_for(sim, job.context_id, now, initial_account(sim, now))

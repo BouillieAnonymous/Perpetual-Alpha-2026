@@ -55,6 +55,8 @@ PR2 旧 Mock 使用 Runtime/Journal 两个 SQLite，本 PR 不修改那个语义
 4. 模拟费用/滑点后的状态也必须满足预算；使用 SAVEPOINT 试算，不满足时撤销假设成交，取消剩余本地 Intent，不改写 Decision。真实已提交的先前成交保留。
 5. 最后一笔成交与 completed Report、Processing/Outbox、consumed_asof 同时提交。提交后进程退出或响应丢失，不需要跨库补写 Feedback，也不生成第二次逻辑成交。
 
+Paper configuration 限于自己的 control scope 和 control role；即使 Producer/version 相同，也拒绝另一 scope 的任务，不能因共用 Outbox 而继承其执行权限。
+
 Core 单活动实例由现有 ProcessLock 保护；管理 CLI 与 Core 通过同库短事务串行。所有锁内仅有有界本地计算/SQLite，无外部网络 I/O。保留 delivery_epoch fencing，不能由旧 reservation 推动成交。
 
 启动首先持久暂停，再从初始合成仓位和按序 Fill 重建数量、平均成本与现金，检查摘要、稳定 Fill ID、方向、费用、累计成交以及 Intent 与不可变目标计划的一致性。账本不符就停止启动/对账，不猜补单、不清库、不静默修正仓位。

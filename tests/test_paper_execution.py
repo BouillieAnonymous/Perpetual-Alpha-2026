@@ -441,6 +441,12 @@ class PaperTests(unittest.TestCase):
             self.engine.verify_ledger()
 
     def test_delivery_fencing_cannot_be_bypassed_by_existing_intent(self):
+        self.queue.configure_control("other-scope", "dummy-agent", "offline-0.1", 1)
+        enqueue(self.queue, self.principal, self.clock.now, name="foreign", scope="other-scope")
+        foreign = self.engine.outbox.begin()
+        with self.assertRaisesRegex(ValueError, "scope"):
+            self.engine.stage(foreign)
+        self.engine.outbox.finish(foreign.processing.processing_id, foreign.delivery_epoch, "block", reason_code="INVALID_INPUT")
         self.submit()
         self.tick()
         self.engine.outbox.recover()  # Not the Paper boot path; a competing operator invalidates the reservation.

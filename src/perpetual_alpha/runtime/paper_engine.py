@@ -186,6 +186,8 @@ class PaperEngine:
                 self._proposal(old)
                 return report_from_dict(json.loads(old["report"]))
             job = JobQueue._job(c, delivery.processing.job_id)[1]
+            if job.control_scope != self.config["scope"] or job.role != "control":
+                raise ValueError("Paper configuration cannot execute another control scope/role")
             from ..contracts import ForecastBatch
             accepted = ForecastBatch.from_dict(json.loads(c.execute("SELECT payload FROM submissions WHERE job_id=?", (job.job_id,)).fetchone()[0]))
             if canonical(accepted.to_dict()) != canonical(delivery.batch.to_dict()):
