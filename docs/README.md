@@ -13,6 +13,7 @@
 | [多轮 Data Gateway / PR4](dynamic-data-gateway-pr4.zh-CN.md) | Agent 如何在一次 Job 内多轮查询历史？ | Capability、固定快照、跨 attempt 幂等/额度、质量与 manifest 封存、Shadow 独立进程及容器验收 |
 | [只读账户 Adapter / PR5](read-only-account-pr5.zh-CN.md) | 账户信息有哪些可信来源与未验证项？ | Unified 余额/buying power 来源数组、par 持仓/挂单、前后核对、独立账户证据与 unknown；风险就绪仍为 false |
 | [市场风险与回放 / PR6](market-risk-replay-pr6.zh-CN.md) | 历史收益与协方差如何可重复计算？ | 显式研究配置、完整窗口、顺序与单位、PSD/奇异、冻结输入封存和离线复算；不批准账户交易 |
+| [纯模拟组合与独立风控 / PR7](portfolio-risk-pr7.zh-CN.md) | 组合如何缩量、独立审批和暂停？ | 显式合成预算、完整敞口与过渡角点、审批绑定、默认暂停/显式恢复和旧 Mock 闭环；不接真实账户风险许可 |
 | [架构 v0.3 技术审查报告](architecture-v0.3-review.zh-CN.md) | 当前代码与设计还有哪些差距？ | 固定 main 基线的代码证据、19 项问题、兼容性与恢复建议；后续决定见开发基线 |
 | [系统架构设计 v0.2](architecture-v0.2.zh-CN.md) | 研究与交易模块如何分工？ | 用户批准用于首轮模拟的架构、Forecast／Portfolio／Risk 边界与开放决策 |
 | [架构首轮实现与运行](architecture-implementation.zh-CN.md) | 架构哪些部分已运行，如何替换？ | 离线 Dry Run、演示政策、契约与样例、研究 Registry、异常处理、测试与真实交易缺口 |
@@ -26,7 +27,7 @@
 
 第一次阅读：项目总览 → 系统与部署；查市场和数据时看数据文档，讨论策略时看研究文档。发给队友也使用这套文档，不另写内容重复的版本。
 
-**开发入口：** 先读[开发基线 v0.3](development-baseline-v0.3.zh-CN.md)，再看各 PR 的实现和验收。PR0–PR5 已合并；本分支新增 [PR6 市场风险与回放](market-risk-replay-pr6.zh-CN.md)，须经过 PR 审核。账户估值/完整风险准入、组合审批及无人值守交易仍未完成。
+**开发入口：** 先读[开发基线 v0.3](development-baseline-v0.3.zh-CN.md)，再看各 PR 的实现和验收。PR0–PR6 已合并；本分支新增 [PR7 纯模拟组合与独立风控](portfolio-risk-pr7.zh-CN.md)，须经过 PR 审核。真实账户估值/完整风险准入、新政策在线集成及无人值守交易仍未完成。
 
 **找程序结构：** [技术文档第 8 节](technical-plan.zh-CN.md#8-实际程序结构与后续模块)列出本地与服务器路径、实际文件、启动链路和已实现范围。实际代码在项目根目录的 `src/perpetual_alpha/`，不是 `docs/`；启动入口是 `cli.py`。
 
