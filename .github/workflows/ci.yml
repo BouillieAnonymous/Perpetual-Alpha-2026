@@ -81,3 +81,8 @@ jobs:
 
       - name: Verify Paper Core and Dummy containers with explicit resume and paused restart
         run: python3 scripts/validate_paper_http_containers.py
+
+      - name: Verify isolated Paper operations backup restore and faults
+        run: |
+          docker build --platform linux/amd64 -f deploy/Dockerfile.paper -t perpetual-alpha-paper:ci .
+          python3 scripts/validate_paper_ops_containers.py --soak-seconds 60

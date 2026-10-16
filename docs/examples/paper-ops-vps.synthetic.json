@@ -1,0 +1,190 @@
+{
+  "mode": "synthetic-paper",
+  "real_execution_authorized": false,
+  "vps_runs": [
+    {
+      "script_commit": "294f81b",
+      "runtime_commit": "0281816",
+      "image_id": "sha256:437338feda0ce6065f9dadb2fe94beeef1b2d1d1f4b1862e9e7564edbd675dda",
+      "started_utc": "2026-10-16T15:24:49.697000+00:00",
+      "completed_utc": "2026-10-16T15:40:17.398000+00:00",
+      "soak_seconds": 900.8,
+      "samples": 70,
+      "passed": true,
+      "counts": {
+        "jobs": 17,
+        "paper_checks": 34,
+        "paper_fills": 3,
+        "paper_intents": 2,
+        "paper_plans": 16
+      },
+      "states": {
+        "outbox": {
+          "done": 16
+        },
+        "paper_intents": {
+          "filled": 2
+        },
+        "paper_plans": {
+          "completed": 16
+        }
+      },
+      "paused": true,
+      "db_bytes_range": [
+        294912,
+        1359872
+      ],
+      "wal_bytes_max": 49472,
+      "inspect_command_latency_ms_range": [
+        723.18,
+        1825.73
+      ],
+      "resources": {
+        "core": {
+          "cpu_percent_range": [
+            5.0,
+            24.68
+          ],
+          "final_block_io": "0B / 419MB",
+          "final_pids": "3",
+          "docker_memory_mib_range": [
+            18.75,
+            20.27
+          ]
+        },
+        "worker": {
+          "cpu_percent_range": [
+            0.61,
+            2.02
+          ],
+          "final_block_io": "0B / 27.6MB",
+          "final_pids": "2",
+          "docker_memory_mib_range": [
+            15.23,
+            16.09
+          ]
+        }
+      },
+      "checks": [
+        "paused-liveness",
+        "worker-network-loss-reconnect",
+        "worker-restart",
+        "core-SIGKILL-paused",
+        "online-WAL-backup",
+        "restore-ledger-paused",
+        "no-extra-fill-while-paused",
+        "worker-no-core-db-or-secret",
+        "nonroot-readonly",
+        "no-egress-or-published-ports",
+        "resource-and-log-limits",
+        "bounded-SQLITE_FULL"
+      ],
+      "project": "paper-ops-b0860e02c97e",
+      "backup_restored_paused": true
+    },
+    {
+      "script_commit": "11f9835",
+      "runtime_commit": "11f9835",
+      "image_id": "sha256:5046a725bee2721a85cf065503e4ec2163f0b8a1267af2498046d19b83089123",
+      "started_utc": "2026-10-16T15:35:43.709000+00:00",
+      "completed_utc": "2026-10-16T15:37:12.328000+00:00",
+      "soak_seconds": 60.8,
+      "samples": 5,
+      "passed": true,
+      "counts": {
+        "jobs": 3,
+        "paper_checks": 6,
+        "paper_fills": 3,
+        "paper_intents": 2,
+        "paper_plans": 2
+      },
+      "states": {
+        "outbox": {
+          "done": 2
+        },
+        "paper_intents": {
+          "filled": 2
+        },
+        "paper_plans": {
+          "completed": 2
+        }
+      },
+      "paused": true,
+      "db_bytes_range": [
+        294912,
+        385024
+      ],
+      "wal_bytes_max": 4152,
+      "inspect_command_latency_ms_range": [
+        785.8,
+        1157.48
+      ],
+      "resources": {
+        "core": {
+          "cpu_percent_range": [
+            6.43,
+            8.61
+          ],
+          "final_block_io": "0B / 28.5MB",
+          "final_pids": "3",
+          "docker_memory_mib_range": [
+            18.6,
+            19.05
+          ]
+        },
+        "worker": {
+          "cpu_percent_range": [
+            0.71,
+            1.6
+          ],
+          "final_block_io": "0B / 1.7MB",
+          "final_pids": "2",
+          "docker_memory_mib_range": [
+            15.4,
+            15.73
+          ]
+        }
+      },
+      "checks": [
+        "paused-liveness",
+        "worker-network-loss-reconnect",
+        "worker-restart",
+        "core-SIGKILL-paused",
+        "online-WAL-backup",
+        "restore-ledger-paused",
+        "no-extra-fill-while-paused",
+        "worker-no-core-db-or-secret",
+        "nonroot-readonly",
+        "readonly-state-volume-refused",
+        "no-egress-or-published-ports",
+        "resource-and-log-limits",
+        "bounded-SQLITE_FULL"
+      ],
+      "project": "paper-ops-36a3713901a4",
+      "backup_restored_paused": true
+    }
+  ],
+  "loop_stall": {
+    "stall_seconds": 17,
+    "stale_progress_rejected": true,
+    "recovered_progress": true,
+    "remained_paused": true,
+    "same_generation": true,
+    "no_extra_fills": true,
+    "real_execution_authorized": false
+  },
+  "limitations": [
+    "Short soak only; no multi-day acceptance",
+    "No real account, market fills, orders or LLM",
+    "No offsite backup or host reboot test",
+    "Concurrent test containers; not isolated performance benchmark"
+  ],
+  "retained_deployment": {
+    "project": "paper-ops-36a3713901a4",
+    "core": "healthy-paused",
+    "worker": "stopped",
+    "core_process_rss_kib_after_acceptance": 30588,
+    "previous_soak_project": "stopped",
+    "collector_container_unchanged": true
+  }
+}

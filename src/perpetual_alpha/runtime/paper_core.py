@@ -3,6 +3,7 @@ import argparse
 import json
 import signal
 import threading
+import time
 from pathlib import Path
 
 from ..journal import canonical
@@ -33,6 +34,7 @@ def main():
     p.add_argument("--database", required=True)
     p.add_argument("--host", default="127.0.0.1")
     p.add_argument("--port", type=int, default=8080)
+    p.add_argument("--progress-file", help="Optional local loop progress file; not trading permission")
     args = p.parse_args()
     config, paper = load_config(args.config), load_paper(args.paper_config)
     service, simulation = config["service"], config["simulation"]
@@ -73,6 +75,7 @@ def main():
             return ctx, requests
 
         try:
+            last_progress = 0
             while not stopped.is_set():
                 engine.publish_fixture()
                 engine.step()
@@ -82,6 +85,10 @@ def main():
                 server.ready = not status["paused"] and not active
                 if server.ready:
                     Scheduler(queue).tick(schedule, context)
+                if args.progress_file and time.monotonic()-last_progress >= 1:
+                    from .paper_health import publish
+                    publish(args.progress_file, status, server.ready)
+                    last_progress = time.monotonic()
                 stopped.wait(service["poll_ms"]/1000)
         finally:
             server.ready = False
