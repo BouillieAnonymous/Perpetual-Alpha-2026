@@ -54,8 +54,9 @@ class AgentHTTPServer(ThreadingHTTPServer):
     daemon_threads = False
     block_on_close = True
 
-    def __init__(self, address, queue, credentials, settings):
+    def __init__(self, address, queue, credentials, settings, *, data_gateway=None):
         self.queue, self.credentials, self.settings = queue, credentials, settings
+        self.data_gateway = data_gateway
         self.slots = threading.BoundedSemaphore(settings["max_http_workers"])
         self.rates, self.rate_lock = {}, threading.Lock()
         self.ready = True
@@ -193,6 +194,8 @@ class Handler(BaseHTTPRequestHandler):
             return self.reply(200, HeartbeatResponse(queue.heartbeat(principal, message.lease,
                                                                     lease_ms=settings["lease_ms"])))
         if action == "data/query":
+            if self.server.data_gateway is not None and message.data_request.source == "hyperliquid-testnet/par":
+                return self.reply(200, self.server.data_gateway.query(principal, message))
             return self.reply(200, query_fixture(queue, principal, message))
         if action == "complete":
             return self.reply(200, queue.complete(principal, message))

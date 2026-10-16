@@ -63,3 +63,6 @@ jobs:
         run: |
           docker build --platform linux/amd64 -f deploy/Dockerfile.mock-http -t perpetual-alpha-mock-http:ci .
           python3 scripts/validate_mock_http_containers.py
+
+      - name: Verify shadow historical Gateway in separate containers
+        run: python3 scripts/validate_mock_http_containers.py --history

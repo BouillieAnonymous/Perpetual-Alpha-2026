@@ -68,7 +68,8 @@ class Outbox:
                 self._write(c, record, "running", epoch)
                 self.store.event(c, now, "processing-started", {"processing_id": record.processing_id,
                                                                "delivery_epoch": epoch})
-                return Delivery(record, epoch, batch, json.loads(job_row["manifest"]))
+                from ..transport.data_gateway import accepted_manifest
+                return Delivery(record, epoch, batch, accepted_manifest(c, job_row))
             return None
 
     def finish(self, processing_id, delivery_epoch, event, *, reason_code="OK",

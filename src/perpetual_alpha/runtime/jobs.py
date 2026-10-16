@@ -139,7 +139,7 @@ class JobQueue:
         return bool(c.execute("SELECT 1 FROM processing WHERE scope=? AND role='control' "
                               "AND status IN ('pending','running') LIMIT 1", (scope,)).fetchone())
 
-    def _insert(self, c, now, job, context, requests, *, schedule_group=None, schedule_tick=None):
+    def _insert(self, c, now, job, context, requests, *, schedule_group=None, schedule_tick=None, data_binding=None):
         job = AnalysisJob.from_dict(job.to_dict())
         if job.status != "queued" or job.attempt or job.lease_epoch:
             reject("INVALID_REQUEST", "Only initial queued jobs may be admitted")
@@ -163,8 +163,11 @@ class JobQueue:
             dataset["required"] = False
         validate_context(validation_view, optional)
         manifest = {"context": context, "requests": [asdict(r) for r in requests]}
-        fingerprint = digest({"job": job.to_dict(), "manifest": manifest,
-                              "schedule_group": schedule_group, "schedule_tick": schedule_tick})
+        creation = {"job": job.to_dict(), "manifest": manifest,
+                    "schedule_group": schedule_group, "schedule_tick": schedule_tick}
+        if data_binding is not None:
+            creation["data_binding"] = data_binding
+        fingerprint = digest(creation)
         existing = c.execute("SELECT create_digest FROM jobs WHERE job_id=?", (job.job_id,)).fetchone()
         if existing:
             if existing[0] != fingerprint:
@@ -188,13 +191,16 @@ class JobQueue:
                        canonical(manifest), input_digest(context, requests), fingerprint, schedule_group, schedule_tick))
         except sqlite3.IntegrityError as error:
             raise IngressRejected("ID_CONFLICT", "Context or scheduled job identity conflict") from error
+        if data_binding is not None:
+            from ..transport.data_gateway import bind_job
+            bind_job(c, job, data_binding)
         self.store.event(c, now, "job-created", {"job_id": job.job_id})
         return job
 
-    def enqueue(self, job, context, requests):
+    def enqueue(self, job, context, requests, *, data_binding=None):
         with self.store.transaction() as (c, now):
             self._sweep(c, now)
-            return self._insert(c, now, job, context, requests)
+            return self._insert(c, now, job, context, requests, data_binding=data_binding)
 
     def claim(self, principal, request, *, lease_ms):
         request = ClaimRequest.from_dict(request.to_dict())
@@ -296,11 +302,12 @@ class JobQueue:
             if row["lease"] is None:
                 reject("LEASE_LOST", "No active lease")
             control = self._control(c, job)
-            manifest = json.loads(row["manifest"])
+            from ..transport.data_gateway import enrich_manifest
+            manifest, sealed_digest = enrich_manifest(c, row, job, submission.lease.attempt)
             requests = tuple(decode(DataRequest, r) for r in manifest["requests"])
             validated = validate_ingress(submission, job=job, lease=Lease.from_dict(json.loads(row["lease"])),
                                          principal=principal, context=manifest["context"], requests=requests,
-                                         manifest_digest=row["manifest_digest"], received_ms=now,
+                                         manifest_digest=sealed_digest, received_ms=now,
                                          current_control_epoch=control["epoch"] if control else job.control_epoch,
                                          accepted_asof_ms=control["accepted_asof_ms"] if control else None)
             processing_id = "processing:" + digest({"job_id": job.job_id})
@@ -309,6 +316,9 @@ class JobQueue:
             c.execute("INSERT INTO submissions VALUES(?,?,?,?,?,?,?)", (job.job_id, job.producer_id,
                       job.producer_version, receipt.forecast_batch_id, fingerprint, canonical(payload),
                       canonical(receipt.to_dict())))
+            if c.execute("SELECT 1 FROM gateway_bindings WHERE job_id=?", (job.job_id,)).fetchone():
+                c.execute("INSERT INTO accepted_manifests VALUES(?,?,?,?)", (job.job_id, job.attempt,
+                          canonical(manifest), digest(manifest)))
             self._submission_key(c, key, job.job_id, fingerprint)
             job = transition_job(job, "submit", now)
             self._write_job(c, job, worker_id=principal.worker_id, lease=Lease.from_dict(json.loads(row["lease"])))
