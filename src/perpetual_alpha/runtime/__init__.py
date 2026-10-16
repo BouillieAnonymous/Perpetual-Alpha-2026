@@ -1,1 +1,1 @@
-"""Runtime contracts only. Persistence and scheduling are intentionally not implemented yet."""
+"""Contracts, SQLite jobs, tick scheduling and durable outbox; no HTTP service or execution backend."""
