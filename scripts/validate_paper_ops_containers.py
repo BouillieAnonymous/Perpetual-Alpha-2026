@@ -151,7 +151,7 @@ def main():
         volume = next(mount["Name"] for mount in core["Mounts"] if mount["Destination"] == "/data")
         readonly = subprocess.run(["docker", "run", "--rm", "--network", "none", "--read-only", "--tmpfs", "/tmp",
                                    "--mount", f"type=volume,source={volume},target=/data,readonly", env["PAPER_IMAGE"],
-                                   "python", "-c", "from perpetual_alpha.runtime.store import RuntimeStore; RuntimeStore('/data/runtime.sqlite3')"],
+                                   "python", "-m", "perpetual_alpha.runtime.paper_operator", "--database", "/data/runtime.sqlite3", "status"],
                                   capture_output=True, text=True, timeout=20)
         assert readonly.returncode != 0 and ("readonly" in readonly.stderr.lower() or "read-only" in readonly.stderr.lower())
         report.update(passed=True, completed_ms=time.time_ns()//1000000, acceptance_seconds=round(time.monotonic()-started, 1),
