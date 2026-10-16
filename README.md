@@ -154,3 +154,7 @@ if (-not (Test-Path .env)) { Copy-Item .env.example .env }
 ## PR5 只读账户观察
 
 Unified 账户来源、持仓/挂单、buying power 来源数组、完整性与 unknown 见 [PR5 账户 Adapter](docs/read-only-account-pr5.zh-CN.md)。独立证据存储；risk_ready 恒为 false，不接入交易。
+
+## PR6 市场风险与回放
+
+历史 simple returns、N 资产样本协方差和固定输入离线复算见 [PR6 实现说明](docs/market-risk-replay-pr6.zh-CN.md)。复用 RiskSnapshot 0.1；窗口配置显式提供，市场统计 ready 不构成账户风险审批或交易许可。

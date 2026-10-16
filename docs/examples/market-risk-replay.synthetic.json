@@ -1,0 +1,280 @@
+{
+  "inputs": {
+    "schema_version": "market-risk-replay/0.1",
+    "model_version": "sample-covariance/0.1",
+    "asof_ms": 360000,
+    "config": {
+      "symbols": [
+        "par:BTC",
+        "par:ETH"
+      ],
+      "interval": "1m",
+      "return_count": 3,
+      "min_samples": 3,
+      "max_age_ms": 60000
+    },
+    "pin": {
+      "asof_ms": 360000,
+      "snapshot_seq": 2,
+      "anchor": "d9f3d01593e6f1ee07b3b3fa3a1129ebe9a3e07d88be8629cceaf97a6f1abc9c"
+    },
+    "synthetic": true,
+    "histories": [
+      {
+        "schema_version": "market-history/0.1",
+        "source": "hyperliquid-testnet/par",
+        "symbol": "par:BTC",
+        "interval": "1m",
+        "price_unit": "USD/BTC",
+        "volume_unit": "venue-size",
+        "settlement_asset": "USDPR",
+        "catalog_version": "competition-units/2026-09-30",
+        "valuation_supported": false,
+        "start_ms": 120000,
+        "end_ms": 360000,
+        "asof_ms": 360000,
+        "snapshot_seq": 2,
+        "status": "ready",
+        "expected_records": 4,
+        "available_records": 4,
+        "not_yet_closed_records": 0,
+        "records": [
+          {
+            "close": "100",
+            "close_ms": 180000,
+            "high": "100",
+            "low": "100",
+            "open": "100",
+            "open_ms": 120000,
+            "trade_count": 1,
+            "volume": "1",
+            "revision_id": 1,
+            "revision_seq": 1,
+            "received_ms": 360000,
+            "available_ms": 360000,
+            "first_seen_ms": 360000,
+            "published_ms": null,
+            "payload_digest": "6270132a225ccc732ee2aaa44e5d867f7769e15d78bbb83ba10cb5498ca0327a",
+            "source_response_digest": "146c28abaef738508e4e4ce990b490b7586ea4e8b513608853a80f12f6710394"
+          },
+          {
+            "close": "110",
+            "close_ms": 240000,
+            "high": "110",
+            "low": "110",
+            "open": "110",
+            "open_ms": 180000,
+            "trade_count": 1,
+            "volume": "1",
+            "revision_id": 2,
+            "revision_seq": 1,
+            "received_ms": 360000,
+            "available_ms": 360000,
+            "first_seen_ms": 360000,
+            "published_ms": null,
+            "payload_digest": "78d602367913fc14cdd9979a98f26dd42c6b126223e8a7cb5779967c2055aa8f",
+            "source_response_digest": "146c28abaef738508e4e4ce990b490b7586ea4e8b513608853a80f12f6710394"
+          },
+          {
+            "close": "99",
+            "close_ms": 300000,
+            "high": "99",
+            "low": "99",
+            "open": "99",
+            "open_ms": 240000,
+            "trade_count": 1,
+            "volume": "1",
+            "revision_id": 3,
+            "revision_seq": 1,
+            "received_ms": 360000,
+            "available_ms": 360000,
+            "first_seen_ms": 360000,
+            "published_ms": null,
+            "payload_digest": "feaaaa2cf5841e0155449ff8a97362ec20c3dea97df47f303a42ff9a634a681c",
+            "source_response_digest": "146c28abaef738508e4e4ce990b490b7586ea4e8b513608853a80f12f6710394"
+          },
+          {
+            "close": "99",
+            "close_ms": 360000,
+            "high": "99",
+            "low": "99",
+            "open": "99",
+            "open_ms": 300000,
+            "trade_count": 1,
+            "volume": "1",
+            "revision_id": 4,
+            "revision_seq": 1,
+            "received_ms": 360000,
+            "available_ms": 360000,
+            "first_seen_ms": 360000,
+            "published_ms": null,
+            "payload_digest": "3aad43f6cc6979541d125b7a40737bb5fd10cfe11ecbfae4ebabbde123a99b97",
+            "source_response_digest": "146c28abaef738508e4e4ce990b490b7586ea4e8b513608853a80f12f6710394"
+          }
+        ],
+        "gaps": [],
+        "invalid": [],
+        "truncated": false,
+        "closed_only": true,
+        "published_time_known": false,
+        "payload_digest": "492b77162a9a7fe4f66015b5be70ccf7533b5ebba45bdd44b5a1ab3531a4ac95"
+      },
+      {
+        "schema_version": "market-history/0.1",
+        "source": "hyperliquid-testnet/par",
+        "symbol": "par:ETH",
+        "interval": "1m",
+        "price_unit": "USD/ETH",
+        "volume_unit": "venue-size",
+        "settlement_asset": "USDPR",
+        "catalog_version": "competition-units/2026-09-30",
+        "valuation_supported": false,
+        "start_ms": 120000,
+        "end_ms": 360000,
+        "asof_ms": 360000,
+        "snapshot_seq": 2,
+        "status": "ready",
+        "expected_records": 4,
+        "available_records": 4,
+        "not_yet_closed_records": 0,
+        "records": [
+          {
+            "close": "200",
+            "close_ms": 180000,
+            "high": "200",
+            "low": "200",
+            "open": "200",
+            "open_ms": 120000,
+            "trade_count": 1,
+            "volume": "1",
+            "revision_id": 5,
+            "revision_seq": 2,
+            "received_ms": 360000,
+            "available_ms": 360000,
+            "first_seen_ms": 360000,
+            "published_ms": null,
+            "payload_digest": "25c1eba56d382af5fd864d3d96db3d393d51667a37f310a551a15aa7e4387e8c",
+            "source_response_digest": "89d6979a3659196aa9f03f3d1be85471c851a1e1123130672dd59410ab6dbbb8"
+          },
+          {
+            "close": "220",
+            "close_ms": 240000,
+            "high": "220",
+            "low": "220",
+            "open": "220",
+            "open_ms": 180000,
+            "trade_count": 1,
+            "volume": "1",
+            "revision_id": 6,
+            "revision_seq": 2,
+            "received_ms": 360000,
+            "available_ms": 360000,
+            "first_seen_ms": 360000,
+            "published_ms": null,
+            "payload_digest": "da54b54a5244092e008f6868ce7c66b1a66e31e25f9e8bf3797e30cebe8c96e4",
+            "source_response_digest": "89d6979a3659196aa9f03f3d1be85471c851a1e1123130672dd59410ab6dbbb8"
+          },
+          {
+            "close": "198",
+            "close_ms": 300000,
+            "high": "198",
+            "low": "198",
+            "open": "198",
+            "open_ms": 240000,
+            "trade_count": 1,
+            "volume": "1",
+            "revision_id": 7,
+            "revision_seq": 2,
+            "received_ms": 360000,
+            "available_ms": 360000,
+            "first_seen_ms": 360000,
+            "published_ms": null,
+            "payload_digest": "1e1925f8e9b8c731fc3cf02d0b161b2910f32e65e032e7d24ad13d0eec5e9a5c",
+            "source_response_digest": "89d6979a3659196aa9f03f3d1be85471c851a1e1123130672dd59410ab6dbbb8"
+          },
+          {
+            "close": "198",
+            "close_ms": 360000,
+            "high": "198",
+            "low": "198",
+            "open": "198",
+            "open_ms": 300000,
+            "trade_count": 1,
+            "volume": "1",
+            "revision_id": 8,
+            "revision_seq": 2,
+            "received_ms": 360000,
+            "available_ms": 360000,
+            "first_seen_ms": 360000,
+            "published_ms": null,
+            "payload_digest": "38fc2256ec45de081170f583c317a5d344236dda3058b37c20c6e256b43dfbad",
+            "source_response_digest": "89d6979a3659196aa9f03f3d1be85471c851a1e1123130672dd59410ab6dbbb8"
+          }
+        ],
+        "gaps": [],
+        "invalid": [],
+        "truncated": false,
+        "closed_only": true,
+        "published_time_known": false,
+        "payload_digest": "37ff41d804742b3b9c87ce103e07298a8faa99578794105274559a2789bd03f3"
+      }
+    ]
+  },
+  "result": {
+    "risk_snapshot": {
+      "snapshot_id": "market-risk:5cdcc5045943bd3983bed42e6bbbe5b6abe9bb1c49d179262f8dfe17455db9fd",
+      "asof_ms": 360000,
+      "status": "ready",
+      "method": "historical-sample-covariance",
+      "model_version": "sample-covariance/0.1",
+      "symbols": [
+        "par:BTC",
+        "par:ETH"
+      ],
+      "estimation_window_ms": 180000,
+      "return_interval_ms": 60000,
+      "sample_count": 3,
+      "volatilities": {
+        "par:BTC": "0.1",
+        "par:ETH": "0.1"
+      },
+      "covariance": [
+        [
+          "0.01",
+          "0.01"
+        ],
+        [
+          "0.01",
+          "0.01"
+        ]
+      ],
+      "units": "simple-return-per-interval",
+      "annualization": "none",
+      "errors": [],
+      "simulated": true,
+      "schema_version": "risk-snapshot/0.1"
+    },
+    "diagnostics": {
+      "correlation": [
+        [
+          "1",
+          "1"
+        ],
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "mean_returns": {
+        "par:BTC": "0.0",
+        "par:ETH": "0.0"
+      },
+      "zero_volatility_symbols": [],
+      "matrix_invertibility": "not_assumed",
+      "execution_authorized": false
+    }
+  },
+  "input_digest": "5cdcc5045943bd3983bed42e6bbbe5b6abe9bb1c49d179262f8dfe17455db9fd",
+  "result_digest": "155395ea8bab81771b45ec703464f24bc10aab99311ebe92fdccb1d56a5858c0",
+  "artifact_digest": "3dcfb708f4af4f14437c7bb32924d1fcdeda0eec3db21a01315a4b1bfbdf6df5"
+}

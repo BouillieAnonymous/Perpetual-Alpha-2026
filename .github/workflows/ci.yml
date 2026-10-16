@@ -57,6 +57,9 @@ jobs:
       - name: Verify synthetic readonly account evidence and separate schema
         run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_account.py
 
+      - name: Verify frozen market risk replay and existing risk schema
+        run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_market_risk.py
+
       - name: Run offline multi-asset simulations
         run: |
           docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python -m perpetual_alpha.cli dry-run --journal /tmp/ci-dry-run.sqlite3
