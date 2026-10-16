@@ -166,3 +166,7 @@ Unified 账户来源、持仓/挂单、buying power 来源数组、完整性与 
 ## PR8 可恢复合成 Paper Core
 
 独立 Paper Core 复用 HTTP/Outbox 与 PR7 风控，持久 Intent、部分成交、费用/现金、对账和 Feedback 在同一 SQLite 事务域内；重启强制暂停，恢复由可信本地操作者显式执行。见 [PR8 实现说明](docs/paper-execution-pr8.zh-CN.md)。仍只使用合成行情/风险/账户，不访问或发送真实交易所订单，VPS 验收待 PR9。
+
+## PR9 隔离 Paper 运维
+
+独立 VPS 双容器、主循环存活探测、SQLite WAL 一致备份、隔离恢复及资源/故障验收见 [PR9 运维说明](docs/paper-operations-pr9.zh-CN.md)。原 HTTP readiness 和重启暂停语义保留；短期验收不能替代多日稳定性、异地恢复或真实交易准入。

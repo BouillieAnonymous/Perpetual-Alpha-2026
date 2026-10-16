@@ -93,6 +93,7 @@ def main():
                 raise AssertionError("Unexpected pause during synthetic soak")
             time.sleep(min(10, max(0, args.soak_seconds-(time.monotonic()-started))))
         assert snapshot()["states"]["paper_plans"].get("completed", 0) >= 1
+        report["soak_seconds"] = round(time.monotonic()-started, 1)
         worker = run("ps", "-q", "worker").strip()
         details = json.loads(subprocess.run(["docker", "inspect", worker], capture_output=True, text=True, check=True).stdout)[0]
         network = next(iter(details["NetworkSettings"]["Networks"]))
@@ -118,7 +119,7 @@ def main():
         time.sleep(2)
         assert snapshot()["counts"]["paper_fills"] == before
         subprocess.run(["docker", "run", "--rm", "--network", "none", "--read-only", "--tmpfs", "/tmp",
-                        env["PAPER_IMAGE"], "python", "-m", "unittest", "discover", "-s", "tests", "-p", "test_paper_ops.py", "-v"],
+                        os.environ.get("PAPER_CHECK_IMAGE", "perpetual-alpha-checks:ci"), "python", "-m", "unittest", "discover", "-s", "tests", "-p", "test_paper_ops.py", "-v"],
                        check=True, timeout=60)
         # Access boundaries, non-root/read-only filesystem, no public publishing or external egress.
         run("run", "--rm", "--no-deps", "worker", "python", "-c",
@@ -133,7 +134,7 @@ def main():
             assert container["HostConfig"]["ReadonlyRootfs"]
             assert container["HostConfig"]["Memory"] > 0 and container["HostConfig"]["NanoCpus"] > 0
             assert container["HostConfig"]["LogConfig"]["Config"]["max-file"] == "3"
-        report.update(passed=True, completed_ms=time.time_ns()//1000000, soak_seconds=round(time.monotonic()-started, 1),
+        report.update(passed=True, completed_ms=time.time_ns()//1000000, acceptance_seconds=round(time.monotonic()-started, 1),
                       final=snapshot(), backup=result, restarted_generation=restarted["generation"],
                       checks=["paused-liveness", "worker-network-loss-reconnect", "worker-restart", "core-SIGKILL-paused", "online-WAL-backup",
                               "restore-ledger-paused", "no-extra-fill-while-paused", "worker-no-core-db-or-secret",
