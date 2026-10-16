@@ -30,6 +30,8 @@ from .messages import (
 
 
 class DummyWorker:
+    mode = "mock-http"
+
     def __init__(self, client, state_path, config):
         self.client, self.path, self.config = client, Path(state_path), config
         self.state = json.loads(self.path.read_text(encoding="utf-8")) if self.path.exists() else {}
@@ -50,7 +52,7 @@ class DummyWorker:
                 os.close(descriptor)
 
     def cycle(self):
-        service, simulation = self.config["service"], self.config["simulation"]
+        service = self.config["service"]
         if not self.state:
             self.state = {"claim_id": str(uuid4())}
             self.save()
@@ -63,6 +65,7 @@ class DummyWorker:
             self.state["claim"] = claimed.to_dict()
             self.save()
         claimed = ClaimResponse.from_dict(self.state["claim"])
+        self.validate_claim(claimed)
         route = "/v1/jobs/" + quote(claimed.job.job_id, safe="")
         feedback = self.client.call(route + "/feedback", FeedbackResponse)
         if feedback.receipt is not None:
@@ -91,21 +94,7 @@ class DummyWorker:
         thread.start()
         try:
             if "submission" not in self.state:
-                query_id = "fixture:" + self.state["claim_id"]
-                result = self.client.call(route + "/data/query", DataQueryResponse,
-                                          DataQueryRequest(query_id, ref, request_for(claimed.job.symbols,
-                                                                                     simulation["max_age_ms"])))
-                if result.status != "ready" or result.asof_ms != claimed.job.asof_ms or result.truncated:
-                    raise ValueError("Invalid fixture response")
-                rows = {record.symbol: record for record in result.records}
-                items = tuple(Forecast(symbol, claimed.job.asof_ms,
-                                       claimed.job.asof_ms + simulation["forecast_ttl_ms"], simulation["horizon_ms"],
-                                       "ready", "up" if Decimal(rows[symbol].data["mark"]) > Decimal(rows[symbol].data["oracle"])
-                                       else "down", (result.evidence_ref,), reason="SYNTHETIC Dummy only")
-                              for symbol in claimed.job.symbols)
-                batch = ForecastBatch("dummy:" + self.state["claim_id"], claimed.job.context_id,
-                                      claimed.job.producer_id, claimed.job.producer_version,
-                                      max(int(time.time() * 1000), claimed.lease.claimed_ms), items)
+                batch = self.produce(claimed, route)
                 self.state["submission"] = ForecastSubmission("submit:" + self.state["claim_id"], ref, batch).to_dict()
                 self.save()
             self.client.call(route + "/forecast", SubmissionResponse,
@@ -115,13 +104,36 @@ class DummyWorker:
             thread.join(timeout=self.client.timeout + 1)
         return None
 
+    def produce(self, claimed, route):
+        simulation = self.config["simulation"]
+        ref = claimed.lease.ref
+        query_id = "fixture:" + self.state["claim_id"]
+        result = self.client.call(route + "/data/query", DataQueryResponse,
+                                  DataQueryRequest(query_id, ref, request_for(claimed.job.symbols,
+                                                                             simulation["max_age_ms"])))
+        if result.status != "ready" or result.asof_ms != claimed.job.asof_ms or result.truncated:
+            raise ValueError("Invalid fixture response")
+        rows = {record.symbol: record for record in result.records}
+        items = tuple(Forecast(symbol, claimed.job.asof_ms,
+                               claimed.job.asof_ms + simulation["forecast_ttl_ms"], simulation["horizon_ms"],
+                               "ready", "up" if Decimal(rows[symbol].data["mark"]) > Decimal(rows[symbol].data["oracle"])
+                               else "down", (result.evidence_ref,), reason="SYNTHETIC Dummy only")
+                      for symbol in claimed.job.symbols)
+        batch = ForecastBatch("dummy:" + self.state["claim_id"], claimed.job.context_id,
+                              claimed.job.producer_id, claimed.job.producer_version,
+                              max(int(time.time() * 1000), claimed.lease.claimed_ms), items)
+        return batch
+
+    def validate_claim(self, claimed):
+        pass
+
     def run(self, once=False):
         delay = self.config["service"]["poll_ms"] / 1000
         while True:
             try:
                 feedback = self.cycle()
                 if feedback:
-                    print(canonical({"mode": "mock-http", "simulated": True,
+                    print(canonical({"mode": self.mode, "simulated": True,
                                      "feedback": feedback.to_dict()}), flush=True)
                     if once:
                         return
@@ -154,13 +166,18 @@ def main():
     parser.add_argument("--token-file", required=True)
     parser.add_argument("--state", required=True)
     parser.add_argument("--once", action="store_true")
+    parser.add_argument("--history", action="store_true", help="Two historical query rounds; shadow Jobs only")
     args = parser.parse_args()
     config = load_config(args.config)
     token = Path(args.token_file).read_text(encoding="utf-8").strip()
     with ProcessLock(str(Path(args.state).resolve()) + ".lock"):
         client = HTTPClient(args.core_url, token, timeout=config["service"]["http_timeout_ms"] / 1000,
                             max_bytes=config["service"]["max_http_body"])
-        DummyWorker(client, args.state, config).run(args.once)
+        worker_type = DummyWorker
+        if args.history:
+            from .history_worker import HistoricalDummyWorker
+            worker_type = HistoricalDummyWorker
+        worker_type(client, args.state, config).run(args.once)
 
 
 if __name__ == "__main__":

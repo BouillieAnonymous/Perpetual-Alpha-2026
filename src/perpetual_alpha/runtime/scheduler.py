@@ -36,7 +36,7 @@ class Scheduler:
     def __init__(self, queue):
         self.queue, self.store = queue, queue.store
 
-    def tick(self, schedule, context_factory):
+    def tick(self, schedule, context_factory, *, data_binding_factory=None):
         """factory(context_id, asof_ms) -> (context, tuple[DataRequest]); all provider I/O outside DB lock."""
         schedule = Schedule.from_dict(schedule.to_dict())
         now = self.store.clock()
@@ -66,6 +66,7 @@ class Scheduler:
             if busy or latest != tick or locked_now >= latest + schedule.deadline_after_tick_ms:
                 return None
         context, requests = context_factory(context_id, tick)
+        data_binding = data_binding_factory(tick) if data_binding_factory is not None else None
         with self.store.transaction() as (c, locked_now):
             self.queue._sweep(c, locked_now)
             latest = locked_now // schedule.interval_ms * schedule.interval_ms
@@ -86,7 +87,8 @@ class Scheduler:
             job = AnalysisJob(job_id, context_id, schedule.producer_id, schedule.producer_version,
                               schedule.control_scope, schedule.control_epoch, schedule.role, schedule.symbols,
                               tick, locked_now, tick + schedule.deadline_after_tick_ms, "queued", 0, 0, schedule.limits)
-            self.queue._insert(c, locked_now, job, context, requests, schedule_group=schedule.group, schedule_tick=tick)
+            self.queue._insert(c, locked_now, job, context, requests, schedule_group=schedule.group, schedule_tick=tick,
+                               data_binding=data_binding)
             c.execute("UPDATE schedules SET last_job_tick=?,pending_tick=? WHERE schedule_group=?",
                       (tick, tick, schedule.group))
             return job

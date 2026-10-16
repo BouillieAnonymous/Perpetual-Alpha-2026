@@ -174,6 +174,19 @@ class HistoricalStore:
             raise ValueError("Future snapshot sequence")
         return snapshot_seq
 
+    @staticmethod
+    def _anchor(c, seq):
+        row = c.execute("SELECT seq,observation_id,raw_digest,received_ms,available_ms FROM observations WHERE seq=?", (seq,)).fetchone()
+        if seq and row is None:
+            raise ValueError("Pinned history was removed")
+        return digest(dict(row) if row else {"empty": True})
+
+    def pin(self, asof_ms):
+        with self.connection() as c:
+            c.execute("BEGIN")
+            seq = self._snapshot(c, asof_ms, None)
+            return {"asof_ms": asof_ms, "snapshot_seq": seq, "anchor": self._anchor(c, seq)}
+
     def read_metadata(self, asof_ms, *, max_age_ms, snapshot_seq=None):
         decode(int, max_age_ms)
         with self.connection() as c:
@@ -197,7 +210,7 @@ class HistoricalStore:
             return result
 
     def read_candles(self, symbol, interval, start_ms, end_ms, asof_ms, *, max_records=5000,
-                     max_age_ms=None, snapshot_seq=None):
+                     max_age_ms=None, snapshot_seq=None, snapshot_anchor=None):
         step = window(symbol, interval, start_ms, end_ms)
         decode(int, max_records)
         if not 1 <= max_records <= 5000:
@@ -207,6 +220,8 @@ class HistoricalStore:
         with self.connection() as c:
             c.execute("BEGIN")
             snap = self._snapshot(c, asof_ms, snapshot_seq)
+            if snapshot_anchor is not None and self._anchor(c, snap) != snapshot_anchor:
+                raise ValueError("Pinned history database identity changed")
             # Pick the newest visible version including invalid revisions: never fall back around quarantine.
             rows = c.execute("WITH visible AS (SELECT v.*,o.received_ms,o.available_ms,o.raw_digest response_digest, "
                              "row_number() OVER(PARTITION BY v.open_ms ORDER BY v.seq DESC) rank "

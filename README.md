@@ -146,3 +146,7 @@ if (-not (Test-Path .env)) { Copy-Item .env.example .env }
 ## PR3 历史数据
 
 独立公开行情采集、十资产 metadata、K 线修订/质量和严格时点读取见 [PR3 历史市场数据](docs/historical-market-data-pr3.zh-CN.md)。历史层不接入真实交易，也不替换 PR2 fixture。
+
+## PR4 多轮历史查询
+
+按 Job 固定版本、读取授权、查询预算和证据封存见 [PR4 Dynamic Data Gateway](docs/dynamic-data-gateway-pr4.zh-CN.md)。可选历史演示仅运行 Shadow Dummy，不生成执行 Decision。

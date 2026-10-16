@@ -26,6 +26,7 @@ def main():
     parser.add_argument("--journal", required=True)
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8080)
+    parser.add_argument("--history-database", help="Optional prewarmed history; enables shadow-only dynamic Jobs")
     args = parser.parse_args()
     config = load_config(args.config)
     service, simulation = config["service"], config["simulation"]
@@ -41,6 +42,26 @@ def main():
         store, journal = RuntimeStore(args.database), Journal(args.journal)
         stack.callback(journal.close)
         queue = JobQueue(store)
+        gateway, policy = None, None
+        if args.history_database:
+            from ..historical.contracts import PRICE_UNITS
+            from ..historical.store import HistoricalStore
+            from ..transport.data_gateway import DataGateway, DataPolicy
+            if Path(args.history_database).resolve() in {Path(args.database).resolve(), Path(args.journal).resolve()}:
+                raise ValueError("History must be a separate database")
+            with store.connection() as c:
+                if c.execute("SELECT 1 FROM jobs WHERE role='control' LIMIT 1").fetchone():
+                    raise ValueError("Use a separate runtime database for the shadow historical demo")
+            if journal.connection.execute("SELECT 1 FROM decisions LIMIT 1").fetchone():
+                raise ValueError("Use a separate empty Mock journal for the shadow historical demo")
+            gateway = DataGateway(queue, HistoricalStore(args.history_database, read_only=True))
+            policy = DataPolicy("history-shadow-demo/0.1", service["producer_id"], service["producer_version"],
+                                "shadow", tuple(PRICE_UNITS), ("1m", "5m", "1h"),
+                                ("open", "high", "low", "close", "volume", "trade_count"), 21600000)
+            gateway.configure(policy)
+            if not any((p.producer_id, p.producer_version, p.role) == (policy.producer_id, policy.producer_version, "shadow")
+                       for _, p in credentials):
+                raise ValueError("Historical demo requires a matching shadow Worker credential")
         queue.configure_control(service["control_scope"], service["producer_id"], service["producer_version"],
                                 service["control_epoch"])
         # Credential file is the explicit startup allowlist, including revocations.
@@ -55,14 +76,14 @@ def main():
         consumer.reconcile()
         consumer.outbox.recover()
         schedule = Schedule(service["schedule_id"], service["producer_id"], service["producer_version"],
-                            service["control_scope"], service["control_epoch"], "control",
+                            service["control_scope"], service["control_epoch"], "shadow" if gateway else "control",
                             tuple(simulation["quantities"]), service["interval_ms"], service["deadline_ms"],
                             JobLimits(service["max_queries"], service["max_records"], service["max_bytes"],
                                       service["max_attempts"], service["max_input_age_ms"], service["max_inference_ms"]))
-        server = AgentHTTPServer((args.host, args.port), queue, credentials, service)
+        server = AgentHTTPServer((args.host, args.port), queue, credentials, service, data_gateway=gateway)
         thread = threading.Thread(target=server.serve_forever, daemon=True)
         thread.start()
-        print(canonical({"mode": "mock-http", "simulated": True, "port": server.server_port,
+        print(canonical({"mode": "history-shadow" if gateway else "mock-http", "simulated": True, "port": server.server_port,
                          "status": "ready"}), flush=True)
         try:
             while not stopped.is_set():
@@ -72,8 +93,14 @@ def main():
                     continue
                 server.ready = True
                 account = json.loads(journal.connection.execute("SELECT account FROM simulation_state WHERE id=1").fetchone()[0])
-                Scheduler(queue).tick(schedule, lambda cid, asof: context_for(simulation, cid, asof, account))
-                consumer.step()
+                if gateway:
+                    Scheduler(queue).tick(schedule, lambda cid, asof: ({"protocol_version": "1.0", "context_id": cid,
+                                          "asof_ms": asof, "account": None, "execution_reports": [], "datasets": {}}, ()),
+                                          data_binding_factory=lambda asof: gateway.binding(policy, asof))
+                else:
+                    Scheduler(queue).tick(schedule, lambda cid, asof: context_for(simulation, cid, asof, account))
+                if gateway is None:
+                    consumer.step()
                 stopped.wait(service["poll_ms"] / 1000)
         finally:
             server.ready = False
