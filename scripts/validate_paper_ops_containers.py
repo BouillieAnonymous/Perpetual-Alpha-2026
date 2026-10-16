@@ -153,7 +153,9 @@ def main():
                                    "--mount", f"type=volume,source={volume},target=/data,readonly", env["PAPER_IMAGE"],
                                    "python", "-m", "perpetual_alpha.runtime.paper_operator", "--database", "/data/runtime.sqlite3", "status"],
                                   capture_output=True, text=True, timeout=20)
-        assert readonly.returncode != 0 and ("readonly" in readonly.stderr.lower() or "read-only" in readonly.stderr.lower())
+        # SQLite may fail on WAL sidecar access before the first write on a read-only mount.
+        assert readonly.returncode != 0 and any(message in readonly.stderr.lower()
+                                              for message in ("readonly", "read-only", "unable to open database file"))
         report.update(passed=True, completed_ms=time.time_ns()//1000000, acceptance_seconds=round(time.monotonic()-started, 1),
                       final=snapshot(), backup=result, restarted_generation=restarted["generation"],
                       checks=["paused-liveness", "worker-network-loss-reconnect", "worker-restart", "core-SIGKILL-paused", "online-WAL-backup",
