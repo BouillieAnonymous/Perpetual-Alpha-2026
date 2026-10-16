@@ -20,6 +20,8 @@ class MockConsumer:
         self.store, self.journal, self.config = store, journal, config
         self.outbox = Outbox(store)
         with store.transaction() as (c, now):
+            if c.execute("SELECT 1 FROM paper_configuration LIMIT 1").fetchone():
+                raise ValueError("Paper and legacy Mock modes require separate runtime databases")
             saved = c.execute("SELECT payload_digest FROM mock_configurations WHERE configuration_id=?",
                               (config["configuration_id"],)).fetchone()
             if saved and saved[0] != digest(config):
