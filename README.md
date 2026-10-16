@@ -158,3 +158,7 @@ Unified 账户来源、持仓/挂单、buying power 来源数组、完整性与 
 ## PR6 市场风险与回放
 
 历史 simple returns、N 资产样本协方差和固定输入离线复算见 [PR6 实现说明](docs/market-risk-replay-pr6.zh-CN.md)。复用 RiskSnapshot 0.1；窗口配置显式提供，市场统计 ready 不构成账户风险审批或交易许可。
+
+## PR7 纯模拟组合与独立风控
+
+显式模拟资本预算、全持仓/挂单/调仓过渡敞口、独立 Gate 和默认暂停的 Supervisor 见 [PR7 实现说明](docs/portfolio-risk-pr7.zh-CN.md)。新本地 Harness 只接合成账户和已有 MockExecution；未接入在线消费链，不批准真实风险阈值或订单。
