@@ -139,16 +139,27 @@ def main():
             "\ntry: socket.create_connection(('1.1.1.1',443),timeout=2)\nexcept OSError: pass\nelse: raise AssertionError('external egress')")
         ids = run("ps", "-a", "-q").split()
         configs = json.loads(subprocess.run(["docker", "inspect", *ids], capture_output=True, text=True, check=True, timeout=15).stdout)
+        network_info = json.loads(subprocess.run(["docker", "network", "inspect", network], capture_output=True,
+                                                 text=True, check=True, timeout=15).stdout)[0]
+        assert network_info["Internal"]
         for container in configs:
             assert not container["HostConfig"]["PortBindings"]
             assert container["HostConfig"]["ReadonlyRootfs"]
             assert container["HostConfig"]["Memory"] > 0 and container["HostConfig"]["NanoCpus"] > 0
             assert container["HostConfig"]["LogConfig"]["Config"]["max-file"] == "3"
+        core = next(container for container in configs if container["Config"]["Labels"]["com.docker.compose.service"] == "core")
+        volume = next(mount["Name"] for mount in core["Mounts"] if mount["Destination"] == "/data")
+        readonly = subprocess.run(["docker", "run", "--rm", "--network", "none", "--read-only", "--tmpfs", "/tmp",
+                                   "--mount", f"type=volume,source={volume},target=/data,readonly", env["PAPER_IMAGE"],
+                                   "python", "-c", "from perpetual_alpha.runtime.store import RuntimeStore; RuntimeStore('/data/runtime.sqlite3')"],
+                                  capture_output=True, text=True, timeout=20)
+        assert readonly.returncode != 0 and ("readonly" in readonly.stderr.lower() or "read-only" in readonly.stderr.lower())
         report.update(passed=True, completed_ms=time.time_ns()//1000000, acceptance_seconds=round(time.monotonic()-started, 1),
                       final=snapshot(), backup=result, restarted_generation=restarted["generation"],
                       checks=["paused-liveness", "worker-network-loss-reconnect", "worker-restart", "core-SIGKILL-paused", "online-WAL-backup",
                               "restore-ledger-paused", "no-extra-fill-while-paused", "worker-no-core-db-or-secret",
-                              "nonroot-readonly", "no-egress-or-published-ports", "resource-and-log-limits", "bounded-SQLITE_FULL"])
+                              "nonroot-readonly", "readonly-state-volume-refused", "no-egress-or-published-ports",
+                              "resource-and-log-limits", "bounded-SQLITE_FULL"])
         run("cp", "core:/data/acceptance-backup.sqlite3", str(folder/"acceptance-backup.sqlite3"))
         print(json.dumps({k: v for k, v in report.items() if k not in ("samples", "backup", "final")}))
     finally:
