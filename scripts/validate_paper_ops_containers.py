@@ -3,6 +3,7 @@ import argparse
 import json
 import os
 import secrets
+import shutil
 import subprocess
 import tempfile
 import time
@@ -72,6 +73,12 @@ def main():
 
     report = {"mode": "synthetic-paper", "real_execution_authorized": False, "project": project,
               "image": env["PAPER_IMAGE"], "started_ms": time.time_ns()//1000000, "samples": []}
+
+    def save_report():
+        pending = folder/"report.json.tmp"
+        pending.write_text(json.dumps(report, indent=2), encoding="utf-8")
+        os.replace(pending, folder/"report.json")
+
     try:
         run("up", "-d", "--wait", timeout=90)
         state = await_boot()
@@ -84,11 +91,14 @@ def main():
             state = snapshot()
             state["inspect_latency_ms"] = round((time.monotonic()-check_start)*1000, 2)
             state["elapsed_seconds"] = round(time.monotonic()-started, 1)
+            state["loop"] = json.loads(execute("python", "-m", "perpetual_alpha.runtime.paper_health"))
+            state["host_free_bytes"] = shutil.disk_usage(folder).free
             ids = run("ps", "-q").split()
             stats = subprocess.run(["docker", "stats", "--no-stream", "--format", "{{json .}}", *ids],
                                    capture_output=True, text=True, check=True, timeout=15)
             state["resources"] = [json.loads(line) for line in stats.stdout.splitlines()]
             report["samples"].append(state)
+            save_report()
             if state["paused"]:
                 raise AssertionError("Unexpected pause during synthetic soak")
             time.sleep(min(10, max(0, args.soak_seconds-(time.monotonic()-started))))
@@ -142,7 +152,7 @@ def main():
         run("cp", "core:/data/acceptance-backup.sqlite3", str(folder/"acceptance-backup.sqlite3"))
         print(json.dumps({k: v for k, v in report.items() if k not in ("samples", "backup", "final")}))
     finally:
-        (folder/"report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+        save_report()
         if args.keep:
             # Failure also stops both; never leave a failed acceptance running with permission.
             if not report.get("passed"):

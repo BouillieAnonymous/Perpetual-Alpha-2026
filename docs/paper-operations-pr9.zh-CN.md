@@ -31,7 +31,9 @@
 ```bash
 docker build -f deploy/Dockerfile -t perpetual-alpha-runtime:<COMMIT> .
 docker build -f deploy/Dockerfile.paper --build-arg RUNTIME_IMAGE=perpetual-alpha-runtime:<COMMIT> -t perpetual-alpha-paper:<COMMIT> .
-PAPER_IMAGE=perpetual-alpha-paper:<COMMIT> python3 scripts/validate_paper_ops_containers.py --soak-seconds 60
+docker tag perpetual-alpha-runtime:<COMMIT> perpetual-alpha-runtime:ci
+docker build -f deploy/Dockerfile.ci -t perpetual-alpha-checks:<COMMIT> .
+PAPER_IMAGE=perpetual-alpha-paper:<COMMIT> PAPER_CHECK_IMAGE=perpetual-alpha-checks:<COMMIT> python3 scripts/validate_paper_ops_containers.py --soak-seconds 60
 ```
 
 默认随机 project 与临时凭据，结束只删除自己的测试卷。VPS 使用 `--directory <新的私有绝对目录> --keep` 保留证据、凭据及暂停的 Core，Worker 停止。失败则停止两者，保留现场。目录必须全新，脚本不会覆盖以前部署。`project.json` 记录 project/image/Compose 路径，后续运维必须选这个 project，不能操作 Collector project。凭据目录0700、挂载文件0444以兼容 UID1000读取，仅包含随机合成认证，不读取钱包文件。
@@ -39,6 +41,8 @@ PAPER_IMAGE=perpetual-alpha-paper:<COMMIT> python3 scripts/validate_paper_ops_co
 验收包含：暂停但存活、显式合成 resume、至少一个完成计划、周期性状态/主库/WAL/容器CPU-RSS-IO-PID与inspect命令延迟采样、Worker真实断网/恢复及重启、Core SIGKILL后暂停、无额外成交、在线备份/隔离恢复、无公开端口与外网出口、Worker无Core库/凭据、只读根文件系统、资源/日志上限。磁盘满通过临时测试库 `max_page_count` 触发真实 SQLITE_FULL，验证事务回滚与账本，不填满 VPS 根盘。保持原395项测试并新增8项运维测试。
 
 CI 增加第四条双容器验收，使用本部署 Compose，默认60秒合成短跑。`report.json` 保留样本与起止时间，`acceptance-backup.sqlite3` 保存独立一致备份；这些在私有目录，不提交仓库。报告中的命令延迟包含 docker exec/启动及查询开销，不是 HTTP p95，也不是交易延迟。数据库证据会持续增长；日志轮转不代表数据库已设置保留期。正式长期运行前需确定磁盘报警、证据归档/保留、备份周期与RPO/RTO。
+
+新增采样每轮原子保存报告，包括主循环进度、宿主证据目录所在磁盘可用空间；Docker block I/O 是累计字节，不冒充 IOPS。该脚本是有界验收工具，不是全天候监控或报警服务。没有设置未经确认的定时任务。跨服务器部署时镜像应使用注册表 digest；本轮本地 commit tag 与实际 image ID 一并记录，不能把可变 tag 当密码学证明。
 
 ## 本轮外部验收状态
 

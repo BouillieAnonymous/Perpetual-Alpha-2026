@@ -8,7 +8,7 @@ import tempfile
 import time
 from pathlib import Path
 
-from ..journal import canonical
+from ..journal import canonical, digest
 from .paper_core import load_paper
 from .paper_engine import PaperEngine
 from .store import APPLICATION_ID, SCHEMA_VERSION, RuntimeStore
@@ -28,7 +28,6 @@ def inspect(path):
         row = c.execute("SELECT payload,digest FROM paper_configuration WHERE id=1").fetchone()
         if not row:
             raise ValueError("Not a Synthetic Paper runtime")
-        from ..journal import digest
         if digest(json.loads(row[0])) != row[1]:
             raise ValueError("Paper configuration digest mismatch")
         meta = json.loads(c.execute("SELECT payload FROM paper_meta WHERE id=1").fetchone()[0])
