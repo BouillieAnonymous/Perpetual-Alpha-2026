@@ -1,0 +1,342 @@
+{
+  "sample_version": "public-history-capture/0.1",
+  "source": "hyperliquid-testnet/par",
+  "endpoint": "https://api.hyperliquid-testnet.xyz/info",
+  "purpose": "Public BTC/ETH sample for offline parser regression; not a complete dataset or historical availability assertion",
+  "metadata": {
+    "received_ms": 1792121397896,
+    "available_ms": 1792121397899,
+    "payload": {
+      "collateralToken": 3032,
+      "marginTables": [
+        [
+          50,
+          {
+            "description": "",
+            "marginTiers": [
+              {
+                "lowerBound": "0.0",
+                "maxLeverage": 50
+              }
+            ]
+          }
+        ]
+      ],
+      "universe": [
+        {
+          "deployerFeeScale": "1.0",
+          "marginTableId": 40,
+          "maxLeverage": 40,
+          "name": "par:BTC",
+          "szDecimals": 4
+        },
+        {
+          "deployerFeeScale": "1.0",
+          "marginTableId": 25,
+          "maxLeverage": 25,
+          "name": "par:ETH",
+          "szDecimals": 4
+        },
+        {
+          "deployerFeeScale": "1.0",
+          "marginTableId": 10,
+          "maxLeverage": 10,
+          "name": "par:HYPE",
+          "szDecimals": 2
+        },
+        {
+          "deployerFeeScale": "1.0",
+          "marginTableId": 50,
+          "maxLeverage": 50,
+          "name": "par:SP500",
+          "szDecimals": 3
+        },
+        {
+          "deployerFeeScale": "1.0",
+          "marginTableId": 20,
+          "maxLeverage": 20,
+          "name": "par:EWY",
+          "szDecimals": 3
+        },
+        {
+          "deployerFeeScale": "1.0",
+          "marginTableId": 20,
+          "maxLeverage": 20,
+          "name": "par:EWJ",
+          "szDecimals": 3
+        },
+        {
+          "deployerFeeScale": "1.0",
+          "marginTableId": 20,
+          "maxLeverage": 20,
+          "name": "par:BRENT",
+          "szDecimals": 2
+        },
+        {
+          "deployerFeeScale": "1.0",
+          "marginTableId": 25,
+          "maxLeverage": 25,
+          "name": "par:GOLD",
+          "szDecimals": 4
+        },
+        {
+          "deployerFeeScale": "1.0",
+          "marginTableId": 50,
+          "maxLeverage": 50,
+          "name": "par:USDEUR",
+          "szDecimals": 1
+        },
+        {
+          "deployerFeeScale": "1.0",
+          "marginTableId": 50,
+          "maxLeverage": 50,
+          "name": "par:USDJPY",
+          "szDecimals": 2
+        }
+      ]
+    },
+    "payload_digest": "b5cbc22f98b81a74bc21eb0f60afe4b74a28fc7185ae054fd69d0230ed30f114"
+  },
+  "candles": [
+    {
+      "symbol": "par:BTC",
+      "interval": "1m",
+      "requested_start_ms": 1792114140000,
+      "requested_end_ms": 1792121340000,
+      "received_ms": 1792121398813,
+      "available_ms": 1792121398814,
+      "source_response_digest": "a3ab0e73ba3ed64fae61d5c37381835cf6f3d441b179910a842c7d3492a9135a",
+      "source_response_records": 119,
+      "sample_digest": "7c0c16c1c3dc0a30cac766bc999a19cf766a7a47ac8d78cbc3dff9e1c44cc59e",
+      "records": [
+        {
+          "T": 1792120859999,
+          "c": "82081.0",
+          "h": "82081.0",
+          "i": "1m",
+          "l": "82081.0",
+          "n": 0,
+          "o": "82081.0",
+          "s": "par:BTC",
+          "t": 1792120800000,
+          "v": "0.0"
+        },
+        {
+          "T": 1792120919999,
+          "c": "82081.0",
+          "h": "82081.0",
+          "i": "1m",
+          "l": "82081.0",
+          "n": 0,
+          "o": "82081.0",
+          "s": "par:BTC",
+          "t": 1792120860000,
+          "v": "0.0"
+        },
+        {
+          "T": 1792120979999,
+          "c": "82081.0",
+          "h": "82081.0",
+          "i": "1m",
+          "l": "82081.0",
+          "n": 0,
+          "o": "82081.0",
+          "s": "par:BTC",
+          "t": 1792120920000,
+          "v": "0.0"
+        },
+        {
+          "T": 1792121039999,
+          "c": "82081.0",
+          "h": "82081.0",
+          "i": "1m",
+          "l": "82081.0",
+          "n": 0,
+          "o": "82081.0",
+          "s": "par:BTC",
+          "t": 1792120980000,
+          "v": "0.0"
+        },
+        {
+          "T": 1792121099999,
+          "c": "82081.0",
+          "h": "82081.0",
+          "i": "1m",
+          "l": "82081.0",
+          "n": 0,
+          "o": "82081.0",
+          "s": "par:BTC",
+          "t": 1792121040000,
+          "v": "0.0"
+        },
+        {
+          "T": 1792121159999,
+          "c": "81924.0",
+          "h": "81924.0",
+          "i": "1m",
+          "l": "81924.0",
+          "n": 1,
+          "o": "81924.0",
+          "s": "par:BTC",
+          "t": 1792121100000,
+          "v": "0.005"
+        },
+        {
+          "T": 1792121219999,
+          "c": "81953.0",
+          "h": "81953.0",
+          "i": "1m",
+          "l": "81953.0",
+          "n": 1,
+          "o": "81953.0",
+          "s": "par:BTC",
+          "t": 1792121160000,
+          "v": "0.0012"
+        },
+        {
+          "T": 1792121279999,
+          "c": "81847.0",
+          "h": "81900.0",
+          "i": "1m",
+          "l": "81847.0",
+          "n": 10,
+          "o": "81895.0",
+          "s": "par:BTC",
+          "t": 1792121220000,
+          "v": "0.2439"
+        }
+      ],
+      "source_ingestion_summary": {
+        "available_ms": 1792121398814,
+        "duplicates": 0,
+        "forming": 0,
+        "inserted": 119,
+        "invalid": 0,
+        "out_of_order": false,
+        "received_ms": 1792121398813,
+        "seq": 2,
+        "unchanged": 0
+      }
+    },
+    {
+      "symbol": "par:ETH",
+      "interval": "1m",
+      "requested_start_ms": 1792114140000,
+      "requested_end_ms": 1792121340000,
+      "received_ms": 1792121400043,
+      "available_ms": 1792121400050,
+      "source_response_digest": "6d6f4e7ef8207af66962dce476632c01c90de674ccc2b7c657260fe89c32b5c2",
+      "source_response_records": 116,
+      "sample_digest": "245f71a5f9b782d8b21c2e5135f4844a7e572091a26a3b449b38da165ffd50e4",
+      "records": [
+        {
+          "T": 1792120679999,
+          "c": "2436.4",
+          "h": "2436.4",
+          "i": "1m",
+          "l": "2436.4",
+          "n": 0,
+          "o": "2436.4",
+          "s": "par:ETH",
+          "t": 1792120620000,
+          "v": "0.0"
+        },
+        {
+          "T": 1792120739999,
+          "c": "2436.4",
+          "h": "2436.4",
+          "i": "1m",
+          "l": "2436.4",
+          "n": 0,
+          "o": "2436.4",
+          "s": "par:ETH",
+          "t": 1792120680000,
+          "v": "0.0"
+        },
+        {
+          "T": 1792120799999,
+          "c": "2436.4",
+          "h": "2436.4",
+          "i": "1m",
+          "l": "2436.4",
+          "n": 0,
+          "o": "2436.4",
+          "s": "par:ETH",
+          "t": 1792120740000,
+          "v": "0.0"
+        },
+        {
+          "T": 1792120859999,
+          "c": "2436.4",
+          "h": "2436.4",
+          "i": "1m",
+          "l": "2436.4",
+          "n": 0,
+          "o": "2436.4",
+          "s": "par:ETH",
+          "t": 1792120800000,
+          "v": "0.0"
+        },
+        {
+          "T": 1792120919999,
+          "c": "2436.4",
+          "h": "2436.4",
+          "i": "1m",
+          "l": "2436.4",
+          "n": 0,
+          "o": "2436.4",
+          "s": "par:ETH",
+          "t": 1792120860000,
+          "v": "0.0"
+        },
+        {
+          "T": 1792120979999,
+          "c": "2436.4",
+          "h": "2436.4",
+          "i": "1m",
+          "l": "2436.4",
+          "n": 0,
+          "o": "2436.4",
+          "s": "par:ETH",
+          "t": 1792120920000,
+          "v": "0.0"
+        },
+        {
+          "T": 1792121039999,
+          "c": "2436.4",
+          "h": "2436.4",
+          "i": "1m",
+          "l": "2436.4",
+          "n": 0,
+          "o": "2436.4",
+          "s": "par:ETH",
+          "t": 1792120980000,
+          "v": "0.0"
+        },
+        {
+          "T": 1792121099999,
+          "c": "2435.8",
+          "h": "2435.8",
+          "i": "1m",
+          "l": "2435.8",
+          "n": 1,
+          "o": "2435.8",
+          "s": "par:ETH",
+          "t": 1792121040000,
+          "v": "0.041"
+        }
+      ],
+      "source_ingestion_summary": {
+        "available_ms": 1792121400050,
+        "duplicates": 0,
+        "forming": 0,
+        "inserted": 116,
+        "invalid": 0,
+        "out_of_order": false,
+        "received_ms": 1792121400043,
+        "seq": 3,
+        "unchanged": 0
+      }
+    }
+  ]
+}
