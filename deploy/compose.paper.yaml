@@ -1,0 +1,58 @@
+# Isolated Synthetic Paper only. No live account/venue credentials and no public ports.
+name: perpetual-alpha-paper
+services:
+  core:
+    image: ${PAPER_IMAGE:?Set an immutable Paper image tag}
+    init: true
+    restart: unless-stopped
+    read_only: true
+    tmpfs: [/tmp:size=64m,mode=1777]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    networks: [agent]
+    volumes: [core-state:/data]
+    secrets: [core-auth]
+    healthcheck:
+      test: [CMD, python, -m, perpetual_alpha.runtime.paper_health]
+      interval: 10s
+      timeout: 5s
+      start_period: 20s
+      retries: 3
+    mem_limit: 256m
+    cpus: 0.5
+    pids_limit: 100
+    stop_grace_period: 30s
+    logging:
+      driver: json-file
+      options: {max-size: 10m, max-file: "3"}
+  worker:
+    image: ${PAPER_IMAGE:?Set an immutable Paper image tag}
+    command: [python, -u, -m, perpetual_alpha.transport.dummy_worker, --core-url, "http://core:8080", --token-file, /run/secrets/worker-token, --state, /state/worker.json]
+    init: true
+    restart: unless-stopped
+    read_only: true
+    tmpfs: [/tmp:size=32m,mode=1777]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    networks: [agent]
+    volumes: [worker-state:/state]
+    secrets: [worker-token]
+    depends_on:
+      core: {condition: service_healthy}
+    mem_limit: 128m
+    cpus: 0.25
+    pids_limit: 100
+    stop_grace_period: 15s
+    logging:
+      driver: json-file
+      options: {max-size: 10m, max-file: "3"}
+networks:
+  agent: {internal: true}
+volumes:
+  core-state:
+  worker-state:
+secrets:
+  core-auth:
+    file: ${PAPER_SECRET_DIR:?Set external synthetic credentials}/core-auth.json
+  worker-token:
+    file: ${PAPER_SECRET_DIR:?Set external synthetic credentials}/worker-token
