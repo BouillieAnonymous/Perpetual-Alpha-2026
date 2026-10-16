@@ -40,7 +40,7 @@ PAPER_IMAGE=perpetual-alpha-paper:<COMMIT> PAPER_CHECK_IMAGE=perpetual-alpha-che
 
 默认随机 project 与临时凭据，结束只删除自己的测试卷。VPS 使用 `--directory <新的私有绝对目录> --keep` 保留证据、凭据及暂停的 Core，Worker 停止。失败则停止两者，保留现场。目录必须全新，脚本不会覆盖以前部署。`project.json` 记录 project/image/Compose 路径，后续运维必须选这个 project，不能操作 Collector project。凭据目录0700、挂载文件0444以兼容 UID1000读取，仅包含随机合成认证，不读取钱包文件。
 
-验收包含：暂停但存活、显式合成 resume、至少一个完成计划、周期性状态/主库/WAL/容器CPU-RSS-IO-PID与inspect命令延迟采样、Worker真实断网/恢复及重启、Core SIGKILL后暂停、无额外成交、在线备份/隔离恢复、无公开端口与外网出口、Worker无Core库/凭据、只读根文件系统、资源/日志上限。磁盘满通过临时测试库 `max_page_count` 触发真实 SQLITE_FULL，验证事务回滚与账本，不填满 VPS 根盘。保持原395项测试并新增8项运维测试。
+验收包含：暂停但存活、显式合成 resume、至少一个完成计划、周期性状态/主库/WAL/容器CPU-内存-IO-PID与inspect命令延迟采样、Worker真实断网/恢复及重启、Core SIGKILL后暂停、无额外成交、在线备份/隔离恢复、无公开端口与外网出口、Worker无Core库/凭据、只读根文件系统、资源/日志上限。磁盘满通过临时测试库 `max_page_count` 触发真实 SQLITE_FULL，验证事务回滚与账本，不填满 VPS 根盘。保持原395项测试并新增8项运维测试。
 
 CI 增加第四条双容器验收，使用本部署 Compose，默认60秒合成短跑。`report.json` 保留样本与起止时间，`acceptance-backup.sqlite3` 保存独立一致备份；这些在私有目录，不提交仓库。报告中的命令延迟包含 docker exec/启动及查询开销，不是 HTTP p95，也不是交易延迟。数据库证据会持续增长；日志轮转不代表数据库已设置保留期。正式长期运行前需确定磁盘报警、证据归档/保留、备份周期与RPO/RTO。
 
@@ -48,4 +48,35 @@ CI 增加第四条双容器验收，使用本部署 Compose，默认60秒合成�
 
 ## 本轮外部验收状态
 
-实际 VPS 结果见后续本文件更新。短跑通过不能替代多日运行、磁盘老化、主机断电/重启、异地备份与故障恢复演练。跨 VPS 仍需 TLS、认证和网络访问控制，本轮只使用同机内部网络。
+2026-10-16 在既有 VPS 实测。汇总证据见 [合成 VPS 验收记录](examples/paper-ops-vps.synthetic.json)，不含凭据、原始请求、完整运行库或真实账户数据。时间统一 UTC；英国本地当日为 UTC+1。
+
+| 验收 | 结果 |
+|---|---|
+| 900.8秒短跑 | 15:24:49–15:40:17 UTC，包括启动及后续故障；运行镜像提交0281816、脚本294f81b，70个采样，16个完成计划、2个Intent、3笔Fill，17个Job中的剩余任务不伪称已完成 |
+| 最新运维版本复验 | 提交11f9835，60.8秒短跑及完整故障检查通过；补验磁盘工作目录、原子保存采样、只读状态卷失败；2个完成计划、3笔Fill |
+| CPU / Docker内存 | 15分钟样本：Core 5.00–24.68% / 18.75–20.27MiB；Worker 0.61–2.02% / 15.23–16.09MiB。Docker内存不是进程RSS；最终 Core 进程单次 RSS=30,588KiB |
+| 存储与延迟 | 主库294,912→1,359,872字节；样本最大WAL49,472字节。最终累计Docker block write Core419MB、Worker27.6MB；inspect整条命令723.18–1,825.73ms，不能解释为HTTP/成交延迟 |
+| 活跃服务在线备份 | 第7个计划完成时，原Core仍未暂停且代次不变；720,896字节备份在副本中启动校验并暂停，SHA256=a9e6e25e625e0b77f9b4113c6410929131743a40a477a8a395c691537875f2c5 |
+| 网络/进程/存储故障 | Worker真实断网、重连/重启，Core SIGKILL后新代次暂停，备份副本账本重放，受限SQLITE_FULL回滚，只读根目录/状态卷，无公网端口/外网出口均通过 |
+| 额外主循环停顿 | 对已暂停的最新Core发送SIGSTOP17秒，陈旧进度探测失败；SIGCONT后进度恢复，仍暂停、代次不变、无新成交 |
+| 原有Collector | 容器15bb1621a821、镜像及2026-10-08启动时间未变，全程健康；没有更新其文件/容器或历史库 |
+
+完整 Linux VPS check layer **403项测试通过 / 55.240秒**；最新实现11f9835的两轮 GitHub CI 通过，包括7份业务Schema、13份Transport例子、原三条容器链和新增运维双容器链。Windows通过新增8项、独立Paper HTTP进程测试、Ruff及Schema/离线验证；不把未获得完整终态的Windows全量运行报告为成功。原部署运行镜像没有完整文档fixtures，全量测试使用既有CI check layer；不为了测试向运行镜像额外复制文档。最终文档提交后的CI另以PR当前检查结果为准。
+
+本次不是独占性能测试：VPS保留Collector，期间还运行了有界测试容器。Docker写入量及数据库增长说明必须继续观察持久化成本与证据保留；不能从15分钟样本推断数日磁盘或内存稳定性。中途SSH会话断开，重新连接确认远端验收继续并完整输出passed；报告不靠客户端连接状态推断成功。
+
+## 留存现场与下一步
+
+只保留最新 `paper-ops-36a3713901a4` Core **healthy + paused**，Worker手动停止；此前15分钟项目和失败预检项目均停止，保留卷/证据，不占用活动执行权限。最新镜像 `perpetual-alpha-paper:11f9835`，image ID见汇总；私有证据目录 `/opt/perpetual-alpha-paper/acceptance-11f9835`，发布源码 `/opt/perpetual-alpha-paper/releases/11f9835`。这些是本轮隔离验收现场，不自动成为正式生产服务。
+
+可信操作者只读检查示例（无需打印secret文件）：
+
+```bash
+sudo docker exec paper-ops-36a3713901a4-core-1 python -m perpetual_alpha.runtime.paper_ops --database /data/runtime.sqlite3 inspect
+sudo docker exec paper-ops-36a3713901a4-core-1 python -m perpetual_alpha.runtime.paper_health
+sudo docker exec paper-ops-36a3713901a4-core-1 python -m perpetual_alpha.runtime.paper_ops --database /data/acceptance-backup.sqlite3 --work-directory /data verify
+```
+
+尚未验收：24/72小时或更长运行、主机断电/重启、磁盘老化/真实设备故障、异地备份恢复与生产报警送达。持续验收时长、数据库归档/保留、备份周期和RPO/RTO、通知接收方需要后续确认；不配置未经要求的定时任务，也不把本PR描述为全部运维最终放行。跨 VPS 仍需 TLS、认证和网络访问控制，本轮只使用同机内部网络。
+
+真实资金、杠杆/亏损/保证金/退出/期限换算政策、可靠估值与账户风险准入、真实执行接口仍未批准。本轮验收通过不自动授权后续 Testnet 或主网交易。
