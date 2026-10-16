@@ -14,7 +14,7 @@ class SimulationRiskGate:
         self.supervisor = supervisor
 
     @stable_decimal
-    def check(self, proposal, state, now):
+    def check(self, proposal, state, now, *, _execution_refresh=False):
         timestamp(now)
         proposal, state = copy.deepcopy(proposal), copy.deepcopy(state)
         policy = SimulationPolicy.from_dict(self.policy)
@@ -22,7 +22,9 @@ class SimulationRiskGate:
         metrics = None
 
         def verdict(status, code, message):
-            record = RiskVerdict(decision.decision_id+":gate:"+str(now), decision.decision_id,
+            check_id = digest({"decision": decision.to_dict(), "state": state, "policy": policy.to_dict(),
+                               "checked_ms": now, "status": status, "code": code, "message": message})
+            record = RiskVerdict(decision.decision_id+":gate:"+check_id, decision.decision_id,
                                  digest(decision.to_dict()), policy.version, now, status, code,
                                  "account:"+digest(state.get("account")), "market:"+digest(state.get("market")),
                                  state.get("risk", {}).get("snapshot_id", "risk-unavailable"), (message,), simulated=True)
@@ -44,11 +46,11 @@ class SimulationRiskGate:
             batch = ForecastBatch.from_dict(proposal["forecast"])
             if (digest(batch.to_dict()) != proposal["forecast_digest"] or batch.context_id != state["context_id"]
                     or (batch.producer_id, batch.producer_version) != (control["producer_id"], control["producer_version"])
-                    or not state["asof_ms"] <= batch.created_ms <= decision.created_ms):
+                    or not proposal["forecast_asof_ms"] <= batch.created_ms <= decision.created_ms):
                 raise ValueError("Forecast identity/digest/time invalid")
             usable = {}
             for f in batch.items:
-                if (f.symbol not in control["symbols"] or f.asof_ms != state["asof_ms"]
+                if (f.symbol not in control["symbols"] or f.asof_ms != proposal["forecast_asof_ms"]
                         or f.horizon_ms != policy.horizon_ms or f.status == "error"
                         or f.expires_ms <= now or decision.expires_ms > f.expires_ms):
                     raise ValueError("Forecast expired, unauthorized or unavailable")
@@ -57,7 +59,8 @@ class SimulationRiskGate:
             asof = proposal["forecast_asof_ms"]
             timestamp(asof)
             timestamp(proposal["control_epoch"])
-            if (asof != state["asof_ms"] or asof < control["accepted_asof_ms"]
+            if ((not _execution_refresh and asof != state["asof_ms"])
+                    or not 0 <= state["asof_ms"]-asof <= policy.max_age_ms or asof < control["accepted_asof_ms"]
                     or (control["consumed_asof_ms"] is not None and asof <= control["consumed_asof_ms"])):
                 raise ValueError("Forecast behind accepted/consumed watermark")
             if (proposal["control_epoch"] != control["epoch"] or decision.context_id != state["context_id"]
@@ -92,3 +95,9 @@ class SimulationRiskGate:
         except (ValueError, KeyError, TypeError, ArithmeticError):
             return verdict("deferred", "DATA_UNAVAILABLE", "Unverified state, identity, authority, step or binding; replan required")
         return verdict("approved", "OK", "SYNTHETIC ONLY: independent full-exposure limits passed")
+
+    def recheck_execution(self, proposal, state, now):
+        """Core-only local Paper reauthorization: immutable targets/analysis cutoff, fresh execution inputs."""
+        refreshed = copy.deepcopy(proposal)
+        refreshed["state_digest"] = digest(state)  # A policy change must invalidate, never rebind, an old approval.
+        return self.check(refreshed, state, now, _execution_refresh=True)

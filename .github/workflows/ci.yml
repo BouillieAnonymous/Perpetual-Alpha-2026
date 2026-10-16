@@ -63,6 +63,9 @@ jobs:
       - name: Verify synthetic Portfolio independent Risk Gate Supervisor and Mock
         run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_portfolio_risk.py
 
+      - name: Verify recoverable synthetic Paper ledger and atomic feedback
+        run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_paper.py
+
       - name: Run offline multi-asset simulations
         run: |
           docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python -m perpetual_alpha.cli dry-run --journal /tmp/ci-dry-run.sqlite3
@@ -75,3 +78,6 @@ jobs:
 
       - name: Verify shadow historical Gateway in separate containers
         run: python3 scripts/validate_mock_http_containers.py --history
+
+      - name: Verify Paper Core and Dummy containers with explicit resume and paused restart
+        run: python3 scripts/validate_paper_http_containers.py

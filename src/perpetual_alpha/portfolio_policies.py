@@ -14,7 +14,7 @@ class BudgetPortfolio:
         self.policy = copy.deepcopy(policy.to_dict())
 
     @stable_decimal
-    def construct(self, batch, state, now, decision_id):
+    def construct(self, batch, state, now, decision_id, *, analysis_asof_ms=None):
         policy = SimulationPolicy.from_dict(self.policy)
         state = copy.deepcopy(state)
         positions, _ = validate_state(state, policy, now)
@@ -23,9 +23,11 @@ class BudgetPortfolio:
         if (batch.context_id != state["context_id"] or (batch.producer_id, batch.producer_version) !=
                 (control["producer_id"], control["producer_version"])):
             raise PortfolioUnavailable("Forecast/control identity mismatch")
-        if not state["asof_ms"] <= batch.created_ms <= now:
+        asof = state["asof_ms"] if analysis_asof_ms is None else analysis_asof_ms
+        from .interfaces import timestamp
+        timestamp(asof)
+        if not 0 <= state["asof_ms"]-asof <= policy.max_age_ms or not asof <= batch.created_ms <= now:
             raise PortfolioUnavailable("Forecast batch time invalid")
-        asof = state["asof_ms"]
         if asof < control["accepted_asof_ms"] or (control["consumed_asof_ms"] is not None and asof <= control["consumed_asof_ms"]):
             raise PortfolioUnavailable("Forecast behind control watermark")
         desired, expiries = {}, [now+policy.decision_ttl_ms]

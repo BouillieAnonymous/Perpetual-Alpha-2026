@@ -162,3 +162,7 @@ Unified 账户来源、持仓/挂单、buying power 来源数组、完整性与 
 ## PR7 纯模拟组合与独立风控
 
 显式模拟资本预算、全持仓/挂单/调仓过渡敞口、独立 Gate 和默认暂停的 Supervisor 见 [PR7 实现说明](docs/portfolio-risk-pr7.zh-CN.md)。新本地 Harness 只接合成账户和已有 MockExecution；未接入在线消费链，不批准真实风险阈值或订单。
+
+## PR8 可恢复合成 Paper Core
+
+独立 Paper Core 复用 HTTP/Outbox 与 PR7 风控，持久 Intent、部分成交、费用/现金、对账和 Feedback 在同一 SQLite 事务域内；重启强制暂停，恢复由可信本地操作者显式执行。见 [PR8 实现说明](docs/paper-execution-pr8.zh-CN.md)。仍只使用合成行情/风险/账户，不访问或发送真实交易所订单，VPS 验收待 PR9。
