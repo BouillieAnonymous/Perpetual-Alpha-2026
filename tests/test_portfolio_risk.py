@@ -216,6 +216,13 @@ class PortfolioRiskTests(unittest.TestCase):
         self.state["health"]["execution"] = True
         self.assertTrue(s.inspect(self.state, self.now)["paused"])
         self.assertFalse(s.resume(self.state, self.now)["paused"])
+        p, g = self.plan(), self.gate()
+        self.state["health"]["execution"] = False
+        self.assertEqual(g.check(p, self.state, self.now)["verdict"]["status"], "deferred")
+        self.state["health"]["execution"] = True
+        self.assertEqual(g.check(p, self.state, self.now)["verdict"]["status"], "deferred")
+        g.supervisor.resume(self.state, self.now)
+        self.assertEqual(g.check(p, self.state, self.now)["verdict"]["status"], "approved")
 
     def test_supervisor_operates_without_forecast_or_agent(self):
         self.f.pop("forecast")

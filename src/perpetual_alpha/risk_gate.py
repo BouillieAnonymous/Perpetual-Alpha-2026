@@ -37,6 +37,8 @@ class SimulationRiskGate:
                       "state_digest", "policy_digest", "sizing"}
             if set(proposal) != fields or proposal["schema_version"] != "simulation-proposal/0.1":
                 raise ValueError("Invalid proposal envelope")
+            # Latch a state failure even when validation below rejects this individual proposal.
+            supervision = self.supervisor.inspect(state, now)
             positions, _ = validate_state(state, policy, now)
             control = state["control"]
             batch = ForecastBatch.from_dict(proposal["forecast"])
@@ -83,7 +85,6 @@ class SimulationRiskGate:
                     raise ValueError("Target does not conform to latest step")
             # Deliberately ignore Portfolio sizing metrics and recompute from immutable targets.
             metrics = exposure_metrics(state, policy, now, targets)
-            supervision = self.supervisor.inspect(state, now)
             if supervision["policy_digest"] != digest(policy.to_dict()) or supervision["paused"]:
                 return verdict("deferred", "BUSY", "Supervisor paused or policy mismatch")
             if metrics["breaches"]:
