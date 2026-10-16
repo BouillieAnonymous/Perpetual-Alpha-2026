@@ -150,3 +150,7 @@ if (-not (Test-Path .env)) { Copy-Item .env.example .env }
 ## PR4 多轮历史查询
 
 按 Job 固定版本、读取授权、查询预算和证据封存见 [PR4 Dynamic Data Gateway](docs/dynamic-data-gateway-pr4.zh-CN.md)。可选历史演示仅运行 Shadow Dummy，不生成执行 Decision。
+
+## PR5 只读账户观察
+
+Unified 账户来源、持仓/挂单、buying power 来源数组、完整性与 unknown 见 [PR5 账户 Adapter](docs/read-only-account-pr5.zh-CN.md)。独立证据存储；risk_ready 恒为 false，不接入交易。

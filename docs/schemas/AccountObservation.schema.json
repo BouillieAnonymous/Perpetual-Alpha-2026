@@ -1,0 +1,724 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AccountObservation",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "account-observation/0.1"
+    },
+    "source": {
+      "const": "hyperliquid-testnet/par"
+    },
+    "wallet": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{40}$"
+    },
+    "wallet_identity_source": {
+      "const": "operator-supplied-public-address"
+    },
+    "team_ownership_verified": {
+      "const": false
+    },
+    "capture_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "started_ms": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "observed_ms": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "status": {
+      "enum": [
+        "observed",
+        "partial",
+        "unavailable"
+      ]
+    },
+    "atomic": {
+      "const": false
+    },
+    "consistency": {
+      "enum": [
+        "unverified",
+        "bracket_matched_non_atomic",
+        "changed_or_incomplete"
+      ]
+    },
+    "account_mode": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "global_account_complete": {
+      "const": false
+    },
+    "other_dex_exposure": {
+      "const": "unknown"
+    },
+    "inflight_order_exposure": {
+      "const": "unknown-no-intent-ledger"
+    },
+    "equity_usd": {
+      "type": "null"
+    },
+    "available_margin_usd": {
+      "type": "null"
+    },
+    "risk_ready": {
+      "const": false
+    },
+    "balances": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "coin": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "token": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "total": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+          },
+          "hold": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+          },
+          "unheld_balance": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+          },
+          "available_after_maintenance": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "unit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          }
+        },
+        "required": [
+          "coin",
+          "token",
+          "total",
+          "hold",
+          "unheld_balance",
+          "available_after_maintenance",
+          "unit"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 1000
+    },
+    "positions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "symbol": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "quantity": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+          },
+          "mark_price": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "price_unit": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "supported_asset": {
+            "type": "boolean"
+          },
+          "reported_position_value": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+          },
+          "reported_value_unit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "entry_price": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "unrealized_pnl": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+          },
+          "margin_used": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+          },
+          "leverage": {
+            "type": "object"
+          },
+          "valuation_multiplier": {
+            "type": "null"
+          },
+          "notional_usd": {
+            "type": "null"
+          }
+        },
+        "required": [
+          "symbol",
+          "quantity",
+          "mark_price",
+          "price_unit",
+          "supported_asset",
+          "reported_position_value",
+          "reported_value_unit",
+          "entry_price",
+          "unrealized_pnl",
+          "margin_used",
+          "leverage",
+          "valuation_multiplier",
+          "notional_usd"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 1000
+    },
+    "open_orders": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "symbol": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "side": {
+            "enum": [
+              "buy",
+              "sell"
+            ]
+          },
+          "remaining_quantity": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+          },
+          "original_quantity": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+          },
+          "limit_price": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+          },
+          "reduce_only": {
+            "type": "boolean"
+          },
+          "is_trigger": {
+            "type": "boolean"
+          },
+          "trigger_price": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "order_type": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "client_order_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "ownership": {
+            "const": "unattributed"
+          },
+          "status": {
+            "const": "observed_open"
+          },
+          "supported_asset": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "order_id",
+          "symbol",
+          "side",
+          "remaining_quantity",
+          "original_quantity",
+          "limit_price",
+          "reduce_only",
+          "is_trigger",
+          "trigger_price",
+          "order_type",
+          "client_order_id",
+          "ownership",
+          "status",
+          "supported_asset"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 1000
+    },
+    "buying_power": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "available_to_trade": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "string",
+              "maxLength": 128,
+              "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+            }
+          },
+          "available_unit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "max_trade_sizes": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {
+              "type": "string",
+              "maxLength": 128,
+              "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+            }
+          },
+          "direction_mapping_verified": {
+            "const": false
+          },
+          "size_unit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "mark_price": {
+            "type": "string",
+            "maxLength": 128,
+            "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+          },
+          "leverage": {
+            "type": "object"
+          },
+          "received_ms": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "available_to_trade",
+          "available_unit",
+          "max_trade_sizes",
+          "direction_mapping_verified",
+          "size_unit",
+          "mark_price",
+          "leverage",
+          "received_ms"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "venue_perp_summary": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "collateral": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "coin": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            "token": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "total": {
+              "type": "string",
+              "maxLength": 128,
+              "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+            },
+            "hold": {
+              "type": "string",
+              "maxLength": 128,
+              "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+            },
+            "unheld_balance": {
+              "type": "string",
+              "maxLength": 128,
+              "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+            },
+            "available_after_maintenance": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 128,
+                  "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "unit": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            }
+          },
+          "required": [
+            "coin",
+            "token",
+            "total",
+            "hold",
+            "unheld_balance",
+            "available_after_maintenance",
+            "unit"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "exposures": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "position_quantity": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "pending_buy_quantity": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "pending_sell_quantity": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "minimum_quantity": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "maximum_quantity": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 128,
+                "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "known_observed_bounds": {
+            "type": "boolean"
+          },
+          "includes_reduce_only_and_triggers": {
+            "const": true
+          },
+          "notional_usd": {
+            "type": "null"
+          },
+          "supported_asset": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "position_quantity",
+          "pending_buy_quantity",
+          "pending_sell_quantity",
+          "minimum_quantity",
+          "maximum_quantity",
+          "known_observed_bounds",
+          "includes_reduce_only_and_triggers",
+          "notional_usd",
+          "supported_asset"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "components": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "enum": [
+              "missing",
+              "observed",
+              "error",
+              "invalid"
+            ]
+          },
+          "received_ms": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "payload_digest": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "event_ms": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "status",
+          "received_ms"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "par_positions_complete": {
+      "type": "boolean"
+    },
+    "par_orders_complete": {
+      "type": "boolean"
+    },
+    "balances_complete": {
+      "type": "boolean"
+    },
+    "order_changes": {
+      "type": "object",
+      "properties": {
+        "appeared": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          }
+        },
+        "disappeared_unresolved": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          }
+        },
+        "changed": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          }
+        }
+      },
+      "required": [
+        "appeared",
+        "disappeared_unresolved",
+        "changed"
+      ],
+      "additionalProperties": false
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 4096
+      }
+    },
+    "payload_digest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "required": [
+    "schema_version",
+    "source",
+    "wallet",
+    "wallet_identity_source",
+    "team_ownership_verified",
+    "capture_id",
+    "started_ms",
+    "observed_ms",
+    "status",
+    "atomic",
+    "consistency",
+    "account_mode",
+    "scope",
+    "global_account_complete",
+    "other_dex_exposure",
+    "inflight_order_exposure",
+    "equity_usd",
+    "available_margin_usd",
+    "risk_ready",
+    "balances",
+    "positions",
+    "open_orders",
+    "buying_power",
+    "venue_perp_summary",
+    "collateral",
+    "exposures",
+    "components",
+    "par_positions_complete",
+    "par_orders_complete",
+    "balances_complete",
+    "order_changes",
+    "issues",
+    "payload_digest"
+  ],
+  "additionalProperties": false
+}
