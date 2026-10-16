@@ -142,3 +142,7 @@ if (-not (Test-Path .env)) { Copy-Item .env.example .env }
 ## PR2 HTTP 模拟闭环
 
 独立 Core/Dummy 进程、双容器及恢复验收见 [PR2 通信闭环](docs/http-loop-pr2.zh-CN.md)。仅使用合成数据与 Mock Execution。
+
+## PR3 历史数据
+
+独立公开行情采集、十资产 metadata、K 线修订/质量和严格时点读取见 [PR3 历史市场数据](docs/historical-market-data-pr3.zh-CN.md)。历史层不接入真实交易，也不替换 PR2 fixture。
