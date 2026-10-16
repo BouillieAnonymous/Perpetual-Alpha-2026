@@ -1,0 +1,1229 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AgentTransport",
+  "$comment": "Structural checks; Python validates cross-field invariants.",
+  "$defs": {
+    "AnalysisJob": {
+      "type": "object",
+      "properties": {
+        "job_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "context_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "producer_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "producer_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "control_scope": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "control_epoch": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "role": {
+          "enum": [
+            "control",
+            "shadow"
+          ]
+        },
+        "symbols": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "asof_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "created_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "deadline_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "status": {
+          "enum": [
+            "queued",
+            "running",
+            "submitted",
+            "completed_without_forecast",
+            "failed",
+            "expired"
+          ]
+        },
+        "attempt": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "lease_epoch": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "limits": {
+          "$ref": "#/$defs/JobLimits"
+        },
+        "transport_version": {
+          "enum": [
+            "agent-transport/0.1"
+          ]
+        }
+      },
+      "required": [
+        "job_id",
+        "context_id",
+        "producer_id",
+        "producer_version",
+        "control_scope",
+        "control_epoch",
+        "role",
+        "symbols",
+        "asof_ms",
+        "created_ms",
+        "deadline_ms",
+        "status",
+        "attempt",
+        "lease_epoch",
+        "limits",
+        "transport_version"
+      ],
+      "additionalProperties": false
+    },
+    "JobLimits": {
+      "type": "object",
+      "properties": {
+        "max_queries": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "max_records_per_query": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "max_bytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "max_attempts": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "max_input_age_ms": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "max_inference_ms": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "max_queries",
+        "max_records_per_query",
+        "max_bytes",
+        "max_attempts",
+        "max_input_age_ms",
+        "max_inference_ms"
+      ],
+      "additionalProperties": false
+    },
+    "Lease": {
+      "type": "object",
+      "properties": {
+        "ref": {
+          "$ref": "#/$defs/LeaseRef"
+        },
+        "worker_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "claimed_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "expires_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "ref",
+        "worker_id",
+        "claimed_ms",
+        "expires_ms"
+      ],
+      "additionalProperties": false
+    },
+    "LeaseRef": {
+      "type": "object",
+      "properties": {
+        "job_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "attempt": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "lease_epoch": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "lease_token": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        }
+      },
+      "required": [
+        "job_id",
+        "attempt",
+        "lease_epoch",
+        "lease_token"
+      ],
+      "additionalProperties": false
+    },
+    "ProcessingRecord": {
+      "type": "object",
+      "properties": {
+        "processing_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "job_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "status": {
+          "enum": [
+            "pending",
+            "running",
+            "completed",
+            "blocked",
+            "failed"
+          ]
+        },
+        "reason_code": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "updated_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "decision_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "verdict_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "report_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "processing_id",
+        "job_id",
+        "status",
+        "reason_code",
+        "updated_ms",
+        "revision",
+        "decision_id",
+        "verdict_id",
+        "report_id"
+      ],
+      "additionalProperties": false
+    },
+    "SubmissionReceipt": {
+      "type": "object",
+      "properties": {
+        "job_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "submission_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "forecast_batch_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "payload_digest": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "received_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "processing_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        }
+      },
+      "required": [
+        "job_id",
+        "submission_id",
+        "forecast_batch_id",
+        "payload_digest",
+        "received_ms",
+        "processing_id"
+      ],
+      "additionalProperties": false
+    },
+    "DataRecord": {
+      "type": "object",
+      "properties": {
+        "record_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "symbol": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "event_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "received_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "data": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          }
+        }
+      },
+      "required": [
+        "record_id",
+        "symbol",
+        "event_ms",
+        "received_ms",
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "ClaimRequest": {
+      "type": "object",
+      "properties": {
+        "request_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "transport_version": {
+          "enum": [
+            "agent-transport/0.1"
+          ]
+        }
+      },
+      "required": [
+        "request_id",
+        "transport_version"
+      ],
+      "additionalProperties": false
+    },
+    "ClaimResponse": {
+      "type": "object",
+      "properties": {
+        "job": {
+          "$ref": "#/$defs/AnalysisJob"
+        },
+        "lease": {
+          "$ref": "#/$defs/Lease"
+        },
+        "transport_version": {
+          "enum": [
+            "agent-transport/0.1"
+          ]
+        }
+      },
+      "required": [
+        "job",
+        "lease",
+        "transport_version"
+      ],
+      "additionalProperties": false
+    },
+    "HeartbeatRequest": {
+      "type": "object",
+      "properties": {
+        "lease": {
+          "$ref": "#/$defs/LeaseRef"
+        },
+        "transport_version": {
+          "enum": [
+            "agent-transport/0.1"
+          ]
+        }
+      },
+      "required": [
+        "lease",
+        "transport_version"
+      ],
+      "additionalProperties": false
+    },
+    "HeartbeatResponse": {
+      "type": "object",
+      "properties": {
+        "lease": {
+          "$ref": "#/$defs/Lease"
+        },
+        "transport_version": {
+          "enum": [
+            "agent-transport/0.1"
+          ]
+        }
+      },
+      "required": [
+        "lease",
+        "transport_version"
+      ],
+      "additionalProperties": false
+    },
+    "ForecastSubmission": {
+      "type": "object",
+      "properties": {
+        "submission_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "lease": {
+          "$ref": "#/$defs/LeaseRef"
+        },
+        "forecast_batch": {
+          "$ref": "#/$defs/ForecastBatch"
+        },
+        "transport_version": {
+          "enum": [
+            "agent-transport/0.1"
+          ]
+        }
+      },
+      "required": [
+        "submission_id",
+        "lease",
+        "forecast_batch",
+        "transport_version"
+      ],
+      "additionalProperties": false
+    },
+    "ForecastBatch": {
+      "$comment": "Structural validation only; use Python contract validators for cross-field invariants.",
+      "type": "object",
+      "properties": {
+        "forecast_batch_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "context_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "producer_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "producer_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "symbol": {
+                "type": "string",
+                "pattern": "^par:.+$"
+              },
+              "asof_ms": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "expires_ms": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "horizon_ms": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "ready",
+                  "abstain",
+                  "error"
+                ]
+              },
+              "direction": {
+                "enum": [
+                  "up",
+                  "down",
+                  "neutral",
+                  null
+                ]
+              },
+              "evidence_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "reason": {
+                "type": "string"
+              },
+              "expected_return": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "prob_up": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "prob_down": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "forecast_vol": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "quantiles": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "distribution_ref": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "calibration_id": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "minLength": 1
+              },
+              "model_version": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "minLength": 1
+              },
+              "prompt_version": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "minLength": 1
+              }
+            },
+            "required": [
+              "symbol",
+              "asof_ms",
+              "expires_ms",
+              "horizon_ms",
+              "status",
+              "direction",
+              "evidence_refs"
+            ],
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "status": {
+                      "const": "ready"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "direction": {
+                      "enum": [
+                        "up",
+                        "down",
+                        "neutral"
+                      ]
+                    }
+                  }
+                },
+                "else": {
+                  "properties": {
+                    "direction": {
+                      "type": "null"
+                    },
+                    "expected_return": {
+                      "type": "null"
+                    },
+                    "prob_up": {
+                      "type": "null"
+                    },
+                    "prob_down": {
+                      "type": "null"
+                    },
+                    "forecast_vol": {
+                      "type": "null"
+                    },
+                    "quantiles": {
+                      "type": "null"
+                    },
+                    "distribution_ref": {
+                      "type": "null"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "schema_version": {
+          "type": "string",
+          "const": "forecast/0.1",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "forecast_batch_id",
+        "context_id",
+        "producer_id",
+        "producer_version",
+        "created_ms",
+        "items",
+        "schema_version"
+      ],
+      "additionalProperties": false
+    },
+    "SubmissionResponse": {
+      "type": "object",
+      "properties": {
+        "receipt": {
+          "$ref": "#/$defs/SubmissionReceipt"
+        },
+        "transport_version": {
+          "enum": [
+            "agent-transport/0.1"
+          ]
+        }
+      },
+      "required": [
+        "receipt",
+        "transport_version"
+      ],
+      "additionalProperties": false
+    },
+    "CompleteRequest": {
+      "type": "object",
+      "properties": {
+        "completion_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "lease": {
+          "$ref": "#/$defs/LeaseRef"
+        },
+        "outcome": {
+          "enum": [
+            "no_forecast",
+            "failed"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "transport_version": {
+          "enum": [
+            "agent-transport/0.1"
+          ]
+        }
+      },
+      "required": [
+        "completion_id",
+        "lease",
+        "outcome",
+        "reason",
+        "transport_version"
+      ],
+      "additionalProperties": false
+    },
+    "CompleteResponse": {
+      "type": "object",
+      "properties": {
+        "job_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "completion_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "status": {
+          "enum": [
+            "completed_without_forecast",
+            "failed"
+          ]
+        },
+        "received_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "transport_version": {
+          "enum": [
+            "agent-transport/0.1"
+          ]
+        }
+      },
+      "required": [
+        "job_id",
+        "completion_id",
+        "status",
+        "received_ms",
+        "transport_version"
+      ],
+      "additionalProperties": false
+    },
+    "DataQueryRequest": {
+      "type": "object",
+      "properties": {
+        "request_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "lease": {
+          "$ref": "#/$defs/LeaseRef"
+        },
+        "data_request": {
+          "$ref": "#/$defs/DataRequest"
+        },
+        "transport_version": {
+          "enum": [
+            "agent-transport/0.1"
+          ]
+        }
+      },
+      "required": [
+        "request_id",
+        "lease",
+        "data_request",
+        "transport_version"
+      ],
+      "additionalProperties": false
+    },
+    "DataRequest": {
+      "type": "object",
+      "properties": {
+        "dataset_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "kind": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "symbols": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "lookback_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "max_records": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "max_age_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "parameters": {
+          "type": "object",
+          "additionalProperties": {}
+        }
+      },
+      "required": [
+        "dataset_id",
+        "source",
+        "kind",
+        "symbols",
+        "fields",
+        "lookback_ms",
+        "max_records",
+        "max_age_ms",
+        "required",
+        "parameters"
+      ],
+      "additionalProperties": false
+    },
+    "DataQueryResponse": {
+      "type": "object",
+      "properties": {
+        "request_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "dataset_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "kind": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "schema_version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "asof_ms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "status": {
+          "enum": [
+            "ready",
+            "missing",
+            "stale",
+            "error"
+          ]
+        },
+        "units": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          }
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/DataRecord"
+          }
+        },
+        "truncated": {
+          "type": "boolean"
+        },
+        "error": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evidence_ref": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4096
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "payload_digest": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "transport_version": {
+          "enum": [
+            "agent-transport/0.1"
+          ]
+        }
+      },
+      "required": [
+        "request_id",
+        "dataset_id",
+        "source",
+        "kind",
+        "schema_version",
+        "asof_ms",
+        "status",
+        "units",
+        "records",
+        "truncated",
+        "error",
+        "evidence_ref",
+        "payload_digest",
+        "transport_version"
+      ],
+      "additionalProperties": false
+    },
+    "FeedbackResponse": {
+      "type": "object",
+      "properties": {
+        "job_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "job_status": {
+          "enum": [
+            "queued",
+            "running",
+            "submitted",
+            "completed_without_forecast",
+            "failed",
+            "expired"
+          ]
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "receipt": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SubmissionReceipt"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "processing": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ProcessingRecord"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "transport_version": {
+          "enum": [
+            "agent-transport/0.1"
+          ]
+        }
+      },
+      "required": [
+        "job_id",
+        "job_status",
+        "revision",
+        "receipt",
+        "processing",
+        "transport_version"
+      ],
+      "additionalProperties": false
+    },
+    "HealthResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "ready",
+            "unavailable"
+          ]
+        },
+        "transport_version": {
+          "enum": [
+            "agent-transport/0.1"
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "transport_version"
+      ],
+      "additionalProperties": false
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "properties": {
+        "request_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "code": {
+          "enum": [
+            "INVALID_REQUEST",
+            "UNSUPPORTED_VERSION",
+            "UNAUTHENTICATED",
+            "FORBIDDEN",
+            "NOT_FOUND",
+            "ID_CONFLICT",
+            "LEASE_LOST",
+            "EXPIRED",
+            "STALE_RESULT",
+            "INVALID_FORECAST",
+            "INVALID_CONTEXT",
+            "DATA_UNAVAILABLE",
+            "LIMIT_EXCEEDED",
+            "UNAVAILABLE"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4096
+        },
+        "retryable": {
+          "type": "boolean"
+        },
+        "transport_version": {
+          "enum": [
+            "agent-transport/0.1"
+          ]
+        }
+      },
+      "required": [
+        "request_id",
+        "code",
+        "message",
+        "retryable",
+        "transport_version"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/ClaimRequest"
+    },
+    {
+      "$ref": "#/$defs/ClaimResponse"
+    },
+    {
+      "$ref": "#/$defs/HeartbeatRequest"
+    },
+    {
+      "$ref": "#/$defs/HeartbeatResponse"
+    },
+    {
+      "$ref": "#/$defs/ForecastSubmission"
+    },
+    {
+      "$ref": "#/$defs/SubmissionResponse"
+    },
+    {
+      "$ref": "#/$defs/CompleteRequest"
+    },
+    {
+      "$ref": "#/$defs/CompleteResponse"
+    },
+    {
+      "$ref": "#/$defs/DataQueryRequest"
+    },
+    {
+      "$ref": "#/$defs/DataQueryResponse"
+    },
+    {
+      "$ref": "#/$defs/FeedbackResponse"
+    },
+    {
+      "$ref": "#/$defs/HealthResponse"
+    },
+    {
+      "$ref": "#/$defs/ErrorResponse"
+    }
+  ]
+}
