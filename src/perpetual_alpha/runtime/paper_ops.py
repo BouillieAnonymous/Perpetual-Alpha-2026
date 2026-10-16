@@ -45,9 +45,9 @@ def inspect(path):
         c.close()
 
 
-def verify(path, config):
+def verify(path, config, *, work_directory=None):
     """Rehearse restoration in a disposable copy; original backup remains untouched."""
-    with tempfile.TemporaryDirectory(prefix="paper-restore-") as folder:
+    with tempfile.TemporaryDirectory(prefix=".paper-restore-", dir=work_directory) as folder:
         restored = Path(folder)/"runtime.sqlite3"
         _copy_database(path, restored)
         before = inspect(restored)
@@ -87,7 +87,7 @@ def backup(source, destination, config):
     temporary = Path(temporary)
     try:
         _copy_database(source, temporary)
-        result = verify(temporary, config)
+        result = verify(temporary, config, work_directory=destination.parent)
         with temporary.open("r+b") as stream:
             checksum = hashlib.file_digest(stream, "sha256").hexdigest()
             os.fsync(stream.fileno())
@@ -111,6 +111,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--database", required=True)
     p.add_argument("--paper-config", default="config/paper-execution.synthetic.json")
+    p.add_argument("--work-directory", help="Writable scratch space for verify; original database is never replaced")
     commands = p.add_subparsers(dest="action", required=True)
     commands.add_parser("inspect")
     commands.add_parser("verify")
@@ -119,7 +120,7 @@ def main():
     if args.action == "inspect":
         result = inspect(args.database)
     elif args.action == "verify":
-        result = verify(args.database, load_paper(args.paper_config))
+        result = verify(args.database, load_paper(args.paper_config), work_directory=args.work_directory)
     else:
         result = backup(args.database, args.destination, load_paper(args.paper_config))
     print(canonical(result))

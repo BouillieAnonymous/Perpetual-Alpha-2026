@@ -123,7 +123,7 @@ def main():
         execute("python", "-m", "perpetual_alpha.runtime.paper_ops", "--database", "/data/runtime.sqlite3",
                 "backup", "--destination", "/data/acceptance-backup.sqlite3")
         result = json.loads(execute("python", "-m", "perpetual_alpha.runtime.paper_ops", "--database",
-                                    "/data/acceptance-backup.sqlite3", "verify"))
+                                    "/data/acceptance-backup.sqlite3", "--work-directory", "/data", "verify"))
         assert result["restore_verified"] and result["restored_boot_paused"]
         before = snapshot()["counts"]["paper_fills"]
         time.sleep(2)
