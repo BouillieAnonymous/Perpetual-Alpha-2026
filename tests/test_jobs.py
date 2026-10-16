@@ -13,7 +13,7 @@ from perpetual_alpha.forecasting import ForecastUnavailable
 from perpetual_alpha.runtime.ingress import IngressRejected
 from perpetual_alpha.runtime.jobs import JobQueue
 from perpetual_alpha.runtime.outbox import Outbox
-from perpetual_alpha.runtime.store import RuntimeStore
+from perpetual_alpha.runtime.store import SCHEMA_VERSION, RuntimeStore
 from perpetual_alpha.transport.messages import CompleteRequest
 
 
@@ -40,7 +40,7 @@ class JobQueueTests(unittest.TestCase):
 
     def test_runtime_is_versioned_wal_full_sync_foreign_keys_and_refuses_other_dbs(self):
         with self.store.connection() as c:
-            self.assertEqual(c.execute("PRAGMA user_version").fetchone()[0], 1)
+            self.assertEqual(c.execute("PRAGMA user_version").fetchone()[0], SCHEMA_VERSION)
             self.assertEqual(c.execute("PRAGMA journal_mode").fetchone()[0], "wal")
             self.assertEqual(c.execute("PRAGMA synchronous").fetchone()[0], 2)
             self.assertEqual(c.execute("PRAGMA foreign_keys").fetchone()[0], 1)
@@ -323,7 +323,7 @@ class JobQueueTests(unittest.TestCase):
         restored = RuntimeStore(fresh)
         with restored.connection() as c:
             self.assertFalse(c.execute("SELECT 1 FROM sqlite_master WHERE name='partial'").fetchone())
-            self.assertEqual(c.execute("PRAGMA user_version").fetchone()[0], 1)
+            self.assertEqual(c.execute("PRAGMA user_version").fetchone()[0], SCHEMA_VERSION)
 
     def test_consistent_sqlite_backup_can_restore_accepted_result_and_receipt_keys(self):
         claimed, sent, receipt = self.accept()

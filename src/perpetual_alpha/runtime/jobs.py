@@ -269,7 +269,7 @@ class JobQueue:
             self._control(c, job)
             return json.loads(row["manifest"])
 
-    def submit(self, principal, submission):
+    def submit(self, principal, submission, *, replay_status=False):
         submission = ForecastSubmission.from_dict(submission.to_dict())
         payload = submission.forecast_batch.to_dict()
         fingerprint = digest(payload)
@@ -286,7 +286,8 @@ class JobQueue:
                 if (saved["batch_id"], saved["payload_digest"]) != (submission.forecast_batch.forecast_batch_id, fingerprint):
                     reject("ID_CONFLICT", "Job already accepted another immutable result")
                 self._submission_key(c, key, job.job_id, fingerprint)
-                return SubmissionReceipt.from_dict(json.loads(saved["receipt"]))
+                receipt = SubmissionReceipt.from_dict(json.loads(saved["receipt"]))
+                return (receipt, True) if replay_status else receipt
             if c.execute("SELECT 1 FROM submissions WHERE producer_id=? AND producer_version=? AND batch_id=?",
                          (job.producer_id, job.producer_version, submission.forecast_batch.forecast_batch_id)).fetchone():
                 reject("ID_CONFLICT", "ForecastBatch ID already belongs to another job")
@@ -320,7 +321,7 @@ class JobQueue:
             if job.role == "control":
                 c.execute("UPDATE controls SET accepted_asof_ms=? WHERE scope=?", (job.asof_ms, job.control_scope))
             self.store.event(c, now, "forecast-accepted", receipt.to_dict())
-            return receipt
+            return (receipt, False) if replay_status else receipt
 
     @staticmethod
     def _submission_key(c, key, job_id, fingerprint):
