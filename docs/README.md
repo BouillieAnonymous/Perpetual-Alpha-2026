@@ -6,7 +6,8 @@
 |---|---|---|
 | [项目总览与任务](project-plan.zh-CN.md) | 谁做什么、现在到哪一步？ | 分工、节点、任务、会议与决定 |
 | [开发基线与分阶段实施计划 v0.3](development-baseline-v0.3.zh-CN.md) | 架构审查后决定怎样开发？ | 已确认架构与工程政策、审查反馈、PR0–PR2 首轮范围、后续阶段及验收与权限边界 |
-| [Agent Transport 0.1 / PR0](agent-transport-v0.1.zh-CN.md) | 跨进程接入的消息、状态和校验怎样定义？ | 纯契约与 Ingress、三轴状态、Schema、幂等/事务职责和 HTTP 映射；数据库与网络仍待后续 |
+| [Agent Transport 0.1 / PR0](agent-transport-v0.1.zh-CN.md) | 跨进程接入的消息、状态和校验怎样定义？ | 纯契约与 Ingress、三轴状态、Schema、幂等/事务职责和 HTTP 映射；数据库见 PR1，网络待 PR2 |
+| [SQLite 任务与 Outbox / PR1](runtime-jobs-pr1.zh-CN.md) | 任务如何原子领取、去重、调度与恢复？ | 真实文件数据库、事务接受与回执、触发合并、Outbox fencing、并发/崩溃测试；HTTP 与执行仍待后续 |
 | [架构 v0.3 技术审查报告](architecture-v0.3-review.zh-CN.md) | 当前代码与设计还有哪些差距？ | 固定 main 基线的代码证据、19 项问题、兼容性与恢复建议；后续决定见开发基线 |
 | [系统架构设计 v0.2](architecture-v0.2.zh-CN.md) | 研究与交易模块如何分工？ | 用户批准用于首轮模拟的架构、Forecast／Portfolio／Risk 边界与开放决策 |
 | [架构首轮实现与运行](architecture-implementation.zh-CN.md) | 架构哪些部分已运行，如何替换？ | 离线 Dry Run、演示政策、契约与样例、研究 Registry、异常处理、测试与真实交易缺口 |
