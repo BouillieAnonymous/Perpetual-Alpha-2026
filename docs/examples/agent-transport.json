@@ -1,0 +1,234 @@
+{
+  "ClaimRequest": {
+    "request_id": "claim-001",
+    "transport_version": "agent-transport/0.1"
+  },
+  "ClaimResponse": {
+    "job": {
+      "job_id": "job-001",
+      "context_id": "ctx-001",
+      "producer_id": "dummy-agent",
+      "producer_version": "test-0.1",
+      "control_scope": "paper-account",
+      "control_epoch": 1,
+      "role": "control",
+      "symbols": [
+        "par:BTC"
+      ],
+      "asof_ms": 100000,
+      "created_ms": 100000,
+      "deadline_ms": 220000,
+      "status": "running",
+      "attempt": 1,
+      "lease_epoch": 1,
+      "limits": {
+        "max_queries": 10,
+        "max_records_per_query": 100,
+        "max_bytes": 262144,
+        "max_attempts": 2,
+        "max_input_age_ms": 90000,
+        "max_inference_ms": 20000
+      },
+      "transport_version": "agent-transport/0.1"
+    },
+    "lease": {
+      "ref": {
+        "job_id": "job-001",
+        "attempt": 1,
+        "lease_epoch": 1,
+        "lease_token": "TEST-ONLY-NOT-A-CREDENTIAL"
+      },
+      "worker_id": "dummy-worker",
+      "claimed_ms": 100000,
+      "expires_ms": 130000
+    },
+    "transport_version": "agent-transport/0.1"
+  },
+  "HeartbeatRequest": {
+    "lease": {
+      "job_id": "job-001",
+      "attempt": 1,
+      "lease_epoch": 1,
+      "lease_token": "TEST-ONLY-NOT-A-CREDENTIAL"
+    },
+    "transport_version": "agent-transport/0.1"
+  },
+  "HeartbeatResponse": {
+    "lease": {
+      "ref": {
+        "job_id": "job-001",
+        "attempt": 1,
+        "lease_epoch": 1,
+        "lease_token": "TEST-ONLY-NOT-A-CREDENTIAL"
+      },
+      "worker_id": "dummy-worker",
+      "claimed_ms": 100000,
+      "expires_ms": 130000
+    },
+    "transport_version": "agent-transport/0.1"
+  },
+  "ForecastSubmission": {
+    "submission_id": "submit-001",
+    "lease": {
+      "job_id": "job-001",
+      "attempt": 1,
+      "lease_epoch": 1,
+      "lease_token": "TEST-ONLY-NOT-A-CREDENTIAL"
+    },
+    "forecast_batch": {
+      "forecast_batch_id": "batch-001",
+      "context_id": "ctx-001",
+      "producer_id": "dummy-agent",
+      "producer_version": "test-0.1",
+      "created_ms": 108000,
+      "items": [
+        {
+          "symbol": "par:BTC",
+          "asof_ms": 100000,
+          "expires_ms": 190000,
+          "horizon_ms": 3600000,
+          "status": "ready",
+          "direction": "up",
+          "evidence_refs": [
+            "btc-quotes"
+          ],
+          "reason": "",
+          "expected_return": null,
+          "prob_up": null,
+          "prob_down": null,
+          "forecast_vol": null,
+          "quantiles": null,
+          "distribution_ref": null,
+          "calibration_id": null,
+          "model_version": null,
+          "prompt_version": null
+        }
+      ],
+      "schema_version": "forecast/0.1"
+    },
+    "transport_version": "agent-transport/0.1"
+  },
+  "SubmissionResponse": {
+    "receipt": {
+      "job_id": "job-001",
+      "submission_id": "submit-001",
+      "forecast_batch_id": "batch-001",
+      "payload_digest": "439fb77a055c9036cd07decfc06011ff6f16a59223e0ca1e719cfe006fc996c5",
+      "received_ms": 108001,
+      "processing_id": "process-001"
+    },
+    "transport_version": "agent-transport/0.1"
+  },
+  "CompleteRequest": {
+    "completion_id": "complete-001",
+    "lease": {
+      "job_id": "job-001",
+      "attempt": 1,
+      "lease_epoch": 1,
+      "lease_token": "TEST-ONLY-NOT-A-CREDENTIAL"
+    },
+    "outcome": "no_forecast",
+    "reason": "No usable forecast",
+    "transport_version": "agent-transport/0.1"
+  },
+  "CompleteResponse": {
+    "job_id": "job-no-forecast",
+    "completion_id": "complete-001",
+    "status": "completed_without_forecast",
+    "received_ms": 108001,
+    "transport_version": "agent-transport/0.1"
+  },
+  "DataQueryRequest": {
+    "request_id": "query-001",
+    "lease": {
+      "job_id": "job-001",
+      "attempt": 1,
+      "lease_epoch": 1,
+      "lease_token": "TEST-ONLY-NOT-A-CREDENTIAL"
+    },
+    "data_request": {
+      "dataset_id": "btc-quotes",
+      "source": "hyperliquid-testnet/par",
+      "kind": "quote",
+      "symbols": [
+        "par:BTC"
+      ],
+      "fields": [
+        "bid",
+        "ask"
+      ],
+      "lookback_ms": 0,
+      "max_records": 1,
+      "max_age_ms": 90000,
+      "required": true,
+      "parameters": {}
+    },
+    "transport_version": "agent-transport/0.1"
+  },
+  "DataQueryResponse": {
+    "request_id": "query-001",
+    "dataset_id": "btc-quotes",
+    "source": "hyperliquid-testnet/par",
+    "kind": "quote",
+    "schema_version": "quote/1.0",
+    "asof_ms": 100000,
+    "status": "ready",
+    "units": {
+      "bid": "USDPR/base-asset",
+      "ask": "USDPR/base-asset"
+    },
+    "records": [
+      {
+        "record_id": "quote-001",
+        "symbol": "par:BTC",
+        "event_ms": 99000,
+        "received_ms": 99500,
+        "data": {
+          "bid": "99",
+          "ask": "101"
+        }
+      }
+    ],
+    "truncated": false,
+    "error": null,
+    "evidence_ref": "btc-quotes",
+    "payload_digest": "ce07fdc976c805ae0c122d7d7be01c93448be45c44312a7b6e7c777ab0111885",
+    "transport_version": "agent-transport/0.1"
+  },
+  "FeedbackResponse": {
+    "job_id": "job-001",
+    "job_status": "submitted",
+    "revision": 1,
+    "receipt": {
+      "job_id": "job-001",
+      "submission_id": "submit-001",
+      "forecast_batch_id": "batch-001",
+      "payload_digest": "439fb77a055c9036cd07decfc06011ff6f16a59223e0ca1e719cfe006fc996c5",
+      "received_ms": 108001,
+      "processing_id": "process-001"
+    },
+    "processing": {
+      "processing_id": "process-001",
+      "job_id": "job-001",
+      "status": "pending",
+      "reason_code": "OK",
+      "updated_ms": 108001,
+      "revision": 1,
+      "decision_id": null,
+      "verdict_id": null,
+      "report_id": null
+    },
+    "transport_version": "agent-transport/0.1"
+  },
+  "HealthResponse": {
+    "status": "ready",
+    "transport_version": "agent-transport/0.1"
+  },
+  "ErrorResponse": {
+    "request_id": "request-001",
+    "code": "LEASE_LOST",
+    "message": "Lease is no longer current",
+    "retryable": false,
+    "transport_version": "agent-transport/0.1"
+  }
+}

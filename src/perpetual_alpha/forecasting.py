@@ -4,7 +4,13 @@ from decimal import Decimal
 
 from .context import SOURCE
 from .contracts import Forecast, ForecastBatch, RiskSnapshot, positive_ms
-from .interfaces import DataRequest, identity, timestamp
+from .forecast_validation import (
+    ForecastUnavailable,
+    validate_context_header,
+    validate_datasets,
+    validate_forecast_result,
+)
+from .interfaces import DataRequest, timestamp
 from .producers import validate_producer, validate_requests
 
 
@@ -59,15 +65,6 @@ class MockAgentForecastProducer(RuleForecastProducer):
                              self.producer_version, baseline.created_ms, items)
 
 
-class ForecastUnavailable(ValueError):
-    """Structured scheduling failure; deliberately separate from the forecast/0.1 wire contract."""
-    def __init__(self, reason_code, reason):
-        super().__init__(reason)
-        self.reason_code = reason_code
-
-    def to_dict(self):
-        return {"reason_code": self.reason_code, "reason": str(self)}
-
 
 def checked_forecast(producer, context, *, clock=None, max_inference_ms=60000,
                      max_input_age_ms=60000, requirements=None, raise_on_error=None):
@@ -91,42 +88,12 @@ def checked_forecast(producer, context, *, clock=None, max_inference_ms=60000,
         except Exception as error:
             fail("INVALID_PRODUCER", "Invalid producer declaration: " + type(error).__name__)
         expected_identity = (producer.producer_id, producer.producer_version)
-        identity(context["context_id"])
-        timestamp(context["asof_ms"])
-        if context["protocol_version"] != "1.0":
-            fail("INVALID_CONTEXT", "Unsupported context protocol")
-        if context["account"] is not None:
-            timestamp(context["account"]["observed_ms"])
-            if context["account"]["observed_ms"] > context["asof_ms"]:
-                fail("INVALID_CONTEXT", "Account snapshot is after the context cutoff")
-        for report in context["execution_reports"]:
-            timestamp(report["observed_ms"])
-            if report["observed_ms"] > context["asof_ms"]:
-                fail("INVALID_CONTEXT", "Execution feedback is after the context cutoff")
+        validate_context_header(context)
         started = clock()
         timestamp(started)
         if not 0 <= started - context["asof_ms"] <= max_input_age_ms:
             fail("STALE_INPUT", "Context future or beyond input age limit")
-        allowed_datasets = {r.dataset_id: r for r in declared}
-        for request in declared:
-            dataset = context["datasets"].get(request.dataset_id)
-            if dataset is None or any(dataset[k] != expected for k, expected in (
-                ("source", request.source), ("kind", request.kind), ("parameters", request.parameters),
-                ("required", request.required),
-            )):
-                fail("INVALID_CONTEXT", "Dataset declaration/source mismatch: " + request.dataset_id)
-            if request.required and dataset["status"] != "ready":
-                fail("DATA_UNAVAILABLE", "Required dataset unavailable: " + request.dataset_id + ":" +
-                     dataset["status"] + ":" + str(dataset.get("error")))
-            if dataset["status"] == "ready" and not dataset["records"]:
-                fail("INVALID_CONTEXT", "Ready dataset has no records")
-            for row in dataset["records"]:
-                timestamp(row["event_ms"])
-                timestamp(row["received_ms"])
-                if not row["event_ms"] <= row["received_ms"] <= context["asof_ms"]:
-                    fail("INVALID_CONTEXT", "Dataset contains future information")
-                if row["symbol"] not in request.symbols or set(row["data"]) != set(request.fields):
-                    fail("INVALID_CONTEXT", "Dataset symbols/fields do not match the declared request")
+        validate_datasets(context, declared)
         adapter_error = None
         try:
             batch = producer.forecast(copy.deepcopy(context))
@@ -143,26 +110,8 @@ def checked_forecast(producer, context, *, clock=None, max_inference_ms=60000,
         if adapter_error is not None:
             fail("ADAPTER_TIMEOUT" if isinstance(adapter_error, TimeoutError) else "ADAPTER_ERROR",
                  "Adapter failure: " + type(adapter_error).__name__)
-        # Revalidate the JSON boundary, including mutations inside frozen objects.
-        batch = ForecastBatch.from_dict(batch.to_dict())
-        if (batch.context_id != context["context_id"]
-                or (batch.producer_id, batch.producer_version) != expected_identity
-                or (producer.producer_id, producer.producer_version) != expected_identity):
-            fail("IDENTITY_MISMATCH", "Producer/context identity mismatch")
-        if not context["asof_ms"] <= batch.created_ms <= received:
-            fail("INVALID_TIME", "Batch created before context or after trusted receive time")
-        allowed = {s for r in declared for s in r.symbols}
-        if any(i.symbol not in allowed for i in batch.items):
-            fail("UNDECLARED_ASSET", "Undeclared forecast asset")
-        for item in batch.items:
-            if item.asof_ms != context["asof_ms"]:
-                fail("INVALID_TIME", "Forecast information cutoff must match its context")
-            if item.expires_ms <= received:
-                fail("EXPIRED", "Forecast expired before reception")
-            for ref in item.evidence_refs:
-                if ref not in allowed_datasets or context["datasets"][ref]["status"] != "ready":
-                    fail("INVALID_EVIDENCE", "Unknown, undeclared or unavailable evidence reference")
-        return batch
+        return validate_forecast_result(batch, context, declared, expected_identity, received,
+                                        actual_identity=(producer.producer_id, producer.producer_version))
     except Exception as error:
         failure = error if isinstance(error, ForecastUnavailable) else ForecastUnavailable(
             "INVALID_FORECAST", "Invalid adapter output: " + type(error).__name__)

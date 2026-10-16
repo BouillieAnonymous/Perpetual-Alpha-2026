@@ -7,6 +7,8 @@ from jsonschema import Draft202012Validator
 from perpetual_alpha.contracts import ForecastBatch, RiskSnapshot, RiskVerdict
 from perpetual_alpha.research import ARTIFACTS
 from perpetual_alpha.schemas import CONTRACTS, schema_for
+from perpetual_alpha.transport.schemas import MESSAGES, bundle
+from perpetual_alpha.transport.schemas import schema_for as transport_schema
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -32,6 +34,18 @@ def main():
         validators[cls].validate(payload)
         cls.from_dict(payload)
     print(f"Validated {len(validators)} JSON Schemas and all documented contract examples")
+    saved = json.loads((ROOT / "docs/schemas/AgentTransport.schema.json").read_text(encoding="utf-8"))
+    if saved != bundle():
+        raise ValueError("Stale transport schema; run python -m perpetual_alpha.transport.schemas")
+    Draft202012Validator.check_schema(saved)
+    examples = json.loads((ROOT / "docs/examples/agent-transport.json").read_text(encoding="utf-8"))
+    if set(examples) != {cls.__name__ for cls in MESSAGES}:
+        raise ValueError("Missing transport message example")
+    for cls in MESSAGES:
+        Draft202012Validator(transport_schema(cls)).validate(examples[cls.__name__])
+        Draft202012Validator(saved).validate(examples[cls.__name__])
+        cls.from_dict(examples[cls.__name__])
+    print(f"Validated transport bundle and {len(MESSAGES)} request/response examples")
 
 
 if __name__ == "__main__":
