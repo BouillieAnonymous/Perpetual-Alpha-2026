@@ -11,15 +11,43 @@
         "hold_ms": 300000,
         "latency_ms": 1000,
         "max_age_ms": 90000,
-        "notional": "100"
+        "notional": "100",
+        "min_net_edge_bps": "5",
+        "cost_filter": false
       },
       "result": {
         "rows": 25046,
         "rejected_time_rows": 6,
         "signals": 993,
+        "cost_blocked_quote_rows": 0,
         "closed_trades": 218,
         "open_positions": 0,
         "realized_pnl": "-27.74166078976922628345470266",
+        "status": "sampled_estimate",
+        "limitations": "Unhedged; sampled fills; open positions excluded from realized PnL; funding stress only; no queue/latency guarantee or validated valuation adapter"
+      }
+    },
+    {
+      "split": "first_half",
+      "config": {
+        "threshold_bps": "10",
+        "fee_bps": "5",
+        "slippage_bps": "2",
+        "hold_ms": 300000,
+        "latency_ms": 1000,
+        "max_age_ms": 90000,
+        "notional": "100",
+        "min_net_edge_bps": "5",
+        "cost_filter": true
+      },
+      "result": {
+        "rows": 25046,
+        "rejected_time_rows": 6,
+        "signals": 375,
+        "cost_blocked_quote_rows": 1945,
+        "closed_trades": 119,
+        "open_positions": 0,
+        "realized_pnl": "-15.49949682640806810599906615",
         "status": "sampled_estimate",
         "limitations": "Unhedged; sampled fills; open positions excluded from realized PnL; funding stress only; no queue/latency guarantee or validated valuation adapter"
       }
@@ -33,15 +61,43 @@
         "hold_ms": 300000,
         "latency_ms": 1000,
         "max_age_ms": 90000,
-        "notional": "100"
+        "notional": "100",
+        "min_net_edge_bps": "5",
+        "cost_filter": false
       },
       "result": {
         "rows": 25046,
         "rejected_time_rows": 6,
         "signals": 387,
+        "cost_blocked_quote_rows": 0,
         "closed_trades": 126,
         "open_positions": 0,
         "realized_pnl": "-16.41419557364497006017512215",
+        "status": "sampled_estimate",
+        "limitations": "Unhedged; sampled fills; open positions excluded from realized PnL; funding stress only; no queue/latency guarantee or validated valuation adapter"
+      }
+    },
+    {
+      "split": "first_half",
+      "config": {
+        "threshold_bps": "20",
+        "fee_bps": "5",
+        "slippage_bps": "2",
+        "hold_ms": 300000,
+        "latency_ms": 1000,
+        "max_age_ms": 90000,
+        "notional": "100",
+        "min_net_edge_bps": "5",
+        "cost_filter": true
+      },
+      "result": {
+        "rows": 25046,
+        "rejected_time_rows": 6,
+        "signals": 370,
+        "cost_blocked_quote_rows": 67,
+        "closed_trades": 118,
+        "open_positions": 0,
+        "realized_pnl": "-15.35466859802635173573619949",
         "status": "sampled_estimate",
         "limitations": "Unhedged; sampled fills; open positions excluded from realized PnL; funding stress only; no queue/latency guarantee or validated valuation adapter"
       }
@@ -55,12 +111,40 @@
         "hold_ms": 300000,
         "latency_ms": 1000,
         "max_age_ms": 90000,
-        "notional": "100"
+        "notional": "100",
+        "min_net_edge_bps": "5",
+        "cost_filter": false
       },
       "result": {
         "rows": 25046,
         "rejected_time_rows": 6,
         "signals": 32,
+        "cost_blocked_quote_rows": 0,
+        "closed_trades": 24,
+        "open_positions": 0,
+        "realized_pnl": "-3.600784363381228222065620000",
+        "status": "sampled_estimate",
+        "limitations": "Unhedged; sampled fills; open positions excluded from realized PnL; funding stress only; no queue/latency guarantee or validated valuation adapter"
+      }
+    },
+    {
+      "split": "first_half",
+      "config": {
+        "threshold_bps": "50",
+        "fee_bps": "5",
+        "slippage_bps": "2",
+        "hold_ms": 300000,
+        "latency_ms": 1000,
+        "max_age_ms": 90000,
+        "notional": "100",
+        "min_net_edge_bps": "5",
+        "cost_filter": true
+      },
+      "result": {
+        "rows": 25046,
+        "rejected_time_rows": 6,
+        "signals": 32,
+        "cost_blocked_quote_rows": 0,
         "closed_trades": 24,
         "open_positions": 0,
         "realized_pnl": "-3.600784363381228222065620000",
@@ -77,16 +161,44 @@
         "hold_ms": 300000,
         "latency_ms": 1000,
         "max_age_ms": 90000,
-        "notional": "100"
+        "notional": "100",
+        "min_net_edge_bps": "5",
+        "cost_filter": false
       },
       "result": {
         "rows": 25004,
         "rejected_time_rows": 0,
         "signals": 1746,
+        "cost_blocked_quote_rows": 0,
         "closed_trades": 288,
         "open_positions": 1,
         "realized_pnl": "-58.79376022381629786791650614",
         "status": "incomplete",
+        "limitations": "Unhedged; sampled fills; open positions excluded from realized PnL; funding stress only; no queue/latency guarantee or validated valuation adapter"
+      }
+    },
+    {
+      "split": "second_half",
+      "config": {
+        "threshold_bps": "10",
+        "fee_bps": "5",
+        "slippage_bps": "2",
+        "hold_ms": 300000,
+        "latency_ms": 1000,
+        "max_age_ms": 90000,
+        "notional": "100",
+        "min_net_edge_bps": "5",
+        "cost_filter": true
+      },
+      "result": {
+        "rows": 25004,
+        "rejected_time_rows": 0,
+        "signals": 87,
+        "cost_blocked_quote_rows": 3629,
+        "closed_trades": 4,
+        "open_positions": 0,
+        "realized_pnl": "-0.4849223210030490888009943889",
+        "status": "sampled_estimate",
         "limitations": "Unhedged; sampled fills; open positions excluded from realized PnL; funding stress only; no queue/latency guarantee or validated valuation adapter"
       }
     },
@@ -99,15 +211,43 @@
         "hold_ms": 300000,
         "latency_ms": 1000,
         "max_age_ms": 90000,
-        "notional": "100"
+        "notional": "100",
+        "min_net_edge_bps": "5",
+        "cost_filter": false
       },
       "result": {
         "rows": 25004,
         "rejected_time_rows": 0,
         "signals": 96,
+        "cost_blocked_quote_rows": 0,
         "closed_trades": 3,
         "open_positions": 0,
         "realized_pnl": "-0.4669104273497419881822106667",
+        "status": "sampled_estimate",
+        "limitations": "Unhedged; sampled fills; open positions excluded from realized PnL; funding stress only; no queue/latency guarantee or validated valuation adapter"
+      }
+    },
+    {
+      "split": "second_half",
+      "config": {
+        "threshold_bps": "20",
+        "fee_bps": "5",
+        "slippage_bps": "2",
+        "hold_ms": 300000,
+        "latency_ms": 1000,
+        "max_age_ms": 90000,
+        "notional": "100",
+        "min_net_edge_bps": "5",
+        "cost_filter": true
+      },
+      "result": {
+        "rows": 25004,
+        "rejected_time_rows": 0,
+        "signals": 84,
+        "cost_blocked_quote_rows": 19,
+        "closed_trades": 3,
+        "open_positions": 0,
+        "realized_pnl": "-0.4298321734230319845493346667",
         "status": "sampled_estimate",
         "limitations": "Unhedged; sampled fills; open positions excluded from realized PnL; funding stress only; no queue/latency guarantee or validated valuation adapter"
       }
@@ -121,12 +261,40 @@
         "hold_ms": 300000,
         "latency_ms": 1000,
         "max_age_ms": 90000,
-        "notional": "100"
+        "notional": "100",
+        "min_net_edge_bps": "5",
+        "cost_filter": false
       },
       "result": {
         "rows": 25004,
         "rejected_time_rows": 0,
         "signals": 4,
+        "cost_blocked_quote_rows": 0,
+        "closed_trades": 0,
+        "open_positions": 0,
+        "realized_pnl": "0",
+        "status": "sampled_estimate",
+        "limitations": "Unhedged; sampled fills; open positions excluded from realized PnL; funding stress only; no queue/latency guarantee or validated valuation adapter"
+      }
+    },
+    {
+      "split": "second_half",
+      "config": {
+        "threshold_bps": "50",
+        "fee_bps": "5",
+        "slippage_bps": "2",
+        "hold_ms": 300000,
+        "latency_ms": 1000,
+        "max_age_ms": 90000,
+        "notional": "100",
+        "min_net_edge_bps": "5",
+        "cost_filter": true
+      },
+      "result": {
+        "rows": 25004,
+        "rejected_time_rows": 0,
+        "signals": 4,
+        "cost_blocked_quote_rows": 0,
         "closed_trades": 0,
         "open_positions": 0,
         "realized_pnl": "0",

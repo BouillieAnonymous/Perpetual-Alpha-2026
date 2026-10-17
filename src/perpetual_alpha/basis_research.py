@@ -2,19 +2,13 @@
 import argparse
 import hashlib
 import json
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from decimal import Decimal
 from pathlib import Path
 
+from .basis_costs import BasisCostModel, number
 from .contracts import Forecast, ForecastBatch
 from .forecasting import RuleForecastProducer
-
-
-def number(value):
-    result = Decimal(str(value))
-    if not result.is_finite():
-        raise ValueError("Nonfinite number")
-    return result
 
 
 def direction(bid, ask, reference, threshold_bps):
@@ -31,13 +25,17 @@ def direction(bid, ask, reference, threshold_bps):
 class BasisForecastProducer(RuleForecastProducer):
     """Register explicitly via ProducerRegistry; outputs forecasts, never orders."""
     producer_id = "reference-basis"
-    producer_version = "0.1"
+    producer_version = "0.2"
 
-    def __init__(self, symbols, horizon_ms, ttl_ms, threshold_bps="20", **kwargs):
+    def __init__(self, symbols, horizon_ms, ttl_ms, threshold_bps="20", *, cost_model=None, **kwargs):
         super().__init__(symbols, horizon_ms, ttl_ms, **kwargs)
         self.threshold = number(threshold_bps)
         if self.threshold <= 0:
             raise ValueError("Positive threshold required")
+        self.cost_model = cost_model or BasisCostModel()
+
+    def requirements(self):
+        return tuple(replace(r, fields=(*r.fields, "funding")) for r in super().requirements())
 
     def forecast(self, context):
         now, items = context["asof_ms"], []
@@ -51,6 +49,12 @@ class BasisForecastProducer(RuleForecastProducer):
                     data = row["data"]
                     signal = direction(data["bid"], data["ask"], data["oracle"], self.threshold)
                     refs, reason = (key,), "Oracle basis mean-reversion hypothesis; unhedged"
+                    if signal != "neutral":
+                        estimate = self.cost_model.estimate(signal, data["bid"], data["ask"], data["oracle"],
+                                                            data["funding"], self.horizon_ms)
+                        reason = "Conditional reference convergence cost estimate: " + json.dumps(estimate)
+                        if not estimate["eligible"]:
+                            signal = "neutral"
             items.append(Forecast(symbol, now, now + self.ttl_ms, self.horizon_ms,
                                   "ready" if signal else "abstain", signal, refs, reason))
         return ForecastBatch(context["context_id"] + ":" + self.producer_id, context["context_id"],
@@ -67,6 +71,8 @@ class ReplayConfig:
     latency_ms: int = 1000
     max_age_ms: int = 90000
     notional: str = "100"
+    min_net_edge_bps: str = "5"
+    cost_filter: bool = True
 
     def __post_init__(self):
         for key in ("threshold_bps", "notional"):
@@ -78,6 +84,9 @@ class ReplayConfig:
         for key in ("hold_ms", "latency_ms", "max_age_ms"):
             if type(getattr(self, key)) is not int or getattr(self, key) <= 0:
                 raise ValueError("Positive integer time required")
+        BasisCostModel(self.fee_bps, self.slippage_bps, self.min_net_edge_bps)
+        if type(self.cost_filter) is not bool:
+            raise ValueError("Cost filter must be boolean")
 
 
 def replay(rows, config=ReplayConfig()):
@@ -88,8 +97,9 @@ def replay(rows, config=ReplayConfig()):
     absolute observed hourly rates, not reconstructed settlement cashflows.
     """
     positions, pending, last = {}, {}, {}
-    trades, rejected, signals = [], 0, 0
+    trades, rejected, signals, cost_blocked = [], 0, 0, 0
     fee, slip = number(config.fee_bps) / 10000, number(config.slippage_bps) / 10000
+    cost_model = BasisCostModel(config.fee_bps, config.slippage_bps, config.min_net_edge_bps)
     for row in rows:
         s, now, event = row["symbol"], row["received_ms"], row["event_ms"]
         if s not in {"par:BTC", "par:ETH"}:
@@ -107,6 +117,12 @@ def replay(rows, config=ReplayConfig()):
             continue
         bid, ask, oracle = (number(row[k]) for k in ("bid", "ask", "oracle"))
         signal = direction(bid, ask, oracle, config.threshold_bps)
+        estimate = None
+        if signal != "neutral":
+            estimate = cost_model.estimate(signal, bid, ask, oracle, row["funding"], config.hold_ms)
+            if config.cost_filter and not estimate["eligible"]:
+                cost_blocked += 1
+                signal = "neutral"
         book = row["book"]
         if book["coin"] != s or book["time"] != event:
             raise ValueError("Book identity mismatch")
@@ -129,7 +145,7 @@ def replay(rows, config=ReplayConfig()):
                 pnl = side * q * (price - p["entry"]) - costs - funding
                 trades.append(dict(symbol=s, opened_ms=p["opened_ms"], closed_ms=now,
                                    side=side, quantity=str(q), pnl=str(pnl), costs=str(costs),
-                                   funding_stress=str(funding)))
+                                   funding_stress=str(funding), entry_estimate=p["entry_estimate"]))
                 del positions[s]
             continue
         if s in pending:
@@ -146,11 +162,12 @@ def replay(rows, config=ReplayConfig()):
                 "0.00001" if s == "par:BTC" else "0.0001")
             if q > 0 and q <= sizes[1 if side == 1 else 0]:
                 positions[s] = dict(side=side, quantity=q, entry=price, opened_ms=now,
-                                    funding=abs(number(row["funding"])))
+                                    funding=abs(number(row["funding"])), entry_estimate=estimate)
         elif signal != "neutral":
             pending[s] = (now, signal)
             signals += 1
     return dict(rows=len(rows), rejected_time_rows=rejected, signals=signals, trades=trades,
+                cost_blocked_quote_rows=cost_blocked,
                 closed_trades=len(trades), open_positions=len(positions),
                 realized_pnl=str(sum((number(t["pnl"]) for t in trades), Decimal(0))),
                 status="incomplete" if positions else "sampled_estimate",
@@ -172,8 +189,10 @@ def main():
     for label, subset in (("first_half", [r for r in rows if r["received_ms"] < cutoff]),
                           ("second_half", [r for r in rows if r["received_ms"] >= cutoff])):
         for threshold in ("10", "20", "50"):
-            config = ReplayConfig(threshold_bps=threshold)
-            result["experiments"].append(dict(split=label, config=config.__dict__, result=replay(subset, config)))
+            for enabled in (False, True):
+                config = ReplayConfig(threshold_bps=threshold, cost_filter=enabled)
+                result["experiments"].append(dict(split=label, config=config.__dict__,
+                                                  result=replay(subset, config)))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
 

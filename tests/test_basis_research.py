@@ -1,5 +1,7 @@
 import unittest
+from decimal import Decimal
 
+from perpetual_alpha.basis_costs import BasisCostModel
 from perpetual_alpha.basis_research import BasisForecastProducer, ReplayConfig, direction, replay
 from perpetual_alpha.context import SOURCE
 from perpetual_alpha.forecasting import checked_forecast
@@ -73,8 +75,12 @@ class BasisTests(unittest.TestCase):
         context = dict(asof_ms=1000, context_id="test", datasets={})
         self.assertEqual(producer.forecast(context).items[0].status, "abstain")
         context["datasets"]["par:BTC_quotes"] = dict(status="ready", records=[
-            dict(event_ms=990, received_ms=1000, data=dict(bid="98", ask="99", oracle="100"))])
+            dict(event_ms=990, received_ms=1000, data=dict(bid="98", ask="99", oracle="100", funding="0"))])
         self.assertEqual(producer.forecast(context).items[0].direction, "up")
+        context["datasets"]["par:BTC_quotes"]["records"][0]["data"].update(bid="99.7", ask="99.8")
+        filtered = producer.forecast(context).items[0]
+        self.assertEqual(filtered.direction, "neutral")
+        self.assertIn('"eligible": false', filtered.reason)
 
     def test_checked_forecast_boundary(self):
         producer = BasisForecastProducer(("par:BTC",), 300000, 90000)
@@ -82,10 +88,54 @@ class BasisTests(unittest.TestCase):
                        account=None, execution_reports=[], datasets={"par:BTC_quotes": dict(
                            source=SOURCE, kind="quote", parameters={}, required=True, status="ready",
                            records=[dict(symbol="par:BTC", event_ms=990, received_ms=1000,
-                                         data=dict(bid="98", ask="99", oracle="100", mark="100"))])})
+                                         data=dict(bid="98", ask="99", oracle="100", mark="100", funding="0"))])})
         batch = checked_forecast(producer, context, clock=lambda: 1000)
         self.assertEqual(batch.items[0].direction, "up")
         self.assertEqual(batch.items[0].evidence_refs, ("par:BTC_quotes",))
+
+    def test_cost_filter_rechecks_at_fill(self):
+        # Initial strong basis disappears before latency elapses: no entry.
+        result = replay([quote(1000), quote(2000, "99.85", "99.85")], ReplayConfig(threshold_bps="10"))
+        self.assertEqual(result["open_positions"], 0)
+        self.assertGreater(result["cost_blocked_quote_rows"], 0)
+
+    def test_cost_filter_keeps_exit_enabled(self):
+        result = replay([quote(1000), quote(2000), quote(302000, "99.9", "99.9")])
+        self.assertEqual(result["closed_trades"], 1)
+
+
+class CostTests(unittest.TestCase):
+    def test_long_and_short_hand_calculations(self):
+        model = BasisCostModel()
+        long = model.estimate("up", "100", "100", "101", "0", 300000)
+        short = model.estimate("down", "100", "100", "99", "0", 300000)
+        self.assertEqual(Decimal(long["net_edge_bps"]), Decimal("85.930010000"))
+        self.assertEqual(Decimal(short["net_edge_bps"]), Decimal("86.070010000"))
+        self.assertTrue(long["eligible"])
+        self.assertTrue(short["eligible"])
+
+    def test_equality_and_below_cost_are_rejected(self):
+        exact = BasisCostModel("0", "0", "100").estimate("up", "100", "100", "101", "0", 300000)
+        self.assertFalse(exact["eligible"])
+        small = BasisCostModel().estimate("up", "100", "100", "100.1", "0", 300000)
+        self.assertFalse(small["eligible"])
+
+    def test_spread_funding_and_horizon_reduce_edge(self):
+        model = BasisCostModel()
+        base = model.estimate("up", "100", "100", "102", "0", 300000)
+        spread = model.estimate("up", "99", "100", "102", "0", 300000)
+        funding = model.estimate("up", "100", "100", "102", "0.01", 300000)
+        longer = model.estimate("up", "100", "100", "102", "0.01", 600000)
+        self.assertLess(Decimal(spread["net_edge_bps"]), Decimal(base["net_edge_bps"]))
+        self.assertLess(Decimal(longer["net_edge_bps"]), Decimal(funding["net_edge_bps"]))
+        self.assertEqual(funding, model.estimate("up", "100", "100", "102", "-0.01", 300000))
+
+    def test_invalid_and_unknown_costs_fail_closed(self):
+        for kwargs in (dict(fee_bps="NaN"), dict(slippage_bps="10000"), dict(min_net_edge_bps="-1")):
+            with self.assertRaises(ValueError):
+                BasisCostModel(**kwargs)
+        with self.assertRaises(Exception):
+            BasisCostModel().estimate("up", "100", "100", "102", None, 300000)
 
 
 if __name__ == "__main__":
