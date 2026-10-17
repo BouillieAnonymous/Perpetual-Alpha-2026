@@ -86,11 +86,11 @@ flowchart TD
 
 ## 最新策略研究：参考价偏离
 
-当前分支新增基于 `oracle` 与比赛盘口偏离的传统 ForecastProducer，并使用现有 Collector 的 BTC／ETH 真实采样进行离线回放。producer 与回放共用成本模型，入场前检查双边手续费、滑点、预计退出价差与资金费压力成本。
+独立研究分支（[PR #13](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/13)）新增基于 `oracle` 与比赛盘口偏离的传统 ForecastProducer，并使用现有 Collector 的 BTC／ETH 真实采样进行离线回放。producer 与回放共用成本模型，入场前检查双边手续费、滑点、预计退出价差与资金费压力成本。
 
 这是**无外部对冲的单腿方向策略**。首轮回放及增加成本过滤后的开发对照均未支持盈利结论；约 30 秒的采样不能重建逐笔成交和排队，也尚未验证真实账户资本、保证金与完整估值。原始数据保存在本地缓存，未随 Git 提交。
 
-研究假设、参数、结果、复现方式与局限见 [参考价偏离研究](docs/reference-basis-research.zh-CN.md)。该模块尚未部署或接入真实订单。
+研究假设、参数、结果、复现方式与局限见 [参考价偏离研究](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/blob/codex/reference-basis-research/docs/reference-basis-research.zh-CN.md)。该模块尚未部署或接入真实订单。
 
 ## 只读 API 与手动 Testnet 工具
 
@@ -138,3 +138,4 @@ docs/           设计、实施记录、研究及验收证据说明
 - [Agent Transport 契约](docs/agent-transport-v0.1.zh-CN.md)与 [Forecast 集成](docs/forecast-integration-v0.2.1.zh-CN.md)：队友接入入口。
 
 下一阶段重点是验证策略、接入真实预测模块、补齐真实行情／账户风险与执行链路，并持续验证恢复和运行稳定性。Synthetic Paper 验收不自动授予真实 Testnet 或主网交易权限。
+
