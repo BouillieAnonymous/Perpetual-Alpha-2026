@@ -1,0 +1,150 @@
+{
+  "input_sha256": "3cf036db92ec090736596c80e76f8e69522bb171aec2ea1469867aa41e73ba93",
+  "schema": "basis-research/0.1",
+  "experiments": [
+    {
+      "split": "first_half",
+      "config": {
+        "threshold_bps": "10",
+        "fee_bps": "5",
+        "slippage_bps": "2",
+        "hold_ms": 300000,
+        "latency_ms": 1000,
+        "max_age_ms": 90000,
+        "notional": "100"
+      },
+      "result": {
+        "rows": 25046,
+        "rejected_time_rows": 6,
+        "signals": 993,
+        "closed_trades": 218,
+        "open_positions": 0,
+        "realized_pnl": "-27.74166078976922628345470266",
+        "status": "sampled_estimate",
+        "limitations": "Unhedged; sampled fills; open positions excluded from realized PnL; funding stress only; no queue/latency guarantee or validated valuation adapter"
+      }
+    },
+    {
+      "split": "first_half",
+      "config": {
+        "threshold_bps": "20",
+        "fee_bps": "5",
+        "slippage_bps": "2",
+        "hold_ms": 300000,
+        "latency_ms": 1000,
+        "max_age_ms": 90000,
+        "notional": "100"
+      },
+      "result": {
+        "rows": 25046,
+        "rejected_time_rows": 6,
+        "signals": 387,
+        "closed_trades": 126,
+        "open_positions": 0,
+        "realized_pnl": "-16.41419557364497006017512215",
+        "status": "sampled_estimate",
+        "limitations": "Unhedged; sampled fills; open positions excluded from realized PnL; funding stress only; no queue/latency guarantee or validated valuation adapter"
+      }
+    },
+    {
+      "split": "first_half",
+      "config": {
+        "threshold_bps": "50",
+        "fee_bps": "5",
+        "slippage_bps": "2",
+        "hold_ms": 300000,
+        "latency_ms": 1000,
+        "max_age_ms": 90000,
+        "notional": "100"
+      },
+      "result": {
+        "rows": 25046,
+        "rejected_time_rows": 6,
+        "signals": 32,
+        "closed_trades": 24,
+        "open_positions": 0,
+        "realized_pnl": "-3.600784363381228222065620000",
+        "status": "sampled_estimate",
+        "limitations": "Unhedged; sampled fills; open positions excluded from realized PnL; funding stress only; no queue/latency guarantee or validated valuation adapter"
+      }
+    },
+    {
+      "split": "second_half",
+      "config": {
+        "threshold_bps": "10",
+        "fee_bps": "5",
+        "slippage_bps": "2",
+        "hold_ms": 300000,
+        "latency_ms": 1000,
+        "max_age_ms": 90000,
+        "notional": "100"
+      },
+      "result": {
+        "rows": 25004,
+        "rejected_time_rows": 0,
+        "signals": 1746,
+        "closed_trades": 288,
+        "open_positions": 1,
+        "realized_pnl": "-58.79376022381629786791650614",
+        "status": "incomplete",
+        "limitations": "Unhedged; sampled fills; open positions excluded from realized PnL; funding stress only; no queue/latency guarantee or validated valuation adapter"
+      }
+    },
+    {
+      "split": "second_half",
+      "config": {
+        "threshold_bps": "20",
+        "fee_bps": "5",
+        "slippage_bps": "2",
+        "hold_ms": 300000,
+        "latency_ms": 1000,
+        "max_age_ms": 90000,
+        "notional": "100"
+      },
+      "result": {
+        "rows": 25004,
+        "rejected_time_rows": 0,
+        "signals": 96,
+        "closed_trades": 3,
+        "open_positions": 0,
+        "realized_pnl": "-0.4669104273497419881822106667",
+        "status": "sampled_estimate",
+        "limitations": "Unhedged; sampled fills; open positions excluded from realized PnL; funding stress only; no queue/latency guarantee or validated valuation adapter"
+      }
+    },
+    {
+      "split": "second_half",
+      "config": {
+        "threshold_bps": "50",
+        "fee_bps": "5",
+        "slippage_bps": "2",
+        "hold_ms": 300000,
+        "latency_ms": 1000,
+        "max_age_ms": 90000,
+        "notional": "100"
+      },
+      "result": {
+        "rows": 25004,
+        "rejected_time_rows": 0,
+        "signals": 4,
+        "closed_trades": 0,
+        "open_positions": 0,
+        "realized_pnl": "0",
+        "status": "sampled_estimate",
+        "limitations": "Unhedged; sampled fills; open positions excluded from realized PnL; funding stress only; no queue/latency guarantee or validated valuation adapter"
+      }
+    }
+  ],
+  "coverage": {
+    "par:BTC": {
+      "rows": 25032,
+      "start_ms": 1791424242665,
+      "end_ms": 1792199169928
+    },
+    "par:ETH": {
+      "rows": 25018,
+      "start_ms": 1791424242665,
+      "end_ms": 1792199169928
+    }
+  }
+}

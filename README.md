@@ -145,6 +145,8 @@ if (-not (Test-Path .env)) { Copy-Item .env.example .env }
 
 ## PR3 历史数据
 
+首轮传统参考价偏离策略、真实盘口采样回放及成本后结果见 [参考价偏离研究](docs/reference-basis-research.zh-CN.md)。仅离线研究，未部署。
+
 独立公开行情采集、十资产 metadata、K 线修订/质量和严格时点读取见 [PR3 历史市场数据](docs/historical-market-data-pr3.zh-CN.md)。历史层不接入真实交易，也不替换 PR2 fixture。
 
 ## PR4 多轮历史查询
