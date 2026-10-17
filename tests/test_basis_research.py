@@ -1,6 +1,8 @@
 import unittest
 
 from perpetual_alpha.basis_research import BasisForecastProducer, ReplayConfig, direction, replay
+from perpetual_alpha.context import SOURCE
+from perpetual_alpha.forecasting import checked_forecast
 from perpetual_alpha.producers import ProducerRegistry
 
 
@@ -73,6 +75,17 @@ class BasisTests(unittest.TestCase):
         context["datasets"]["par:BTC_quotes"] = dict(status="ready", records=[
             dict(event_ms=990, received_ms=1000, data=dict(bid="98", ask="99", oracle="100"))])
         self.assertEqual(producer.forecast(context).items[0].direction, "up")
+
+    def test_checked_forecast_boundary(self):
+        producer = BasisForecastProducer(("par:BTC",), 300000, 90000)
+        context = dict(protocol_version="1.0", asof_ms=1000, context_id="checked",
+                       account=None, execution_reports=[], datasets={"par:BTC_quotes": dict(
+                           source=SOURCE, kind="quote", parameters={}, required=True, status="ready",
+                           records=[dict(symbol="par:BTC", event_ms=990, received_ms=1000,
+                                         data=dict(bid="98", ask="99", oracle="100", mark="100"))])})
+        batch = checked_forecast(producer, context, clock=lambda: 1000)
+        self.assertEqual(batch.items[0].direction, "up")
+        self.assertEqual(batch.items[0].evidence_refs, ("par:BTC_quotes",))
 
 
 if __name__ == "__main__":
