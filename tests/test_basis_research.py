@@ -103,10 +103,24 @@ class BasisTests(unittest.TestCase):
         result = replay([quote(1000), quote(2000), quote(302000, "99.9", "99.9")])
         self.assertEqual(result["closed_trades"], 1)
 
+    def test_btc_quantity_matches_four_decimal_rule(self):
+        result = replay([quote(1000, "83900", "84000", "85000"),
+                         quote(2000, "83900", "84000", "85000"),
+                         quote(302000, "85000", "85001", "85000")])
+        self.assertEqual(Decimal(result["trades"][0]["quantity"]), Decimal("0.0011"))
+
+    def test_below_minimum_notional_cannot_enter(self):
+        result = replay([quote(1000), quote(2000)], ReplayConfig(notional="1"))
+        self.assertEqual(result["open_positions"], 0)
+
 
 class CostTests(unittest.TestCase):
+    def test_current_base_taker_fee_on_both_legs(self):
+        estimate = BasisCostModel().estimate("up", "100", "100", "100", "0", 300000)
+        self.assertEqual(Decimal(estimate["fee_bps"]), Decimal("18"))
+
     def test_long_and_short_hand_calculations(self):
-        model = BasisCostModel()
+        model = BasisCostModel(fee_bps="5")
         long = model.estimate("up", "100", "100", "101", "0", 300000)
         short = model.estimate("down", "100", "100", "99", "0", 300000)
         self.assertEqual(Decimal(long["net_edge_bps"]), Decimal("85.930010000"))

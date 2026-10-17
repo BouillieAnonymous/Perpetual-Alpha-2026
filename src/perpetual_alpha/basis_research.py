@@ -25,7 +25,7 @@ def direction(bid, ask, reference, threshold_bps):
 class BasisForecastProducer(RuleForecastProducer):
     """Register explicitly via ProducerRegistry; outputs forecasts, never orders."""
     producer_id = "reference-basis"
-    producer_version = "0.2"
+    producer_version = "0.3"
 
     def __init__(self, symbols, horizon_ms, ttl_ms, threshold_bps="20", *, cost_model=None, **kwargs):
         super().__init__(symbols, horizon_ms, ttl_ms, **kwargs)
@@ -65,7 +65,7 @@ class BasisForecastProducer(RuleForecastProducer):
 @dataclass(frozen=True)
 class ReplayConfig:
     threshold_bps: str = "20"
-    fee_bps: str = "5"
+    fee_bps: str = "9"
     slippage_bps: str = "2"
     hold_ms: int = 300000
     latency_ms: int = 1000
@@ -158,9 +158,8 @@ def replay(rows, config=ReplayConfig()):
             side = 1 if signal == "up" else -1
             price = ask * (1 + slip) if side == 1 else bid * (1 - slip)
             q = number(config.notional) / price
-            q = (q // Decimal("0.00001" if s == "par:BTC" else "0.0001")) * Decimal(
-                "0.00001" if s == "par:BTC" else "0.0001")
-            if q > 0 and q <= sizes[1 if side == 1 else 0]:
+            q = (q // Decimal("0.0001")) * Decimal("0.0001")
+            if q > 0 and q * price >= 10 and q <= sizes[1 if side == 1 else 0]:
                 positions[s] = dict(side=side, quantity=q, entry=price, opened_ms=now,
                                     funding=abs(number(row["funding"])), entry_estimate=estimate)
         elif signal != "neutral":

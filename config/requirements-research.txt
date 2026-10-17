@@ -1,0 +1,2 @@
+# Optional offline chart rendering only; do not add to the deployed runtime.
+matplotlib==3.10.7

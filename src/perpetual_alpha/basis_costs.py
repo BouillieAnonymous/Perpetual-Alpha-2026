@@ -17,7 +17,7 @@ def number(value):
 
 @dataclass(frozen=True)
 class BasisCostModel:
-    fee_bps: str = "5"
+    fee_bps: str = "9"
     slippage_bps: str = "2"
     min_net_edge_bps: str = "5"
 
