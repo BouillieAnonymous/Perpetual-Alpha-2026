@@ -2,5 +2,5 @@
 # Collection examples, not a decision to trade these assets.
 symbols = ["par:BTC", "par:ETH"]
 database = "/data/market.sqlite3"
-poll_seconds = 30
+poll_seconds = 5
 stale_seconds = 90
