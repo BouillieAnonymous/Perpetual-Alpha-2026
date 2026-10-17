@@ -138,4 +138,3 @@ docs/           设计、实施记录、研究及验收证据说明
 - [Agent Transport 契约](docs/agent-transport-v0.1.zh-CN.md)与 [Forecast 集成](docs/forecast-integration-v0.2.1.zh-CN.md)：队友接入入口。
 
 下一阶段重点是验证策略、接入真实预测模块、补齐真实行情／账户风险与执行链路，并持续验证恢复和运行稳定性。Synthetic Paper 验收不自动授予真实 Testnet 或主网交易权限。
-
