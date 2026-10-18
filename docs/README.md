@@ -24,6 +24,7 @@
 | [系统接口与部署](technical-plan.zh-CN.md) | 程序怎么接、怎么跑？ | 三段结构、信号接口、成本与风险检查、环境、服务器、部署和恢复 |
 | [数据来源与交易规则](data-development.zh-CN.md) | 能交易什么、数据从哪里来？ | 资产、官方接口与限制、外部和历史数据、标准格式与质量 |
 | [策略开发与头脑风暴](strategy-development.zh-CN.md) | 哪些想法值得验证、结果怎样？ | 三份外部资料、宏观假设、全部策略候选、Agent／RL、筛选与实验 |
+| [新闻事件 Agent 研究提案](research/news-event-agent-2026-10-18.zh-CN.md) | 如何把新闻理解转成可检验的传统量化信号？ | 文献核查、事件／预期差特征、接口缺口、时间外实验与后续小 PR；尚未实现 |
 | [Agent 与交易系统学习资料](agent-learning-resources.zh-CN.md) | Agent 怎么工作，传统框架怎样接入？ | 44 个资料条目、逐项说明、结构解释、学习安排；新增 Fin-R1／DeepSeek／Jev |
 | [10 月 14 日讨论总结与评论](meeting-2026-10-14-analysis.zh-CN.md) | 本次讨论收敛到什么，还有什么问题？ | 录音独立分析、与网页 ChatGPT 评论的对照、核实结果与首版建议 |
 
