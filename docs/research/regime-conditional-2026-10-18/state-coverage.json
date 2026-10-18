@@ -1,0 +1,72 @@
+{
+  "BTC": {
+    "UNKNOWN": 192,
+    "RANGE_LOW": 2009,
+    "TREND_LOW": 282,
+    "RANGE_HIGH": 1441,
+    "TREND_HIGH": 468
+  },
+  "ETH": {
+    "UNKNOWN": 192,
+    "RANGE_LOW": 1828,
+    "TREND_LOW": 332,
+    "RANGE_HIGH": 1525,
+    "TREND_HIGH": 515
+  },
+  "HYPE": {
+    "UNKNOWN": 192,
+    "RANGE_HIGH": 1805,
+    "TREND_HIGH": 446,
+    "TREND_LOW": 472,
+    "RANGE_LOW": 2083
+  },
+  "EWY": {
+    "UNKNOWN": 192,
+    "TREND_HIGH": 512,
+    "TREND_LOW": 689,
+    "RANGE_HIGH": 1777,
+    "RANGE_LOW": 1828
+  },
+  "EWJ": {
+    "UNKNOWN": 192,
+    "TREND_HIGH": 453,
+    "RANGE_HIGH": 1902,
+    "RANGE_LOW": 2101,
+    "TREND_LOW": 350
+  },
+  "GOLD": {
+    "UNKNOWN": 192,
+    "TREND_LOW": 527,
+    "RANGE_LOW": 1980,
+    "RANGE_HIGH": 1712,
+    "TREND_HIGH": 587
+  },
+  "BRENT": {
+    "UNKNOWN": 192,
+    "RANGE_HIGH": 1846,
+    "TREND_HIGH": 537,
+    "RANGE_LOW": 1913,
+    "TREND_LOW": 510
+  },
+  "USDJPY": {
+    "UNKNOWN": 192,
+    "RANGE_HIGH": 1917,
+    "TREND_HIGH": 325,
+    "RANGE_LOW": 2203,
+    "TREND_LOW": 361
+  },
+  "SP500": {
+    "UNKNOWN": 192,
+    "TREND_HIGH": 491,
+    "RANGE_HIGH": 1858,
+    "RANGE_LOW": 1915,
+    "TREND_LOW": 542
+  },
+  "USDEUR": {
+    "UNKNOWN": 192,
+    "TREND_HIGH": 424,
+    "RANGE_HIGH": 1919,
+    "RANGE_LOW": 2125,
+    "TREND_LOW": 338
+  }
+}

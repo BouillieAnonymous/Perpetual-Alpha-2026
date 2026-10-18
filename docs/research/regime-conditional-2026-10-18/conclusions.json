@@ -1,0 +1,19 @@
+{
+  "conditional_full_cells": 680,
+  "positive_attribution_cells": 118,
+  "conditional_status_counts": {
+    "INSUFFICIENT_DATA": 415,
+    "INCONCLUSIVE": 22,
+    "REJECTED": 243
+  },
+  "adequate_positive_all3_with5episodes": 2,
+  "train_family_state_attempts": 720,
+  "train_min_episode_and_days_pass": 25,
+  "supported_train_positive_net": 3,
+  "train_eligible": 0,
+  "mapped_active_state_cells": 0,
+  "mapped_total_cells": 240,
+  "selector_fills_base": 0,
+  "prospective_status": "INSUFFICIENT_DATA",
+  "all_outcomes_retrospective": true
+}

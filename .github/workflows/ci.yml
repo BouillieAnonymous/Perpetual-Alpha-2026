@@ -75,6 +75,9 @@ jobs:
       - name: Verify exact 37 cohort and long-history external ledgers
         run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_long_history.py
 
+      - name: Verify causal regime attribution selector and locked retrospective replays
+        run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_regime_study.py
+
       - name: Verify synthetic Portfolio independent Risk Gate Supervisor and Mock
         run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_portfolio_risk.py
 

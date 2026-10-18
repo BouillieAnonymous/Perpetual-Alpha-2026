@@ -1,0 +1,157 @@
+{
+  "source_hashes_normalized_LF": {
+    "scripts/regime_protocol.py": "4f61f1d57e2cc37cfc57b594b7477bab6374905ef30809649d06b46ae6b16181",
+    "scripts/regime_core.py": "c19d1d53bf71e532141912a7a489370ed42a5cc25d2d7d760b49ea1bbdf80137",
+    "scripts/run_regime_study.py": "62ba6bc21ca6077e8b3426cb715157612f8e8cbc99c2fd16e60aa6fa0ed5aa6e",
+    "scripts/report_regime_study.py": "220704d37ab04408983bb527f1ff6fc71cc690d649d232f3dd2bdc4489783658",
+    "scripts/validate_regime_study.py": "840b30d17739094d289ffd52e439addf0533a720c09d5f27cb80fb9ccc4457c7"
+  },
+  "protocol": {
+    "frozen_ms": 1792340794653,
+    "parent_commit": "6832145603b2bbd305fbbd91377d16538ecb5951",
+    "frozen_engine_sha256": "23de35d84bc34300e23d96b5d7c2bd73315aa8d6c5a71fd89ac49ca740510cce",
+    "prior_hashes_sha256": "dfe319205e9b57e9306b41cdfa6ad29b530f67d0397a3a471bc76ef87ddb9324",
+    "scope": "all170 fixed rules attribution; causal overlays for three predeclared representatives; all past already seen in PR15",
+    "feature": "25 closes efficiency>.35; RV24 stdev vs median strictly previous168 RV values; HIGH if >median; UNKNOWN until193h continuous history",
+    "states": [
+      "TREND_HIGH",
+      "TREND_LOW",
+      "RANGE_HIGH",
+      "RANGE_LOW"
+    ],
+    "families": [
+      "TSM",
+      "ATR",
+      "ROLLING_Z"
+    ],
+    "simple_filter": {
+      "TSM": "TREND_LOW",
+      "ATR": "TREND_HIGH",
+      "ROLLING_Z": "RANGE_LOW"
+    },
+    "selector": "asset-specific state->TSM/ATR/ROLLING_Z/FLAT, evaluated at UTC12h; held family until next12h, follow causal original shadow target",
+    "training_gate": ">=30 completed independent entry episodes in state,>=10 entry days; positive state-hour net; daily5day block bootstrap lower95>0; rank by mean daily conditional PnL, frozen family order ties",
+    "validation_gate": "choose best TRAIN-qualified family only, require >=5 completed entry episodes and>=3entrydays in same state and positive state-hour net in14d validation; failure->FLAT, no runner-up search",
+    "costs": "reuse native4.5bps/HIP3 9bps, full spread6+slip2/side delay1h; stress doublefee/spread18/slip4 delay2h; own funding only",
+    "capital": "10000 each of10 sleeves, total100000; fixed equal10% sleeve weights; original max.2 sleeve initial capital; no optimized risk weights",
+    "holdout": "last28d frozen before any new regime outcomes, no within-holdout retraining; algorithmic retrospective holdout, NOT genuinely unseen history",
+    "folds": [
+      {
+        "name": "walk-1",
+        "train": [
+          1777248000000,
+          1782432000000
+        ],
+        "validation": [
+          1782475200000,
+          1783684800000
+        ],
+        "test": [
+          1783728000000,
+          1784937600000
+        ]
+      },
+      {
+        "name": "walk-2",
+        "train": [
+          1778457600000,
+          1783641600000
+        ],
+        "validation": [
+          1783684800000,
+          1784894400000
+        ],
+        "test": [
+          1784937600000,
+          1786147200000
+        ]
+      },
+      {
+        "name": "walk-3",
+        "train": [
+          1779667200000,
+          1784851200000
+        ],
+        "validation": [
+          1784894400000,
+          1786104000000
+        ],
+        "test": [
+          1786147200000,
+          1787356800000
+        ]
+      },
+      {
+        "name": "walk-4",
+        "train": [
+          1780876800000,
+          1786060800000
+        ],
+        "validation": [
+          1786104000000,
+          1787313600000
+        ],
+        "test": [
+          1787356800000,
+          1788566400000
+        ]
+      },
+      {
+        "name": "walk-5",
+        "train": [
+          1782086400000,
+          1787270400000
+        ],
+        "validation": [
+          1787313600000,
+          1788523200000
+        ],
+        "test": [
+          1788566400000,
+          1789776000000
+        ]
+      },
+      {
+        "name": "final_locked28d",
+        "train": [
+          1783382400000,
+          1788566400000
+        ],
+        "validation": [
+          1788609600000,
+          1789819200000
+        ],
+        "test": [
+          1789862400000,
+          1792281600000
+        ]
+      }
+    ],
+    "purge_hours": 12,
+    "common_start_ms": 1777248000000,
+    "common_end_ms": 1792281600000,
+    "conditional_status": ">=30 completed episodes,>=10entrydays,>=3months with>=5episodes: else INSUFFICIENT_DATA; adequate and nonpositive=>REJECTED; positive=>INCONCLUSIVE; never PROMISING here",
+    "attribution": "PnL hour label from classifier at previous hour; entry episode counts separately; NOT entry-state PnL or executable filter",
+    "all_attempts_recorded": true,
+    "threshold_search": false,
+    "prospective_status": "INSUFFICIENT_DATA",
+    "stop": "no positive stable selector excess over FLAT and each fixed family in both rolling and locked28d, or inadequate active support => no runtime/ML development justified"
+  },
+  "experiment_count": 1200,
+  "conditional_count": 11800,
+  "prior_inputs": {
+    "BRENT-ledgers.jsonl.gz": "446e09e2653fea12a1de8ee6f2ce825fdcb29861c650a43d2d564678a0b41714",
+    "BTC-ledgers.jsonl.gz": "04153edaeda55109cad62cac38af72e48cdfb13e0d0a968757acc4aba437194e",
+    "ETH-ledgers.jsonl.gz": "6ef5c34369de37e034dce8f92d482215ddb66d8fa0a4c004bacb969647362d58",
+    "EWJ-ledgers.jsonl.gz": "48e39ded67c5bfcd76f65670a276d68b8a11f6f057b5854e7bf6e86e2d6b851c",
+    "EWY-ledgers.jsonl.gz": "e7a20f0170f76e479abc6124130399b5056e3622eef2daced6b9c357c8bc9f56",
+    "GOLD-ledgers.jsonl.gz": "58787edf6098ff3785e1b90ca0e149ae856a9fa5325fd0d36d75b037597a4bf6",
+    "hashes.json": "dfe319205e9b57e9306b41cdfa6ad29b530f67d0397a3a471bc76ef87ddb9324",
+    "HYPE-ledgers.jsonl.gz": "def0cbf2e8fc71be277a0b4a8a4b72434505121fb357158d46fd4afac7bb2dd8",
+    "nonoverlap-ledgers.jsonl.gz": "ef720bafc7ee453ffbbc3ad02430db2ed73dc15ac06a5c5f4459146db3c56fbb",
+    "registry-170.json": "d03fdc79641f380812a51cc8fcb36dfeb8e7fba1e60eee1b28c157e3a72b2565",
+    "SP500-ledgers.jsonl.gz": "6ad1d10be066ae1a8ac69656e837561769bf865acdfcae917e1423903018dc51",
+    "USDEUR-ledgers.jsonl.gz": "b516361026c5c047a462e5a3b85419315513a37cebe3487136c8e308eaebf4ef",
+    "USDJPY-ledgers.jsonl.gz": "900a167e44c33e5d55ebda54be3ed71571e4819bbb9c0c2d7dd1f714f9d74196"
+  }
+}
