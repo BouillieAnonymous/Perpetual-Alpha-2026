@@ -1,0 +1,453 @@
+{
+  "schema": "external-to-par-study/1",
+  "external": "Hyperliquid mainnet native BTC/ETH perpetual",
+  "par": "Hyperliquid testnet par:BTC/par:ETH",
+  "sources": [
+    "https://perpetual-alpha26.github.io/docs/",
+    "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint"
+  ],
+  "prior_pr_heads": {
+    "13": "13888e7",
+    "15": "ddfecba",
+    "16": "5584806",
+    "17": "0e100aa"
+  },
+  "study": "new information-source experiment; PR15 traditional rule search FROZEN",
+  "parameters": {
+    "algorithms": [
+      "tsm24",
+      "ema6/24",
+      "donchian24"
+    ],
+    "primary_hold_h": 4,
+    "secondary_prior_hold_h": 12,
+    "fixed_per_asset_capital_fraction": 0.1,
+    "external_execution": false,
+    "lag_fitting_or_time_shift": false
+  },
+  "vintage": "all downloaded historical data RETROSPECTIVE/SEEN; short probe observation only",
+  "external_history": {
+    "par:BTC": {
+      "bars": 4392,
+      "first_ms": 1776474000000,
+      "last_ms": 1792281600000
+    },
+    "par:ETH": {
+      "bars": 4392,
+      "first_ms": 1776474000000,
+      "last_ms": 1792281600000
+    }
+  },
+  "evidence": [
+    {
+      "venue": "external",
+      "request": {
+        "type": "meta"
+      },
+      "request_started_ms": 1792326841185,
+      "error": null,
+      "received_ms": 1792326841537,
+      "available_ms": 1792326841537,
+      "available_kind": "complete-receive-proxy-not-durable-commit-time",
+      "round_trip_ms": 344.0,
+      "payload_sha256": "3b22b3909e436c93b1bd1e2cc24f480082dfa5b8915b409a8c8fb37617abb711"
+    },
+    {
+      "venue": "external",
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "BTC",
+          "interval": "1h",
+          "startTime": 1776470400000,
+          "endTime": 1778198399999
+        }
+      },
+      "request_started_ms": 1792326842543,
+      "error": null,
+      "received_ms": 1792326843238,
+      "available_ms": 1792326843238,
+      "available_kind": "complete-receive-proxy-not-durable-commit-time",
+      "round_trip_ms": 688.0,
+      "payload_sha256": "650fe1ddd5495f91f5948c62d7a2f7c1725ddcdad547491d933a88f4f8b26a69"
+    },
+    {
+      "venue": "external",
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "BTC",
+          "interval": "1h",
+          "startTime": 1778198400000,
+          "endTime": 1779926399999
+        }
+      },
+      "request_started_ms": 1792326844250,
+      "error": null,
+      "received_ms": 1792326844600,
+      "available_ms": 1792326844600,
+      "available_kind": "complete-receive-proxy-not-durable-commit-time",
+      "round_trip_ms": 344.0,
+      "payload_sha256": "a20bd4d32c3e43d695753b3e0f40f1d897ec6d75cde396df1eabd5e308f31a83"
+    },
+    {
+      "venue": "external",
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "BTC",
+          "interval": "1h",
+          "startTime": 1779926400000,
+          "endTime": 1781654399999
+        }
+      },
+      "request_started_ms": 1792326845613,
+      "error": null,
+      "received_ms": 1792326846128,
+      "available_ms": 1792326846128,
+      "available_kind": "complete-receive-proxy-not-durable-commit-time",
+      "round_trip_ms": 515.0,
+      "payload_sha256": "9c706a2f5881e536c510f7a18caa822af4719e6dffa3d84c5240200afcbfd194"
+    },
+    {
+      "venue": "external",
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "BTC",
+          "interval": "1h",
+          "startTime": 1781654400000,
+          "endTime": 1783382399999
+        }
+      },
+      "request_started_ms": 1792326847136,
+      "error": null,
+      "received_ms": 1792326847862,
+      "available_ms": 1792326847862,
+      "available_kind": "complete-receive-proxy-not-durable-commit-time",
+      "round_trip_ms": 719.0,
+      "payload_sha256": "5dfc70990b3b1e0ef33c3176384fd4f055baaaec2921818ce981cfd9d89a38d7"
+    },
+    {
+      "venue": "external",
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "BTC",
+          "interval": "1h",
+          "startTime": 1783382400000,
+          "endTime": 1785110399999
+        }
+      },
+      "request_started_ms": 1792326848870,
+      "error": null,
+      "received_ms": 1792326849372,
+      "available_ms": 1792326849372,
+      "available_kind": "complete-receive-proxy-not-durable-commit-time",
+      "round_trip_ms": 515.0,
+      "payload_sha256": "93fef4656c1de311caa4093c1be90d03740ba4b8828ea6e451876ac5165bd1d1"
+    },
+    {
+      "venue": "external",
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "BTC",
+          "interval": "1h",
+          "startTime": 1785110400000,
+          "endTime": 1786838399999
+        }
+      },
+      "request_started_ms": 1792326850383,
+      "error": null,
+      "received_ms": 1792326851075,
+      "available_ms": 1792326851075,
+      "available_kind": "complete-receive-proxy-not-durable-commit-time",
+      "round_trip_ms": 703.0,
+      "payload_sha256": "58b77464605a117e189d4bb9211833f2f887964bba6fec7a22d17435a5bb119b"
+    },
+    {
+      "venue": "external",
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "BTC",
+          "interval": "1h",
+          "startTime": 1786838400000,
+          "endTime": 1788566399999
+        }
+      },
+      "request_started_ms": 1792326852090,
+      "error": null,
+      "received_ms": 1792326852768,
+      "available_ms": 1792326852768,
+      "available_kind": "complete-receive-proxy-not-durable-commit-time",
+      "round_trip_ms": 672.0,
+      "payload_sha256": "bef109ff95158a79daa6530fbd174a9665ffdfab7f56e7fb83c69a7fc155fd2d"
+    },
+    {
+      "venue": "external",
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "BTC",
+          "interval": "1h",
+          "startTime": 1788566400000,
+          "endTime": 1790294399999
+        }
+      },
+      "request_started_ms": 1792326853777,
+      "error": null,
+      "received_ms": 1792326854538,
+      "available_ms": 1792326854538,
+      "available_kind": "complete-receive-proxy-not-durable-commit-time",
+      "round_trip_ms": 750.0,
+      "payload_sha256": "eaf5c54b303231304c86d12c60199b389bb6e8083f86924c19d22b751f0993bd"
+    },
+    {
+      "venue": "external",
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "BTC",
+          "interval": "1h",
+          "startTime": 1790294400000,
+          "endTime": 1792022399999
+        }
+      },
+      "request_started_ms": 1792326855553,
+      "error": null,
+      "received_ms": 1792326855851,
+      "available_ms": 1792326855851,
+      "available_kind": "complete-receive-proxy-not-durable-commit-time",
+      "round_trip_ms": 297.0,
+      "payload_sha256": "7a1853325f65ab903547f11fab509769f5bb9453abe844cf355c07fbdd6a37fc"
+    },
+    {
+      "venue": "external",
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "BTC",
+          "interval": "1h",
+          "startTime": 1792022400000,
+          "endTime": 1792281599999
+        }
+      },
+      "request_started_ms": 1792326856861,
+      "error": null,
+      "received_ms": 1792326857173,
+      "available_ms": 1792326857173,
+      "available_kind": "complete-receive-proxy-not-durable-commit-time",
+      "round_trip_ms": 312.0,
+      "payload_sha256": "37b2162e0ebdfc401d466b65566664dcfded046c1de338a21447c1f5433328d3"
+    },
+    {
+      "venue": "external",
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "ETH",
+          "interval": "1h",
+          "startTime": 1776470400000,
+          "endTime": 1778198399999
+        }
+      },
+      "request_started_ms": 1792326858175,
+      "error": null,
+      "received_ms": 1792326858848,
+      "available_ms": 1792326858848,
+      "available_kind": "complete-receive-proxy-not-durable-commit-time",
+      "round_trip_ms": 672.0,
+      "payload_sha256": "a017dcab7d8ee857152298bb6972adb7129b3eceeb5411d21921426677640b67"
+    },
+    {
+      "venue": "external",
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "ETH",
+          "interval": "1h",
+          "startTime": 1778198400000,
+          "endTime": 1779926399999
+        }
+      },
+      "request_started_ms": 1792326859867,
+      "error": null,
+      "received_ms": 1792326860587,
+      "available_ms": 1792326860587,
+      "available_kind": "complete-receive-proxy-not-durable-commit-time",
+      "round_trip_ms": 718.0,
+      "payload_sha256": "74251cfe6527818dcf09ca794881acb6d88adc84c42ba13a79563b4920c2cda4"
+    },
+    {
+      "venue": "external",
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "ETH",
+          "interval": "1h",
+          "startTime": 1779926400000,
+          "endTime": 1781654399999
+        }
+      },
+      "request_started_ms": 1792326861601,
+      "error": null,
+      "received_ms": 1792326861893,
+      "available_ms": 1792326861893,
+      "available_kind": "complete-receive-proxy-not-durable-commit-time",
+      "round_trip_ms": 297.0,
+      "payload_sha256": "34db31c26c219a9ad885e6b25b921e9139d54c6287e8e52d984dc5cb013c3256"
+    },
+    {
+      "venue": "external",
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "ETH",
+          "interval": "1h",
+          "startTime": 1781654400000,
+          "endTime": 1783382399999
+        }
+      },
+      "request_started_ms": 1792326862901,
+      "error": null,
+      "received_ms": 1792326863251,
+      "available_ms": 1792326863251,
+      "available_kind": "complete-receive-proxy-not-durable-commit-time",
+      "round_trip_ms": 359.0,
+      "payload_sha256": "35dc8e71e54e6bc3feb079da3cb17d8329b3e85c5c6ddc5ee785b75e5d5dbee3"
+    },
+    {
+      "venue": "external",
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "ETH",
+          "interval": "1h",
+          "startTime": 1783382400000,
+          "endTime": 1785110399999
+        }
+      },
+      "request_started_ms": 1792326864264,
+      "error": null,
+      "received_ms": 1792326864817,
+      "available_ms": 1792326864817,
+      "available_kind": "complete-receive-proxy-not-durable-commit-time",
+      "round_trip_ms": 547.0,
+      "payload_sha256": "4c8ccf512c49773f4a25611e12c3c0471ab5e35b3d36211f87a7fb2877c20026"
+    },
+    {
+      "venue": "external",
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "ETH",
+          "interval": "1h",
+          "startTime": 1785110400000,
+          "endTime": 1786838399999
+        }
+      },
+      "request_started_ms": 1792326865830,
+      "error": null,
+      "received_ms": 1792326866108,
+      "available_ms": 1792326866108,
+      "available_kind": "complete-receive-proxy-not-durable-commit-time",
+      "round_trip_ms": 282.0,
+      "payload_sha256": "02d09ef6a22d8a0a16530af041dcdca72da8117cafc99c367205ea22c02cba73"
+    },
+    {
+      "venue": "external",
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "ETH",
+          "interval": "1h",
+          "startTime": 1786838400000,
+          "endTime": 1788566399999
+        }
+      },
+      "request_started_ms": 1792326867116,
+      "error": null,
+      "received_ms": 1792326867717,
+      "available_ms": 1792326867717,
+      "available_kind": "complete-receive-proxy-not-durable-commit-time",
+      "round_trip_ms": 609.0,
+      "payload_sha256": "fdd50ce25cf5277ebbda9e5db99e0f20b1b0c3a958dc603a35b1b9f15bc8739f"
+    },
+    {
+      "venue": "external",
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "ETH",
+          "interval": "1h",
+          "startTime": 1788566400000,
+          "endTime": 1790294399999
+        }
+      },
+      "request_started_ms": 1792326868734,
+      "error": null,
+      "received_ms": 1792326869430,
+      "available_ms": 1792326869430,
+      "available_kind": "complete-receive-proxy-not-durable-commit-time",
+      "round_trip_ms": 687.0,
+      "payload_sha256": "6e2a789cb3cae5055a78a04308be71556d225571e23c9cbed1fce18ab24e6437"
+    },
+    {
+      "venue": "external",
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "ETH",
+          "interval": "1h",
+          "startTime": 1790294400000,
+          "endTime": 1792022399999
+        }
+      },
+      "request_started_ms": 1792326870439,
+      "error": null,
+      "received_ms": 1792326870738,
+      "available_ms": 1792326870738,
+      "available_kind": "complete-receive-proxy-not-durable-commit-time",
+      "round_trip_ms": 297.0,
+      "payload_sha256": "dc8a3a1f3da137fff8fcfb009fdce83120b2b1d1380b9dc016b65bfbeeb9c46d"
+    },
+    {
+      "venue": "external",
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "ETH",
+          "interval": "1h",
+          "startTime": 1792022400000,
+          "endTime": 1792281599999
+        }
+      },
+      "request_started_ms": 1792326871752,
+      "error": null,
+      "received_ms": 1792326872066,
+      "available_ms": 1792326872066,
+      "available_kind": "complete-receive-proxy-not-durable-commit-time",
+      "round_trip_ms": 313.0,
+      "payload_sha256": "f0e0ca6e3d7b1c4f332bfab2e9eaf0e063616d7834f586ca63337a1919e206a2"
+    }
+  ],
+  "probe_books": 96,
+  "probe_failures": 0,
+  "inputs": {
+    "official-hourly.jsonl.gz": "12d76087ce906633100f9f2c60a006b05e6768b86173fdd9a9d9eee2f061f191",
+    "experiments\\manifest.json": "7e60cadaea9e13623ff3141f302b8d136c6b35bd6bc39fcf622fd08d3e5ab633",
+    "external-transfer\\external-history.jsonl.gz": "5eae3d1cba3924c9093e0989d509864d89a8959c1dee02620298872ac4ca21e5",
+    "external-transfer\\external-minute.jsonl.gz": "28596f9e6da41dbf1c8bd0f23c9643219f10f5cbe5b6887d02753a5231811f70",
+    "external-transfer\\par-minute.jsonl.gz": "84fc6939e3f824478faf5e8e28e2beee032f92b9b692b5268eac6eb27164b1fa",
+    "external-transfer\\paired-book-decoded-probe.jsonl.gz": "68b01741de2a700a61fefecee25b22a3ad9053cf404bb9b15b7ade643f4645e4"
+  },
+  "code": {
+    "market_transfer_sha256": "afbf9fffd0ee94190261782e0a2c4c5e31a94238f026303ce58979d8811e6f9e",
+    "runner_sha256": "f17abfd815cdd09fdccdf416785b73bdc20575b197ff04d6d93603cf310d29d0"
+  },
+  "confirmatory_result": "INSUFFICIENT_DATA",
+  "executable_net_return": null,
+  "independent_days_not_snapshots": true
+}

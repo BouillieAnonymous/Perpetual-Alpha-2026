@@ -1,0 +1,11 @@
+{
+  "association.json": "29b32af54fdf92541e20732e0398b62799455a55ee28d04b063dc30e093e9b24",
+  "comparison.csv": "c84fd718d552fd2d150af4ca5a6ce5b07c11082e4bf6647625e951e8d908acf7",
+  "comparisons.json": "691a1d9d6b3fa3925d1b2b85c8b7efa77e4391401869978455dfed7dd0cdb289",
+  "details.jsonl.gz": "7f4b629a7579b14d67fa0e05b43946aeafb05dc9abde510501ccdf6237f57e0d",
+  "external-long-price.json": "da3a38fb95c8d3040e600f6dd00d0e7158f72be7248f82e9766c40eaccf10941",
+  "lead-lag.json": "a71871b1c02fb3adec3567b15ee7b4220691d8c17ed015971a8d7508664b838e",
+  "manifest.json": "e19fcba0f7868d787ac8888f978bcf0cdf8ba7cfb405990a42f9be0cb69c5dc4",
+  "quote-transfer.json": "dd556501ca1dee3e7b1197f162730d8d0e811dbbeca8a6ca840df55261e6eaf3",
+  "summary.json": "ea63c1d911c67c142961f23422af66ff2cc9a774daacdb2dc113f641b3dddff4"
+}

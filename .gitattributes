@@ -8,3 +8,5 @@ deploy/*.txt text eol=lf
 /docs/research/new-alpha-discovery-2026-10-18/experiments/*.md text eol=lf
 /docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/*.json text eol=lf
 /docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/*.csv text eol=lf
+/docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/*.json text eol=lf
+/docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/*.csv text eol=lf
