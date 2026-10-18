@@ -1,0 +1,1 @@
+SHA256: raw bytes for gzip/PNG; UTF-8 text normalized to LF for all text files.

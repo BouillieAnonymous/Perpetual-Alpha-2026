@@ -12,6 +12,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from perpetual_alpha.historical.client import NoRedirect, PublicHistoryClient
+from perpetual_alpha.historical.contracts import PRICE_UNITS
 
 
 def main():
@@ -19,13 +20,16 @@ def main():
     parser.add_argument("--start-ms", type=int, required=True)
     parser.add_argument("--end-ms", type=int, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--symbols", nargs="+", default=["par:BTC", "par:ETH"])
     args = parser.parse_args()
+    if not args.symbols or len(set(args.symbols)) != len(args.symbols) or set(args.symbols) - PRICE_UNITS.keys():
+        parser.error("Select unique competition markets")
     if not 0 <= args.start_ms < args.end_ms or args.end_ms - args.start_ms > 14 * 86400000:
         raise ValueError("Explicit window of at most 14 days required")
     client = PublicHistoryClient()
     result = dict(schema="official-basis-evidence/0.1", endpoint="https://api.hyperliquid-testnet.xyz/info",
                   start_ms=args.start_ms, end_ms=args.end_ms, observations=[])
-    for coin in ("par:BTC", "par:ETH"):
+    for coin in args.symbols:
         for kind in ("fundingHistory", "recentTrades"):
             payload = dict(type=kind, coin=coin)
             if kind == "fundingHistory":
