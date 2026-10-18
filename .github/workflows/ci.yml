@@ -48,6 +48,15 @@ jobs:
       - name: Run offline regression tests
         run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python -m unittest discover -s tests -v
 
+      - name: Build isolated Funding-LAST release and verify PAS disabled
+        run: |
+          docker build --platform linux/amd64 -f deploy/Dockerfile.funding -t perpetual-alpha-funding:ci .
+          docker run --rm --network none --read-only perpetual-alpha-funding:ci inspect --config /app/config/funding/pas.toml
+          if docker run --rm --network none --read-only perpetual-alpha-funding:ci run --config /app/config/funding/pas.toml --execute; then
+            echo "ERROR: disabled competition runner unexpectedly started"
+            exit 1
+          fi
+
       - name: Validate contract schemas and examples
         run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_schemas.py
 
