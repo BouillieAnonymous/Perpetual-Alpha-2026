@@ -3,6 +3,8 @@ import gzip
 import json
 from pathlib import Path
 
+from audit_official_quant_costs import account
+
 from perpetual_alpha.offline_quant.data import read_archive, source_hash
 from perpetual_alpha.offline_quant.replay import Costs, replay
 from perpetual_alpha.offline_quant.run import orders_for, source_digest
@@ -21,6 +23,14 @@ def validate(root):
     bars, funding, specs, _ = read_archive(archive)
     summaries = json.loads((output / "summary.json").read_text(encoding="utf-8"))
     keys = {(r["strategy_id"], r["split"], r["scenario"]): r for r in summaries}
+    audit_root = root / "official-cost-audit"
+    official_rows = json.loads((audit_root / "summary.json").read_text(encoding="utf-8"))
+    official_keys = {(r["strategy_id"], r["split"], r["frozen_execution_scenario"]): r for r in official_rows}
+    for name, expected in json.loads((audit_root / "hashes.json").read_text(encoding="utf-8")).items():
+        if source_hash(audit_root / name) != expected:
+            raise ValueError("Official cost audit digest mismatch: " + name)
+    if set(official_keys) != set(keys):
+        raise ValueError("Official cost audit has different experiment identities")
     if len(keys) != len(summaries):
         raise ValueError("Duplicate experiment identity")
     with gzip.open(output / "details.jsonl.gz", "rt", encoding="utf-8") as stream:
@@ -29,6 +39,8 @@ def validate(root):
             detail = json.loads(line)
             key = detail["strategy_id"], detail["split"], detail["scenario"]
             summary = detail["summary"]
+            if account(detail) != official_keys[key]:
+                raise ValueError("Independent official cost re-accounting mismatch")
             if any(keys[key][field] != value for field, value in summary.items()):
                 raise ValueError("Detail/summary disagreement")
             if summary["net_return"] is not None or summary["executable_net_return"] is not None:
@@ -56,7 +68,7 @@ def validate(root):
             if any(reference[k] != v for k, v in result["summary"].items()):
                 raise ValueError("Frozen experiment replay mismatch: " + definition["id"])
             replays += 1
-    print(f"{count} archived experiment identities/ledgers checked; {replays} actual offline replays match")
+    print(f"{count} archived ledgers AND official cost audits checked; {replays} actual offline replays match")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,9 @@
+{
+  "experiments": 352,
+  "full_seen_base_versions": 44,
+  "positive_gross_versions": 24,
+  "positive_fee_only_versions": 11,
+  "positive_frozen_friction_versions": 9,
+  "positive_gross_erased_by_fee_alone": 14,
+  "warning": "versions overlap and include aliases/control/sensitivity; not independent strategies"
+}
