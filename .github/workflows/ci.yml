@@ -72,6 +72,9 @@ jobs:
       - name: Verify frozen EWY HYPE robustness and source audit
         run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_candidate_validation.py
 
+      - name: Verify exact 37 cohort and long-history external ledgers
+        run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_long_history.py
+
       - name: Verify synthetic Portfolio independent Risk Gate Supervisor and Mock
         run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_portfolio_risk.py
 

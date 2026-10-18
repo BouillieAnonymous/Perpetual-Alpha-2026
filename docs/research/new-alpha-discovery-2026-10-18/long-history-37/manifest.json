@@ -1,0 +1,98 @@
+{
+  "schema": "long-history-37-evidence/1",
+  "protocol": {
+    "schema": "long-history-37/1",
+    "frozen_ms": 1792337638344,
+    "parent_commit": "9137e6e8abc279b0e91e7bca39a46032024a7ff8",
+    "original_csv_sha256": "562f543e8e0eb45c3518afd6df2a64db0ec89a063850b9b029e220035f11255e",
+    "frozen_engine_sha256": "23de35d84bc34300e23d96b5d7c2bd73315aa8d6c5a71fd89ac49ca740510cce",
+    "selected_count": 37,
+    "universe_count": 170,
+    "mapping_candidates": {
+      "BTC": [
+        "native",
+        "BTC"
+      ],
+      "ETH": [
+        "native",
+        "ETH"
+      ],
+      "HYPE": [
+        "native",
+        "HYPE"
+      ],
+      "EWY": [
+        "xyz",
+        "xyz:EWY"
+      ],
+      "EWJ": [
+        "xyz",
+        "xyz:EWJ"
+      ],
+      "GOLD": [
+        "xyz",
+        "xyz:GOLD"
+      ],
+      "BRENT": [
+        "xyz",
+        "xyz:BRENTOIL"
+      ],
+      "USDJPY": [
+        "xyz",
+        "xyz:JPY"
+      ],
+      "SP500": [
+        "xyz",
+        "xyz:SP500"
+      ],
+      "USDEUR": [
+        "xyz",
+        "xyz:EUR"
+      ]
+    },
+    "history_end_ms": 1792335600000,
+    "signal_alias": "PAR symbol retained ONLY inside offline engine to preserve random SHA seed; real venue/coin never relabelled in provenance",
+    "primary_sources": "BTC/ETH archived six months; HYPE/EWY archived4998h; other HIP3 public latest up to4998h; own-venue funding only",
+    "all_past_is_retrospective": true,
+    "parameter_search": false,
+    "windows": "full +60/20/20 chronological12h gaps; each complete/partial calendar month>=24h",
+    "costs": "native base4.5bps/HIP3 base9bps; spread6bps+slip2bps each fill+delay1h; fee_only zero friction; stress double fee/spread18/slip4/delay2h",
+    "run_plan": "all170 full/base;37 selected full/splits all3 costs+calendar base; all10 assets long/short/flat same windows;37 matched-absolute-exposure direction controls full/splits base",
+    "state": "past-only efficiency25>0.35 trending else range, attribution only, no new gate",
+    "statistics": "daily fixed-capital PnL; moving5day block bootstrap2000 samples seed20261018; descriptive after selection, not confirmatory",
+    "reject": "complete own-venue cost scenario<=0 and >=90days =>LONG_HISTORY_REJECTED; positive =>INCONCLUSIVE; missing equivalence/history/funding or<90days =>INSUFFICIENT_DATA",
+    "future_followup_gate": "base/stress positive, validation/test positive,>=60%positive months,>=30entrysignals, daily excess95% lower bound>0 vs BOTH fixed directions; still exploratory",
+    "no_transfer_claim": "external own-market test only; PAR/PAS execution and prospective remain unvalidated"
+  },
+  "source_hashes_normalized_LF": {
+    "scripts/long_history_protocol.py": "1c1fc935c322b756c9696b223061b1feafb0c810c8b23a0b6d4d82cf935a8c05",
+    "scripts/capture_long_history.py": "97e7a14691aa5b7fdba1964cdbd943557983745329f30c206cd31afa2802308d",
+    "scripts/retry_long_history_capture.py": "0f3e48c688090031e62cd76f1355360aa97846bb6c7f7b5644166523bec203d4",
+    "scripts/run_long_history.py": "74053ee6366042045528d4f66fd3fe8ef9d6539af31f684c669c2164b40cbe8d",
+    "scripts/run_long_nonoverlap.py": "9813d8026bdde6a42d757d65d223fa79b8ff4fb12c3823d084af325696d5d928",
+    "scripts/analyze_long_history.py": "c7d695c599af3a4c7a44481e6d5efd50b552d057578df7714c01acca129b7578",
+    "scripts/report_long_history.py": "01eba87986ef30bef5a5f82d0cd087d7ad67a647ce714dd3b95d06df7b3a652c",
+    "scripts/validate_long_history.py": "26a5ae9f9f980f63795e8e02de4106399d83c3e5f47fa0bb4ca90132a470503f"
+  },
+  "input_hashes": {
+    "asset-coverage/comparison.csv": "562f543e8e0eb45c3518afd6df2a64db0ec89a063850b9b029e220035f11255e",
+    "external-transfer/external-history.jsonl.gz": "5eae3d1cba3924c9093e0989d509864d89a8959c1dee02620298872ac4ca21e5",
+    "candidate-validation/public-history.jsonl.gz": "e973cf51d1f1d13b1407969e103743d4fb77ed9510c15b9122c1366f9433a901",
+    "asset-coverage/par-BRENT-details.jsonl.gz": "6cb2e9e5928bacc552fd96a932f999183609436d50659ff27c5fba9deded7b77",
+    "asset-coverage/par-BTC-details.jsonl.gz": "62f84d0055a4beb551165e1d3a1ff6a821528ea56217ee8385b51d54096f5f9c",
+    "asset-coverage/par-ETH-details.jsonl.gz": "c8d04f93067076e8e88a8299681b1d9ddb0c183f22a860f9aa02202ef251a9de",
+    "asset-coverage/par-EWJ-details.jsonl.gz": "a2f6851759cacc89bf5c98488e649856835d122d345d4ac78e86f7b94ba52fdf",
+    "asset-coverage/par-EWY-details.jsonl.gz": "3386382c3b88c5309b1fb5c018cdfddd780326e6a4ebed769a1a30e6e28b4ce0",
+    "asset-coverage/par-GOLD-details.jsonl.gz": "9ef5709f07ec7b3b954fb3989d5c1a5daa4ef58e335d5b0c733eab10fa5990f0",
+    "asset-coverage/par-HYPE-details.jsonl.gz": "e9b1f499f51da3f95a5a9d3c63478876eb219bfeb6120462481551da5e1677fc",
+    "asset-coverage/par-SP500-details.jsonl.gz": "24dce3f389538c503c85be0edb871f3e4fe66898380a904cb2aeae68b4af38df",
+    "asset-coverage/par-USDEUR-details.jsonl.gz": "1cc421368780d7c8dbbd38df85b272e9f106f2155b68cbc3ea92cfc0fbe6b0d2",
+    "asset-coverage/par-USDJPY-details.jsonl.gz": "e8eb47f3d374c4d9347fd40eedcc9e4f671c91ca8ba49b5661a6ff569688ca89"
+  },
+  "experiment_count": 1892,
+  "status_counts": {
+    "LONG_HISTORY_REJECTED": 36,
+    "INCONCLUSIVE": 1
+  },
+  "all_execution_and_actual_funding_unknown": true
+}
