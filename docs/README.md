@@ -4,6 +4,7 @@
 
 | 文档 | 回答什么 | 放什么信息 |
 |---|---|---|
+| [Funding-LAST 双环境交付](funding-release.zh-CN.md) | ETH 策略如何接入 PAR/PAS 并隔离上线？ | 独立真实测试网 runner、冻结信号、订单与账户对账、风险政策、PAR 排练验收、PAS 禁用、备份回滚与限制 |
 | [项目总览与任务](project-plan.zh-CN.md) | 谁做什么、现在到哪一步？ | 分工、节点、任务、会议与决定 |
 | [开发基线与分阶段实施计划 v0.3](development-baseline-v0.3.zh-CN.md) | 架构审查后决定怎样开发？ | 已确认架构与工程政策、审查反馈、PR0–PR2 首轮范围、后续阶段及验收与权限边界 |
 | [Agent Transport 0.1 / PR0](agent-transport-v0.1.zh-CN.md) | 跨进程接入的消息、状态和校验怎样定义？ | 纯契约与 Ingress、三轴状态、Schema、幂等/事务职责和 HTTP 映射；数据库见 PR1，网络待 PR2 |
