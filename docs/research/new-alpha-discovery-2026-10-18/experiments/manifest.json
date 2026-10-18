@@ -2,8 +2,8 @@
   "schema": "traditional-quant-experiments/1",
   "input_sha256": "12d76087ce906633100f9f2c60a006b05e6768b86173fdd9a9d9eee2f061f191",
   "archive_name": "docs\\research\\new-alpha-discovery-2026-10-18\\official-hourly.jsonl.gz",
-  "code_base_commit": "5798b100836830e885a6eb0f0437cb76d266e16b",
-  "research_source_sha256": "f261118e9a0dff4a356f799e1d713efbde9ca5cd639cd77acde9b1b091497dab",
+  "code_base_commit": "73c34105eca1d96721e09b213b35da128286b578",
+  "research_source_sha256": "23de35d84bc34300e23d96b5d7c2bd73315aa8d6c5a71fd89ac49ca740510cce",
   "dependencies": {
     "numpy": "2.2.6",
     "scipy": "1.15.3",
