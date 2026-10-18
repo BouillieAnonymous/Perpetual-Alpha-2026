@@ -112,7 +112,7 @@ def main(argv=None):
             if args.execute:
                 raise ValueError('Observation service never accepts signing authority')
             with ProcessLock(folder / 'observer.lock'):
-                store = Ledger(folder / 'observations.sqlite3', {**identity, 'mode': 'unsigned-observer'})
+                store = Ledger(folder / 'observations-v1.sqlite3', {**identity, 'mode': 'unsigned-observer'})
                 stopped = threading.Event()
                 for sig in (signal.SIGINT, signal.SIGTERM):
                     signal.signal(sig, lambda *_: stopped.set())
@@ -153,6 +153,7 @@ def main(argv=None):
                     reason = str(exc) if isinstance(exc, ValueError) else type(exc).__name__
                     store.pause(millis(), 'startup: ' + reason)
                 client.enable_signer()
+                store.event(millis(), 'api-signer', {'address': client.signer_address, 'dex': p.dex})
                 stopped = threading.Event()
                 for sig in (signal.SIGINT, signal.SIGTERM):
                     signal.signal(sig, lambda *_: stopped.set())

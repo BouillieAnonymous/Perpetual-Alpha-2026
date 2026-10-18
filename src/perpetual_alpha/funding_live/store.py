@@ -3,6 +3,8 @@ import json
 import sqlite3
 from pathlib import Path
 
+APPLICATION_ID = 0x464C5631
+
 
 def encode(value):
     return json.dumps(value, sort_keys=True, separators=(',', ':'), allow_nan=False)
@@ -12,8 +14,13 @@ class Ledger:
     def __init__(self, path, identity):
         path = Path(path)
         path.parent.mkdir(parents=True, exist_ok=True)
+        exists = path.exists()
         self.db = sqlite3.connect(path, timeout=20, isolation_level=None)
         self.db.row_factory = sqlite3.Row
+        if exists and (self.db.execute('PRAGMA application_id').fetchone()[0] != APPLICATION_ID
+                       or self.db.execute('PRAGMA user_version').fetchone()[0] != 1):
+            self.close()
+            raise ValueError('Foreign or unsupported ledger; refusing adoption/migration')
         self.db.execute('PRAGMA journal_mode=WAL')
         self.db.execute('PRAGMA synchronous=FULL')
         self.db.execute('PRAGMA foreign_keys=ON')
@@ -32,11 +39,18 @@ class Ledger:
         ''')
         existing = self.db.execute('SELECT value FROM identity').fetchone()
         if existing is None:
+            if exists:
+                self.close()
+                raise ValueError('Existing ledger identity missing; do not adopt')
+            self.db.execute('BEGIN IMMEDIATE')
             self.db.execute('INSERT INTO identity VALUES (1,?)', (encode(identity),))
             self.db.execute('INSERT INTO state VALUES (1,?)', (encode({
                 'paused': True, 'reason': 'not-started', 'generation': 0, 'pause_epoch': 0,
                 'baseline': None, 'peak': None, 'expected_quantity': '0', 'last_tick_ms': None,
             }),))
+            self.db.execute(f'PRAGMA application_id={APPLICATION_ID}')
+            self.db.execute('PRAGMA user_version=1')
+            self.db.execute('COMMIT')
         elif existing[0] != encode(identity):
             self.close()
             raise ValueError('Ledger identity/policy mismatch; never relabel old state')

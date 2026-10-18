@@ -1,5 +1,6 @@
 """Fault and boundary tests for REAL-exchange adapter orchestration (all I/O faked)."""
 import copy
+import sqlite3
 import subprocess
 import sys
 import tempfile
@@ -260,6 +261,18 @@ class FundingEngineTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.engine.tick()
         self.assertEqual(self.client.orders, [])
+
+    def test_foreign_runtime_is_not_adopted(self):
+        path = Path(self.tmp.name) / 'foreign.sqlite3'
+        with sqlite3.connect(path) as db:
+            db.execute('CREATE TABLE old_runtime (value TEXT)')
+        db.close()
+        with self.assertRaises(ValueError):
+            Ledger(path, self.identity)
+        with sqlite3.connect(path) as db:
+            self.assertEqual(db.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall(),
+                             [('old_runtime',)])
+        db.close()
 
     def test_restart_invalidates_old_operator_request(self):
         self.resume()
