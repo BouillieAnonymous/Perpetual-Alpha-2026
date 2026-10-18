@@ -50,5 +50,3 @@ def common_venue(symbols):
     if len(selected) != 1:
         raise ValueError('One nonempty unmixed venue required')
     return selected.pop()
-
-
