@@ -158,6 +158,13 @@ class FundingPolicyTests(unittest.TestCase):
         self.assertTrue(order['reduce_only'])
         self.assertEqual(dec(order['expected_after']), 0)
 
+    def test_exit_not_blocked_by_appreciation_above_entry_budget(self):
+        self.s['quantity'] = '.02'
+        order = make_order(self.s, '0', self.p, NOW, emergency=True)
+        self.assertTrue(order['reduce_only'])
+        self.assertGreater(dec(order['quantity']) * dec(order['price']), dec(self.p.max_order_notional))
+        self.assertEqual(dec(order['expected_after']), 0)
+
     def test_disabled_pas_config_and_exact_identity(self):
         self.assertFalse(load_policy('config/funding/pas.toml').enabled)
         with self.assertRaises(ValueError):

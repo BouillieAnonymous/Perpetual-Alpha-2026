@@ -156,7 +156,7 @@ def make_order(s, target, p, now_ms, *, emergency=False):
     if qty == 0 or notional < 10:
         # Never enlarge a risk budget to satisfy the exchange minimum.
         return None
-    if notional > dec(p.max_order_notional):
+    if not reduce and notional > dec(p.max_order_notional):
         raise ValueError('Order exceeds absolute limit')
     after = current + (qty if buy else -qty)
     if not reduce:
