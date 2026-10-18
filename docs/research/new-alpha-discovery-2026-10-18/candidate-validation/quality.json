@@ -1,0 +1,214 @@
+{
+  "errors": [],
+  "bars": {
+    "mainnet/HYPE/1h": {
+      "count": 4998,
+      "unique": 4998,
+      "first_ms": 1774342800000,
+      "last_ms": 1792332000000,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600000,
+      "gap_count": 0,
+      "missing_grid_points": 0,
+      "zero_volume_bars": 0,
+      "available_ms_min": 1792333060602,
+      "available_ms_max": 1792333060602
+    },
+    "mainnet/HYPE/1d": {
+      "count": 682,
+      "unique": 682,
+      "first_ms": 1733443200000,
+      "last_ms": 1792281600000,
+      "median_gap_ms": 86400000,
+      "max_gap_ms": 86400000,
+      "gap_count": 0,
+      "missing_grid_points": 0,
+      "zero_volume_bars": 0,
+      "available_ms_min": 1792333061551,
+      "available_ms_max": 1792333061551
+    },
+    "mainnet/xyz:EWY/1h": {
+      "count": 4998,
+      "unique": 4998,
+      "first_ms": 1774342800000,
+      "last_ms": 1792332000000,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600000,
+      "gap_count": 0,
+      "missing_grid_points": 0,
+      "zero_volume_bars": 2,
+      "available_ms_min": 1792333072061,
+      "available_ms_max": 1792333072061
+    },
+    "mainnet/xyz:EWY/1d": {
+      "count": 230,
+      "unique": 230,
+      "first_ms": 1772496000000,
+      "last_ms": 1792281600000,
+      "median_gap_ms": 86400000,
+      "max_gap_ms": 86400000,
+      "gap_count": 0,
+      "missing_grid_points": 0,
+      "zero_volume_bars": 0,
+      "available_ms_min": 1792333072913,
+      "available_ms_max": 1792333072913
+    },
+    "par/par:HYPE/1h": {
+      "count": 430,
+      "unique": 430,
+      "first_ms": 1790787600000,
+      "last_ms": 1792332000000,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600000,
+      "gap_count": 0,
+      "missing_grid_points": 0,
+      "zero_volume_bars": 33,
+      "available_ms_min": 1792333082921,
+      "available_ms_max": 1792333082921
+    },
+    "par/par:HYPE/1d": {
+      "count": 18,
+      "unique": 18,
+      "first_ms": 1790812800000,
+      "last_ms": 1792281600000,
+      "median_gap_ms": 86400000,
+      "max_gap_ms": 86400000,
+      "gap_count": 0,
+      "missing_grid_points": 0,
+      "zero_volume_bars": 0,
+      "available_ms_min": 1792333083467,
+      "available_ms_max": 1792333083467
+    },
+    "par/par:EWY/1h": {
+      "count": 429,
+      "unique": 429,
+      "first_ms": 1790791200000,
+      "last_ms": 1792332000000,
+      "median_gap_ms": 3600000.0,
+      "max_gap_ms": 3600000,
+      "gap_count": 0,
+      "missing_grid_points": 0,
+      "zero_volume_bars": 82,
+      "available_ms_min": 1792333091362,
+      "available_ms_max": 1792333091362
+    },
+    "par/par:EWY/1d": {
+      "count": 18,
+      "unique": 18,
+      "first_ms": 1790812800000,
+      "last_ms": 1792281600000,
+      "median_gap_ms": 86400000,
+      "max_gap_ms": 86400000,
+      "gap_count": 0,
+      "missing_grid_points": 0,
+      "zero_volume_bars": 0,
+      "available_ms_min": 1792333091942,
+      "available_ms_max": 1792333091942
+    }
+  },
+  "funding": {
+    "mainnet/HYPE": {
+      "count": 4998,
+      "unique": 4998,
+      "first_ms": 1774339200033,
+      "last_ms": 1792328400028,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600149,
+      "gap_count": 2449,
+      "missing_grid_points": 0
+    },
+    "mainnet/xyz:EWY": {
+      "count": 4998,
+      "unique": 4998,
+      "first_ms": 1774339200033,
+      "last_ms": 1792328400028,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600149,
+      "gap_count": 2449,
+      "missing_grid_points": 0
+    },
+    "par/par:HYPE": {
+      "count": 429,
+      "unique": 429,
+      "first_ms": 1790787600046,
+      "last_ms": 1792328400002,
+      "median_gap_ms": 3599998.0,
+      "max_gap_ms": 3600222,
+      "gap_count": 204,
+      "missing_grid_points": 0
+    },
+    "par/par:EWY": {
+      "count": 452,
+      "unique": 452,
+      "first_ms": 1790704800017,
+      "last_ms": 1792328400002,
+      "median_gap_ms": 3599998,
+      "max_gap_ms": 3600222,
+      "gap_count": 216,
+      "missing_grid_points": 0
+    }
+  },
+  "vps": {
+    "observed_ms": 1792333095326,
+    "schema": [
+      [
+        "snapshots",
+        "CREATE TABLE snapshots (\n            symbol TEXT NOT NULL, event_ms INTEGER NOT NULL, received_ms INTEGER NOT NULL,\n            bid REAL NOT NULL, ask REAL NOT NULL, mark REAL NOT NULL, oracle REAL NOT NULL,\n            funding REAL NOT NULL, raw_json TEXT NOT NULL,\n            PRIMARY KEY(symbol, event_ms))"
+      ],
+      [
+        "runtime",
+        "CREATE TABLE runtime (\n            id INTEGER PRIMARY KEY CHECK(id=1), heartbeat_ms INTEGER NOT NULL,\n            last_success_ms INTEGER, error TEXT)"
+      ]
+    ],
+    "assets": {
+      "par:EWY": {
+        "count": 6132,
+        "unique": 6132,
+        "first_ms": 1792287043165,
+        "last_ms": 1792333090546,
+        "median_gap_ms": 7474,
+        "max_gap_ms": 9915,
+        "gap_count": 0,
+        "missing_grid_points": 0,
+        "received": {
+          "count": 6132,
+          "unique": 6132,
+          "first_ms": 1792287043979,
+          "last_ms": 1792333091418,
+          "median_gap_ms": 7494,
+          "max_gap_ms": 9684,
+          "gap_count": null,
+          "missing_grid_points": null
+        },
+        "book_context_skew_gt2s": 1,
+        "depth_rows": 6132,
+        "oracle_event_time_known": false,
+        "note": "snapshot key(symbol,event_ms) suppresses unchanged-book observations; not a complete event stream"
+      },
+      "par:HYPE": {
+        "count": 6132,
+        "unique": 6132,
+        "first_ms": 1792287042650,
+        "last_ms": 1792333090546,
+        "median_gap_ms": 7473,
+        "max_gap_ms": 9895,
+        "gap_count": 0,
+        "missing_grid_points": 0,
+        "received": {
+          "count": 6132,
+          "unique": 6132,
+          "first_ms": 1792287043533,
+          "last_ms": 1792333090963,
+          "median_gap_ms": 7494,
+          "max_gap_ms": 9623,
+          "gap_count": null,
+          "missing_grid_points": null
+        },
+        "book_context_skew_gt2s": 0,
+        "depth_rows": 6132,
+        "oracle_event_time_known": false,
+        "note": "snapshot key(symbol,event_ms) suppresses unchanged-book observations; not a complete event stream"
+      }
+    }
+  }
+}

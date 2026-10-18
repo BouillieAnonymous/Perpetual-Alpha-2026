@@ -1,0 +1,914 @@
+[
+  {
+    "symbol": "par:EWY",
+    "round": 0,
+    "available_ms": 1792333098444,
+    "book_event_ms": 1792333095938,
+    "age_ms": 2506,
+    "bid": {
+      "px": "148.64",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.74",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333103410,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 1,
+    "available_ms": 1792333103410,
+    "book_event_ms": 1792333100842,
+    "age_ms": 2568,
+    "bid": {
+      "px": "148.64",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.74",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333108432,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 2,
+    "available_ms": 1792333108432,
+    "book_event_ms": 1792333106021,
+    "age_ms": 2411,
+    "bid": {
+      "px": "148.64",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.74",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333113425,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 3,
+    "available_ms": 1792333113425,
+    "book_event_ms": 1792333110804,
+    "age_ms": 2621,
+    "bid": {
+      "px": "148.64",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.74",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333118403,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 4,
+    "available_ms": 1792333118403,
+    "book_event_ms": 1792333116053,
+    "age_ms": 2350,
+    "bid": {
+      "px": "148.64",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.74",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333123412,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 5,
+    "available_ms": 1792333123412,
+    "book_event_ms": 1792333120782,
+    "age_ms": 2630,
+    "bid": {
+      "px": "148.64",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.74",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333128429,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 6,
+    "available_ms": 1792333128429,
+    "book_event_ms": 1792333125970,
+    "age_ms": 2459,
+    "bid": {
+      "px": "148.64",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.74",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333133429,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 7,
+    "available_ms": 1792333133429,
+    "book_event_ms": 1792333130632,
+    "age_ms": 2797,
+    "bid": {
+      "px": "148.64",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.74",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333138429,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 8,
+    "available_ms": 1792333138429,
+    "book_event_ms": 1792333136078,
+    "age_ms": 2351,
+    "bid": {
+      "px": "148.67",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.77",
+      "sz": "20.17",
+      "n": 2
+    },
+    "next_received_available_ms": 1792333143430,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 9,
+    "available_ms": 1792333143430,
+    "book_event_ms": 1792333140845,
+    "age_ms": 2585,
+    "bid": {
+      "px": "148.67",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.77",
+      "sz": "20.17",
+      "n": 2
+    },
+    "next_received_available_ms": 1792333148429,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 10,
+    "available_ms": 1792333148429,
+    "book_event_ms": 1792333145986,
+    "age_ms": 2443,
+    "bid": {
+      "px": "148.72",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.82",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333153440,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 11,
+    "available_ms": 1792333153440,
+    "book_event_ms": 1792333150756,
+    "age_ms": 2684,
+    "bid": {
+      "px": "148.72",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.82",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333158462,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 12,
+    "available_ms": 1792333158462,
+    "book_event_ms": 1792333155903,
+    "age_ms": 2559,
+    "bid": {
+      "px": "148.72",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.82",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333163433,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 13,
+    "available_ms": 1792333163433,
+    "book_event_ms": 1792333161083,
+    "age_ms": 2350,
+    "bid": {
+      "px": "148.72",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.82",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333168432,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 14,
+    "available_ms": 1792333168432,
+    "book_event_ms": 1792333165693,
+    "age_ms": 2739,
+    "bid": {
+      "px": "148.72",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.82",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333173445,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 15,
+    "available_ms": 1792333173445,
+    "book_event_ms": 1792333170970,
+    "age_ms": 2475,
+    "bid": {
+      "px": "148.72",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.82",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333178444,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 16,
+    "available_ms": 1792333178444,
+    "book_event_ms": 1792333176144,
+    "age_ms": 2300,
+    "bid": {
+      "px": "148.72",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.82",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333183543,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 17,
+    "available_ms": 1792333183543,
+    "book_event_ms": 1792333180803,
+    "age_ms": 2740,
+    "bid": {
+      "px": "148.72",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.82",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333188441,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 18,
+    "available_ms": 1792333188441,
+    "book_event_ms": 1792333186083,
+    "age_ms": 2358,
+    "bid": {
+      "px": "148.72",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.82",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333193451,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 19,
+    "available_ms": 1792333193451,
+    "book_event_ms": 1792333190894,
+    "age_ms": 2557,
+    "bid": {
+      "px": "148.72",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.82",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333198458,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 20,
+    "available_ms": 1792333198458,
+    "book_event_ms": 1792333195913,
+    "age_ms": 2545,
+    "bid": {
+      "px": "148.72",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.82",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333203441,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 21,
+    "available_ms": 1792333203441,
+    "book_event_ms": 1792333201130,
+    "age_ms": 2311,
+    "bid": {
+      "px": "148.72",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.82",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333208461,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 22,
+    "available_ms": 1792333208461,
+    "book_event_ms": 1792333205784,
+    "age_ms": 2677,
+    "bid": {
+      "px": "148.72",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.82",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333213476,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:EWY",
+    "round": 23,
+    "available_ms": 1792333213476,
+    "book_event_ms": 1792333211059,
+    "age_ms": 2417,
+    "bid": {
+      "px": "148.72",
+      "sz": "3.36",
+      "n": 1
+    },
+    "ask": {
+      "px": "148.82",
+      "sz": "3.36",
+      "n": 1
+    },
+    "next_received_available_ms": null,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 0,
+    "available_ms": 1792333098446,
+    "book_event_ms": 1792333095938,
+    "age_ms": 2508,
+    "bid": {
+      "px": "77.79",
+      "sz": "32.11",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.84",
+      "sz": "6.42",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333103410,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 1,
+    "available_ms": 1792333103410,
+    "book_event_ms": 1792333100842,
+    "age_ms": 2568,
+    "bid": {
+      "px": "77.8",
+      "sz": "6.42",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.86",
+      "sz": "6.42",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333108435,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 2,
+    "available_ms": 1792333108435,
+    "book_event_ms": 1792333106021,
+    "age_ms": 2414,
+    "bid": {
+      "px": "77.8",
+      "sz": "6.42",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.84",
+      "sz": "6.42",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333113429,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 3,
+    "available_ms": 1792333113429,
+    "book_event_ms": 1792333110804,
+    "age_ms": 2625,
+    "bid": {
+      "px": "77.8",
+      "sz": "6.42",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.84",
+      "sz": "6.42",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333118403,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 4,
+    "available_ms": 1792333118403,
+    "book_event_ms": 1792333116053,
+    "age_ms": 2350,
+    "bid": {
+      "px": "77.76",
+      "sz": "6.42",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.82",
+      "sz": "6.42",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333123418,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 5,
+    "available_ms": 1792333123418,
+    "book_event_ms": 1792333120782,
+    "age_ms": 2636,
+    "bid": {
+      "px": "77.78",
+      "sz": "6.42",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.84",
+      "sz": "6.42",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333128426,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 6,
+    "available_ms": 1792333128426,
+    "book_event_ms": 1792333125970,
+    "age_ms": 2456,
+    "bid": {
+      "px": "77.8",
+      "sz": "6.42",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.852",
+      "sz": "1.28",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333133457,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 7,
+    "available_ms": 1792333133457,
+    "book_event_ms": 1792333130632,
+    "age_ms": 2825,
+    "bid": {
+      "px": "77.82",
+      "sz": "6.42",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.88",
+      "sz": "6.42",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333138430,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 8,
+    "available_ms": 1792333138430,
+    "book_event_ms": 1792333136078,
+    "age_ms": 2352,
+    "bid": {
+      "px": "77.82",
+      "sz": "6.42",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.88",
+      "sz": "6.42",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333143426,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 9,
+    "available_ms": 1792333143426,
+    "book_event_ms": 1792333140845,
+    "age_ms": 2581,
+    "bid": {
+      "px": "77.82",
+      "sz": "6.42",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.88",
+      "sz": "6.42",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333148436,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 10,
+    "available_ms": 1792333148436,
+    "book_event_ms": 1792333145986,
+    "age_ms": 2450,
+    "bid": {
+      "px": "77.84",
+      "sz": "6.42",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.88",
+      "sz": "6.42",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333153431,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 11,
+    "available_ms": 1792333153431,
+    "book_event_ms": 1792333150756,
+    "age_ms": 2675,
+    "bid": {
+      "px": "77.82",
+      "sz": "6.42",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.88",
+      "sz": "6.42",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333158446,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 12,
+    "available_ms": 1792333158446,
+    "book_event_ms": 1792333155903,
+    "age_ms": 2543,
+    "bid": {
+      "px": "77.82",
+      "sz": "6.42",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.88",
+      "sz": "6.42",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333163443,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 13,
+    "available_ms": 1792333163443,
+    "book_event_ms": 1792333161083,
+    "age_ms": 2360,
+    "bid": {
+      "px": "77.84",
+      "sz": "6.42",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.894",
+      "sz": "1.28",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333168429,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 14,
+    "available_ms": 1792333168429,
+    "book_event_ms": 1792333165693,
+    "age_ms": 2736,
+    "bid": {
+      "px": "77.84",
+      "sz": "6.42",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.894",
+      "sz": "1.28",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333173453,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 15,
+    "available_ms": 1792333173453,
+    "book_event_ms": 1792333170970,
+    "age_ms": 2483,
+    "bid": {
+      "px": "77.84",
+      "sz": "6.42",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.894",
+      "sz": "1.28",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333178465,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 16,
+    "available_ms": 1792333178465,
+    "book_event_ms": 1792333176144,
+    "age_ms": 2321,
+    "bid": {
+      "px": "77.84",
+      "sz": "6.42",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.894",
+      "sz": "1.28",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333183471,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 17,
+    "available_ms": 1792333183471,
+    "book_event_ms": 1792333180803,
+    "age_ms": 2668,
+    "bid": {
+      "px": "77.84",
+      "sz": "6.42",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.894",
+      "sz": "1.28",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333188442,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 18,
+    "available_ms": 1792333188442,
+    "book_event_ms": 1792333186083,
+    "age_ms": 2359,
+    "bid": {
+      "px": "77.84",
+      "sz": "6.42",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.894",
+      "sz": "1.28",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333193452,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 19,
+    "available_ms": 1792333193452,
+    "book_event_ms": 1792333190894,
+    "age_ms": 2558,
+    "bid": {
+      "px": "77.84",
+      "sz": "6.42",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.894",
+      "sz": "1.28",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333198436,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 20,
+    "available_ms": 1792333198436,
+    "book_event_ms": 1792333195913,
+    "age_ms": 2523,
+    "bid": {
+      "px": "77.84",
+      "sz": "6.42",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.894",
+      "sz": "1.28",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333203437,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 21,
+    "available_ms": 1792333203437,
+    "book_event_ms": 1792333201130,
+    "age_ms": 2307,
+    "bid": {
+      "px": "77.84",
+      "sz": "6.42",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.894",
+      "sz": "1.28",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333208449,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 22,
+    "available_ms": 1792333208449,
+    "book_event_ms": 1792333205784,
+    "age_ms": 2665,
+    "bid": {
+      "px": "77.87",
+      "sz": "6.41",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.93",
+      "sz": "32.1",
+      "n": 1
+    },
+    "next_received_available_ms": 1792333213468,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  },
+  {
+    "symbol": "par:HYPE",
+    "round": 23,
+    "available_ms": 1792333213468,
+    "book_event_ms": 1792333211059,
+    "age_ms": 2409,
+    "bid": {
+      "px": "77.92",
+      "sz": "6.41",
+      "n": 1
+    },
+    "ask": {
+      "px": "77.957",
+      "sz": "1.28",
+      "n": 1
+    },
+    "next_received_available_ms": null,
+    "status": "INSUFFICIENT_DATA:no-eligible-frozen-decision-no-12h-exit"
+  }
+]

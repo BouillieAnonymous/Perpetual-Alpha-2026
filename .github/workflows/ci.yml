@@ -69,6 +69,9 @@ jobs:
       - name: Verify ten-asset coverage and external fixed-rule ledgers
         run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_asset_coverage.py
 
+      - name: Verify frozen EWY HYPE robustness and source audit
+        run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_candidate_validation.py
+
       - name: Verify synthetic Portfolio independent Risk Gate Supervisor and Mock
         run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_portfolio_risk.py
 

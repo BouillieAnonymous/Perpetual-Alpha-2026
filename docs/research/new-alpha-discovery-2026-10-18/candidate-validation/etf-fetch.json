@@ -1,0 +1,32 @@
+[
+  {
+    "id": "yahoo-daily",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/EWY?period1=946684800&period2=1792333100&interval=1d&events=div%2Csplits",
+    "started_ms": 1792333100509,
+    "status": 200,
+    "final_url": "https://query1.finance.yahoo.com/v8/finance/chart/EWY?period1=946684800&period2=1792333100&interval=1d&events=div%2Csplits",
+    "received_ms": 1792333100742,
+    "sha256": "268de4e7df2c648f267d47e60f6c75aad23c4feb21634ed7aac0f60718c6871a",
+    "bytes": 705525
+  },
+  {
+    "id": "yahoo-hourly",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/EWY?period1=1729347500&period2=1792333100&interval=1h&events=div%2Csplits",
+    "started_ms": 1792333100828,
+    "status": 200,
+    "final_url": "https://query1.finance.yahoo.com/v8/finance/chart/EWY?period1=1729347500&period2=1792333100&interval=1h&events=div%2Csplits",
+    "received_ms": 1792333101002,
+    "sha256": "292e63bc5cee2b5b2d5317a5fc8446f93658a5b743e12a520eaf3ebeba50bc7a",
+    "bytes": 351503
+  },
+  {
+    "id": "issuer",
+    "url": "https://www.ishares.com/us/products/239681/ishares-msci-south-korea-capped-etf",
+    "started_ms": 1792333101023,
+    "status": 200,
+    "final_url": "https://www.ishares.com/us/products/239681/ishares-msci-south-korea-capped-etf",
+    "received_ms": 1792333102239,
+    "sha256": "04f6865df8353cfab1c6ee32b85448681f0d691bce84084b13475e2003fad832",
+    "bytes": 1711389
+  }
+]
