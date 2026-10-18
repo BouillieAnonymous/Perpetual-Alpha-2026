@@ -10,3 +10,7 @@ deploy/*.txt text eol=lf
 /docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/*.csv text eol=lf
 /docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/*.json text eol=lf
 /docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/*.csv text eol=lf
+/scripts/run_asset_coverage.py text eol=lf
+/docs/research/new-alpha-discovery-2026-10-18/asset-coverage/*.json text eol=lf
+/docs/research/new-alpha-discovery-2026-10-18/asset-coverage/*.csv text eol=lf
+/docs/research/new-alpha-discovery-2026-10-18/asset-coverage/*.md text eol=lf

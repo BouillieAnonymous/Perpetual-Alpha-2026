@@ -66,6 +66,9 @@ jobs:
       - name: Verify external-to-PAR source separation and frozen transfer replays
         run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_market_transfer.py
 
+      - name: Verify ten-asset coverage and external fixed-rule ledgers
+        run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_asset_coverage.py
+
       - name: Verify synthetic Portfolio independent Risk Gate Supervisor and Mock
         run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_portfolio_risk.py
 
