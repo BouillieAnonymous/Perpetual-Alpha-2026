@@ -1,6 +1,6 @@
 # Perpetual Alpha 2026｜文档入口
 
-**新 Alpha 研究：** [2026-10-18 第一阶段审查](research/new-alpha-discovery-2026-10-18/report.zh-CN.md)包含失败案例、八方向比较、数据审计、优先级和两个可复现实验方案；尚未发现经验证的可交易 Alpha。
+**新 Alpha 研究：** [研究报告与实际实验](research/new-alpha-discovery-2026-10-18/report.zh-CN.md)包含失败案例、八方向比较，以及第二阶段352组传统策略历史情景回放；[比较矩阵](research/new-alpha-discovery-2026-10-18/experiments/results.zh-CN.md)与完整证据可离线复现，尚未发现经验证的可交易 Alpha。
 
 更新：2026 年 10 月 16 日。项目维护四份核心正文，另设架构规范、开发基线、实现说明、独立学习资料与按用户要求保存的讨论分析；本页仅导航，不复制进度和参数。
 

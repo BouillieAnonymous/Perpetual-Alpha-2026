@@ -1,6 +1,6 @@
 # Perpetual Alpha 2026｜策略开发与头脑风暴
 
-**新 Alpha 研究审查（2026-10-18）：** [第一阶段报告](research/new-alpha-discovery-2026-10-18/report.zh-CN.md)审查 PR #13、说明 Trend V2 证据缺口，比较八类候选，并预注册横截面相对强弱与波动扩张实验。全部候选仍未验证，不改变运行策略或风险配置。
+**新 Alpha 研究（2026-10-18）：** [报告](research/new-alpha-discovery-2026-10-18/report.zh-CN.md)保留第一阶段审查与预注册，并在第11节记录352组实际传统策略历史情景回放、官方数据与失败结论。[完整比较](research/new-alpha-discovery-2026-10-18/experiments/results.zh-CN.md)可离线复现；未发现经确认的可交易Alpha，不改变运行策略或风险配置。
 
 更新：2026 年 10 月 14 日（英国时间）
 用途：保存讨论中的想法，逐步细化成可以验证的研究问题。  
