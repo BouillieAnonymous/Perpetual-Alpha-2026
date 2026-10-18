@@ -513,6 +513,21 @@ class AdapterTests(unittest.TestCase):
         self.assertTrue(s['account_consistent'])
         self.assertEqual(s['equity'], '1002')
 
+    def test_unrelated_collateral_mark_change_does_not_mix_environments(self):
+        original = self.client.query
+        count = 0
+        def unrelated(kind, **kw):
+            nonlocal count
+            row = original(kind, **kw)
+            if kind == 'spotClearinghouseState':
+                count += 1
+                row['balances'].append({'coin': 'USDP', 'token': 200, 'total': str(count), 'hold': '0'})
+            return row
+        self.client.query = unrelated
+        s = self.client.snapshot()
+        self.assertTrue(s['account_consistent'])
+        self.assertEqual(s['equity'], '1000')
+
     def test_shared_dex_exposure_is_not_ignored(self):
         original = self.client.query
         def shared(kind, **kw):

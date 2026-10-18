@@ -128,9 +128,7 @@ class TestnetVenue:
                      for x in before['assetPositions']] ==
                     [(x['position']['coin'], x['position']['szi'], x['position']['leverage'])
                      for x in after['assetPositions']]
-                    and {(b['coin'], b['token']) for b in spot['balances']} ==
-                    {(b['coin'], b['token']) for b in spot_after['balances']}
-                    and (bool(selected) or spot['balances'] == spot_after['balances'])),
+                    and (bool(selected) or before_balances == balances)),
                 'other_positions': other, 'open_orders': orders + spot_orders,
                 'sz_decimals': spec['szDecimals'], 'delisted': spec.get('isDelisted', False),
                 'max_leverage': spec['maxLeverage'], 'bid': book['levels'][0][0]['px'],
