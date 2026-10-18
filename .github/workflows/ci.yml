@@ -60,6 +60,9 @@ jobs:
       - name: Verify frozen market risk replay and existing risk schema
         run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_market_risk.py
 
+      - name: Verify frozen traditional research evidence and offline replays
+        run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_quant_research.py
+
       - name: Verify synthetic Portfolio independent Risk Gate Supervisor and Mock
         run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_portfolio_risk.py
 
