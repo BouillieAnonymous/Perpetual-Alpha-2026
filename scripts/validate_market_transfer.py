@@ -18,6 +18,8 @@ def validate(root):
         if source_hash(output / name) != expected:
             raise ValueError("Transfer output hash mismatch: " + name)
     for name, expected in manifest["inputs"].items():
+        if "\\" in name or name.startswith("/") or ".." in Path(name).parts:
+            raise ValueError("Nonportable or out-of-root input identity")
         if source_hash(root / name) != expected:
             raise ValueError("Transfer source hash mismatch: " + name)
     actual = hashlib.sha256(Path(market_transfer.__file__).read_text(encoding="utf-8").encode()).hexdigest()

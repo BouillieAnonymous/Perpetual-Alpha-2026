@@ -11,6 +11,11 @@ from .offline_quant.data import HOUR, Bar
 from .offline_quant.signals import Order, sign, single_orders
 
 
+def input_identity(path, root):
+    """Portable archive keys, even when generated on Windows and verified on Linux."""
+    return path.relative_to(root).as_posix()
+
+
 def load_external(path):
     series, evidence = {}, []
     with gzip.open(path, "rt", encoding="utf-8") as stream:

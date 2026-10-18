@@ -6,12 +6,13 @@ import math
 import tempfile
 import unittest
 from dataclasses import replace
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 
 from perpetual_alpha.market_transfer import (
     Book,
     asof_book,
     association,
+    input_identity,
     load_books,
     quote_exit,
     quote_price,
@@ -36,6 +37,11 @@ def series(n=120, step=HOUR):
 
 
 class TransferTests(unittest.TestCase):
+    def test_windows_input_identity_is_portable_on_linux(self):
+        root = PureWindowsPath("D:/research")
+        self.assertEqual(input_identity(root / "external-transfer" / "input.gz", root),
+                         "external-transfer/input.gz")
+
     def test_future_available_external_book_cannot_be_used(self):
         history = [book(100, venue="external"), replace(book(200, venue="external"), available_ms=500)]
         self.assertEqual(asof_book(history, 300, venue="external", symbol="par:BTC", session="s").received_ms, 100)

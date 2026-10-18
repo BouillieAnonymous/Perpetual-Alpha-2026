@@ -10,6 +10,7 @@ from pathlib import Path
 from perpetual_alpha import market_transfer
 from perpetual_alpha.market_transfer import (
     association,
+    input_identity,
     lead_lag_diagnostic,
     load_books,
     load_external,
@@ -135,7 +136,7 @@ def execute(root, output):
         "external_history": {s: {"bars": len(external[s]), "first_ms": external[s][0].time,
                                    "last_ms": external[s][-1].time} for s in symbols},
         "evidence": evidence, "probe_books": len(books), "probe_failures": len(failures),
-        "inputs": {str(p.relative_to(root)): source_hash(p) for p in [
+        "inputs": {input_identity(p, root): source_hash(p) for p in [
             root / "official-hourly.jsonl.gz", root / "experiments/manifest.json",
             data_dir / "external-history.jsonl.gz", data_dir / "external-minute.jsonl.gz",
             data_dir / "par-minute.jsonl.gz", data_dir / "paired-book-decoded-probe.jsonl.gz"]},
