@@ -38,7 +38,7 @@ class Engine:
             fills = self.client.query('userFillsByTime', user=self.client.team,
                                       startTime=row['created_ms'] - 60_000, endTime=self.clock(),
                                       aggregateByTime=False)
-            if len(fills) >= 2000:
+            if len(fills) >= 500:
                 raise ValueError('Fill query may be truncated; manual reconciliation needed')
             matches = [f for f in fills if f['oid'] == wire['oid'] and f['coin'] == self.p.symbol]
             keys = [(f['coin'], f['time'], f['tid']) for f in matches]

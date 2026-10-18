@@ -437,7 +437,7 @@ class AdapterTests(unittest.TestCase):
         empty = {'assetPositions': []}
         self.responses = {
             'metaAndAssetCtxs': [meta, [{'markPx': '2000', 'oraclePx': '2000'}]],
-            'spotMeta': {'tokens': [{'name': 'USDPR', 'index': 100}]},
+            'spotMeta': {'tokens': [{'name': 'USDPR', 'index': 100, 'szDecimals': 2}]},
             'allPerpMetas': [meta, {'universe': [{'name': 'parx:BTC'}], 'collateralToken': 100}],
             'clearinghouseState': empty, 'userAbstraction': 'unifiedAccount', 'openOrders': [],
             'spotClearinghouseState': {'balances': [{'coin': 'USDPR', 'token': 100, 'total': '1000', 'hold': '0'}],
@@ -466,6 +466,45 @@ class AdapterTests(unittest.TestCase):
         self.responses['spotMeta']['tokens'][0]['name'] = 'USDP'
         with self.assertRaises(ValueError):
             self.client.snapshot()
+
+    def test_own_unified_margin_hold_is_allowed_and_pnl_not_double_counted(self):
+        self.responses['clearinghouseState'] = {'assetPositions': [{'position': {
+            'coin': 'par:ETH', 'szi': '.01', 'leverage': {'type': 'cross', 'value': 1},
+            'marginUsed': '20', 'unrealizedPnl': '2'}}]}
+        self.responses['spotClearinghouseState']['balances'][0].update(total='1002', hold='20')
+        original = self.client.query
+        def scoped(kind, **kw):
+            if kind == 'clearinghouseState' and kw.get('dex') == 'parx':
+                return {'assetPositions': []}
+            return original(kind, **kw)
+        self.client.query = scoped
+        s = self.client.snapshot()
+        self.assertEqual(s['equity'], '1002')
+        self.assertEqual(s['other_positions'], [])
+        validate_snapshot(s, self.p, NOW)
+        self.responses['spotClearinghouseState']['balances'][0]['hold'] = '21'
+        with self.assertRaises(ValueError):
+            validate_snapshot(self.client.snapshot(), self.p, NOW)
+
+    def test_mark_movement_during_nonzero_position_capture_is_not_foreign_activity(self):
+        self.responses['clearinghouseState'] = {'assetPositions': [{'position': {
+            'coin': 'par:ETH', 'szi': '.01', 'leverage': {'type': 'cross', 'value': 1},
+            'marginUsed': '20', 'unrealizedPnl': '2'}}]}
+        original = self.client.query
+        count = 0
+        def scoped(kind, **kw):
+            nonlocal count
+            if kind == 'clearinghouseState' and kw.get('dex') == 'parx':
+                return {'assetPositions': []}
+            row = original(kind, **kw)
+            if kind == 'spotClearinghouseState':
+                count += 1
+                row['balances'][0].update(total='1002' if count == 1 else '1003', hold='20')
+            return row
+        self.client.query = scoped
+        s = self.client.snapshot()
+        self.assertTrue(s['account_consistent'])
+        self.assertEqual(s['equity'], '1002')
 
     def test_shared_dex_exposure_is_not_ignored(self):
         original = self.client.query

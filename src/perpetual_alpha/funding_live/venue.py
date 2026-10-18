@@ -98,9 +98,20 @@ class TestnetVenue:
         if len(selected) > 1:
             raise ValueError('Duplicate position')
         quantity = selected[0]['szi'] if selected else '0'
-        upnl = sum((dec(x['position']['unrealizedPnl']) for x in positions), dec(0))
-        equity = dec(balance['total']) + upnl
-        if dec(balance['hold']) != 0:
+        before_balances = [b for b in spot['balances'] if b['coin'] == p.collateral and b['token'] == token]
+        before_total = dec(before_balances[0]['total']) if len(before_balances) == 1 else dec(0)
+        # Unified spot total ALREADY includes unrealized PnL. Never add per-DEX PnL again.
+        # Use the smaller endpoint value for conservative sizing/loss checks.
+        equity = min(dec(balance['total']), before_total)
+        before_free = [x[1] for x in spot.get('tokenToAvailableAfterMaintenance', []) if x[0] == token]
+        free_value = str(min(dec(free_value), dec(before_free[0]) if len(before_free) == 1 else dec(0)))
+        own_margin = max(
+            sum((dec(x['position']['marginUsed']) for x in rows['assetPositions']
+                 if x['position']['coin'] == p.symbol), dec(0)) for rows in (before, after)
+        )
+        token_unit = dec(10) ** -matching[0]['szDecimals']
+        # A verified own cross position creates a spot hold. Only unexplained excess is foreign.
+        if dec(balance['hold']) < 0 or dec(balance['hold']) > own_margin + token_unit:
             other.append('collateral-hold')
         # For this release only deployer scale 1/no growth is supported, fail on drift.
         if dec(spec.get('deployerFeeScale', '-1')) != 1 or meta.get('growthMode', False):
@@ -117,7 +128,9 @@ class TestnetVenue:
                      for x in before['assetPositions']] ==
                     [(x['position']['coin'], x['position']['szi'], x['position']['leverage'])
                      for x in after['assetPositions']]
-                    and spot['balances'] == spot_after['balances']),
+                    and {(b['coin'], b['token']) for b in spot['balances']} ==
+                    {(b['coin'], b['token']) for b in spot_after['balances']}
+                    and (bool(selected) or spot['balances'] == spot_after['balances'])),
                 'other_positions': other, 'open_orders': orders + spot_orders,
                 'sz_decimals': spec['szDecimals'], 'delisted': spec.get('isDelisted', False),
                 'max_leverage': spec['maxLeverage'], 'bid': book['levels'][0][0]['px'],
