@@ -10,6 +10,7 @@ from pathlib import Path
 from perpetual_alpha.offline_quant.data import HOUR, Bar, read_archive
 from perpetual_alpha.offline_quant.relative import fit_pair, funding_orders, pair_orders
 from perpetual_alpha.offline_quant.replay import Costs, quantity, replay
+from perpetual_alpha.offline_quant.run import write_json
 from perpetual_alpha.offline_quant.signals import (
     Order,
     cross_section_orders,
@@ -221,6 +222,13 @@ class LedgerTests(unittest.TestCase):
                                          "received_ms": 1, "payload_sha256": "wrong"}) + "\n")
             with self.assertRaises(ValueError):
                 read_archive(p)
+
+    def test_research_artifact_text_uses_canonical_lf_for_cross_platform_hashes(self):
+        with tempfile.TemporaryDirectory() as temp:
+            p = Path(temp) / "result.json"
+            write_json(p, {"schema": "test", "value": 1})
+            self.assertNotIn(b"\r", p.read_bytes())
+            self.assertEqual(json.loads(p.read_text(encoding="utf-8"))["value"], 1)
 
 
 if __name__ == "__main__":

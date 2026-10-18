@@ -49,7 +49,8 @@ def analyze(root):
                        "parent_mean_gross": details[parent]["summary"]["mean_gross_fraction"]})
     output = {"schema": "descriptive-comparisons/1", "paired_daily": paired, "concentration": concentration,
               "sensitivity_timing": "XSM 12/48h and funding 24h added after initial results as diagnostic only; no winner selected"}
-    (root / "comparison-analysis.json").write_text(json.dumps(output, indent=2) + "\n", encoding="utf-8")
+    (root / "comparison-analysis.json").write_text(json.dumps(output, indent=2) + "\n",
+                                                   encoding="utf-8", newline="\n")
     print("paired daily comparisons and concentration saved; no significance or Alpha claim")
 
 

@@ -3,3 +3,6 @@ deploy/Dockerfile* text eol=lf
 deploy/*.yaml text eol=lf
 deploy/*.txt text eol=lf
 /src/perpetual_alpha/offline_quant/*.py text eol=lf
+/docs/research/new-alpha-discovery-2026-10-18/experiments/*.json text eol=lf
+/docs/research/new-alpha-discovery-2026-10-18/experiments/*.csv text eol=lf
+/docs/research/new-alpha-discovery-2026-10-18/experiments/*.md text eol=lf

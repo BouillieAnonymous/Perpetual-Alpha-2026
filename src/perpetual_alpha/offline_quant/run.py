@@ -19,7 +19,8 @@ PAIR = ("par:BTC", "par:ETH")
 
 
 def write_json(path, data):
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2, allow_nan=False) + "\n",
+                    encoding="utf-8", newline="\n")
 
 
 def source_digest():
@@ -173,7 +174,7 @@ def execute(archive, output):
                "mean_gross_fraction", "max_gross_fraction", "turnover_notional", "funding_unknown_position_hours",
                "stale_position_marks", "rejected_orders", "status", "failure_reason"]
     with (output / "comparison.csv").open("w", encoding="utf-8-sig", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=columns, extrasaction="ignore")
+        writer = csv.DictWriter(stream, fieldnames=columns, extrasaction="ignore", lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
     # Human report is derived from the frozen output, never manual PnL editing.
@@ -192,7 +193,7 @@ def execute(archive, output):
     text += ["", "完整 split、压力情景、胜率、Profit Factor、风险与换手见 comparison.csv。",
              "逐次信号、成交、结算、净值与拒绝原因见 details.jsonl.gz。",
              "协整检验、数据覆盖、时间边界、依赖与源码摘要见 manifest.json。", ""]
-    (output / "results.zh-CN.md").write_text("\n".join(text), encoding="utf-8")
+    (output / "results.zh-CN.md").write_text("\n".join(text), encoding="utf-8", newline="\n")
     write_json(output / "artifact-hashes.json", {p.name: source_hash(p) for p in sorted(output.iterdir())
                                                 if p.is_file()})
     print(json.dumps({"experiments": len(rows), "output": str(output), "pair_gate": model["status"],
