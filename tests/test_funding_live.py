@@ -10,6 +10,7 @@ from unittest.mock import patch
 
 from perpetual_alpha.funding_live.cli import main, paths
 from perpetual_alpha.funding_live.engine import Engine
+from perpetual_alpha.funding_live.ops import backup
 from perpetual_alpha.funding_live.policy import (
     HOUR,
     PERIOD,
@@ -344,6 +345,45 @@ class FundingEngineTests(unittest.TestCase):
                     f'lock=ProcessLock({str(lock)!r}); lock.__enter__()')
             result = subprocess.run([sys.executable, '-c', code], capture_output=True)
             self.assertNotEqual(result.returncode, 0)
+
+    def test_actual_process_exit_preserves_unknown_intent(self):
+        child_path = Path(self.tmp.name) / 'crash.sqlite3'
+        code = (
+            'import os; from perpetual_alpha.funding_live.store import Ledger; '
+            f's=Ledger({str(child_path)!r}, {self.identity!r}); '
+            f's.boot({NOW}); s.update(paused=False); '
+            f's.reserve(1,{NOW},{{"cloid":"0x"+"a"*32}}); os._exit(23)'
+        )
+        result = subprocess.run([sys.executable, '-c', code], capture_output=True)
+        self.assertEqual(result.returncode, 23)
+        child = Ledger(child_path, self.identity)
+        try:
+            child.boot(NOW)
+            self.assertTrue(child.state()['paused'])
+            self.assertEqual(len(child.pending()), 1)
+        finally:
+            child.close()
+
+    def test_online_wal_backup_preserves_identity_and_pending(self):
+        self.store.close()
+        self.identity['schema'] = 'funding-exchange-ledger/1'
+        self.path = Path(self.tmp.name) / 'backup-source.sqlite3'
+        self.store = Ledger(self.path, self.identity)
+        self.store.boot(NOW)
+        self.store.update(paused=False)
+        self.store.reserve(1, NOW, {'cloid': '0x' + 'a' * 32})
+        destination = Path(self.tmp.name) / 'backup.sqlite3'
+        result = backup(self.path, destination)
+        self.assertEqual(result['pending_intents'], 1)
+        with self.assertRaises(FileExistsError):
+            backup(self.path, destination)
+        restored = Ledger(destination, self.identity)
+        try:
+            restored.boot(NOW)
+            self.assertTrue(restored.state()['paused'])
+            self.assertEqual(len(restored.pending()), 1)
+        finally:
+            restored.close()
 
 
 class FundingCliTests(unittest.TestCase):

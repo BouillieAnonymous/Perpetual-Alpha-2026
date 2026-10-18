@@ -9,7 +9,7 @@ from pathlib import Path
 
 from ..runtime.process_lock import ProcessLock
 from .engine import Engine
-from .policy import VERSION, load_policy, validate_snapshot
+from .policy import VERSION, funding_signal, load_policy, validate_snapshot
 from .store import Ledger
 from .venue import TestnetVenue, millis
 
@@ -36,7 +36,7 @@ def report(db):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=('inspect', 'preflight', 'run', 'status', 'pause',
+    parser.add_argument('command', choices=('inspect', 'preflight', 'observe', 'run', 'status', 'pause',
                                            'resume', 'flatten', 'cancel', 'health'))
     parser.add_argument('--config', type=Path, required=True)
     parser.add_argument('--root', type=Path, default=Path('data/funding'))
@@ -108,6 +108,37 @@ def main(argv=None):
             return 0 if checks['data_account'] == 'passed' else 2
         identity = {'schema': 'funding-exchange-ledger/1', 'dex': p.dex, 'collateral': p.collateral,
                     'team': client.team, 'policy_hash': p.digest, 'strategy': VERSION}
+        if args.command == 'observe':
+            if args.execute:
+                raise ValueError('Observation service never accepts signing authority')
+            with ProcessLock(folder / 'observer.lock'):
+                store = Ledger(folder / 'observations.sqlite3', {**identity, 'mode': 'unsigned-observer'})
+                stopped = threading.Event()
+                for sig in (signal.SIGINT, signal.SIGTERM):
+                    signal.signal(sig, lambda *_: stopped.set())
+                try:
+                    while not stopped.is_set():
+                        try:
+                            s = client.snapshot()
+                            store.event(millis(), 'observation', s)
+                            signal_result = funding_signal(s['funding'], p.symbol, millis())
+                            checks = 'passed'
+                            try:
+                                validate_snapshot(s, p, millis(), require_leverage=False)
+                            except ValueError as exc:
+                                checks = str(exc)
+                            store.event(millis(), 'signal-preview', {'signal': signal_result, 'checks': checks})
+                            print(json.dumps({'dex': p.dex, 'signing': False, 'checks': checks,
+                                              'direction': signal_result['direction']}), flush=True)
+                        except Exception as exc:
+                            reason = str(exc) if isinstance(exc, ValueError) else type(exc).__name__
+                            store.event(millis(), 'observation-error', {'reason': reason})
+                            print(json.dumps({'dex': p.dex, 'signing': False, 'error': reason}), flush=True)
+                        store.update(last_tick_ms=millis())
+                        stopped.wait(p.poll_seconds)
+                finally:
+                    store.close()
+            return 0
         folder.mkdir(parents=True, exist_ok=True)
         with ProcessLock(args.root.absolute() / 'signer-process.lock'), ProcessLock(folder / 'process.lock'):
             store = Ledger(database, identity)
