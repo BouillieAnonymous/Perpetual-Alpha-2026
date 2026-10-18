@@ -15,7 +15,7 @@ services:
     mem_limit: 256m
     cpus: 0.5
     stop_grace_period: 40s
-    tmpfs: [/tmp:size=16m,mode=1777]
+    tmpfs: ["/tmp:size=16m,mode=1777"]
     volumes:
       - ${FUNDING_STATE:?Set isolated funding state}:/state
       - ${FUNDING_SECRETS:?Set secret directory}/public.env:/run/public.env:ro
@@ -37,7 +37,7 @@ services:
     mem_limit: 256m
     cpus: 0.5
     stop_grace_period: 40s
-    tmpfs: [/tmp:size=16m,mode=1777]
+    tmpfs: ["/tmp:size=16m,mode=1777"]
     volumes:
       - ${FUNDING_STATE:?Set isolated funding state}:/state
       - ${FUNDING_SECRETS:?Set secret directory}/par.env:/run/secrets/par.env:ro

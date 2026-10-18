@@ -56,6 +56,10 @@ jobs:
             echo "ERROR: disabled competition runner unexpectedly started"
             exit 1
           fi
+          mkdir -p /tmp/funding-ci/state /tmp/funding-ci/secrets
+          printf 'TEAM_WALLET_ADDRESS=0x1111111111111111111111111111111111111111\n' > /tmp/funding-ci/secrets/public.env
+          export FUNDING_IMAGE=perpetual-alpha-funding:ci FUNDING_STATE=/tmp/funding-ci/state FUNDING_SECRETS=/tmp/funding-ci/secrets
+          docker compose -f deploy/compose.funding.yaml run --rm --no-deps par-observer inspect --config /app/config/funding/par.toml --root /state
 
       - name: Validate contract schemas and examples
         run: docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_schemas.py
