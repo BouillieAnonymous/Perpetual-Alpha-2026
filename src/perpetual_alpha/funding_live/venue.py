@@ -23,6 +23,8 @@ class TestnetVenue:
         self.clock = clock
         self.exchange = None
         self.signer_address = None
+        self.signing_scope = None
+        self.action_guard = None
 
     def query(self, kind, **fields):
         # No retry on signed actions. Public queries also have bounded I/O.
@@ -138,9 +140,20 @@ class TestnetVenue:
                 'leverage': active['leverage'], 'max_trade_sizes': active['maxTradeSzs'],
                 'available_to_trade': active['availableToTrade'], 'funding': funding, 'raw': raw}
 
-    def enable_signer(self):
-        if not self.policy.enabled:
+    def check_action_approval(self, purpose):
+        if self.policy.dex == 'pas':
+            if self.action_guard is None:
+                raise ValueError('PAS explicit operator approval absent')
+            self.action_guard(purpose)
+
+    def enable_signer(self, *, scope='trading'):
+        if scope not in {'trading', 'leverage-only'}:
+            raise ValueError('Unsupported signer capability')
+        if scope == 'leverage-only' and self.policy.dex != 'pas':
+            raise ValueError('Separate leverage capability is PAS only')
+        if not self.policy.enabled and scope != 'leverage-only':
             raise ValueError('Environment trading disabled')
+        self.check_action_approval('leverage' if scope == 'leverage-only' else 'trading')
         from eth_account import Account
         from hyperliquid.exchange import Exchange
         # Read the key only after all non-signing checks and explicit execute gate.
@@ -162,6 +175,7 @@ class TestnetVenue:
         self.check_authorization()
         self.exchange = Exchange(signer, TESTNET_URL, account_address=self.team,
                                  perp_dexs=[self.policy.dex], timeout=15)
+        self.signing_scope = scope
 
     def check_authorization(self):
         agents = self.query('extraAgents', user=self.team)
@@ -170,6 +184,9 @@ class TestnetVenue:
             raise ValueError('API authorization absent/expired')
 
     def set_leverage(self):
+        if self.policy.dex == 'pas' and self.signing_scope != 'leverage-only':
+            raise ValueError('PAS leverage requires its separately authorized capability')
+        self.check_action_approval('leverage')
         self.check_authorization()
         response = self.exchange.update_leverage(1, self.policy.symbol, is_cross=True)
         if response.get('status') != 'ok':
@@ -178,8 +195,10 @@ class TestnetVenue:
 
     def send(self, order):
         from hyperliquid.utils.types import Cloid
-        if not self.exchange or order['symbol'] != self.policy.symbol:
+        if (not self.exchange or not self.policy.enabled or self.signing_scope != 'trading'
+                or order['symbol'] != self.policy.symbol):
             raise ValueError('Signer not enabled or wrong market')
+        self.check_action_approval('trading')
         self.check_authorization()
         self.exchange.set_expires_after(self.clock() + 10_000)
         return self.exchange.order(order['symbol'], order['buy'], float(order['quantity']),
@@ -191,8 +210,9 @@ class TestnetVenue:
 
     def cancel(self, cloid):
         from hyperliquid.utils.types import Cloid
-        if not self.exchange:
+        if not self.exchange or not self.policy.enabled or self.signing_scope != 'trading':
             raise ValueError('Signer not enabled')
+        self.check_action_approval('trading')
         self.check_authorization()
         self.exchange.set_expires_after(self.clock() + 10_000)
         return self.exchange.cancel_by_cloid(self.policy.symbol, Cloid.from_str(cloid))

@@ -135,7 +135,9 @@ class Engine:
         if request and request['action'] == 'resume':
             if not self.p.enabled:
                 raise ValueError('Disabled environment cannot resume')
-            self.store.event(self.clock(), 'leverage-response', self.client.set_leverage())
+            if self.p.dex == 'par':
+                self.store.event(self.clock(), 'leverage-response', self.client.set_leverage())
+            # PAS must ALREADY be at 1x; resume never changes leverage or enlarges permissions.
             s = self.observe()
             self.account_guard(s)
             self.store.resume(request, self.clock())

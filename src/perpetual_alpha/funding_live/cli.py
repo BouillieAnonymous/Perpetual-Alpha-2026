@@ -8,6 +8,7 @@ from dataclasses import asdict
 from pathlib import Path
 
 from ..runtime.process_lock import ProcessLock
+from .activation import require_approval
 from .engine import Engine
 from .policy import VERSION, funding_signal, load_policy, validate_snapshot
 from .store import Ledger
@@ -44,6 +45,8 @@ def main(argv=None):
     parser.add_argument('--execute', action='store_true')
     parser.add_argument('--bootstrap', action='store_true', help='One initial current-time PAR decision')
     parser.add_argument('--generation', type=int, help='Required current boot generation for operator request')
+    parser.add_argument('--approval-file', type=Path)
+    parser.add_argument('--par-wallet-file', type=Path)
     args = parser.parse_args(argv)
     p = load_policy(args.config)
     folder, database = paths(args.root, p.dex)
@@ -90,6 +93,10 @@ def main(argv=None):
         raise ValueError('Initial bootstrap allowed only for PAR rehearsal')
     client = TestnetVenue(p, args.env_file)
     try:
+        if args.command == 'run' and p.dex == 'pas':
+            client.action_guard = lambda purpose: require_approval(
+                args.approval_file, purpose, p, client, millis(), args.par_wallet_file)
+            client.check_action_approval('trading')
         if args.command == 'preflight':
             snapshot = client.snapshot()
             folder.mkdir(parents=True, exist_ok=True)
@@ -146,12 +153,17 @@ def main(argv=None):
                 store.boot(millis())
                 engine = Engine(p, store, client, millis)
                 # Startup reconciliation is public and occurs before loading any signing material.
-                try:
+                if p.dex == 'pas':
+                    # No signing capability is loaded on a failed PAS startup precheck.
                     engine.reconcile()
-                    engine.account_guard(engine.observe(leverage=False))
-                except Exception as exc:
-                    reason = str(exc) if isinstance(exc, ValueError) else type(exc).__name__
-                    store.pause(millis(), 'startup: ' + reason)
+                    engine.account_guard(engine.observe())
+                else:
+                    try:
+                        engine.reconcile()
+                        engine.account_guard(engine.observe(leverage=False))
+                    except Exception as exc:
+                        reason = str(exc) if isinstance(exc, ValueError) else type(exc).__name__
+                        store.pause(millis(), 'startup: ' + reason)
                 client.enable_signer()
                 store.event(millis(), 'api-signer', {'address': client.signer_address, 'dex': p.dex})
                 stopped = threading.Event()
