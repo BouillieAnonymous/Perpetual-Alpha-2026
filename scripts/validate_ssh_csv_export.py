@@ -15,6 +15,7 @@ import time
 from pathlib import Path
 
 from perpetual_alpha.examples.pas_research_fixture import create
+from perpetual_alpha.venue_collection import Capture
 
 
 def run(*args, **kwargs):
@@ -28,9 +29,11 @@ def main():
     root = Path(tempfile.mkdtemp(prefix='alpha-ssh-test-'))
     daemon = None
     created = False
+    collector = None
     try:
         root.chmod(0o755)
         create(root / 'public.sqlite3')
+        collector = Capture(root / 'public.sqlite3', 'pas')
         for path in root.glob('public.sqlite3*'):
             path.chmod(0o444)
         lock = root / 'export.lock'
@@ -115,6 +118,8 @@ def main():
             daemon.communicate(timeout=10)
         if created:
             run('userdel', name)
+        if collector is not None:
+            collector.close()
         shutil.rmtree(root)
 
 
