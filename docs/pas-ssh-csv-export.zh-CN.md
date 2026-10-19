@@ -1,7 +1,9 @@
-# PAS 只读 SSH CSV 导出（待部署）
+# PAS 只读 SSH CSV 导出
 
-本 PR 只提供代码、受限 SSH 模板和验收步骤；不创建线上账号、不部署、不修改 Collector 或交易系统。
-队友未来使用独立的 `alpha_export` 公钥账号，只有导出能力，没有管理 shell、sudo、Docker 或部署凭证。
+2026-10-19 已完成 VPS 部署、管理员测试验收及队友公钥授权。
+队友使用独立的 `alpha_export` 公钥账号，只有导出能力，没有管理 shell、sudo、Docker 或部署凭证。
+
+队友请直接阅读[下载指南与部署交付记录](pas-ssh-csv-delivery.zh-CN.md)。以下为安装、限制和回滚运维说明。
 
 ## 使用
 
@@ -14,7 +16,7 @@ ssh -T alpha_export@<VPS_IP> 'export --all --raw-json' > raw.csv.part && mv raw.
 ```
 
 上例为 POSIX shell；Python subprocess 应使用参数数组、`shell=False` 并检查 returncode，成功后才使用 CSV。
-Windows 使用支持原始字节重定向的 PowerShell 7.4+，或 Python 以二进制文件接 stdout。
+Windows CMD 可使用下载指南中的 `move /Y` 命令；也可使用支持原始字节重定向的 PowerShell 7.4+，或 Python 以二进制文件接 stdout。
 失败可能已经输出 CSV 前缀；非零退出必须丢弃 `.part`，不能当作完整下载。
 
 默认 observations 保留每次收据，调用已有 normalize 校验 identity、市场、时钟、SHA256 和盘口质量。
@@ -188,7 +190,7 @@ ForceCommand 会覆盖普通命令及 subsystem，scp/sftp 请求也会被白名
 导出中追加与 WAL truncate checkpoint 成功、新增记录不进入当前导出、命令注入和超时错误。
 Linux 测试额外覆盖同锁互斥和资源限制。CI 还复制 Ubuntu 已安装的主 sshd_config，保留
 开头 Include → 后续 UsePAM/Subsystem 的实际顺序，验证早期 include 能通过解析且管理员设置不变，保留同文件 Match all 的实测正例，并用 Match User 段内直接配置 UsePAM 的负例证明解析拒绝，再验证 EOF 安装、
-真实 PAM 公钥认证、重复生成/移除及管理员 effective config 和新连接不受影响。真实账号/sshd/ACL 验收须日后部署阶段完成，
+真实 PAM 公钥认证、重复生成/移除及管理员 effective config 和新连接不受影响。真实账号/sshd/ACL 已于 2026-10-19 使用管理员测试公钥完成验收，详见交付记录。后续重部署仍须执行下列检查，
 不能用 Windows 单元测试替代：
 
 - 队友公钥下载三类数据，对照 seq/样本数/质量字段；两条连接同时导出第二条应拒绝。
@@ -198,7 +200,7 @@ Linux 测试额外覆盖同锁互斥和资源限制。CI 还复制 Ubuntu 已安
   launcher/venv/authorized_keys 不可写，交易密钥和部署目录不可读。
 - 慢下载和断开连接后锁释放；无 CSV 文件残留，Collector 继续追加，checkpoint/磁盘增长正常。
 
-### VPS 现场验收（部署时执行；本 PR 未连接 VPS）
+### VPS 现场验收（重部署时仍须执行）
 
 先只配置管理员持有的测试公钥，保留现有管理会话，用另一终端新建管理员公钥连接执行 `id`；
 确认无密码提示、无强制导出命令。记录 `sshd -V`/Ubuntu 版本、PAM 配置及上述 effective config。
