@@ -8,6 +8,8 @@
 
 PAS 正式比赛已开始，独立 `venue_collection` 入口已实现十资产公共只读采集：每 60 秒记录 metadata/context 与盘口，每 30 分钟采集最近一小时已结算 Funding，使用独立 SQLite 数据库。PAR 研究／模拟链与 PAS 采集状态分离，PAS 交易未启用。`config/systems/pas.toml` 是环境初始化的预留配置，不控制独立采集服务。配置、质量语义和 2026-10-19 VPS 部署记录见 [PAS 公共行情采集](docs/pas-public-collection.zh-CN.md)，命名空间规则见 [PAR/PAS 环境隔离](docs/rehearsal-competition-separation.zh-CN.md)。本次主分支集成不更新服务器服务或数据库。
 
+离线研究可使用 [PAS Research Data Pipeline](docs/pas-research-pipeline.zh-CN.md)：只读提取现有原始库，增量生成独立派生 SQLite、严格 as-of 分钟数据及十资产日统计/CSV。无需更新 Collector 或部署 VPS，示例报告仅使用合成数据。
+
 ## 当前能力
 
 | 模块 | 已实现内容 | 当前边界 |
