@@ -1,0 +1,8 @@
+# Rehearsal is the active research environment. No trading authorization.
+[system]
+dex = "par"
+source = "hyperliquid-testnet/par"
+collateral = "USDPR"
+mode = "rehearsal"
+collector_enabled = true
+trading_enabled = false
