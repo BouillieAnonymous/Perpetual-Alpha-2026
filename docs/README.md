@@ -4,6 +4,7 @@
 
 | 文档 | 回答什么 | 放什么信息 |
 |---|---|---|
+| [PAS CSV 下载与交付记录](pas-ssh-csv-delivery.zh-CN.md) | 队友怎样下载全部或指定区间的数据？ | 已部署入口、Windows/Linux 命令、三类 dataset、验收结果与回滚入口 |
 | [PAS Research Data Pipeline](pas-research-pipeline.zh-CN.md) | 原始数据如何变成可复现研究集？ | 只读增量提取、point-in-time 分钟网格、质量/波动/Funding 日报和 CSV；合成示例 |
 | [PAS 十资产只读采集](pas-public-collection.zh-CN.md) | 正式比赛数据如何独立记录？ | 每分钟行情、每 30 分钟 Funding、质量标签、独立数据库与部署记录；无交易授权 |
 | [PAR/PAS 环境隔离](rehearsal-competition-separation.zh-CN.md) | 排练与正式比赛如何隔离？ | 配置、来源、抵押品、目录身份；预留配置与独立采集入口的区别 |

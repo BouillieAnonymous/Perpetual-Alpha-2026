@@ -1,0 +1,14 @@
+# Append as the final managed block in the main sshd_config, after all global directives.
+# Keep this EOF-only template out of drop-ins so managed replacement/removal stays unambiguous.
+Match User alpha_export
+    ForceCommand /usr/local/bin/alpha-csv-command
+    DisableForwarding yes
+    PermitTunnel no
+    PermitTTY no
+    PermitUserRC no
+    PasswordAuthentication no
+    KbdInteractiveAuthentication no
+    PubkeyAuthentication yes
+    AuthenticationMethods publickey
+    AuthorizedKeysFile /etc/ssh/authorized_keys/alpha_export
+    MaxSessions 1
