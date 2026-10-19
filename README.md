@@ -2,9 +2,11 @@
 
 [![CI](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/workflows/ci.yml)
 
-面向 Perpetual Alpha 2026 比赛的 Python 量化交易研究与工程项目。系统围绕 Hyperliquid Testnet 的 `par` 市场，把数据、可替换策略／Agent、组合构建、独立风控和执行记录连接起来。
+面向 Perpetual Alpha 2026 比赛的 Python 量化交易研究与工程项目。系统使用 Hyperliquid Testnet 的 `par` 排练市场与 `pas` 正式比赛市场，把数据、可替换策略／Agent、组合构建、独立风控和执行记录连接起来。
 
 **当前阶段：数据与模拟交易底座已具备，正在开发和验证策略。** 已实现离线 Dry Run、Core／Worker HTTP 通信、历史数据查询、只读账户观察、市场风险回放、组合风控和可恢复的合成 Paper 执行。实际 LLM 接入、真实账户风险准入及无人值守交易闭环仍待完成。本文按 2026 年 10 月 17 日当前代码与验收记录整理；服务器现场以对应验收文档为准。
+
+PAS 正式比赛已开始，独立 `venue_collection` 入口已实现十资产公共只读采集：每 60 秒记录 metadata/context 与盘口，每 30 分钟采集最近一小时已结算 Funding，使用独立 SQLite 数据库。PAR 研究／模拟链与 PAS 采集状态分离，PAS 交易未启用。`config/systems/pas.toml` 是环境初始化的预留配置，不控制独立采集服务。配置、质量语义和 2026-10-19 VPS 部署记录见 [PAS 公共行情采集](docs/pas-public-collection.zh-CN.md)，命名空间规则见 [PAR/PAS 环境隔离](docs/rehearsal-competition-separation.zh-CN.md)。本次主分支集成不更新服务器服务或数据库。
 
 ## 当前能力
 
