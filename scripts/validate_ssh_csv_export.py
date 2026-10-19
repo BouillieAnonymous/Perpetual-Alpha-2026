@@ -27,6 +27,33 @@ def run(*args, **kwargs):
     return result
 
 
+def cleanup_account(account):
+    """Drain real PAM/user-manager processes for our disposable UID, then delete it."""
+    entry = pwd.getpwnam(account)
+    if not account.startswith(('alpha_csv_test_', 'alpha_admin_test_')) or entry.pw_uid == 0:
+        raise RuntimeError('Refusing to clean an account not owned by this test')
+    uid = str(entry.pw_uid)
+    if shutil.which('loginctl'):
+        sessions = subprocess.run(['loginctl', 'terminate-user', uid], capture_output=True,
+                                  text=True, timeout=10)
+        print(f'cleanup {account}: loginctl returncode={sessions.returncode}, '
+              f'stderr={sessions.stderr!r}', flush=True)
+    # loginctl may be unavailable/no session registered; enforce the same postcondition by UID.
+    for sig in ('TERM', 'KILL'):
+        killed = subprocess.run(['pkill', f'-{sig}', '-u', uid], capture_output=True, text=True, timeout=10)
+        if killed.returncode not in (0, 1):
+            raise RuntimeError(f'Cannot stop disposable UID {uid}: {killed.stderr}')
+        for _ in range(50):
+            remaining = subprocess.run(['pgrep', '-u', uid], capture_output=True, text=True, timeout=5)
+            if remaining.returncode == 1:
+                run('userdel', account)
+                return
+            if remaining.returncode != 0:
+                raise RuntimeError(f'Cannot inspect disposable UID {uid}: {remaining.stderr}')
+            time.sleep(0.1)
+    raise RuntimeError(f'Disposable UID {uid} still has processes; refusing userdel')
+
+
 def main():
     if os.geteuid() != 0:
         raise SystemExit('Run only as root on a disposable Linux test runner')
@@ -203,16 +230,17 @@ def main():
                                  'import sys; open(sys.argv[1],"w")', str(root / 'forbidden')],
                                 preexec_fn=demote, capture_output=True, timeout=10)
         assert result.returncode != 0
-        print('PASS: Ubuntu main-config order, UsePAM yes, admin login unchanged, CSV and permission isolation')
+        print('SSH/PAM/CSV assertions passed; cleaning disposable sessions', flush=True)
     finally:
         if daemon is not None:
             daemon.terminate()
             daemon.communicate(timeout=10)
         for account in reversed(created):
-            run('userdel', account)
+            cleanup_account(account)
         if collector is not None:
             collector.close()
         shutil.rmtree(root)
+    print('PASS: Ubuntu/PAM, admin login, CSV isolation and disposable session cleanup')
 
 
 if __name__ == '__main__':
