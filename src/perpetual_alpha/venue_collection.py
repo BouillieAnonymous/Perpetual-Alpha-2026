@@ -208,12 +208,17 @@ def status(path, dex):
         db.close()
 
 
+def next_poll_deadline(previous, completed, interval):
+    """Fixed cadence, excluding request latency; skip missed slots without catch-up bursts."""
+    return previous + max(1, int((completed - previous) // interval) + 1) * interval
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('command', choices=('collect', 'status'))
     parser.add_argument('--system', choices=('par', 'pas'), required=True)
     parser.add_argument('--database', type=Path, required=True)
-    parser.add_argument('--poll-seconds', type=int, default=10)
+    parser.add_argument('--poll-seconds', type=int, default=60)
     parser.add_argument('--once', action='store_true')
     args = parser.parse_args()
     if args.command == 'status':
@@ -229,12 +234,14 @@ def main():
         store = Capture(args.database, args.system)
         collector = Collector(store)
         try:
+            deadline = time.monotonic()
             while not stopped.is_set():
                 collector.cycle()
                 print(json.dumps({'dex': args.system, 'time_ms': now_ms(), 'signing': False}), flush=True)
                 if args.once:
                     break
-                stopped.wait(args.poll_seconds)
+                deadline = next_poll_deadline(deadline, time.monotonic(), args.poll_seconds)
+                stopped.wait(max(0, deadline - time.monotonic()))
         finally:
             collector.session.close()
             store.heartbeat('stopped')

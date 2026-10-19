@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from perpetual_alpha.venue_collection import Capture, Collector, book_quality, status
+from perpetual_alpha.venue_collection import Capture, Collector, book_quality, next_poll_deadline, status
 from perpetual_alpha.venues import venue
 
 
@@ -116,3 +116,9 @@ class VenueCollectionTests(unittest.TestCase):
                      {'coin': 'par:ETH', 'time': 100_000, 'levels': [[], []]},
                      {'coin': 'pas:ETH', 'time': 100_001, 'levels': [[], []]}]:
             self.assertNotEqual(book_quality('pas:ETH', book, 100_000), 'ready')
+
+    def test_minute_schedule_excludes_request_latency_and_skips_missed_slots(self):
+        first_due = next_poll_deadline(100, 104, 60)
+        self.assertEqual(first_due, 160)
+        self.assertEqual(next_poll_deadline(first_due, 166, 60), 220)
+        self.assertEqual(next_poll_deadline(first_due, 291, 60), 340)

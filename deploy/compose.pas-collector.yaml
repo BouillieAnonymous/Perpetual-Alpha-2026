@@ -2,7 +2,7 @@ name: alpha-pas-data
 services:
   collector:
     image: ${PAS_COLLECTOR_IMAGE:?Set immutable collector image}
-    command: [collect, --system, pas, --database, /data/public.sqlite3, --poll-seconds, "10"]
+    command: [collect, --system, pas, --database, /data/public.sqlite3, --poll-seconds, "60"]
     init: true
     restart: unless-stopped
     user: "1000:1000"

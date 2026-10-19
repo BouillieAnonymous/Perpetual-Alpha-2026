@@ -2,7 +2,7 @@
 
 2026-10-19 用户授权启动 PAS 采集，策略留待后续核对，不启用交易。独立 `venue_collection` 只访问固定 Hyperliquid Testnet `/info` 的 metaAndAssetCtxs、l2Book 和 fundingHistory，不读取钱包、账户或环境凭据，不包含交易请求。
 
-十市场：BTC、ETH、HYPE、SP500、EWY、EWJ、BRENT、GOLD、USDEUR、USDJPY，均使用 `pas:` 前缀和 `hyperliquid-testnet/pas` 来源。元数据与上下文每轮读取，逐市场读取完整返回盘口；循环末等待 10 秒，因此实际间隔为请求耗时加 10 秒，不声称严格 10 秒同步采样。已结算 Funding 每 30 分钟抓取最近一小时，保留重叠和实际可得时间；这是前瞻公共数据采集，不是补齐长期历史。
+十市场：BTC、ETH、HYPE、SP500、EWY、EWJ、BRENT、GOLD、USDEUR、USDJPY，均使用 `pas:` 前缀和 `hyperliquid-testnet/pas` 来源。元数据与上下文每轮读取，逐市场读取完整返回盘口。用户随后批准降低为每分钟一轮：默认和部署参数均为 60 秒，单调时钟安排下一轮起点，网络耗时不再额外叠加到周期；超过一个周期时跳过错过的时钟槽，不补抓或密集重试。各市场依次请求，不声称十市场同一时刻的原子快照。已结算 Funding 每 30 分钟抓取最近一小时，保留重叠和实际可得时间；这是前瞻公共数据采集，不是补齐长期历史。
 
 原 REST 采集器固定 PAR 且空盘口触发 IndexError。本模块使用独立表及 schema/application_id，不改旧库。新响应逐次追加，即使 book time 未变仍保留新 context/Oracle 观测；无盘口/单边/未来/过期/交叉/错误市场分别标记质量，保留原始返回，不填造 bid/ask，不中断后面的市场。单市场请求超时记录独立错误后继续。保留请求、起始/接收/事务内存储时间、原始 JSON 和 SHA256。stored_ms 是事务内采样，不冒称精确提交时间；context 没有上游事件时间，不能把接收时间当 oracle 产生时间。
 
@@ -11,7 +11,7 @@
 ## 运行与检查
 
 ```bash
-python -m perpetual_alpha.venue_collection collect --system pas --database /data/public.sqlite3 --poll-seconds 10
+python -m perpetual_alpha.venue_collection collect --system pas --database /data/public.sqlite3 --poll-seconds 60
 python -m perpetual_alpha.venue_collection status --system pas --database /data/public.sqlite3
 ```
 
