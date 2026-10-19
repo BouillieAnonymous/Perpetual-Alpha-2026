@@ -1,0 +1,201 @@
+{
+  "schema": "pas-preparation-ops/1",
+  "asof_utc": "2026-10-19T16:00:55.677458+00:00",
+  "runtime_commit": "9db22a25a7c403003c823c61f981490582cb1d5b",
+  "state": "WAITING_ACTIVATION",
+  "signed_operations_executed_by_this_task": 0,
+  "collector_started_at_before": "2026-10-19T13:56:45.147295858Z",
+  "containers": [
+    {
+      "name": "alpha-pas-trading-preparation-1",
+      "image": "perpetual-alpha-pas-trading:9db22a2",
+      "image_id": "sha256:c48856e2926a85a31cc343d9c4649d0d2fcdef36760228cc95afbcf0bf948ff1",
+      "started_at": "2026-10-19T16:00:30.243099171Z",
+      "status": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "source": "/opt/perpetual-alpha-pas-trading/state",
+          "target": "/state",
+          "rw": true
+        },
+        {
+          "source": "/opt/perpetual-alpha-pas-trading/notifications",
+          "target": "/run/notifications",
+          "rw": false
+        },
+        {
+          "source": "/opt/perpetual-alpha-pas-trading/public/par-wallet.txt",
+          "target": "/run/par-wallet.txt",
+          "rw": false
+        },
+        {
+          "source": "/opt/perpetual-alpha-pas-trading/public/public.env",
+          "target": "/run/public.env",
+          "rw": false
+        }
+      ]
+    },
+    {
+      "name": "alpha-pas-data-collector-1",
+      "image": "perpetual-alpha-pas-data:b2e0d19",
+      "image_id": "sha256:4cf58cad26c244610b1e97efe44c9ef1eefe20ac4749676c5738e7ccdc97d0a5",
+      "started_at": "2026-10-19T13:56:45.147295858Z",
+      "status": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "source": "/opt/perpetual-alpha-pas-data/pas",
+          "target": "/data",
+          "rw": true
+        }
+      ]
+    },
+    {
+      "name": "alpha-funding-par-1",
+      "image": "perpetual-alpha-funding:43dad96",
+      "image_id": "sha256:13241c02e78ce6778fc9511fda5b7a8b0a78b5334d5363b520586edd7c54796b",
+      "started_at": "2026-10-18T21:40:34.190115751Z",
+      "status": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "source": "/opt/perpetual-alpha-funding/state",
+          "target": "/state",
+          "rw": true
+        },
+        {
+          "source": "/opt/perpetual-alpha-funding/secrets/par.env",
+          "target": "/run/secrets/par.env",
+          "rw": false
+        }
+      ]
+    },
+    {
+      "name": "deploy-collector-1",
+      "image": "perpetual-alpha-collector:2026-10-08",
+      "image_id": "sha256:cda77d65539966dbd59c967f19c4665f3021de0b9f2d1a07b2e7f19825fa0815",
+      "started_at": "2026-10-18T01:30:42.226178242Z",
+      "status": "running",
+      "health": "unhealthy",
+      "mounts": [
+        {
+          "source": "/opt/perpetual-alpha/data",
+          "target": "/data",
+          "rw": true
+        },
+        {
+          "source": "/opt/perpetual-alpha/config/collector.toml",
+          "target": "/app/config/collector.toml",
+          "rw": false
+        }
+      ]
+    },
+    {
+      "name": "paper-ops-36a3713901a4-core-1",
+      "image": "perpetual-alpha-paper:11f9835",
+      "image_id": "sha256:5046a725bee2721a85cf065503e4ec2163f0b8a1267af2498046d19b83089123",
+      "started_at": "2026-10-16T15:37:02.300495024Z",
+      "status": "running",
+      "health": "healthy",
+      "mounts": [
+        {
+          "source": "/var/lib/docker/volumes/paper-ops-36a3713901a4_core-state/_data",
+          "target": "/data",
+          "rw": true
+        },
+        {
+          "source": "/opt/perpetual-alpha-paper/acceptance-11f9835/secrets/core-auth.json",
+          "target": "/run/secrets/core-auth",
+          "rw": false
+        }
+      ]
+    }
+  ],
+  "public_checks": {
+    "authorized_public_wallet": true,
+    "account_role": {
+      "role": "user"
+    },
+    "market_account_without_leverage": true,
+    "signal": {
+      "direction": 1,
+      "time": 1792425600011,
+      "rate": "-0.0000690757",
+      "asof_ms": 1792425636724,
+      "version": "eth-funding-last/1"
+    },
+    "conditional_preview_assuming_1x": {
+      "symbol": "pas:ETH",
+      "buy": true,
+      "quantity": "0.0104",
+      "price": "2392.9",
+      "reduce_only": false,
+      "before": "0",
+      "expected_after": "0.0104",
+      "tif": "Ioc"
+    },
+    "leverage_1x_cross": false
+  },
+  "issues": [
+    "PAS requires a separate authorized API wallet; current wallet is used by PAR",
+    "PAS ETH leverage is not verified 1x Cross; separate authorization required",
+    "External email delivery unconfigured"
+  ],
+  "mail_status": "unconfigured",
+  "outbox": {
+    "total": 1,
+    "smtp_accepted": 0,
+    "attempts": 0
+  },
+  "account": {
+    "symbol": "pas:ETH",
+    "collateral": "USDP",
+    "equity": "100000.0",
+    "free": "100000.0",
+    "quantity": "0",
+    "leverage": {
+      "type": "cross",
+      "value": 20
+    },
+    "available_to_trade": [
+      "100000.0",
+      "100000.0"
+    ],
+    "max_trade_sizes": [
+      "836.1903",
+      "836.1903"
+    ],
+    "fee_bps": "9.00000",
+    "bid": "2390.4",
+    "ask": "2391.8",
+    "mark": "2391.8",
+    "oracle": "2393.5",
+    "other_positions": [],
+    "open_orders": []
+  },
+  "no_signer_file": true,
+  "no_trading_approval": true,
+  "no_live_ledger": true,
+  "notification_recipient_configured": true,
+  "smtp_configured": false,
+  "full_offline_tests": "495 passed; tests-9db22a2.log",
+  "github_ci": "queued at 16:05 UTC; see PR25 checks",
+  "ci_equivalent": {
+    "runtime_commit": "9db22a25a7c403003c823c61f981490582cb1d5b",
+    "result": "ALL_CI_EQUIVALENT_CHECKS_PASSED",
+    "log": "/opt/perpetual-alpha-pas-trading/evidence/ci-equivalent-9db22a2.log",
+    "log_sha256": "29afd26481a7c62c0a54aaf3a2d542441bcbc899e0bf17e96a17f70fee629def",
+    "paper_soak_seconds": 60.8,
+    "production_collectors_restarted": false,
+    "is_github_actions_result": false
+  },
+  "par_readback_16_03_utc": {
+    "paused": true,
+    "reason": "Wrong/incomplete book",
+    "expected_quantity": "0.0000",
+    "terminal_intents": 2,
+    "decisions": 1,
+    "modified_by_this_task": false
+  }
+}
