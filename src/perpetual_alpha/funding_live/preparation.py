@@ -20,7 +20,7 @@ from .policy import dec, funding_signal, load_policy, make_order, target_quantit
 from .venue import TestnetVenue, millis
 
 
-def preflight(client, policy, par_wallet_file):
+def preflight(client, policy, par_wallet_file, *, expected_quantity='0'):
     result = {'schema': 'pas-preflight/1', 'time_ms': millis(), 'signing': False,
               'ready_to_activate': False, 'issues': [], 'checks': {}}
     checks, issues = result['checks'], result['issues']
@@ -40,8 +40,8 @@ def preflight(client, policy, par_wallet_file):
         s = client.snapshot()
         result['snapshot'] = s
         validate_snapshot(s, policy, millis(), require_leverage=False)
-        if dec(s['quantity']) != 0:
-            raise ValueError('First PAS deployment requires a flat account')
+        if dec(s['quantity']) != dec(expected_quantity):
+            raise ValueError('PAS position differs from isolated ledger; never adopt external activity')
         if dec(s['free']) < dec(s['equity']) * dec(policy.min_free_fraction):
             raise ValueError('Free collateral below required buffer')
         checks['market_account_without_leverage'] = True
@@ -50,8 +50,9 @@ def preflight(client, policy, par_wallet_file):
         if not checks['leverage_1x_cross']:
             issues.append('PAS ETH leverage is not verified 1x Cross; separate authorization required')
         else:
-            checks['unsigned_order_preview'] = make_order(
-                s, target_quantity(s, checks['signal'], policy), policy, millis())
+            if dec(s['quantity']) == 0:
+                checks['unsigned_order_preview'] = make_order(
+                    s, target_quantity(s, checks['signal'], policy), policy, millis())
     except Exception as exc:
         issues.append(str(exc) if isinstance(exc, ValueError) else type(exc).__name__)
     # Public checks cannot attest private signer ownership, signed acceptance,
@@ -156,6 +157,23 @@ def runtime_issues(path, now):
         db.close()
 
 
+def expected_position(path, policy):
+    if not path.is_file():
+        return '0'
+    db = sqlite3.connect(path.resolve().as_uri() + '?mode=ro', uri=True)
+    try:
+        identity = json.loads(db.execute('SELECT value FROM identity WHERE id=1').fetchone()[0])
+        # The activated ledger is bound to the enabled policy, while the monitor
+        # deliberately keeps its own disabled policy and never loads a key.
+        from dataclasses import replace
+        if (identity.get('schema') != 'funding-exchange-ledger/1' or identity.get('dex') != 'pas'
+                or identity.get('policy_hash') != replace(policy, enabled=True).digest):
+            raise ValueError('Trading ledger policy mismatch')
+        return report(db)['expected_quantity']
+    finally:
+        db.close()
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('command', choices=['preflight', 'watch', 'health'])
@@ -193,9 +211,15 @@ def main(argv=None):
             signal.signal(sig, lambda *_: stopped.set())
         try:
             while not stopped.is_set():
-                value = preflight(client, p, args.par_wallet_file)
+                runtime = args.root / 'pas' / 'funding.sqlite3'
                 try:
-                    value['issues'].extend(runtime_issues(args.root / 'pas' / 'funding.sqlite3', millis()))
+                    quantity = expected_position(runtime, p)
+                    value = preflight(client, p, args.par_wallet_file, expected_quantity=quantity)
+                except Exception:
+                    value = {'schema': 'pas-preflight/1', 'time_ms': millis(), 'signing': False,
+                             'ready_to_activate': False, 'issues': ['Trading ledger identity unreadable/mismatched']}
+                try:
+                    value['issues'].extend(runtime_issues(runtime, millis()))
                 except Exception:
                     value['issues'].append('Trading ledger unreadable')
                 config = None
