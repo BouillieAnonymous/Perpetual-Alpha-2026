@@ -1,0 +1,20 @@
+# Future explicit activation ONLY. Requires separate approval file and dedicated API signer.
+# Never pass --bootstrap for PAS. No code path sets PAS leverage on resume.
+[funding]
+dex = "pas"
+collateral = "USDP"
+enabled = true
+target_fraction = "0.05"
+max_notional = "25"
+max_order_notional = "25"
+max_loss = "5"
+max_drawdown = "5"
+min_free_fraction = "0.90"
+max_spread_bps = "15"
+slippage_bps = "5"
+max_oracle_deviation_bps = "50"
+max_fee_bps = "9"
+max_book_age_ms = 10000
+max_snapshot_ms = 30000
+decision_window_ms = 900000
+poll_seconds = 60

@@ -1,0 +1,66 @@
+name: alpha-pas-trading
+services:
+  preparation:
+    image: ${PAS_TRADING_IMAGE:?Set immutable PAS image}
+    entrypoint: [python, -m, perpetual_alpha.funding_live.preparation]
+    command: [watch, --config, /app/config/funding/pas.toml, --root, /state,
+              --env-file, /run/public.env, --par-wallet-file, /run/par-wallet.txt,
+              --smtp-file, /run/notifications/smtp.json]
+    restart: unless-stopped
+    init: true
+    user: "1000:1000"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 64
+    mem_limit: 256m
+    cpus: 0.5
+    stop_grace_period: 40s
+    tmpfs: ["/tmp:size=16m,mode=1777"]
+    volumes:
+      - ${PAS_TRADING_ROOT:?Set dedicated PAS root}/state:/state
+      - ${PAS_TRADING_ROOT}/public/public.env:/run/public.env:ro
+      - ${PAS_TRADING_ROOT}/public/par-wallet.txt:/run/par-wallet.txt:ro
+      - ${PAS_TRADING_ROOT}/notifications:/run/notifications:ro
+    logging:
+      driver: json-file
+      options: {max-size: "5m", max-file: "3"}
+    healthcheck:
+      test: [CMD, python, -m, perpetual_alpha.funding_live.preparation, health,
+             --config, /app/config/funding/pas.toml, --root, /state]
+      interval: 60s
+      timeout: 10s
+      start_period: 90s
+      retries: 3
+  trader:
+    image: ${PAS_TRADING_IMAGE:?Set immutable PAS image}
+    profiles: [activation]
+    command: [run, --config, /app/config/funding/pas-live.toml, --root, /state,
+              --env-file, /run/secrets/pas.env, --execute,
+              --approval-file, /run/approval/trading.json, --par-wallet-file, /run/par-wallet.txt]
+    restart: "no"
+    init: true
+    user: "1000:1000"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 64
+    mem_limit: 256m
+    cpus: 0.5
+    stop_grace_period: 40s
+    tmpfs: ["/tmp:size=16m,mode=1777"]
+    volumes:
+      - ${PAS_TRADING_ROOT}/state:/state
+      - ${PAS_TRADING_ROOT}/secrets/pas.env:/run/secrets/pas.env:ro
+      - ${PAS_TRADING_ROOT}/approval:/run/approval:ro
+      - ${PAS_TRADING_ROOT}/public/par-wallet.txt:/run/par-wallet.txt:ro
+    logging:
+      driver: json-file
+      options: {max-size: "5m", max-file: "3"}
+    healthcheck:
+      test: [CMD, python, -m, perpetual_alpha.funding_live, health,
+             --config, /app/config/funding/pas-live.toml, --root, /state]
+      interval: 60s
+      timeout: 10s
+      start_period: 90s
+      retries: 3

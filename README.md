@@ -4,13 +4,15 @@
 
 面向 Perpetual Alpha 2026 比赛的 Python 量化交易研究与工程项目。系统使用 Hyperliquid Testnet 的 `par` 排练市场与 `pas` 正式比赛市场，把数据、可替换策略／Agent、组合构建、独立风控和执行记录连接起来。
 
-**当前阶段：数据与模拟交易底座已具备，正在开发和验证策略。** 已实现离线 Dry Run、Core／Worker HTTP 通信、历史数据查询、只读账户观察、市场风险回放、组合风控和可恢复的合成 Paper 执行。实际 LLM 接入、真实账户风险准入及无人值守交易闭环仍待完成。本文按 2026 年 10 月 17 日当前代码与验收记录整理；服务器现场以对应验收文档为准。
+**当前阶段：数据与模拟交易底座已具备，正在开发和验证策略。** 已实现离线 Dry Run、Core／Worker HTTP 通信、历史数据查询、只读账户观察、市场风险回放、组合风控和可恢复的合成 Paper 执行。实际 LLM 接入及通用 Agent/Core 的真实执行升级仍待完成；本分支新增独立 ETH Funding-LAST 测试网 runner，见下文双环境交付。基础能力记录截至 2026 年 10 月 17 日，独立 runner 验收为 10 月 18 日；服务器现场以对应验收文档为准。
 
 PAS 正式比赛已开始，独立 `venue_collection` 入口已实现十资产公共只读采集：每 60 秒记录 metadata/context 与盘口，每 30 分钟采集最近一小时已结算 Funding，使用独立 SQLite 数据库。PAR 研究／模拟链与 PAS 采集状态分离，PAS 交易未启用。`config/systems/pas.toml` 是环境初始化的预留配置，不控制独立采集服务。配置、质量语义和 2026-10-19 VPS 部署记录见 [PAS 公共行情采集](docs/pas-public-collection.zh-CN.md)，命名空间规则见 [PAR/PAS 环境隔离](docs/rehearsal-competition-separation.zh-CN.md)。本次主分支集成不更新服务器服务或数据库。
 
 离线研究可使用 [PAS Research Data Pipeline](docs/pas-research-pipeline.zh-CN.md)：只读提取现有原始库，增量生成独立派生 SQLite、严格 as-of 分钟数据及十资产日统计/CSV。无需更新 Collector 或部署 VPS，示例报告仅使用合成数据。
 
 ## 当前能力
+
+本开发分支新增 [ETH Funding-LAST 双环境执行与排练运维](docs/funding-release.zh-CN.md)：独立 Testnet runner、PAR 小额验收与 PAS 禁用配置。现场结果以该文档的验收记录为准，不能将其视作全部 Agent/Core 已获得真实执行能力。
 
 | 模块 | 已实现内容 | 当前边界 |
 |---|---|---|
