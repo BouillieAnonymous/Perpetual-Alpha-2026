@@ -1,3 +1,5 @@
+# Append as the final managed block in the main sshd_config, after all global directives.
+# Never install in the early sshd_config.d include; Match all does not restore global scope.
 Match User alpha_export
     ForceCommand /usr/local/bin/alpha-csv-command
     DisableForwarding yes
@@ -10,4 +12,3 @@ Match User alpha_export
     AuthenticationMethods publickey
     AuthorizedKeysFile /etc/ssh/authorized_keys/alpha_export
     MaxSessions 1
-Match all

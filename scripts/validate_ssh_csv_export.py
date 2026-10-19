@@ -14,6 +14,8 @@ import tempfile
 import time
 from pathlib import Path
 
+from render_ssh_export_config import remove, render
+
 from perpetual_alpha.examples.pas_research_fixture import create
 from perpetual_alpha.venue_collection import Capture
 
@@ -31,7 +33,8 @@ def main():
     name = f'alpha_csv_test_{os.getpid()}'
     root = Path(tempfile.mkdtemp(prefix='alpha-ssh-test-'))
     daemon = None
-    created = False
+    created = []
+    admin = f'alpha_admin_test_{os.getpid()}'
     collector = None
     try:
         root.chmod(0o755)
@@ -41,10 +44,16 @@ def main():
             path.chmod(0o444)
         lock = root / 'export.lock'
         lock.touch(mode=0o444)
-        # Permit public-key authentication with an unusable password hash (not a locked account).
-        run('useradd', '--no-create-home', '--home-dir', str(root), '--shell', '/bin/sh',
-            '--password', '*', name)
-        created = True
+        # Same provisioning as production: system user, unusable '*' hash, no passwd -l.
+        for account in (name, admin):
+            run('useradd', '--system', '--user-group', '--no-create-home', '--home-dir', str(root),
+                '--shell', '/bin/sh', '--password', '*', account)
+            created.append(account)
+            before = run('getent', 'passwd', account).stdout
+            for _ in range(2):
+                run('usermod', '--password', '*', account)
+            assert run('getent', 'passwd', account).stdout == before
+            assert run('getent', 'shadow', account).stdout.split(':')[1] == '*'
         user = pwd.getpwnam(name)
         for key in ('host', 'client'):
             run('ssh-keygen', '-q', '-t', 'ed25519', '-N', '', '-f', str(root / key))
@@ -65,14 +74,51 @@ def main():
             port_socket.bind(('127.0.0.1', 0))
             port = port_socket.getsockname()[1]
         config = root / 'sshd_config'
-        template = (checkout / 'deploy/ssh-export/sshd_config').read_text()
-        config.write_text(
+        # Use Ubuntu's installed main config and actual PAM stack, without touching either.
+        Path('/run/sshd').mkdir(exist_ok=True)
+        original = Path('/etc/ssh/sshd_config').read_text()
+        include = 'Include /etc/ssh/sshd_config.d/*.conf'
+        assert include in original
+        assert original.index(include) < original.index('UsePAM yes')
+        assert original.index(include) < original.index('Subsystem')
+        snippets = root / 'sshd_config.d'
+        snippets.mkdir()
+        (snippets / '10-test-globals.conf').write_text(
             f'Port {port}\nListenAddress 127.0.0.1\nHostKey {root / "host"}\n'
-            f'PidFile {root / "pid"}\nUsePAM no\nPermitUserEnvironment no\nAllowUsers {name}\nLogLevel ERROR\n'
-            + template.replace('Match User alpha_export', f'Match User {name}')
-            .replace('/usr/local/bin/alpha-csv-command', f'{sys.executable} -I {launcher}')
-            .replace('/etc/ssh/authorized_keys/alpha_export', str(authorized))
+            f'PidFile {root / "pid"}\nPermitUserEnvironment no\nAllowUsers {name} {admin}\n'
+            f'AuthorizedKeysFile {authorized}\nLogLevel ERROR\n'
         )
+        baseline = original.replace(include, f'Include {snippets}/*.conf')
+        baseline_path = root / 'baseline.conf'
+        baseline_path.write_text(baseline)
+        template = (checkout / 'deploy/ssh-export/sshd_config').read_text()
+        template = (template.replace('Match User alpha_export', f'Match User {name}')
+                    .replace('/usr/local/bin/alpha-csv-command', f'{sys.executable} -I {launcher}')
+                    .replace('/etc/ssh/authorized_keys/alpha_export', str(authorized)))
+        rendered = render(baseline, template)
+        assert render(rendered, template) == rendered
+        assert remove(rendered) == baseline.rstrip() + '\n'
+        assert remove(remove(rendered)) == remove(rendered)
+        config.write_text(rendered)
+        # Regression proof: early Match + Match all invalidates the following Ubuntu globals.
+        bad_snippet = snippets / '99-bad-export.conf'
+        bad_snippet.write_text(template + '\nMatch all\n')
+        invalid = subprocess.run(['/usr/sbin/sshd', '-t', '-f', str(baseline_path)],
+                                 capture_output=True, text=True, timeout=10)
+        assert invalid.returncode != 0 and 'within a Match block' in invalid.stderr
+        bad_snippet.unlink()
+        for selected in (name, admin):
+            effective = run('/usr/sbin/sshd', '-T', '-f', str(config), '-C',
+                            f'user={selected},host=localhost,addr=127.0.0.1').stdout
+            assert 'usepam yes' in effective
+            if selected == admin:
+                before = run('/usr/sbin/sshd', '-T', '-f', str(baseline_path), '-C',
+                             f'user={selected},host=localhost,addr=127.0.0.1').stdout
+                assert effective == before, 'Admin effective configuration changed'
+            else:
+                for setting in ('disableforwarding yes', 'permittty no', 'passwordauthentication no',
+                                'kbdinteractiveauthentication no', 'authenticationmethods publickey'):
+                    assert setting in effective
         Path('/run/sshd').mkdir(exist_ok=True)
         run('/usr/sbin/sshd', '-t', '-f', str(config))
         daemon = subprocess.Popen(['/usr/sbin/sshd', '-D', '-e', '-f', str(config)],
@@ -87,6 +133,8 @@ def main():
                '-o', 'IdentitiesOnly=yes', '-o', 'StrictHostKeyChecking=no',
                '-o', 'UserKnownHostsFile=/dev/null', '-o', 'BatchMode=yes',
                f'{name}@127.0.0.1']
+        admin_ssh = [*ssh[:-1], f'{admin}@127.0.0.1']
+        assert run(*admin_ssh, 'printf admin-ok').stdout == 'admin-ok'
         for dataset in ('observations', 'funding', 'minute-panel'):
             result = run(*ssh, f'export --all --symbol BTC --dataset {dataset}')
             rows = list(csv.DictReader(io.StringIO(result.stdout)))
@@ -124,13 +172,13 @@ def main():
                                  'import sys; open(sys.argv[1],"w")', str(root / 'forbidden')],
                                 preexec_fn=demote, capture_output=True, timeout=10)
         assert result.returncode != 0
-        print('PASS: real SSH CSV, UTC range, command rejection, forwarding denial, read-only OS permissions')
+        print('PASS: Ubuntu main-config order, UsePAM yes, admin login unchanged, CSV and permission isolation')
     finally:
         if daemon is not None:
             daemon.terminate()
             daemon.communicate(timeout=10)
-        if created:
-            run('userdel', name)
+        for account in reversed(created):
+            run('userdel', account)
         if collector is not None:
             collector.close()
         shutil.rmtree(root)
