@@ -99,9 +99,11 @@ WAL/SHM 由 Collector 创建和维护。SQLite 支持已有且可读 sidecar 下
 
 **模板只放在主 `/etc/ssh/sshd_config` 的最后，所有全局指令之后。**
 本项目统一使用末尾安装，便于审阅和幂等回滚，不再使用开头加载的 drop-in，也不追加 `Match all`。
-注意区分两种情况：同一文件中 `Match all` 仍是 Match 上下文，后面不能跟 UsePAM 等全局指令；
-但 OpenSSH 9.6 的 Include 解析器会恢复外层文件的 Match 状态，因此 include 内的 Match 并不必然
-导致主配置后面的全局指令解析失败。之前“旧 drop-in 必然使 Ubuntu 配置失败”的判断已由 CI 实测纠正。
+不能把“旧版 include 或 Match all 必然让 sshd -t 失败”当作验收依据。
+CI 的 Ubuntu OpenSSH 9.6 实测：旧 include 和同文件 Match all 后接 UsePAM yes 两种样例
+均返回 0、stdout/stderr 为空。Include 解析器会恢复外层状态；Match all 的初次解析也有特殊处理。
+因此测试保留这两种可解析样例，并另外验证真正非法的 **Match User 段内直接配置 UsePAM** 必须失败。
+本项目继续采用 EOF 安装，以明确管理范围，不依赖其他布局在所有版本中的行为。
 以后需要新增全局设置时必须插在受管理区块之前。
 
 `scripts/render_ssh_export_config.py` 从 stdin 生成 stdout 候选配置，不直接写系统文件或 reload。
@@ -146,7 +148,7 @@ ForceCommand 会覆盖普通命令及 subsystem，scp/sftp 请求也会被白名
 覆盖全量、UTC 半开区间、资产、funding 版本、逐字段面板对照、原库写操作拒绝、
 导出中追加与 WAL truncate checkpoint 成功、新增记录不进入当前导出、命令注入和超时错误。
 Linux 测试额外覆盖同锁互斥和资源限制。CI 还复制 Ubuntu 已安装的主 sshd_config，保留
-开头 Include → 后续 UsePAM/Subsystem 的实际顺序，验证早期 include 能通过解析且管理员设置不变，同时用同一文件中 Match all 后跟 UsePAM 的负例证明解析拒绝，再验证 EOF 安装、
+开头 Include → 后续 UsePAM/Subsystem 的实际顺序，验证早期 include 能通过解析且管理员设置不变，保留同文件 Match all 的实测正例，并用 Match User 段内直接配置 UsePAM 的负例证明解析拒绝，再验证 EOF 安装、
 真实 PAM 公钥认证、重复生成/移除及管理员 effective config 和新连接不受影响。真实账号/sshd/ACL 验收须日后部署阶段完成，
 不能用 Windows 单元测试替代：
 
@@ -187,4 +189,4 @@ sidecar 重建的验证等日后已计划的 Collector 维护窗口完成；不�
 
 解析依据：[OpenSSH 9.6 servconf.c Include 分支](https://github.com/openssh/openssh-portable/blob/V_9_6_P1/servconf.c#L2049-L2112)
 保存/恢复外层 Match 状态。CI #158 的诊断提交实测旧 include：returncode=0、stdout=''、stderr=''；
-因此新版测试分别断言有效 include 和真正非法的同文件 Match/全局混用，而不是放宽或跳过回归。
+CI #160 又确认同文件 Match all 样例同样被接受。新版测试保留这两组正例，并断言 Match User 段直接配置 UsePAM 的真正负例，未跳过回归。

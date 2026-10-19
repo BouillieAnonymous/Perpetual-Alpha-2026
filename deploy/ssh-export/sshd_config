@@ -1,5 +1,5 @@
 # Append as the final managed block in the main sshd_config, after all global directives.
-# Never install in the early sshd_config.d include; Match all does not restore global scope.
+# Keep this EOF-only template out of drop-ins so managed replacement/removal stays unambiguous.
 Match User alpha_export
     ForceCommand /usr/local/bin/alpha-csv-command
     DisableForwarding yes

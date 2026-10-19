@@ -117,16 +117,24 @@ def main():
         include_admin = run('/usr/sbin/sshd', '-T', '-f', str(baseline_path), '-C', connection).stdout
         assert include_admin == admin_before, 'Included Match changed administrator settings'
         included.unlink()
-        # Negative control: Match all cannot resume global scope IN THE SAME FILE.
-        # Keep this real parser-rejection regression, with full diagnostics on any outcome.
-        invalid_path = root / 'invalid-same-file.conf'
-        invalid_path.write_text(baseline + '\n' + template + '\nMatch all\nUsePAM yes\n')
+        # The measured Match-all example is accepted too; preserve that observation.
+        all_path = root / 'match-all-same-file.conf'
+        all_path.write_text(baseline + '\n' + template + '\nMatch all\nUsePAM yes\n')
+        all_result = subprocess.run(['/usr/sbin/sshd', '-t', '-f', str(all_path)],
+                                    capture_output=True, text=True, timeout=10)
+        print(f'match_all.returncode={all_result.returncode!r}', flush=True)
+        print(f'match_all.stdout={all_result.stdout!r}', flush=True)
+        print(f'match_all.stderr={all_result.stderr!r}', flush=True)
+        assert all_result.returncode == 0, 'Measured Match-all example changed behavior'
+        # Real negative control: a global-only directive directly in a named User block.
+        invalid_path = root / 'invalid-user-match.conf'
+        invalid_path.write_text(baseline + '\n' + template + '\nUsePAM yes\n')
         invalid = subprocess.run(['/usr/sbin/sshd', '-t', '-f', str(invalid_path)],
                                  capture_output=True, text=True, timeout=10)
         print(f'invalid.returncode={invalid.returncode!r}', flush=True)
         print(f'invalid.stdout={invalid.stdout!r}', flush=True)
         print(f'invalid.stderr={invalid.stderr!r}', flush=True)
-        assert invalid.returncode != 0, 'Same-file global directive inside Match was accepted'
+        assert invalid.returncode != 0, 'Global directive directly inside Match User was accepted'
         assert all(part in invalid.stderr for part in (str(invalid_path), 'UsePAM', 'Match')), (
             'Expected a UsePAM/Match-context rejection in the negative-control file')
         for selected in (name, admin):
