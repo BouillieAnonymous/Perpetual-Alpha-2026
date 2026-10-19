@@ -101,3 +101,33 @@ jobs:
           sudo apt-get install -y openssh-server python3-requests
       - name: Verify disposable local SSH and filesystem isolation
         run: sudo env PYTHONPATH="$PWD/src" /usr/bin/python3 scripts/validate_ssh_csv_export.py
+
+  csv-python314:
+    name: Standalone CSV Python 3.14 / WAL / SSH
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.14.4'
+      - name: Build isolated stdlib runtime
+        run: |
+          python scripts/build_csv_export_wheel.py --output .cache/csv-wheel
+          sudo "$(which python)" -m venv /opt/alpha-csv-ci
+          sudo /opt/alpha-csv-ci/bin/python -m pip install --no-index --no-deps .cache/csv-wheel/*.whl
+          /opt/alpha-csv-ci/bin/python -I scripts/validate_csv_export_install.py
+          /opt/alpha-csv-ci/bin/python -m pip check
+      - name: Install fixture-only harness and SSH tools
+        run: |
+          python -m pip install requests==2.32.5
+          sudo apt-get update -qq
+          sudo apt-get install -y openssh-server python3-requests acl
+      - name: Python 3.14 installed CSV tests and concurrent SQLite WAL reads
+        run: |
+          runtime_site=$(/opt/alpha-csv-ci/bin/python -c 'import sysconfig; print(sysconfig.get_path("purelib"))')
+          CSV_EXPORT_TEST_PACKAGE=alpha_csv_export CSV_EXPORT_TEST_PYTHON=/opt/alpha-csv-ci/bin/python PYTHONPATH="$runtime_site:$PWD/src:$PWD/tests" python -m unittest test_pas_csv_export test_csv_export_distribution -v
+      - name: Installed Python 3.14 runtime through real SSH and PAM
+        run: sudo env PYTHONPATH="$PWD/src" CSV_EXPORT_TEST_PACKAGE=alpha_csv_export CSV_EXPORT_TEST_PYTHON=/opt/alpha-csv-ci/bin/python /usr/bin/python3 scripts/validate_ssh_csv_export.py

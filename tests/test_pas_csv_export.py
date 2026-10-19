@@ -1,19 +1,24 @@
 import csv
+import importlib
 import io
+import os
 import sqlite3
 import subprocess
 import sys
 import tempfile
+import threading
+import time
 import unittest
 from contextlib import closing
 from pathlib import Path
 from unittest.mock import patch
 
-from perpetual_alpha import pas_csv_export as export
-from perpetual_alpha import pas_research as research
 from perpetual_alpha.examples.pas_research_fixture import START, append, book, create
 from perpetual_alpha.venue_collection import Capture
 
+PACKAGE = os.environ.get('CSV_EXPORT_TEST_PACKAGE', 'perpetual_alpha')
+export = importlib.import_module(PACKAGE + '.pas_csv_export')
+research = importlib.import_module(PACKAGE + '.pas_research')
 
 class CSVExportTests(unittest.TestCase):
     def setUp(self):
@@ -75,6 +80,49 @@ class CSVExportTests(unittest.TestCase):
             self.assertEqual(len(rows), maximum)
             self.assertEqual(max(r['seq'] for r in rows), maximum)
 
+    def test_live_wal_writer_during_streamed_export(self):
+        ready, start, first_written = threading.Event(), threading.Event(), threading.Event()
+        failures = []
+        def writer():
+            try:
+                with closing(Capture(self.raw, 'pas')) as store:
+                    ready.set()
+                    if not start.wait(5):
+                        raise TimeoutError('Export did not start')
+                    for i in range(20):
+                        stamp = START + 1_000_000 + i*1000
+                        append(store, 'book', 'pas:BTC', book('pas:BTC', stamp-500), stamp,
+                               'ready', stamp-500)
+                        first_written.set()
+                        time.sleep(0.002)
+                    self.assertEqual(store.db.execute('PRAGMA wal_checkpoint(TRUNCATE)').fetchone()[0], 0)
+            except Exception as exc:
+                failures.append(exc)
+                ready.set()
+                first_written.set()
+        class SlowOutput(io.StringIO):
+            def write(self, value):
+                start.set()
+                if not first_written.wait(5):
+                    raise TimeoutError('Concurrent writer did not append')
+                time.sleep(0.001)
+                return super().write(value)
+        with closing(research.readonly(self.raw)) as db:
+            original = db.execute('SELECT count(*) FROM observations').fetchone()[0]
+        thread = threading.Thread(target=writer)
+        thread.start()
+        try:
+            self.assertTrue(ready.wait(5))
+            output = SlowOutput()
+            export.export(self.raw, export.arguments(['--all']), output)
+        finally:
+            start.set()
+            thread.join(timeout=10)
+        self.assertFalse(thread.is_alive())
+        self.assertFalse(failures, failures)
+        self.assertEqual(len(list(csv.DictReader(io.StringIO(output.getvalue())))), original)
+        self.assertEqual(len(self.rows('export --all')), original + 20)
+
     def test_reject_shell_paths_sql_abbreviations_duplicates_and_invalid_dates(self):
         bad = ['', 'sh', 'export --all; id', 'export --all | cat', 'export $(id)',
                'export --all > x', 'export --all\nid', 'export --database /etc/passwd --all',
@@ -108,7 +156,7 @@ class CSVExportTests(unittest.TestCase):
         lock.touch(mode=0o444)
         script = (
             'import resource; from pathlib import Path; '
-            'from perpetual_alpha import pas_csv_export as e; '
+            f'from {PACKAGE} import pas_csv_export as e; '
             f'e.LOCK=Path({str(lock)!r}); '
             'fd=e.limited_session(); '
             'assert resource.getrlimit(resource.RLIMIT_CORE)==(0,0); '
@@ -137,7 +185,7 @@ class CSVExportTests(unittest.TestCase):
         script = f"""
 import os
 from pathlib import Path
-from perpetual_alpha import pas_csv_export as e
+from {PACKAGE} import pas_csv_export as e
 e.LOCK=Path({str(lock)!r})
 e.SECONDS=1
 os.environ['SSH_ORIGINAL_COMMAND']='export --all'

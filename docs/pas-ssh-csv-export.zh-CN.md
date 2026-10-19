@@ -42,12 +42,38 @@ minute-panel 在内存 SQLite 保存滚动窗口；因原库无时间索引，�
 
 ## 部署（管理员日后手动执行）
 
-先选定审核后的 commit，在独立、root 持有且队友不可写的源码目录构建安装；不用现有交易 venv：
+### 独立 Python 3.14 runtime
+
+VPS 已有 Python 3.14 时，**不安装 Python 3.12，也不 pip install 主项目**。
+主项目 `pyproject.toml` 继续保持 `>=3.11,<3.14`，本适配不宣称交易/Collector 全项目兼容 3.14。
+只对独立 distribution `perpetual-alpha-csv-export` 声明 `>=3.14,<3.15`；SSH 部署目标为 Linux。
+
+实际依赖链：原 `pas_csv_export → pas_research → venue_collection` 的导入会带入 requests，
+安装主项目还会安装 hyperliquid-python-sdk 及交易依赖。独立 wheel 改用 `alpha_csv_export` 命名空间，
+原样收录三个纯 Python 模块，并从 Collector AST **原样提取** APPLICATION_ID、URL、canonical、book_quality。
+它不收录 Capture/Collector、ProcessLock、HTTP 客户端、交易 SDK、钱包代码或运行配置。
+运行时仅用 Python 标准库；wheel 无 Requires-Dist。构建器也仅用标准库，不下载构建后端。
+
+构建时检查全部静态 import：新增非标准库或未打包相对导入会失败，要求重新审查边界。
+每个 wheel 含四个原文件的规范 UTF-8/LF 源码 SHA256 manifest，RECORD 记录安装文件哈希；
+相同源码构建可重复。不是长期维护一份手工复制的规范化逻辑，不修改 Collector 源码。
+
+先选定审核后的 commit，在独立、root 持有且队友不可写的 checkout 构建。以下只为日后手动部署说明，
+本 PR 不操作 VPS。**必须安装 ACL 工具和 venv 支持包**，不复用交易环境：
 
 ```sh
+sudo apt-get install --no-install-recommends python3.14-venv acl
+# 在审核后的 checkout 根目录；此构建只写本地 wheel，不接触行情数据库。
+python3.14 scripts/build_csv_export_wheel.py --output .cache/csv-wheel
+sha256sum .cache/csv-wheel/perpetual_alpha_csv_export-0.1.0-py3-none-any.whl
+# 将 wheel 哈希与可信构建记录核对后安装，保留 wheel/哈希以便回滚。
 sudo install -d -o root -g root -m 0755 /opt/alpha-csv-export
-test -x /opt/alpha-csv-export/venv/bin/python || sudo python3.12 -m venv /opt/alpha-csv-export/venv
-sudo /opt/alpha-csv-export/venv/bin/pip install /path/to/reviewed/checkout
+test -x /opt/alpha-csv-export/venv/bin/python || sudo python3.14 -m venv /opt/alpha-csv-export/venv
+# 若已存在旧 Python venv，此检查必须失败，不能直接在其中覆盖或替换解释器。
+sudo /opt/alpha-csv-export/venv/bin/python -I -c 'import sys; assert sys.version_info[:2] == (3,14)'
+sudo /opt/alpha-csv-export/venv/bin/python -m pip install --no-index --no-deps --force-reinstall /path/to/reviewed/checkout/.cache/csv-wheel/perpetual_alpha_csv_export-0.1.0-py3-none-any.whl
+sudo /opt/alpha-csv-export/venv/bin/python -I /path/to/reviewed/checkout/scripts/validate_csv_export_install.py
+sudo /opt/alpha-csv-export/venv/bin/python -m pip check
 # 已有同名账号时先核实用途，绝不把现有管理员/其他业务账号改作导出账号。
 if getent passwd alpha_export >/dev/null; then
     test "$(getent passwd alpha_export | cut -d: -f6-7)" = '/var/empty/alpha-export:/bin/sh' || exit 1
@@ -74,12 +100,19 @@ sudo install -d -o root -g root -m 0755 /etc/ssh/authorized_keys
 CI 使用 Ubuntu 实际 `/etc/pam.d/sshd`、`UsePAM yes` 和同样的 system-user/`*` 创建参数。
 现场 PAM、AllowUsers/Groups、账号有效期等仍须逐项验收，不能把 CI 当作 VPS 已验收。
 
+独立 venv 校验必须确认 Python 为 3.14、requests/hyperliquid/eth_account/perpetual_alpha 不可导入，
+输出所用 SQLite 版本和安装模块路径。launcher 用 `-I -m alpha_csv_export.pas_csv_export`，
+不会从当前目录、PYTHONPATH 或用户 site-packages 导入主项目。仅安装 pip 和独立导出 distribution。
+已存在其他版本/混入交易依赖的 venv 应停在此处，另建 root-owned 新 runtime 并按备份步骤切换，
+不要修改系统 Python 或已有交易 venv。升级保留旧 launcher、wheel、哈希及 runtime；
+同版本源码变化也必须按新哈希核验并明确 --force-reinstall，不能假定 pip 会自动更新同版本 wheel。
+
 ### 数据 ACL 与 WAL
 
 不要更改 Collector UID 或整个目录的写权限。管理员先 `namei -l`、`getfacl` 检查已有权限，
 将原 ACL 保存到受保护的管理员目录用于回滚；首次保存后不覆盖基线，重复 setfacl 设置同一条目不会重复增加权限。按实际目录为 alpha_export 授予父目录 traverse、
 PAS 数据目录 read/traverse；给 `public.sqlite3`、`-wal`、`-shm` 只授予 read。
-例如（需已有 acl 工具，数据路径核实后执行）：
+例如（先确认已安装 `acl`，`command -v getfacl setfacl` 均成功，数据路径核实后执行）：
 
 ```sh
 sudo setfacl -m u:alpha_export:--x /opt/perpetual-alpha-pas-data
@@ -144,7 +177,13 @@ ForceCommand 会覆盖普通命令及 subsystem，scp/sftp 请求也会被白名
 
 ## 验收与回滚
 
-离线测试：`python -m unittest discover -s tests -p 'test_pas_csv_export.py' -v`。
+原项目兼容性测试继续使用受支持的 Python 3.12。新增 CI 使用 Python 3.14.4 构建/安装独立 wheel，
+在不含 requests 或交易 SDK 的 venv 中以 -I 验证；通过测试宿主仅为生成合成 Collector fixture 安装 requests，
+这个**测试工具依赖不会装进部署 venv**。现有 CSV 单元测试通过环境变量选择已安装的 alpha_csv_export，
+覆盖全量、区间、三 dataset、逐字段面板以及导出期间追加/WAL checkpoint；SSH/PAM 验收也执行已安装 3.14 venv。
+独立 wheel 另测可重复构建、RECORD 哈希、依赖边界及主项目版本限制未被放宽。
+
+本地原项目测试：`python -m unittest discover -s tests -p 'test_pas_csv_export.py' -v`。
 覆盖全量、UTC 半开区间、资产、funding 版本、逐字段面板对照、原库写操作拒绝、
 导出中追加与 WAL truncate checkpoint 成功、新增记录不进入当前导出、命令注入和超时错误。
 Linux 测试额外覆盖同锁互斥和资源限制。CI 还复制 Ubuntu 已安装的主 sshd_config，保留
@@ -180,7 +219,7 @@ sidecar 重建的验证等日后已计划的 Collector 维护窗口完成；不�
 配置后原子安装、再 `sshd -t` 和 reload；不会恢复整份旧主配置覆盖后来他人的变更。
 如区块后有新配置，renderer 会拒绝，人工仅删除 BEGIN/END 范围并验证。旧版 drop-in 不应在本方案回滚时重新引入。
 根据首次保存的 ACL 恢复本功能相关条目，检查有无后来业务 ACL 变更，不盲目覆盖整目录权限。
-最后仅删除本功能专用账号、launcher、venv、tmpfiles 配置；存在时才删除，公用父目录保留。
+仅升级 wheel 时可用保留的审核旧 wheel 执行 --no-index --no-deps --force-reinstall，再复验测试公钥；跨解释器升级则恢复旧 launcher 和独立旧 runtime。完整撤销时，最后仅删除本功能专用账号、launcher、venv、tmpfiles 配置；存在时才删除，公用父目录保留。
 不删除 PAS 数据库、Collector、交易服务或其他 SSH 配置。仍有导出进程时不删除/重建锁文件。
 回滚后重新验证管理员新连接、Collector 只读状态检查、测试公钥被拒绝。
 

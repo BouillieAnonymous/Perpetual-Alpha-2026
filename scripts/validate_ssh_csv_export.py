@@ -88,14 +88,22 @@ def main():
         authorized.write_text('restrict ' + (root / 'client.pub').read_text())
         authorized.chmod(0o644)
         checkout = Path(__file__).resolve().parents[1]
+        runtime = os.environ.get('CSV_EXPORT_TEST_PYTHON', sys.executable)
+        package = os.environ.get('CSV_EXPORT_TEST_PACKAGE', 'perpetual_alpha')
+        if package not in ('alpha_csv_export', 'perpetual_alpha'):
+            raise ValueError('Unknown test runtime namespace')
         module_path = root / 'lib'
-        shutil.copytree(checkout / 'src/perpetual_alpha', module_path / 'perpetual_alpha')
+        if package == 'perpetual_alpha':
+            shutil.copytree(checkout / 'src/perpetual_alpha', module_path / 'perpetual_alpha')
+            import_setup = f'import sys; sys.path.insert(0, {str(module_path)!r})\n'
+        else:
+            # The standalone -I process must use the installed wheel, never source checkout imports.
+            import_setup = 'import sys\n'
         launcher = root / 'launch.py'
         launcher.write_text(
-            f'import sys; sys.path.insert(0, {str(module_path)!r})\n'
-            'from pathlib import Path\nfrom perpetual_alpha import pas_csv_export as e\n'
-            f'e.DATABASE=Path({str(root / "public.sqlite3")!r})\n'
-            f'e.LOCK=Path({str(lock)!r})\nsys.exit(e.main())\n'
+            import_setup + f'from pathlib import Path\nfrom {package} import pas_csv_export as e\n'
+            + f'e.DATABASE=Path({str(root / "public.sqlite3")!r})\n'
+            + f'e.LOCK=Path({str(lock)!r})\nsys.exit(e.main())\n'
         )
         with socket.socket() as port_socket:
             port_socket.bind(('127.0.0.1', 0))
@@ -120,7 +128,7 @@ def main():
         baseline_path.write_text(baseline)
         template = (checkout / 'deploy/ssh-export/sshd_config').read_text()
         template = (template.replace('Match User alpha_export', f'Match User {name}')
-                    .replace('/usr/local/bin/alpha-csv-command', f'{sys.executable} -I {launcher}')
+                    .replace('/usr/local/bin/alpha-csv-command', f'{runtime} -I {launcher}')
                     .replace('/etc/ssh/authorized_keys/alpha_export', str(authorized)))
         rendered = render(baseline, template)
         assert render(rendered, template) == rendered
