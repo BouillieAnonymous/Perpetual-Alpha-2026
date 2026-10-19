@@ -46,6 +46,11 @@ def preflight(client, policy, par_wallet_file, *, expected_quantity='0'):
             raise ValueError('Free collateral below required buffer')
         checks['market_account_without_leverage'] = True
         checks['signal'] = funding_signal(s['funding'], policy.symbol, millis())
+        # This preview is explicitly conditional, never evidence that the
+        # exchange has changed leverage and never an instruction to submit.
+        at_one = {**s, 'leverage': {'type': 'cross', 'value': 1}}
+        checks['conditional_preview_assuming_1x'] = make_order(
+            at_one, target_quantity(at_one, checks['signal'], policy), policy, millis())
         checks['leverage_1x_cross'] = s['leverage'] == {'type': 'cross', 'value': 1}
         if not checks['leverage_1x_cross']:
             issues.append('PAS ETH leverage is not verified 1x Cross; separate authorization required')
@@ -157,7 +162,7 @@ def runtime_issues(path, now):
         db.close()
 
 
-def expected_position(path, policy):
+def expected_position(path, policy, team):
     if not path.is_file():
         return '0'
     db = sqlite3.connect(path.resolve().as_uri() + '?mode=ro', uri=True)
@@ -167,6 +172,7 @@ def expected_position(path, policy):
         # deliberately keeps its own disabled policy and never loads a key.
         from dataclasses import replace
         if (identity.get('schema') != 'funding-exchange-ledger/1' or identity.get('dex') != 'pas'
+                or identity.get('team') != team
                 or identity.get('policy_hash') != replace(policy, enabled=True).digest):
             raise ValueError('Trading ledger policy mismatch')
         return report(db)['expected_quantity']
@@ -213,7 +219,7 @@ def main(argv=None):
             while not stopped.is_set():
                 runtime = args.root / 'pas' / 'funding.sqlite3'
                 try:
-                    quantity = expected_position(runtime, p)
+                    quantity = expected_position(runtime, p, client.team)
                     value = preflight(client, p, args.par_wallet_file, expected_quantity=quantity)
                 except Exception:
                     value = {'schema': 'pas-preflight/1', 'time_ms': millis(), 'signing': False,
