@@ -1,0 +1,28 @@
+name: alpha-pas-data
+services:
+  collector:
+    image: ${PAS_COLLECTOR_IMAGE:?Set immutable collector image}
+    command: [collect, --system, pas, --database, /data/public.sqlite3, --poll-seconds, "60"]
+    init: true
+    restart: unless-stopped
+    user: "1000:1000"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 256m
+    cpus: 0.5
+    pids_limit: 64
+    stop_grace_period: 40s
+    tmpfs: ["/tmp:size=16m,mode=1777"]
+    volumes:
+      - ${PAS_COLLECTOR_DATA:?Set independent PAS data directory}:/data
+    healthcheck:
+      test: [CMD, python, -m, perpetual_alpha.venue_collection, status,
+             --system, pas, --database, /data/public.sqlite3]
+      interval: 30s
+      timeout: 10s
+      start_period: 120s
+      retries: 3
+    logging:
+      driver: json-file
+      options: {max-size: "5m", max-file: "3"}
