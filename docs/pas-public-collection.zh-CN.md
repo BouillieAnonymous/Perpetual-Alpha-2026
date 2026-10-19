@@ -35,3 +35,9 @@ python -m perpetual_alpha.venue_collection status --system pas --database /data/
 - 本服务是独立入口；旧 `config/systems/pas.toml` 的预留标记不控制这个服务，也不提供交易授权。
 
 停止命令：在该 release 目录显式传递 PAS_COLLECTOR_IMAGE/PAS_COLLECTOR_DATA，执行 `docker compose -f deploy/compose.pas-collector.yaml stop collector`；保留数据库。启动使用相同配置 `up -d collector`。本次没有合并 PR，也没有清理旧数据。
+
+## 每分钟采集更新
+
+用户在数据量测算后明确批准部署每分钟记录。运行代码更新为 `b2e0d19fa7a5c69aa5a9dd165a2ac68058497f76`，镜像 `perpetual-alpha-pas-data:b2e0d19`，ID `sha256:4cf58cad26c244610b1e97efe44c9ef1eefe20ac4749676c5738e7ccdc97d0a5`。命令行和 Compose 均使用 `--poll-seconds 60`，CLI 默认同步改为 60。调度按单调时钟固定轮次，正常网络耗时不叠加至 60 秒之后；慢请求错过时钟槽则跳过，不追赶。
+
+部署前通过 SQLite online backup 保存 `pas/before-minute-b2e0d19.sqlite3`，完整性检查 ok、保留 1375 条原始记录。新服务继续使用原 public.sqlite3，原始数据未删除或重贴标签。VPS 同镜像全部 418 项回归通过，其中新增的第 9 项采集测试覆盖请求耗时和错过时钟槽。Funding 仍每 30 分钟取最近一小时，策略/交易/异常事件的记录逻辑未修改，PAS 策略未启用。
