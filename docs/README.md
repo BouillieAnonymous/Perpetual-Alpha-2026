@@ -7,6 +7,7 @@
 | [PAS Research Data Pipeline](pas-research-pipeline.zh-CN.md) | 原始数据如何变成可复现研究集？ | 只读增量提取、point-in-time 分钟网格、质量/波动/Funding 日报和 CSV；合成示例 |
 | [PAS 十资产只读采集](pas-public-collection.zh-CN.md) | 正式比赛数据如何独立记录？ | 每分钟行情、每 30 分钟 Funding、质量标签、独立数据库与部署记录；无交易授权 |
 | [PAR/PAS 环境隔离](rehearsal-competition-separation.zh-CN.md) | 排练与正式比赛如何隔离？ | 配置、来源、抵押品、目录身份；预留配置与独立采集入口的区别 |
+| [Funding-LAST 双环境交付](funding-release.zh-CN.md) | ETH 策略如何接入 PAR/PAS 并隔离上线？ | 独立真实测试网 runner、冻结信号、订单与账户对账、风险政策、PAR 排练验收、PAS 禁用、备份回滚与限制 |
 | [项目总览与任务](project-plan.zh-CN.md) | 谁做什么、现在到哪一步？ | 分工、节点、任务、会议与决定 |
 | [开发基线与分阶段实施计划 v0.3](development-baseline-v0.3.zh-CN.md) | 架构审查后决定怎样开发？ | 已确认架构与工程政策、审查反馈、PR0–PR2 首轮范围、后续阶段及验收与权限边界 |
 | [Agent Transport 0.1 / PR0](agent-transport-v0.1.zh-CN.md) | 跨进程接入的消息、状态和校验怎样定义？ | 纯契约与 Ingress、三轴状态、Schema、幂等/事务职责和 HTTP 映射；数据库见 PR1，网络待 PR2 |
