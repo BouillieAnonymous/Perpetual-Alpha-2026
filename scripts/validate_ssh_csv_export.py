@@ -105,6 +105,9 @@ def main():
         bad_snippet.write_text(template + '\nMatch all\n')
         invalid = subprocess.run(['/usr/sbin/sshd', '-t', '-f', str(baseline_path)],
                                  capture_output=True, text=True, timeout=10)
+        print(f'invalid.returncode={invalid.returncode!r}', flush=True)
+        print(f'invalid.stdout={invalid.stdout!r}', flush=True)
+        print(f'invalid.stderr={invalid.stderr!r}', flush=True)
         assert invalid.returncode != 0 and 'within a Match block' in invalid.stderr
         bad_snippet.unlink()
         for selected in (name, admin):
