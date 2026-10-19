@@ -100,16 +100,35 @@ def main():
         assert remove(rendered) == baseline.rstrip() + '\n'
         assert remove(remove(rendered)) == remove(rendered)
         config.write_text(rendered)
-        # Regression proof: early Match + Match all invalidates the following Ubuntu globals.
-        bad_snippet = snippets / '99-bad-export.conf'
-        bad_snippet.write_text(template + '\nMatch all\n')
-        invalid = subprocess.run(['/usr/sbin/sshd', '-t', '-f', str(baseline_path)],
+        # OpenSSH restores the outer file's Match state after each Include.
+        # The historical drop-in is valid; verify its behavior instead of inventing a syntax error.
+        connection = f'user={admin},host=localhost,addr=127.0.0.1'
+        admin_before = run('/usr/sbin/sshd', '-T', '-f', str(baseline_path), '-C', connection).stdout
+        included = snippets / '99-included-export.conf'
+        included.write_text(template + '\nMatch all\n')
+        include_result = subprocess.run(['/usr/sbin/sshd', '-t', '-f', str(baseline_path)],
+                                        capture_output=True, text=True, timeout=10)
+        print(f'include.returncode={include_result.returncode!r}', flush=True)
+        print(f'include.stdout={include_result.stdout!r}', flush=True)
+        print(f'include.stderr={include_result.stderr!r}', flush=True)
+        assert include_result.returncode == 0, 'Include must restore the outer global context'
+        include_export = run('/usr/sbin/sshd', '-T', '-f', str(baseline_path), '-C',
+                             f'user={name},host=localhost,addr=127.0.0.1').stdout
+        include_admin = run('/usr/sbin/sshd', '-T', '-f', str(baseline_path), '-C', connection).stdout
+        assert include_admin == admin_before, 'Included Match changed administrator settings'
+        included.unlink()
+        # Negative control: Match all cannot resume global scope IN THE SAME FILE.
+        # Keep this real parser-rejection regression, with full diagnostics on any outcome.
+        invalid_path = root / 'invalid-same-file.conf'
+        invalid_path.write_text(baseline + '\n' + template + '\nMatch all\nUsePAM yes\n')
+        invalid = subprocess.run(['/usr/sbin/sshd', '-t', '-f', str(invalid_path)],
                                  capture_output=True, text=True, timeout=10)
         print(f'invalid.returncode={invalid.returncode!r}', flush=True)
         print(f'invalid.stdout={invalid.stdout!r}', flush=True)
         print(f'invalid.stderr={invalid.stderr!r}', flush=True)
-        assert invalid.returncode != 0 and 'within a Match block' in invalid.stderr
-        bad_snippet.unlink()
+        assert invalid.returncode != 0, 'Same-file global directive inside Match was accepted'
+        assert all(part in invalid.stderr for part in (str(invalid_path), 'UsePAM', 'Match')), (
+            'Expected a UsePAM/Match-context rejection in the negative-control file')
         for selected in (name, admin):
             effective = run('/usr/sbin/sshd', '-T', '-f', str(config), '-C',
                             f'user={selected},host=localhost,addr=127.0.0.1').stdout
@@ -119,6 +138,7 @@ def main():
                              f'user={selected},host=localhost,addr=127.0.0.1').stdout
                 assert effective == before, 'Admin effective configuration changed'
             else:
+                assert effective == include_export, 'EOF and included restrictions differ'
                 for setting in ('disableforwarding yes', 'permittty no', 'passwordauthentication no',
                                 'kbdinteractiveauthentication no', 'authenticationmethods publickey'):
                     assert setting in effective
