@@ -19,7 +19,10 @@ from perpetual_alpha.venue_collection import Capture
 
 
 def run(*args, **kwargs):
-    return subprocess.run(args, check=True, capture_output=True, text=True, timeout=30, **kwargs)
+    result = subprocess.run(args, capture_output=True, text=True, timeout=30, **kwargs)
+    if result.returncode:
+        raise RuntimeError(f'{args[0]} failed ({result.returncode}): {result.stderr}')
+    return result
 
 
 def main():
@@ -65,7 +68,7 @@ def main():
         template = (checkout / 'deploy/ssh-export/sshd_config').read_text()
         config.write_text(
             f'Port {port}\nListenAddress 127.0.0.1\nHostKey {root / "host"}\n'
-            f'PidFile {root / "pid"}\nUsePAM no\nAllowUsers {name}\nLogLevel ERROR\n'
+            f'PidFile {root / "pid"}\nUsePAM no\nPermitUserEnvironment no\nAllowUsers {name}\nLogLevel ERROR\n'
             + template.replace('Match User alpha_export', f'Match User {name}')
             .replace('/usr/local/bin/alpha-csv-command', f'{sys.executable} -I {launcher}')
             .replace('/etc/ssh/authorized_keys/alpha_export', str(authorized))
@@ -96,6 +99,16 @@ def main():
             assert result.returncode != 0, command
         result = subprocess.run([*ssh[:-1], '-N', '-o', 'ExitOnForwardFailure=yes',
                                  '-R', '0:localhost:22', ssh[-1]], capture_output=True, timeout=10)
+        assert result.returncode != 0
+        result = subprocess.run([*ssh[:-1], '-tt', ssh[-1], 'export --all'],
+                                capture_output=True, text=True, timeout=10)
+        assert 'PTY allocation request failed' in result.stderr
+        result = subprocess.run([*ssh[:-1], '-o', 'PreferredAuthentications=password',
+                                 '-o', 'PubkeyAuthentication=no', ssh[-1], 'export --all'],
+                                capture_output=True, timeout=10)
+        assert result.returncode != 0
+        result = subprocess.run([*ssh[:-1], '-s', ssh[-1], 'sftp'],
+                                capture_output=True, timeout=10)
         assert result.returncode != 0
         # Actual OS permission boundary, independently of the command parser.
         def demote():

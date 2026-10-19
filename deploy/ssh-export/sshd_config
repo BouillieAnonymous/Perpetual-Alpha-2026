@@ -4,7 +4,6 @@ Match User alpha_export
     PermitTunnel no
     PermitTTY no
     PermitUserRC no
-    PermitUserEnvironment no
     PasswordAuthentication no
     KbdInteractiveAuthentication no
     PubkeyAuthentication yes

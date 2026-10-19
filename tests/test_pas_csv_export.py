@@ -130,6 +130,32 @@ class CSVExportTests(unittest.TestCase):
                                capture_output=True, text=True, timeout=10)
         self.assertEqual(retry.returncode, 0, retry.stderr)
 
+    @unittest.skipUnless(sys.platform == 'linux', 'POSIX alarm behavior')
+    def test_slow_stdout_cannot_hold_lock_forever(self):
+        lock = Path(self.tmp.name) / 'slow.lock'
+        lock.touch(mode=0o444)
+        script = f"""
+import os
+from pathlib import Path
+from perpetual_alpha import pas_csv_export as e
+e.LOCK=Path({str(lock)!r})
+e.SECONDS=1
+os.environ['SSH_ORIGINAL_COMMAND']='export --all'
+def flood(path,args,out):
+    while True:
+        out.write('x'*65536)
+e.export=flood
+raise SystemExit(e.main())
+"""
+        process = subprocess.Popen([sys.executable, '-c', script], stdout=subprocess.PIPE,
+                                   stderr=subprocess.PIPE)
+        try:
+            self.assertNotEqual(process.wait(timeout=5), 0)
+        finally:
+            process.kill() if process.poll() is None else None
+            _, errors = process.communicate(timeout=5)
+        self.assertNotIn(b'SyntaxError', errors)
+
     def test_short_read_keeps_raw_bytes_unchanged_and_rejects_foreign(self):
         before = self.raw.read_bytes()
         self.rows('export --all')
