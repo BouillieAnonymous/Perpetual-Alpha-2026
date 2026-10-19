@@ -24,3 +24,14 @@ python -m perpetual_alpha.venue_collection status --system pas --database /data/
 ## 验证
 
 8 项新增离线回归覆盖空/坏盘口、单市场失败隔离、重复 book 时的新观测、正确 public-only 请求、身份隔离、异库拒绝与重启保留。最终 Linux 回归与实际 PAS 采集数量/时间范围见 PR 和部署验收记录。本模块不修改 Funding-LAST 政策或任何策略启用开关。
+
+## 2026-10-19 部署验收
+
+- 运行代码：`f228822fef7a8f90924b10d881e1468839864564`；镜像 `perpetual-alpha-pas-data:f228822`，ID `sha256:a5341fe1064d311dedf48fef439edc39597eddc15b5f1f8941818f6c8b459fff`。
+- 服务：`alpha-pas-data-collector-1`；数据库：`/opt/perpetual-alpha-pas-data/pas/public.sqlite3`，不复用 PAR/Paper/策略账本。
+- 首个上下文收到时间 `1792417392948` 毫秒 UTC；初轮 10 个盘口、10 个上下文、10 次 Funding 请求及 1 次完整 metadata/context 响应均落库。随后观察到超过 100 条记录、多个连续采集轮次，十市场报价均 ready，容器 running/healthy。
+- VPS 相同固定运行环境的 417 项完整离线回归通过，新增 8 项全部通过；Ruff/diff 通过。构建与回归日志存于 `/opt/perpetual-alpha-pas-data/evidence/`。
+- 容器只有一个 `/data` 挂载，无 env/钱包/密钥/账户挂载；没有启用或恢复 PAS 策略，也没有发送订单。原 PAR 服务未重启，旧 PAR 空盘口异常仍是独立待办。
+- 本服务是独立入口；旧 `config/systems/pas.toml` 的预留标记不控制这个服务，也不提供交易授权。
+
+停止命令：在该 release 目录显式传递 PAS_COLLECTOR_IMAGE/PAS_COLLECTOR_DATA，执行 `docker compose -f deploy/compose.pas-collector.yaml stop collector`；保留数据库。启动使用相同配置 `up -d collector`。本次没有合并 PR，也没有清理旧数据。
