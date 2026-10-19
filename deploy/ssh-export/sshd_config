@@ -1,0 +1,14 @@
+Match User alpha_export
+    ForceCommand /usr/local/bin/alpha-csv-command
+    DisableForwarding yes
+    PermitTunnel no
+    PermitTTY no
+    PermitUserRC no
+    PermitUserEnvironment no
+    PasswordAuthentication no
+    KbdInteractiveAuthentication no
+    PubkeyAuthentication yes
+    AuthenticationMethods publickey
+    AuthorizedKeysFile /etc/ssh/authorized_keys/alpha_export
+    MaxSessions 1
+Match all
