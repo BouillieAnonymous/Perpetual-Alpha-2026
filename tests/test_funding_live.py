@@ -1,5 +1,6 @@
 """Fault and boundary tests for REAL-exchange adapter orchestration (all I/O faked)."""
 import copy
+import json
 import sqlite3
 import subprocess
 import sys
@@ -473,6 +474,113 @@ class AdapterTests(unittest.TestCase):
         self.responses['spotMeta']['tokens'][0]['name'] = 'USDP'
         with self.assertRaises(ValueError):
             self.client.snapshot()
+
+    def held_capture(self, *, persistent=False, flat=False, foreign=False, negative=False,
+                     changed_position=False, retry_error=False):
+        """Replay the live 24.60567 -> 24.62009 asynchronous hold capture."""
+        original = self.client.query
+        count = {'own': 0, 'spot': 0, 'meta': 0}
+        def query(kind, **kw):
+            if kind == 'metaAndAssetCtxs':
+                count['meta'] += 1
+                if retry_error and count['meta'] == 2:
+                    raise TimeoutError('public recapture failed')
+            if kind == 'clearinghouseState':
+                if kw.get('dex') != self.p.dex:
+                    return {'assetPositions': []}
+                count['own'] += 1
+                if flat:
+                    return {'assetPositions': []}
+                margin = '24.60567' if count['own'] <= 2 or persistent else '24.62009'
+                quantity = '.02' if changed_position and count['own'] == 2 else '.0103'
+                return {'assetPositions': [{'position': {'coin': self.p.symbol, 'szi': quantity,
+                        'leverage': {'type': 'cross', 'value': 1}, 'marginUsed': margin}}]}
+            if kind == 'spotClearinghouseState':
+                count['spot'] += 1
+                row = original(kind, **kw)
+                row['balances'][0].update(
+                    total='99999.796018' if count['spot'] == 1 else '99999.810438',
+                    hold='-1' if negative else ('24.60567' if count['spot'] == 1 else '24.62009'))
+                return row
+            if foreign and kind == 'openOrders' and kw.get('dex') == 'parx':
+                return [{'coin': 'parx:BTC'}]
+            return original(kind, **kw)
+        self.client.query = query
+        return count
+
+    def test_transient_hold_capture_is_replaced_by_fresh_validated_capture(self):
+        count = self.held_capture()
+        s = self.client.snapshot()
+        validate_snapshot(s, self.p, NOW)
+        self.assertEqual(count['meta'], 2)
+        self.assertEqual(s['other_positions'], [])
+        self.assertEqual(s['raw']['collateral_recapture']['attempts'], 2)
+        self.assertEqual(s['raw']['collateral_recapture']['rejected'][0]['spot_after']['balances'][0]['hold'],
+                         '24.62009')
+        self.assertEqual(s['raw']['after']['assetPositions'][0]['position']['marginUsed'], '24.62009')
+
+    def test_persistent_unexplained_hold_still_blocks_after_one_recapture(self):
+        count = self.held_capture(persistent=True)
+        s = self.client.snapshot()
+        self.assertEqual(count['meta'], 2)
+        self.assertIn('collateral-hold', s['other_positions'])
+        with self.assertRaises(ValueError):
+            validate_snapshot(s, self.p, NOW)
+
+    def test_pas_own_cross_hold_race_uses_same_safe_recapture(self):
+        self.p = Policy('pas', 'USDP')
+        self.client.policy = self.p
+        self.responses = json.loads(json.dumps(self.responses).replace('par:', 'pas:').replace('USDPR', 'USDP'))
+        count = self.held_capture()
+        s = self.client.snapshot()
+        validate_snapshot(s, self.p, NOW)
+        self.assertEqual(s['symbol'], 'pas:ETH')
+        self.assertEqual(s['collateral'], 'USDP')
+        self.assertEqual(count['meta'], 2)
+
+    def test_recapture_never_masks_flat_foreign_negative_or_changing_accounts(self):
+        for flags in ({'flat': True}, {'foreign': True}, {'negative': True}, {'changed_position': True}):
+            with self.subTest(flags=flags):
+                self.setUp()
+                count = self.held_capture(**flags)
+                with self.assertRaises(ValueError):
+                    validate_snapshot(self.client.snapshot(), self.p, NOW)
+                self.assertEqual(count['meta'], 1)
+
+    def test_failed_recapture_does_not_return_previous_unverified_snapshot(self):
+        count = self.held_capture(retry_error=True)
+        with self.assertRaises(TimeoutError):
+            self.client.snapshot()
+        self.assertEqual(count['meta'], 2)
+
+    def test_recapture_returns_fresh_funding_book_and_free_margin(self):
+        count = self.held_capture()
+        original = self.client.query
+        def update(kind, **kw):
+            if kind == 'metaAndAssetCtxs' and count['meta'] == 1:
+                self.responses['fundingHistory'][0]['fundingRate'] = '.0001'
+                self.responses['l2Book']['levels'][1][0]['px'] = '2002'
+                self.responses['spotClearinghouseState']['tokenToAvailableAfterMaintenance'][0][1] = '700'
+            return original(kind, **kw)
+        self.client.query = update
+        s = self.client.snapshot()
+        validate_snapshot(s, self.p, NOW)
+        self.assertEqual(funding_signal(s['funding'], self.p.symbol, NOW)['direction'], -1)
+        self.assertEqual(s['ask'], '2002')
+        self.assertEqual(s['free'], '700')
+
+    def test_recapture_rechecks_new_foreign_orders(self):
+        count = self.held_capture()
+        original = self.client.query
+        def foreign(kind, **kw):
+            if kind == 'openOrders' and count['meta'] == 2 and kw.get('dex') == 'parx':
+                return [{'coin': 'parx:BTC'}]
+            return original(kind, **kw)
+        self.client.query = foreign
+        s = self.client.snapshot()
+        with self.assertRaises(ValueError):
+            validate_snapshot(s, self.p, NOW)
+        self.assertEqual(count['meta'], 2)
 
     def test_own_unified_margin_hold_is_allowed_and_pnl_not_double_counted(self):
         self.responses['clearinghouseState'] = {'assetPositions': [{'position': {
