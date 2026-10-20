@@ -17,7 +17,7 @@ GitHub 的 ubuntu-24.04 runner 仅负责构建/启动 Linux amd64 容器，不�
 3. `python -m ruff check . --no-cache --output-format=github`：按 pyproject.toml 中已有规则检查语法相关错误、未使用名称和导入顺序，在 GitHub 标注错误位置。
 4. `python -m unittest discover -s tests -v`：运行全部离线回归测试。
 5. `python scripts/validate_schemas.py`：用 Draft 2020-12 验证七份 JSON Schema、文档中的交易/研究契约样例，同时检查 Schema 与 Python 类型一致。
-6. `python -m perpetual_alpha.cli dry-run --journal /tmp/ci-dry-run.sqlite3`：实际跑通离线模拟入口；失败会使检查失败。
+6. `python -m perpetual_alpha.cli dry-run --journal /tmp/ci-dry-run.sqlite3`：保留原离线模拟入口，再执行 `python -m perpetual_alpha.examples.lt_adapter --journal /tmp/lt-ci-dry-run.sqlite3` 验证独立 DummyLT 注册与延迟输出；失败会使检查失败。
 
 检查容器以 UID 1000 运行，根文件系统只读，仅 /tmp 为可写临时目录，`--network none` 禁止测试与模拟访问网络。镜像构建时下载基础镜像与依赖。checkout 使用固定官方 Action 提交和只读 `contents: read` 权限，不保留 Git 凭据。CI 不配置交易密钥、不访问真实账户或远端服务器、不启动采集服务或运行 `test_order.py --execute`，不自动部署或合并代码。
 
@@ -38,8 +38,9 @@ docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:c
 docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python -m unittest discover -s tests -v
 docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python scripts/validate_schemas.py
 docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python -m perpetual_alpha.cli dry-run --journal /tmp/local-ci.sqlite3
+docker run --rm --network none --read-only --tmpfs /tmp perpetual-alpha-checks:ci python -m perpetual_alpha.examples.lt_adapter --journal /tmp/lt-local-ci.sqlite3
 ```
 
-不启用 Docker 时，也可在现有项目虚拟环境安装 `config/requirements-ci.txt` 后运行上述 Python 检查命令；Windows 沙箱临时目录设置见[架构实现说明](architecture-implementation.zh-CN.md#7-验证)。本地解释器/31 项依赖、Ruff、Schema 和 35 项测试已通过；容器环境的检查结果以 GitHub Actions 实际运行记录为准。
+不启用 Docker 时，也可在现有项目虚拟环境安装 `config/requirements-ci.txt` 后运行上述 Python 检查命令；Windows 沙箱临时目录设置见[架构实现说明](architecture-implementation.zh-CN.md#7-验证)。本地解释器/31 项依赖、Ruff、Schema 和 57 项测试已通过；容器环境的检查结果以 GitHub Actions 实际运行记录为准。
 
 官方参考：[GitHub 的 Python 构建与测试指南](https://docs.github.com/en/actions/tutorials/build-and-test-code/python)、[工作流语法](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax)。

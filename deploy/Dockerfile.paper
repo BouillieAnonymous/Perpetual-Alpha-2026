@@ -1,0 +1,9 @@
+# Independently tagged Paper artifact; never replace the deployed Collector image.
+ARG RUNTIME_IMAGE=perpetual-alpha-runtime:ci
+FROM ${RUNTIME_IMAGE}
+USER root
+COPY config/mock-http.toml /app/config/mock-http.toml
+COPY config/paper-execution.synthetic.json /app/config/paper-execution.synthetic.json
+RUN mkdir -p /data /state && chown 1000:1000 /data /state
+USER 1000:1000
+CMD ["python", "-u", "-m", "perpetual_alpha.runtime.paper_core", "--host", "0.0.0.0", "--credentials", "/run/secrets/core-auth", "--database", "/data/runtime.sqlite3", "--progress-file", "/tmp/paper-progress.json"]

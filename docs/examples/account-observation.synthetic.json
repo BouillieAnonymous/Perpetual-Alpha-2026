@@ -1,0 +1,1237 @@
+{
+  "fixture": "SYNTHETIC ONLY; no real team account data",
+  "bundle": {
+    "capture_id": "synthetic-account-v0.1",
+    "wallet": "0x1111111111111111111111111111111111111111",
+    "source": "hyperliquid-testnet/par",
+    "started_ms": 100000,
+    "ended_ms": 100021,
+    "max_capture_ms": 60000,
+    "max_source_lag_ms": 90000,
+    "observations": {
+      "role_before": {
+        "request": {
+          "type": "userRole",
+          "user": "0x1111111111111111111111111111111111111111"
+        },
+        "received_ms": 100001,
+        "payload": {
+          "role": "user"
+        },
+        "error": null,
+        "started_ms": 100000
+      },
+      "mode_before": {
+        "request": {
+          "type": "userAbstraction",
+          "user": "0x1111111111111111111111111111111111111111"
+        },
+        "received_ms": 100002,
+        "payload": "unifiedAccount",
+        "error": null,
+        "started_ms": 100001
+      },
+      "spot_before": {
+        "request": {
+          "type": "spotClearinghouseState",
+          "user": "0x1111111111111111111111111111111111111111"
+        },
+        "received_ms": 100003,
+        "payload": {
+          "balances": [
+            {
+              "coin": "USDPR",
+              "token": 3032,
+              "total": "1000",
+              "hold": "100",
+              "entryNtl": "0"
+            }
+          ],
+          "tokenToAvailableAfterMaintenance": [
+            [
+              3032,
+              "700"
+            ]
+          ]
+        },
+        "error": null,
+        "started_ms": 100002
+      },
+      "perp_before": {
+        "request": {
+          "type": "clearinghouseState",
+          "user": "0x1111111111111111111111111111111111111111",
+          "dex": "par"
+        },
+        "received_ms": 100004,
+        "payload": {
+          "assetPositions": [
+            {
+              "type": "oneWay",
+              "position": {
+                "coin": "par:BTC",
+                "szi": "2",
+                "entryPx": "100",
+                "positionValue": "200",
+                "unrealizedPnl": "3",
+                "marginUsed": "10",
+                "leverage": {
+                  "type": "cross",
+                  "value": 5
+                },
+                "liquidationPx": null
+              }
+            },
+            {
+              "type": "oneWay",
+              "position": {
+                "coin": "par:HYPE",
+                "szi": "-1",
+                "entryPx": "100",
+                "positionValue": "200",
+                "unrealizedPnl": "3",
+                "marginUsed": "10",
+                "leverage": {
+                  "type": "cross",
+                  "value": 5
+                },
+                "liquidationPx": null
+              }
+            }
+          ],
+          "time": 99999,
+          "marginSummary": {
+            "accountValue": "1",
+            "totalMarginUsed": "10",
+            "totalNtlPos": "200",
+            "totalRawUsd": "-2"
+          },
+          "crossMarginSummary": {
+            "accountValue": "1",
+            "totalMarginUsed": "10",
+            "totalNtlPos": "200",
+            "totalRawUsd": "-2"
+          },
+          "crossMaintenanceMarginUsed": "5",
+          "withdrawable": "42"
+        },
+        "error": null,
+        "started_ms": 100003
+      },
+      "orders_before": {
+        "request": {
+          "type": "frontendOpenOrders",
+          "user": "0x1111111111111111111111111111111111111111",
+          "dex": "par"
+        },
+        "received_ms": 100005,
+        "payload": [
+          {
+            "coin": "par:ETH",
+            "oid": 1,
+            "side": "B",
+            "sz": "3",
+            "origSz": "3",
+            "limitPx": "100",
+            "reduceOnly": false,
+            "isTrigger": false,
+            "isPositionTpsl": false,
+            "timestamp": 90000,
+            "orderType": "Limit",
+            "triggerPx": "0"
+          },
+          {
+            "coin": "par:BTC",
+            "oid": 2,
+            "side": "A",
+            "sz": "1",
+            "origSz": "1",
+            "limitPx": "100",
+            "reduceOnly": true,
+            "isTrigger": true,
+            "isPositionTpsl": false,
+            "timestamp": 90000,
+            "orderType": "Limit",
+            "triggerPx": "0"
+          }
+        ],
+        "error": null,
+        "started_ms": 100004
+      },
+      "market": {
+        "request": {
+          "type": "metaAndAssetCtxs",
+          "dex": "par"
+        },
+        "received_ms": 100006,
+        "payload": [
+          {
+            "universe": [
+              {
+                "name": "par:BTC",
+                "szDecimals": 4,
+                "maxLeverage": 25
+              },
+              {
+                "name": "par:ETH",
+                "szDecimals": 4,
+                "maxLeverage": 25
+              },
+              {
+                "name": "par:HYPE",
+                "szDecimals": 4,
+                "maxLeverage": 25
+              },
+              {
+                "name": "par:SP500",
+                "szDecimals": 4,
+                "maxLeverage": 25
+              },
+              {
+                "name": "par:EWY",
+                "szDecimals": 4,
+                "maxLeverage": 25
+              },
+              {
+                "name": "par:EWJ",
+                "szDecimals": 4,
+                "maxLeverage": 25
+              },
+              {
+                "name": "par:BRENT",
+                "szDecimals": 4,
+                "maxLeverage": 25
+              },
+              {
+                "name": "par:GOLD",
+                "szDecimals": 4,
+                "maxLeverage": 25
+              },
+              {
+                "name": "par:USDEUR",
+                "szDecimals": 4,
+                "maxLeverage": 25
+              },
+              {
+                "name": "par:USDJPY",
+                "szDecimals": 4,
+                "maxLeverage": 25
+              }
+            ],
+            "collateralToken": 3032
+          },
+          [
+            {
+              "markPx": "101"
+            },
+            {
+              "markPx": "101"
+            },
+            {
+              "markPx": "101"
+            },
+            {
+              "markPx": "101"
+            },
+            {
+              "markPx": "101"
+            },
+            {
+              "markPx": "101"
+            },
+            {
+              "markPx": "101"
+            },
+            {
+              "markPx": "101"
+            },
+            {
+              "markPx": "101"
+            },
+            {
+              "markPx": "101"
+            }
+          ]
+        ],
+        "error": null,
+        "started_ms": 100005
+      },
+      "active/par:BTC": {
+        "request": {
+          "type": "activeAssetData",
+          "user": "0x1111111111111111111111111111111111111111",
+          "coin": "par:BTC"
+        },
+        "received_ms": 100007,
+        "payload": {
+          "user": "0x1111111111111111111111111111111111111111",
+          "coin": "par:BTC",
+          "availableToTrade": [
+            "123",
+            "124"
+          ],
+          "maxTradeSzs": [
+            "1",
+            "2"
+          ],
+          "markPx": "101",
+          "leverage": {
+            "type": "cross",
+            "value": 5
+          }
+        },
+        "error": null,
+        "started_ms": 100006
+      },
+      "active/par:ETH": {
+        "request": {
+          "type": "activeAssetData",
+          "user": "0x1111111111111111111111111111111111111111",
+          "coin": "par:ETH"
+        },
+        "received_ms": 100008,
+        "payload": {
+          "user": "0x1111111111111111111111111111111111111111",
+          "coin": "par:ETH",
+          "availableToTrade": [
+            "123",
+            "124"
+          ],
+          "maxTradeSzs": [
+            "1",
+            "2"
+          ],
+          "markPx": "101",
+          "leverage": {
+            "type": "cross",
+            "value": 5
+          }
+        },
+        "error": null,
+        "started_ms": 100007
+      },
+      "active/par:HYPE": {
+        "request": {
+          "type": "activeAssetData",
+          "user": "0x1111111111111111111111111111111111111111",
+          "coin": "par:HYPE"
+        },
+        "received_ms": 100009,
+        "payload": {
+          "user": "0x1111111111111111111111111111111111111111",
+          "coin": "par:HYPE",
+          "availableToTrade": [
+            "123",
+            "124"
+          ],
+          "maxTradeSzs": [
+            "1",
+            "2"
+          ],
+          "markPx": "101",
+          "leverage": {
+            "type": "cross",
+            "value": 5
+          }
+        },
+        "error": null,
+        "started_ms": 100008
+      },
+      "active/par:SP500": {
+        "request": {
+          "type": "activeAssetData",
+          "user": "0x1111111111111111111111111111111111111111",
+          "coin": "par:SP500"
+        },
+        "received_ms": 100010,
+        "payload": {
+          "user": "0x1111111111111111111111111111111111111111",
+          "coin": "par:SP500",
+          "availableToTrade": [
+            "123",
+            "124"
+          ],
+          "maxTradeSzs": [
+            "1",
+            "2"
+          ],
+          "markPx": "101",
+          "leverage": {
+            "type": "cross",
+            "value": 5
+          }
+        },
+        "error": null,
+        "started_ms": 100009
+      },
+      "active/par:EWY": {
+        "request": {
+          "type": "activeAssetData",
+          "user": "0x1111111111111111111111111111111111111111",
+          "coin": "par:EWY"
+        },
+        "received_ms": 100011,
+        "payload": {
+          "user": "0x1111111111111111111111111111111111111111",
+          "coin": "par:EWY",
+          "availableToTrade": [
+            "123",
+            "124"
+          ],
+          "maxTradeSzs": [
+            "1",
+            "2"
+          ],
+          "markPx": "101",
+          "leverage": {
+            "type": "cross",
+            "value": 5
+          }
+        },
+        "error": null,
+        "started_ms": 100010
+      },
+      "active/par:EWJ": {
+        "request": {
+          "type": "activeAssetData",
+          "user": "0x1111111111111111111111111111111111111111",
+          "coin": "par:EWJ"
+        },
+        "received_ms": 100012,
+        "payload": {
+          "user": "0x1111111111111111111111111111111111111111",
+          "coin": "par:EWJ",
+          "availableToTrade": [
+            "123",
+            "124"
+          ],
+          "maxTradeSzs": [
+            "1",
+            "2"
+          ],
+          "markPx": "101",
+          "leverage": {
+            "type": "cross",
+            "value": 5
+          }
+        },
+        "error": null,
+        "started_ms": 100011
+      },
+      "active/par:BRENT": {
+        "request": {
+          "type": "activeAssetData",
+          "user": "0x1111111111111111111111111111111111111111",
+          "coin": "par:BRENT"
+        },
+        "received_ms": 100013,
+        "payload": {
+          "user": "0x1111111111111111111111111111111111111111",
+          "coin": "par:BRENT",
+          "availableToTrade": [
+            "123",
+            "124"
+          ],
+          "maxTradeSzs": [
+            "1",
+            "2"
+          ],
+          "markPx": "101",
+          "leverage": {
+            "type": "cross",
+            "value": 5
+          }
+        },
+        "error": null,
+        "started_ms": 100012
+      },
+      "active/par:GOLD": {
+        "request": {
+          "type": "activeAssetData",
+          "user": "0x1111111111111111111111111111111111111111",
+          "coin": "par:GOLD"
+        },
+        "received_ms": 100014,
+        "payload": {
+          "user": "0x1111111111111111111111111111111111111111",
+          "coin": "par:GOLD",
+          "availableToTrade": [
+            "123",
+            "124"
+          ],
+          "maxTradeSzs": [
+            "1",
+            "2"
+          ],
+          "markPx": "101",
+          "leverage": {
+            "type": "cross",
+            "value": 5
+          }
+        },
+        "error": null,
+        "started_ms": 100013
+      },
+      "active/par:USDEUR": {
+        "request": {
+          "type": "activeAssetData",
+          "user": "0x1111111111111111111111111111111111111111",
+          "coin": "par:USDEUR"
+        },
+        "received_ms": 100015,
+        "payload": {
+          "user": "0x1111111111111111111111111111111111111111",
+          "coin": "par:USDEUR",
+          "availableToTrade": [
+            "123",
+            "124"
+          ],
+          "maxTradeSzs": [
+            "1",
+            "2"
+          ],
+          "markPx": "101",
+          "leverage": {
+            "type": "cross",
+            "value": 5
+          }
+        },
+        "error": null,
+        "started_ms": 100014
+      },
+      "active/par:USDJPY": {
+        "request": {
+          "type": "activeAssetData",
+          "user": "0x1111111111111111111111111111111111111111",
+          "coin": "par:USDJPY"
+        },
+        "received_ms": 100016,
+        "payload": {
+          "user": "0x1111111111111111111111111111111111111111",
+          "coin": "par:USDJPY",
+          "availableToTrade": [
+            "123",
+            "124"
+          ],
+          "maxTradeSzs": [
+            "1",
+            "2"
+          ],
+          "markPx": "101",
+          "leverage": {
+            "type": "cross",
+            "value": 5
+          }
+        },
+        "error": null,
+        "started_ms": 100015
+      },
+      "spot_after": {
+        "request": {
+          "type": "spotClearinghouseState",
+          "user": "0x1111111111111111111111111111111111111111"
+        },
+        "received_ms": 100017,
+        "payload": {
+          "balances": [
+            {
+              "coin": "USDPR",
+              "token": 3032,
+              "total": "1000",
+              "hold": "100",
+              "entryNtl": "0"
+            }
+          ],
+          "tokenToAvailableAfterMaintenance": [
+            [
+              3032,
+              "700"
+            ]
+          ]
+        },
+        "error": null,
+        "started_ms": 100016
+      },
+      "perp_after": {
+        "request": {
+          "type": "clearinghouseState",
+          "user": "0x1111111111111111111111111111111111111111",
+          "dex": "par"
+        },
+        "received_ms": 100018,
+        "payload": {
+          "assetPositions": [
+            {
+              "type": "oneWay",
+              "position": {
+                "coin": "par:BTC",
+                "szi": "2",
+                "entryPx": "100",
+                "positionValue": "200",
+                "unrealizedPnl": "3",
+                "marginUsed": "10",
+                "leverage": {
+                  "type": "cross",
+                  "value": 5
+                },
+                "liquidationPx": null
+              }
+            },
+            {
+              "type": "oneWay",
+              "position": {
+                "coin": "par:HYPE",
+                "szi": "-1",
+                "entryPx": "100",
+                "positionValue": "200",
+                "unrealizedPnl": "3",
+                "marginUsed": "10",
+                "leverage": {
+                  "type": "cross",
+                  "value": 5
+                },
+                "liquidationPx": null
+              }
+            }
+          ],
+          "time": 99999,
+          "marginSummary": {
+            "accountValue": "1",
+            "totalMarginUsed": "10",
+            "totalNtlPos": "200",
+            "totalRawUsd": "-2"
+          },
+          "crossMarginSummary": {
+            "accountValue": "1",
+            "totalMarginUsed": "10",
+            "totalNtlPos": "200",
+            "totalRawUsd": "-2"
+          },
+          "crossMaintenanceMarginUsed": "5",
+          "withdrawable": "42"
+        },
+        "error": null,
+        "started_ms": 100017
+      },
+      "orders_after": {
+        "request": {
+          "type": "frontendOpenOrders",
+          "user": "0x1111111111111111111111111111111111111111",
+          "dex": "par"
+        },
+        "received_ms": 100019,
+        "payload": [
+          {
+            "coin": "par:ETH",
+            "oid": 1,
+            "side": "B",
+            "sz": "3",
+            "origSz": "3",
+            "limitPx": "100",
+            "reduceOnly": false,
+            "isTrigger": false,
+            "isPositionTpsl": false,
+            "timestamp": 90000,
+            "orderType": "Limit",
+            "triggerPx": "0"
+          },
+          {
+            "coin": "par:BTC",
+            "oid": 2,
+            "side": "A",
+            "sz": "1",
+            "origSz": "1",
+            "limitPx": "100",
+            "reduceOnly": true,
+            "isTrigger": true,
+            "isPositionTpsl": false,
+            "timestamp": 90000,
+            "orderType": "Limit",
+            "triggerPx": "0"
+          }
+        ],
+        "error": null,
+        "started_ms": 100018
+      },
+      "mode_after": {
+        "request": {
+          "type": "userAbstraction",
+          "user": "0x1111111111111111111111111111111111111111"
+        },
+        "received_ms": 100020,
+        "payload": "unifiedAccount",
+        "error": null,
+        "started_ms": 100019
+      },
+      "role_after": {
+        "request": {
+          "type": "userRole",
+          "user": "0x1111111111111111111111111111111111111111"
+        },
+        "received_ms": 100021,
+        "payload": {
+          "role": "user"
+        },
+        "error": null,
+        "started_ms": 100020
+      }
+    }
+  },
+  "snapshot": {
+    "schema_version": "account-observation/0.1",
+    "source": "hyperliquid-testnet/par",
+    "wallet": "0x1111111111111111111111111111111111111111",
+    "wallet_identity_source": "operator-supplied-public-address",
+    "team_ownership_verified": false,
+    "capture_id": "synthetic-account-v0.1",
+    "started_ms": 100000,
+    "observed_ms": 100021,
+    "status": "observed",
+    "atomic": false,
+    "consistency": "bracket_matched_non_atomic",
+    "account_mode": "unifiedAccount",
+    "scope": "testnet/par positions+orders and spot token balances",
+    "global_account_complete": false,
+    "other_dex_exposure": "unknown",
+    "inflight_order_exposure": "unknown-no-intent-ledger",
+    "equity_usd": null,
+    "available_margin_usd": null,
+    "risk_ready": false,
+    "balances": [
+      {
+        "coin": "USDPR",
+        "token": 3032,
+        "total": "1000",
+        "hold": "100",
+        "unheld_balance": "900",
+        "available_after_maintenance": "700",
+        "unit": "USDPR"
+      }
+    ],
+    "positions": [
+      {
+        "symbol": "par:BTC",
+        "quantity": "2",
+        "mark_price": "101",
+        "price_unit": "USD/BTC",
+        "supported_asset": true,
+        "reported_position_value": "200",
+        "reported_value_unit": "venue-positionValue",
+        "entry_price": "100",
+        "unrealized_pnl": "3",
+        "margin_used": "10",
+        "leverage": {
+          "type": "cross",
+          "value": 5
+        },
+        "valuation_multiplier": null,
+        "notional_usd": null
+      },
+      {
+        "symbol": "par:HYPE",
+        "quantity": "-1",
+        "mark_price": "101",
+        "price_unit": "USD/HYPE",
+        "supported_asset": true,
+        "reported_position_value": "200",
+        "reported_value_unit": "venue-positionValue",
+        "entry_price": "100",
+        "unrealized_pnl": "3",
+        "margin_used": "10",
+        "leverage": {
+          "type": "cross",
+          "value": 5
+        },
+        "valuation_multiplier": null,
+        "notional_usd": null
+      }
+    ],
+    "open_orders": [
+      {
+        "order_id": "1",
+        "symbol": "par:ETH",
+        "side": "buy",
+        "remaining_quantity": "3",
+        "original_quantity": "3",
+        "limit_price": "100",
+        "reduce_only": false,
+        "is_trigger": false,
+        "trigger_price": "0",
+        "order_type": "Limit",
+        "client_order_id": null,
+        "ownership": "unattributed",
+        "status": "observed_open",
+        "supported_asset": true
+      },
+      {
+        "order_id": "2",
+        "symbol": "par:BTC",
+        "side": "sell",
+        "remaining_quantity": "1",
+        "original_quantity": "1",
+        "limit_price": "100",
+        "reduce_only": true,
+        "is_trigger": true,
+        "trigger_price": "0",
+        "order_type": "Limit",
+        "client_order_id": null,
+        "ownership": "unattributed",
+        "status": "observed_open",
+        "supported_asset": true
+      }
+    ],
+    "buying_power": {
+      "par:BTC": {
+        "available_to_trade": [
+          "123",
+          "124"
+        ],
+        "available_unit": "venue-availableToTrade",
+        "max_trade_sizes": [
+          "1",
+          "2"
+        ],
+        "direction_mapping_verified": false,
+        "size_unit": "venue-size",
+        "mark_price": "101",
+        "leverage": {
+          "type": "cross",
+          "value": 5
+        },
+        "received_ms": 100007
+      },
+      "par:ETH": {
+        "available_to_trade": [
+          "123",
+          "124"
+        ],
+        "available_unit": "venue-availableToTrade",
+        "max_trade_sizes": [
+          "1",
+          "2"
+        ],
+        "direction_mapping_verified": false,
+        "size_unit": "venue-size",
+        "mark_price": "101",
+        "leverage": {
+          "type": "cross",
+          "value": 5
+        },
+        "received_ms": 100008
+      },
+      "par:HYPE": {
+        "available_to_trade": [
+          "123",
+          "124"
+        ],
+        "available_unit": "venue-availableToTrade",
+        "max_trade_sizes": [
+          "1",
+          "2"
+        ],
+        "direction_mapping_verified": false,
+        "size_unit": "venue-size",
+        "mark_price": "101",
+        "leverage": {
+          "type": "cross",
+          "value": 5
+        },
+        "received_ms": 100009
+      },
+      "par:SP500": {
+        "available_to_trade": [
+          "123",
+          "124"
+        ],
+        "available_unit": "venue-availableToTrade",
+        "max_trade_sizes": [
+          "1",
+          "2"
+        ],
+        "direction_mapping_verified": false,
+        "size_unit": "venue-size",
+        "mark_price": "101",
+        "leverage": {
+          "type": "cross",
+          "value": 5
+        },
+        "received_ms": 100010
+      },
+      "par:EWY": {
+        "available_to_trade": [
+          "123",
+          "124"
+        ],
+        "available_unit": "venue-availableToTrade",
+        "max_trade_sizes": [
+          "1",
+          "2"
+        ],
+        "direction_mapping_verified": false,
+        "size_unit": "venue-size",
+        "mark_price": "101",
+        "leverage": {
+          "type": "cross",
+          "value": 5
+        },
+        "received_ms": 100011
+      },
+      "par:EWJ": {
+        "available_to_trade": [
+          "123",
+          "124"
+        ],
+        "available_unit": "venue-availableToTrade",
+        "max_trade_sizes": [
+          "1",
+          "2"
+        ],
+        "direction_mapping_verified": false,
+        "size_unit": "venue-size",
+        "mark_price": "101",
+        "leverage": {
+          "type": "cross",
+          "value": 5
+        },
+        "received_ms": 100012
+      },
+      "par:BRENT": {
+        "available_to_trade": [
+          "123",
+          "124"
+        ],
+        "available_unit": "venue-availableToTrade",
+        "max_trade_sizes": [
+          "1",
+          "2"
+        ],
+        "direction_mapping_verified": false,
+        "size_unit": "venue-size",
+        "mark_price": "101",
+        "leverage": {
+          "type": "cross",
+          "value": 5
+        },
+        "received_ms": 100013
+      },
+      "par:GOLD": {
+        "available_to_trade": [
+          "123",
+          "124"
+        ],
+        "available_unit": "venue-availableToTrade",
+        "max_trade_sizes": [
+          "1",
+          "2"
+        ],
+        "direction_mapping_verified": false,
+        "size_unit": "venue-size",
+        "mark_price": "101",
+        "leverage": {
+          "type": "cross",
+          "value": 5
+        },
+        "received_ms": 100014
+      },
+      "par:USDEUR": {
+        "available_to_trade": [
+          "123",
+          "124"
+        ],
+        "available_unit": "venue-availableToTrade",
+        "max_trade_sizes": [
+          "1",
+          "2"
+        ],
+        "direction_mapping_verified": false,
+        "size_unit": "venue-size",
+        "mark_price": "101",
+        "leverage": {
+          "type": "cross",
+          "value": 5
+        },
+        "received_ms": 100015
+      },
+      "par:USDJPY": {
+        "available_to_trade": [
+          "123",
+          "124"
+        ],
+        "available_unit": "venue-availableToTrade",
+        "max_trade_sizes": [
+          "1",
+          "2"
+        ],
+        "direction_mapping_verified": false,
+        "size_unit": "venue-size",
+        "mark_price": "101",
+        "leverage": {
+          "type": "cross",
+          "value": 5
+        },
+        "received_ms": 100016
+      }
+    },
+    "venue_perp_summary": {
+      "marginSummary": {
+        "accountValue": "1",
+        "totalMarginUsed": "10",
+        "totalNtlPos": "200",
+        "totalRawUsd": "-2"
+      },
+      "crossMarginSummary": {
+        "accountValue": "1",
+        "totalMarginUsed": "10",
+        "totalNtlPos": "200",
+        "totalRawUsd": "-2"
+      },
+      "crossMaintenanceMarginUsed": "5",
+      "withdrawable": "42",
+      "time": 99999
+    },
+    "collateral": {
+      "coin": "USDPR",
+      "token": 3032,
+      "total": "1000",
+      "hold": "100",
+      "unheld_balance": "900",
+      "available_after_maintenance": "700",
+      "unit": "USDPR"
+    },
+    "exposures": {
+      "par:BRENT": {
+        "position_quantity": "0",
+        "pending_buy_quantity": "0",
+        "pending_sell_quantity": "0",
+        "minimum_quantity": "0",
+        "maximum_quantity": "0",
+        "known_observed_bounds": true,
+        "includes_reduce_only_and_triggers": true,
+        "notional_usd": null,
+        "supported_asset": true
+      },
+      "par:BTC": {
+        "position_quantity": "2",
+        "pending_buy_quantity": "0",
+        "pending_sell_quantity": "1",
+        "minimum_quantity": "1",
+        "maximum_quantity": "2",
+        "known_observed_bounds": true,
+        "includes_reduce_only_and_triggers": true,
+        "notional_usd": null,
+        "supported_asset": true
+      },
+      "par:ETH": {
+        "position_quantity": "0",
+        "pending_buy_quantity": "3",
+        "pending_sell_quantity": "0",
+        "minimum_quantity": "0",
+        "maximum_quantity": "3",
+        "known_observed_bounds": true,
+        "includes_reduce_only_and_triggers": true,
+        "notional_usd": null,
+        "supported_asset": true
+      },
+      "par:EWJ": {
+        "position_quantity": "0",
+        "pending_buy_quantity": "0",
+        "pending_sell_quantity": "0",
+        "minimum_quantity": "0",
+        "maximum_quantity": "0",
+        "known_observed_bounds": true,
+        "includes_reduce_only_and_triggers": true,
+        "notional_usd": null,
+        "supported_asset": true
+      },
+      "par:EWY": {
+        "position_quantity": "0",
+        "pending_buy_quantity": "0",
+        "pending_sell_quantity": "0",
+        "minimum_quantity": "0",
+        "maximum_quantity": "0",
+        "known_observed_bounds": true,
+        "includes_reduce_only_and_triggers": true,
+        "notional_usd": null,
+        "supported_asset": true
+      },
+      "par:GOLD": {
+        "position_quantity": "0",
+        "pending_buy_quantity": "0",
+        "pending_sell_quantity": "0",
+        "minimum_quantity": "0",
+        "maximum_quantity": "0",
+        "known_observed_bounds": true,
+        "includes_reduce_only_and_triggers": true,
+        "notional_usd": null,
+        "supported_asset": true
+      },
+      "par:HYPE": {
+        "position_quantity": "-1",
+        "pending_buy_quantity": "0",
+        "pending_sell_quantity": "0",
+        "minimum_quantity": "-1",
+        "maximum_quantity": "-1",
+        "known_observed_bounds": true,
+        "includes_reduce_only_and_triggers": true,
+        "notional_usd": null,
+        "supported_asset": true
+      },
+      "par:SP500": {
+        "position_quantity": "0",
+        "pending_buy_quantity": "0",
+        "pending_sell_quantity": "0",
+        "minimum_quantity": "0",
+        "maximum_quantity": "0",
+        "known_observed_bounds": true,
+        "includes_reduce_only_and_triggers": true,
+        "notional_usd": null,
+        "supported_asset": true
+      },
+      "par:USDEUR": {
+        "position_quantity": "0",
+        "pending_buy_quantity": "0",
+        "pending_sell_quantity": "0",
+        "minimum_quantity": "0",
+        "maximum_quantity": "0",
+        "known_observed_bounds": true,
+        "includes_reduce_only_and_triggers": true,
+        "notional_usd": null,
+        "supported_asset": true
+      },
+      "par:USDJPY": {
+        "position_quantity": "0",
+        "pending_buy_quantity": "0",
+        "pending_sell_quantity": "0",
+        "minimum_quantity": "0",
+        "maximum_quantity": "0",
+        "known_observed_bounds": true,
+        "includes_reduce_only_and_triggers": true,
+        "notional_usd": null,
+        "supported_asset": true
+      }
+    },
+    "components": {
+      "role_before": {
+        "status": "observed",
+        "received_ms": 100001,
+        "payload_digest": "6b3061507ef8cc2ca95320f790a9f9ccb3c850ae081df4b6f6e56e40d57203e4"
+      },
+      "mode_before": {
+        "status": "observed",
+        "received_ms": 100002,
+        "payload_digest": "60fa0aa06d636544be4297b4c2a67b2d95d394dae68f994f1f5bc69ccb8b77bd"
+      },
+      "mode_after": {
+        "status": "observed",
+        "received_ms": 100020,
+        "payload_digest": "60fa0aa06d636544be4297b4c2a67b2d95d394dae68f994f1f5bc69ccb8b77bd"
+      },
+      "role_after": {
+        "status": "observed",
+        "received_ms": 100021,
+        "payload_digest": "6b3061507ef8cc2ca95320f790a9f9ccb3c850ae081df4b6f6e56e40d57203e4"
+      },
+      "market": {
+        "status": "observed",
+        "received_ms": 100006,
+        "payload_digest": "3e810ae47a90b033b429a57636e7edb2c4849cdbfd78cf74a594f421bbcf6d31"
+      },
+      "spot_before": {
+        "status": "observed",
+        "received_ms": 100003,
+        "payload_digest": "e675aae5d7e844774ccae321c6af8534909f50d6dccb9a5bcdcea6cf4367d708"
+      },
+      "spot_after": {
+        "status": "observed",
+        "received_ms": 100017,
+        "payload_digest": "e675aae5d7e844774ccae321c6af8534909f50d6dccb9a5bcdcea6cf4367d708"
+      },
+      "perp_before": {
+        "status": "observed",
+        "received_ms": 100004,
+        "payload_digest": "1e88f59717904b3a58c9db8da589e748bce18b94eef02d6e2558112703e3cd98"
+      },
+      "perp_after": {
+        "status": "observed",
+        "received_ms": 100018,
+        "payload_digest": "1e88f59717904b3a58c9db8da589e748bce18b94eef02d6e2558112703e3cd98",
+        "event_ms": 99999
+      },
+      "orders_before": {
+        "status": "observed",
+        "received_ms": 100005,
+        "payload_digest": "8586390db22dea3cd0948618319c76c44443b7c38000b9d1b84b7a79aec1716c"
+      },
+      "orders_after": {
+        "status": "observed",
+        "received_ms": 100019,
+        "payload_digest": "8586390db22dea3cd0948618319c76c44443b7c38000b9d1b84b7a79aec1716c"
+      },
+      "active/par:BTC": {
+        "status": "observed",
+        "received_ms": 100007,
+        "payload_digest": "ca9402b78e5601181cbd5d928164df5d99095fae1505a66767f8417e6c8170d5"
+      },
+      "active/par:ETH": {
+        "status": "observed",
+        "received_ms": 100008,
+        "payload_digest": "822e41594c806b96e07d3bcef162c2be3fc70ad85af03ff8f1fd20af8231169e"
+      },
+      "active/par:HYPE": {
+        "status": "observed",
+        "received_ms": 100009,
+        "payload_digest": "8d4d6ad9ba1a5775839b7af161cfd030f4b4f8593d0bb9d2cab1541b855b51e8"
+      },
+      "active/par:SP500": {
+        "status": "observed",
+        "received_ms": 100010,
+        "payload_digest": "4392c5db4d895d452dca50d298d6876e053d0bb3f4e35d5193ee694aa35dc00c"
+      },
+      "active/par:EWY": {
+        "status": "observed",
+        "received_ms": 100011,
+        "payload_digest": "604d9b0732beddd7855e73529331eff78ef836a62dcc5322ab270d207c24a260"
+      },
+      "active/par:EWJ": {
+        "status": "observed",
+        "received_ms": 100012,
+        "payload_digest": "cd1baa219616a301b62fcafa4be46145a5f160371d460531c8ef32228ebcd47e"
+      },
+      "active/par:BRENT": {
+        "status": "observed",
+        "received_ms": 100013,
+        "payload_digest": "0b0044c972d013a3574fe6b78999ec5a7eeba1b145da9ae210d11f5ae1582bc5"
+      },
+      "active/par:GOLD": {
+        "status": "observed",
+        "received_ms": 100014,
+        "payload_digest": "d4ef4ba6eb9cd122bf7bf2d919f1bb7432381fd2bde0649e0f1eeb01e86b6883"
+      },
+      "active/par:USDEUR": {
+        "status": "observed",
+        "received_ms": 100015,
+        "payload_digest": "92c2c4727353fc06f1263c98efb16e13d73fcf6e1ba02c2d547f7a1fbd088ae3"
+      },
+      "active/par:USDJPY": {
+        "status": "observed",
+        "received_ms": 100016,
+        "payload_digest": "cbc7bcf931e955283db3371d9b443072b544762afb932cceb3c99676722cd32a"
+      }
+    },
+    "par_positions_complete": true,
+    "par_orders_complete": true,
+    "balances_complete": true,
+    "order_changes": {
+      "appeared": [],
+      "disappeared_unresolved": [],
+      "changed": []
+    },
+    "issues": [
+      "FREE_MARGIN_UNVERIFIED",
+      "INFLIGHT_ORDERS_UNKNOWN",
+      "OTHER_DEX_EXPOSURE_UNKNOWN",
+      "USD_EQUITY_UNVERIFIED"
+    ],
+    "payload_digest": "96ec41fe39741a1184d0162d946673d15ee0b9e55e0fe6ff827f87984cdee98c"
+  }
+}

@@ -1,6 +1,7 @@
 [collector]
 # Collection examples, not a decision to trade these assets.
-symbols = ["par:BTC", "par:ETH"]
+# All 10 par markets verified against Testnet metadata on 2026-10-18.
+symbols = ["par:BTC", "par:ETH", "par:HYPE", "par:SP500", "par:EWY", "par:EWJ", "par:BRENT", "par:GOLD", "par:USDEUR", "par:USDJPY"]
 database = "/data/market.sqlite3"
-poll_seconds = 30
+poll_seconds = 5
 stale_seconds = 90

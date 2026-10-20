@@ -1,0 +1,44 @@
+# Synthetic two-process integration ONLY. No real market feed, account, model or trading backend.
+[service]
+mode = "mock-http"
+schedule_id = "dummy-minute"
+producer_id = "dummy-agent"
+producer_version = "offline-0.1"
+control_scope = "mock-account"
+control_epoch = 1
+interval_ms = 60000
+deadline_ms = 120000
+lease_ms = 30000
+heartbeat_ms = 10000
+poll_ms = 250
+max_queries = 10
+max_records = 100
+max_bytes = 262144
+max_attempts = 2
+max_input_age_ms = 90000
+max_inference_ms = 20000
+http_timeout_ms = 5000
+max_http_body = 524288
+max_http_workers = 8
+
+[simulation]
+configuration_id = "mock-pipeline-0.1"
+horizon_ms = 3600000
+forecast_ttl_ms = 90000
+decision_ttl_ms = 30000
+max_age_ms = 90000
+policy_version = "fixed-quantity-demo-0.1"
+risk_rule_version = "demo-gate-0.1"
+gross_limit_usd = "100"
+equity_usd = "1000"
+available_margin_usd = "1000"
+
+[simulation.quantities]
+"par:BTC" = "0.0002"
+"par:ETH" = "0.001"
+[simulation.quantity_limits]
+"par:BTC" = "0.001"
+"par:ETH" = "0.01"
+[simulation.fixture_prices]
+"par:BTC" = "80000"
+"par:ETH" = "3000"

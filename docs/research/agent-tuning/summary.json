@@ -1,0 +1,477 @@
+{
+  "round_count": 3,
+  "round_limit": 3,
+  "final_configuration_round": 3,
+  "calibration_validation_caveat": "All data appeared in prior baseline; final 8 hours are chronological validation, not pristine unseen data. Three inspections induce selection bias.",
+  "transaction_costs": {
+    "taker_fee_bps": 9,
+    "slippage_bps_each_side": 2
+  },
+  "api_service_fees_included": false,
+  "runs": {
+    "1": {
+      "report": {
+        "mode": "offline-paper",
+        "decisions": 1868,
+        "fills": 36,
+        "net_return_mid": -7.065516769999558e-05,
+        "equity_oracle_observed": 99993.31420823,
+        "max_drawdown_mid": 0.000130463026559835,
+        "daily_equity_return_stdev": null,
+        "daily_return_samples": 0,
+        "fees": 5.5819582865424,
+        "funding": 0.010268310071914203,
+        "turnover": 6202.175873935998,
+        "exploration_fills": 0,
+        "routing_errors": 0,
+        "open_positions": {
+          "pas:HYPE": {
+            "basket_members": [],
+            "entry_price": 80.31606,
+            "exit_ms": 1792535460000,
+            "exploratory": false,
+            "last_mid": 80.54849999999999,
+            "last_rebalanced_ms": 1792528260000,
+            "opened_ms": 1792528260000,
+            "quantity": 4.15
+          }
+        },
+        "unfilled_final_targets": {},
+        "funding_coverage_complete": true,
+        "valuation_complete": true,
+        "funding_due": [],
+        "limitations": [
+          "Synthetic next-observation taker fills; no depth, queue or intraminute path",
+          "Oracle receipt freshness is not underlying oracle event freshness",
+          "No liquidation, live account margin, currency conversion or exchange reconciliation",
+          "No forced final liquidation; open holdings remain marked and disclosed",
+          "Unavailable funding settlements are not invented; inspect coverage separately"
+        ],
+        "net_pnl_mid": -7.065516770002432,
+        "final_close_cost": 0.4857886515599691,
+        "net_pnl_if_final_close": -7.551305421562401,
+        "calibration_pnl_mid": -7.08474313163606,
+        "validation_start_ms": 1792500660000,
+        "validation_pnl_if_final_close": -0.4665622899263414,
+        "validation_fills": 18,
+        "first_ms": 1792417440000,
+        "last_ms": 1792529460000,
+        "api_success": 21,
+        "routing_error_counts": {
+          "routing-cadence": 1743,
+          "no-eligible-proposals": 104,
+          "null": 21
+        },
+        "execution_gate_minutes": 3,
+        "halted_minutes": 0,
+        "exposure_reduction_minutes": 0,
+        "strategy_signal_minutes": {
+          "S02": 297,
+          "N02": 6,
+          "S03": 24,
+          "N01": 3,
+          "N03": 7
+        }
+      },
+      "config": {
+        "dex": "pas",
+        "top_p": 0.85,
+        "gate": "top_p",
+        "top_k": 2,
+        "epsilon": 0.02,
+        "seed": 20261021,
+        "horizon_minutes": 60,
+        "strategy_horizon_minutes": {
+          "S02": 120,
+          "N01": 120,
+          "S03": 60,
+          "N02": 30
+        },
+        "history_minutes": 1440,
+        "max_age_ms": 90000,
+        "max_inference_ms": 2000,
+        "max_spread_bps": 30.0,
+        "taker_fee_bps": 9.0,
+        "slippage_bps": 2.0,
+        "min_net_edge_bps": 5.0,
+        "risk_budget_usd": 1000.0,
+        "target_vol_bps": 50.0,
+        "max_asset_usd": 500.0,
+        "max_gross_usd": 1000.0,
+        "min_order_usd": 10.0,
+        "rebalance_usd": 50,
+        "exploration_usd": 50.0,
+        "exploration_cooldown_ms": 3600000,
+        "exploration_max_daily": 2,
+        "max_drawdown": 0.03,
+        "stop_loss_bps": 150.0,
+        "take_profit_bps": 300.0,
+        "routing_interval_minutes": 15,
+        "min_holding_minutes": 30,
+        "rebalance_interval_minutes": 30,
+        "rebalance_fraction": 0.5,
+        "min_trade_mass": 0.35,
+        "no_trade_veto": 0.65,
+        "entry_headroom": 0.95,
+        "close_before_reverse": true,
+        "entry_cooldown_minutes": 15,
+        "breakout_distance_vol": 0.25,
+        "momentum_confirmation": true
+      },
+      "attribution": {
+        "round": 1,
+        "assets": {
+          "pas:BRENT": {
+            "gross_price_pnl": -0.6713500000000323,
+            "spread_slippage": 0.6696873599999783,
+            "fees": 1.3141683088199998,
+            "fills": 8,
+            "net_without_funding": -2.6552056688200105
+          },
+          "pas:HYPE": {
+            "gross_price_pnl": 4.497054999999932,
+            "spread_slippage": 0.6920614679998969,
+            "fees": 1.1967960429612001,
+            "fills": 7,
+            "net_without_funding": 2.608197489038835
+          },
+          "pas:EWY": {
+            "gross_price_pnl": 2.3030099999999294,
+            "spread_slippage": 0.7361187299998957,
+            "fees": 1.4928239432465997,
+            "fills": 7,
+            "net_without_funding": 0.07406732675343397
+          },
+          "pas:BTC": {
+            "gross_price_pnl": -0.8472300000000104,
+            "spread_slippage": 0.33840474400000065,
+            "fees": 0.6062165371656,
+            "fills": 4,
+            "net_without_funding": -1.791851281165611
+          },
+          "pas:ETH": {
+            "gross_price_pnl": -2.937899999999999,
+            "spread_slippage": 0.2170741019999794,
+            "fees": 0.4202290100862,
+            "fills": 4,
+            "net_without_funding": -3.5752031120861782
+          },
+          "pas:EWJ": {
+            "gross_price_pnl": 0.1517599999999959,
+            "spread_slippage": 0.10100646960001194,
+            "fees": 0.18623909661480004,
+            "fills": 2,
+            "net_without_funding": -0.13548556621481608
+          },
+          "pas:GOLD": {
+            "gross_price_pnl": -0.722920000000002,
+            "spread_slippage": 0.08698352000001032,
+            "fees": 0.184965978384,
+            "fills": 2,
+            "net_without_funding": -0.9948694983840123
+          },
+          "pas:SP500": {
+            "gross_price_pnl": -0.3301999999999907,
+            "spread_slippage": 0.0947154000000073,
+            "fees": 0.180519369264,
+            "fills": 2,
+            "net_without_funding": -0.6054347692639981
+          }
+        },
+        "totals": {
+          "gross_price_pnl": 1.442224999999823,
+          "spread_slippage": 2.9360517935997805,
+          "fees": 5.5819582865424
+        },
+        "fill_kinds": {
+          "entry": 18,
+          "exit": 17,
+          "resize": 1
+        },
+        "net_reconciliation_difference": -6.801137431011739e-11
+      }
+    },
+    "2": {
+      "report": {
+        "mode": "offline-paper",
+        "decisions": 1868,
+        "fills": 14,
+        "net_return_mid": -1.4345808035609586e-05,
+        "equity_oracle_observed": 99998.56541919644,
+        "max_drawdown_mid": 0.0001133318084448609,
+        "daily_equity_return_stdev": null,
+        "daily_return_samples": 0,
+        "fees": 2.5032373587665995,
+        "funding": -0.009698410804418005,
+        "turnover": 2781.374843074,
+        "exploration_fills": 0,
+        "routing_errors": 0,
+        "open_positions": {},
+        "unfilled_final_targets": {},
+        "funding_coverage_complete": true,
+        "valuation_complete": true,
+        "funding_due": [],
+        "limitations": [
+          "Synthetic next-observation taker fills; no depth, queue or intraminute path",
+          "Oracle receipt freshness is not underlying oracle event freshness",
+          "No liquidation, live account margin, currency conversion or exchange reconciliation",
+          "No forced final liquidation; open holdings remain marked and disclosed",
+          "Unavailable funding settlements are not invented; inspect coverage separately"
+        ],
+        "net_pnl_mid": -1.4345808035577647,
+        "final_close_cost": 0.0,
+        "net_pnl_if_final_close": -1.4345808035577647,
+        "calibration_pnl_mid": 2.8765223822265398,
+        "validation_start_ms": 1792500660000,
+        "validation_pnl_if_final_close": -4.3111031857843045,
+        "validation_fills": 10,
+        "first_ms": 1792417440000,
+        "last_ms": 1792529460000,
+        "api_success": 14,
+        "routing_error_counts": {
+          "routing-cadence": 1494,
+          "no-eligible-proposals": 360,
+          "null": 14
+        },
+        "execution_gate_minutes": 3,
+        "halted_minutes": 0,
+        "exposure_reduction_minutes": 0,
+        "strategy_signal_minutes": {
+          "S02": 26,
+          "N02": 6,
+          "S03": 24,
+          "N01": 1,
+          "N03": 7
+        }
+      },
+      "config": {
+        "dex": "pas",
+        "top_p": 0.85,
+        "gate": "top_p",
+        "top_k": 2,
+        "epsilon": 0.02,
+        "seed": 20261021,
+        "horizon_minutes": 60,
+        "strategy_horizon_minutes": {
+          "S02": 180,
+          "N01": 120,
+          "S03": 60,
+          "N02": 30
+        },
+        "history_minutes": 1440,
+        "max_age_ms": 90000,
+        "max_inference_ms": 2000,
+        "max_spread_bps": 30.0,
+        "taker_fee_bps": 9.0,
+        "slippage_bps": 2.0,
+        "min_net_edge_bps": 5.0,
+        "risk_budget_usd": 1000.0,
+        "target_vol_bps": 50.0,
+        "max_asset_usd": 500.0,
+        "max_gross_usd": 1000.0,
+        "min_order_usd": 10.0,
+        "rebalance_usd": 75,
+        "exploration_usd": 50.0,
+        "exploration_cooldown_ms": 3600000,
+        "exploration_max_daily": 2,
+        "max_drawdown": 0.03,
+        "stop_loss_bps": 150.0,
+        "take_profit_bps": 300.0,
+        "routing_interval_minutes": 5,
+        "min_holding_minutes": 60,
+        "rebalance_interval_minutes": 60,
+        "rebalance_fraction": 1.0,
+        "min_trade_mass": 0.35,
+        "no_trade_veto": 0.65,
+        "entry_headroom": 0.95,
+        "close_before_reverse": true,
+        "entry_cooldown_minutes": 15,
+        "breakout_distance_vol": 0.25,
+        "momentum_confirmation": true,
+        "trend_240_confirmation": true,
+        "trend_entry_mode": "pullback"
+      },
+      "attribution": {
+        "round": 2,
+        "assets": {
+          "pas:EWY": {
+            "gross_price_pnl": 2.871750000000034,
+            "spread_slippage": 0.35851686600002536,
+            "fees": 0.618375419883,
+            "fills": 4,
+            "net_without_funding": 1.8948577141170089
+          },
+          "pas:BRENT": {
+            "gross_price_pnl": 1.8584999999998928,
+            "spread_slippage": 0.6087689599998425,
+            "fees": 1.0110100546079999,
+            "fills": 4,
+            "net_without_funding": 0.23872098539205044
+          },
+          "pas:ETH": {
+            "gross_price_pnl": -0.7417049999999676,
+            "spread_slippage": 0.2357703240000426,
+            "fees": 0.33243912064799996,
+            "fills": 2,
+            "net_without_funding": -1.3099144446480102
+          },
+          "pas:HYPE": {
+            "gross_price_pnl": -0.5372999999999877,
+            "spread_slippage": 0.18389590000000197,
+            "fees": 0.290231668206,
+            "fills": 2,
+            "net_without_funding": -1.0114275682059897
+          },
+          "pas:GOLD": {
+            "gross_price_pnl": -0.8694599999999753,
+            "spread_slippage": 0.11647798400003849,
+            "fees": 0.25118109542160005,
+            "fills": 2,
+            "net_without_funding": -1.2371190794216138
+          }
+        },
+        "totals": {
+          "gross_price_pnl": 2.5817849999999964,
+          "spread_slippage": 1.503430033999951,
+          "fees": 2.5032373587666
+        },
+        "fill_kinds": {
+          "entry": 7,
+          "exit": 7
+        },
+        "net_reconciliation_difference": -1.3207657190150712e-11
+      }
+    },
+    "3": {
+      "report": {
+        "mode": "offline-paper",
+        "decisions": 1868,
+        "fills": 4,
+        "net_return_mid": -8.9544287359411e-06,
+        "equity_oracle_observed": 99999.10455712641,
+        "max_drawdown_mid": 4.474843844570753e-05,
+        "daily_equity_return_stdev": null,
+        "daily_return_samples": 0,
+        "fees": 0.5061900308453999,
+        "funding": 0.011263819280322,
+        "turnover": 562.4333676059999,
+        "exploration_fills": 0,
+        "routing_errors": 0,
+        "open_positions": {},
+        "unfilled_final_targets": {},
+        "funding_coverage_complete": true,
+        "valuation_complete": true,
+        "funding_due": [],
+        "limitations": [
+          "Synthetic next-observation taker fills; no depth, queue or intraminute path",
+          "Oracle receipt freshness is not underlying oracle event freshness",
+          "No liquidation, live account margin, currency conversion or exchange reconciliation",
+          "No forced final liquidation; open holdings remain marked and disclosed",
+          "Unavailable funding settlements are not invented; inspect coverage separately"
+        ],
+        "net_pnl_mid": -0.8954428735887632,
+        "final_close_cost": 0.0,
+        "net_pnl_if_final_close": -0.8954428735887632,
+        "calibration_pnl_mid": 0.6518240943405544,
+        "validation_start_ms": 1792500660000,
+        "validation_pnl_if_final_close": -1.5472669679293176,
+        "validation_fills": 2,
+        "first_ms": 1792417440000,
+        "last_ms": 1792529460000,
+        "api_success": 9,
+        "routing_error_counts": {
+          "routing-cadence": 1494,
+          "no-eligible-proposals": 365,
+          "null": 9
+        },
+        "execution_gate_minutes": 3,
+        "halted_minutes": 0,
+        "exposure_reduction_minutes": 0,
+        "strategy_signal_minutes": {
+          "N02": 4,
+          "S02": 21,
+          "S03": 11
+        }
+      },
+      "config": {
+        "dex": "pas",
+        "top_p": 0.85,
+        "gate": "top_p",
+        "top_k": 2,
+        "epsilon": 0.02,
+        "seed": 20261021,
+        "horizon_minutes": 60,
+        "strategy_horizon_minutes": {
+          "S02": 240,
+          "N01": 180,
+          "S03": 60,
+          "N02": 30
+        },
+        "history_minutes": 1440,
+        "max_age_ms": 90000,
+        "max_inference_ms": 2000,
+        "max_spread_bps": 30.0,
+        "taker_fee_bps": 9.0,
+        "slippage_bps": 2.0,
+        "min_net_edge_bps": 15,
+        "risk_budget_usd": 1000.0,
+        "target_vol_bps": 50.0,
+        "max_asset_usd": 500.0,
+        "max_gross_usd": 1000.0,
+        "min_order_usd": 10.0,
+        "rebalance_usd": 75,
+        "exploration_usd": 50.0,
+        "exploration_cooldown_ms": 3600000,
+        "exploration_max_daily": 2,
+        "max_drawdown": 0.03,
+        "stop_loss_bps": 150.0,
+        "take_profit_bps": 300.0,
+        "routing_interval_minutes": 5,
+        "min_holding_minutes": 60,
+        "rebalance_interval_minutes": 60,
+        "rebalance_fraction": 1.0,
+        "min_trade_mass": 0.35,
+        "no_trade_veto": 0.65,
+        "entry_headroom": 0.95,
+        "close_before_reverse": true,
+        "entry_cooldown_minutes": 15,
+        "breakout_distance_vol": 0.25,
+        "momentum_confirmation": true,
+        "trend_240_confirmation": true,
+        "trend_entry_mode": "pullback",
+        "range_240_filter": true,
+        "exit_on_trend_break": true
+      },
+      "attribution": {
+        "round": 3,
+        "assets": {
+          "pas:EWY": {
+            "gross_price_pnl": 1.0729599999999948,
+            "spread_slippage": 0.15511935999998155,
+            "fees": 0.26693694411119995,
+            "fills": 2,
+            "net_without_funding": 0.6509036958888132
+          },
+          "pas:ETH": {
+            "gross_price_pnl": -1.1946000000000083,
+            "spread_slippage": 0.1237573020000053,
+            "fees": 0.23925308673419998,
+            "fills": 2,
+            "net_without_funding": -1.5576103887342136
+          }
+        },
+        "totals": {
+          "gross_price_pnl": -0.12164000000001352,
+          "spread_slippage": 0.27887666199998684,
+          "fees": 0.5061900308453999
+        },
+        "fill_kinds": {
+          "entry": 2,
+          "exit": 2
+        },
+        "net_reconciliation_difference": 2.3684942895840777e-11
+      }
+    }
+  },
+  "stopping_rule_met": false
+}

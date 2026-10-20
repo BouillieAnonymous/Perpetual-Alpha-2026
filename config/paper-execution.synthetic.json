@@ -1,0 +1,133 @@
+{
+  "configuration_id": "SYNTHETIC-PAPER-0.1",
+  "model_version": "paper-fixed-liquidity/0.1",
+  "scope": "mock-account",
+  "policy": {
+    "version": "SYNTHETIC-ONLY-1",
+    "mode": "synthetic-only",
+    "asset_budgets_usd": {
+      "par:BTC": "16",
+      "par:ETH": "3"
+    },
+    "asset_caps_usd": {
+      "par:BTC": "100",
+      "par:ETH": "100"
+    },
+    "gross_cap_usd": "100",
+    "net_cap_usd": "100",
+    "sigma_cap_usd": "10",
+    "leverage_cap": "1",
+    "margin_fraction": "1",
+    "margin_buffer_usd": "10",
+    "drawdown_cap": "0.2",
+    "session_loss_cap_usd": "20",
+    "horizon_ms": 3600000,
+    "decision_ttl_ms": 30000,
+    "max_age_ms": 90000,
+    "min_samples": 3,
+    "risk_model_version": "paper-risk-fixture/0.1",
+    "allow_reversals": false,
+    "allow_explicit_exits": false
+  },
+  "initial_state": {
+    "schema_version": "portfolio-simulation/0.1",
+    "synthetic": true,
+    "context_id": "synthetic-portfolio",
+    "asof_ms": 360000,
+    "account": {
+      "observed_ms": 360000,
+      "status": "ready",
+      "equity_usd": "1000",
+      "available_margin_usd": "1000",
+      "positions": [],
+      "open_orders": []
+    },
+    "assertions": {
+      "risk_ready": true,
+      "global_account_complete": true,
+      "other_exposure_known": true,
+      "inflight_orders_known": true
+    },
+    "peak_equity_usd": "1000",
+    "session_start_equity_usd": "1000",
+    "market": {
+      "par:BTC": {
+        "usd_per_unit": "80000",
+        "quantity_step": "0.0001",
+        "observed_ms": 360000,
+        "event_ms": 360000,
+        "valuation_source": "synthetic-fixture"
+      },
+      "par:ETH": {
+        "usd_per_unit": "3000",
+        "quantity_step": "0.001",
+        "observed_ms": 360000,
+        "event_ms": 360000,
+        "valuation_source": "synthetic-fixture"
+      }
+    },
+    "risk": {
+      "snapshot_id": "market-risk:5cdcc5045943bd3983bed42e6bbbe5b6abe9bb1c49d179262f8dfe17455db9fd",
+      "asof_ms": 360000,
+      "status": "ready",
+      "method": "synthetic-paper-covariance",
+      "model_version": "paper-risk-fixture/0.1",
+      "symbols": [
+        "par:BTC",
+        "par:ETH"
+      ],
+      "estimation_window_ms": 10800000,
+      "return_interval_ms": 3600000,
+      "sample_count": 3,
+      "volatilities": {
+        "par:BTC": "0.1",
+        "par:ETH": "0.1"
+      },
+      "covariance": [
+        [
+          "0.01",
+          "0.01"
+        ],
+        [
+          "0.01",
+          "0.01"
+        ]
+      ],
+      "units": "simple-return-per-interval",
+      "annualization": "none",
+      "errors": [],
+      "simulated": true,
+      "schema_version": "risk-snapshot/0.1"
+    },
+    "control": {
+      "producer_id": "dummy-agent",
+      "producer_version": "offline-0.1",
+      "epoch": 1,
+      "role": "control",
+      "symbols": [
+        "par:BTC",
+        "par:ETH"
+      ],
+      "accepted_asof_ms": 360000,
+      "consumed_asof_ms": null
+    },
+    "health": {
+      "market_data": true,
+      "account_data": true,
+      "execution": true
+    }
+  },
+  "execution": {
+    "fee_bps": "10",
+    "slippage_bps": "10",
+    "max_fill_quantities": {
+      "par:BTC": "0.0001",
+      "par:ETH": "0.001"
+    },
+    "min_notional_usd": {
+      "par:BTC": "0",
+      "par:ETH": "0"
+    },
+    "order_timeout_ms": 30000
+  }
+}

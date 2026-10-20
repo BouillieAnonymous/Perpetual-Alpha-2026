@@ -1,0 +1,49 @@
+# Final third-round research configuration; see docs/agent-tuning-results.zh-CN.md
+[agent]
+dex = "pas"
+top_p = 0.85
+gate = "top_p"
+top_k = 2
+epsilon = 0.02
+seed = 20261021
+horizon_minutes = 60
+history_minutes = 1440
+max_age_ms = 90000
+max_inference_ms = 2000
+max_spread_bps = 30.0
+taker_fee_bps = 9.0
+slippage_bps = 2.0
+min_net_edge_bps = 15
+risk_budget_usd = 1000.0
+target_vol_bps = 50.0
+max_asset_usd = 500.0
+max_gross_usd = 1000.0
+min_order_usd = 10.0
+rebalance_usd = 75
+exploration_usd = 50.0
+exploration_cooldown_ms = 3600000
+exploration_max_daily = 2
+max_drawdown = 0.03
+stop_loss_bps = 150.0
+take_profit_bps = 300.0
+routing_interval_minutes = 5
+min_holding_minutes = 60
+rebalance_interval_minutes = 60
+rebalance_fraction = 1.0
+min_trade_mass = 0.35
+no_trade_veto = 0.65
+entry_headroom = 0.95
+close_before_reverse = true
+entry_cooldown_minutes = 15
+breakout_distance_vol = 0.25
+momentum_confirmation = true
+trend_240_confirmation = true
+trend_entry_mode = "pullback"
+range_240_filter = true
+exit_on_trend_break = true
+
+[agent.strategy_horizon_minutes]
+S02 = 240
+N01 = 180
+S03 = 60
+N02 = 30

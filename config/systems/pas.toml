@@ -1,0 +1,8 @@
+# Competition reserves a separate namespace. No automatic activation.
+[system]
+dex = "pas"
+source = "hyperliquid-testnet/pas"
+collateral = "USDP"
+mode = "competition-reserved"
+collector_enabled = false
+trading_enabled = false

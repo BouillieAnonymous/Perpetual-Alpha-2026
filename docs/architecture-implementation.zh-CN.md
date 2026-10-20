@@ -12,7 +12,8 @@
 |---|---|---|
 | 内部契约 | `src/perpetual_alpha/contracts.py` | Forecast/ForecastBatch、RiskSnapshot、RiskVerdict；类型、JSON 往返、字段/状态/时间/数值校验；ForecastProducer、MarketRiskEstimator、AgentAdapter 接口 |
 | 数据通道 | `src/perpetual_alpha/context.py` | 已有 SQLite quotes → StrategyContext 1.0；事件/接收时间过滤、独立数据状态、来源、单位、窗口、截断 |
-| 预测与风险估计 | `src/perpetual_alpha/forecasting.py` | rule-demo / mock-agent 可对照；错误适配器输出 error；MockRiskEstimator 提供显式假风险数据 |
+| 预测与风险估计 | `src/perpetual_alpha/forecasting.py` | rule-demo / mock-agent 可对照；严格边界保留结构化失败；MockRiskEstimator 提供显式假风险数据 |
+| 注册与数据协调 | `src/perpetual_alpha/producers.py` | v0.2.1 显式白名单、ID/版本保护、请求去重/冲突与 Producer 独立 Context 视图 |
 | 组合 | `src/perpetual_alpha/portfolio.py` | 用户批准的固定数量演示政策；阻断不可用上下文、风险或账户；拒绝混合期限 |
 | 独立风控 | `src/perpetual_alpha/risk.py` | 拒绝过期、未来信号、非控制资产、超演示限额；行情/账户/风险不明或挂单未完成时 deferred；绑定决策摘要和快照证据 |
 | 模拟执行 | `src/perpetual_alpha/simulation.py` | 从独立模拟账户状态计算差额；accepted 与 completed 分开；持久化去重、ID_CONFLICT、BUSY、unknown 保留 |
@@ -71,9 +72,9 @@ finally:
 # 未提供可信账户时 context.account 为 None，不能据此执行。
 ```
 
-新增预测实现遵守 ForecastProducer.requirements()/forecast()，在 `checked_forecast` 边界接入，声明 producer_id/version。配置目前只接受 rule-demo/mock-agent；新增实现需要明确注册，不能通过配置任意 import 或执行研究生成代码。切换现有对照版本只改 selected_producer；同一 Context 同时记录两份输出。
+新增预测实现遵守 ForecastProducer.requirements()/forecast()，在 `checked_forecast` 边界接入，声明 producer_id/version。默认仅注册 rule-demo/mock-agent；v0.2.1 允许调用方通过 ProducerRegistry 显式注册独立实现，再通过 selected_producer/version 和 shadow_producers 选择。不能通过配置任意 import 或执行研究生成代码。各版本使用同一时点的独立数据视图，只有控制视图进入组合与模拟风险估计，影子缺数据独立记录。注册、时间语义及 LT 示例见[集成接口交接](forecast-integration-v0.2.1.zh-CN.md)。
 
-实际 AgentAdapter、调用超时机制、供应商选择与只读工具执行器仅留接口；当前测试验证 TimeoutError 被映射为 error，不声称具备真实 API 调度/取消能力。替换 Portfolio、Risk Estimator 和 Gate 时保留输入/输出契约及独立检查边界。Trading Intent 仅在架构图预留，没有可执行适配器。
+AgentAdapter 已与 ForecastProducer 统一，附有独立 DummyLTProducer 示例。运行器使用可信完成/接收时钟，检查输入年龄及推理返回预算，异常保留结构化失败。同步调用不强制终止阻塞 Harness，实际供应商、网络超时/取消和只读工具执行器仍需后续验收。替换 Portfolio、Risk Estimator 和 Gate 时保留输入/输出契约及独立检查边界。Trading Intent 仅在架构图预留，没有可执行适配器。
 
 ## 5. 研究 Registry 的人工审核
 
@@ -104,7 +105,7 @@ finally:
 
 | 情况 | 当前可测结果 |
 |---|---|
-| 模型/适配器异常或错误证据 | 逐资产 error，方向为空，不虚构数值 |
+| 模型/适配器异常或错误证据 | 严格运行器记录 producer-unavailable，阻断该版本；旧双参数 fixture API 在可安全构造时仍返回 error items |
 | 必要数据/账户/风险缺失或预测过期 | PortfolioUnavailable；不进入 Execution |
 | 独立 Gate 明确违反限额 | RiskVerdict rejected；ExecutionReport rejected |
 | 最新账户/行情/挂单不可核实 | RiskVerdict deferred；本次 apply 返回 rejected 及对应原因，延后含义保存在 Verdict 中；后续重新判断需新 Decision ID |
@@ -128,6 +129,6 @@ $env:TEMP = $env:TMP
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-2026-10-15 验证结果：35 项测试全部通过。覆盖现有协议/只读/手动交易保护的回归、新契约校验、数据时间冻结、单/多资产、规则/模拟 Agent 对照、neutral/abstain/error、混合期限拒绝、缺数据/过期/账户不明、独立 Gate 拒绝/延后、控制版本、去重与冲突、unknown/BUSY 重启持久化、研究人工状态链以及完整离线 Dry Run。端到端测试封锁 urllib 网络调用和签名 Exchange 构造。
+2026-10-15：首轮 35 项回归测试继续保留；v0.2.1 新增 22 项，当前共 57 项全部通过。覆盖现有协议/只读/手动交易保护的回归、新契约校验、数据时间冻结、单/多资产、规则/模拟 Agent 对照、neutral/abstain/error、混合期限拒绝、缺数据/过期/账户不明、独立 Gate 拒绝/延后、控制版本、去重与冲突、unknown/BUSY 重启持久化、研究人工状态链以及完整离线 Dry Run。端到端测试封锁 urllib 网络调用和签名 Exchange 构造。
 
 首轮架构实施未运行真实账户/行情网络检查、真实下单或服务器部署。随后于 2026-10-15 添加 [GitHub Actions CI](continuous-integration.zh-CN.md)，已用 Ruff 检查代码，并用第三方 Draft 2020-12 验证器检查全部 Schema 与样例；上述 35 项回归测试继续通过。

@@ -1,0 +1,68 @@
+name: alpha-funding
+services:
+  par-observer:
+    image: ${FUNDING_IMAGE:?Set immutable funding image tag}
+    profiles: [observe]
+    command: [observe, --config, /app/config/funding/par.toml, --root, /state,
+              --env-file, /run/public.env]
+    restart: unless-stopped
+    init: true
+    user: "1000:1000"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 64
+    mem_limit: 256m
+    cpus: 0.5
+    stop_grace_period: 40s
+    tmpfs: ["/tmp:size=16m,mode=1777"]
+    volumes:
+      - ${FUNDING_STATE:?Set isolated funding state}:/state
+      - ${FUNDING_SECRETS:?Set secret directory}/public.env:/run/public.env:ro
+    logging:
+      driver: json-file
+      options: {max-size: "5m", max-file: "3"}
+  par:
+    image: ${FUNDING_IMAGE:?Set immutable funding image tag}
+    profiles: [rehearsal]
+    command: [run, --config, /app/config/funding/par.toml, --root, /state,
+              --env-file, /run/secrets/par.env, --execute, --bootstrap]
+    restart: unless-stopped
+    init: true
+    user: "1000:1000"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 64
+    mem_limit: 256m
+    cpus: 0.5
+    stop_grace_period: 40s
+    tmpfs: ["/tmp:size=16m,mode=1777"]
+    volumes:
+      - ${FUNDING_STATE:?Set isolated funding state}:/state
+      - ${FUNDING_SECRETS:?Set secret directory}/par.env:/run/secrets/par.env:ro
+    logging:
+      driver: json-file
+      options: {max-size: "5m", max-file: "3"}
+    healthcheck:
+      test: [CMD, python, -m, perpetual_alpha.funding_live, health,
+             --config, /app/config/funding/par.toml, --root, /state]
+      interval: 60s
+      timeout: 10s
+      start_period: 90s
+      retries: 3
+  pas:
+    image: ${FUNDING_IMAGE:?Set immutable funding image tag}
+    profiles: [competition-prepared]
+    # Deliberately incapable of signing. This service only inspects the frozen disabled policy.
+    command: [inspect, --config, /app/config/funding/pas.toml, --root, /state]
+    restart: "no"
+    user: "1000:1000"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    network_mode: none
+    pids_limit: 32
+    mem_limit: 128m
+    volumes:
+      - ${FUNDING_STATE:?Set isolated funding state}:/state:ro
