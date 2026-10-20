@@ -68,3 +68,7 @@
 重组前的八份原稿已保存在仓库本地 `.cache/document-history/` ZIP 快照中。该目录不进入 Git，不作为团队共享文档；项目共享和后续维护以当前四份核心正文为准，学习资料以独立学习文档为准。
 
 原 research-ideas.zh-CN.md 只保留跳转入口；策略正文统一维护 strategy-development.zh-CN.md，学习资料统一维护 agent-learning-resources.zh-CN.md。
+
+## 2026-10-19–20 PAS 真实盘口研究记录
+
+[三轮研究归档、固定规则与复现入口](research/pas-research-records-2026-10-20.md)：参考价回归、短周期候选，以及全十资产5/10分钟动量、反转与外部领先诊断。
