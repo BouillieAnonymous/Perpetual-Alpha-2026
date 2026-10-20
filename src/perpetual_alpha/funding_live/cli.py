@@ -68,7 +68,8 @@ def main(argv=None):
                     raise ValueError('Use current boot generation from status')
                 if args.command == 'pause':
                     state = json.loads(db.execute('SELECT value FROM state').fetchone()[0])
-                    state.update(paused=True, reason='operator-pause', pause_epoch=state['pause_epoch'] + 1)
+                    state.update(paused=True, reason='operator-pause', pause_epoch=state['pause_epoch'] + 1,
+                                 market_wait=None)
                     db.execute('UPDATE state SET value=? WHERE id=1', (json.dumps(state),))
                 else:
                     if args.command in {'resume', 'flatten', 'cancel'} and not p.enabled:
@@ -156,7 +157,7 @@ def main(argv=None):
                 if p.dex == 'pas':
                     # No signing capability is loaded on a failed PAS startup precheck.
                     engine.reconcile()
-                    engine.account_guard(engine.observe())
+                    engine.account_guard(engine.observe(allow_spread_wait=True))
                 else:
                     try:
                         engine.reconcile()

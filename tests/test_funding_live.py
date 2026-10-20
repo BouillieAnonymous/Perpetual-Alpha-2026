@@ -63,6 +63,13 @@ class FakeVenue:
         self.s['leverage'] = {'type': 'cross', 'value': 1}
         return {'status': 'ok'}
 
+    def check_action_approval(self, purpose):
+        # Offline fixture defaults to valid authority; fault tests override it.
+        pass
+
+    def check_authorization(self):
+        pass
+
     def send(self, o):
         self.orders.append(o)
         if self.reject:
