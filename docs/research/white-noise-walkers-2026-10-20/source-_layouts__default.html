@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="8SC6aDf0lhU8oSL496rmS0_QrUduoHIWdnqtErCUa1c" />
+    <title>{{ page.title | default: site.title }}</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{ site.title }}">
+    <meta property="og:description" content="{{ site.description }}">
+    <meta property="og:image" content="{{ '/assets/images/hero_image.png' | absolute_url }}">
+    <meta property="og:url" content="{{ site.url }}{{ page.url | relative_url }}">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ site.title }}">
+    <meta name="twitter:description" content="{{ site.description }}">
+    <meta name="twitter:image" content="{{ '/assets/images/hero_image.png' | absolute_url }}">
+
+    <link rel="icon" type="image/png" href="{{ '/assets/images/favicon.png' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=8' | relative_url }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    {% include header.html %}
+    <main class="container">
+        {{ content }}
+    </main>
+    {% include footer.html %}
+</body>
+</html>
