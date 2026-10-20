@@ -14,6 +14,10 @@ PERIOD = 12 * HOUR
 VERSION = 'eth-funding-last/1'
 
 
+class SpreadAbovePolicy(ValueError):
+    """Only this pre-order market condition may enter PAS automatic waiting."""
+
+
 def dec(value):
     if isinstance(value, bool):
         raise ValueError('Boolean is not an exchange number')
@@ -120,8 +124,6 @@ def validate_snapshot(s, p, now_ms, *, require_leverage=True):
     if not 0 < bid <= ask or min(mark, oracle) <= 0:
         raise ValueError('Invalid market prices')
     mid = (bid + ask) / 2
-    if (ask - bid) / mid * 10000 > dec(p.max_spread_bps):
-        raise ValueError('Spread above policy')
     if max(abs(mid / oracle - 1), abs(mark / oracle - 1)) * 10000 > dec(p.max_oracle_deviation_bps):
         raise ValueError('Oracle deviation above policy')
     if not 0 <= dec(s['fee_bps']) <= dec(p.max_fee_bps):
@@ -130,6 +132,10 @@ def validate_snapshot(s, p, now_ms, *, require_leverage=True):
         raise ValueError('No verified collateral equity/free margin')
     if require_leverage and s['leverage'] != {'type': 'cross', 'value': 1}:
         raise ValueError('Explicit 1x cross leverage required')
+    # All non-spread checks must pass before a caller can classify this as
+    # recoverable. Never hide a hard account/fee/leverage error behind spread.
+    if (ask - bid) / mid * 10000 > dec(p.max_spread_bps):
+        raise SpreadAbovePolicy('Spread above policy')
     return mid
 
 

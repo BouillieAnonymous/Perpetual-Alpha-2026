@@ -153,6 +153,8 @@ def runtime_issues(path, now):
         issues = []
         if state['paused']:
             issues.append('PAS trader paused; position NOT automatically flattened')
+        elif state.get('market_wait'):
+            issues.append('PAS trader waiting for spread; automatic recheck, position not flattened')
         if not state['last_tick_ms'] or now - state['last_tick_ms'] > 180_000:
             issues.append('PAS trader heartbeat stale/stopped; position NOT automatically flattened')
         if state['intent_counts'].get('unknown', 0):

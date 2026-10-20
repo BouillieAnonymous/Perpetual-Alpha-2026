@@ -47,6 +47,7 @@ class Ledger:
             self.db.execute('INSERT INTO state VALUES (1,?)', (encode({
                 'paused': True, 'reason': 'not-started', 'generation': 0, 'pause_epoch': 0,
                 'baseline': None, 'peak': None, 'expected_quantity': '0', 'last_tick_ms': None,
+                'market_wait': None,
             }),))
             self.db.execute(f'PRAGMA application_id={APPLICATION_ID}')
             self.db.execute('PRAGMA user_version=1')
@@ -82,7 +83,8 @@ class Ledger:
         try:
             s = self.state()
             self.update(paused=True, reason='startup-reconciliation', generation=s['generation'] + 1,
-                        pause_epoch=s['pause_epoch'] + 1, last_tick_ms=max(now, s['last_tick_ms'] or 0))
+                        pause_epoch=s['pause_epoch'] + 1, last_tick_ms=max(now, s['last_tick_ms'] or 0),
+                        market_wait=None)
             self.db.execute('UPDATE requests SET consumed=1')
             self.event(now, 'boot', self.state())
             self.db.execute('COMMIT')
@@ -93,7 +95,8 @@ class Ledger:
     def pause(self, now, reason):
         self.db.execute('BEGIN IMMEDIATE')
         try:
-            self.update(paused=True, reason=reason, pause_epoch=self.state()['pause_epoch'] + 1)
+            self.update(paused=True, reason=reason, pause_epoch=self.state()['pause_epoch'] + 1,
+                        market_wait=None)
             self.event(now, 'paused', {'reason': reason})
             self.db.execute('COMMIT')
         except BaseException:
@@ -125,9 +128,32 @@ class Ledger:
             s = self.state()
             if request['generation'] != s['generation'] or request['pause_epoch'] != s['pause_epoch']:
                 raise ValueError('Pause changed during resume checks; new request required')
-            self.update(paused=False, reason='operator-resumed')
+            self.update(paused=False, reason='operator-resumed', market_wait=None)
             self.event(now, 'resumed', {'generation': s['generation'], 'pause_epoch': s['pause_epoch']})
             self.db.execute('COMMIT')
+        except BaseException:
+            self.db.execute('ROLLBACK')
+            raise
+
+    def set_spread_wait(self, now, waiting):
+        """Atomic transition that can NEVER clear a manual/hard pause."""
+        self.db.execute('BEGIN IMMEDIATE')
+        try:
+            state = self.state()
+            if state['paused']:
+                self.db.execute('COMMIT')
+                return False
+            prior = state.get('market_wait')
+            if waiting:
+                value = prior or {'reason': 'spread', 'since_ms': now}
+                if not prior:
+                    self.event(now, 'market-spread-wait', value)
+                self.update(market_wait=value, reason='market-spread-wait', last_tick_ms=now)
+            elif prior:
+                self.event(now, 'market-spread-recovered', {'since_ms': prior['since_ms']})
+                self.update(market_wait=None, reason='market-spread-recovered', last_tick_ms=now)
+            self.db.execute('COMMIT')
+            return True
         except BaseException:
             self.db.execute('ROLLBACK')
             raise
@@ -135,8 +161,9 @@ class Ledger:
     def reserve(self, slot, now, order, *, emergency=False):
         self.db.execute('BEGIN IMMEDIATE')
         try:
-            if self.state()['paused'] and not emergency:
-                raise ValueError('Paused before intent persistence')
+            state = self.state()
+            if (state['paused'] or state.get('market_wait')) and not emergency:
+                raise ValueError('Paused or waiting before intent persistence')
             if self.pending():
                 raise ValueError('Unresolved intent blocks new orders')
             self.db.execute('INSERT INTO intents VALUES (?,?,?,?,?,NULL)',

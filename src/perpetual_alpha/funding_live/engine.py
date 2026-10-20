@@ -2,7 +2,16 @@
 import hashlib
 import json
 
-from .policy import PERIOD, VERSION, dec, funding_signal, make_order, target_quantity, validate_snapshot
+from .policy import (
+    PERIOD,
+    VERSION,
+    SpreadAbovePolicy,
+    dec,
+    funding_signal,
+    make_order,
+    target_quantity,
+    validate_snapshot,
+)
 
 TERMINAL = {'filled', 'canceled', 'rejected', 'marginCanceled', 'reduceOnlyCanceled',
             'selfTradeCanceled', 'expired', 'scheduledCancel', 'marketOrderNoLiquidityRejected',
@@ -14,10 +23,16 @@ class Engine:
     def __init__(self, policy, ledger, client, clock):
         self.p, self.store, self.client, self.clock = policy, ledger, client, clock
 
-    def observe(self, *, leverage=True):
+    def observe(self, *, leverage=True, allow_spread_wait=False):
         s = self.client.snapshot()
         self.store.event(self.clock(), 'observation', s)
-        validate_snapshot(s, self.p, self.clock(), require_leverage=leverage)
+        s['spread_wait'] = False
+        try:
+            validate_snapshot(s, self.p, self.clock(), require_leverage=leverage)
+        except SpreadAbovePolicy:
+            if not allow_spread_wait:
+                raise
+            s['spread_wait'] = True
         return s
 
     def reconcile(self):
@@ -120,7 +135,7 @@ class Engine:
             self.store.pause(self.clock(), 'operator-cancel; reconcile before resume')
             return
         self.reconcile()
-        s = self.observe(leverage=False)
+        s = self.observe(leverage=self.p.dex == 'pas', allow_spread_wait=self.p.dex == 'pas')
         if request and request['action'] == 'flatten':
             self.store.pause(self.clock(), 'operator-flatten')
             if dec(s['quantity']) != dec(self.store.state()['expected_quantity']):
@@ -138,12 +153,25 @@ class Engine:
             if self.p.dex == 'par':
                 self.store.event(self.clock(), 'leverage-response', self.client.set_leverage())
             # PAS must ALREADY be at 1x; resume never changes leverage or enlarges permissions.
-            s = self.observe()
+            s = self.observe(allow_spread_wait=self.p.dex == 'pas')
             self.account_guard(s)
+            if self.p.dex == 'pas':
+                self.client.check_action_approval('trading')
+                self.client.check_authorization()
             self.store.resume(request, self.clock())
         if self.store.state()['paused']:
             self.store.update(last_tick_ms=self.clock())
             return
+        if self.p.dex == 'pas':
+            # Check both local expiry and exchange revocation even while waiting.
+            # Failures propagate to the ordinary hard-pause handler, before any
+            # decision or intent can be created.
+            self.client.check_action_approval('trading')
+            self.client.check_authorization()
+            if not self.store.set_spread_wait(self.clock(), s['spread_wait']):
+                return
+            if s['spread_wait']:
+                return
         now = self.clock()
         slot = now // PERIOD * PERIOD
         if self.store.decided(slot) or (now - slot > self.p.decision_window_ms and not bootstrap):
