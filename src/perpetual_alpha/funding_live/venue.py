@@ -35,6 +35,32 @@ class TestnetVenue:
         return response.json()
 
     def snapshot(self):
+        # Independent info queries are not atomic: spot hold can reflect a new
+        # mark after both position captures. Do not widen the hold tolerance or
+        # infer ownership from an equity delta. Re-capture everything ONCE and
+        # use only that fresh capture, with all ordinary checks still applied.
+        first = self._snapshot_once()
+        raw = first['raw']
+        balances = raw['spot_after']['balances']
+        hold = next((dec(b['hold']) for b in balances
+                     if b['coin'] == self.policy.collateral
+                     and b['token'] == raw['metadata']['collateralToken']), dec(-1))
+        if (first['other_positions'] != ['collateral-hold']
+                or first['open_orders'] or not first['account_consistent']
+                or first['mode'] != 'unifiedAccount' or dec(first['quantity']) == 0
+                or first['leverage'] != {'type': 'cross', 'value': 1} or hold < 0):
+            return first
+        fresh = self._snapshot_once()
+        # Persist the rejected public account endpoints for incident diagnosis.
+        # No stale book, Funding availability, equity or free margin is reused.
+        fresh['raw']['collateral_recapture'] = {
+            'attempts': 2,
+            'rejected': [{'started_ms': first['started_ms'], 'received_ms': first['received_ms'],
+                          **{k: raw[k] for k in ('before', 'after', 'spot_before', 'spot_after')}}],
+        }
+        return fresh
+
+    def _snapshot_once(self):
         p = self.policy
         started = self.clock()
         meta, contexts = self.query('metaAndAssetCtxs', dex=p.dex)
