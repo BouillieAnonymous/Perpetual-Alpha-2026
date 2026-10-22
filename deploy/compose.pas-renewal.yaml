@@ -1,0 +1,13 @@
+# Explicit opt-in overlay. Public monitor may extend bounded trading grants;
+# it never receives API signing credentials. Trader remains unchanged.
+services:
+  preparation:
+    image: ${PAS_RENEWAL_IMAGE:?Set tested renewal monitor image}
+    command: [watch, --config, /app/config/funding/pas.toml, --root, /state,
+              --env-file, /run/public.env, --par-wallet-file, /run/par-wallet.txt,
+              --smtp-file, /run/notifications/smtp.json,
+              --renewal-permission-file, /run/standing-trading.json,
+              --trading-approval-file, /run/approval/trading.json]
+    volumes:
+      - ${PAS_TRADING_ROOT}/approval:/run/approval
+      - ${PAS_TRADING_ROOT}/public/standing-trading.json:/run/standing-trading.json:ro
