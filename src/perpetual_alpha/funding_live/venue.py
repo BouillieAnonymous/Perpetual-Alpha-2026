@@ -13,6 +13,18 @@ def millis():
     return int(time.time() * 1000)
 
 
+class PublicQueryError(ValueError):
+    """Only the allowlisted info query name and status are safe to persist."""
+
+
+class TransientPublicQueryError(PublicQueryError):
+    """Sanitized public-query failure; never contains request/response payloads."""
+
+    def __init__(self, kind, status):
+        self.detail = {'query': kind, 'status': status}
+        super().__init__(f'Temporary public query {kind}: {status}')
+
+
 class TestnetVenue:
     def __init__(self, policy, env_path='.env', *, session=None, clock=millis):
         self.policy = policy
@@ -28,8 +40,24 @@ class TestnetVenue:
 
     def query(self, kind, **fields):
         # No retry on signed actions. Public queries also have bounded I/O.
-        response = self.session.post(TESTNET_URL + '/info', json={'type': kind, **fields}, timeout=(5, 15))
-        response.raise_for_status()
+        safe_kind = kind if kind in {
+            'metaAndAssetCtxs', 'spotMeta', 'allPerpMetas', 'clearinghouseState',
+            'spotClearinghouseState', 'userAbstraction', 'openOrders', 'activeAssetData',
+            'userFees', 'fundingHistory', 'userFunding', 'userFillsByTime', 'l2Book',
+            'extraAgents', 'orderStatus',
+        } else 'other-info'
+        try:
+            response = self.session.post(TESTNET_URL + '/info', json={'type': kind, **fields}, timeout=(5, 15))
+            response.raise_for_status()
+        except requests.exceptions.SSLError:
+            raise  # TLS identity failures must not auto-recover.
+        except requests.exceptions.HTTPError as exc:
+            status = exc.response.status_code if exc.response is not None else None
+            if status in {408, 429, 500, 502, 503, 504}:
+                raise TransientPublicQueryError(safe_kind, status) from None
+            raise PublicQueryError(f'Public query {safe_kind}: HTTP {status}') from None
+        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError):
+            raise TransientPublicQueryError(safe_kind, 'transport') from None
         if len(response.content) > 8_000_000:
             raise ValueError('Oversize info response')
         return response.json()

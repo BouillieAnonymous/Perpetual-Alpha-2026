@@ -12,6 +12,7 @@ from .policy import (
     target_quantity,
     validate_snapshot,
 )
+from .venue import TransientPublicQueryError
 
 TERMINAL = {'filled', 'canceled', 'rejected', 'marginCanceled', 'reduceOnlyCanceled',
             'selfTradeCanceled', 'expired', 'scheduledCancel', 'marketOrderNoLiquidityRejected',
@@ -124,6 +125,18 @@ class Engine:
             raise
 
     def tick(self, *, bootstrap=False):
+        # Only a fully active, pre-intent public capture may become a soft wait.
+        # Reconciliation, operator actions and every post-decision path stay hard.
+        self.public_retry_safe = False
+        try:
+            return self._tick(bootstrap=bootstrap)
+        except TransientPublicQueryError as exc:
+            if not self.public_retry_safe:
+                raise
+            self.client.check_action_approval('trading')
+            self.store.set_spread_wait(self.clock(), True, reason='network', detail=exc.detail)
+
+    def _tick(self, *, bootstrap=False):
         previous = self.store.state()['last_tick_ms']
         if previous is not None and self.clock() < previous:
             raise ValueError('Clock rollback; keep paused until trusted time catches up')
@@ -135,6 +148,9 @@ class Engine:
             self.store.pause(self.clock(), 'operator-cancel; reconcile before resume')
             return
         self.reconcile()
+        if self.p.dex == 'pas' and not request and not self.store.state()['paused']:
+            self.client.check_action_approval('trading')
+            self.public_retry_safe = True
         s = self.observe(leverage=self.p.dex == 'pas', allow_spread_wait=self.p.dex == 'pas')
         if request and request['action'] == 'flatten':
             self.store.pause(self.clock(), 'operator-flatten')
@@ -172,6 +188,7 @@ class Engine:
                 return
             if s['spread_wait']:
                 return
+        self.public_retry_safe = False
         now = self.clock()
         slot = now // PERIOD * PERIOD
         if self.store.decided(slot) or (now - slot > self.p.decision_window_ms and not bootstrap):
