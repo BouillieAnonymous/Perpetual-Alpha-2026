@@ -137,9 +137,11 @@ def send_mail(config, body):
     message['From'], message['To'] = config['sender'], config['recipient']
     message['Subject'] = 'PAS strategy health / activation readiness'
     try:
-        if json.loads(body).get('event') == 'trading-approval-renewed':
+        payload = json.loads(body)
+        if isinstance(payload, dict) and payload.get('event') == 'trading-approval-renewed':
             message.replace_header('Subject', 'PAS trading authorization automatically renewed')
-    except (ValueError, AttributeError):
+        body = json.dumps(payload, indent=2)
+    except ValueError:
         pass
     message.set_content(body)
     context = ssl.create_default_context()
