@@ -84,6 +84,7 @@ class Monitor:
             CREATE TABLE IF NOT EXISTS status(id INTEGER PRIMARY KEY CHECK(id=1), value TEXT);
             CREATE TABLE IF NOT EXISTS outbox(id INTEGER PRIMARY KEY, time_ms INTEGER,
                 value TEXT, delivered_ms INTEGER, attempts INTEGER NOT NULL DEFAULT 0);
+            CREATE TABLE IF NOT EXISTS renewal_notices(id TEXT PRIMARY KEY);
         ''')
         self.db.commit()
 
@@ -117,6 +118,14 @@ class Monitor:
             self.db.execute('UPDATE outbox SET delivered_ms=? WHERE id=?', (millis(), row[0]))
         return 'smtp-accepted'  # Acceptance by SMTP is not proof of inbox delivery.
 
+    def renewal_notice(self, notice):
+        with self.db:
+            inserted = self.db.execute('INSERT OR IGNORE INTO renewal_notices VALUES(?)',
+                                       (notice['renewal_id'],)).rowcount
+            if inserted:
+                self.db.execute('INSERT INTO outbox(time_ms,value) VALUES(?,?)',
+                                (notice['time_ms'], json.dumps(notice)))
+
     def close(self):
         self.db.close()
 
@@ -127,6 +136,11 @@ def send_mail(config, body):
     message = EmailMessage()
     message['From'], message['To'] = config['sender'], config['recipient']
     message['Subject'] = 'PAS strategy health / activation readiness'
+    try:
+        if json.loads(body).get('event') == 'trading-approval-renewed':
+            message.replace_header('Subject', 'PAS trading authorization automatically renewed')
+    except (ValueError, AttributeError):
+        pass
     message.set_content(body)
     context = ssl.create_default_context()
     factory = smtplib.SMTP_SSL if config['port'] == 465 else smtplib.SMTP
@@ -191,6 +205,8 @@ def main(argv=None):
     parser.add_argument('--par-wallet-file', type=Path, default=Path('/run/par-wallet.txt'))
     parser.add_argument('--root', type=Path, required=True)
     parser.add_argument('--smtp-file', type=Path)
+    parser.add_argument('--renewal-permission-file', type=Path)
+    parser.add_argument('--trading-approval-file', type=Path)
     args = parser.parse_args(argv)
     p = load_policy(args.config)
     if p.dex != 'pas' or p.enabled:
@@ -244,6 +260,15 @@ def main(argv=None):
                 if config is None:
                     value['issues'].append('External email delivery unconfigured')
                 monitor.record(value)
+                if args.renewal_permission_file and args.trading_approval_file:
+                    try:
+                        from .renewal import maybe_renew
+                        maybe_renew(args.renewal_permission_file, args.trading_approval_file,
+                                    runtime, p, client, args.par_wallet_file, monitor, value, config, millis())
+                    except Exception as exc:
+                        reason = str(exc) if isinstance(exc, ValueError) else type(exc).__name__
+                        value['issues'].append('PAS automatic renewal blocked: ' + reason)
+                        monitor.record(value)
                 mail_status = monitor.deliver(config)
                 # Persist status without generating another incident.
                 value['mail_status'] = mail_status
