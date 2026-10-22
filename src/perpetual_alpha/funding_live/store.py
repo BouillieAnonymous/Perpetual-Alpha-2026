@@ -135,7 +135,7 @@ class Ledger:
             self.db.execute('ROLLBACK')
             raise
 
-    def set_spread_wait(self, now, waiting):
+    def set_spread_wait(self, now, waiting, *, reason='spread', detail=None):
         """Atomic transition that can NEVER clear a manual/hard pause."""
         self.db.execute('BEGIN IMMEDIATE')
         try:
@@ -145,13 +145,15 @@ class Ledger:
                 return False
             prior = state.get('market_wait')
             if waiting:
-                value = prior or {'reason': 'spread', 'since_ms': now}
-                if not prior:
-                    self.event(now, 'market-spread-wait', value)
-                self.update(market_wait=value, reason='market-spread-wait', last_tick_ms=now)
+                value = {'reason': reason, 'since_ms': prior['since_ms'] if prior else now}
+                if detail:
+                    value['detail'] = detail
+                if not prior or prior['reason'] != reason:
+                    self.event(now, 'market-' + reason + '-wait', value)
+                self.update(market_wait=value, reason='market-' + reason + '-wait', last_tick_ms=now)
             elif prior:
-                self.event(now, 'market-spread-recovered', {'since_ms': prior['since_ms']})
-                self.update(market_wait=None, reason='market-spread-recovered', last_tick_ms=now)
+                self.event(now, 'market-' + prior['reason'] + '-recovered', {'since_ms': prior['since_ms']})
+                self.update(market_wait=None, reason='market-' + prior['reason'] + '-recovered', last_tick_ms=now)
             self.db.execute('COMMIT')
             return True
         except BaseException:
