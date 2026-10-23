@@ -261,7 +261,6 @@ def main(argv=None):
                         value['issues'].append('SMTP configuration unreadable')
                 if config is None:
                     value['issues'].append('External email delivery unconfigured')
-                monitor.record(value)
                 if args.renewal_permission_file and args.trading_approval_file:
                     try:
                         from .renewal import maybe_renew
@@ -270,7 +269,10 @@ def main(argv=None):
                     except Exception as exc:
                         reason = str(exc) if isinstance(exc, ValueError) else type(exc).__name__
                         value['issues'].append('PAS automatic renewal blocked: ' + reason)
-                        monitor.record(value)
+                # Record only the COMPLETE incident once per poll. Recording
+                # the base issues before renewal checks creates false recovery
+                # transitions and two new messages on every unchanged poll.
+                monitor.record(value)
                 mail_status = monitor.deliver(config)
                 # Persist status without generating another incident.
                 value['mail_status'] = mail_status
