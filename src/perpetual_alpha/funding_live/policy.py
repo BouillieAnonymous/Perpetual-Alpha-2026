@@ -14,6 +14,10 @@ PERIOD = 12 * HOUR
 VERSION = 'eth-funding-last/1'
 
 
+class StaleExchangeBook(ValueError):
+    """Past book timestamp only; all other snapshot safety checks passed."""
+
+
 class SpreadAbovePolicy(ValueError):
     """Only this pre-order market condition may enter PAS automatic waiting."""
 
@@ -110,7 +114,7 @@ def validate_snapshot(s, p, now_ms, *, require_leverage=True):
         raise ValueError('Snapshot too old or clock moved backwards')
     if not s['started_ms'] <= s['received_ms'] <= now_ms:
         raise ValueError('Invalid local availability')
-    if not 0 <= now_ms - s['book_ms'] <= p.max_book_age_ms:
+    if now_ms - s['book_ms'] < 0:
         raise ValueError('Stale/future exchange book')
     if s['mode'] != 'unifiedAccount' or s['other_positions'] or s['open_orders']:
         raise ValueError('Account scope/mode/orders not ready')
@@ -132,6 +136,8 @@ def validate_snapshot(s, p, now_ms, *, require_leverage=True):
         raise ValueError('No verified collateral equity/free margin')
     if require_leverage and s['leverage'] != {'type': 'cross', 'value': 1}:
         raise ValueError('Explicit 1x cross leverage required')
+    if now_ms - s['book_ms'] > p.max_book_age_ms:
+        raise StaleExchangeBook('Stale/future exchange book')
     # All non-spread checks must pass before a caller can classify this as
     # recoverable. Never hide a hard account/fee/leverage error behind spread.
     if (ask - bid) / mid * 10000 > dec(p.max_spread_bps):

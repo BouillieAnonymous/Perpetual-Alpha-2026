@@ -6,6 +6,7 @@ from .policy import (
     PERIOD,
     VERSION,
     SpreadAbovePolicy,
+    StaleExchangeBook,
     dec,
     funding_signal,
     make_order,
@@ -26,6 +27,7 @@ class Engine:
 
     def observe(self, *, leverage=True, allow_spread_wait=False):
         s = self.client.snapshot()
+        self.last_observed = s
         self.store.event(self.clock(), 'observation', s)
         s['spread_wait'] = False
         try:
@@ -130,11 +132,22 @@ class Engine:
         self.public_retry_safe = False
         try:
             return self._tick(bootstrap=bootstrap)
-        except TransientPublicQueryError as exc:
+        except (TransientPublicQueryError, StaleExchangeBook) as exc:
             if not self.public_retry_safe:
                 raise
             self.client.check_action_approval('trading')
-            self.store.set_spread_wait(self.clock(), True, reason='network', detail=exc.detail)
+            if isinstance(exc, StaleExchangeBook):
+                # Even while waiting, position ownership and loss stops apply.
+                # observe() already persisted the rejected full snapshot.
+                self.account_guard(self.last_observed)
+                try:
+                    self.client.check_authorization()
+                except TransientPublicQueryError as network:
+                    self.store.set_spread_wait(self.clock(), True, reason='network', detail=network.detail)
+                    return
+                self.store.set_spread_wait(self.clock(), True, reason='stale-book')
+            else:
+                self.store.set_spread_wait(self.clock(), True, reason='network', detail=exc.detail)
 
     def _tick(self, *, bootstrap=False):
         previous = self.store.state()['last_tick_ms']
@@ -188,7 +201,6 @@ class Engine:
                 return
             if s['spread_wait']:
                 return
-        self.public_retry_safe = False
         now = self.clock()
         slot = now // PERIOD * PERIOD
         if self.store.decided(slot) or (now - slot > self.p.decision_window_ms and not bootstrap):
@@ -197,6 +209,7 @@ class Engine:
         validate_snapshot(s, self.p, now)
         signal = funding_signal(s['funding'], self.p.symbol, now)
         target = target_quantity(s, signal, self.p)
+        self.public_retry_safe = False
         self.store.decision(slot, now, {'signal': signal, 'target': target, 'bootstrap': bootstrap,
                                       'snapshot_received_ms': s['received_ms']})
         order = make_order(s, target, self.p, self.clock())
