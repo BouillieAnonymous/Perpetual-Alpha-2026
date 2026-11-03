@@ -1,8 +1,18 @@
 # 同步入口：Final Sprint Audit 与 BTC → ETH Stage 1
 
-本目录保存 2026-11-03 的研究审计成果；仅完成 Stage 1，没有启动预测拟合、策略回测或生产变更。
+本目录保存 2026-11-03 的 Stage 1 数据审计与 Stage 2A 离线关系诊断。Stage 2A 仅执行预先固定的相关与低维 OLS；未开展交易策略回测或生产变更。
 
-## 其他工具从这里开始
+## 最新结果：Stage 2A
+
+- [Stage 2A 报告](stage-02a-report.md)、[预先固定方案](stage-02a-protocol.md)。
+- [完整统计 JSON](stage-02a-results.json)、[关系指标 CSV](stage-02a-metrics.csv)、[同点评估预测 CSV](stage-02a-predictions.csv)。
+- [离线分析脚本](analyze_stage02a.py)、[独立校验脚本](verify_stage02a.py)、[验证记录](stage-02a-validation.json)。
+
+A/B 在共同完整时点的三元 RV 数值完全一致；全段差异来自样本选择。控制 ETH 自身波动后的 BTC 增量较弱且对采样间隔敏感。A 半小时历史验证 MSE 改善2.03%，末段恶化0.63%；B 非重叠样本不足，时序比较标记 INSUFFICIENT DATA。当前不建议进入正式预测回测，未计算显著性。
+
+Stage 2A 复用 Stage 1 冻结行情，不追加数据；PR #36 的 Stage 1 基线固定于 `8c00ec8c0201e70c22cf610c21282f50cb09d7bb`。运行方式、输入路径及缓存限制见报告，脚本拒绝覆盖已有结果。
+
+## Stage 1 入口
 
 1. 阅读 [Stage 1 数据审计](stage-01-data-audit.md)：CONDITIONAL GO，仅支持探索；可靠样本外增量预测及交易改进结论暂不具备条件。
 2. 读取 [statistics](stage-01-statistics.json) 与 [diagnostics](stage-01-diagnostics.json)：机器可读计数、H1 窗口与固定分段。
@@ -38,6 +48,6 @@ python docs/research/btc-eth-volatility/audit_diagnostics.py
 
 ## 后续任务限制
 
-本 PR 不授权 Stage 2、不授权恢复交易，也不授权任何部署。其他工具若继续研究，应先读取报告中的重复报价/真实零收益歧义、未来标签可用性选择偏差、小样本与已见数据限制，再由用户明确下一阶段范围。
+用户已授权并完成 Stage 2A 离线诊断，研究在此停止。本 PR 不授权正式预测回测、交易策略开发、恢复交易或部署。其他工具继续前应读取两阶段报告中的样本选择、小样本、依赖及已见数据限制，再由用户明确下一阶段范围。
 
 `fetch` 仍需本地已校验的 SSH known-hosts 记录；不降低主机校验，不自动设置环境变量或连接服务器。离线 analyze 不需要 SSH 目标。
