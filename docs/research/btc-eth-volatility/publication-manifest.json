@@ -1,0 +1,31 @@
+{
+  "base_commit": "0c579d77282e7adffc8bd55b2b08e5f6cabc702a",
+  "scope": "Public-market BTC-ETH Stage 1 research documents and aggregate diagnostics only",
+  "excluded": [
+    "Final Sprint operational audit",
+    "production account, position and execution details",
+    "VPS host address and access scripts",
+    "original execution source containing host address",
+    "raw market cache",
+    "prior unrelated uncommitted research",
+    "credentials",
+    "production changes"
+  ],
+  "historical_background_not_in_this_pr": [
+    "docs/research/all-asset-momentum-2026-10-20/report.zh-CN.md",
+    "docs/research/candidate-validation-2026-10-30/report.zh-CN.md",
+    "docs/research/candidate-validation-2026-10-30/sample-use-audit.zh-CN.md",
+    "docs/research/pas-short-cycle-2026-10-19/report.zh-CN.md"
+  ],
+  "scripts": {
+    "audit_stage01.py": {
+      "original_executed_sha256": "591e235b4fd79e25403d8011f7a555e41622b8d2fcabf50e1920bcfaed27224d",
+      "source_availability": "Retained locally; not published in this PR"
+    },
+    "audit_diagnostics.py": {
+      "original_executed_sha256": "d795f1a98c3aba53bdd7a0eb2ca7e3d0db652ac09a2716c1f6e468934deb63e0",
+      "source_availability": "Retained locally; not published in this PR"
+    }
+  },
+  "validation": "Original Stage 1 causal checks and independent arrival walk passed. Publication artifacts preserve the original numerical results. Access scripts and operational audit are excluded."
+}
