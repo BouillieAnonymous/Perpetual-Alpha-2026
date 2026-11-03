@@ -25,7 +25,7 @@
 - PAS Research Data Pipeline：同 checkout 的 `pas_research.py`、`pas_csv_export.py`、`docs/pas-research-pipeline.zh-CN.md`。直接复用身份验证、normalization、最新观测 as-of、TTL、分钟收益与 lineage；未另造采集器或覆盖派生生产库。
 - 时点规范：[历史层说明](../../historical-market-data-pr3.zh-CN.md)，尤其 received/available、snapshot_seq、后补历史不能回到过去、版本和冻结输入边界。
 - 已有 BTC→ETH 分钟领先与短周期研究（本地背景文件，未随本 PR 同步：`docs/research/pas-short-cycle-2026-10-19/report.zh-CN.md`）、全资产含 BTC/ETH 动量研究（本地背景文件，未随本 PR 同步：`docs/research/all-asset-momentum-2026-10-20/report.zh-CN.md`）、ETH momentum 的既有 protocol/results、10-30 候选验证（本地背景文件，未随本 PR 同步：`docs/research/candidate-validation-2026-10-30/report.zh-CN.md`）及样本使用审计（本地背景文件，未随本 PR 同步：`docs/research/candidate-validation-2026-10-30/sample-use-audit.zh-CN.md`）。此前方向/交易结果不作为本次波动率 H1 的证据。
-- 2026-11-03 Final Sprint Readiness Audit（仅保留本地，未随本公开 PR 同步）。其中十资产整体质量计数不是本报告两资产计数；本轮重新导出真实行情，不复用旧报告的覆盖率代替计算。
+- [2026-11-03 Final Sprint Readiness Audit](../../final-sprint-2026-11-03.md)。其中十资产整体质量计数不是本报告两资产计数；本轮重新导出真实行情，不复用旧报告的覆盖率代替计算。
 
 复用 checkout HEAD 为 `1b9bc798ac8d6109d124a9e5ee4022b579148f1b`。服务器现有独立导出 runtime 的 `alpha_csv_export.pas_research` 与本地复用模块的规范 LF 源码 SHA256 完全一致：`32905565e37c052e95b680c0cd3cd46aa50fbd6c0aab950b126c9dc521539b2c`。当前根工作分支较旧，因此没有把根目录中缺少 PAS 文件误判为线上没有该管线。
 
@@ -186,10 +186,8 @@ RV 定义固定为未年化 `RV_w(t)=sqrt(Σ r²)`，需要 w 个连续有效收
 ### 10. 复现、验证与产物
 
 - [预先固定口径](stage-01-protocol.md)、[统计 JSON](stage-01-statistics.json)、[质量/固定分段诊断](stage-01-diagnostics.json)、[源库范围聚合](stage-01-source-range.json)。
-- 审计脚本 `audit_stage01.py`（仅保留本地，未随本公开 PR 同步）只提供显式 `fetch` / `analyze`；独立诊断脚本 `audit_diagnostics.py`（仅保留本地，未随本公开 PR 同步）仅离线运行。fetch 只读源库，拒绝覆盖已有本地快照；analyze/diagnostics 拒绝覆盖已有结果。源码使用现有 `.cache/pas-launch-prep` 研究模块，不依赖根旧分支具备 PAS 代码。
+- [审计脚本](audit_stage01.py)只提供显式 `fetch` / `analyze`；[独立诊断脚本](audit_diagnostics.py)仅离线运行。fetch 只读源库，拒绝覆盖已有本地快照；analyze/diagnostics 拒绝覆盖已有结果。源码使用现有 `.cache/pas-launch-prep` 研究模块，不依赖根旧分支具备 PAS 代码。
 - 本地缓存还包含 `causal-minute-panel.jsonl.gz`，保留逐点 seq、event/request/receive/store/available、quality、有效性、原收益及保守收益掩码；该文件只含公共市场派生数据，不含账户或秘密。
 - 校验已完成：gzip/footer 完整性、标准化行 checksum、模块 hash 一致、全部所选 available≤decision、**10-27 00:00 UTC 未来截断后21,396个资产分钟点完全不变**；独立不调用 panel 的到达序列遍历核对 **42,756 个点**的所选 seq 和 book 有效性；两个 Python 脚本可编译。未执行生产故障演练或交易测试。
 
 离线复算需保留冻结缓存，并在**新的输出目录**使用同一已校验模块（当前脚本拒绝覆盖本轮成果）。重新 fetch 会得到不同 source_max_seq，属于新的审计输入，不能当作本轮结果复现。缓存尚未随 Git 提交，跨设备复现需安全交付公共行情快照；这属于交付限制，不是秘密配置访问需求。
-
-公开同步说明：本 PR 仅包含市场研究报告、固定口径和聚合诊断；不包含完整 Final Sprint 运维报告、VPS 访问脚本或原始行情缓存。执行源码指纹保留用于本地审计，不能据此认为源码和数据已随本 PR 交付。详见 [同步入口](README.md)。

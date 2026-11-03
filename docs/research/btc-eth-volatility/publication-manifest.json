@@ -1,14 +1,12 @@
 {
   "base_commit": "0c579d77282e7adffc8bd55b2b08e5f6cabc702a",
-  "scope": "Public-market BTC-ETH Stage 1 research documents and aggregate diagnostics only",
+  "scope": "Final Sprint operational audit and BTC-ETH Stage 1, user-authorized private repository sync with VPS identifiers removed",
   "excluded": [
-    "Final Sprint operational audit",
-    "production account, position and execution details",
-    "VPS host address and access scripts",
+    "VPS IP addresses and hostnames",
     "original execution source containing host address",
-    "raw market cache",
     "prior unrelated uncommitted research",
-    "credentials",
+    "raw market cache",
+    "credentials and secret configuration",
     "production changes"
   ],
   "historical_background_not_in_this_pr": [
@@ -19,13 +17,18 @@
   ],
   "scripts": {
     "audit_stage01.py": {
+      "published_sha256": "3e6999e9b82bc3cc456d7fe88212067232830557d50c24d4c35a614e961b7928",
       "original_executed_sha256": "591e235b4fd79e25403d8011f7a555e41622b8d2fcabf50e1920bcfaed27224d",
-      "source_availability": "Retained locally; not published in this PR"
+      "changes": "Ruff cleanup; audit_stage01 SSH target supplied only by local PAS_AUDIT_SSH_TARGET environment variable; no numerical method change.",
+      "original_source_availability": "Local only; not uploaded because it contains VPS target"
     },
     "audit_diagnostics.py": {
+      "published_sha256": "07c3d594c7de483039bedab5f11ebe19b5831934beb3cb323028779de127978b",
       "original_executed_sha256": "d795f1a98c3aba53bdd7a0eb2ca7e3d0db652ac09a2716c1f6e468934deb63e0",
-      "source_availability": "Retained locally; not published in this PR"
+      "changes": "Ruff cleanup; audit_stage01 SSH target supplied only by local PAS_AUDIT_SSH_TARGET environment variable; no numerical method change.",
+      "original_source_availability": "Local only; not uploaded because it contains VPS target"
     }
   },
-  "validation": "Original Stage 1 causal checks and independent arrival walk passed. Publication artifacts preserve the original numerical results. Access scripts and operational audit are excluded."
+  "validation": "Formatted scripts reproduce all original statistics and diagnostics exactly; only current source hashes differ.",
+  "repository_visibility_verified": "private"
 }
