@@ -51,3 +51,7 @@ python docs/research/btc-eth-volatility/audit_diagnostics.py
 用户已授权并完成 Stage 2A 离线诊断，研究在此停止。本 PR 不授权正式预测回测、交易策略开发、恢复交易或部署。其他工具继续前应读取两阶段报告中的样本选择、小样本、依赖及已见数据限制，再由用户明确下一阶段范围。
 
 `fetch` 仍需本地已校验的 SSH known-hosts 记录；不降低主机校验，不自动设置环境变量或连接服务器。离线 analyze 不需要 SSH 目标。
+
+## BTC/ETH Visual EDA（2026-11-04）
+
+本轮新增离线交互图像入口：[Visual EDA 工具与使用说明](visual-eda/README.md)、[观察报告](visual-eda/output-reviewed/observations.md)、[五类图像与Dashboard](visual-eda/output-reviewed/)。采用原冻结真实PAS行情，不覆盖Stage 1/2A；停止于探索，不开展新检验或交易研究。交付与人工验收由 [Issue #37](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/issues/37) 跟踪。
