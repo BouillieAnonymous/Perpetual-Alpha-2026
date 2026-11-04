@@ -1,0 +1,10 @@
+{
+  "frozen_at_utc": "2026-11-04T01:20:47.627871+00:00",
+  "phase": "before_batch_candidate_computation",
+  "files": {
+    "hypothesis-registry.md": "4d7559194856c08be1017c9ce345e0db33211c64ef6745a6addc87c133ff307e",
+    "frozen-protocol.md": "1e652a6d4fc85c90cf631f225cf8bb172b8897bde2934189ce9b58803f66466f",
+    "prior-pr-snapshots.json": "20cc41eb98d302bb705057b52faf03bfdbeaa940b271303b144fc904830572d5",
+    "source-evidence.json": "b981f1acb97ef2c2da132b27593a73bf050ad471b908d7406de9851e255c9104"
+  }
+}
