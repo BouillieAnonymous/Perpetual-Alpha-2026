@@ -1,0 +1,14 @@
+{
+  "status": "NOT_RUN_PREDICTIVE_GATE_FAILED",
+  "actual_fee_bps_per_side": null,
+  "actual_fills": null,
+  "executable_net_return": null,
+  "hypothetical_fee_bps_per_side": 9,
+  "hypothetical_slip_bps_per_side": 5,
+  "hypothetical_round_trip_before_spread_bps": 28,
+  "historical_szDecimals": 2,
+  "historical_size_step": 0.01,
+  "historical_min_notional": null,
+  "historical_price_tick": null,
+  "source": "PR41 historical PAS metadata, not PAR metadata; fee scenario from prior research, not account verification"
+}

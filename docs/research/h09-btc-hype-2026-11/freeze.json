@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "frozen_utc": "2026-11-05T03:08:13.931204+00:00",
+  "stage": "before H09 labels and newer cache inspection",
+  "files": {
+    "protocol.md": "dcb8d020eb1e3b2864314c1ddc7a381274806c1120fda243024dab00992bb803",
+    "audit_anomaly.py": "8e4ef0da6b07bb5a03c11c685546e9d79f3e3ce635e663dd4da65e3311a56e99",
+    "anomaly-audit\\anomaly-report.md": "a58f19823148006a592c0c0ad6b288a0838ee36fa641edbe2eb9d8deeed0b912",
+    "anomaly-audit\\anomaly-summary.json": "61ef9bea9035420057ad5e5ff015be7c34de9f9189d2d566ce732ac9623941fb",
+    "anomaly-audit\\episode-minute-quotes.csv": "c361966daebd1e2e6cef1224b66605c7e2546bd8d4500bfd29bb45dcada9fb98",
+    "anomaly-audit\\hype-episode-overview.png": "4236ca64d21f3d182fabef9d407434e768d200fa297f4859e00cba7ac82e38a0"
+  },
+  "inputs": {
+    ".cache\\validation-2026-10-30\\pas-prefix.jsonl.gz": "fc5ab7a251de06813e9ab74e366d97faee242da96ef0c0f2cd1e722eb861d898",
+    "docs\\research\\pas-visual-discovery-v3\\audit-verified\\causal-panel.jsonl.gz": "d91a6accad6b3322ab814c4f97f1f6039e2f4a95cb0faae8976772ab580d9bc0",
+    "docs\\research\\pas-visual-discovery-v3\\audit-verified\\metadata.json": "c9c163c982267ca9c57b5ac9cd1b5ff44c20fbc97efef89ac2395581d08560e3"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "A": {
+    "development": {
+      "anchors": 480,
+      "past_eligible": 477,
+      "future_missing_given_past": 4,
+      "score_eligible": 473,
+      "missing_by_feature": {
+        "pas:HYPE": 3,
+        "pas:ETH": 3,
+        "pas:BTC": 3
+      },
+      "future_missing_all": 4,
+      "nonoverlap_target_count": 473,
+      "target_overlap_pairs": 0
+    },
+    "validation": {
+      "anchors": 288,
+      "past_eligible": 285,
+      "future_missing_given_past": 4,
+      "score_eligible": 281,
+      "missing_by_feature": {
+        "pas:HYPE": 3,
+        "pas:ETH": 3,
+        "pas:BTC": 3
+      },
+      "future_missing_all": 5,
+      "nonoverlap_target_count": 281,
+      "target_overlap_pairs": 0
+    },
+    "late": {
+      "anchors": 246,
+      "past_eligible": 241,
+      "future_missing_given_past": 6,
+      "score_eligible": 235,
+      "missing_by_feature": {
+        "pas:HYPE": 5,
+        "pas:ETH": 5,
+        "pas:BTC": 5
+      },
+      "future_missing_all": 7,
+      "nonoverlap_target_count": 235,
+      "target_overlap_pairs": 0
+    }
+  },
+  "B": {
+    "development": {
+      "anchors": 480,
+      "past_eligible": 149,
+      "future_missing_given_past": 52,
+      "score_eligible": 97,
+      "missing_by_feature": {
+        "pas:HYPE": 124,
+        "pas:ETH": 152,
+        "pas:BTC": 281
+      },
+      "future_missing_all": 241,
+      "nonoverlap_target_count": 97,
+      "target_overlap_pairs": 0
+    },
+    "validation": {
+      "anchors": 288,
+      "past_eligible": 64,
+      "future_missing_given_past": 20,
+      "score_eligible": 44,
+      "missing_by_feature": {
+        "pas:HYPE": 87,
+        "pas:ETH": 127,
+        "pas:BTC": 195
+      },
+      "future_missing_all": 164,
+      "nonoverlap_target_count": 44,
+      "target_overlap_pairs": 0
+    },
+    "late": {
+      "anchors": 246,
+      "past_eligible": 105,
+      "future_missing_given_past": 27,
+      "score_eligible": 78,
+      "missing_by_feature": {
+        "pas:HYPE": 55,
+        "pas:ETH": 89,
+        "pas:BTC": 91
+      },
+      "future_missing_all": 107,
+      "nonoverlap_target_count": 78,
+      "target_overlap_pairs": 0
+    }
+  }
+}
