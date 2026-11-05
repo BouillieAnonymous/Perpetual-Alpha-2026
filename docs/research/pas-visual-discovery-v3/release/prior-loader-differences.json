@@ -1,0 +1,16 @@
+[
+  {
+    "symbol": "pas:USDEUR",
+    "field": "valid_quotes",
+    "old": 15784,
+    "v3": 15783,
+    "reason": "Earlier book-only loader skipped request-error normalized as latest invalid book; V3 follows pinned full panel."
+  },
+  {
+    "symbol": "pas:USDJPY",
+    "field": "valid_quotes",
+    "old": 15791,
+    "v3": 15790,
+    "reason": "Earlier book-only loader skipped request-error normalized as latest invalid book; V3 follows pinned full panel."
+  }
+]

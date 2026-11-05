@@ -1,0 +1,71 @@
+{
+  "input_sha256": "fc5ab7a251de06813e9ab74e366d97faee242da96ef0c0f2cd1e722eb861d898",
+  "grid_points": 15815,
+  "quality": {
+    "pas:BTC": {
+      "valid_quotes": 15791,
+      "valid_returns_A": 15776,
+      "valid_returns_B": 12728,
+      "zero_returns_A": 3074
+    },
+    "pas:ETH": {
+      "valid_quotes": 15791,
+      "valid_returns_A": 15776,
+      "valid_returns_B": 14431,
+      "zero_returns_A": 1425
+    },
+    "pas:HYPE": {
+      "valid_quotes": 15791,
+      "valid_returns_A": 15776,
+      "valid_returns_B": 14858,
+      "zero_returns_A": 979
+    },
+    "pas:SP500": {
+      "valid_quotes": 15791,
+      "valid_returns_A": 15776,
+      "valid_returns_B": 6408,
+      "zero_returns_A": 9383
+    },
+    "pas:EWY": {
+      "valid_quotes": 15791,
+      "valid_returns_A": 15776,
+      "valid_returns_B": 13196,
+      "zero_returns_A": 2646
+    },
+    "pas:EWJ": {
+      "valid_quotes": 15791,
+      "valid_returns_A": 15776,
+      "valid_returns_B": 8389,
+      "zero_returns_A": 7434
+    },
+    "pas:BRENT": {
+      "valid_quotes": 15791,
+      "valid_returns_A": 15776,
+      "valid_returns_B": 11984,
+      "zero_returns_A": 3904
+    },
+    "pas:GOLD": {
+      "valid_quotes": 15791,
+      "valid_returns_A": 15776,
+      "valid_returns_B": 8995,
+      "zero_returns_A": 6822
+    },
+    "pas:USDEUR": {
+      "valid_quotes": 15784,
+      "valid_returns_A": 15765,
+      "valid_returns_B": 5354,
+      "zero_returns_A": 10479
+    },
+    "pas:USDJPY": {
+      "valid_quotes": 15791,
+      "valid_returns_A": 15775,
+      "valid_returns_B": 6619,
+      "zero_returns_A": 9236
+    }
+  },
+  "provenance": {
+    "path": "docs/research/pas-ten-asset-visual-eda/output/summary.json",
+    "summary_sha256": "bfe9e0b20cc88a83e4e326f317ce34124ff498653e5c95bfa0ffc94adbc54c44",
+    "scope": "prior local frozen-derived counts, not source of V3 prices"
+  }
+}
