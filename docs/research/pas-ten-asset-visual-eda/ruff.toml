@@ -1,0 +1,9 @@
+# Frozen original source: style-only exceptions; do not rewrite evidence.
+line-length = 110
+target-version = "py311"
+
+[lint]
+select = ["E4","E7","E9","F","I"]
+
+[lint.per-file-ignores]
+"build_eda.py" = ["E402","E701","E702","I001"]
