@@ -1,0 +1,144 @@
+[
+  {
+    "id": "DONCHIAN",
+    "family": "VEX",
+    "symbols": [
+      "par:BTC"
+    ],
+    "kind": "donchian"
+  },
+  {
+    "id": "ATR",
+    "family": "VEX",
+    "symbols": [
+      "par:BTC"
+    ],
+    "kind": "atr"
+  },
+  {
+    "id": "DONCHIAN_COMPRESSION",
+    "family": "VEX",
+    "symbols": [
+      "par:BTC"
+    ],
+    "kind": "donchian_compression"
+  },
+  {
+    "id": "DONCHIAN_EXPANSION",
+    "family": "VEX",
+    "symbols": [
+      "par:BTC"
+    ],
+    "kind": "donchian_expansion"
+  },
+  {
+    "id": "DONCHIAN_COMPRESSION_EXPANSION",
+    "family": "VEX",
+    "symbols": [
+      "par:BTC"
+    ],
+    "kind": "donchian_compression_expansion"
+  },
+  {
+    "id": "EMA",
+    "family": "TSM",
+    "symbols": [
+      "par:BTC"
+    ],
+    "kind": "ema"
+  },
+  {
+    "id": "TSM",
+    "family": "TSM",
+    "symbols": [
+      "par:BTC"
+    ],
+    "kind": "tsm"
+  },
+  {
+    "id": "RISK_MOMENTUM",
+    "family": "TSM",
+    "symbols": [
+      "par:BTC"
+    ],
+    "kind": "risk_momentum"
+  },
+  {
+    "id": "SIMPLE_MR",
+    "family": "MR",
+    "symbols": [
+      "par:BTC"
+    ],
+    "kind": "simple_mr"
+  },
+  {
+    "id": "ROLLING_Z",
+    "family": "MR",
+    "symbols": [
+      "par:BTC"
+    ],
+    "kind": "rolling_z"
+  },
+  {
+    "id": "BOLLINGER",
+    "family": "MR",
+    "symbols": [
+      "par:BTC"
+    ],
+    "kind": "bollinger"
+  },
+  {
+    "id": "REGIME-TREND",
+    "family": "REGIME",
+    "symbols": [
+      "par:BTC"
+    ],
+    "kind": "donchian",
+    "regime": "trend"
+  },
+  {
+    "id": "REGIME-RANGE",
+    "family": "REGIME",
+    "symbols": [
+      "par:BTC"
+    ],
+    "kind": "donchian",
+    "regime": "range"
+  },
+  {
+    "id": "REGIME-COST",
+    "family": "REGIME",
+    "symbols": [
+      "par:BTC"
+    ],
+    "kind": "donchian",
+    "regime": "cost"
+  },
+  {
+    "id": "REGIME-RANDOM",
+    "family": "REGIME",
+    "symbols": [
+      "par:BTC"
+    ],
+    "kind": "donchian",
+    "regime": "random"
+  },
+  {
+    "id": "FUNDING-LAST",
+    "family": "FUNDING",
+    "symbols": [
+      "par:BTC"
+    ],
+    "kind": "funding",
+    "mode": "last"
+  },
+  {
+    "id": "FUNDING-MEAN24",
+    "family": "FUNDING",
+    "symbols": [
+      "par:BTC"
+    ],
+    "kind": "funding",
+    "mode": "mean24"
+  }
+]

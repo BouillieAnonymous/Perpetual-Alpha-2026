@@ -1,0 +1,254 @@
+{
+  "inspected_utc": "2026-11-05T03:10:44.209646+00:00",
+  "after_freeze_sha256": "aaf543d93a175271056eb970a19847f8584294c0616d66bb3890587e56cdccc4",
+  "local_inputs": [
+    {
+      "path": ".cache\\validation-2026-10-30\\pas-prefix.jsonl.gz",
+      "sha256": "fc5ab7a251de06813e9ab74e366d97faee242da96ef0c0f2cd1e722eb861d898",
+      "header_identity": {
+        "collateral": "USDP",
+        "dex": "pas",
+        "endpoint": "https://api.hyperliquid-testnet.xyz/info",
+        "schema": "public-venue-collection/1",
+        "source": "hyperliquid-testnet/pas",
+        "symbols": [
+          "pas:BTC",
+          "pas:ETH",
+          "pas:HYPE",
+          "pas:SP500",
+          "pas:EWY",
+          "pas:EWJ",
+          "pas:BRENT",
+          "pas:GOLD",
+          "pas:USDEUR",
+          "pas:USDJPY"
+        ]
+      },
+      "coverage": {
+        "pas:BTC": {
+          "rows": 32179,
+          "min_available_ms": 1792417392951,
+          "max_available_ms": 1793366266197
+        },
+        "pas:ETH": {
+          "rows": 32179,
+          "min_available_ms": 1792417393172,
+          "max_available_ms": 1793366266507
+        },
+        "pas:HYPE": {
+          "rows": 32179,
+          "min_available_ms": 1792417393391,
+          "max_available_ms": 1793366266727
+        },
+        "pas:SP500": {
+          "rows": 32179,
+          "min_available_ms": 1792417393609,
+          "max_available_ms": 1793366267020
+        },
+        "pas:EWY": {
+          "rows": 32179,
+          "min_available_ms": 1792417393826,
+          "max_available_ms": 1793366267236
+        },
+        "pas:EWJ": {
+          "rows": 32179,
+          "min_available_ms": 1792417394043,
+          "max_available_ms": 1793366267460
+        },
+        "pas:BRENT": {
+          "rows": 32179,
+          "min_available_ms": 1792417394268,
+          "max_available_ms": 1793366267677
+        },
+        "pas:GOLD": {
+          "rows": 32179,
+          "min_available_ms": 1792417394485,
+          "max_available_ms": 1793366267892
+        },
+        "pas:USDEUR": {
+          "rows": 32179,
+          "min_available_ms": 1792417394706,
+          "max_available_ms": 1793366268111
+        },
+        "pas:USDJPY": {
+          "rows": 32179,
+          "min_available_ms": 1792417394926,
+          "max_available_ms": 1793366268331
+        }
+      }
+    },
+    {
+      "path": ".cache\\alpha-week-2026-10-26\\pas-prefix.jsonl.gz",
+      "sha256": "4baa71116daed70cbca25fa7179cf39f84ee555f7d1900079d87820efbf70a14",
+      "header_identity": {
+        "collateral": "USDP",
+        "dex": "pas",
+        "endpoint": "https://api.hyperliquid-testnet.xyz/info",
+        "schema": "public-venue-collection/1",
+        "source": "hyperliquid-testnet/pas",
+        "symbols": [
+          "pas:BTC",
+          "pas:ETH",
+          "pas:HYPE",
+          "pas:SP500",
+          "pas:EWY",
+          "pas:EWJ",
+          "pas:BRENT",
+          "pas:GOLD",
+          "pas:USDEUR",
+          "pas:USDJPY"
+        ]
+      },
+      "coverage": {
+        "pas:BTC": {
+          "rows": 21353,
+          "min_available_ms": 1792417392951,
+          "max_available_ms": 1793046226195
+        },
+        "pas:ETH": {
+          "rows": 21353,
+          "min_available_ms": 1792417393172,
+          "max_available_ms": 1793046226411
+        },
+        "pas:HYPE": {
+          "rows": 21353,
+          "min_available_ms": 1792417393391,
+          "max_available_ms": 1793046226626
+        },
+        "pas:SP500": {
+          "rows": 21353,
+          "min_available_ms": 1792417393609,
+          "max_available_ms": 1793046226847
+        },
+        "pas:EWY": {
+          "rows": 21353,
+          "min_available_ms": 1792417393826,
+          "max_available_ms": 1793046227071
+        },
+        "pas:EWJ": {
+          "rows": 21353,
+          "min_available_ms": 1792417394043,
+          "max_available_ms": 1793046227293
+        },
+        "pas:BRENT": {
+          "rows": 21353,
+          "min_available_ms": 1792417394268,
+          "max_available_ms": 1793046227517
+        },
+        "pas:GOLD": {
+          "rows": 21353,
+          "min_available_ms": 1792417394485,
+          "max_available_ms": 1793046227741
+        },
+        "pas:USDEUR": {
+          "rows": 21353,
+          "min_available_ms": 1792417394706,
+          "max_available_ms": 1793046227960
+        },
+        "pas:USDJPY": {
+          "rows": 21353,
+          "min_available_ms": 1792417394926,
+          "max_available_ms": 1793046228222
+        }
+      }
+    },
+    {
+      "path": ".cache\\btc-eth-volatility-stage01-20261103\\normalized-pas-btc-eth.jsonl.gz",
+      "sha256": "c606ebb4b5a273f9385438fa3c3d47e64bc341ec5107aec714e4f0233d2b63db",
+      "header_identity": {
+        "collateral": "USDP",
+        "dex": "pas",
+        "endpoint": "https://api.hyperliquid-testnet.xyz/info",
+        "schema": "public-venue-collection/1",
+        "source": "hyperliquid-testnet/pas",
+        "symbols": [
+          "pas:BTC",
+          "pas:ETH",
+          "pas:HYPE",
+          "pas:SP500",
+          "pas:EWY",
+          "pas:EWJ",
+          "pas:BRENT",
+          "pas:GOLD",
+          "pas:USDEUR",
+          "pas:USDJPY"
+        ]
+      },
+      "coverage": {
+        "pas:BTC": {
+          "rows": 43472,
+          "min_available_ms": 1792417392951,
+          "max_available_ms": 1793699986207
+        },
+        "pas:ETH": {
+          "rows": 43472,
+          "min_available_ms": 1792417393172,
+          "max_available_ms": 1793699986427
+        }
+      }
+    },
+    {
+      "path": ".cache\\pas-afternoon-study\\raw.jsonl",
+      "sha256": "7b5e74fecf5a8321352c7666e1bce3f5cbd335aab6639e30670b4e75c9cefc2c",
+      "header_identity": null,
+      "coverage": {
+        "pas:BTC": {
+          "rows": 1310,
+          "min_available_ms": 1792417392951,
+          "max_available_ms": 1792452946204
+        },
+        "pas:ETH": {
+          "rows": 1310,
+          "min_available_ms": 1792417393172,
+          "max_available_ms": 1792452946426
+        },
+        "pas:HYPE": {
+          "rows": 1310,
+          "min_available_ms": 1792417393391,
+          "max_available_ms": 1792452946641
+        },
+        "pas:SP500": {
+          "rows": 1310,
+          "min_available_ms": 1792417393609,
+          "max_available_ms": 1792452946858
+        },
+        "pas:EWY": {
+          "rows": 1310,
+          "min_available_ms": 1792417393826,
+          "max_available_ms": 1792452947080
+        },
+        "pas:EWJ": {
+          "rows": 1310,
+          "min_available_ms": 1792417394043,
+          "max_available_ms": 1792452947302
+        },
+        "pas:BRENT": {
+          "rows": 1310,
+          "min_available_ms": 1792417394268,
+          "max_available_ms": 1792452947521
+        },
+        "pas:GOLD": {
+          "rows": 1310,
+          "min_available_ms": 1792417394485,
+          "max_available_ms": 1792452947743
+        },
+        "pas:USDEUR": {
+          "rows": 1310,
+          "min_available_ms": 1792417394706,
+          "max_available_ms": 1792452947962
+        },
+        "pas:USDJPY": {
+          "rows": 1310,
+          "min_available_ms": 1792417394926,
+          "max_available_ms": 1792452948184
+        }
+      }
+    }
+  ],
+  "local_newer_full_market_found": false,
+  "later_BTC_ETH_only_not_HYPE": true,
+  "remote_status": "RESERVED_NOT_ANALYZED",
+  "no_newer_prices_returns_labels_inspected": true,
+  "excluded": "test/example/synthetic SQLite fixtures and duplicate publication copies; remote public source checked separately",
+  "reserved_manifest": "reserved-data.json"
+}

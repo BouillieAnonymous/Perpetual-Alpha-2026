@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "real_browser": false,
+  "checks": [
+    "six new core charts reachable",
+    "four tab navigation",
+    "max four auxiliary panels",
+    "A/B mode",
+    "BTC/ETH toggle",
+    "5/15/60 scales",
+    "60/240/1440 relationship windows",
+    "UTC preset and invalid range rejection",
+    "shared historical cursor and no future inspector fields",
+    "drag zoom and reset handlers",
+    "six retrospective views",
+    "three heatmap metrics"
+  ],
+  "limitation": "Node DOM/Canvas mock only; Chrome connection timed out"
+}

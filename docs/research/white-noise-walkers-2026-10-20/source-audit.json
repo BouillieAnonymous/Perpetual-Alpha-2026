@@ -1,0 +1,159 @@
+{
+  "revision": "9a408fb0061427da6782000bd4c8dbb1bb6ee6a8",
+  "files": [
+    {
+      "path": "_config.yml",
+      "contains_target_name": false,
+      "address_literals": [],
+      "yaml_keys": [
+        "baseurl",
+        "description",
+        "email",
+        "markdown",
+        "theme",
+        "title",
+        "url"
+      ]
+    },
+    {
+      "path": "_data/leaderboard.yml",
+      "contains_target_name": false,
+      "address_literals": [],
+      "yaml_keys": [
+        "chart_url",
+        "data_url",
+        "dev_chart_url",
+        "dev_data_url",
+        "dev_practice_chart_url",
+        "dev_practice_url",
+        "practice_chart_url",
+        "practice_url",
+        "refresh_seconds"
+      ]
+    },
+    {
+      "path": "_data/teams.yml",
+      "contains_target_name": true,
+      "address_literals": [],
+      "yaml_keys": [
+        "email",
+        "name"
+      ]
+    },
+    {
+      "path": "_data/venue.yml",
+      "contains_target_name": false,
+      "address_literals": [],
+      "yaml_keys": [
+        "api_url",
+        "collateral",
+        "dex",
+        "dex_index",
+        "sdk_version",
+        "ws_url"
+      ]
+    },
+    {
+      "path": "_includes/footer.html",
+      "contains_target_name": false,
+      "address_literals": [],
+      "yaml_keys": null
+    },
+    {
+      "path": "_includes/header.html",
+      "contains_target_name": false,
+      "address_literals": [],
+      "yaml_keys": null
+    },
+    {
+      "path": "_includes/particles.html",
+      "contains_target_name": false,
+      "address_literals": [],
+      "yaml_keys": null
+    },
+    {
+      "path": "_layouts/default.html",
+      "contains_target_name": false,
+      "address_literals": [],
+      "yaml_keys": null
+    },
+    {
+      "path": "about.md",
+      "contains_target_name": false,
+      "address_literals": [],
+      "yaml_keys": null
+    },
+    {
+      "path": "assets/css/style.css",
+      "contains_target_name": false,
+      "address_literals": [],
+      "yaml_keys": null
+    },
+    {
+      "path": "committee.md",
+      "contains_target_name": false,
+      "address_literals": [],
+      "yaml_keys": null
+    },
+    {
+      "path": "docs/index.md",
+      "contains_target_name": false,
+      "address_literals": [],
+      "yaml_keys": null
+    },
+    {
+      "path": "docs/reference.md",
+      "contains_target_name": false,
+      "address_literals": [],
+      "yaml_keys": null
+    },
+    {
+      "path": "faq.md",
+      "contains_target_name": false,
+      "address_literals": [],
+      "yaml_keys": null
+    },
+    {
+      "path": "index.md",
+      "contains_target_name": false,
+      "address_literals": [],
+      "yaml_keys": null
+    },
+    {
+      "path": "leaderboard.md",
+      "contains_target_name": false,
+      "address_literals": [],
+      "yaml_keys": null
+    },
+    {
+      "path": "register.md",
+      "contains_target_name": false,
+      "address_literals": [],
+      "yaml_keys": null
+    },
+    {
+      "path": "robots.txt",
+      "contains_target_name": false,
+      "address_literals": [],
+      "yaml_keys": null
+    },
+    {
+      "path": "schedule.md",
+      "contains_target_name": false,
+      "address_literals": [],
+      "yaml_keys": null
+    },
+    {
+      "path": "sitemap.xml",
+      "contains_target_name": false,
+      "address_literals": [],
+      "yaml_keys": null
+    },
+    {
+      "path": "thanks.md",
+      "contains_target_name": false,
+      "address_literals": [],
+      "yaml_keys": null
+    }
+  ]
+}

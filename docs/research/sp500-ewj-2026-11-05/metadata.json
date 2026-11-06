@@ -1,0 +1,18 @@
+{
+  "start_utc": "2026-10-19T13:43:00+00:00",
+  "end_utc": "2026-10-30T13:17:00+00:00",
+  "input_sha256": "d91a6accad6b3322ab814c4f97f1f6039e2f4a95cb0faae8976772ab580d9bc0",
+  "method": "UTC-aligned non-overlapping complete log-return bars; zeros retained; no fill; lead uses next non-overlapping bar; exploratory previously observed sample, no OOS or executable PnL claim",
+  "costs": {
+    "pas:SP500": {
+      "median_spread_bps": 7.067045320700614,
+      "zero_fraction_A": 0.5947641987829615,
+      "valid_returns_A": 15776
+    },
+    "pas:EWJ": {
+      "median_spread_bps": 5.9882441312583365,
+      "zero_fraction_A": 0.47122210953346855,
+      "valid_returns_A": 15776
+    }
+  }
+}

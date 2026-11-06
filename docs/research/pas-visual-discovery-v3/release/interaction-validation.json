@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "real_browser": false,
+  "direct_pair_numeric_fields": 432,
+  "tests": [
+    "initial two-market lazy load",
+    "ten-market metadata selectors",
+    "four-asset limit",
+    "two-pair LRU cache",
+    "144 direct covariance references A/B",
+    "matrix 90 off-diagonal cells and click direction",
+    "B insufficiency gate",
+    "UTC gap/drag/reset handlers",
+    "unknown default and explicit per-leg budgets",
+    "no future inspector labels"
+  ],
+  "scope": "Mock validation supplements separate Chrome acceptance record"
+}

@@ -1,0 +1,10 @@
+{
+  "all-asset-data-audit.md": "c89f79d4076af56ecef1427a9453e8fc155ef0a83990497c300eb53863ed96e0",
+  "causal-panel.jsonl.gz": "d91a6accad6b3322ab814c4f97f1f6039e2f4a95cb0faae8976772ab580d9bc0",
+  "component-audit.json": "39ced76dc1f02f4f22ec1e0127cc9151da20d5a5fedf1f8d3740c821eb90f2c1",
+  "coverage.csv": "f709723599d27548c192892527a8d00b24e067d0d09debee96bd264d6f75d876",
+  "metadata.json": "c9c163c982267ca9c57b5ac9cd1b5ff44c20fbc97efef89ac2395581d08560e3",
+  "pair-eligibility.csv": "828681740429fceee33acbbaa0c891fa5384051447db365b015a41c8a4e29736",
+  "prior-loader-differences.json": "9fc4d20596dc1c37b717a3aa5f5da602c8bd042d491e50501728c6e9d2e418c2",
+  "validation.json": "338c5f226a68513ada84af82e9be06cff187d5c484395ee0d27bdc43ef15c2b0"
+}

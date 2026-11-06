@@ -1,0 +1,902 @@
+{
+  "pas:BRENT|DONCHIAN": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:BRENT|ATR": {
+    "opening_episodes": 4,
+    "resizes": 0,
+    "fills": 8
+  },
+  "pas:BRENT|DONCHIAN_COMPRESSION": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:BRENT|DONCHIAN_EXPANSION": {
+    "opening_episodes": 4,
+    "resizes": 0,
+    "fills": 8
+  },
+  "pas:BRENT|DONCHIAN_COMPRESSION_EXPANSION": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:BRENT|EMA": {
+    "opening_episodes": 10,
+    "resizes": 0,
+    "fills": 20
+  },
+  "pas:BRENT|TSM": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:BRENT|RISK_MOMENTUM": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:BRENT|SIMPLE_MR": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:BRENT|ROLLING_Z": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:BRENT|BOLLINGER": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:BRENT|REGIME-TREND": {
+    "opening_episodes": 4,
+    "resizes": 0,
+    "fills": 8
+  },
+  "pas:BRENT|REGIME-RANGE": {
+    "opening_episodes": 3,
+    "resizes": 0,
+    "fills": 6
+  },
+  "pas:BRENT|REGIME-COST": {
+    "opening_episodes": 4,
+    "resizes": 0,
+    "fills": 8
+  },
+  "pas:BRENT|REGIME-RANDOM": {
+    "opening_episodes": 2,
+    "resizes": 0,
+    "fills": 4
+  },
+  "pas:BRENT|FUNDING-LAST": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:BRENT|FUNDING-MEAN24": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:BRENT|FIXED-LONG": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:BRENT|FIXED-SHORT": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:BRENT|NO-TRADE": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:BTC|DONCHIAN": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:BTC|ATR": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:BTC|DONCHIAN_COMPRESSION": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:BTC|DONCHIAN_EXPANSION": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:BTC|DONCHIAN_COMPRESSION_EXPANSION": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:BTC|EMA": {
+    "opening_episodes": 11,
+    "resizes": 0,
+    "fills": 22
+  },
+  "pas:BTC|TSM": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:BTC|RISK_MOMENTUM": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:BTC|SIMPLE_MR": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:BTC|ROLLING_Z": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:BTC|BOLLINGER": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:BTC|REGIME-TREND": {
+    "opening_episodes": 3,
+    "resizes": 0,
+    "fills": 6
+  },
+  "pas:BTC|REGIME-RANGE": {
+    "opening_episodes": 4,
+    "resizes": 0,
+    "fills": 8
+  },
+  "pas:BTC|REGIME-COST": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:BTC|REGIME-RANDOM": {
+    "opening_episodes": 2,
+    "resizes": 0,
+    "fills": 4
+  },
+  "pas:BTC|FUNDING-LAST": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:BTC|FUNDING-MEAN24": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:BTC|FIXED-LONG": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:BTC|FIXED-SHORT": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:BTC|NO-TRADE": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:ETH|DONCHIAN": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:ETH|ATR": {
+    "opening_episodes": 4,
+    "resizes": 0,
+    "fills": 8
+  },
+  "pas:ETH|DONCHIAN_COMPRESSION": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:ETH|DONCHIAN_EXPANSION": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:ETH|DONCHIAN_COMPRESSION_EXPANSION": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:ETH|EMA": {
+    "opening_episodes": 11,
+    "resizes": 0,
+    "fills": 22
+  },
+  "pas:ETH|TSM": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:ETH|RISK_MOMENTUM": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:ETH|SIMPLE_MR": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:ETH|ROLLING_Z": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:ETH|BOLLINGER": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:ETH|REGIME-TREND": {
+    "opening_episodes": 2,
+    "resizes": 0,
+    "fills": 4
+  },
+  "pas:ETH|REGIME-RANGE": {
+    "opening_episodes": 3,
+    "resizes": 0,
+    "fills": 6
+  },
+  "pas:ETH|REGIME-COST": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:ETH|REGIME-RANDOM": {
+    "opening_episodes": 2,
+    "resizes": 0,
+    "fills": 4
+  },
+  "pas:ETH|FUNDING-LAST": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:ETH|FUNDING-MEAN24": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:ETH|FIXED-LONG": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:ETH|FIXED-SHORT": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:ETH|NO-TRADE": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:EWJ|DONCHIAN": {
+    "opening_episodes": 3,
+    "resizes": 0,
+    "fills": 6
+  },
+  "pas:EWJ|ATR": {
+    "opening_episodes": 4,
+    "resizes": 0,
+    "fills": 7
+  },
+  "pas:EWJ|DONCHIAN_COMPRESSION": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:EWJ|DONCHIAN_EXPANSION": {
+    "opening_episodes": 3,
+    "resizes": 0,
+    "fills": 6
+  },
+  "pas:EWJ|DONCHIAN_COMPRESSION_EXPANSION": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:EWJ|EMA": {
+    "opening_episodes": 10,
+    "resizes": 0,
+    "fills": 20
+  },
+  "pas:EWJ|TSM": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:EWJ|RISK_MOMENTUM": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:EWJ|SIMPLE_MR": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:EWJ|ROLLING_Z": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:EWJ|BOLLINGER": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:EWJ|REGIME-TREND": {
+    "opening_episodes": 2,
+    "resizes": 0,
+    "fills": 4
+  },
+  "pas:EWJ|REGIME-RANGE": {
+    "opening_episodes": 2,
+    "resizes": 0,
+    "fills": 4
+  },
+  "pas:EWJ|REGIME-COST": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:EWJ|REGIME-RANDOM": {
+    "opening_episodes": 3,
+    "resizes": 0,
+    "fills": 6
+  },
+  "pas:EWJ|FUNDING-LAST": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 6
+  },
+  "pas:EWJ|FUNDING-MEAN24": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 6
+  },
+  "pas:EWJ|FIXED-LONG": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:EWJ|FIXED-SHORT": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:EWJ|NO-TRADE": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:EWY|DONCHIAN": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:EWY|ATR": {
+    "opening_episodes": 4,
+    "resizes": 0,
+    "fills": 8
+  },
+  "pas:EWY|DONCHIAN_COMPRESSION": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:EWY|DONCHIAN_EXPANSION": {
+    "opening_episodes": 3,
+    "resizes": 0,
+    "fills": 6
+  },
+  "pas:EWY|DONCHIAN_COMPRESSION_EXPANSION": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:EWY|EMA": {
+    "opening_episodes": 9,
+    "resizes": 0,
+    "fills": 18
+  },
+  "pas:EWY|TSM": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:EWY|RISK_MOMENTUM": {
+    "opening_episodes": 4,
+    "resizes": 0,
+    "fills": 8
+  },
+  "pas:EWY|SIMPLE_MR": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:EWY|ROLLING_Z": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:EWY|BOLLINGER": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:EWY|REGIME-TREND": {
+    "opening_episodes": 2,
+    "resizes": 0,
+    "fills": 4
+  },
+  "pas:EWY|REGIME-RANGE": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:EWY|REGIME-COST": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:EWY|REGIME-RANDOM": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:EWY|FUNDING-LAST": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 6
+  },
+  "pas:EWY|FUNDING-MEAN24": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:EWY|FIXED-LONG": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:EWY|FIXED-SHORT": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:EWY|NO-TRADE": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:GOLD|DONCHIAN": {
+    "opening_episodes": 4,
+    "resizes": 0,
+    "fills": 8
+  },
+  "pas:GOLD|ATR": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:GOLD|DONCHIAN_COMPRESSION": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:GOLD|DONCHIAN_EXPANSION": {
+    "opening_episodes": 3,
+    "resizes": 0,
+    "fills": 6
+  },
+  "pas:GOLD|DONCHIAN_COMPRESSION_EXPANSION": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:GOLD|EMA": {
+    "opening_episodes": 9,
+    "resizes": 0,
+    "fills": 18
+  },
+  "pas:GOLD|TSM": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:GOLD|RISK_MOMENTUM": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:GOLD|SIMPLE_MR": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:GOLD|ROLLING_Z": {
+    "opening_episodes": 4,
+    "resizes": 0,
+    "fills": 8
+  },
+  "pas:GOLD|BOLLINGER": {
+    "opening_episodes": 4,
+    "resizes": 0,
+    "fills": 8
+  },
+  "pas:GOLD|REGIME-TREND": {
+    "opening_episodes": 3,
+    "resizes": 0,
+    "fills": 6
+  },
+  "pas:GOLD|REGIME-RANGE": {
+    "opening_episodes": 2,
+    "resizes": 0,
+    "fills": 4
+  },
+  "pas:GOLD|REGIME-COST": {
+    "opening_episodes": 3,
+    "resizes": 0,
+    "fills": 6
+  },
+  "pas:GOLD|REGIME-RANDOM": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:GOLD|FUNDING-LAST": {
+    "opening_episodes": 3,
+    "resizes": 0,
+    "fills": 4
+  },
+  "pas:GOLD|FUNDING-MEAN24": {
+    "opening_episodes": 2,
+    "resizes": 0,
+    "fills": 3
+  },
+  "pas:GOLD|FIXED-LONG": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:GOLD|FIXED-SHORT": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:GOLD|NO-TRADE": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:HYPE|DONCHIAN": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:HYPE|ATR": {
+    "opening_episodes": 4,
+    "resizes": 0,
+    "fills": 8
+  },
+  "pas:HYPE|DONCHIAN_COMPRESSION": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:HYPE|DONCHIAN_EXPANSION": {
+    "opening_episodes": 3,
+    "resizes": 0,
+    "fills": 6
+  },
+  "pas:HYPE|DONCHIAN_COMPRESSION_EXPANSION": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:HYPE|EMA": {
+    "opening_episodes": 8,
+    "resizes": 0,
+    "fills": 16
+  },
+  "pas:HYPE|TSM": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:HYPE|RISK_MOMENTUM": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:HYPE|SIMPLE_MR": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:HYPE|ROLLING_Z": {
+    "opening_episodes": 4,
+    "resizes": 0,
+    "fills": 8
+  },
+  "pas:HYPE|BOLLINGER": {
+    "opening_episodes": 4,
+    "resizes": 0,
+    "fills": 8
+  },
+  "pas:HYPE|REGIME-TREND": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:HYPE|REGIME-RANGE": {
+    "opening_episodes": 4,
+    "resizes": 0,
+    "fills": 8
+  },
+  "pas:HYPE|REGIME-COST": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:HYPE|REGIME-RANDOM": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:HYPE|FUNDING-LAST": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:HYPE|FUNDING-MEAN24": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:HYPE|FIXED-LONG": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:HYPE|FIXED-SHORT": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:HYPE|NO-TRADE": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:SP500|DONCHIAN": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:SP500|ATR": {
+    "opening_episodes": 7,
+    "resizes": 0,
+    "fills": 14
+  },
+  "pas:SP500|DONCHIAN_COMPRESSION": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:SP500|DONCHIAN_EXPANSION": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:SP500|DONCHIAN_COMPRESSION_EXPANSION": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:SP500|EMA": {
+    "opening_episodes": 10,
+    "resizes": 0,
+    "fills": 20
+  },
+  "pas:SP500|TSM": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:SP500|RISK_MOMENTUM": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:SP500|SIMPLE_MR": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:SP500|ROLLING_Z": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:SP500|BOLLINGER": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:SP500|REGIME-TREND": {
+    "opening_episodes": 3,
+    "resizes": 0,
+    "fills": 6
+  },
+  "pas:SP500|REGIME-RANGE": {
+    "opening_episodes": 5,
+    "resizes": 0,
+    "fills": 10
+  },
+  "pas:SP500|REGIME-COST": {
+    "opening_episodes": 4,
+    "resizes": 0,
+    "fills": 8
+  },
+  "pas:SP500|REGIME-RANDOM": {
+    "opening_episodes": 2,
+    "resizes": 0,
+    "fills": 4
+  },
+  "pas:SP500|FUNDING-LAST": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:SP500|FUNDING-MEAN24": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:SP500|FIXED-LONG": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:SP500|FIXED-SHORT": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:SP500|NO-TRADE": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:USDEUR|DONCHIAN": {
+    "opening_episodes": 4,
+    "resizes": 0,
+    "fills": 8
+  },
+  "pas:USDEUR|ATR": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:USDEUR|DONCHIAN_COMPRESSION": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:USDEUR|DONCHIAN_EXPANSION": {
+    "opening_episodes": 3,
+    "resizes": 0,
+    "fills": 6
+  },
+  "pas:USDEUR|DONCHIAN_COMPRESSION_EXPANSION": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:USDEUR|EMA": {
+    "opening_episodes": 10,
+    "resizes": 0,
+    "fills": 20
+  },
+  "pas:USDEUR|TSM": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:USDEUR|RISK_MOMENTUM": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:USDEUR|SIMPLE_MR": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:USDEUR|ROLLING_Z": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:USDEUR|BOLLINGER": {
+    "opening_episodes": 6,
+    "resizes": 0,
+    "fills": 12
+  },
+  "pas:USDEUR|REGIME-TREND": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:USDEUR|REGIME-RANGE": {
+    "opening_episodes": 3,
+    "resizes": 0,
+    "fills": 6
+  },
+  "pas:USDEUR|REGIME-COST": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  },
+  "pas:USDEUR|REGIME-RANDOM": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:USDEUR|FUNDING-LAST": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:USDEUR|FUNDING-MEAN24": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:USDEUR|FIXED-LONG": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:USDEUR|FIXED-SHORT": {
+    "opening_episodes": 1,
+    "resizes": 0,
+    "fills": 2
+  },
+  "pas:USDEUR|NO-TRADE": {
+    "opening_episodes": 0,
+    "resizes": 0,
+    "fills": 0
+  }
+}

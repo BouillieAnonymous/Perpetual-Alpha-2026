@@ -1,0 +1,46 @@
+<header class="site-header" id="site-header">
+    <div class="container header-content">
+        <a href="{{ '/' | relative_url }}" class="mobile-brand">
+            <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="Logo" class="mobile-logo">
+            <span class="mobile-title">Perpetual <span class="highlight">Alpha</span></span>
+        </a>
+        <button id="mobile-menu-btn" class="mobile-menu-btn">☰</button>
+        <nav class="main-nav" id="main-nav">
+            <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' or page.url == '/index.html' %}active{% endif %}">Home</a>
+            <a href="{{ '/about' | relative_url }}" class="{% if page.url contains '/about' %}active{% endif %}">About</a>
+            <a href="{{ '/schedule' | relative_url }}" class="{% if page.url contains '/schedule' %}active{% endif %}">Schedule</a>
+            <a href="{{ '/docs/' | relative_url }}" class="{% if page.url contains '/docs' %}active{% endif %}">Docs</a>
+            <a href="{{ '/leaderboard' | relative_url }}" class="{% if page.url contains '/leaderboard' %}active{% endif %}">Leaderboard</a>
+            <a href="{{ '/faq' | relative_url }}" class="{% if page.url contains '/faq' %}active{% endif %}">FAQ</a>
+            <a href="{{ '/committee' | relative_url }}" class="{% if page.url contains '/committee' %}active{% endif %}">Committee</a>
+        </nav>
+    </div>
+</header>
+
+<script>
+    let lastScrollTop = 0;
+    const header = document.getElementById("site-header");
+    const menuBtn = document.getElementById("mobile-menu-btn");
+    const nav = document.getElementById("main-nav");
+
+    // Hamburger toggle
+    menuBtn.addEventListener("click", function() {
+        nav.classList.toggle("nav-open");
+    });
+
+    // Scroll hide
+    window.addEventListener("scroll", function() {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (currentScroll > lastScrollTop && currentScroll > 80) {
+            // Scrolling down - only hide if menu isn't open
+            if (!nav.classList.contains("nav-open")) {
+                header.classList.add("header-hidden");
+            }
+        } else {
+            // Scrolling up
+            header.classList.remove("header-hidden");
+        }
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    }, false);
+</script>

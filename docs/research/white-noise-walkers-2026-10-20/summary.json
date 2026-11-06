@@ -1,0 +1,128 @@
+{
+  "team": "White-Noise-Walkers",
+  "wallet_mapping": "not established; manual evidence review required",
+  "phases": {
+    "leaderboard": {
+      "board_generated_at": "2026-10-20T14:04:00.00056236Z",
+      "chart_generated_at": "2026-10-20T14:04:00.00056236Z",
+      "phase": "Live Trading",
+      "from": "2026-10-19T12:00:00Z",
+      "to": "2026-11-06T12:00:00Z",
+      "team_count": 47,
+      "official_numeric_rank_count": 0,
+      "target_board_row": {
+        "name": "White-Noise-Walkers",
+        "ranked": true,
+        "return": 0.010149566720000003,
+        "volatility": null,
+        "volatility_horizon": null,
+        "rank": null,
+        "q": null,
+        "score": null,
+        "eligible": false,
+        "reasons": [
+          "few_daily_returns"
+        ]
+      },
+      "board_pnl_position_among_traded": 1,
+      "board_team_fields": [
+        "eligible",
+        "name",
+        "q",
+        "rank",
+        "ranked",
+        "reasons",
+        "return",
+        "score",
+        "volatility",
+        "volatility_horizon"
+      ],
+      "chart_team_fields": [
+        "last_at",
+        "name",
+        "pnl",
+        "position",
+        "values"
+      ],
+      "address_literals_in_json": [],
+      "chart_position": 1,
+      "latest_pnl": 0.0076494,
+      "last_at": "2026-10-20T14:01:01.828Z",
+      "step_s": 600,
+      "grid_count": 157,
+      "grid_null_count": 0,
+      "first_point": [
+        "2026-10-19T12:00:00+00:00",
+        0
+      ],
+      "last_grid_time": "2026-10-20T14:00:00+00:00",
+      "min_pnl": -0.0011684,
+      "max_pnl": 0.0110776,
+      "sampled_normalized_wealth_drawdown": -0.004068025080949611,
+      "adjacent_full_step_pairs": 156,
+      "positive_steps": 83,
+      "negative_steps": 70,
+      "zero_steps": 3
+    },
+    "practice": {
+      "board_generated_at": "2026-10-18T12:36:41.029620936Z",
+      "chart_generated_at": "2026-10-18T12:36:41.029620936Z",
+      "phase": "Practice",
+      "from": "2026-10-05T12:00:00Z",
+      "to": "2026-10-18T12:00:00Z",
+      "team_count": 64,
+      "official_numeric_rank_count": 46,
+      "target_board_row": {
+        "name": "White-Noise-Walkers",
+        "ranked": true,
+        "return": 0.0029101541109997076,
+        "volatility": 0.0012617660969176591,
+        "volatility_horizon": 0.004370885974258523,
+        "rank": 1,
+        "q": 0.13301869729492524,
+        "score": 0.1064149578359402,
+        "eligible": true,
+        "reasons": null
+      },
+      "board_pnl_position_among_traded": 1,
+      "board_team_fields": [
+        "eligible",
+        "name",
+        "q",
+        "rank",
+        "ranked",
+        "reasons",
+        "return",
+        "score",
+        "volatility",
+        "volatility_horizon"
+      ],
+      "chart_team_fields": [
+        "last_at",
+        "name",
+        "pnl",
+        "position",
+        "values"
+      ],
+      "address_literals_in_json": [],
+      "chart_position": 1,
+      "latest_pnl": 0.0029102,
+      "last_at": "2026-10-18T11:57:25.543Z",
+      "step_s": 600,
+      "grid_count": 1873,
+      "grid_null_count": 119,
+      "first_point": [
+        "2026-10-05T12:00:00+00:00",
+        0
+      ],
+      "last_grid_time": "2026-10-18T12:00:00+00:00",
+      "min_pnl": -0.0044867,
+      "max_pnl": 0.0038848,
+      "sampled_normalized_wealth_drawdown": -0.005708386105991448,
+      "adjacent_full_step_pairs": 1750,
+      "positive_steps": 485,
+      "negative_steps": 501,
+      "zero_steps": 764
+    }
+  }
+}

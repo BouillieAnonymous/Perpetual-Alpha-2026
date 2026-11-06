@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "asset_selector_options": 10,
+  "grid_points": 15815,
+  "event_count": 1706,
+  "event_outcomes_checked": 46062,
+  "rv_points_checked": 1265200,
+  "png_visual_review": 5,
+  "checks": [
+    "all ten asset selections",
+    "24h UTC zoom",
+    "UTC hover",
+    "curve toggle",
+    "A/B toggle",
+    "BTC benchmark toggle",
+    "drag zoom",
+    "reset",
+    "event sums and missing labels",
+    "overlap markers",
+    "all 80 complete-window RV series independently recalculated",
+    "offline HTML"
+  ],
+  "limitation": "DOM/Canvas mock, not real browser end-to-end"
+}

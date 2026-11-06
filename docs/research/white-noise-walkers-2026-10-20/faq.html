@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="8SC6aDf0lhU8oSL496rmS0_QrUduoHIWdnqtErCUa1c" />
+    <title>FAQ</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Perpetual Alpha">
+    <meta property="og:description" content="The AI Trading Competition on Hyperliquid">
+    <meta property="og:image" content="https://perpetual-alpha26.github.io/assets/images/hero_image.png">
+    <meta property="og:url" content="https://perpetual-alpha26.github.io/faq/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Perpetual Alpha">
+    <meta name="twitter:description" content="The AI Trading Competition on Hyperliquid">
+    <meta name="twitter:image" content="https://perpetual-alpha26.github.io/assets/images/hero_image.png">
+
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="/assets/css/style.css?v=8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="site-header" id="site-header">
+    <div class="container header-content">
+        <a href="/" class="mobile-brand">
+            <img src="/assets/images/logo.png" alt="Logo" class="mobile-logo">
+            <span class="mobile-title">Perpetual <span class="highlight">Alpha</span></span>
+        </a>
+        <button id="mobile-menu-btn" class="mobile-menu-btn">☰</button>
+        <nav class="main-nav" id="main-nav">
+            <a href="/" class="">Home</a>
+            <a href="/about" class="">About</a>
+            <a href="/schedule" class="">Schedule</a>
+            <a href="/docs/" class="">Docs</a>
+            <a href="/leaderboard" class="">Leaderboard</a>
+            <a href="/faq" class="active">FAQ</a>
+            <a href="/committee" class="">Committee</a>
+        </nav>
+    </div>
+</header>
+
+<script>
+    let lastScrollTop = 0;
+    const header = document.getElementById("site-header");
+    const menuBtn = document.getElementById("mobile-menu-btn");
+    const nav = document.getElementById("main-nav");
+
+    // Hamburger toggle
+    menuBtn.addEventListener("click", function() {
+        nav.classList.toggle("nav-open");
+    });
+
+    // Scroll hide
+    window.addEventListener("scroll", function() {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (currentScroll > lastScrollTop && currentScroll > 80) {
+            // Scrolling down - only hide if menu isn't open
+            if (!nav.classList.contains("nav-open")) {
+                header.classList.add("header-hidden");
+            }
+        } else {
+            // Scrolling up
+            header.classList.remove("header-hidden");
+        }
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    }, false);
+</script>
+
+    <main class="container">
+        <div class="page-header" style="max-width: 800px; margin: 4rem auto 2rem auto; text-align: left;">
+    <h1 style="font-size: 2.5rem; margin-bottom: 2rem; color: var(--accent-color);">Frequently Asked Questions</h1>
+</div>
+
+<div class="faq-container" style="max-width: 800px; margin: 0 auto; padding-bottom: 4rem;">
+    
+    <details class="faq-item">
+        <summary>Can we use external data sources during the competition?</summary>
+        <div class="faq-answer">
+            Yes, you will be allowed to use external data sources during both the practice and scored trading phases.
+        </div>
+    </details>
+
+    <details class="faq-item">
+        <summary>How much do we need to disclose about external data in our report or code submission?</summary>
+        <div class="faq-answer">
+            At the end of the competition, you will be asked to submit both your code, which will be accessible only to a jury of experts, and a PDF report describing your model and strategy. Both submissions will be part of the evaluation. We therefore strongly encourage teams to document any external data used, including the relevant data sources and, where appropriate, how the data were processed and incorporated into the model. Transparency on this aspect will help the jury properly assess the methodology.
+        </div>
+    </details>
+
+    <details class="faq-item">
+        <summary>Will the organizers provide market data (and on-chain data) for backtesting? What will it include, and when will it be released?</summary>
+        <div class="faq-answer">
+            Yes, we plan to provide historical time-series data that you can use for model development and training. We are still finalizing the exact dataset and format. At this stage, we expect the provided historical data to consist primarily of price time series. More detailed information on the dataset and its release will be communicated once the final setup has been confirmed.
+        </div>
+    </details>
+
+    <details class="faq-item">
+        <summary>Is the submitted code just for the jury's review, or does it need to be reproducible? Will there be requirements on the execution environment, dependencies, or documentation?</summary>
+        <div class="faq-answer">
+            The submitted code will be reviewed by the expert jury as part of the final evaluation and will be used to assess the implementation of the proposed strategy and its consistency with the accompanying report. We are still finalizing the exact requirements regarding reproducibility, execution environment, dependencies, and documentation. Further details will be communicated to participants soon.
+        </div>
+    </details>
+
+</div>
+
+    </main>
+    <footer class="site-footer">
+    <div class="container footer-content">
+        <div class="footer-section">
+            <h4>Perpetual Alpha</h4>
+            <p>The AI Trading Competition on Hyperliquid.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p><a href="mailto:perpetual-alpha@googlegroups.com">perpetual-alpha@googlegroups.com</a></p>
+        </div>
+        <div class="footer-section">
+            <h4>Organized within</h4>
+            <p><a href="https://icaif2026.org/" target="_blank">ICAIF 2026</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026. Built with Jekyll and GitHub Pages.</p>
+    </div>
+</footer>
+
+</body>
+</html>

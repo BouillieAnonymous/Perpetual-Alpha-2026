@@ -1,0 +1,1300 @@
+{
+  "A": {
+    "btc_r": {
+      "unit": "bps",
+      "window": 1,
+      "formula": "10000 log(Mid_t/Mid_t-1)",
+      "asset": "btc",
+      "valid": 21332,
+      "missing": 46,
+      "reasons": {
+        "valid": 21332,
+        "invalid_input_or_incomplete_window": 46
+      }
+    },
+    "btc_mid": {
+      "unit": "USDP",
+      "window": 0,
+      "formula": "valid as-of Mid",
+      "asset": "btc",
+      "valid": 21352,
+      "missing": 26,
+      "reasons": {
+        "valid": 21352,
+        "invalid_quote_or_required_beta_missing": 26
+      }
+    },
+    "btc_spread": {
+      "unit": "bps",
+      "window": 0,
+      "formula": "10000(ask-bid)/Mid",
+      "asset": "btc",
+      "valid": 21352,
+      "missing": 26,
+      "reasons": {
+        "valid": 21352,
+        "invalid_quote_or_required_beta_missing": 26
+      }
+    },
+    "btc_age": {
+      "unit": "seconds",
+      "window": 0,
+      "formula": "t - raw event time (includes expired selected book)",
+      "asset": "btc",
+      "valid": 21377,
+      "missing": 1,
+      "reasons": {
+        "valid": 21377,
+        "no_selected_raw_book": 1
+      }
+    },
+    "btc_receipt_age": {
+      "unit": "seconds",
+      "window": 0,
+      "formula": "t - raw receipt time",
+      "asset": "btc",
+      "valid": 21377,
+      "missing": 1,
+      "reasons": {
+        "valid": 21377,
+        "no_selected_raw_book": 1
+      }
+    },
+    "btc_ret5": {
+      "unit": "bps",
+      "window": 5,
+      "formula": "10000 sum signed log returns; complete window",
+      "asset": "btc",
+      "valid": 21260,
+      "missing": 118,
+      "reasons": {
+        "valid": 21260,
+        "invalid_input_or_incomplete_window": 118
+      }
+    },
+    "btc_rv5": {
+      "unit": "bps",
+      "window": 5,
+      "formula": "10000 sqrt(sum(r²)); complete, not annualized",
+      "asset": "btc",
+      "valid": 21260,
+      "missing": 118,
+      "reasons": {
+        "valid": 21260,
+        "invalid_input_or_incomplete_window": 118
+      }
+    },
+    "btc_ret15": {
+      "unit": "bps",
+      "window": 15,
+      "formula": "10000 sum signed log returns; complete window",
+      "asset": "btc",
+      "valid": 21080,
+      "missing": 298,
+      "reasons": {
+        "valid": 21080,
+        "invalid_input_or_incomplete_window": 298
+      }
+    },
+    "btc_rv15": {
+      "unit": "bps",
+      "window": 15,
+      "formula": "10000 sqrt(sum(r²)); complete, not annualized",
+      "asset": "btc",
+      "valid": 21080,
+      "missing": 298,
+      "reasons": {
+        "valid": 21080,
+        "invalid_input_or_incomplete_window": 298
+      }
+    },
+    "btc_ret30": {
+      "unit": "bps",
+      "window": 30,
+      "formula": "10000 sum signed log returns; complete window",
+      "asset": "btc",
+      "valid": 20823,
+      "missing": 555,
+      "reasons": {
+        "valid": 20823,
+        "invalid_input_or_incomplete_window": 555
+      }
+    },
+    "btc_rv30": {
+      "unit": "bps",
+      "window": 30,
+      "formula": "10000 sqrt(sum(r²)); complete, not annualized",
+      "asset": "btc",
+      "valid": 20823,
+      "missing": 555,
+      "reasons": {
+        "valid": 20823,
+        "invalid_input_or_incomplete_window": 555
+      }
+    },
+    "btc_ret60": {
+      "unit": "bps",
+      "window": 60,
+      "formula": "10000 sum signed log returns; complete window",
+      "asset": "btc",
+      "valid": 20338,
+      "missing": 1040,
+      "reasons": {
+        "valid": 20338,
+        "invalid_input_or_incomplete_window": 1040
+      }
+    },
+    "btc_rv60": {
+      "unit": "bps",
+      "window": 60,
+      "formula": "10000 sqrt(sum(r²)); complete, not annualized",
+      "asset": "btc",
+      "valid": 20338,
+      "missing": 1040,
+      "reasons": {
+        "valid": 20338,
+        "invalid_input_or_incomplete_window": 1040
+      }
+    },
+    "btc_slope5": {
+      "unit": "bps/min",
+      "window": 5,
+      "formula": "OLS log Mid vs UTC minute 0…w, w+1 prices; all selected-mode returns valid",
+      "asset": "btc",
+      "valid": 21260,
+      "missing": 118,
+      "reasons": {
+        "warmup": 5,
+        "invalid_return_window": 113,
+        "valid": 21260
+      }
+    },
+    "btc_slope15": {
+      "unit": "bps/min",
+      "window": 15,
+      "formula": "OLS log Mid vs UTC minute 0…w, w+1 prices; all selected-mode returns valid",
+      "asset": "btc",
+      "valid": 21080,
+      "missing": 298,
+      "reasons": {
+        "warmup": 15,
+        "invalid_return_window": 283,
+        "valid": 21080
+      }
+    },
+    "btc_slope60": {
+      "unit": "bps/min",
+      "window": 60,
+      "formula": "OLS log Mid vs UTC minute 0…w, w+1 prices; all selected-mode returns valid",
+      "asset": "btc",
+      "valid": 20338,
+      "missing": 1040,
+      "reasons": {
+        "warmup": 60,
+        "invalid_return_window": 980,
+        "valid": 20338
+      }
+    },
+    "eth_r": {
+      "unit": "bps",
+      "window": 1,
+      "formula": "10000 log(Mid_t/Mid_t-1)",
+      "asset": "eth",
+      "valid": 21332,
+      "missing": 46,
+      "reasons": {
+        "valid": 21332,
+        "invalid_input_or_incomplete_window": 46
+      }
+    },
+    "eth_mid": {
+      "unit": "USDP",
+      "window": 0,
+      "formula": "valid as-of Mid",
+      "asset": "eth",
+      "valid": 21352,
+      "missing": 26,
+      "reasons": {
+        "valid": 21352,
+        "invalid_quote_or_required_beta_missing": 26
+      }
+    },
+    "eth_spread": {
+      "unit": "bps",
+      "window": 0,
+      "formula": "10000(ask-bid)/Mid",
+      "asset": "eth",
+      "valid": 21352,
+      "missing": 26,
+      "reasons": {
+        "valid": 21352,
+        "invalid_quote_or_required_beta_missing": 26
+      }
+    },
+    "eth_age": {
+      "unit": "seconds",
+      "window": 0,
+      "formula": "t - raw event time (includes expired selected book)",
+      "asset": "eth",
+      "valid": 21377,
+      "missing": 1,
+      "reasons": {
+        "valid": 21377,
+        "no_selected_raw_book": 1
+      }
+    },
+    "eth_receipt_age": {
+      "unit": "seconds",
+      "window": 0,
+      "formula": "t - raw receipt time",
+      "asset": "eth",
+      "valid": 21377,
+      "missing": 1,
+      "reasons": {
+        "valid": 21377,
+        "no_selected_raw_book": 1
+      }
+    },
+    "eth_ret5": {
+      "unit": "bps",
+      "window": 5,
+      "formula": "10000 sum signed log returns; complete window",
+      "asset": "eth",
+      "valid": 21260,
+      "missing": 118,
+      "reasons": {
+        "valid": 21260,
+        "invalid_input_or_incomplete_window": 118
+      }
+    },
+    "eth_rv5": {
+      "unit": "bps",
+      "window": 5,
+      "formula": "10000 sqrt(sum(r²)); complete, not annualized",
+      "asset": "eth",
+      "valid": 21260,
+      "missing": 118,
+      "reasons": {
+        "valid": 21260,
+        "invalid_input_or_incomplete_window": 118
+      }
+    },
+    "eth_ret15": {
+      "unit": "bps",
+      "window": 15,
+      "formula": "10000 sum signed log returns; complete window",
+      "asset": "eth",
+      "valid": 21080,
+      "missing": 298,
+      "reasons": {
+        "valid": 21080,
+        "invalid_input_or_incomplete_window": 298
+      }
+    },
+    "eth_rv15": {
+      "unit": "bps",
+      "window": 15,
+      "formula": "10000 sqrt(sum(r²)); complete, not annualized",
+      "asset": "eth",
+      "valid": 21080,
+      "missing": 298,
+      "reasons": {
+        "valid": 21080,
+        "invalid_input_or_incomplete_window": 298
+      }
+    },
+    "eth_ret30": {
+      "unit": "bps",
+      "window": 30,
+      "formula": "10000 sum signed log returns; complete window",
+      "asset": "eth",
+      "valid": 20823,
+      "missing": 555,
+      "reasons": {
+        "valid": 20823,
+        "invalid_input_or_incomplete_window": 555
+      }
+    },
+    "eth_rv30": {
+      "unit": "bps",
+      "window": 30,
+      "formula": "10000 sqrt(sum(r²)); complete, not annualized",
+      "asset": "eth",
+      "valid": 20823,
+      "missing": 555,
+      "reasons": {
+        "valid": 20823,
+        "invalid_input_or_incomplete_window": 555
+      }
+    },
+    "eth_ret60": {
+      "unit": "bps",
+      "window": 60,
+      "formula": "10000 sum signed log returns; complete window",
+      "asset": "eth",
+      "valid": 20338,
+      "missing": 1040,
+      "reasons": {
+        "valid": 20338,
+        "invalid_input_or_incomplete_window": 1040
+      }
+    },
+    "eth_rv60": {
+      "unit": "bps",
+      "window": 60,
+      "formula": "10000 sqrt(sum(r²)); complete, not annualized",
+      "asset": "eth",
+      "valid": 20338,
+      "missing": 1040,
+      "reasons": {
+        "valid": 20338,
+        "invalid_input_or_incomplete_window": 1040
+      }
+    },
+    "eth_slope5": {
+      "unit": "bps/min",
+      "window": 5,
+      "formula": "OLS log Mid vs UTC minute 0…w, w+1 prices; all selected-mode returns valid",
+      "asset": "eth",
+      "valid": 21260,
+      "missing": 118,
+      "reasons": {
+        "warmup": 5,
+        "invalid_return_window": 113,
+        "valid": 21260
+      }
+    },
+    "eth_slope15": {
+      "unit": "bps/min",
+      "window": 15,
+      "formula": "OLS log Mid vs UTC minute 0…w, w+1 prices; all selected-mode returns valid",
+      "asset": "eth",
+      "valid": 21080,
+      "missing": 298,
+      "reasons": {
+        "warmup": 15,
+        "invalid_return_window": 283,
+        "valid": 21080
+      }
+    },
+    "eth_slope60": {
+      "unit": "bps/min",
+      "window": 60,
+      "formula": "OLS log Mid vs UTC minute 0…w, w+1 prices; all selected-mode returns valid",
+      "asset": "eth",
+      "valid": 20338,
+      "missing": 1040,
+      "reasons": {
+        "warmup": 60,
+        "invalid_return_window": 980,
+        "valid": 20338
+      }
+    },
+    "corr60": {
+      "unit": "unitless",
+      "window": 60,
+      "formula": "Pearson on jointly valid clock-minute pairs; >=90% pairs; both centered SS>1e-18",
+      "asset": "pair",
+      "valid": 21250,
+      "missing": 128,
+      "reasons": {
+        "warmup": 59,
+        "valid": 21250,
+        "coverage": 69
+      }
+    },
+    "beta60": {
+      "unit": "ETH/BTC",
+      "window": 60,
+      "formula": "Cov(ETH,BTC)/Var(BTC); >=90% pairs; both centered SS>1e-18",
+      "asset": "pair",
+      "valid": 21250,
+      "missing": 128,
+      "reasons": {
+        "warmup": 59,
+        "valid": 21250,
+        "coverage": 69
+      }
+    },
+    "pair_n60": {
+      "unit": "pairs",
+      "window": 60,
+      "formula": "joint valid pair count in nominal clock window",
+      "asset": "pair",
+      "valid": 21319,
+      "missing": 59,
+      "reasons": {
+        "valid": 21319,
+        "invalid_input_or_incomplete_window": 59
+      }
+    },
+    "corr240": {
+      "unit": "unitless",
+      "window": 240,
+      "formula": "Pearson on jointly valid clock-minute pairs; >=90% pairs; both centered SS>1e-18",
+      "asset": "pair",
+      "valid": 21139,
+      "missing": 239,
+      "reasons": {
+        "warmup": 239,
+        "valid": 21139
+      }
+    },
+    "beta240": {
+      "unit": "ETH/BTC",
+      "window": 240,
+      "formula": "Cov(ETH,BTC)/Var(BTC); >=90% pairs; both centered SS>1e-18",
+      "asset": "pair",
+      "valid": 21139,
+      "missing": 239,
+      "reasons": {
+        "warmup": 239,
+        "valid": 21139
+      }
+    },
+    "pair_n240": {
+      "unit": "pairs",
+      "window": 240,
+      "formula": "joint valid pair count in nominal clock window",
+      "asset": "pair",
+      "valid": 21139,
+      "missing": 239,
+      "reasons": {
+        "valid": 21139,
+        "invalid_input_or_incomplete_window": 239
+      }
+    },
+    "corr1440": {
+      "unit": "unitless",
+      "window": 1440,
+      "formula": "Pearson on jointly valid clock-minute pairs; >=90% pairs; both centered SS>1e-18",
+      "asset": "pair",
+      "valid": 19939,
+      "missing": 1439,
+      "reasons": {
+        "warmup": 1439,
+        "valid": 19939
+      }
+    },
+    "beta1440": {
+      "unit": "ETH/BTC",
+      "window": 1440,
+      "formula": "Cov(ETH,BTC)/Var(BTC); >=90% pairs; both centered SS>1e-18",
+      "asset": "pair",
+      "valid": 19939,
+      "missing": 1439,
+      "reasons": {
+        "warmup": 1439,
+        "valid": 19939
+      }
+    },
+    "pair_n1440": {
+      "unit": "pairs",
+      "window": 1440,
+      "formula": "joint valid pair count in nominal clock window",
+      "asset": "pair",
+      "valid": 19939,
+      "missing": 1439,
+      "reasons": {
+        "valid": 19939,
+        "invalid_input_or_incomplete_window": 1439
+      }
+    },
+    "h03_beta": {
+      "unit": "ETH/BTC",
+      "window": "1440 excluding signal60",
+      "formula": "PR38 returns [i-1500,i-60), >=1296 pairs; past-only",
+      "asset": "pair",
+      "valid": 19878,
+      "missing": 1500,
+      "reasons": {
+        "warmup": 1500,
+        "valid": 19878
+      }
+    },
+    "h03_n": {
+      "unit": "pairs",
+      "window": 1440,
+      "formula": "PR38 beta sample count",
+      "asset": "pair",
+      "valid": 21378,
+      "missing": 0,
+      "reasons": {
+        "valid": 21378,
+        "invalid_input_or_incomplete_window": 0
+      }
+    },
+    "residual60": {
+      "unit": "bps",
+      "window": 60,
+      "formula": "ETH past60 - H03 beta × BTC past60; no intercept; not P&L",
+      "asset": "pair",
+      "valid": 18899,
+      "missing": 2479,
+      "reasons": {
+        "valid": 18899,
+        "H03_beta_or_complete_past60_missing": 2479
+      }
+    },
+    "residual_z": {
+      "unit": "historical SD",
+      "window": 1440,
+      "formula": "(e_t - mean(e_[i-1440,i)))/sampleSD, >=1296 valid, sd>1e-6 bps; excludes current",
+      "asset": "pair",
+      "valid": 15850,
+      "missing": 5528,
+      "reasons": {
+        "current_residual_missing": 2479,
+        "historical_coverage": 3049,
+        "valid": 15850
+      }
+    },
+    "z_n": {
+      "unit": "residuals",
+      "window": 1440,
+      "formula": "prior residual count; overlapping, dependent",
+      "asset": "pair",
+      "valid": 21378,
+      "missing": 0,
+      "reasons": {
+        "valid": 21378,
+        "invalid_input_or_incomplete_window": 0
+      }
+    },
+    "rv_ratio15": {
+      "unit": "ETH/BTC",
+      "window": 15,
+      "formula": "complete RV_ETH / RV_BTC; denominator>1e-12 bps",
+      "asset": "pair",
+      "valid": 21071,
+      "missing": 307,
+      "reasons": {
+        "valid": 21071,
+        "incomplete_RV_or_small_denominator": 307
+      }
+    },
+    "rv_ratio60": {
+      "unit": "ETH/BTC",
+      "window": 60,
+      "formula": "complete RV_ETH / RV_BTC; denominator>1e-12 bps",
+      "asset": "pair",
+      "valid": 20338,
+      "missing": 1040,
+      "reasons": {
+        "valid": 20338,
+        "incomplete_RV_or_small_denominator": 1040
+      }
+    },
+    "btc_cost_rt": {
+      "unit": "bps",
+      "window": 0,
+      "formula": "current full spread + 2×9 fee + 2×5 slip BUDGET",
+      "asset": "btc",
+      "valid": 21352,
+      "missing": 26,
+      "reasons": {
+        "valid": 21352,
+        "invalid_quote_or_required_beta_missing": 26
+      }
+    },
+    "eth_cost_rt": {
+      "unit": "bps",
+      "window": 0,
+      "formula": "current full spread + 2×9 fee + 2×5 slip BUDGET",
+      "asset": "eth",
+      "valid": 21352,
+      "missing": 26,
+      "reasons": {
+        "valid": 21352,
+        "invalid_quote_or_required_beta_missing": 26
+      }
+    },
+    "two_leg_unweighted": {
+      "unit": "bps per-leg notional",
+      "window": 0,
+      "formula": "spreadBTC+spreadETH+56; two equal-notional legs, NOT gross normalized",
+      "asset": "pair",
+      "valid": 21352,
+      "missing": 26,
+      "reasons": {
+        "valid": 21352,
+        "invalid_quote_or_required_beta_missing": 26
+      }
+    },
+    "gross_cost_rt": {
+      "unit": "bps total gross",
+      "window": 0,
+      "formula": "H03 weighted quoted spread +28 fee/slip BUDGET; no executable net",
+      "asset": "pair",
+      "valid": 19853,
+      "missing": 1525,
+      "reasons": {
+        "valid": 19853,
+        "invalid_quote_or_required_beta_missing": 1525
+      }
+    },
+    "residual_magnitude_gross": {
+      "unit": "bps total gross",
+      "window": 60,
+      "formula": "abs(historical residual)/(1+abs(beta)); magnitude only, not payoff",
+      "asset": "pair",
+      "valid": 18899,
+      "missing": 2479,
+      "reasons": {
+        "valid": 18899,
+        "H03_beta_or_complete_past60_missing": 2479
+      }
+    }
+  },
+  "B": {
+    "btc_r": {
+      "unit": "bps",
+      "window": 1,
+      "formula": "10000 log(Mid_t/Mid_t-1)",
+      "asset": "btc",
+      "valid": 17539,
+      "missing": 3839,
+      "reasons": {
+        "valid": 17539,
+        "invalid_input_or_incomplete_window": 3839
+      }
+    },
+    "btc_mid": {
+      "unit": "USDP",
+      "window": 0,
+      "formula": "valid as-of Mid",
+      "asset": "btc",
+      "valid": 21352,
+      "missing": 26,
+      "reasons": {
+        "valid": 21352,
+        "invalid_quote_or_required_beta_missing": 26
+      }
+    },
+    "btc_spread": {
+      "unit": "bps",
+      "window": 0,
+      "formula": "10000(ask-bid)/Mid",
+      "asset": "btc",
+      "valid": 21352,
+      "missing": 26,
+      "reasons": {
+        "valid": 21352,
+        "invalid_quote_or_required_beta_missing": 26
+      }
+    },
+    "btc_age": {
+      "unit": "seconds",
+      "window": 0,
+      "formula": "t - raw event time (includes expired selected book)",
+      "asset": "btc",
+      "valid": 21377,
+      "missing": 1,
+      "reasons": {
+        "valid": 21377,
+        "no_selected_raw_book": 1
+      }
+    },
+    "btc_receipt_age": {
+      "unit": "seconds",
+      "window": 0,
+      "formula": "t - raw receipt time",
+      "asset": "btc",
+      "valid": 21377,
+      "missing": 1,
+      "reasons": {
+        "valid": 21377,
+        "no_selected_raw_book": 1
+      }
+    },
+    "btc_ret5": {
+      "unit": "bps",
+      "window": 5,
+      "formula": "10000 sum signed log returns; complete window",
+      "asset": "btc",
+      "valid": 11440,
+      "missing": 9938,
+      "reasons": {
+        "valid": 11440,
+        "invalid_input_or_incomplete_window": 9938
+      }
+    },
+    "btc_rv5": {
+      "unit": "bps",
+      "window": 5,
+      "formula": "10000 sqrt(sum(r²)); complete, not annualized",
+      "asset": "btc",
+      "valid": 11440,
+      "missing": 9938,
+      "reasons": {
+        "valid": 11440,
+        "invalid_input_or_incomplete_window": 9938
+      }
+    },
+    "btc_ret15": {
+      "unit": "bps",
+      "window": 15,
+      "formula": "10000 sum signed log returns; complete window",
+      "asset": "btc",
+      "valid": 6483,
+      "missing": 14895,
+      "reasons": {
+        "valid": 6483,
+        "invalid_input_or_incomplete_window": 14895
+      }
+    },
+    "btc_rv15": {
+      "unit": "bps",
+      "window": 15,
+      "formula": "10000 sqrt(sum(r²)); complete, not annualized",
+      "asset": "btc",
+      "valid": 6483,
+      "missing": 14895,
+      "reasons": {
+        "valid": 6483,
+        "invalid_input_or_incomplete_window": 14895
+      }
+    },
+    "btc_ret30": {
+      "unit": "bps",
+      "window": 30,
+      "formula": "10000 sum signed log returns; complete window",
+      "asset": "btc",
+      "valid": 4051,
+      "missing": 17327,
+      "reasons": {
+        "valid": 4051,
+        "invalid_input_or_incomplete_window": 17327
+      }
+    },
+    "btc_rv30": {
+      "unit": "bps",
+      "window": 30,
+      "formula": "10000 sqrt(sum(r²)); complete, not annualized",
+      "asset": "btc",
+      "valid": 4051,
+      "missing": 17327,
+      "reasons": {
+        "valid": 4051,
+        "invalid_input_or_incomplete_window": 17327
+      }
+    },
+    "btc_ret60": {
+      "unit": "bps",
+      "window": 60,
+      "formula": "10000 sum signed log returns; complete window",
+      "asset": "btc",
+      "valid": 2107,
+      "missing": 19271,
+      "reasons": {
+        "valid": 2107,
+        "invalid_input_or_incomplete_window": 19271
+      }
+    },
+    "btc_rv60": {
+      "unit": "bps",
+      "window": 60,
+      "formula": "10000 sqrt(sum(r²)); complete, not annualized",
+      "asset": "btc",
+      "valid": 2107,
+      "missing": 19271,
+      "reasons": {
+        "valid": 2107,
+        "invalid_input_or_incomplete_window": 19271
+      }
+    },
+    "btc_slope5": {
+      "unit": "bps/min",
+      "window": 5,
+      "formula": "OLS log Mid vs UTC minute 0…w, w+1 prices; all selected-mode returns valid",
+      "asset": "btc",
+      "valid": 11440,
+      "missing": 9938,
+      "reasons": {
+        "warmup": 5,
+        "invalid_return_window": 9933,
+        "valid": 11440
+      }
+    },
+    "btc_slope15": {
+      "unit": "bps/min",
+      "window": 15,
+      "formula": "OLS log Mid vs UTC minute 0…w, w+1 prices; all selected-mode returns valid",
+      "asset": "btc",
+      "valid": 6483,
+      "missing": 14895,
+      "reasons": {
+        "warmup": 15,
+        "invalid_return_window": 14880,
+        "valid": 6483
+      }
+    },
+    "btc_slope60": {
+      "unit": "bps/min",
+      "window": 60,
+      "formula": "OLS log Mid vs UTC minute 0…w, w+1 prices; all selected-mode returns valid",
+      "asset": "btc",
+      "valid": 2107,
+      "missing": 19271,
+      "reasons": {
+        "warmup": 60,
+        "invalid_return_window": 19211,
+        "valid": 2107
+      }
+    },
+    "eth_r": {
+      "unit": "bps",
+      "window": 1,
+      "formula": "10000 log(Mid_t/Mid_t-1)",
+      "asset": "eth",
+      "valid": 18675,
+      "missing": 2703,
+      "reasons": {
+        "valid": 18675,
+        "invalid_input_or_incomplete_window": 2703
+      }
+    },
+    "eth_mid": {
+      "unit": "USDP",
+      "window": 0,
+      "formula": "valid as-of Mid",
+      "asset": "eth",
+      "valid": 21352,
+      "missing": 26,
+      "reasons": {
+        "valid": 21352,
+        "invalid_quote_or_required_beta_missing": 26
+      }
+    },
+    "eth_spread": {
+      "unit": "bps",
+      "window": 0,
+      "formula": "10000(ask-bid)/Mid",
+      "asset": "eth",
+      "valid": 21352,
+      "missing": 26,
+      "reasons": {
+        "valid": 21352,
+        "invalid_quote_or_required_beta_missing": 26
+      }
+    },
+    "eth_age": {
+      "unit": "seconds",
+      "window": 0,
+      "formula": "t - raw event time (includes expired selected book)",
+      "asset": "eth",
+      "valid": 21377,
+      "missing": 1,
+      "reasons": {
+        "valid": 21377,
+        "no_selected_raw_book": 1
+      }
+    },
+    "eth_receipt_age": {
+      "unit": "seconds",
+      "window": 0,
+      "formula": "t - raw receipt time",
+      "asset": "eth",
+      "valid": 21377,
+      "missing": 1,
+      "reasons": {
+        "valid": 21377,
+        "no_selected_raw_book": 1
+      }
+    },
+    "eth_ret5": {
+      "unit": "bps",
+      "window": 5,
+      "formula": "10000 sum signed log returns; complete window",
+      "asset": "eth",
+      "valid": 13553,
+      "missing": 7825,
+      "reasons": {
+        "valid": 13553,
+        "invalid_input_or_incomplete_window": 7825
+      }
+    },
+    "eth_rv5": {
+      "unit": "bps",
+      "window": 5,
+      "formula": "10000 sqrt(sum(r²)); complete, not annualized",
+      "asset": "eth",
+      "valid": 13553,
+      "missing": 7825,
+      "reasons": {
+        "valid": 13553,
+        "invalid_input_or_incomplete_window": 7825
+      }
+    },
+    "eth_ret15": {
+      "unit": "bps",
+      "window": 15,
+      "formula": "10000 sum signed log returns; complete window",
+      "asset": "eth",
+      "valid": 8338,
+      "missing": 13040,
+      "reasons": {
+        "valid": 8338,
+        "invalid_input_or_incomplete_window": 13040
+      }
+    },
+    "eth_rv15": {
+      "unit": "bps",
+      "window": 15,
+      "formula": "10000 sqrt(sum(r²)); complete, not annualized",
+      "asset": "eth",
+      "valid": 8338,
+      "missing": 13040,
+      "reasons": {
+        "valid": 8338,
+        "invalid_input_or_incomplete_window": 13040
+      }
+    },
+    "eth_ret30": {
+      "unit": "bps",
+      "window": 30,
+      "formula": "10000 sum signed log returns; complete window",
+      "asset": "eth",
+      "valid": 5120,
+      "missing": 16258,
+      "reasons": {
+        "valid": 5120,
+        "invalid_input_or_incomplete_window": 16258
+      }
+    },
+    "eth_rv30": {
+      "unit": "bps",
+      "window": 30,
+      "formula": "10000 sqrt(sum(r²)); complete, not annualized",
+      "asset": "eth",
+      "valid": 5120,
+      "missing": 16258,
+      "reasons": {
+        "valid": 5120,
+        "invalid_input_or_incomplete_window": 16258
+      }
+    },
+    "eth_ret60": {
+      "unit": "bps",
+      "window": 60,
+      "formula": "10000 sum signed log returns; complete window",
+      "asset": "eth",
+      "valid": 2601,
+      "missing": 18777,
+      "reasons": {
+        "valid": 2601,
+        "invalid_input_or_incomplete_window": 18777
+      }
+    },
+    "eth_rv60": {
+      "unit": "bps",
+      "window": 60,
+      "formula": "10000 sqrt(sum(r²)); complete, not annualized",
+      "asset": "eth",
+      "valid": 2601,
+      "missing": 18777,
+      "reasons": {
+        "valid": 2601,
+        "invalid_input_or_incomplete_window": 18777
+      }
+    },
+    "eth_slope5": {
+      "unit": "bps/min",
+      "window": 5,
+      "formula": "OLS log Mid vs UTC minute 0…w, w+1 prices; all selected-mode returns valid",
+      "asset": "eth",
+      "valid": 13553,
+      "missing": 7825,
+      "reasons": {
+        "warmup": 5,
+        "invalid_return_window": 7820,
+        "valid": 13553
+      }
+    },
+    "eth_slope15": {
+      "unit": "bps/min",
+      "window": 15,
+      "formula": "OLS log Mid vs UTC minute 0…w, w+1 prices; all selected-mode returns valid",
+      "asset": "eth",
+      "valid": 8338,
+      "missing": 13040,
+      "reasons": {
+        "warmup": 15,
+        "invalid_return_window": 13025,
+        "valid": 8338
+      }
+    },
+    "eth_slope60": {
+      "unit": "bps/min",
+      "window": 60,
+      "formula": "OLS log Mid vs UTC minute 0…w, w+1 prices; all selected-mode returns valid",
+      "asset": "eth",
+      "valid": 2601,
+      "missing": 18777,
+      "reasons": {
+        "warmup": 60,
+        "invalid_return_window": 18717,
+        "valid": 2601
+      }
+    },
+    "corr60": {
+      "unit": "unitless",
+      "window": 60,
+      "formula": "Pearson on jointly valid clock-minute pairs; >=90% pairs; both centered SS>1e-18",
+      "asset": "pair",
+      "valid": 5762,
+      "missing": 15616,
+      "reasons": {
+        "warmup": 59,
+        "valid": 5762,
+        "coverage": 15557
+      }
+    },
+    "beta60": {
+      "unit": "ETH/BTC",
+      "window": 60,
+      "formula": "Cov(ETH,BTC)/Var(BTC); >=90% pairs; both centered SS>1e-18",
+      "asset": "pair",
+      "valid": 5762,
+      "missing": 15616,
+      "reasons": {
+        "warmup": 59,
+        "valid": 5762,
+        "coverage": 15557
+      }
+    },
+    "pair_n60": {
+      "unit": "pairs",
+      "window": 60,
+      "formula": "joint valid pair count in nominal clock window",
+      "asset": "pair",
+      "valid": 21319,
+      "missing": 59,
+      "reasons": {
+        "valid": 21319,
+        "invalid_input_or_incomplete_window": 59
+      }
+    },
+    "corr240": {
+      "unit": "unitless",
+      "window": 240,
+      "formula": "Pearson on jointly valid clock-minute pairs; >=90% pairs; both centered SS>1e-18",
+      "asset": "pair",
+      "valid": 3642,
+      "missing": 17736,
+      "reasons": {
+        "warmup": 239,
+        "valid": 3642,
+        "coverage": 17497
+      }
+    },
+    "beta240": {
+      "unit": "ETH/BTC",
+      "window": 240,
+      "formula": "Cov(ETH,BTC)/Var(BTC); >=90% pairs; both centered SS>1e-18",
+      "asset": "pair",
+      "valid": 3642,
+      "missing": 17736,
+      "reasons": {
+        "warmup": 239,
+        "valid": 3642,
+        "coverage": 17497
+      }
+    },
+    "pair_n240": {
+      "unit": "pairs",
+      "window": 240,
+      "formula": "joint valid pair count in nominal clock window",
+      "asset": "pair",
+      "valid": 21139,
+      "missing": 239,
+      "reasons": {
+        "valid": 21139,
+        "invalid_input_or_incomplete_window": 239
+      }
+    },
+    "corr1440": {
+      "unit": "unitless",
+      "window": 1440,
+      "formula": "Pearson on jointly valid clock-minute pairs; >=90% pairs; both centered SS>1e-18",
+      "asset": "pair",
+      "valid": 1178,
+      "missing": 20200,
+      "reasons": {
+        "warmup": 1439,
+        "coverage": 18761,
+        "valid": 1178
+      }
+    },
+    "beta1440": {
+      "unit": "ETH/BTC",
+      "window": 1440,
+      "formula": "Cov(ETH,BTC)/Var(BTC); >=90% pairs; both centered SS>1e-18",
+      "asset": "pair",
+      "valid": 1178,
+      "missing": 20200,
+      "reasons": {
+        "warmup": 1439,
+        "coverage": 18761,
+        "valid": 1178
+      }
+    },
+    "pair_n1440": {
+      "unit": "pairs",
+      "window": 1440,
+      "formula": "joint valid pair count in nominal clock window",
+      "asset": "pair",
+      "valid": 19939,
+      "missing": 1439,
+      "reasons": {
+        "valid": 19939,
+        "invalid_input_or_incomplete_window": 1439
+      }
+    },
+    "h03_beta": {
+      "unit": "ETH/BTC",
+      "window": "1440 excluding signal60",
+      "formula": "PR38 returns [i-1500,i-60), >=1296 pairs; past-only",
+      "asset": "pair",
+      "valid": 1178,
+      "missing": 20200,
+      "reasons": {
+        "warmup": 1500,
+        "coverage": 18700,
+        "valid": 1178
+      }
+    },
+    "h03_n": {
+      "unit": "pairs",
+      "window": 1440,
+      "formula": "PR38 beta sample count",
+      "asset": "pair",
+      "valid": 21378,
+      "missing": 0,
+      "reasons": {
+        "valid": 21378,
+        "invalid_input_or_incomplete_window": 0
+      }
+    },
+    "residual60": {
+      "unit": "bps",
+      "window": 60,
+      "formula": "ETH past60 - H03 beta × BTC past60; no intercept; not P&L",
+      "asset": "pair",
+      "valid": 87,
+      "missing": 21291,
+      "reasons": {
+        "valid": 87,
+        "H03_beta_or_complete_past60_missing": 21291
+      }
+    },
+    "residual_z": {
+      "unit": "historical SD",
+      "window": 1440,
+      "formula": "(e_t - mean(e_[i-1440,i)))/sampleSD, >=1296 valid, sd>1e-6 bps; excludes current",
+      "asset": "pair",
+      "valid": 0,
+      "missing": 21378,
+      "reasons": {
+        "current_residual_missing": 21291,
+        "historical_coverage": 87
+      }
+    },
+    "z_n": {
+      "unit": "residuals",
+      "window": 1440,
+      "formula": "prior residual count; overlapping, dependent",
+      "asset": "pair",
+      "valid": 21378,
+      "missing": 0,
+      "reasons": {
+        "valid": 21378,
+        "invalid_input_or_incomplete_window": 0
+      }
+    },
+    "rv_ratio15": {
+      "unit": "ETH/BTC",
+      "window": 15,
+      "formula": "complete RV_ETH / RV_BTC; denominator>1e-12 bps",
+      "asset": "pair",
+      "valid": 4126,
+      "missing": 17252,
+      "reasons": {
+        "valid": 4126,
+        "incomplete_RV_or_small_denominator": 17252
+      }
+    },
+    "rv_ratio60": {
+      "unit": "ETH/BTC",
+      "window": 60,
+      "formula": "complete RV_ETH / RV_BTC; denominator>1e-12 bps",
+      "asset": "pair",
+      "valid": 1093,
+      "missing": 20285,
+      "reasons": {
+        "valid": 1093,
+        "incomplete_RV_or_small_denominator": 20285
+      }
+    },
+    "btc_cost_rt": {
+      "unit": "bps",
+      "window": 0,
+      "formula": "current full spread + 2×9 fee + 2×5 slip BUDGET",
+      "asset": "btc",
+      "valid": 21352,
+      "missing": 26,
+      "reasons": {
+        "valid": 21352,
+        "invalid_quote_or_required_beta_missing": 26
+      }
+    },
+    "eth_cost_rt": {
+      "unit": "bps",
+      "window": 0,
+      "formula": "current full spread + 2×9 fee + 2×5 slip BUDGET",
+      "asset": "eth",
+      "valid": 21352,
+      "missing": 26,
+      "reasons": {
+        "valid": 21352,
+        "invalid_quote_or_required_beta_missing": 26
+      }
+    },
+    "two_leg_unweighted": {
+      "unit": "bps per-leg notional",
+      "window": 0,
+      "formula": "spreadBTC+spreadETH+56; two equal-notional legs, NOT gross normalized",
+      "asset": "pair",
+      "valid": 21352,
+      "missing": 26,
+      "reasons": {
+        "valid": 21352,
+        "invalid_quote_or_required_beta_missing": 26
+      }
+    },
+    "gross_cost_rt": {
+      "unit": "bps total gross",
+      "window": 0,
+      "formula": "H03 weighted quoted spread +28 fee/slip BUDGET; no executable net",
+      "asset": "pair",
+      "valid": 1176,
+      "missing": 20202,
+      "reasons": {
+        "valid": 1176,
+        "invalid_quote_or_required_beta_missing": 20202
+      }
+    },
+    "residual_magnitude_gross": {
+      "unit": "bps total gross",
+      "window": 60,
+      "formula": "abs(historical residual)/(1+abs(beta)); magnitude only, not payoff",
+      "asset": "pair",
+      "valid": 87,
+      "missing": 21291,
+      "reasons": {
+        "valid": 87,
+        "H03_beta_or_complete_past60_missing": 21291
+      }
+    }
+  }
+}

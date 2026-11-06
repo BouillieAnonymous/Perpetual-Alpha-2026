@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "independent_numeric_cells": 1136796,
+  "future_truncation_utc": "2026-10-27T00:00:00Z",
+  "modes": [
+    "A",
+    "B"
+  ],
+  "checks": [
+    "centered OLS slope",
+    "direct paired covariance correlation beta",
+    "direct sample-SD historical Z excluding current",
+    "all past features invariant after future removal",
+    "constant variance/coverage gates",
+    "no cumulative gap bridge",
+    "published artifact hashes"
+  ],
+  "browser": "NOT_TESTED_BY_THIS_SCRIPT"
+}

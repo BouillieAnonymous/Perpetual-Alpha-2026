@@ -23,3 +23,18 @@ private_key*
 *keystore*.json
 reports/
 *.sqlite*
+
+# Local machine credentials and editor state
+.aws/
+.ssh/
+.idea/
+.vscode/
+*.local
+*.tmp
+*.swp
+Thumbs.db
+.DS_Store
+
+# Intermediate research builds; reviewed/frozen evidence stays versioned
+/docs/research/btc-eth-volatility/visual-eda-v2/output/
+/docs/research/pas-visual-discovery-v3/audit/

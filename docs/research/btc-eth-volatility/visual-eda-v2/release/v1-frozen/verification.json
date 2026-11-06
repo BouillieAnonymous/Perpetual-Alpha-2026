@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "frozen_hashes": 2,
+  "events_independent_of_future_labels": 2181,
+  "outcomes_checked": 6543,
+  "overlap_clusters": 179,
+  "dashboard": {
+    "status": "PASS",
+    "time_panels": 13,
+    "events": 2181,
+    "checks": [
+      "preset UTC range",
+      "UTC hover",
+      "BTC toggle",
+      "drag zoom",
+      "reset",
+      "out-of-sample range rejected",
+      "event hover",
+      "no network dependency"
+    ],
+    "limitation": "DOM/Canvas mock; not real browser end-to-end"
+  },
+  "png_visual_review": 5
+}

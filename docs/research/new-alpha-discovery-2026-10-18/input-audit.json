@@ -1,0 +1,27 @@
+{
+  "kind": "input-audit-not-backtest",
+  "input": ".cache\\basis-market-history.jsonl",
+  "sha256": "3cf036db92ec090736596c80e76f8e69522bb171aec2ea1469867aa41e73ba93",
+  "symbols": {
+    "par:BTC": {
+      "rows": 25032,
+      "first_received_ms": 1791424243369,
+      "last_received_ms": 1792199170598,
+      "null_context_received": 3,
+      "median_receive_interval_ms": 30757,
+      "receive_gaps_over_90s": 27,
+      "quoted_spread_bps_median": 5.021894234008022,
+      "quoted_spread_bps_p90": 16.083336426282646
+    },
+    "par:ETH": {
+      "rows": 25018,
+      "first_received_ms": 1791424243592,
+      "last_received_ms": 1792199170820,
+      "null_context_received": 3,
+      "median_receive_interval_ms": 30757,
+      "receive_gaps_over_90s": 17,
+      "quoted_spread_bps_median": 6.016243858417727,
+      "quoted_spread_bps_p90": 18.599268428775137
+    }
+  }
+}

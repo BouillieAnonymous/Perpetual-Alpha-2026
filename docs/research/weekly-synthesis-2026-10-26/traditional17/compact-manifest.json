@@ -1,0 +1,10 @@
+{
+  "full_archive": ".cache\\alpha-week-2026-10-26\\traditional17-book-ledgers-full.jsonl.gz",
+  "full_sha256": "f121eb90f75ec19b60c7cf73e92e6e755d2b724302a031071cf7fc90cfabe618",
+  "compact_sha256": "aa89f9f7c8f37ee9320f19c6e96baddb874a7ce7caf6da26ed2722f434a81ba1",
+  "records": 2880,
+  "minute_equity_points": 14909600,
+  "saved_equity_points": 249120,
+  "retained": "all signals (separate file), fills, trades, Funding cashflows and summaries unchanged",
+  "source_sha256": "c16aac401798c453cbe04e6f3505c92f5c765de7edcdee8c20f6c3c37cd324cf"
+}

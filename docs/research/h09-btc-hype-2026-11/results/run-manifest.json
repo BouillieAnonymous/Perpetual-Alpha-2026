@@ -1,0 +1,20 @@
+{
+  "completed_utc": "2026-11-05T03:12:36.762371+00:00",
+  "protocol_freeze_sha256": "aaf543d93a175271056eb970a19847f8584294c0616d66bb3890587e56cdccc4",
+  "script_sha256": "a1a859218de731b7e0d3dfc9dfc58c36489830a2ccd9667f76d6f3a0cb73e2fd",
+  "panel_sha256": "d91a6accad6b3322ab814c4f97f1f6039e2f4a95cb0faae8976772ab580d9bc0",
+  "inventory_sha256": "753fc6f75f3641bdd837ab83b1f8e4f30274c2ac3711563595358e8bd3382cd5",
+  "outputs": {
+    "coefficients.json": "db96b0ce6d001d60ca94ded11693deef9301015b83a91c48b354062effd24258",
+    "cost-diagnostic.json": "5e1de0d2aa1d7b4484b66b1e97403f3a9e80f3f5c021b9b147fe25905a2838de",
+    "daily-paired-errors.csv": "17564d5141d8b3bf2903a58b0caa2294171209994e7cc32465875e27572a0b13",
+    "event-summary.json": "2aa8c8c6a692f0bc9a1a5d2914be64775444453f3d536019a2cd3f99b836dc78",
+    "events.csv": "3125e68a85acb7cb0f2abda35363eb66880ce4619f1017a8cae6c9c6c503d51b",
+    "failures.json": "4da274ca0f5f1f5f1535ec11e6c32f1c50343dbc016170da452bb21dd2282a2b",
+    "metrics.json": "1af2a4943da5493a7449509bac10f7bdd930ce6437a292a34e768c6583f55737",
+    "predictions.csv": "8e90f5b8679752d69d94c8cd62d4f861bb4154d4ecf806a2ce7aa66560910b78",
+    "quality.json": "4d9a6c6f9fff5c178b5a4af3feb4d1b66ea19d1c1dfeeea510e647b887271ae4"
+  },
+  "status": "NO_INCREMENTAL_EVIDENCE",
+  "no_newer_data_labels": true
+}

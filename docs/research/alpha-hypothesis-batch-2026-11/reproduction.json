@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "identical_run_manifests": true,
+  "identical_artifacts": [
+    "results.csv",
+    "events.csv",
+    "model-comparison.csv",
+    "points.csv.gz",
+    "models.json",
+    "thresholds.json",
+    "data-audit.json",
+    "input-hashes.json",
+    "daily-comparison.csv"
+  ],
+  "runs": 2,
+  "parameters_changed": false
+}

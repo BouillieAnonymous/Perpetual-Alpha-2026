@@ -1,0 +1,494 @@
+{
+  "assets": {
+    "pas:BTC": {
+      "invalid_quote_grid_points": [
+        {
+          "utc": "2026-10-19T13:43:00+00:00",
+          "seq": null,
+          "quality": null,
+          "event_age_ms": null
+        },
+        {
+          "utc": "2026-10-23T06:14:00+00:00",
+          "seq": 114284,
+          "quality": "ready",
+          "event_age_ms": 111199
+        },
+        {
+          "utc": "2026-10-26T02:22:00+00:00",
+          "seq": 201371,
+          "quality": "ready",
+          "event_age_ms": 136949
+        },
+        {
+          "utc": "2026-10-26T02:23:00+00:00",
+          "seq": 201371,
+          "quality": "ready",
+          "event_age_ms": 196949
+        },
+        {
+          "utc": "2026-10-26T02:24:00+00:00",
+          "seq": 201371,
+          "quality": "ready",
+          "event_age_ms": 256949
+        },
+        {
+          "utc": "2026-10-26T02:25:00+00:00",
+          "seq": 201371,
+          "quality": "ready",
+          "event_age_ms": 316949
+        },
+        {
+          "utc": "2026-10-26T02:26:00+00:00",
+          "seq": 201371,
+          "quality": "ready",
+          "event_age_ms": 376949
+        },
+        {
+          "utc": "2026-10-26T02:27:00+00:00",
+          "seq": 201371,
+          "quality": "ready",
+          "event_age_ms": 436949
+        },
+        {
+          "utc": "2026-10-26T02:28:00+00:00",
+          "seq": 201371,
+          "quality": "ready",
+          "event_age_ms": 496949
+        },
+        {
+          "utc": "2026-10-26T02:29:00+00:00",
+          "seq": 201371,
+          "quality": "ready",
+          "event_age_ms": 556949
+        },
+        {
+          "utc": "2026-10-26T02:30:00+00:00",
+          "seq": 201371,
+          "quality": "ready",
+          "event_age_ms": 616949
+        },
+        {
+          "utc": "2026-10-26T02:31:00+00:00",
+          "seq": 201371,
+          "quality": "ready",
+          "event_age_ms": 676949
+        },
+        {
+          "utc": "2026-10-26T02:32:00+00:00",
+          "seq": 201371,
+          "quality": "ready",
+          "event_age_ms": 736949
+        },
+        {
+          "utc": "2026-10-26T02:33:00+00:00",
+          "seq": 201371,
+          "quality": "ready",
+          "event_age_ms": 796949
+        },
+        {
+          "utc": "2026-10-26T02:34:00+00:00",
+          "seq": 201371,
+          "quality": "ready",
+          "event_age_ms": 856949
+        },
+        {
+          "utc": "2026-10-26T02:35:00+00:00",
+          "seq": 201371,
+          "quality": "ready",
+          "event_age_ms": 916949
+        },
+        {
+          "utc": "2026-10-26T02:36:00+00:00",
+          "seq": 201371,
+          "quality": "ready",
+          "event_age_ms": 976949
+        },
+        {
+          "utc": "2026-10-26T02:37:00+00:00",
+          "seq": 201371,
+          "quality": "ready",
+          "event_age_ms": 1036949
+        },
+        {
+          "utc": "2026-10-26T02:38:00+00:00",
+          "seq": 201371,
+          "quality": "ready",
+          "event_age_ms": 1096949
+        },
+        {
+          "utc": "2026-10-26T02:39:00+00:00",
+          "seq": 201371,
+          "quality": "ready",
+          "event_age_ms": 1156949
+        },
+        {
+          "utc": "2026-10-26T02:40:00+00:00",
+          "seq": 201371,
+          "quality": "ready",
+          "event_age_ms": 1216949
+        },
+        {
+          "utc": "2026-10-26T02:41:00+00:00",
+          "seq": 201371,
+          "quality": "ready",
+          "event_age_ms": 1276949
+        },
+        {
+          "utc": "2026-10-30T08:42:00+00:00",
+          "seq": 331791,
+          "quality": "ready",
+          "event_age_ms": 134385
+        },
+        {
+          "utc": "2026-10-30T11:43:00+00:00",
+          "seq": 335613,
+          "quality": "ready",
+          "event_age_ms": 99372
+        },
+        {
+          "utc": "2026-11-02T21:16:00+00:00",
+          "seq": 439856,
+          "quality": "ready",
+          "event_age_ms": 97031
+        },
+        {
+          "utc": "2026-11-03T08:51:00+00:00",
+          "seq": 454661,
+          "quality": "ready",
+          "event_age_ms": 95382
+        }
+      ],
+      "anomalies": [],
+      "strict_exclusion_disjoint_counts": {
+        "unchanged_only": 3781,
+        "interval_only": 12,
+        "both": 0
+      },
+      "raw_time_fields": {
+        "event_ms": {
+          "min": 1792417392301,
+          "max": 1793699985400
+        },
+        "requested_ms": {
+          "min": 1792417392948,
+          "max": 1793699985980
+        },
+        "received_ms": {
+          "min": 1792417392948,
+          "max": 1793699986207
+        },
+        "stored_ms": {
+          "min": 1792417392951,
+          "max": 1793699986207
+        },
+        "available_ms": {
+          "min": 1792417392951,
+          "max": 1793699986207
+        }
+      }
+    },
+    "pas:ETH": {
+      "invalid_quote_grid_points": [
+        {
+          "utc": "2026-10-19T13:43:00+00:00",
+          "seq": null,
+          "quality": null,
+          "event_age_ms": null
+        },
+        {
+          "utc": "2026-10-23T06:14:00+00:00",
+          "seq": 114286,
+          "quality": "ready",
+          "event_age_ms": 111199
+        },
+        {
+          "utc": "2026-10-26T02:22:00+00:00",
+          "seq": 201373,
+          "quality": "ready",
+          "event_age_ms": 136949
+        },
+        {
+          "utc": "2026-10-26T02:23:00+00:00",
+          "seq": 201373,
+          "quality": "ready",
+          "event_age_ms": 196949
+        },
+        {
+          "utc": "2026-10-26T02:24:00+00:00",
+          "seq": 201373,
+          "quality": "ready",
+          "event_age_ms": 256949
+        },
+        {
+          "utc": "2026-10-26T02:25:00+00:00",
+          "seq": 201373,
+          "quality": "ready",
+          "event_age_ms": 316949
+        },
+        {
+          "utc": "2026-10-26T02:26:00+00:00",
+          "seq": 201373,
+          "quality": "ready",
+          "event_age_ms": 376949
+        },
+        {
+          "utc": "2026-10-26T02:27:00+00:00",
+          "seq": 201373,
+          "quality": "ready",
+          "event_age_ms": 436949
+        },
+        {
+          "utc": "2026-10-26T02:28:00+00:00",
+          "seq": 201373,
+          "quality": "ready",
+          "event_age_ms": 496949
+        },
+        {
+          "utc": "2026-10-26T02:29:00+00:00",
+          "seq": 201373,
+          "quality": "ready",
+          "event_age_ms": 556949
+        },
+        {
+          "utc": "2026-10-26T02:30:00+00:00",
+          "seq": 201373,
+          "quality": "ready",
+          "event_age_ms": 616949
+        },
+        {
+          "utc": "2026-10-26T02:31:00+00:00",
+          "seq": 201373,
+          "quality": "ready",
+          "event_age_ms": 676949
+        },
+        {
+          "utc": "2026-10-26T02:32:00+00:00",
+          "seq": 201373,
+          "quality": "ready",
+          "event_age_ms": 736949
+        },
+        {
+          "utc": "2026-10-26T02:33:00+00:00",
+          "seq": 201373,
+          "quality": "ready",
+          "event_age_ms": 796949
+        },
+        {
+          "utc": "2026-10-26T02:34:00+00:00",
+          "seq": 201373,
+          "quality": "ready",
+          "event_age_ms": 856949
+        },
+        {
+          "utc": "2026-10-26T02:35:00+00:00",
+          "seq": 201373,
+          "quality": "ready",
+          "event_age_ms": 916949
+        },
+        {
+          "utc": "2026-10-26T02:36:00+00:00",
+          "seq": 201373,
+          "quality": "ready",
+          "event_age_ms": 976949
+        },
+        {
+          "utc": "2026-10-26T02:37:00+00:00",
+          "seq": 201373,
+          "quality": "ready",
+          "event_age_ms": 1036949
+        },
+        {
+          "utc": "2026-10-26T02:38:00+00:00",
+          "seq": 201373,
+          "quality": "ready",
+          "event_age_ms": 1096949
+        },
+        {
+          "utc": "2026-10-26T02:39:00+00:00",
+          "seq": 201373,
+          "quality": "ready",
+          "event_age_ms": 1156949
+        },
+        {
+          "utc": "2026-10-26T02:40:00+00:00",
+          "seq": 201373,
+          "quality": "ready",
+          "event_age_ms": 1216949
+        },
+        {
+          "utc": "2026-10-26T02:41:00+00:00",
+          "seq": 201373,
+          "quality": "ready",
+          "event_age_ms": 1276949
+        },
+        {
+          "utc": "2026-10-30T08:42:00+00:00",
+          "seq": 331793,
+          "quality": "ready",
+          "event_age_ms": 134385
+        },
+        {
+          "utc": "2026-10-30T11:43:00+00:00",
+          "seq": 335615,
+          "quality": "ready",
+          "event_age_ms": 99372
+        },
+        {
+          "utc": "2026-11-02T21:16:00+00:00",
+          "seq": 439858,
+          "quality": "ready",
+          "event_age_ms": 97031
+        },
+        {
+          "utc": "2026-11-03T08:51:00+00:00",
+          "seq": 454663,
+          "quality": "ready",
+          "event_age_ms": 95382
+        }
+      ],
+      "anomalies": [
+        {
+          "utc": "2026-10-30T01:32:00+00:00",
+          "log_return": -0.012508309384531735,
+          "seq": 322705,
+          "prior_seq": 322684,
+          "bid": 2171.6,
+          "ask": 2174.2,
+          "prior_mid": 2200.25,
+          "oracle": 2175.5,
+          "mark": 2173.3,
+          "prior_oracle": 2202.1,
+          "prior_mark": 2201.5,
+          "event_delta_ms": 59614,
+          "strict_valid": true
+        }
+      ],
+      "strict_exclusion_disjoint_counts": {
+        "unchanged_only": 2645,
+        "interval_only": 11,
+        "both": 1
+      },
+      "raw_time_fields": {
+        "event_ms": {
+          "min": 1792417392810,
+          "max": 1793699985913
+        },
+        "requested_ms": {
+          "min": 1792417392948,
+          "max": 1793699986209
+        },
+        "received_ms": {
+          "min": 1792417392948,
+          "max": 1793699986427
+        },
+        "stored_ms": {
+          "min": 1792417393172,
+          "max": 1793699986427
+        },
+        "available_ms": {
+          "min": 1792417393172,
+          "max": 1793699986427
+        }
+      }
+    }
+  },
+  "fixed_segments": {
+    "development": {
+      "start_inclusive_utc": "2026-10-20T00:00:00+00:00",
+      "end_exclusive_utc": "2026-10-27T00:00:00+00:00",
+      "pipeline": {
+        "with_eth_past15": {
+          "overlapping": 9743,
+          "fixed_30min": 325,
+          "fixed_90min": 110
+        },
+        "with_eth_past60": {
+          "overlapping": 9428,
+          "fixed_30min": 314,
+          "fixed_90min": 105
+        }
+      },
+      "strict": {
+        "with_eth_past15": {
+          "overlapping": 1253,
+          "fixed_30min": 36,
+          "fixed_90min": 12
+        },
+        "with_eth_past60": {
+          "overlapping": 642,
+          "fixed_30min": 22,
+          "fixed_90min": 7
+        }
+      }
+    },
+    "validation": {
+      "start_inclusive_utc": "2026-10-27T00:00:00+00:00",
+      "end_exclusive_utc": "2026-10-31T00:00:00+00:00",
+      "pipeline": {
+        "with_eth_past15": {
+          "overlapping": 5390,
+          "fixed_30min": 182,
+          "fixed_90min": 61
+        },
+        "with_eth_past60": {
+          "overlapping": 5088,
+          "fixed_30min": 170,
+          "fixed_90min": 57
+        }
+      },
+      "strict": {
+        "with_eth_past15": {
+          "overlapping": 780,
+          "fixed_30min": 24,
+          "fixed_90min": 8
+        },
+        "with_eth_past60": {
+          "overlapping": 323,
+          "fixed_30min": 12,
+          "fixed_90min": 5
+        }
+      }
+    },
+    "late": {
+      "start_inclusive_utc": "2026-10-31T00:00:00+00:00",
+      "end_exclusive_utc": "2026-11-03T00:00:00+00:00",
+      "pipeline": {
+        "with_eth_past15": {
+          "overlapping": 4184,
+          "fixed_30min": 138,
+          "fixed_90min": 46
+        },
+        "with_eth_past60": {
+          "overlapping": 4049,
+          "fixed_30min": 135,
+          "fixed_90min": 45
+        }
+      },
+      "strict": {
+        "with_eth_past15": {
+          "overlapping": 220,
+          "fixed_30min": 9,
+          "fixed_90min": 5
+        },
+        "with_eth_past60": {
+          "overlapping": 95,
+          "fixed_30min": 4,
+          "fixed_90min": 2
+        }
+      }
+    }
+  },
+  "joint": {
+    "pipeline": {
+      "all_four_price_fields_available": 21352
+    },
+    "strict": {
+      "all_four_price_fields_available": 21352
+    }
+  },
+  "verification": {
+    "independent_arrival_walk_matches_all_panel_points": 42756,
+    "diagnostic_script_sha256": "d795f1a98c3aba53bdd7a0eb2ca7e3d0db652ac09a2716c1f6e468934deb63e0"
+  }
+}

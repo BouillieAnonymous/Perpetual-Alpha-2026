@@ -1,0 +1,654 @@
+{
+  "header": {
+    "captured_utc": "2026-11-03T11:09:53.226070+00:00",
+    "cutoff_ms": 1793700000000,
+    "exporter": "existing read-only Reader, selected raw rows normalized by existing normalize",
+    "identity": {
+      "collateral": "USDP",
+      "dex": "pas",
+      "endpoint": "https://api.hyperliquid-testnet.xyz/info",
+      "schema": "public-venue-collection/1",
+      "source": "hyperliquid-testnet/pas",
+      "symbols": [
+        "pas:BTC",
+        "pas:ETH",
+        "pas:HYPE",
+        "pas:SP500",
+        "pas:EWY",
+        "pas:EWJ",
+        "pas:BRENT",
+        "pas:GOLD",
+        "pas:USDEUR",
+        "pas:USDJPY"
+      ]
+    },
+    "pipeline_sha256": "32905565e37c052e95b680c0cd3cd46aa50fbd6c0aab950b126c9dc521539b2c",
+    "source_max_seq": 457619,
+    "type": "header"
+  },
+  "footer": {
+    "normalized_rows_sha256": "4426507b53396bcf993d8fd3b81ee43bb50ad4becf48c05dcf254a0ea5bb02a8",
+    "rows": 86982,
+    "selected_raw_rows_sha256": "cb3dd5fd85ca267cd507ba66e724f84199ab4925fe0e66c6ff1f18c1af2ac1cf",
+    "type": "footer"
+  },
+  "file_sha256": "c606ebb4b5a273f9385438fa3c3d47e64bc341ec5107aec714e4f0233d2b63db",
+  "grid": {
+    "start_utc": "2026-10-19T13:43:00+00:00",
+    "end_inclusive_utc": "2026-11-03T10:00:00+00:00",
+    "points": 21378
+  },
+  "assets": {
+    "pas:BTC": {
+      "raw_observations": 43472,
+      "raw_quality_counts": {
+        "context|observed": 21391,
+        "book|ready": 21391,
+        "settled-funding|observed": 690
+      },
+      "range_by_available_utc": [
+        "2026-10-19T13:43:12.951000+00:00",
+        "2026-11-03T09:59:46.207000+00:00"
+      ],
+      "raw_book_receipts": 21391,
+      "raw_ready_books": 21391,
+      "raw_duplicates": {
+        "same_event": 0,
+        "backwards_event": 0,
+        "same_top_prices": 3789,
+        "same_full_payload": 0,
+        "same_levels": 39
+      },
+      "receipt_gaps_over_90s": {
+        "count": 17,
+        "largest": [
+          {
+            "from_utc": "2026-10-26T02:19:46.201000+00:00",
+            "to_utc": "2026-10-26T02:41:46.198000+00:00",
+            "ms": 1319997
+          },
+          {
+            "from_utc": "2026-10-30T08:39:46.205000+00:00",
+            "to_utc": "2026-10-30T08:42:46.204000+00:00",
+            "ms": 179999
+          },
+          {
+            "from_utc": "2026-10-25T08:00:46.196000+00:00",
+            "to_utc": "2026-10-25T08:02:46.229000+00:00",
+            "ms": 120033
+          },
+          {
+            "from_utc": "2026-10-30T16:59:46.201000+00:00",
+            "to_utc": "2026-10-30T17:01:46.224000+00:00",
+            "ms": 120023
+          },
+          {
+            "from_utc": "2026-11-02T21:14:46.199000+00:00",
+            "to_utc": "2026-11-02T21:16:46.209000+00:00",
+            "ms": 120010
+          },
+          {
+            "from_utc": "2026-11-03T08:49:46.200000+00:00",
+            "to_utc": "2026-11-03T08:51:46.206000+00:00",
+            "ms": 120006
+          },
+          {
+            "from_utc": "2026-10-21T21:57:46.193000+00:00",
+            "to_utc": "2026-10-21T21:59:46.198000+00:00",
+            "ms": 120005
+          },
+          {
+            "from_utc": "2026-10-29T09:32:46.202000+00:00",
+            "to_utc": "2026-10-29T09:34:46.203000+00:00",
+            "ms": 120001
+          }
+        ]
+      },
+      "valid_quote_points": 21352,
+      "unavailable_quote_points": 26,
+      "field_valid_points": {
+        "bid": 21352,
+        "ask": 21352,
+        "mid": 21352,
+        "oracle": 21356,
+        "mark": 21356
+      },
+      "pipeline_returns": 21332,
+      "strict_returns": 17539,
+      "strict_exclusions": {
+        "unchanged_top_among_pipeline_returns": 3781,
+        "event_interval_outside_30_90s": 12
+      },
+      "pipeline_valid_event_intervals_ms": {
+        "0": 22990,
+        "0.5": 59998,
+        "0.9": 60299,
+        "0.95": 60373,
+        "0.99": 60477,
+        "1": 126550
+      },
+      "request_latency_ms": {
+        "0": 212,
+        "0.5": 218,
+        "0.9": 222,
+        "0.95": 228,
+        "0.99": 288,
+        "1": 451
+      },
+      "store_minus_receipt_ms": {
+        "0": 0,
+        "0.5": 1,
+        "0.9": 2,
+        "0.95": 2,
+        "0.99": 4,
+        "1": 794
+      },
+      "book_event_age_at_grid_ms": {
+        "0": 2088,
+        "0.5": 14441,
+        "0.9": 14653,
+        "0.95": 14688,
+        "0.99": 14758,
+        "1": 81038
+      },
+      "context_age_at_grid_ms": {
+        "0": 1517,
+        "0.5": 14020,
+        "0.9": 14024,
+        "0.95": 14025,
+        "0.99": 14026,
+        "1": 74024
+      },
+      "return_quantiles": {
+        "0": -0.005142086615736119,
+        "0.5": 0.0,
+        "0.9": 0.00043829731457378784,
+        "0.95": 0.0006698520737788982,
+        "0.99": 0.001337900563154193,
+        "1": 0.006810595044715484
+      },
+      "abs_return_gt_1pct": 0,
+      "spread_gt_50bps": 0,
+      "strict_zero_returns": 51,
+      "runs": {
+        "pipeline": {
+          "count": 18,
+          "longest": 4588,
+          "at_least_60": 16
+        },
+        "strict": {
+          "count": 2242,
+          "longest": 233,
+          "at_least_60": 33
+        }
+      },
+      "rv_complete_windows": {
+        "pipeline": {
+          "5": 21260,
+          "15": 21080,
+          "30": 20823,
+          "60": 20338
+        },
+        "strict": {
+          "5": 11440,
+          "15": 6483,
+          "30": 4051,
+          "60": 2107
+        }
+      }
+    },
+    "pas:ETH": {
+      "raw_observations": 43472,
+      "raw_quality_counts": {
+        "context|observed": 21391,
+        "book|ready": 21391,
+        "settled-funding|observed": 690
+      },
+      "range_by_available_utc": [
+        "2026-10-19T13:43:13.172000+00:00",
+        "2026-11-03T09:59:46.427000+00:00"
+      ],
+      "raw_book_receipts": 21391,
+      "raw_ready_books": 21391,
+      "raw_duplicates": {
+        "same_event": 0,
+        "backwards_event": 0,
+        "same_top_prices": 2647,
+        "same_full_payload": 0,
+        "same_levels": 331
+      },
+      "receipt_gaps_over_90s": {
+        "count": 17,
+        "largest": [
+          {
+            "from_utc": "2026-10-26T02:19:46.424000+00:00",
+            "to_utc": "2026-10-26T02:41:46.417000+00:00",
+            "ms": 1319993
+          },
+          {
+            "from_utc": "2026-10-30T08:39:46.426000+00:00",
+            "to_utc": "2026-10-30T08:42:46.426000+00:00",
+            "ms": 180000
+          },
+          {
+            "from_utc": "2026-10-30T16:59:46.422000+00:00",
+            "to_utc": "2026-10-30T17:01:46.499000+00:00",
+            "ms": 120077
+          },
+          {
+            "from_utc": "2026-10-25T08:00:46.415000+00:00",
+            "to_utc": "2026-10-25T08:02:46.449000+00:00",
+            "ms": 120034
+          },
+          {
+            "from_utc": "2026-11-02T21:14:46.419000+00:00",
+            "to_utc": "2026-11-02T21:16:46.431000+00:00",
+            "ms": 120012
+          },
+          {
+            "from_utc": "2026-10-23T09:52:46.413000+00:00",
+            "to_utc": "2026-10-23T09:54:46.418000+00:00",
+            "ms": 120005
+          },
+          {
+            "from_utc": "2026-10-30T08:04:46.416000+00:00",
+            "to_utc": "2026-10-30T08:06:46.420000+00:00",
+            "ms": 120004
+          },
+          {
+            "from_utc": "2026-10-26T05:03:46.413000+00:00",
+            "to_utc": "2026-10-26T05:05:46.415000+00:00",
+            "ms": 120002
+          }
+        ]
+      },
+      "valid_quote_points": 21352,
+      "unavailable_quote_points": 26,
+      "field_valid_points": {
+        "bid": 21352,
+        "ask": 21352,
+        "mid": 21352,
+        "oracle": 21356,
+        "mark": 21356
+      },
+      "pipeline_returns": 21332,
+      "strict_returns": 18675,
+      "strict_exclusions": {
+        "unchanged_top_among_pipeline_returns": 2646,
+        "event_interval_outside_30_90s": 12
+      },
+      "pipeline_valid_event_intervals_ms": {
+        "0": 22990,
+        "0.5": 59998,
+        "0.9": 60305,
+        "0.95": 60380,
+        "0.99": 60497,
+        "1": 127111
+      },
+      "request_latency_ms": {
+        "0": 212,
+        "0.5": 218,
+        "0.9": 222,
+        "0.95": 231,
+        "0.99": 318,
+        "1": 430
+      },
+      "store_minus_receipt_ms": {
+        "0": 0,
+        "0.5": 1,
+        "0.9": 224,
+        "0.95": 226,
+        "0.99": 272,
+        "1": 2091
+      },
+      "book_event_age_at_grid_ms": {
+        "0": 1527,
+        "0.5": 14228,
+        "0.9": 14442,
+        "0.95": 14482,
+        "0.99": 14547,
+        "1": 81038
+      },
+      "context_age_at_grid_ms": {
+        "0": 1517,
+        "0.5": 14020,
+        "0.9": 14024,
+        "0.95": 14025,
+        "0.99": 14026,
+        "1": 74024
+      },
+      "return_quantiles": {
+        "0": -0.012508309384531735,
+        "0.5": 0.0,
+        "0.9": 0.0006347594474904739,
+        "0.95": 0.0009523493848480058,
+        "0.99": 0.0018427190732701604,
+        "1": 0.007747534569935155
+      },
+      "abs_return_gt_1pct": 1,
+      "spread_gt_50bps": 0,
+      "strict_zero_returns": 98,
+      "runs": {
+        "pipeline": {
+          "count": 18,
+          "longest": 4588,
+          "at_least_60": 16
+        },
+        "strict": {
+          "count": 1756,
+          "longest": 381,
+          "at_least_60": 47
+        }
+      },
+      "rv_complete_windows": {
+        "pipeline": {
+          "5": 21260,
+          "15": 21080,
+          "30": 20823,
+          "60": 20338
+        },
+        "strict": {
+          "5": 13553,
+          "15": 8338,
+          "30": 5120,
+          "60": 2601
+        }
+      }
+    }
+  },
+  "global_request_errors": 38,
+  "alignment": {
+    "both_quotes": 21352,
+    "both_contexts": 21356,
+    "receipt_skew_ms": {
+      "0": 213,
+      "0.5": 220,
+      "0.9": 224,
+      "0.95": 239,
+      "0.99": 323,
+      "1": 1090
+    },
+    "event_skew_ms": {
+      "0": 0,
+      "0.5": 0,
+      "0.9": 535,
+      "0.95": 563,
+      "0.99": 614,
+      "1": 1126
+    }
+  },
+  "h1": {
+    "pipeline": {
+      "joint_return_minutes": 21332,
+      "bare_btc15_eth_future30": {
+        "overlapping": 20578,
+        "fixed_30min_label_disjoint": 689,
+        "fixed_90min_support_disjoint": 232
+      },
+      "with_eth_past15": {
+        "overlapping": 20578,
+        "fixed_30min_label_disjoint": 689,
+        "fixed_90min_support_disjoint": 232
+      },
+      "with_eth_past60": {
+        "overlapping": 19892,
+        "fixed_30min_label_disjoint": 663,
+        "fixed_90min_support_disjoint": 222
+      },
+      "by_utc_day": {
+        "2026-10-19": {
+          "grid_points": 617,
+          "joint_returns": 615,
+          "overlapping": 601,
+          "fixed_30min_label_disjoint": 20,
+          "fixed_90min_support_disjoint": 6
+        },
+        "2026-10-20": {
+          "grid_points": 1440,
+          "joint_returns": 1440,
+          "overlapping": 1440,
+          "fixed_30min_label_disjoint": 48,
+          "fixed_90min_support_disjoint": 16
+        },
+        "2026-10-21": {
+          "grid_points": 1440,
+          "joint_returns": 1439,
+          "overlapping": 1395,
+          "fixed_30min_label_disjoint": 46,
+          "fixed_90min_support_disjoint": 16
+        },
+        "2026-10-22": {
+          "grid_points": 1440,
+          "joint_returns": 1440,
+          "overlapping": 1440,
+          "fixed_30min_label_disjoint": 48,
+          "fixed_90min_support_disjoint": 16
+        },
+        "2026-10-23": {
+          "grid_points": 1440,
+          "joint_returns": 1437,
+          "overlapping": 1349,
+          "fixed_30min_label_disjoint": 45,
+          "fixed_90min_support_disjoint": 15
+        },
+        "2026-10-24": {
+          "grid_points": 1440,
+          "joint_returns": 1440,
+          "overlapping": 1440,
+          "fixed_30min_label_disjoint": 48,
+          "fixed_90min_support_disjoint": 16
+        },
+        "2026-10-25": {
+          "grid_points": 1440,
+          "joint_returns": 1439,
+          "overlapping": 1395,
+          "fixed_30min_label_disjoint": 47,
+          "fixed_90min_support_disjoint": 16
+        },
+        "2026-10-26": {
+          "grid_points": 1440,
+          "joint_returns": 1417,
+          "overlapping": 1329,
+          "fixed_30min_label_disjoint": 45,
+          "fixed_90min_support_disjoint": 16
+        },
+        "2026-10-27": {
+          "grid_points": 1440,
+          "joint_returns": 1440,
+          "overlapping": 1440,
+          "fixed_30min_label_disjoint": 48,
+          "fixed_90min_support_disjoint": 16
+        },
+        "2026-10-28": {
+          "grid_points": 1440,
+          "joint_returns": 1440,
+          "overlapping": 1440,
+          "fixed_30min_label_disjoint": 48,
+          "fixed_90min_support_disjoint": 16
+        },
+        "2026-10-29": {
+          "grid_points": 1440,
+          "joint_returns": 1439,
+          "overlapping": 1395,
+          "fixed_30min_label_disjoint": 47,
+          "fixed_90min_support_disjoint": 16
+        },
+        "2026-10-30": {
+          "grid_points": 1440,
+          "joint_returns": 1430,
+          "overlapping": 1160,
+          "fixed_30min_label_disjoint": 41,
+          "fixed_90min_support_disjoint": 14
+        },
+        "2026-10-31": {
+          "grid_points": 1440,
+          "joint_returns": 1439,
+          "overlapping": 1395,
+          "fixed_30min_label_disjoint": 46,
+          "fixed_90min_support_disjoint": 16
+        },
+        "2026-11-01": {
+          "grid_points": 1440,
+          "joint_returns": 1440,
+          "overlapping": 1440,
+          "fixed_30min_label_disjoint": 48,
+          "fixed_90min_support_disjoint": 16
+        },
+        "2026-11-02": {
+          "grid_points": 1440,
+          "joint_returns": 1438,
+          "overlapping": 1394,
+          "fixed_30min_label_disjoint": 46,
+          "fixed_90min_support_disjoint": 15
+        },
+        "2026-11-03": {
+          "grid_points": 601,
+          "joint_returns": 599,
+          "overlapping": 525,
+          "fixed_30min_label_disjoint": 18,
+          "fixed_90min_support_disjoint": 6
+        }
+      }
+    },
+    "strict": {
+      "joint_return_minutes": 16000,
+      "bare_btc15_eth_future30": {
+        "overlapping": 2759,
+        "fixed_30min_label_disjoint": 93,
+        "fixed_90min_support_disjoint": 30
+      },
+      "with_eth_past15": {
+        "overlapping": 2335,
+        "fixed_30min_label_disjoint": 72,
+        "fixed_90min_support_disjoint": 25
+      },
+      "with_eth_past60": {
+        "overlapping": 1075,
+        "fixed_30min_label_disjoint": 38,
+        "fixed_90min_support_disjoint": 14
+      },
+      "by_utc_day": {
+        "2026-10-19": {
+          "grid_points": 617,
+          "joint_returns": 490,
+          "overlapping": 82,
+          "fixed_30min_label_disjoint": 3,
+          "fixed_90min_support_disjoint": 0
+        },
+        "2026-10-20": {
+          "grid_points": 1440,
+          "joint_returns": 1232,
+          "overlapping": 283,
+          "fixed_30min_label_disjoint": 7,
+          "fixed_90min_support_disjoint": 1
+        },
+        "2026-10-21": {
+          "grid_points": 1440,
+          "joint_returns": 1180,
+          "overlapping": 165,
+          "fixed_30min_label_disjoint": 3,
+          "fixed_90min_support_disjoint": 1
+        },
+        "2026-10-22": {
+          "grid_points": 1440,
+          "joint_returns": 1189,
+          "overlapping": 193,
+          "fixed_30min_label_disjoint": 6,
+          "fixed_90min_support_disjoint": 1
+        },
+        "2026-10-23": {
+          "grid_points": 1440,
+          "joint_returns": 1144,
+          "overlapping": 203,
+          "fixed_30min_label_disjoint": 6,
+          "fixed_90min_support_disjoint": 3
+        },
+        "2026-10-24": {
+          "grid_points": 1440,
+          "joint_returns": 885,
+          "overlapping": 67,
+          "fixed_30min_label_disjoint": 3,
+          "fixed_90min_support_disjoint": 1
+        },
+        "2026-10-25": {
+          "grid_points": 1440,
+          "joint_returns": 766,
+          "overlapping": 24,
+          "fixed_30min_label_disjoint": 0,
+          "fixed_90min_support_disjoint": 0
+        },
+        "2026-10-26": {
+          "grid_points": 1440,
+          "joint_returns": 1167,
+          "overlapping": 318,
+          "fixed_30min_label_disjoint": 11,
+          "fixed_90min_support_disjoint": 5
+        },
+        "2026-10-27": {
+          "grid_points": 1440,
+          "joint_returns": 1111,
+          "overlapping": 77,
+          "fixed_30min_label_disjoint": 2,
+          "fixed_90min_support_disjoint": 0
+        },
+        "2026-10-28": {
+          "grid_points": 1440,
+          "joint_returns": 1048,
+          "overlapping": 101,
+          "fixed_30min_label_disjoint": 4,
+          "fixed_90min_support_disjoint": 1
+        },
+        "2026-10-29": {
+          "grid_points": 1440,
+          "joint_returns": 1223,
+          "overlapping": 317,
+          "fixed_30min_label_disjoint": 9,
+          "fixed_90min_support_disjoint": 4
+        },
+        "2026-10-30": {
+          "grid_points": 1440,
+          "joint_returns": 1315,
+          "overlapping": 285,
+          "fixed_30min_label_disjoint": 9,
+          "fixed_90min_support_disjoint": 3
+        },
+        "2026-10-31": {
+          "grid_points": 1440,
+          "joint_returns": 805,
+          "overlapping": 0,
+          "fixed_30min_label_disjoint": 0,
+          "fixed_90min_support_disjoint": 0
+        },
+        "2026-11-01": {
+          "grid_points": 1440,
+          "joint_returns": 770,
+          "overlapping": 0,
+          "fixed_30min_label_disjoint": 0,
+          "fixed_90min_support_disjoint": 0
+        },
+        "2026-11-02": {
+          "grid_points": 1440,
+          "joint_returns": 1216,
+          "overlapping": 220,
+          "fixed_30min_label_disjoint": 9,
+          "fixed_90min_support_disjoint": 5
+        },
+        "2026-11-03": {
+          "grid_points": 601,
+          "joint_returns": 459,
+          "overlapping": 0,
+          "fixed_30min_label_disjoint": 0,
+          "fixed_90min_support_disjoint": 0
+        }
+      }
+    }
+  },
+  "verification": {
+    "normalized_checksum": true,
+    "pipeline_hash_match": true,
+    "all_selected_available_by_decision": true,
+    "future_truncation_panel_points_equal": 21396,
+    "future_truncation_utc": "2026-10-27T00:00:00+00:00"
+  },
+  "audit_script_sha256": "591e235b4fd79e25403d8011f7a555e41622b8d2fcabf50e1920bcfaed27224d"
+}
