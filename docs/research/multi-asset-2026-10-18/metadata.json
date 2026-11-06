@@ -1,0 +1,89 @@
+{
+  "universe": [
+    {
+      "szDecimals": 4,
+      "name": "par:BTC",
+      "maxLeverage": 40,
+      "marginTableId": 40,
+      "deployerFeeScale": "1.0"
+    },
+    {
+      "szDecimals": 4,
+      "name": "par:ETH",
+      "maxLeverage": 25,
+      "marginTableId": 25,
+      "deployerFeeScale": "1.0"
+    },
+    {
+      "szDecimals": 2,
+      "name": "par:HYPE",
+      "maxLeverage": 10,
+      "marginTableId": 10,
+      "deployerFeeScale": "1.0"
+    },
+    {
+      "szDecimals": 3,
+      "name": "par:SP500",
+      "maxLeverage": 50,
+      "marginTableId": 50,
+      "deployerFeeScale": "1.0"
+    },
+    {
+      "szDecimals": 3,
+      "name": "par:EWY",
+      "maxLeverage": 20,
+      "marginTableId": 20,
+      "deployerFeeScale": "1.0"
+    },
+    {
+      "szDecimals": 3,
+      "name": "par:EWJ",
+      "maxLeverage": 20,
+      "marginTableId": 20,
+      "deployerFeeScale": "1.0"
+    },
+    {
+      "szDecimals": 2,
+      "name": "par:BRENT",
+      "maxLeverage": 20,
+      "marginTableId": 20,
+      "deployerFeeScale": "1.0"
+    },
+    {
+      "szDecimals": 4,
+      "name": "par:GOLD",
+      "maxLeverage": 25,
+      "marginTableId": 25,
+      "deployerFeeScale": "1.0"
+    },
+    {
+      "szDecimals": 1,
+      "name": "par:USDEUR",
+      "maxLeverage": 50,
+      "marginTableId": 50,
+      "deployerFeeScale": "1.0"
+    },
+    {
+      "szDecimals": 2,
+      "name": "par:USDJPY",
+      "maxLeverage": 50,
+      "marginTableId": 50,
+      "deployerFeeScale": "1.0"
+    }
+  ],
+  "marginTables": [
+    [
+      50,
+      {
+        "description": "",
+        "marginTiers": [
+          {
+            "lowerBound": "0.0",
+            "maxLeverage": 50
+          }
+        ]
+      }
+    ]
+  ],
+  "collateralToken": 3032
+}

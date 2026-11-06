@@ -1,0 +1,11 @@
+symbol,rows,valid_rows,events_20bps_band2,entry_attempts,convergence_10m,paired_5m_n,direction_5m_n,direction_5m_hit_rate,gross_bps,net_bps,costs_bps,opposite_net_bps,mae_median_bps,pnl_status,data_status,positive_expectation
+par:BTC,40254,40148,66,13,0.48484848484848464,7,66,0.7272727272727273,-4.136356566571029,-26.174049862357148,22.03769329578612,-37.70768661255043,-28.105161619176755,conditional_legacy_linear_scenario,exploratory_history,not established
+par:ETH,40239,40133,117,20,0.601841820151679,11,116,0.6551724137931034,8.153982563813956,-13.922853635286742,22.076836199100697,-45.71138807582836,-28.60034633250737,conditional_legacy_linear_scenario,exploratory_history,not established
+par:HYPE,280,177,0,0,,0,0,,,,,,,valuation_unverified,short_probe_only,not established
+par:SP500,280,177,0,0,,0,0,,,,,,,valuation_unverified,short_probe_only,not established
+par:EWY,280,177,0,0,,0,0,,,,,,,valuation_unverified,short_probe_only,not established
+par:EWJ,280,177,0,0,,0,0,,,,,,,valuation_unverified,short_probe_only,not established
+par:BRENT,280,177,0,0,,0,0,,,,,,,valuation_unverified,short_probe_only,not established
+par:GOLD,280,177,0,0,,0,0,,,,,,,valuation_unverified,short_probe_only,not established
+par:USDEUR,280,178,0,0,,0,0,,,,,,,valuation_unverified,short_probe_only,not established
+par:USDJPY,280,178,0,0,,0,0,,,,,,,valuation_unverified,short_probe_only,not established

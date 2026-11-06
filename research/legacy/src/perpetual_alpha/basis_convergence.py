@@ -16,6 +16,8 @@ from datetime import datetime, timezone
 from decimal import Decimal
 from pathlib import Path
 
+from .historical.contracts import PRICE_UNITS
+
 
 @dataclass(frozen=True)
 class StudyConfig:
@@ -27,6 +29,9 @@ class StudyConfig:
     latency_ms: int = 1000
     horizon_tolerance_ms: int = 45000
     notional: str = "100"
+    symbols: tuple = ("par:BTC", "par:ETH")
+    pnl_enabled: bool = True
+    market_rules_verified: bool = False
     quantity_step: str = "0.0001"
     min_order_value: str = "10"
     fee_bps: float = 9
@@ -36,6 +41,10 @@ class StudyConfig:
     bootstrap_seed: int = 20261017
 
     def __post_init__(self):
+        if not self.symbols or set(self.symbols) - PRICE_UNITS.keys():
+            raise ValueError("Unsupported competition markets")
+        if self.pnl_enabled and set(self.symbols) - {"par:BTC", "par:ETH"} and not self.market_rules_verified:
+            raise ValueError("Explicit verified market rules required outside legacy BTC/ETH study")
         for sequence in (self.thresholds_bps, self.bands_bps, self.horizons_s):
             if not sequence or tuple(sorted(set(sequence))) != tuple(sequence):
                 raise ValueError("Unique increasing nonempty study grid required")
@@ -67,6 +76,7 @@ class Quote:
     funding: float
     bid_size: float
     ask_size: float
+    executable: bool = True
 
     @property
     def mid(self):
@@ -82,12 +92,14 @@ def prepare(rows, config):
     grouped, diagnostics, previous = defaultdict(list), Counter(), {}
     for row in rows:
         symbol, now = row["symbol"], row["received_ms"]
-        if symbol not in {"par:BTC", "par:ETH"} or type(now) is not int or now < 0:
+        if symbol not in config.symbols or type(now) is not int or now < 0:
             raise ValueError("Unsupported symbol or receipt time")
         if now <= previous.get(symbol, -1):
             raise ValueError("Non-increasing per-symbol receipt times")
         previous[symbol] = now
         try:
+            if row.get("quality") == "invalid":
+                raise ValueError("collector_invalid")
             event, context_time = row["event_ms"], row["context_received_ms"]
             if (type(event) is not int or type(context_time) is not int
                     or not 0 <= now - event <= config.max_age_ms
@@ -103,12 +115,16 @@ def prepare(rows, config):
                     or not 0 < bid <= ask or min(oracle, bsz, asz) <= 0
                     or float(levels[0][0]["px"]) != bid or float(levels[1][0]["px"]) != ask):
                 raise ValueError("invalid_prices_or_depth")
-            quote = Quote(symbol, now, bid, ask, oracle, funding, bsz, asz)
+            quote = Quote(symbol, now, bid, ask, oracle, funding, bsz, asz,
+                          not row.get("execution_rules_invalid", False))
         except (KeyError, TypeError, ValueError, IndexError) as error:
             diagnostics["invalid_rows"] += 1
             diagnostics[str(error)] += 1
             grouped[symbol].append(None)
             continue
+        if row.get("collection_break"):
+            grouped[symbol].append(None)
+            diagnostics["connection_breaks"] += 1
         diagnostics["valid_rows"] += 1
         grouped[symbol].append(quote)
     segments = []
@@ -142,7 +158,7 @@ def liquidation(entry, quote, side, quantity, funding_per_unit, config):
     touch_in = entry.ask if side == 1 else entry.bid
     touch_out = quote.bid if side == 1 else quote.ask
     gross = side * quantity * (touch_out - touch_in)
-    depth_ok = quantity <= (quote.bid_size if side == 1 else quote.ask_size)
+    depth_ok = quote.executable and quantity <= (quote.bid_size if side == 1 else quote.ask_size)
     result = dict(time_ms=quote.time_ms, depth_ok=depth_ok, gross_pnl=gross)
     for name, multiplier in (("base", 1), ("double", 2)):
         slip = config.slippage_bps / 10000 * multiplier
@@ -198,6 +214,12 @@ def observe_event(segment, index, end_reason, threshold, band, config, cutoff):
     entry = segment[entry_index]
     if side * entry.basis >= 0 or abs(entry.basis) < threshold:
         event["entry_status"] = "deviation_gone_at_next_quote"
+        return event
+    if not config.pnl_enabled:
+        event["entry_status"] = "valuation_unverified"
+        return event
+    if not entry.executable:
+        event["entry_status"] = "invalid_market_price_precision"
         return event
     adjusted_entry = Decimal(str(entry.ask if side == 1 else entry.bid)) * (
         Decimal(1) + Decimal(side) * Decimal(str(config.slippage_bps)) / 10000)
@@ -404,9 +426,9 @@ def run(rows, config=StudyConfig()):
         for band in config.bands_bps:
             cohort = [e for e in events if e["threshold_bps"] == threshold and e["band_bps"] == band]
             selectors = [("pooled", "ALL", "ALL", "ALL")]
-            selectors += [("asset_side", s, side, "ALL") for s in ("par:BTC", "par:ETH")
+            selectors += [("asset_side", s, side, "ALL") for s in config.symbols
                           for side in ("long", "short")]
-            selectors += [("cohort", s, side, half) for s in ("par:BTC", "par:ETH")
+            selectors += [("cohort", s, side, half) for s in config.symbols
                           for side in ("long", "short") for half in ("first_half_seen", "second_half_seen")]
             selectors += [("session", "ALL", "ALL", session) for session in ("00-06", "06-12", "12-18", "18-24")]
             for kind, symbol, side, label in selectors:
@@ -419,7 +441,8 @@ def run(rows, config=StudyConfig()):
     return dict(schema="basis-convergence/0.1", config=asdict(config), diagnostics=diagnostics,
                 rules_assumption={"reference": "https://perpetual-alpha26.github.io/docs/",
                                   "checked_date": "2026-10-17", "taker_base_bps_per_side": 9,
-                                  "BTC_ETH_quantity_step": "0.0001", "minimum_order_value": "10",
+                                  "quantity_step": config.quantity_step, "minimum_order_value": config.min_order_value,
+                                  "pnl_enabled": config.pnl_enabled,
                                   "historical_rule_changes_and_account_fee_tier": "not reconstructed"},
                 cutoff_ms=cutoff, left_truncated_segment_grid_cells=left_truncated,
                 coverage={s: dict(rows=sum(q.symbol == s for q in valid),

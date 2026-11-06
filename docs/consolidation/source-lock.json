@@ -1041,6 +1041,240 @@
       "original_path": "tests/test_basis_research.py",
       "destination": "research/legacy/tests/test_basis_research.py",
       "blob": "a544f0a01104afc29ed06e3436e287ea8cfc20ed"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/BRENT-evidence.json.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/BRENT-evidence.json.gz",
+      "blob": "3149822399b592498fc9e1bc8fb7fa0c01d67358"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/BRENT.json",
+      "destination": "docs/research/multi-asset-2026-10-18/BRENT.json",
+      "blob": "a69549d839d965b23475d941bb5e41a1031cabde"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/BTC-evidence.json.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/BTC-evidence.json.gz",
+      "blob": "5c980b141d37d46b7e73d84c79632911b8af6e90"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/BTC.json",
+      "destination": "docs/research/multi-asset-2026-10-18/BTC.json",
+      "blob": "198f0b19941533400aa7e956ec63dd58e166bb19"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/ETH-evidence.json.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/ETH-evidence.json.gz",
+      "blob": "ba47e0de2e913f9976bdd6dc722c1aeb5ae29254"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/ETH.json",
+      "destination": "docs/research/multi-asset-2026-10-18/ETH.json",
+      "blob": "2366b4cc0d6feeec6718c792c2adb3a1474a5b0f"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/EWJ-evidence.json.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/EWJ-evidence.json.gz",
+      "blob": "b1215ed3c05bc4feb16a02261afc85846896932e"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/EWJ.json",
+      "destination": "docs/research/multi-asset-2026-10-18/EWJ.json",
+      "blob": "a639c18938ea624dc69c36bcf784b9e7f559acc1"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/EWY-evidence.json.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/EWY-evidence.json.gz",
+      "blob": "c9412975758848cf0a8af11c64a6a5cc33ebbf54"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/EWY.json",
+      "destination": "docs/research/multi-asset-2026-10-18/EWY.json",
+      "blob": "b42f4520cd6b48f6d0dc48660443ef28afe4080e"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/GOLD-evidence.json.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/GOLD-evidence.json.gz",
+      "blob": "ca33bd464d52b97fc2f7b77786f8dc439e07ab5a"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/GOLD.json",
+      "destination": "docs/research/multi-asset-2026-10-18/GOLD.json",
+      "blob": "678b928f82cf3e69b0abc2bf76bf613915a04393"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/HYPE-evidence.json.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/HYPE-evidence.json.gz",
+      "blob": "83f5245a06c1b5cd711adea2bde3819e846123fa"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/HYPE.json",
+      "destination": "docs/research/multi-asset-2026-10-18/HYPE.json",
+      "blob": "1456faabd78850eabd21cde421e0ba9872a57db4"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/SP500-evidence.json.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/SP500-evidence.json.gz",
+      "blob": "a6f9e8855e10512e4d02db28f11fbd66ffdf328d"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/SP500.json",
+      "destination": "docs/research/multi-asset-2026-10-18/SP500.json",
+      "blob": "5f2750008c58fbd2da6bb2bd5cd46eaa19ed4a25"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/USDEUR-evidence.json.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/USDEUR-evidence.json.gz",
+      "blob": "ed72b42374f9d455dfbc5b2ae426eeba652f100c"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/USDEUR.json",
+      "destination": "docs/research/multi-asset-2026-10-18/USDEUR.json",
+      "blob": "952de922c24ec6fe96555d4891d69a12bb2026aa"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/USDJPY-evidence.json.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/USDJPY-evidence.json.gz",
+      "blob": "e9cf3cfd7891b863c04816454d3de2e096e9d96d"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/USDJPY.json",
+      "destination": "docs/research/multi-asset-2026-10-18/USDJPY.json",
+      "blob": "ca5a404600411f65d7be9c09cb4886ca29ccca4e"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/comparison.csv",
+      "destination": "docs/research/multi-asset-2026-10-18/comparison.csv",
+      "blob": "2deadbfb60f975805fdde8f202c7795619549490"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/convergence.png",
+      "destination": "docs/research/multi-asset-2026-10-18/convergence.png",
+      "blob": "251c80517e2f8ac154cacc2e1e787f124cbba135"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/hash-convention.txt",
+      "destination": "docs/research/multi-asset-2026-10-18/hash-convention.txt",
+      "blob": "52d8884de92a398e43ac33176e9758fdf3f21ae6"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/legacy-btc-eth.jsonl.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/legacy-btc-eth.jsonl.gz",
+      "blob": "1a7af5e4328ca29124dec3958c3e4be14bf3f1d3"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/manifest.json",
+      "destination": "docs/research/multi-asset-2026-10-18/manifest.json",
+      "blob": "3afc608fab143fdd9c5313411e486d893aa8a58d"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/metadata.json",
+      "destination": "docs/research/multi-asset-2026-10-18/metadata.json",
+      "blob": "afdda010e56f9ddb4576816364f162c92b20ac88"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/net-returns.png",
+      "destination": "docs/research/multi-asset-2026-10-18/net-returns.png",
+      "blob": "acb517e15e52aadd8369dee4f409fe9e87356d17"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/official-history.json",
+      "destination": "docs/research/multi-asset-2026-10-18/official-history.json",
+      "blob": "aabe56f2e1a6c35fb9d7dbeab63757f76876e0f1"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/probe-quality.json",
+      "destination": "docs/research/multi-asset-2026-10-18/probe-quality.json",
+      "blob": "04e1c28dae55fa0f46a36de8a2232c1c62d8c98f"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/report.zh-CN.md",
+      "destination": "docs/research/multi-asset-2026-10-18/report.zh-CN.md",
+      "blob": "135217fed7b87b617033fffb866070f4c47552e8"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/summary.json",
+      "destination": "docs/research/multi-asset-2026-10-18/summary.json",
+      "blob": "1a1897de9112cb8094b56639c5a30407b69fa08c"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/ten-asset-probe.jsonl.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/ten-asset-probe.jsonl.gz",
+      "blob": "cad0be8547cc429f1695fcc2c797db138f27cabf"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/vps-extension.jsonl.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/vps-extension.jsonl.gz",
+      "blob": "b2df5192b15fe901b0c07a0131633422c47cbcdf"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "scripts/archive_multi_asset_basis.py",
+      "destination": "research/legacy/scripts/archive_multi_asset_basis.py",
+      "blob": "ff57df10736a59e2f6f101b7b690d1d2c7e04811"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "scripts/capture_official_basis_history.py",
+      "destination": "research/legacy/scripts/capture_official_basis_history.py",
+      "blob": "c70f61e0a35e8e6e29f6a7427892134c9c615a0d"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "src/perpetual_alpha/basis_convergence.py",
+      "destination": "research/legacy/src/perpetual_alpha/basis_convergence.py",
+      "blob": "117552acf3458423b93cfac0a760d7401b113b93"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "src/perpetual_alpha/basis_direction.py",
+      "destination": "research/legacy/src/perpetual_alpha/basis_direction.py",
+      "blob": "af0c0f8918c17b27d61528e286bc0fe96782a515"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "src/perpetual_alpha/multi_asset_basis.py",
+      "destination": "research/legacy/src/perpetual_alpha/multi_asset_basis.py",
+      "blob": "365e34d4c24649fed61cbf5500b98e4b251b2334"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "tests/test_multi_asset_basis.py",
+      "destination": "research/legacy/tests/test_multi_asset_basis.py",
+      "blob": "48db3830b80f80a7148968580ccae2cd415f7602"
     }
   ],
   "manual_review": [
@@ -1765,10 +1999,10 @@
       "blob": "9b712271301e0eeb8fff6328da40414d8ba35024"
     },
     {
-      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
       "original_path": "scripts/capture_official_basis_history.py",
       "destination": "research/legacy/scripts/capture_official_basis_history.py",
-      "blob": "f5bf9be125c921c986cee1f7e88fe6a4d521584e"
+      "blob": "c70f61e0a35e8e6e29f6a7427892134c9c615a0d"
     },
     {
       "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
@@ -1789,10 +2023,10 @@
       "blob": "75afa9c9b6f1263fdd7e49f94718e6c082b2ec47"
     },
     {
-      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
       "original_path": "src/perpetual_alpha/basis_convergence.py",
       "destination": "research/legacy/src/perpetual_alpha/basis_convergence.py",
-      "blob": "dc3289230e651f8e7ae4fd587c4bd2c427c452e6"
+      "blob": "117552acf3458423b93cfac0a760d7401b113b93"
     },
     {
       "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
@@ -1801,10 +2035,10 @@
       "blob": "a49f1e794e35f44c24b54f9bb8fcd87c783bc848"
     },
     {
-      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
       "original_path": "src/perpetual_alpha/basis_direction.py",
       "destination": "research/legacy/src/perpetual_alpha/basis_direction.py",
-      "blob": "cbf235e2cfd9fe0c82d10ce5a719ace8d402190a"
+      "blob": "af0c0f8918c17b27d61528e286bc0fe96782a515"
     },
     {
       "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
@@ -1829,6 +2063,222 @@
       "original_path": "tests/test_basis_research.py",
       "destination": "research/legacy/tests/test_basis_research.py",
       "blob": "a544f0a01104afc29ed06e3436e287ea8cfc20ed"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/BRENT-evidence.json.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/BRENT-evidence.json.gz",
+      "blob": "3149822399b592498fc9e1bc8fb7fa0c01d67358"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/BRENT.json",
+      "destination": "docs/research/multi-asset-2026-10-18/BRENT.json",
+      "blob": "a69549d839d965b23475d941bb5e41a1031cabde"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/BTC-evidence.json.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/BTC-evidence.json.gz",
+      "blob": "5c980b141d37d46b7e73d84c79632911b8af6e90"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/BTC.json",
+      "destination": "docs/research/multi-asset-2026-10-18/BTC.json",
+      "blob": "198f0b19941533400aa7e956ec63dd58e166bb19"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/ETH-evidence.json.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/ETH-evidence.json.gz",
+      "blob": "ba47e0de2e913f9976bdd6dc722c1aeb5ae29254"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/ETH.json",
+      "destination": "docs/research/multi-asset-2026-10-18/ETH.json",
+      "blob": "2366b4cc0d6feeec6718c792c2adb3a1474a5b0f"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/EWJ-evidence.json.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/EWJ-evidence.json.gz",
+      "blob": "b1215ed3c05bc4feb16a02261afc85846896932e"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/EWJ.json",
+      "destination": "docs/research/multi-asset-2026-10-18/EWJ.json",
+      "blob": "a639c18938ea624dc69c36bcf784b9e7f559acc1"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/EWY-evidence.json.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/EWY-evidence.json.gz",
+      "blob": "c9412975758848cf0a8af11c64a6a5cc33ebbf54"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/EWY.json",
+      "destination": "docs/research/multi-asset-2026-10-18/EWY.json",
+      "blob": "b42f4520cd6b48f6d0dc48660443ef28afe4080e"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/GOLD-evidence.json.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/GOLD-evidence.json.gz",
+      "blob": "ca33bd464d52b97fc2f7b77786f8dc439e07ab5a"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/GOLD.json",
+      "destination": "docs/research/multi-asset-2026-10-18/GOLD.json",
+      "blob": "678b928f82cf3e69b0abc2bf76bf613915a04393"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/HYPE-evidence.json.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/HYPE-evidence.json.gz",
+      "blob": "83f5245a06c1b5cd711adea2bde3819e846123fa"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/HYPE.json",
+      "destination": "docs/research/multi-asset-2026-10-18/HYPE.json",
+      "blob": "1456faabd78850eabd21cde421e0ba9872a57db4"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/SP500-evidence.json.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/SP500-evidence.json.gz",
+      "blob": "a6f9e8855e10512e4d02db28f11fbd66ffdf328d"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/SP500.json",
+      "destination": "docs/research/multi-asset-2026-10-18/SP500.json",
+      "blob": "5f2750008c58fbd2da6bb2bd5cd46eaa19ed4a25"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/USDEUR-evidence.json.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/USDEUR-evidence.json.gz",
+      "blob": "ed72b42374f9d455dfbc5b2ae426eeba652f100c"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/USDEUR.json",
+      "destination": "docs/research/multi-asset-2026-10-18/USDEUR.json",
+      "blob": "952de922c24ec6fe96555d4891d69a12bb2026aa"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/USDJPY-evidence.json.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/USDJPY-evidence.json.gz",
+      "blob": "e9cf3cfd7891b863c04816454d3de2e096e9d96d"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/USDJPY.json",
+      "destination": "docs/research/multi-asset-2026-10-18/USDJPY.json",
+      "blob": "ca5a404600411f65d7be9c09cb4886ca29ccca4e"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/comparison.csv",
+      "destination": "docs/research/multi-asset-2026-10-18/comparison.csv",
+      "blob": "2deadbfb60f975805fdde8f202c7795619549490"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/convergence.png",
+      "destination": "docs/research/multi-asset-2026-10-18/convergence.png",
+      "blob": "251c80517e2f8ac154cacc2e1e787f124cbba135"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/hash-convention.txt",
+      "destination": "docs/research/multi-asset-2026-10-18/hash-convention.txt",
+      "blob": "52d8884de92a398e43ac33176e9758fdf3f21ae6"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/legacy-btc-eth.jsonl.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/legacy-btc-eth.jsonl.gz",
+      "blob": "1a7af5e4328ca29124dec3958c3e4be14bf3f1d3"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/manifest.json",
+      "destination": "docs/research/multi-asset-2026-10-18/manifest.json",
+      "blob": "3afc608fab143fdd9c5313411e486d893aa8a58d"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/metadata.json",
+      "destination": "docs/research/multi-asset-2026-10-18/metadata.json",
+      "blob": "afdda010e56f9ddb4576816364f162c92b20ac88"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/net-returns.png",
+      "destination": "docs/research/multi-asset-2026-10-18/net-returns.png",
+      "blob": "acb517e15e52aadd8369dee4f409fe9e87356d17"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/official-history.json",
+      "destination": "docs/research/multi-asset-2026-10-18/official-history.json",
+      "blob": "aabe56f2e1a6c35fb9d7dbeab63757f76876e0f1"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/probe-quality.json",
+      "destination": "docs/research/multi-asset-2026-10-18/probe-quality.json",
+      "blob": "04e1c28dae55fa0f46a36de8a2232c1c62d8c98f"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/report.zh-CN.md",
+      "destination": "docs/research/multi-asset-2026-10-18/report.zh-CN.md",
+      "blob": "135217fed7b87b617033fffb866070f4c47552e8"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/summary.json",
+      "destination": "docs/research/multi-asset-2026-10-18/summary.json",
+      "blob": "1a1897de9112cb8094b56639c5a30407b69fa08c"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/ten-asset-probe.jsonl.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/ten-asset-probe.jsonl.gz",
+      "blob": "cad0be8547cc429f1695fcc2c797db138f27cabf"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "docs/research/multi-asset-2026-10-18/vps-extension.jsonl.gz",
+      "destination": "docs/research/multi-asset-2026-10-18/vps-extension.jsonl.gz",
+      "blob": "b2df5192b15fe901b0c07a0131633422c47cbcdf"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "scripts/archive_multi_asset_basis.py",
+      "destination": "research/legacy/scripts/archive_multi_asset_basis.py",
+      "blob": "ff57df10736a59e2f6f101b7b690d1d2c7e04811"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "src/perpetual_alpha/multi_asset_basis.py",
+      "destination": "research/legacy/src/perpetual_alpha/multi_asset_basis.py",
+      "blob": "365e34d4c24649fed61cbf5500b98e4b251b2334"
+    },
+    {
+      "source": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "original_path": "tests/test_multi_asset_basis.py",
+      "destination": "research/legacy/tests/test_multi_asset_basis.py",
+      "blob": "48db3830b80f80a7148968580ccae2cd415f7602"
     }
   ]
 }

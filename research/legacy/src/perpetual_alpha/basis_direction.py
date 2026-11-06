@@ -17,6 +17,7 @@ from decimal import Decimal
 from pathlib import Path
 
 from .basis_convergence import StudyConfig, decomposition, distribution, liquidation, prepare
+from .historical.contracts import PRICE_UNITS
 
 
 def correlation(x, y):
@@ -52,7 +53,7 @@ def official_funding(evidence):
         if request["type"] != "fundingHistory":
             continue
         coin = request["coin"]
-        if observation.get("error") or coin not in {"par:BTC", "par:ETH"} or coin in result:
+        if observation.get("error") or coin not in PRICE_UNITS or coin in result:
             raise ValueError("Invalid or duplicate official funding observation")
         data = observation["payload"]
         digest = hashlib.sha256(json.dumps(data, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
@@ -167,7 +168,7 @@ def fixed_observations(rows, episodes, config, funding=None, funding_quality=Non
             step = Decimal(config.quantity_step)
             conservative_price = Decimal(str(origin.ask)) * (1 + Decimal(str(config.slippage_bps)) / 10000)
             quantity = float((Decimal(config.notional) / conservative_price // step) * step)
-            size_ok = quantity > 0 and quantity * origin.bid >= float(config.min_order_value)
+            size_ok = config.pnl_enabled and origin.executable and quantity > 0 and quantity * origin.bid >= float(config.min_order_value)
             for horizon in config.horizons_s:
                 target = origin.time_ms + horizon * 1000
                 exit_index = bisect.bisect_left(times, target, lo=origin_index + 1)
@@ -197,7 +198,7 @@ def fixed_observations(rows, episodes, config, funding=None, funding_quality=Non
                     stress = cumulative[exit_index] - cumulative[origin_index]
                     per_side = {}
                     for direction, code in ((1, "long"), (-1, "short")):
-                        enough = quantity <= min(origin.ask_size if direction == 1 else origin.bid_size,
+                        enough = exit_quote.executable and quantity <= min(origin.ask_size if direction == 1 else origin.bid_size,
                                                  exit_quote.bid_size if direction == 1 else exit_quote.ask_size)
                         outcome = liquidation(origin, exit_quote, direction, quantity, stress, config)
                         scale = 10000 / (quantity * origin.mid)
@@ -231,7 +232,7 @@ def fixed_observations(rows, episodes, config, funding=None, funding_quality=Non
                             path = []
                             for j in range(origin_index, min(maximum, len(segment))):
                                 quote = segment[j]
-                                if quantity > (quote.bid_size if direction == 1 else quote.ask_size):
+                                if not quote.executable or quantity > (quote.bid_size if direction == 1 else quote.ask_size):
                                     continue
                                 value = liquidation(origin, quote, direction, quantity,
                                                     cumulative[j] - cumulative[origin_index], config)
@@ -322,7 +323,7 @@ def summarize(observations, config):
                                       and r["long_eligible"] and r["short_eligible"]],
             }
             for cohort, population in cohorts.items():
-                for symbol in ("ALL", "par:BTC", "par:ETH"):
+                for symbol in ("ALL", *config.symbols):
                     for side in ("ALL", "long", "short"):
                         selected = [r for r in population if (symbol == "ALL" or r["symbol"] == symbol)
                                     and (side == "ALL" or r["side"] == side)]
