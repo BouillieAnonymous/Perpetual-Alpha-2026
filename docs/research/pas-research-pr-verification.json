@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "clean_base": "origin/main",
+  "replays": {
+    "pas-mean-reversion-2026-10-19": "all non-provenance fields exactly equal to original research outputs",
+    "pas-short-cycle-2026-10-19": "all non-provenance fields exactly equal to original research outputs",
+    "all-asset-momentum-2026-10-20": "all non-provenance fields exactly equal to original research outputs"
+  },
+  "archive": "gzip mtime=0; decompressed bytes match generated JSON",
+  "production_changes": false
+}
