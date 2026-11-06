@@ -825,6 +825,222 @@
       "original_path": "scripts/validate_pas_weekly_alpha.py",
       "destination": "research/legacy/scripts/validate_pas_weekly_alpha.py",
       "blob": "a09a9f6f920bbef03faba707e4df81a0510a156a"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "config/requirements-research.txt",
+      "destination": "research/legacy/config/requirements-research.txt",
+      "blob": "c082d72ed2a1d0d63c63c2ffdb3f1b59a2b004bb"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/examples/basis-replay-summary.json",
+      "destination": "docs/examples/basis-replay-summary.json",
+      "blob": "78391eefec168838ce56aab3d3dcc4c74858ce33"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/reference-basis-research.zh-CN.md",
+      "destination": "docs/reference-basis-research.zh-CN.md",
+      "blob": "358cd6f5940bcb687d85ec7a25733131ef6f1261"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-convergence-2026-10-17/convergence-cdf.png",
+      "destination": "docs/research/basis-convergence-2026-10-17/convergence-cdf.png",
+      "blob": "c6f1afdc1d0be2bf42fec3b506ad1f9cf2db54b2"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-convergence-2026-10-17/convergence-cdf.svg",
+      "destination": "docs/research/basis-convergence-2026-10-17/convergence-cdf.svg",
+      "blob": "2cd9b51122a924da8c537f5cf289d0438292ce2f"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-convergence-2026-10-17/event-index.csv",
+      "destination": "docs/research/basis-convergence-2026-10-17/event-index.csv",
+      "blob": "1fe53f2d97f8d267672915234a2a32b1e14c0b08"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-convergence-2026-10-17/events.jsonl.gz",
+      "destination": "docs/research/basis-convergence-2026-10-17/events.jsonl.gz",
+      "blob": "e5f049625fb89f7599a7297371a8c7f14095776a"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-convergence-2026-10-17/exit-net-distribution.png",
+      "destination": "docs/research/basis-convergence-2026-10-17/exit-net-distribution.png",
+      "blob": "587a95f8f155663e55f25b76a904435bb61ec622"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-convergence-2026-10-17/exit-net-distribution.svg",
+      "destination": "docs/research/basis-convergence-2026-10-17/exit-net-distribution.svg",
+      "blob": "9ab0ebe88572b7959c3ad5f86e3801f01e6b5fac"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-convergence-2026-10-17/group-summaries.jsonl.gz",
+      "destination": "docs/research/basis-convergence-2026-10-17/group-summaries.jsonl.gz",
+      "blob": "ebcf98af85de2cfdd1ed65aa13a619c199e34a36"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-convergence-2026-10-17/probabilities.csv",
+      "destination": "docs/research/basis-convergence-2026-10-17/probabilities.csv",
+      "blob": "ee095179785f9f28410d9c9fea33aa583b58c6d4"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-convergence-2026-10-17/report.zh-CN.md",
+      "destination": "docs/research/basis-convergence-2026-10-17/report.zh-CN.md",
+      "blob": "50761e8a665365a0c68a92c8166f30e11b21ae12"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-convergence-2026-10-17/summary.json",
+      "destination": "docs/research/basis-convergence-2026-10-17/summary.json",
+      "blob": "337a323d970ee87f61988e2d8b43258aa3a752f9"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/daily.csv",
+      "destination": "docs/research/basis-direction-2026-10-17/daily.csv",
+      "blob": "013baf52699e16011bf5b79e3a81538bce78f11f"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/direction-execution.png",
+      "destination": "docs/research/basis-direction-2026-10-17/direction-execution.png",
+      "blob": "e8a157f7dd836b055f8d4592da481155c9cdae3b"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/direction-execution.svg",
+      "destination": "docs/research/basis-direction-2026-10-17/direction-execution.svg",
+      "blob": "6a1518fdb1b85d4783cfa8c9284b47f3f48f5546"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/direction-prediction.png",
+      "destination": "docs/research/basis-direction-2026-10-17/direction-prediction.png",
+      "blob": "62fdeac554ebcb3ffa6f073d3132d61caf068b68"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/direction-prediction.svg",
+      "destination": "docs/research/basis-direction-2026-10-17/direction-prediction.svg",
+      "blob": "27d8f278cb5d5a9ddb7cc3d0d9a9d1833ce079fb"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/direction-statistics.csv",
+      "destination": "docs/research/basis-direction-2026-10-17/direction-statistics.csv",
+      "blob": "c20af1d38fa7f35c3340db0907b5cdccdc159ab2"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/group-summaries.jsonl.gz",
+      "destination": "docs/research/basis-direction-2026-10-17/group-summaries.jsonl.gz",
+      "blob": "8785d3fcffe78c8f423e30d0e7dcc9538278e79b"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/magnitude-bins.csv",
+      "destination": "docs/research/basis-direction-2026-10-17/magnitude-bins.csv",
+      "blob": "d99bad44cd1660372484257032ef724926037041"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/observations.jsonl.gz",
+      "destination": "docs/research/basis-direction-2026-10-17/observations.jsonl.gz",
+      "blob": "f3ddb88578451c2f717c9ec122bce5aaecbc6e80"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/official-evidence.json",
+      "destination": "docs/research/basis-direction-2026-10-17/official-evidence.json",
+      "blob": "b45b94b9236c301b18b6ea4e950068644b63ad35"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/report.zh-CN.md",
+      "destination": "docs/research/basis-direction-2026-10-17/report.zh-CN.md",
+      "blob": "52626bd4e768706cb4e447a5e5df76732cf65310"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/summary.json",
+      "destination": "docs/research/basis-direction-2026-10-17/summary.json",
+      "blob": "9b712271301e0eeb8fff6328da40414d8ba35024"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "scripts/capture_official_basis_history.py",
+      "destination": "research/legacy/scripts/capture_official_basis_history.py",
+      "blob": "f5bf9be125c921c986cee1f7e88fe6a4d521584e"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "scripts/export_basis_history.py",
+      "destination": "research/legacy/scripts/export_basis_history.py",
+      "blob": "f8022a0bd871b3933cd3281969accacc47b5ae98"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "scripts/render_basis_convergence.py",
+      "destination": "research/legacy/scripts/render_basis_convergence.py",
+      "blob": "bb456a071eaa5a7e0ffd79bf4451adf78ed229c4"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "scripts/render_basis_direction.py",
+      "destination": "research/legacy/scripts/render_basis_direction.py",
+      "blob": "75afa9c9b6f1263fdd7e49f94718e6c082b2ec47"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "src/perpetual_alpha/basis_convergence.py",
+      "destination": "research/legacy/src/perpetual_alpha/basis_convergence.py",
+      "blob": "dc3289230e651f8e7ae4fd587c4bd2c427c452e6"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "src/perpetual_alpha/basis_costs.py",
+      "destination": "research/legacy/src/perpetual_alpha/basis_costs.py",
+      "blob": "a49f1e794e35f44c24b54f9bb8fcd87c783bc848"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "src/perpetual_alpha/basis_direction.py",
+      "destination": "research/legacy/src/perpetual_alpha/basis_direction.py",
+      "blob": "cbf235e2cfd9fe0c82d10ce5a719ace8d402190a"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "src/perpetual_alpha/basis_research.py",
+      "destination": "research/legacy/src/perpetual_alpha/basis_research.py",
+      "blob": "35d8cf2a374487f4abfd3465b971a1e1e6b10d31"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "tests/test_basis_convergence.py",
+      "destination": "research/legacy/tests/test_basis_convergence.py",
+      "blob": "c0ffe797d6cbf14250ea42fc1dd17c8fcd1a2c9f"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "tests/test_basis_direction.py",
+      "destination": "research/legacy/tests/test_basis_direction.py",
+      "blob": "8c85dc53fbb12db20539615159ab73c07e2acb13"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "tests/test_basis_research.py",
+      "destination": "research/legacy/tests/test_basis_research.py",
+      "blob": "a544f0a01104afc29ed06e3436e287ea8cfc20ed"
     }
   ],
   "manual_review": [
@@ -837,6 +1053,18 @@
       "source": "324526afe7396c44da91dd52897b675373f3e906",
       "path": "momentum/mean-reversion/short-cycle variant reports and scripts",
       "reason": "Conflicting archive versions; original PR27 preserved. Additional uncompressed outputs not selected until full source/output pairing approved."
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "path": "docs/project-plan.zh-CN.md",
+      "destination": "docs/project-plan.zh-CN.md",
+      "reason": "Different existing version; not overwritten"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "path": "docs/strategy-development.zh-CN.md",
+      "destination": "docs/strategy-development.zh-CN.md",
+      "reason": "Different existing version; not overwritten"
     }
   ],
   "final_files": [
@@ -1385,6 +1613,222 @@
       "original_path": "scripts/validate_pas_weekly_alpha.py",
       "destination": "research/legacy/scripts/validate_pas_weekly_alpha.py",
       "blob": "a09a9f6f920bbef03faba707e4df81a0510a156a"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "config/requirements-research.txt",
+      "destination": "research/legacy/config/requirements-research.txt",
+      "blob": "c082d72ed2a1d0d63c63c2ffdb3f1b59a2b004bb"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/examples/basis-replay-summary.json",
+      "destination": "docs/examples/basis-replay-summary.json",
+      "blob": "78391eefec168838ce56aab3d3dcc4c74858ce33"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/reference-basis-research.zh-CN.md",
+      "destination": "docs/reference-basis-research.zh-CN.md",
+      "blob": "358cd6f5940bcb687d85ec7a25733131ef6f1261"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-convergence-2026-10-17/convergence-cdf.png",
+      "destination": "docs/research/basis-convergence-2026-10-17/convergence-cdf.png",
+      "blob": "c6f1afdc1d0be2bf42fec3b506ad1f9cf2db54b2"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-convergence-2026-10-17/convergence-cdf.svg",
+      "destination": "docs/research/basis-convergence-2026-10-17/convergence-cdf.svg",
+      "blob": "2cd9b51122a924da8c537f5cf289d0438292ce2f"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-convergence-2026-10-17/event-index.csv",
+      "destination": "docs/research/basis-convergence-2026-10-17/event-index.csv",
+      "blob": "1fe53f2d97f8d267672915234a2a32b1e14c0b08"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-convergence-2026-10-17/events.jsonl.gz",
+      "destination": "docs/research/basis-convergence-2026-10-17/events.jsonl.gz",
+      "blob": "e5f049625fb89f7599a7297371a8c7f14095776a"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-convergence-2026-10-17/exit-net-distribution.png",
+      "destination": "docs/research/basis-convergence-2026-10-17/exit-net-distribution.png",
+      "blob": "587a95f8f155663e55f25b76a904435bb61ec622"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-convergence-2026-10-17/exit-net-distribution.svg",
+      "destination": "docs/research/basis-convergence-2026-10-17/exit-net-distribution.svg",
+      "blob": "9ab0ebe88572b7959c3ad5f86e3801f01e6b5fac"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-convergence-2026-10-17/group-summaries.jsonl.gz",
+      "destination": "docs/research/basis-convergence-2026-10-17/group-summaries.jsonl.gz",
+      "blob": "ebcf98af85de2cfdd1ed65aa13a619c199e34a36"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-convergence-2026-10-17/probabilities.csv",
+      "destination": "docs/research/basis-convergence-2026-10-17/probabilities.csv",
+      "blob": "ee095179785f9f28410d9c9fea33aa583b58c6d4"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-convergence-2026-10-17/report.zh-CN.md",
+      "destination": "docs/research/basis-convergence-2026-10-17/report.zh-CN.md",
+      "blob": "50761e8a665365a0c68a92c8166f30e11b21ae12"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-convergence-2026-10-17/summary.json",
+      "destination": "docs/research/basis-convergence-2026-10-17/summary.json",
+      "blob": "337a323d970ee87f61988e2d8b43258aa3a752f9"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/daily.csv",
+      "destination": "docs/research/basis-direction-2026-10-17/daily.csv",
+      "blob": "013baf52699e16011bf5b79e3a81538bce78f11f"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/direction-execution.png",
+      "destination": "docs/research/basis-direction-2026-10-17/direction-execution.png",
+      "blob": "e8a157f7dd836b055f8d4592da481155c9cdae3b"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/direction-execution.svg",
+      "destination": "docs/research/basis-direction-2026-10-17/direction-execution.svg",
+      "blob": "6a1518fdb1b85d4783cfa8c9284b47f3f48f5546"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/direction-prediction.png",
+      "destination": "docs/research/basis-direction-2026-10-17/direction-prediction.png",
+      "blob": "62fdeac554ebcb3ffa6f073d3132d61caf068b68"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/direction-prediction.svg",
+      "destination": "docs/research/basis-direction-2026-10-17/direction-prediction.svg",
+      "blob": "27d8f278cb5d5a9ddb7cc3d0d9a9d1833ce079fb"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/direction-statistics.csv",
+      "destination": "docs/research/basis-direction-2026-10-17/direction-statistics.csv",
+      "blob": "c20af1d38fa7f35c3340db0907b5cdccdc159ab2"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/group-summaries.jsonl.gz",
+      "destination": "docs/research/basis-direction-2026-10-17/group-summaries.jsonl.gz",
+      "blob": "8785d3fcffe78c8f423e30d0e7dcc9538278e79b"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/magnitude-bins.csv",
+      "destination": "docs/research/basis-direction-2026-10-17/magnitude-bins.csv",
+      "blob": "d99bad44cd1660372484257032ef724926037041"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/observations.jsonl.gz",
+      "destination": "docs/research/basis-direction-2026-10-17/observations.jsonl.gz",
+      "blob": "f3ddb88578451c2f717c9ec122bce5aaecbc6e80"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/official-evidence.json",
+      "destination": "docs/research/basis-direction-2026-10-17/official-evidence.json",
+      "blob": "b45b94b9236c301b18b6ea4e950068644b63ad35"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/report.zh-CN.md",
+      "destination": "docs/research/basis-direction-2026-10-17/report.zh-CN.md",
+      "blob": "52626bd4e768706cb4e447a5e5df76732cf65310"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "docs/research/basis-direction-2026-10-17/summary.json",
+      "destination": "docs/research/basis-direction-2026-10-17/summary.json",
+      "blob": "9b712271301e0eeb8fff6328da40414d8ba35024"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "scripts/capture_official_basis_history.py",
+      "destination": "research/legacy/scripts/capture_official_basis_history.py",
+      "blob": "f5bf9be125c921c986cee1f7e88fe6a4d521584e"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "scripts/export_basis_history.py",
+      "destination": "research/legacy/scripts/export_basis_history.py",
+      "blob": "f8022a0bd871b3933cd3281969accacc47b5ae98"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "scripts/render_basis_convergence.py",
+      "destination": "research/legacy/scripts/render_basis_convergence.py",
+      "blob": "bb456a071eaa5a7e0ffd79bf4451adf78ed229c4"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "scripts/render_basis_direction.py",
+      "destination": "research/legacy/scripts/render_basis_direction.py",
+      "blob": "75afa9c9b6f1263fdd7e49f94718e6c082b2ec47"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "src/perpetual_alpha/basis_convergence.py",
+      "destination": "research/legacy/src/perpetual_alpha/basis_convergence.py",
+      "blob": "dc3289230e651f8e7ae4fd587c4bd2c427c452e6"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "src/perpetual_alpha/basis_costs.py",
+      "destination": "research/legacy/src/perpetual_alpha/basis_costs.py",
+      "blob": "a49f1e794e35f44c24b54f9bb8fcd87c783bc848"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "src/perpetual_alpha/basis_direction.py",
+      "destination": "research/legacy/src/perpetual_alpha/basis_direction.py",
+      "blob": "cbf235e2cfd9fe0c82d10ce5a719ace8d402190a"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "src/perpetual_alpha/basis_research.py",
+      "destination": "research/legacy/src/perpetual_alpha/basis_research.py",
+      "blob": "35d8cf2a374487f4abfd3465b971a1e1e6b10d31"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "tests/test_basis_convergence.py",
+      "destination": "research/legacy/tests/test_basis_convergence.py",
+      "blob": "c0ffe797d6cbf14250ea42fc1dd17c8fcd1a2c9f"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "tests/test_basis_direction.py",
+      "destination": "research/legacy/tests/test_basis_direction.py",
+      "blob": "8c85dc53fbb12db20539615159ab73c07e2acb13"
+    },
+    {
+      "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "original_path": "tests/test_basis_research.py",
+      "destination": "research/legacy/tests/test_basis_research.py",
+      "blob": "a544f0a01104afc29ed06e3436e287ea8cfc20ed"
     }
   ]
 }
