@@ -1,0 +1,7 @@
+{
+  "btc_abs15_q90_bps": 25.612705302293648,
+  "eth_rv60_median_bps": 39.28390578736878,
+  "btc_feature_threshold_n": 9953,
+  "eth_feature_threshold_n": 9638,
+  "estimand": "Development past features only, before model fit; no future-label requirement"
+}

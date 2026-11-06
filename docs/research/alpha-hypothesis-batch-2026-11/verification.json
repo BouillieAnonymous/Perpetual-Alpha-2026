@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "checks": {
+    "prefix_invariant_feature_points": 21396,
+    "independent_normal_equation_models": 8,
+    "paired_prediction_rows": 1724,
+    "direct_signed_forward30": 2153,
+    "independent_rolling_hedges_and_labels": 288,
+    "decimal_two_leg_quote_cost_audits": 137,
+    "independent_volatility_states": 319,
+    "funding_availability_and_12h_labels": 9,
+    "future_blind_shock_schedules": 6
+  },
+  "point_rows": 42756,
+  "event_rows": 5246,
+  "result_rows": 93,
+  "comparison_rows": 2681,
+  "input_audit": {
+    "pas:BTC": {
+      "A_valid": 21332,
+      "A_zero": 3832,
+      "B_valid": 17539
+    },
+    "pas:ETH": {
+      "A_valid": 21332,
+      "A_zero": 2744,
+      "B_valid": 18675
+    }
+  },
+  "verifier_sha256": "211197afe5fa42a74093ab4d83688fbbd2205db322999f74437d2090c22b5739",
+  "limitation": "Offline sampled evidence only. No real fills, deploy, production test or statistical significance."
+}

@@ -1,0 +1,54 @@
+{
+  "protocol_sha256": "1e652a6d4fc85c90cf631f225cf8bb172b8897bde2934189ce9b58803f66466f",
+  "freeze_sha256": "ee3e627fb6d2fe7cd1b7bb6d631c56480ca0ea886d7923c900b46a48f7f2f62c",
+  "script_sha256": "b2cd08918925b61e743e9e870d5a99a2380d4cb657140f8c4c680cecdac68788",
+  "inputs": {
+    ".cache\\btc-eth-volatility-stage01-20261103\\normalized-pas-btc-eth.jsonl.gz": "c606ebb4b5a273f9385438fa3c3d47e64bc341ec5107aec714e4f0233d2b63db",
+    ".cache\\btc-eth-volatility-stage01-20261103\\causal-minute-panel.jsonl.gz": "87bced947df20fdb6d8fe87e4655cbcfb943456478bd2147885ef7d1e01cf203",
+    ".cache\\alpha-week-2026-10-26\\pas-prefix.jsonl.gz": "4baa71116daed70cbca25fa7179cf39f84ee555f7d1900079d87820efbf70a14"
+  },
+  "output_hashes": {
+    "results.csv": "ea3f04ce83581d40f0a84c049e2dc9f4af338ab823a24c261870edc0cbee68a2",
+    "events.csv": "d0cdb1e6e86c0d233610ba3436322670f51864f7432280c31f809934bdd25315",
+    "model-comparison.csv": "e3d5209756608976c0396b680d4cb6c99d1daebb4d5f7050f830ece34f622d0b",
+    "points.csv.gz": "55d2754990d770cf5fe6c3299e718805e2e2be8e7877b90e332a7f7171dd26b5",
+    "models.json": "8767454d3d393e658fd8b98ef840c0b4700576d2f7b8f7843fd3376c948b88b2",
+    "thresholds.json": "be37442103bde2bd94b55d4a5f947a2eeee9b834af3cec8f773e35f4915b3878",
+    "data-audit.json": "e71387691dcee410b92ad82d9259527a5fc202f819f78f293cec86f43f198a5b",
+    "input-hashes.json": "edfcb2d84c25592287b3b6e83a7a0bb8d2c4ac63a24bad2b50b23c80e4b6a682"
+  },
+  "results_rows": 93,
+  "event_rows": 5246,
+  "comparison_rows": 2681,
+  "attempted_configs": "8 H01; 4 H02 direction groups; 6 H03 groups; 6 H04 groups; 4 H05 controls; H06/H07 deferred",
+  "finals": {
+    "H01": [
+      "NO_INCREMENTAL_EVIDENCE",
+      "MSE/direction improvement not stable across held periods and sensitivity"
+    ],
+    "H02": [
+      "INSUFFICIENT_DATA",
+      "Per-sign nonoverlap support insufficient; overlaps H01 hypothesis family"
+    ],
+    "H03": [
+      "EXECUTION_UNKNOWN",
+      "Both periods price-reversion positive; two-leg execution not verified"
+    ],
+    "H04": [
+      "NO_INCREMENTAL_EVIDENCE",
+      "No fixed volatility filter provides positive stable price increment"
+    ],
+    "H05": [
+      "INSUFFICIENT_DATA",
+      "Not 60 independent 12h decision windows/30 dates; descriptive only"
+    ],
+    "H06": [
+      "DUPLICATE_PRIOR_WORK",
+      "Deferred; PR13/17 negative executable-cost evidence; no new calculation"
+    ],
+    "H07": [
+      "DUPLICATE_PRIOR_WORK",
+      "Deferred; minute OBI prior negative; second-scale alpha unidentified"
+    ]
+  }
+}
