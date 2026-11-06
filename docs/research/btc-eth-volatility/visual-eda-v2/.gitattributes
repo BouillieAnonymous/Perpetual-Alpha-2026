@@ -1,0 +1,4 @@
+* -text
+release/** linguist-generated
+*.png binary
+*.gz binary
