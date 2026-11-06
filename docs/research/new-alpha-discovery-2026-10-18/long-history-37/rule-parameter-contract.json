@@ -1,0 +1,64 @@
+{
+  "all": {
+    "bar_hours": 1,
+    "lookback_hours": 24,
+    "hold_hours": 12,
+    "initial_capital": 10000,
+    "risk_budget": 0.005,
+    "max_initial_capital_fraction": 0.2,
+    "vol_floor": 1e-12,
+    "next_open_delay_base_hours": 1
+  },
+  "ATR": {
+    "price_change_threshold_prior_ATR_multiple": 1.5
+  },
+  "DONCHIAN": {
+    "channel_prior_high_low": 24,
+    "reset_required": true
+  },
+  "compression": {
+    "prior_vol_window": 168,
+    "prior_vol_quantile": 0.2
+  },
+  "expansion": {
+    "abs_current_log_return_prior_sigma_multiple": 1.5
+  },
+  "EMA": {
+    "fast": 6,
+    "slow": 24
+  },
+  "TSM": {
+    "direction": "sign(log(close/close24h))",
+    "UTC_rebalance_hours": 12
+  },
+  "RISK_MOMENTUM": {
+    "direction": "same TSM",
+    "extra_weight": "min(1,abs(momentum/(prior_sigma*sqrt(24))))"
+  },
+  "SIMPLE_MR": {
+    "direction": "negative sign current1h log return",
+    "rebalance_hours": 12
+  },
+  "ROLLING_Z=BOLLINGER": {
+    "entry_abs_z_gt": 2,
+    "early_exit_abs_z_le": 0.5,
+    "center_scale": "mean/std of prior24 closes"
+  },
+  "REGIME": {
+    "trend_efficiency_gt": 0.35,
+    "high_vol_lookback": 72,
+    "high_vol_quantile": 0.8,
+    "cost_threshold_bps": 28,
+    "random_keep_probability": 0.35,
+    "random_seed": 20261018,
+    "symbol_hash_identity": "original par:asset alias"
+  },
+  "FUNDING": {
+    "last_rate_max_age_hours": 2,
+    "mean_window": "(t-24h,t] >=24 observations",
+    "direction": "-sign(rate or mean24)",
+    "target_fraction": 0.2,
+    "rebalance_hours": 12
+  },
+  "version": "unchanged offline_quant source digest in protocol.json; JSON is documentary and not a new implementation"
+}

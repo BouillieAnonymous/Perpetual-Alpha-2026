@@ -1,0 +1,1064 @@
+{
+  "schema": "fixed-single-asset-coverage/1",
+  "source_commit": "28d321f899b984f46945f2e9ee5f1d278c4c2019",
+  "input_sha256": {
+    "docs/research/new-alpha-discovery-2026-10-18/official-hourly.jsonl.gz": "12d76087ce906633100f9f2c60a006b05e6768b86173fdd9a9d9eee2f061f191",
+    "docs/research/new-alpha-discovery-2026-10-18/external-transfer/external-history.jsonl.gz": "5eae3d1cba3924c9093e0989d509864d89a8959c1dee02620298872ac4ca21e5"
+  },
+  "runner_sha256": "1953c0e7301a18e1cd134e17be845139006dc1e7eeadcf76ea3d800b9e4efaa5",
+  "definitions": [
+    {
+      "id": "NO-TRADE",
+      "family": "control",
+      "symbols": [
+        "par:BTC"
+      ],
+      "kind": "none"
+    },
+    {
+      "id": "DONCHIAN",
+      "family": "VEX",
+      "symbols": [
+        "par:BTC"
+      ],
+      "kind": "donchian"
+    },
+    {
+      "id": "ATR",
+      "family": "VEX",
+      "symbols": [
+        "par:BTC"
+      ],
+      "kind": "atr"
+    },
+    {
+      "id": "DONCHIAN_COMPRESSION",
+      "family": "VEX",
+      "symbols": [
+        "par:BTC"
+      ],
+      "kind": "donchian_compression"
+    },
+    {
+      "id": "DONCHIAN_EXPANSION",
+      "family": "VEX",
+      "symbols": [
+        "par:BTC"
+      ],
+      "kind": "donchian_expansion"
+    },
+    {
+      "id": "DONCHIAN_COMPRESSION_EXPANSION",
+      "family": "VEX",
+      "symbols": [
+        "par:BTC"
+      ],
+      "kind": "donchian_compression_expansion"
+    },
+    {
+      "id": "EMA",
+      "family": "TSM",
+      "symbols": [
+        "par:BTC"
+      ],
+      "kind": "ema"
+    },
+    {
+      "id": "TSM",
+      "family": "TSM",
+      "symbols": [
+        "par:BTC"
+      ],
+      "kind": "tsm"
+    },
+    {
+      "id": "RISK_MOMENTUM",
+      "family": "TSM",
+      "symbols": [
+        "par:BTC"
+      ],
+      "kind": "risk_momentum"
+    },
+    {
+      "id": "SIMPLE_MR",
+      "family": "MR",
+      "symbols": [
+        "par:BTC"
+      ],
+      "kind": "simple_mr"
+    },
+    {
+      "id": "ROLLING_Z",
+      "family": "MR",
+      "symbols": [
+        "par:BTC"
+      ],
+      "kind": "rolling_z"
+    },
+    {
+      "id": "BOLLINGER",
+      "family": "MR",
+      "symbols": [
+        "par:BTC"
+      ],
+      "kind": "bollinger"
+    },
+    {
+      "id": "REGIME-TREND",
+      "family": "REGIME",
+      "symbols": [
+        "par:BTC"
+      ],
+      "kind": "donchian",
+      "regime": "trend"
+    },
+    {
+      "id": "REGIME-RANGE",
+      "family": "REGIME",
+      "symbols": [
+        "par:BTC"
+      ],
+      "kind": "donchian",
+      "regime": "range"
+    },
+    {
+      "id": "REGIME-COST",
+      "family": "REGIME",
+      "symbols": [
+        "par:BTC"
+      ],
+      "kind": "donchian",
+      "regime": "cost"
+    },
+    {
+      "id": "REGIME-RANDOM",
+      "family": "REGIME",
+      "symbols": [
+        "par:BTC"
+      ],
+      "kind": "donchian",
+      "regime": "random"
+    },
+    {
+      "id": "FUNDING-LAST",
+      "family": "FUNDING",
+      "symbols": [
+        "par:BTC"
+      ],
+      "kind": "funding",
+      "mode": "last"
+    },
+    {
+      "id": "FUNDING-MEAN24",
+      "family": "FUNDING",
+      "symbols": [
+        "par:BTC"
+      ],
+      "kind": "funding",
+      "mode": "mean24"
+    }
+  ],
+  "hold_hours": 12,
+  "lookback_hours": 24,
+  "compression_hours": 168,
+  "split_gap_hours": 12,
+  "no_secondary_hold_search": true,
+  "par_splits_ms": {
+    "full_seen": [
+      1790809200000,
+      1792281600000
+    ],
+    "development_seen": [
+      1790809200000,
+      1791691200000
+    ],
+    "validation_seen": [
+      1791734400000,
+      1791986400000
+    ],
+    "holdout_seen": [
+      1792029600000,
+      1792281600000
+    ]
+  },
+  "external_splits_ms": {
+    "full_seen": [
+      1776474000000,
+      1792281600000
+    ],
+    "development_seen": [
+      1776474000000,
+      1785956400000
+    ],
+    "validation_seen": [
+      1785999600000,
+      1789117200000
+    ],
+    "holdout_seen": [
+      1789160400000,
+      1792281600000
+    ]
+  },
+  "par_costs": {
+    "base": {
+      "capital": 10000,
+      "fee_bps": 9,
+      "slippage_bps": 2,
+      "spread_bps": 6,
+      "delay_hours": 1,
+      "min_notional": 10
+    },
+    "fee_only": {
+      "capital": 10000,
+      "fee_bps": 9,
+      "slippage_bps": 0,
+      "spread_bps": 0,
+      "delay_hours": 1,
+      "min_notional": 10
+    },
+    "stress": {
+      "capital": 10000,
+      "fee_bps": 18,
+      "slippage_bps": 4,
+      "spread_bps": 18,
+      "delay_hours": 2,
+      "min_notional": 10
+    }
+  },
+  "external_costs": {
+    "base": {
+      "capital": 10000,
+      "fee_bps": 4.5,
+      "slippage_bps": 2,
+      "spread_bps": 6,
+      "delay_hours": 1,
+      "min_notional": 10
+    },
+    "fee_only": {
+      "capital": 10000,
+      "fee_bps": 4.5,
+      "slippage_bps": 0,
+      "spread_bps": 0,
+      "delay_hours": 1,
+      "min_notional": 10
+    },
+    "stress": {
+      "capital": 10000,
+      "fee_bps": 9,
+      "slippage_bps": 4,
+      "spread_bps": 18,
+      "delay_hours": 2,
+      "min_notional": 10
+    }
+  },
+  "par_coverage": {
+    "par:BTC": {
+      "bars": 416,
+      "first_close_ms": 1790787600000,
+      "last_close_ms": 1792281600000,
+      "coverage_within_observed_span": 1.0,
+      "missing_hours_within_span": 0,
+      "funding_records": 438,
+      "unit": "USD/BTC",
+      "quantity_step": "0.0001",
+      "valuation_supported": false,
+      "received_ms_min": 1792287942429,
+      "received_ms_max": 1792287944469,
+      "data_kind": "OHLCV-only; no historical depth",
+      "vintage": "Retrospective/Seen"
+    },
+    "par:ETH": {
+      "bars": 438,
+      "first_close_ms": 1790708400000,
+      "last_close_ms": 1792281600000,
+      "coverage_within_observed_span": 1.0,
+      "missing_hours_within_span": 0,
+      "funding_records": 438,
+      "unit": "USD/ETH",
+      "quantity_step": "0.0001",
+      "valuation_supported": false,
+      "received_ms_min": 1792287948647,
+      "received_ms_max": 1792287950443,
+      "data_kind": "OHLCV-only; no historical depth",
+      "vintage": "Retrospective/Seen"
+    },
+    "par:HYPE": {
+      "bars": 416,
+      "first_close_ms": 1790787600000,
+      "last_close_ms": 1792281600000,
+      "coverage_within_observed_span": 1.0,
+      "missing_hours_within_span": 0,
+      "funding_records": 415,
+      "unit": "USD/HYPE",
+      "quantity_step": "0.01",
+      "valuation_supported": false,
+      "received_ms_min": 1792287954441,
+      "received_ms_max": 1792287956440,
+      "data_kind": "OHLCV-only; no historical depth",
+      "vintage": "Retrospective/Seen"
+    },
+    "par:SP500": {
+      "bars": 416,
+      "first_close_ms": 1790787600000,
+      "last_close_ms": 1792281600000,
+      "coverage_within_observed_span": 1.0,
+      "missing_hours_within_span": 0,
+      "funding_records": 438,
+      "unit": "index-points",
+      "quantity_step": "0.001",
+      "valuation_supported": false,
+      "received_ms_min": 1792287960637,
+      "received_ms_max": 1792287962438,
+      "data_kind": "OHLCV-only; no historical depth",
+      "vintage": "Retrospective/Seen"
+    },
+    "par:EWY": {
+      "bars": 415,
+      "first_close_ms": 1790791200000,
+      "last_close_ms": 1792281600000,
+      "coverage_within_observed_span": 1.0,
+      "missing_hours_within_span": 0,
+      "funding_records": 438,
+      "unit": "USD/share",
+      "quantity_step": "0.001",
+      "valuation_supported": false,
+      "received_ms_min": 1792287966478,
+      "received_ms_max": 1792287968467,
+      "data_kind": "OHLCV-only; no historical depth",
+      "vintage": "Retrospective/Seen"
+    },
+    "par:EWJ": {
+      "bars": 413,
+      "first_close_ms": 1790798400000,
+      "last_close_ms": 1792281600000,
+      "coverage_within_observed_span": 1.0,
+      "missing_hours_within_span": 0,
+      "funding_records": 438,
+      "unit": "USD/share",
+      "quantity_step": "0.001",
+      "valuation_supported": false,
+      "received_ms_min": 1792287972649,
+      "received_ms_max": 1792287974472,
+      "data_kind": "OHLCV-only; no historical depth",
+      "vintage": "Retrospective/Seen"
+    },
+    "par:BRENT": {
+      "bars": 416,
+      "first_close_ms": 1790787600000,
+      "last_close_ms": 1792281600000,
+      "coverage_within_observed_span": 1.0,
+      "missing_hours_within_span": 0,
+      "funding_records": 438,
+      "unit": "USD/barrel",
+      "quantity_step": "0.01",
+      "valuation_supported": false,
+      "received_ms_min": 1792287978684,
+      "received_ms_max": 1792287980675,
+      "data_kind": "OHLCV-only; no historical depth",
+      "vintage": "Retrospective/Seen"
+    },
+    "par:GOLD": {
+      "bars": 416,
+      "first_close_ms": 1790787600000,
+      "last_close_ms": 1792281600000,
+      "coverage_within_observed_span": 1.0,
+      "missing_hours_within_span": 0,
+      "funding_records": 438,
+      "unit": "USD/troy-ounce",
+      "quantity_step": "0.0001",
+      "valuation_supported": false,
+      "received_ms_min": 1792287984697,
+      "received_ms_max": 1792287986700,
+      "data_kind": "OHLCV-only; no historical depth",
+      "vintage": "Retrospective/Seen"
+    },
+    "par:USDEUR": {
+      "bars": 415,
+      "first_close_ms": 1790791200000,
+      "last_close_ms": 1792281600000,
+      "coverage_within_observed_span": 1.0,
+      "missing_hours_within_span": 0,
+      "funding_records": 438,
+      "unit": "USD/EUR",
+      "quantity_step": "0.1",
+      "valuation_supported": false,
+      "received_ms_min": 1792287990498,
+      "received_ms_max": 1792287992493,
+      "data_kind": "OHLCV-only; no historical depth",
+      "vintage": "Retrospective/Seen"
+    },
+    "par:USDJPY": {
+      "bars": 410,
+      "first_close_ms": 1790809200000,
+      "last_close_ms": 1792281600000,
+      "coverage_within_observed_span": 1.0,
+      "missing_hours_within_span": 0,
+      "funding_records": 438,
+      "unit": "JPY/USD",
+      "quantity_step": "0.01",
+      "valuation_supported": false,
+      "received_ms_min": 1792287996706,
+      "received_ms_max": 1792287998509,
+      "data_kind": "OHLCV-only; no historical depth",
+      "vintage": "Retrospective/Seen"
+    }
+  },
+  "capture_errors": [
+    {
+      "request": {
+        "type": "meta",
+        "dex": "par"
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:BTC",
+          "interval": "1h",
+          "startTime": 1788220800000,
+          "endTime": 1789948799999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:BTC",
+        "startTime": 1788220800000,
+        "endTime": 1789948799999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:BTC",
+          "interval": "1h",
+          "startTime": 1789948800000,
+          "endTime": 1791676799999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:BTC",
+        "startTime": 1789948800000,
+        "endTime": 1791676799999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:BTC",
+          "interval": "1h",
+          "startTime": 1791676800000,
+          "endTime": 1792281599999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:BTC",
+        "startTime": 1791676800000,
+        "endTime": 1792281599999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:ETH",
+          "interval": "1h",
+          "startTime": 1788220800000,
+          "endTime": 1789948799999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:ETH",
+        "startTime": 1788220800000,
+        "endTime": 1789948799999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:ETH",
+          "interval": "1h",
+          "startTime": 1789948800000,
+          "endTime": 1791676799999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:ETH",
+        "startTime": 1789948800000,
+        "endTime": 1791676799999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:ETH",
+          "interval": "1h",
+          "startTime": 1791676800000,
+          "endTime": 1792281599999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:ETH",
+        "startTime": 1791676800000,
+        "endTime": 1792281599999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:HYPE",
+          "interval": "1h",
+          "startTime": 1788220800000,
+          "endTime": 1789948799999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:HYPE",
+        "startTime": 1788220800000,
+        "endTime": 1789948799999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:HYPE",
+          "interval": "1h",
+          "startTime": 1789948800000,
+          "endTime": 1791676799999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:HYPE",
+        "startTime": 1789948800000,
+        "endTime": 1791676799999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:HYPE",
+          "interval": "1h",
+          "startTime": 1791676800000,
+          "endTime": 1792281599999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:HYPE",
+        "startTime": 1791676800000,
+        "endTime": 1792281599999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:SP500",
+          "interval": "1h",
+          "startTime": 1788220800000,
+          "endTime": 1789948799999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:SP500",
+        "startTime": 1788220800000,
+        "endTime": 1789948799999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:SP500",
+          "interval": "1h",
+          "startTime": 1789948800000,
+          "endTime": 1791676799999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:SP500",
+        "startTime": 1789948800000,
+        "endTime": 1791676799999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:SP500",
+          "interval": "1h",
+          "startTime": 1791676800000,
+          "endTime": 1792281599999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:SP500",
+        "startTime": 1791676800000,
+        "endTime": 1792281599999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:EWY",
+          "interval": "1h",
+          "startTime": 1788220800000,
+          "endTime": 1789948799999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:EWY",
+        "startTime": 1788220800000,
+        "endTime": 1789948799999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:EWY",
+          "interval": "1h",
+          "startTime": 1789948800000,
+          "endTime": 1791676799999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:EWY",
+        "startTime": 1789948800000,
+        "endTime": 1791676799999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:EWY",
+          "interval": "1h",
+          "startTime": 1791676800000,
+          "endTime": 1792281599999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:EWY",
+        "startTime": 1791676800000,
+        "endTime": 1792281599999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:EWJ",
+          "interval": "1h",
+          "startTime": 1788220800000,
+          "endTime": 1789948799999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:EWJ",
+        "startTime": 1788220800000,
+        "endTime": 1789948799999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:EWJ",
+          "interval": "1h",
+          "startTime": 1789948800000,
+          "endTime": 1791676799999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:EWJ",
+        "startTime": 1789948800000,
+        "endTime": 1791676799999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:EWJ",
+          "interval": "1h",
+          "startTime": 1791676800000,
+          "endTime": 1792281599999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:EWJ",
+        "startTime": 1791676800000,
+        "endTime": 1792281599999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:BRENT",
+          "interval": "1h",
+          "startTime": 1788220800000,
+          "endTime": 1789948799999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:BRENT",
+        "startTime": 1788220800000,
+        "endTime": 1789948799999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:BRENT",
+          "interval": "1h",
+          "startTime": 1789948800000,
+          "endTime": 1791676799999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:BRENT",
+        "startTime": 1789948800000,
+        "endTime": 1791676799999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:BRENT",
+          "interval": "1h",
+          "startTime": 1791676800000,
+          "endTime": 1792281599999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:BRENT",
+        "startTime": 1791676800000,
+        "endTime": 1792281599999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:GOLD",
+          "interval": "1h",
+          "startTime": 1788220800000,
+          "endTime": 1789948799999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:GOLD",
+        "startTime": 1788220800000,
+        "endTime": 1789948799999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:GOLD",
+          "interval": "1h",
+          "startTime": 1789948800000,
+          "endTime": 1791676799999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:GOLD",
+        "startTime": 1789948800000,
+        "endTime": 1791676799999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:GOLD",
+          "interval": "1h",
+          "startTime": 1791676800000,
+          "endTime": 1792281599999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:GOLD",
+        "startTime": 1791676800000,
+        "endTime": 1792281599999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:USDEUR",
+          "interval": "1h",
+          "startTime": 1788220800000,
+          "endTime": 1789948799999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:USDEUR",
+        "startTime": 1788220800000,
+        "endTime": 1789948799999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:USDEUR",
+          "interval": "1h",
+          "startTime": 1789948800000,
+          "endTime": 1791676799999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:USDEUR",
+        "startTime": 1789948800000,
+        "endTime": 1791676799999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:USDEUR",
+          "interval": "1h",
+          "startTime": 1791676800000,
+          "endTime": 1792281599999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:USDEUR",
+        "startTime": 1791676800000,
+        "endTime": 1792281599999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:USDJPY",
+          "interval": "1h",
+          "startTime": 1788220800000,
+          "endTime": 1789948799999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:USDJPY",
+        "startTime": 1788220800000,
+        "endTime": 1789948799999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:USDJPY",
+          "interval": "1h",
+          "startTime": 1789948800000,
+          "endTime": 1791676799999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:USDJPY",
+        "startTime": 1789948800000,
+        "endTime": 1791676799999
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "candleSnapshot",
+        "req": {
+          "coin": "par:USDJPY",
+          "interval": "1h",
+          "startTime": 1791676800000,
+          "endTime": 1792281599999
+        }
+      },
+      "error": "URLError"
+    },
+    {
+      "request": {
+        "type": "fundingHistory",
+        "coin": "par:USDJPY",
+        "startTime": 1791676800000,
+        "endTime": 1792281599999
+      },
+      "error": "URLError"
+    }
+  ],
+  "external_specs": {
+    "par:BTC": {
+      "quantity_step": 1e-05,
+      "valuation_supported": false
+    },
+    "par:ETH": {
+      "quantity_step": 0.0001,
+      "valuation_supported": false
+    }
+  },
+  "external_funding": "NOT_AVAILABLE; never imputed as observed zero",
+  "external_fee_source": "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/fees",
+  "vintage": "ALL SEEN; chronological descriptive partitions, NOT new out-of-sample",
+  "decision_availability": "hypothetical completed bar; delayed next-hour open; NOT historical receive replay",
+  "capital": "10000 per independent experiment; at most 20% initial capital per asset",
+  "execution_status": "INSUFFICIENT_DATA: unknown historical depth and verified USDPR valuation",
+  "classification": "negative complete PAR scenario REJECTED; positive INCONCLUSIVE; missing/no fills INSUFFICIENT_DATA; no confirmatory PROMISING",
+  "external_classification": "total-return status INSUFFICIENT_DATA without funding; price-only sign separately reported",
+  "external_mapping": "native mainnet BTC/ETH; par: prefix in loader is a computational alias only"
+}

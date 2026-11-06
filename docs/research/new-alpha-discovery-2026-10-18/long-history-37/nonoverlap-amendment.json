@@ -1,0 +1,20 @@
+{
+  "declared_ms": 1792338481519,
+  "reason": "full external history overlaps later PAR selection window; exclude it for a separately reported falsification diagnostic",
+  "outcomes_read_when_declared": "no new experiment returns viewed; primary runner still running",
+  "cutoffs_ms": {
+    "BRENT": 1790809200000,
+    "BTC": 1790809200000,
+    "ETH": 1790809200000,
+    "EWJ": 1790809200000,
+    "EWY": 1790809200000,
+    "GOLD": 1790809200000,
+    "HYPE": 1790809200000,
+    "SP500": 1790809200000,
+    "USDEUR": 1790809200000,
+    "USDJPY": 1790809200000
+  },
+  "rules": "all37 same parameters +all10 fixed long/short/flat +37 matched direction pairs; base only",
+  "does_not_replace_primary_counts_or_frozen_screen": true,
+  "status": "RETROSPECTIVE_NOT_PROSPECTIVE"
+}

@@ -1,0 +1,165 @@
+[
+  {
+    "source": "long-history-37/additional-public-history.jsonl.gz",
+    "request": {
+      "type": "fundingHistory",
+      "coin": "xyz:SP500",
+      "startTime": 1774342800000,
+      "endTime": 1776070799999
+    },
+    "error": "HTTPError: HTTP Error 429: Too Many Requests"
+  },
+  {
+    "source": "long-history-37/additional-public-history.jsonl.gz",
+    "request": {
+      "type": "fundingHistory",
+      "coin": "xyz:SP500",
+      "startTime": 1777798800000,
+      "endTime": 1779526799999
+    },
+    "error": "HTTPError: HTTP Error 429: Too Many Requests"
+  },
+  {
+    "source": "long-history-37/additional-public-history.jsonl.gz",
+    "request": {
+      "type": "fundingHistory",
+      "coin": "xyz:SP500",
+      "startTime": 1788166800000,
+      "endTime": 1789894799999
+    },
+    "error": "HTTPError: HTTP Error 429: Too Many Requests"
+  },
+  {
+    "source": "long-history-37/additional-public-history.jsonl.gz",
+    "request": {
+      "type": "fundingHistory",
+      "coin": "xyz:SP500",
+      "startTime": 1789894800000,
+      "endTime": 1791622799999
+    },
+    "error": "HTTPError: HTTP Error 429: Too Many Requests"
+  },
+  {
+    "source": "long-history-37/additional-public-history.jsonl.gz",
+    "request": {
+      "type": "fundingHistory",
+      "coin": "xyz:SP500",
+      "startTime": 1791622800000,
+      "endTime": 1792335599999
+    },
+    "error": "HTTPError: HTTP Error 429: Too Many Requests"
+  },
+  {
+    "source": "long-history-37/additional-public-history.jsonl.gz",
+    "request": {
+      "type": "candleSnapshot",
+      "req": {
+        "coin": "xyz:EUR",
+        "interval": "1h",
+        "startTime": 1774342800000,
+        "endTime": 1792335599999
+      }
+    },
+    "error": "HTTPError: HTTP Error 429: Too Many Requests"
+  },
+  {
+    "source": "long-history-37/additional-public-history.jsonl.gz",
+    "request": {
+      "type": "fundingHistory",
+      "coin": "xyz:EUR",
+      "startTime": 1774342800000,
+      "endTime": 1776070799999
+    },
+    "error": "HTTPError: HTTP Error 429: Too Many Requests"
+  },
+  {
+    "source": "long-history-37/additional-public-history.jsonl.gz",
+    "request": {
+      "type": "fundingHistory",
+      "coin": "xyz:EUR",
+      "startTime": 1776070800000,
+      "endTime": 1777798799999
+    },
+    "error": "HTTPError: HTTP Error 429: Too Many Requests"
+  },
+  {
+    "source": "long-history-37/additional-public-history.jsonl.gz",
+    "request": {
+      "type": "fundingHistory",
+      "coin": "xyz:EUR",
+      "startTime": 1777798800000,
+      "endTime": 1779526799999
+    },
+    "error": "HTTPError: HTTP Error 429: Too Many Requests"
+  },
+  {
+    "source": "long-history-37/additional-public-history.jsonl.gz",
+    "request": {
+      "type": "fundingHistory",
+      "coin": "xyz:EUR",
+      "startTime": 1779526800000,
+      "endTime": 1781254799999
+    },
+    "error": "HTTPError: HTTP Error 429: Too Many Requests"
+  },
+  {
+    "source": "long-history-37/additional-public-history.jsonl.gz",
+    "request": {
+      "type": "fundingHistory",
+      "coin": "xyz:EUR",
+      "startTime": 1781254800000,
+      "endTime": 1782982799999
+    },
+    "error": "HTTPError: HTTP Error 429: Too Many Requests"
+  },
+  {
+    "source": "long-history-37/additional-public-history.jsonl.gz",
+    "request": {
+      "type": "fundingHistory",
+      "coin": "xyz:EUR",
+      "startTime": 1782982800000,
+      "endTime": 1784710799999
+    },
+    "error": "HTTPError: HTTP Error 429: Too Many Requests"
+  },
+  {
+    "source": "long-history-37/additional-public-history.jsonl.gz",
+    "request": {
+      "type": "fundingHistory",
+      "coin": "xyz:EUR",
+      "startTime": 1784710800000,
+      "endTime": 1786438799999
+    },
+    "error": "HTTPError: HTTP Error 429: Too Many Requests"
+  },
+  {
+    "source": "long-history-37/additional-public-history.jsonl.gz",
+    "request": {
+      "type": "fundingHistory",
+      "coin": "xyz:EUR",
+      "startTime": 1786438800000,
+      "endTime": 1788166799999
+    },
+    "error": "HTTPError: HTTP Error 429: Too Many Requests"
+  },
+  {
+    "source": "long-history-37/additional-public-history.jsonl.gz",
+    "request": {
+      "type": "fundingHistory",
+      "coin": "xyz:EUR",
+      "startTime": 1788166800000,
+      "endTime": 1789894799999
+    },
+    "error": "HTTPError: HTTP Error 429: Too Many Requests"
+  },
+  {
+    "source": "long-history-37/additional-public-history.jsonl.gz",
+    "request": {
+      "type": "fundingHistory",
+      "coin": "xyz:EUR",
+      "startTime": 1791622800000,
+      "endTime": 1792335599999
+    },
+    "error": "HTTPError: HTTP Error 429: Too Many Requests"
+  }
+]

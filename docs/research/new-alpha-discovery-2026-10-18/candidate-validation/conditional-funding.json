@@ -1,0 +1,40 @@
+{
+  "mainnet": {
+    "status": "INCONCLUSIVE",
+    "train_labels": 240,
+    "total_labels": 407,
+    "train_funding_coefficient": -0.0016420962213034107,
+    "train_HAC2_pvalue": 0.5967338798520301,
+    "train_R2_base": 3.1058096424674275e-06,
+    "train_R2_augmented": 0.0005376213701616672,
+    "note": "funding_direction = -sign(mean24), return label next-hour open to +12h; retrospective; no causal claim",
+    "validation": {
+      "labels": 81,
+      "MSE_base": 0.0007519597198142612,
+      "MSE_augmented": 0.00075281573245419,
+      "direction_accuracy_base": 0.6296296296296297,
+      "direction_accuracy_augmented": 0.6049382716049383,
+      "funding_standalone_signed_mean_bps": -50.06491789759198
+    },
+    "test": {
+      "labels": 82,
+      "MSE_base": 0.0005716321875974183,
+      "MSE_augmented": 0.0005712525652595239,
+      "direction_accuracy_base": 0.4634146341463415,
+      "direction_accuracy_augmented": 0.47560975609756095,
+      "funding_standalone_signed_mean_bps": 9.019679273305325
+    },
+    "trend_negative": {
+      "labels": 195,
+      "signed_mean_bps": -37.5239633329302
+    },
+    "trend_nonnegative": {
+      "labels": 212,
+      "signed_mean_bps": 1.761451295962028
+    }
+  },
+  "par": {
+    "status": "INSUFFICIENT_DATA",
+    "rows": 33
+  }
+}

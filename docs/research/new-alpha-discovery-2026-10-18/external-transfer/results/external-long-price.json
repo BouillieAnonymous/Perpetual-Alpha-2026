@@ -1,0 +1,62 @@
+[
+  {
+    "symbol": "par:BTC",
+    "strategy": "tsm",
+    "observations": 545,
+    "mean_direction_adjusted_price_bps": 4.498830456262962,
+    "median_bps": 1.0207076055479547,
+    "costs": null,
+    "net_return": null,
+    "status": "PRICE_DIAGNOSTIC_ONLY_SEEN"
+  },
+  {
+    "symbol": "par:BTC",
+    "strategy": "ema",
+    "observations": 873,
+    "mean_direction_adjusted_price_bps": 3.33519789307879,
+    "median_bps": 1.7056908047763386,
+    "costs": null,
+    "net_return": null,
+    "status": "PRICE_DIAGNOSTIC_ONLY_SEEN"
+  },
+  {
+    "symbol": "par:BTC",
+    "strategy": "donchian",
+    "observations": 217,
+    "mean_direction_adjusted_price_bps": -5.342389913546292,
+    "median_bps": -9.096171338790482,
+    "costs": null,
+    "net_return": null,
+    "status": "PRICE_DIAGNOSTIC_ONLY_SEEN"
+  },
+  {
+    "symbol": "par:ETH",
+    "strategy": "tsm",
+    "observations": 545,
+    "mean_direction_adjusted_price_bps": 1.9397658770239314,
+    "median_bps": 1.070606498579929,
+    "costs": null,
+    "net_return": null,
+    "status": "PRICE_DIAGNOSTIC_ONLY_SEEN"
+  },
+  {
+    "symbol": "par:ETH",
+    "strategy": "ema",
+    "observations": 873,
+    "mean_direction_adjusted_price_bps": 3.2669483582512675,
+    "median_bps": 1.5945784333259994,
+    "costs": null,
+    "net_return": null,
+    "status": "PRICE_DIAGNOSTIC_ONLY_SEEN"
+  },
+  {
+    "symbol": "par:ETH",
+    "strategy": "donchian",
+    "observations": 192,
+    "mean_direction_adjusted_price_bps": -6.301091342810957,
+    "median_bps": -15.827893695803397,
+    "costs": null,
+    "net_return": null,
+    "status": "PRICE_DIAGNOSTIC_ONLY_SEEN"
+  }
+]

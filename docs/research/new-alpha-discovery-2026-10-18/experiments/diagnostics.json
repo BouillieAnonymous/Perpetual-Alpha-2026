@@ -1,0 +1,738 @@
+{
+  "xsm_ic_price_diagnostic": [
+    {
+      "decision_ms": 1791417600000,
+      "spearman": 0.6,
+      "scores": {
+        "par:BRENT": 0.14836063127581214,
+        "par:BTC": -1.8347330634451786,
+        "par:ETH": -2.61003326854204,
+        "par:EWJ": -0.6275042016807054,
+        "par:EWY": -1.010450312184892,
+        "par:GOLD": -1.0278485922522946,
+        "par:HYPE": -1.5749931813655005,
+        "par:SP500": -0.3841107109090127,
+        "par:USDEUR": -0.7863746308760899,
+        "par:USDJPY": -0.48838681944309587
+      },
+      "future_price_returns": {
+        "par:BRENT": 0.016778917129109505,
+        "par:BTC": -0.019028558256830884,
+        "par:ETH": -0.04049232312208062,
+        "par:EWJ": -0.020950628993209236,
+        "par:EWY": -0.030294399051562025,
+        "par:GOLD": 0.006413214834713401,
+        "par:HYPE": -0.048305173493176284,
+        "par:SP500": -0.004263029864249676,
+        "par:USDEUR": 0.00276477322157633,
+        "par:USDJPY": -0.0009506005342090723
+      }
+    },
+    {
+      "decision_ms": 1791504000000,
+      "spearman": -0.21212121212121213,
+      "scores": {
+        "par:BRENT": 0.9557813338903528,
+        "par:BTC": -1.2108736028649516,
+        "par:ETH": -1.5138868585584253,
+        "par:EWJ": -3.1912367813725004,
+        "par:EWY": -2.782626462820786,
+        "par:GOLD": 0.5204755169477157,
+        "par:HYPE": -1.4351895495558058,
+        "par:SP500": -0.39126737348545004,
+        "par:USDEUR": -0.028750915863192502,
+        "par:USDJPY": 0.40964312377214757
+      },
+      "future_price_returns": {
+        "par:BRENT": -0.003038771146873808,
+        "par:BTC": 0.011177245862613969,
+        "par:ETH": 0.007204555120970892,
+        "par:EWJ": 0.0056878019649731545,
+        "par:EWY": 0.0018043421867344307,
+        "par:GOLD": 0.008304761313749083,
+        "par:HYPE": -0.0024894802733263144,
+        "par:SP500": 0.0054411427151664,
+        "par:USDEUR": -0.0022290589230497867,
+        "par:USDJPY": 0.003165160583823923
+      }
+    },
+    {
+      "decision_ms": 1791590400000,
+      "spearman": -0.6,
+      "scores": {
+        "par:BRENT": -0.11220049907705648,
+        "par:BTC": 0.8336445431449689,
+        "par:ETH": 0.1511057796936544,
+        "par:EWJ": 1.1373803869330454,
+        "par:EWY": 0.4761478362866636,
+        "par:GOLD": 1.2135375909706407,
+        "par:HYPE": -0.11716201151742464,
+        "par:SP500": 0.7364975205311024,
+        "par:USDEUR": -0.10773963406726127,
+        "par:USDJPY": 0.32371242746213347
+      },
+      "future_price_returns": {
+        "par:BRENT": 0.004798990650839909,
+        "par:BTC": 0.004168510268096333,
+        "par:ETH": 0.00456146757627648,
+        "par:EWJ": 0.002510769042348212,
+        "par:EWY": 0.0030936267888127494,
+        "par:GOLD": 0.00038127011065947677,
+        "par:HYPE": 0.012971880007978345,
+        "par:SP500": -0.0013446972935965912,
+        "par:USDEUR": 0.0006246375074822684,
+        "par:USDJPY": 0.0010738764810785432
+      }
+    },
+    {
+      "decision_ms": 1791676800000,
+      "spearman": 0.2606060606060606,
+      "scores": {
+        "par:BRENT": 0.14268577703700525,
+        "par:BTC": 0.2405376196623349,
+        "par:ETH": 0.35790901983471207,
+        "par:EWJ": 0.37695247417304134,
+        "par:EWY": 0.29541523749747295,
+        "par:GOLD": 0.051373024645222504,
+        "par:HYPE": 0.4779635499311462,
+        "par:SP500": -0.015832496987820827,
+        "par:USDEUR": 0.11662916461217283,
+        "par:USDJPY": 0.08087164504557247
+      },
+      "future_price_returns": {
+        "par:BRENT": -0.015756111280506174,
+        "par:BTC": 0.011604062120423706,
+        "par:ETH": 0.016628119769517818,
+        "par:EWJ": -0.0011729488766194034,
+        "par:EWY": -0.011466137087644206,
+        "par:GOLD": 0.004350468652431716,
+        "par:HYPE": 0.01739901497195447,
+        "par:SP500": 0.003019835948155487,
+        "par:USDEUR": -0.0006246375074822444,
+        "par:USDJPY": -0.00157962943154801
+      }
+    },
+    {
+      "decision_ms": 1791763200000,
+      "spearman": -0.7454545454545455,
+      "scores": {
+        "par:BRENT": -0.396381020276771,
+        "par:BTC": 0.6478189427787303,
+        "par:ETH": 0.4822000899787918,
+        "par:EWJ": -0.20160726727321945,
+        "par:EWY": 0.05317887461373534,
+        "par:GOLD": 0.03940472546680931,
+        "par:HYPE": 0.6260033498344078,
+        "par:SP500": 0.3869069596695951,
+        "par:USDEUR": -0.2506613670015913,
+        "par:USDJPY": -0.13890555133175128
+      },
+      "future_price_returns": {
+        "par:BRENT": 0.022669142073285936,
+        "par:BTC": -0.03109685992281786,
+        "par:ETH": -0.05172942006893381,
+        "par:EWJ": -0.01456683258021902,
+        "par:EWY": -0.0641030841317986,
+        "par:GOLD": -0.01397421428700259,
+        "par:HYPE": -0.07814080826898492,
+        "par:SP500": -0.006550255754819119,
+        "par:USDEUR": -0.004114495965543658,
+        "par:USDJPY": 0.0023369661670202568
+      }
+    },
+    {
+      "decision_ms": 1791849600000,
+      "spearman": -0.6484848484848484,
+      "scores": {
+        "par:BRENT": 0.8147821778341451,
+        "par:BTC": -1.6023548458158297,
+        "par:ETH": -1.4277194779418805,
+        "par:EWJ": -0.7376706361920191,
+        "par:EWY": -3.1798865945256725,
+        "par:GOLD": -0.6729233143143084,
+        "par:HYPE": -2.5194653765339265,
+        "par:SP500": -1.1979566682351492,
+        "par:USDEUR": -0.8793277591695684,
+        "par:USDJPY": 0.5996110093272946
+      },
+      "future_price_returns": {
+        "par:BRENT": 0.006383617770385409,
+        "par:BTC": 0.02399216176840111,
+        "par:ETH": 0.034781875261762664,
+        "par:EWJ": 0.005246699289892426,
+        "par:EWY": 0.007602763948628711,
+        "par:GOLD": 0.00043290043966072976,
+        "par:HYPE": 0.023501543039385165,
+        "par:SP500": 0.0021967443076214357,
+        "par:USDEUR": 0.0036680873156588766,
+        "par:USDJPY": -0.0007573367354723837
+      }
+    },
+    {
+      "decision_ms": 1791936000000,
+      "spearman": 0.030303030303030304,
+      "scores": {
+        "par:BRENT": -0.08165224790944436,
+        "par:BTC": 1.0093528767373259,
+        "par:ETH": 0.7526922316977489,
+        "par:EWJ": -0.22218728248290315,
+        "par:EWY": -0.9621035892293561,
+        "par:GOLD": -0.18326377746740727,
+        "par:HYPE": 0.2347736499480089,
+        "par:SP500": 0.1855793769183294,
+        "par:USDEUR": 0.7462686839777058,
+        "par:USDJPY": -0.49869608714028413
+      },
+      "future_price_returns": {
+        "par:BRENT": -0.014567607330330076,
+        "par:BTC": -0.02066580130814651,
+        "par:ETH": -0.034864574567135626,
+        "par:EWJ": -0.02113297193161038,
+        "par:EWY": -0.08751424663673964,
+        "par:GOLD": -0.002359172976725622,
+        "par:HYPE": -0.016318735934186573,
+        "par:SP500": -0.014528601337984497,
+        "par:USDEUR": 0.0002678691029009526,
+        "par:USDJPY": -0.0020856382974995956
+      }
+    },
+    {
+      "decision_ms": 1792022400000,
+      "spearman": -0.5636363636363636,
+      "scores": {
+        "par:BRENT": -0.1109243985101134,
+        "par:BTC": -1.2692611224543677,
+        "par:ETH": -1.2279121527108527,
+        "par:EWJ": -1.8306378862424084,
+        "par:EWY": -2.547801154155631,
+        "par:GOLD": -1.5435209214363421,
+        "par:HYPE": -0.3783684291014355,
+        "par:SP500": -2.2156861900339697,
+        "par:USDEUR": -0.13723131628320334,
+        "par:USDJPY": -0.2577164339942563
+      },
+      "future_price_returns": {
+        "par:BRENT": 0.004197790124809226,
+        "par:BTC": 0.007483630226219082,
+        "par:ETH": 0.00799015783036604,
+        "par:EWJ": 0.010507794303788353,
+        "par:EWY": 0.016204434880300368,
+        "par:GOLD": 0.002311082181294539,
+        "par:HYPE": 0.0151140704481824,
+        "par:SP500": 0.0057254666333429296,
+        "par:USDEUR": 0.00044628911349030764,
+        "par:USDJPY": 0.0015804283088568123
+      }
+    },
+    {
+      "decision_ms": 1792108800000,
+      "spearman": 0.21212121212121213,
+      "scores": {
+        "par:BRENT": -0.05471772251481001,
+        "par:BTC": 0.3921072759224377,
+        "par:ETH": 0.33366137600719536,
+        "par:EWJ": -0.5012473884242923,
+        "par:EWY": -0.3734149643996989,
+        "par:GOLD": 1.360361222918306,
+        "par:HYPE": 0.3716022140765464,
+        "par:SP500": 0.6498483738972849,
+        "par:USDEUR": 0.5001037044632757,
+        "par:USDJPY": 0.07519846654147957
+      },
+      "future_price_returns": {
+        "par:BRENT": 0.042064281500292594,
+        "par:BTC": -0.009151564582340168,
+        "par:ETH": -0.008321023460581783,
+        "par:EWJ": -0.009540320281767411,
+        "par:EWY": -0.03021100635934273,
+        "par:GOLD": 0.0017298132751968351,
+        "par:HYPE": -0.02856649056697645,
+        "par:SP500": -0.013935736311850064,
+        "par:USDEUR": 0.0031184593365672798,
+        "par:USDJPY": -0.0009479572233247472
+      }
+    }
+  ],
+  "xsm_mean_ic": -0.18518518518518517,
+  "funding_rate_vs_price": {
+    "par:BTC": {
+      "observations": 33,
+      "pearson_rate_future_return": -0.3026969311663306,
+      "labels": [
+        {
+          "decision_ms": 1790812800000,
+          "known_rate": -3.69029e-05,
+          "rate_time_ms": 1790809200073,
+          "future_price_return_12h": -0.0012322860462650562
+        },
+        {
+          "decision_ms": 1790856000000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1790852400036,
+          "future_price_return_12h": 0.015678584203787847
+        },
+        {
+          "decision_ms": 1790899200000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1790895600129,
+          "future_price_return_12h": 0.021118225076566865
+        },
+        {
+          "decision_ms": 1790942400000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1790938800059,
+          "future_price_return_12h": -0.02346621178419068
+        },
+        {
+          "decision_ms": 1790985600000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1790982000022,
+          "future_price_return_12h": 0.00029527617394875554
+        },
+        {
+          "decision_ms": 1791028800000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791025200131,
+          "future_price_return_12h": 0.0005194743980526375
+        },
+        {
+          "decision_ms": 1791072000000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791068400033,
+          "future_price_return_12h": 0.007455349677707305
+        },
+        {
+          "decision_ms": 1791115200000,
+          "known_rate": -0.0001882714,
+          "rate_time_ms": 1791111600019,
+          "future_price_return_12h": 0.014896057291656365
+        },
+        {
+          "decision_ms": 1791158400000,
+          "known_rate": -0.0001391212,
+          "rate_time_ms": 1791154800022,
+          "future_price_return_12h": -0.0033181330988978734
+        },
+        {
+          "decision_ms": 1791201600000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791198000024,
+          "future_price_return_12h": -0.0085248438858337
+        },
+        {
+          "decision_ms": 1791244800000,
+          "known_rate": 3.182e-07,
+          "rate_time_ms": 1791241200068,
+          "future_price_return_12h": 0.0069486350363856175
+        },
+        {
+          "decision_ms": 1791288000000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791284400030,
+          "future_price_return_12h": -0.011373369221678517
+        },
+        {
+          "decision_ms": 1791331200000,
+          "known_rate": 5.77223e-05,
+          "rate_time_ms": 1791327600088,
+          "future_price_return_12h": -0.022398203120533835
+        },
+        {
+          "decision_ms": 1791374400000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791370800047,
+          "future_price_return_12h": -0.001320575962951185
+        },
+        {
+          "decision_ms": 1791417600000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791414000036,
+          "future_price_return_12h": -0.011611809814250392
+        },
+        {
+          "decision_ms": 1791460800000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791457200024,
+          "future_price_return_12h": -0.007416748442580524
+        },
+        {
+          "decision_ms": 1791504000000,
+          "known_rate": -0.0001168585,
+          "rate_time_ms": 1791500400010,
+          "future_price_return_12h": 0.01943692252342651
+        },
+        {
+          "decision_ms": 1791547200000,
+          "known_rate": 8.56811e-05,
+          "rate_time_ms": 1791543600018,
+          "future_price_return_12h": -0.008259676660812532
+        },
+        {
+          "decision_ms": 1791590400000,
+          "known_rate": 7.09067e-05,
+          "rate_time_ms": 1791586800160,
+          "future_price_return_12h": 0.00280508484317337
+        },
+        {
+          "decision_ms": 1791633600000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791630000066,
+          "future_price_return_12h": 0.0013634254249230715
+        },
+        {
+          "decision_ms": 1791676800000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791673200096,
+          "future_price_return_12h": 0.0013254451218089028
+        },
+        {
+          "decision_ms": 1791720000000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791716400026,
+          "future_price_return_12h": 0.010278616998614841
+        },
+        {
+          "decision_ms": 1791763200000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791759600185,
+          "future_price_return_12h": -0.015131061790673103
+        },
+        {
+          "decision_ms": 1791806400000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791802800050,
+          "future_price_return_12h": -0.015965798132144732
+        },
+        {
+          "decision_ms": 1791849600000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791846000020,
+          "future_price_return_12h": 0.023067475585414884
+        },
+        {
+          "decision_ms": 1791892800000,
+          "known_rate": -3.7102e-06,
+          "rate_time_ms": 1791889200135,
+          "future_price_return_12h": 0.0009246861829862274
+        },
+        {
+          "decision_ms": 1791936000000,
+          "known_rate": -2.67985e-05,
+          "rate_time_ms": 1791932400047,
+          "future_price_return_12h": -0.008534696677956742
+        },
+        {
+          "decision_ms": 1791979200000,
+          "known_rate": -1.26686e-05,
+          "rate_time_ms": 1791975600047,
+          "future_price_return_12h": -0.012131104630189852
+        },
+        {
+          "decision_ms": 1792022400000,
+          "known_rate": -3.2212e-06,
+          "rate_time_ms": 1792018800003,
+          "future_price_return_12h": -0.014963242144145338
+        },
+        {
+          "decision_ms": 1792065600000,
+          "known_rate": -1.79304e-05,
+          "rate_time_ms": 1792062000033,
+          "future_price_return_12h": 0.02244687237036467
+        },
+        {
+          "decision_ms": 1792108800000,
+          "known_rate": -1.125e-06,
+          "rate_time_ms": 1792105200114,
+          "future_price_return_12h": -0.0032649112269643823
+        },
+        {
+          "decision_ms": 1792152000000,
+          "known_rate": -1.01392e-05,
+          "rate_time_ms": 1792148400016,
+          "future_price_return_12h": -0.005886653355375729
+        },
+        {
+          "decision_ms": 1792195200000,
+          "known_rate": -7.81067e-05,
+          "rate_time_ms": 1792191600045,
+          "future_price_return_12h": -0.0003560226173348663
+        }
+      ]
+    },
+    "par:ETH": {
+      "observations": 35,
+      "pearson_rate_future_return": -0.09838951204045687,
+      "labels": [
+        {
+          "decision_ms": 1790726400000,
+          "known_rate": 0.0,
+          "rate_time_ms": 1790722800001,
+          "future_price_return_12h": 0.0
+        },
+        {
+          "decision_ms": 1790769600000,
+          "known_rate": 0.0,
+          "rate_time_ms": 1790766000025,
+          "future_price_return_12h": 0.0039890447512897845
+        },
+        {
+          "decision_ms": 1790812800000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1790809200073,
+          "future_price_return_12h": 0.001227062455263572
+        },
+        {
+          "decision_ms": 1790856000000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1790852400036,
+          "future_price_return_12h": 0.005447787112866186
+        },
+        {
+          "decision_ms": 1790899200000,
+          "known_rate": 7.41533e-05,
+          "rate_time_ms": 1790895600129,
+          "future_price_return_12h": 0.019362645801647326
+        },
+        {
+          "decision_ms": 1790942400000,
+          "known_rate": 0.0002297023,
+          "rate_time_ms": 1790938800059,
+          "future_price_return_12h": -0.0341065742288803
+        },
+        {
+          "decision_ms": 1790985600000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1790982000022,
+          "future_price_return_12h": 0.0058341913493773455
+        },
+        {
+          "decision_ms": 1791028800000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791025200131,
+          "future_price_return_12h": 0.002272093351047427
+        },
+        {
+          "decision_ms": 1791072000000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791068400033,
+          "future_price_return_12h": 0.005787224936763621
+        },
+        {
+          "decision_ms": 1791115200000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791111600019,
+          "future_price_return_12h": 0.006231928276013619
+        },
+        {
+          "decision_ms": 1791158400000,
+          "known_rate": -2.16404e-05,
+          "rate_time_ms": 1791154800022,
+          "future_price_return_12h": -0.0009562339823893426
+        },
+        {
+          "decision_ms": 1791201600000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791198000024,
+          "future_price_return_12h": -0.0037971695916658695
+        },
+        {
+          "decision_ms": 1791244800000,
+          "known_rate": -3.87747e-05,
+          "rate_time_ms": 1791241200068,
+          "future_price_return_12h": 0.0030241586758061483
+        },
+        {
+          "decision_ms": 1791288000000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791284400030,
+          "future_price_return_12h": -0.011816484055468956
+        },
+        {
+          "decision_ms": 1791331200000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791327600088,
+          "future_price_return_12h": -0.043134910570374316
+        },
+        {
+          "decision_ms": 1791374400000,
+          "known_rate": 0.0002577757,
+          "rate_time_ms": 1791370800047,
+          "future_price_return_12h": 0.0029135851856383153
+        },
+        {
+          "decision_ms": 1791417600000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791414000036,
+          "future_price_return_12h": -0.01891392653207954
+        },
+        {
+          "decision_ms": 1791460800000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791457200024,
+          "future_price_return_12h": -0.021578396590001134
+        },
+        {
+          "decision_ms": 1791504000000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791500400010,
+          "future_price_return_12h": 0.011486531369640774
+        },
+        {
+          "decision_ms": 1791547200000,
+          "known_rate": 0.0003427492,
+          "rate_time_ms": 1791543600018,
+          "future_price_return_12h": -0.0042819762486699525
+        },
+        {
+          "decision_ms": 1791590400000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791586800160,
+          "future_price_return_12h": -0.00036100359390078986
+        },
+        {
+          "decision_ms": 1791633600000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791630000066,
+          "future_price_return_12h": 0.004922471170177256
+        },
+        {
+          "decision_ms": 1791676800000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791673200096,
+          "future_price_return_12h": -0.0001197724325217166
+        },
+        {
+          "decision_ms": 1791720000000,
+          "known_rate": 4.44349e-05,
+          "rate_time_ms": 1791716400026,
+          "future_price_return_12h": 0.01674789220203953
+        },
+        {
+          "decision_ms": 1791763200000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791759600185,
+          "future_price_return_12h": -0.007764962844096295
+        },
+        {
+          "decision_ms": 1791806400000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791802800050,
+          "future_price_return_12h": -0.04396445722483748
+        },
+        {
+          "decision_ms": 1791849600000,
+          "known_rate": 1.25e-05,
+          "rate_time_ms": 1791846000020,
+          "future_price_return_12h": 0.03202259092455109
+        },
+        {
+          "decision_ms": 1791892800000,
+          "known_rate": 9.0768e-06,
+          "rate_time_ms": 1791889200135,
+          "future_price_return_12h": 0.002759284337211644
+        },
+        {
+          "decision_ms": 1791936000000,
+          "known_rate": -2.46451e-05,
+          "rate_time_ms": 1791932400047,
+          "future_price_return_12h": -0.01201227709606943
+        },
+        {
+          "decision_ms": 1791979200000,
+          "known_rate": -2.66297e-05,
+          "rate_time_ms": 1791975600047,
+          "future_price_return_12h": -0.02285229747106612
+        },
+        {
+          "decision_ms": 1792022400000,
+          "known_rate": -6.6786e-06,
+          "rate_time_ms": 1792018800003,
+          "future_price_return_12h": -0.030950002319937154
+        },
+        {
+          "decision_ms": 1792065600000,
+          "known_rate": -3.75543e-05,
+          "rate_time_ms": 1792062000033,
+          "future_price_return_12h": 0.0389401601503032
+        },
+        {
+          "decision_ms": 1792108800000,
+          "known_rate": -1.0374e-05,
+          "rate_time_ms": 1792105200114,
+          "future_price_return_12h": 0.008455760028243744
+        },
+        {
+          "decision_ms": 1792152000000,
+          "known_rate": -1.06799e-05,
+          "rate_time_ms": 1792148400016,
+          "future_price_return_12h": -0.016776783488825553
+        },
+        {
+          "decision_ms": 1792195200000,
+          "known_rate": -9.45918e-05,
+          "rate_time_ms": 1792191600045,
+          "future_price_return_12h": 0.0006616218245734108
+        }
+      ]
+    }
+  },
+  "frozen_pair_residual_stability": [
+    {
+      "period": "training",
+      "observations": 251,
+      "mean_residual": 2.1231356646218134e-16,
+      "std_residual": 0.015292737492371207,
+      "mean_z_frozen_train": 1.388329372475622e-14
+    },
+    {
+      "period": "post_training_seen",
+      "observations": 165,
+      "mean_residual": -0.02068989239649176,
+      "std_residual": 0.007226850184294799,
+      "mean_z_frozen_train": -1.3529227456374588
+    }
+  ],
+  "asset_variability": {
+    "par:BTC": {
+      "hourly_close_vol": 0.0033753081044904467,
+      "zero_close_return_fraction": 0.12289156626506025
+    },
+    "par:ETH": {
+      "hourly_close_vol": 0.004799707927511233,
+      "zero_close_return_fraction": 0.14645308924485126
+    },
+    "par:HYPE": {
+      "hourly_close_vol": 0.006323205546736947,
+      "zero_close_return_fraction": 0.0819277108433735
+    },
+    "par:SP500": {
+      "hourly_close_vol": 0.001410567274340567,
+      "zero_close_return_fraction": 0.163855421686747
+    },
+    "par:EWY": {
+      "hourly_close_vol": 0.004585336111753291,
+      "zero_close_return_fraction": 0.2246376811594203
+    },
+    "par:EWJ": {
+      "hourly_close_vol": 0.0015847639346366566,
+      "zero_close_return_fraction": 0.6844660194174758
+    },
+    "par:BRENT": {
+      "hourly_close_vol": 0.004114324995885365,
+      "zero_close_return_fraction": 0.09879518072289156
+    },
+    "par:GOLD": {
+      "hourly_close_vol": 0.0020486588393841265,
+      "zero_close_return_fraction": 0.21686746987951808
+    },
+    "par:USDEUR": {
+      "hourly_close_vol": 0.0010931610399265972,
+      "zero_close_return_fraction": 0.3333333333333333
+    },
+    "par:USDJPY": {
+      "hourly_close_vol": 0.0010355535770030675,
+      "zero_close_return_fraction": 0.35207823960880197
+    }
+  },
+  "warning": "few days, overlapping exposures, seen data; descriptive, no causal or significance claim"
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "pr": 16,
+    "commit": "5584806592149ac241dfb4ad404b5b7800798ded",
+    "file": "observations.jsonl.gz",
+    "source_sha256": "3581bfad2243bd354caaf60fa14df2f4ce8fd28a81712764a4e8a60b599c1cb6"
+  },
+  {
+    "pr": 17,
+    "commit": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+    "file": "vps-extension.jsonl.gz",
+    "source_sha256": "8775948a8d6db26dba3e111cd8870f334da1afa694467b687b27354f39f7c164"
+  },
+  {
+    "pr": 17,
+    "commit": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+    "file": "ten-asset-probe.jsonl.gz",
+    "source_sha256": "3581bfad2243bd354caaf60fa14df2f4ce8fd28a81712764a4e8a60b599c1cb6"
+  },
+  {
+    "pr": 17,
+    "commit": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+    "file": "official-history.json",
+    "source_sha256": "cfe452b7a028a7fabb0b5280a4783a20f791dec227bf52b245281fd0dfa99cb3",
+    "hash_convention": "UTF8 normalized LF text, matching Git blob"
+  }
+]

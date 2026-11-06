@@ -1275,6 +1275,1170 @@
       "original_path": "tests/test_multi_asset_basis.py",
       "destination": "research/legacy/tests/test_multi_asset_basis.py",
       "blob": "48db3830b80f80a7148968580ccae2cd415f7602"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "config/requirements-quant-research.txt",
+      "destination": "research/legacy/config/requirements-quant-research.txt",
+      "blob": "0668f00b01a4222d36025bd7ae34a7f6bd5e6d59"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/artifact-hashes.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/artifact-hashes.json",
+      "blob": "c8931785d8ba579572d9df3b343784420de43e39"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/comparison.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/comparison.csv",
+      "blob": "0ea2105005f68bab5bade3410882a5869e706342"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-BTC-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-BTC-details.jsonl.gz",
+      "blob": "94837878eee9e69bacf28e848f1a56f617392203"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-BTC.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-BTC.json",
+      "blob": "e03d7832d58db5add41e7206b4f843de1b8a4a93"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-BTC.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-BTC.zh-CN.md",
+      "blob": "d4d93a732b63934236fbe56257d2ce8bfd22de7e"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-ETH-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-ETH-details.jsonl.gz",
+      "blob": "18afe43673d875b9827f841c9504ef807ad219c5"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-ETH.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-ETH.json",
+      "blob": "d004800d6efd9c0b8d43d245f43d39f3fddb5cae"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-ETH.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-ETH.zh-CN.md",
+      "blob": "09746992dfcfe5a46d1f229084941b87ca301a06"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/manifest.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/manifest.json",
+      "blob": "cedd33a6c5cc6fc6649c0c797404ee6b56211f13"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BRENT-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BRENT-details.jsonl.gz",
+      "blob": "d20b21e23685d6b171d24fa6b6d3428bf304b4d1"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BRENT.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BRENT.json",
+      "blob": "37db7d936d11e7b892d674a653596cac8d0acd40"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BRENT.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BRENT.zh-CN.md",
+      "blob": "b0bb5b447ebaa92d9a8a1b375db1d696c28e813f"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BTC-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BTC-details.jsonl.gz",
+      "blob": "0e538817198790fa290497ad6b2e2ced441ffd19"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BTC.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BTC.json",
+      "blob": "be29122e2f8f0dea00b448e515046ec8f4a8aab0"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BTC.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BTC.zh-CN.md",
+      "blob": "9ddc3ffd2d58680266597aa11200fe48fd8b8f58"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-ETH-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-ETH-details.jsonl.gz",
+      "blob": "2c6435a3a9400fd77ec61cf4cbf7e464bbd1538e"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-ETH.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-ETH.json",
+      "blob": "cf12749a4ca2393df205a26576834c402675b22a"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-ETH.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-ETH.zh-CN.md",
+      "blob": "462484c45d065447619c8e1ebc88746d0d8dd762"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWJ-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWJ-details.jsonl.gz",
+      "blob": "cd3b1ebc9edb9cd3f2fb794e905694d54c383e32"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWJ.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWJ.json",
+      "blob": "2e404c1a0b0a7fc61e61c237fb2b68307a2f680c"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWJ.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWJ.zh-CN.md",
+      "blob": "0da0a12a8c7c5eee5ca30fe90991241d2cecb66b"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWY-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWY-details.jsonl.gz",
+      "blob": "fd2342a4f721cbf0bff4413389784af041228706"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWY.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWY.json",
+      "blob": "8aca5fdb6bca496f40665804c15489e67c0755cf"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWY.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWY.zh-CN.md",
+      "blob": "e4c44a15ff11742adf4eb59080645415a4872ed9"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-GOLD-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-GOLD-details.jsonl.gz",
+      "blob": "866f050cc9c56fb9bdb9e66b9223044c4af2e7fe"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-GOLD.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-GOLD.json",
+      "blob": "5537fed6315329c4030148c36a5f5f38c86de23a"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-GOLD.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-GOLD.zh-CN.md",
+      "blob": "24146add580568848dac25cba79260a0f994aae9"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-HYPE-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-HYPE-details.jsonl.gz",
+      "blob": "2d6d437c905389ca2018ce2f50484184f923f89c"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-HYPE.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-HYPE.json",
+      "blob": "04c60981660a938e8124d6de8888964dc1bfd216"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-HYPE.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-HYPE.zh-CN.md",
+      "blob": "1a6fb4d1f5866b161fe2e7dd84eae1aa909ea75a"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-SP500-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-SP500-details.jsonl.gz",
+      "blob": "7d24f215e706c7fdf38f2860ef4de9b014badb65"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-SP500.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-SP500.json",
+      "blob": "5af27a435f65a6f4030152c413c42706c9f690a0"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-SP500.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-SP500.zh-CN.md",
+      "blob": "7eaded68bc9fdb8a177381d7b353fa826a364668"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDEUR-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDEUR-details.jsonl.gz",
+      "blob": "220a7353540bcf4780d8de07a46b9a87cdc9101c"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDEUR.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDEUR.json",
+      "blob": "f1046bd50b3b41bed2197010a4e3b154c66e20a0"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDEUR.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDEUR.zh-CN.md",
+      "blob": "4dd5c9f35259181ae321a933ead079e873a5a441"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDJPY-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDJPY-details.jsonl.gz",
+      "blob": "008c2b95fe63ce185624c98abd0dd64d60a2aa13"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDJPY.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDJPY.json",
+      "blob": "1f4766dac0a0f70376396f0f9f758b5aed37d42b"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDJPY.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDJPY.zh-CN.md",
+      "blob": "ed20c478b046de7e45745584b6f0823f2a3ad760"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/portfolio-existing.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/portfolio-existing.json",
+      "blob": "5903f24f6648972f8b77ebaad22c9b4c1e9c5a17"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/portfolio.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/portfolio.zh-CN.md",
+      "blob": "aabbda66ee0733e9cc52f9ee434534f7dca1e4b6"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/results.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/results.zh-CN.md",
+      "blob": "eb3d76092a1e9d296c483feece1d5351d1f36951"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/summary.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/summary.json",
+      "blob": "5fcee31b309a71ffba0657e65304ee899e59cc6a"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/comparison.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/comparison.csv",
+      "blob": "c8d63f09a5afeeeb4026adfc4471e0731f9ff9c0"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/conditional-funding.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/conditional-funding.json",
+      "blob": "69422399a3ee0e65f51a40734027671d5c596de9"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/etf-fetch.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/etf-fetch.json",
+      "blob": "d8e1a03781eeb8574a08226dd55682faf79c99d9"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/etf-quality.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/etf-quality.json",
+      "blob": "5b37cc80ffe4ae5004ca249bb4e9140cfd27199c"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/ewy-trend-attribution.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/ewy-trend-attribution.json",
+      "blob": "afc1e327d8098f48e61ab5fd4f455ca184fa0f09"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/hashes.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/hashes.json",
+      "blob": "d962a0ebcfa8aa8310cfe05330f0e6e69d7e709c"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/issuer.response.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/issuer.response.gz",
+      "blob": "ff46faf9c069f9e1f6d4b3574c68d5591b2ee77f"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/ledgers.jsonl.gz",
+      "blob": "febb43f36e63a779e1b858d6bd00060ec25392e9"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/mainnet-conditional-labels.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/mainnet-conditional-labels.json",
+      "blob": "becb4f378524c8ad4be4ecf013bd2e67b0bbe598"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/manifest.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/manifest.json",
+      "blob": "c449e0c808271e75ac387b1a39b1cb7e38375f65"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/next-quote-diagnostics.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/next-quote-diagnostics.json",
+      "blob": "c7d1788f2de28b7a05dc4a4ed7dd5feedca6a1ba"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/official-guide.response.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/official-guide.response.gz",
+      "blob": "9e3e5baea2be74dd37c9e3692f1c943f07109cfb"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/par-conditional-labels.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/par-conditional-labels.json",
+      "blob": "fb4414058d658f8e45e5a3da0b9edceb0b57b8c7"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/pas-discovery.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/pas-discovery.jsonl.gz",
+      "blob": "014e6297e3b26034b5059dca8534f6dc742431e7"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/prior-pr-inputs.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/prior-pr-inputs.jsonl.gz",
+      "blob": "728f4e40e6c49a492c5071f67ee2ed0833a3ecfc"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/prior-source-inventory.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/prior-source-inventory.json",
+      "blob": "59e74e4f73f62f28bd2cac6d1da5e104725ec098"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/prior-source-provenance.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/prior-source-provenance.json",
+      "blob": "fbc22949bace1ce03407541a759e6bed616e0c42"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/prospective.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/prospective.json",
+      "blob": "e69f0f444188cd95a9ee49b752655533e3fa52da"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/protocol.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/protocol.json",
+      "blob": "b9ce39ddc3e9b0ec4e38adf8b1be310a4d80b2de"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/public-history.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/public-history.jsonl.gz",
+      "blob": "8ace8719a5158f15db8a5024937240755853dafb"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/quality.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/quality.json",
+      "blob": "d8f139e39dea147b77ec69843564f438f36261c3"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/quote-probe.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/quote-probe.jsonl.gz",
+      "blob": "e749648c505c3218b3ef403b5f3b0b7bfce88ce8"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/report.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/report.zh-CN.md",
+      "blob": "2257f8dee4c1dc26d480ad6e6927edc010d0097e"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/summary.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/summary.json",
+      "blob": "d16daea093106da30ec89a57e7a7e4223a5d0537"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/venue-identity-audit.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/venue-identity-audit.jsonl.gz",
+      "blob": "7bbfd83655b32926487371f5ca0350ae6cf81825"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/vps-readonly-export.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/vps-readonly-export.json.gz",
+      "blob": "ec728aa9d7c95eda4aeb7080bf00bd34bfb4301b"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/yahoo-daily.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/yahoo-daily.csv",
+      "blob": "eef3df43de7f6724b4d8451b0e0df8bbe17c9271"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/yahoo-daily.response.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/yahoo-daily.response.gz",
+      "blob": "eeb70ad275b6731b6f528b0f0cdeff3b81bcb681"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/yahoo-hourly.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/yahoo-hourly.csv",
+      "blob": "a57a92c2839d4421bf41d00f89ba6aec4cd45a66"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/yahoo-hourly.response.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/yahoo-hourly.response.gz",
+      "blob": "1591412970b3fbf432631bef88893f44bc6dd05c"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/comparison-analysis.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/comparison-analysis.json",
+      "blob": "df5bafd3aab9fa5560d412c308bc06a52065a4aa"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/experiments/artifact-hashes.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/experiments/artifact-hashes.json",
+      "blob": "6c85a7426bf6c1a79f1b17a4737a377350ba1441"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/experiments/comparison.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/experiments/comparison.csv",
+      "blob": "6df4ce5b5a294394ee05e0601efe85cabc05ac30"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/experiments/details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/experiments/details.jsonl.gz",
+      "blob": "87b1b9068ec3664b3f955270aa13b6d5eac9d85d"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/experiments/diagnostics.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/experiments/diagnostics.json",
+      "blob": "b6fe87a6c8017cba56d051e03529ccffc919b74b"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/experiments/manifest.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/experiments/manifest.json",
+      "blob": "5e08d3dc01dc6783a5a08109fe57392f1b2826c3"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/experiments/results.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/experiments/results.zh-CN.md",
+      "blob": "d811283b0b4f751c69d75fc52a8c99488f8489aa"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/experiments/summary.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/experiments/summary.json",
+      "blob": "87ce9597246c9c973d199932c9f597f7f08dd69e"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/external-history.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/external-history.jsonl.gz",
+      "blob": "f8bee126429053c6713575802be064d94631bdbc"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/external-minute.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/external-minute.jsonl.gz",
+      "blob": "3b284f8a74df6f3968e48b7d65afe22b7ec509f0"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/paired-book-decoded-probe.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/paired-book-decoded-probe.jsonl.gz",
+      "blob": "b5f1477012a8893f25d830ce185e1e2a1b25e2d9"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/paired-book-probe.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/paired-book-probe.jsonl.gz",
+      "blob": "5fddf91fcfd4e8dbc8679a1ce900a0176b0eb3b6"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/par-minute.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/par-minute.jsonl.gz",
+      "blob": "3ee812d2d9f58e52283c636a4d7d70ced38f3849"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/association.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/association.json",
+      "blob": "13eee933cca61bcbef587e0a478d8442cb29855b"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/comparison.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/comparison.csv",
+      "blob": "ca8a54c2701466d84c7c6e1ad4181f8912753976"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/comparisons.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/comparisons.json",
+      "blob": "bb3362ebe952989b33783ceed8eb89f6368ff9f4"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/details.jsonl.gz",
+      "blob": "c852f4293bd97389a37d7ecc37ffcc032236592e"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/external-long-price.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/external-long-price.json",
+      "blob": "ee48314dc7317a0938ba3a753a1328e4434c8b23"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/hashes.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/hashes.json",
+      "blob": "7539bd965cbc67578358f2f39add32a4601c0a65"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/lead-lag.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/lead-lag.json",
+      "blob": "8ca461e6ce6c3e7058e524caa7224172cfbe42f2"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/manifest.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/manifest.json",
+      "blob": "f7046e27c9261ce38f08fe065cec99d266ee30e9"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/quote-transfer.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/quote-transfer.json",
+      "blob": "2ad86a5d8011d85953705a5e31a8ab150d177229"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/summary.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/summary.json",
+      "blob": "13ef6ca88baaee586d746518e7e6eaafbad9e6f6"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/input-audit.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/input-audit.json",
+      "blob": "59c45d7240615d024ce9c49fcf27c401a03ecf58"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/BRENT-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/BRENT-ledgers.jsonl.gz",
+      "blob": "35f0a6fbe5a515b16dd939cd77f4b0f0179f4baf"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/BTC-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/BTC-ledgers.jsonl.gz",
+      "blob": "f694cabd8dc5abe37bde8009278ee0b739ce375f"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/ETH-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/ETH-ledgers.jsonl.gz",
+      "blob": "78253f5a5c9f2074b0ae532d54fba26fe0111da9"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/EWJ-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/EWJ-ledgers.jsonl.gz",
+      "blob": "b4c2c993237eabb1d04b917473b6ab40b955384f"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/EWY-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/EWY-ledgers.jsonl.gz",
+      "blob": "a8f2f2d8fa95f1cec4a6f33f9cb8b280abc36bf4"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/GOLD-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/GOLD-ledgers.jsonl.gz",
+      "blob": "f46c02aa96f797852ab199760a63bbaa896913e3"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/HYPE-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/HYPE-ledgers.jsonl.gz",
+      "blob": "9da26ae782260e920aa32937613286fdad8ec623"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/SP500-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/SP500-ledgers.jsonl.gz",
+      "blob": "d8a2fb6753afbaeaebf87e8e7be190471b9d33e4"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/USDEUR-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/USDEUR-ledgers.jsonl.gz",
+      "blob": "54e9f81252a4416f4e30d6590637b834e0417835"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/USDJPY-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/USDJPY-ledgers.jsonl.gz",
+      "blob": "63b59a0b238783069e1e46d3a76da61d45a8a142"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/additional-public-history.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/additional-public-history.jsonl.gz",
+      "blob": "e7a8fc54871d95ef8b9871c16911fdcea6e4e76a"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/capture-errors.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/capture-errors.json",
+      "blob": "d02356b9a92b497621ca143cfd81e2e63359f526"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/comparison.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/comparison.csv",
+      "blob": "de90d9f3bad1857b28373712dabe09bd12c0b7e8"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/conclusions.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/conclusions.json",
+      "blob": "3709a69cc799a187e92b999980a6cb683e770832"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-BRENT-1d.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-BRENT-1d.json.gz",
+      "blob": "9c55d2b07f7f663bf9291d8609a70d021478d9dc"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-BRENT-1h.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-BRENT-1h.json.gz",
+      "blob": "14338c6bf24e0567cfe39024c1355ed259952cd4"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-BTC-1d.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-BTC-1d.json.gz",
+      "blob": "d78679fb9eaf6f3de35c1855c56da373e894002b"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-BTC-1h.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-BTC-1h.json.gz",
+      "blob": "d438855ac27a169b95e3c8e0a53b26bf5db73a6b"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-ETH-1d.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-ETH-1d.json.gz",
+      "blob": "81c06aa806ec5a0f51b2ce89104fafc5158f921d"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-ETH-1h.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-ETH-1h.json.gz",
+      "blob": "3dcae0b91f62a8abb3994ebac18db8fe866ffbf9"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-EWJ-1d.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-EWJ-1d.json.gz",
+      "blob": "65c0f44b4980258c154faba007fc075329ded4c6"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-EWJ-1h.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-EWJ-1h.json.gz",
+      "blob": "809bee6927ad1d411351930925353a48b803b0c1"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-GOLD-1d.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-GOLD-1d.json.gz",
+      "blob": "a3e7e0b6ff54d78897b907486bdfbe6c6860c5e7"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-GOLD-1h.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-GOLD-1h.json.gz",
+      "blob": "e7edbd0aaedcb69056cb9e3a8b145ad418e8ad21"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-SP500-1d.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-SP500-1d.json.gz",
+      "blob": "675ba5c1ac019ec6b13f366db5b254675a095267"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-SP500-1h.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-SP500-1h.json.gz",
+      "blob": "85d58cb2c27bd730d0737b115c5800b731b275c8"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-USDEUR-1d.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-USDEUR-1d.json.gz",
+      "blob": "f27e88d99d54e59d213513428298f12ff05d0caa"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-USDEUR-1h.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-USDEUR-1h.json.gz",
+      "blob": "ac39c79e3c074e95dcabe7d8b5e26cd4fbd74863"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-USDJPY-1d.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-USDJPY-1d.json.gz",
+      "blob": "77a801fd8d95a14f7757c7e3292346510b5c2845"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-USDJPY-1h.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-USDJPY-1h.json.gz",
+      "blob": "be51687aa74b29c08a190978718b6b66ded63f56"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-fetch.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-fetch.json",
+      "blob": "5aecfdc2e6d06bda38031635142053196893b303"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-quality.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-quality.json",
+      "blob": "cb92a5b0fce7d2f1ba8990d101fced2909bdcc8a"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/daily-pnl.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/daily-pnl.json",
+      "blob": "0309681dd9f1abdf670b870d5a60b04597da9fed"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/hashes.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/hashes.json",
+      "blob": "807d06e3f17ac5b77ef4db3fea53ffdd161592a4"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/long-universe-170.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/long-universe-170.json",
+      "blob": "2530b6d50a466f7d9024f734429383838d896a77"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/manifest.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/manifest.json",
+      "blob": "faa12613024fc6c02a1bd8a2cc03e8195eec5e52"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/matrix-37.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/matrix-37.csv",
+      "blob": "6a4506307b1d225011f5bd1dd276dc0f04afb4a4"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/matrix-37.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/matrix-37.json",
+      "blob": "57cbd8ccd24b7ef078f178f9ce19e24f417e1f5a"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/nonoverlap-amendment.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/nonoverlap-amendment.json",
+      "blob": "99dd884ac910c2a6a04f6c43e8497d31d2a05f92"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/nonoverlap-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/nonoverlap-ledgers.jsonl.gz",
+      "blob": "f6940fa75167cf08bb605950cbafa95b5073db24"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/nonoverlap-summary.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/nonoverlap-summary.json",
+      "blob": "cd270c69116dd229f944f4de195a0b8f9a73f622"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/original-170.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/original-170.csv",
+      "blob": "cb9aa0020081f7a66935f7c8e9a43c02b5038cd6"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/original-direction-and-sizing.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/original-direction-and-sizing.json",
+      "blob": "7d6ae88ad48ef601f46a1fb3428527e0dc1c95d7"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/protocol.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/protocol.json",
+      "blob": "93200a97ed7b6cd1a797facb24052e5146406318"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/registry-170.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/registry-170.json",
+      "blob": "a51f9993d991589d689a1603bfa0d9f7aebcbc38"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/report.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/report.zh-CN.md",
+      "blob": "dde02c43899786c8ffb790b803aaca3ec90c7e72"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/rule-parameter-contract.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/rule-parameter-contract.json",
+      "blob": "46497f77db6a8031bfb13ee923df38dd5d050d59"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/selected-37.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/selected-37.csv",
+      "blob": "6d552377c01ea524192ed905176dd19b0c6ad9ca"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/source-quality.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/source-quality.json",
+      "blob": "36ea037a1edf4dc2c02182c6cebcd8c52f38ac3a"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/state-attribution.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/state-attribution.json",
+      "blob": "8ce9d8babf3ad11dec05f188c1f0a388414a3687"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/summary.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/summary.json",
+      "blob": "0d1baf7942bc2a68a0fd4d2447fd82b27dd5b239"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/comparison.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/comparison.csv",
+      "blob": "0648f4b60d574cfde78033f256a5448f88834043"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/counts.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/counts.json",
+      "blob": "ce6e469b0de9ba2e2cc1cfa699bf579c05cb9f53"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/hashes.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/hashes.json",
+      "blob": "8a0ec2fcb2ce20b97e42ba426a0e21b4c985ed69"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/manifest.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/manifest.json",
+      "blob": "3e40599bba1bf46d234da8f581d6f3e448c457a8"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/summary.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/summary.json",
+      "blob": "a07317682038405ae7c7477106213b60ce7325dd"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/official-hourly.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/official-hourly.jsonl.gz",
+      "blob": "4fc8cf5c1bd4cd91cdcb1bf77304bf3387b002f0"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/report.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/report.zh-CN.md",
+      "blob": "a00b12e1854a1f825cd777d71e0571a38e6eb1e3"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/analyze_long_history.py",
+      "destination": "research/legacy/scripts/analyze_long_history.py",
+      "blob": "f19dcd5dbd93b1ec1a07e5c6c5286720e4b3703c"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/analyze_quant_results.py",
+      "destination": "research/legacy/scripts/analyze_quant_results.py",
+      "blob": "42f877850faadec80dc88ba09304d84b62b8f22f"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/audit_candidate_sources.py",
+      "destination": "research/legacy/scripts/audit_candidate_sources.py",
+      "blob": "e49266531cd6feb6a436734770a864c8ac5b946f"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/audit_official_quant_costs.py",
+      "destination": "research/legacy/scripts/audit_official_quant_costs.py",
+      "blob": "da2299364022e564b11244d9fff38131cc8fe964"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/capture_candidate_validation.py",
+      "destination": "research/legacy/scripts/capture_candidate_validation.py",
+      "blob": "561bacbd2f5e4d2d9b4254e1adc00e7151dddc9c"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/capture_long_history.py",
+      "destination": "research/legacy/scripts/capture_long_history.py",
+      "blob": "1b0a10dde495838d6c701722efea560704d4b1a2"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/capture_market_transfer.py",
+      "destination": "research/legacy/scripts/capture_market_transfer.py",
+      "blob": "b015455be1da5cf9f5ec15d0af5658c806fea0f6"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/capture_quant_history.py",
+      "destination": "research/legacy/scripts/capture_quant_history.py",
+      "blob": "b64efff3b3836bd818df7a0bb73f2c283282f20d"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/inventory_candidate_validation.py",
+      "destination": "research/legacy/scripts/inventory_candidate_validation.py",
+      "blob": "acaa5d93df47b8d5da0d9a6f5a398f8bf0abcae7"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/long_history_protocol.py",
+      "destination": "research/legacy/scripts/long_history_protocol.py",
+      "blob": "44ceecf439a3e7910d72e230d25f6448b9297f30"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/report_asset_coverage.py",
+      "destination": "research/legacy/scripts/report_asset_coverage.py",
+      "blob": "2505b8056cf5f9ee707123b6110871d75b73309a"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/report_candidate_validation.py",
+      "destination": "research/legacy/scripts/report_candidate_validation.py",
+      "blob": "b93574aeab77ed96e4dbc7e30a0da6c1e742d1e2"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/report_long_history.py",
+      "destination": "research/legacy/scripts/report_long_history.py",
+      "blob": "eac9a4a59bea4cabde5a81ffde4d91197c493e46"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/retry_long_history_capture.py",
+      "destination": "research/legacy/scripts/retry_long_history_capture.py",
+      "blob": "1075abf1c876a94491092abe39fe6830d34a9743"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/run_asset_coverage.py",
+      "destination": "research/legacy/scripts/run_asset_coverage.py",
+      "blob": "0e71f997203ae42b973207d2ae22effb28705460"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/run_candidate_validation.py",
+      "destination": "research/legacy/scripts/run_candidate_validation.py",
+      "blob": "3427290ca21a28eb492e2e87d7748dd567333031"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/run_long_history.py",
+      "destination": "research/legacy/scripts/run_long_history.py",
+      "blob": "6a4c26ad70d3aa7e5899708ede01013752d619f3"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/run_long_nonoverlap.py",
+      "destination": "research/legacy/scripts/run_long_nonoverlap.py",
+      "blob": "c3b4a1d3f43e6526339ee4b949894b94f8d4a481"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/run_market_transfer.py",
+      "destination": "research/legacy/scripts/run_market_transfer.py",
+      "blob": "4b2f36561aeaf0c89de4a1074ff380a23c87d93f"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/validate_asset_coverage.py",
+      "destination": "research/legacy/scripts/validate_asset_coverage.py",
+      "blob": "06b483a9488f083ea431f3af06fe1869ba8d6706"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/validate_candidate_validation.py",
+      "destination": "research/legacy/scripts/validate_candidate_validation.py",
+      "blob": "ba9a630d467b497c426a553a8826c9fd90495b54"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/validate_long_history.py",
+      "destination": "research/legacy/scripts/validate_long_history.py",
+      "blob": "7df81cc0f0b163c83288a9f9d074ec7c3973d703"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/validate_market_transfer.py",
+      "destination": "research/legacy/scripts/validate_market_transfer.py",
+      "blob": "25bea6a27e454dd970f3a66296e3d011e3c1b709"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/validate_quant_research.py",
+      "destination": "research/legacy/scripts/validate_quant_research.py",
+      "blob": "90c29d176b3cf880d86cc80db80eabbe9b944d08"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "src/perpetual_alpha/market_transfer.py",
+      "destination": "research/legacy/src/perpetual_alpha/market_transfer.py",
+      "blob": "bc143a4f610fd2670ec3afdaab325008609bf36f"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "src/perpetual_alpha/offline_quant/__init__.py",
+      "destination": "research/legacy/src/perpetual_alpha/offline_quant/__init__.py",
+      "blob": "89cbb9b525ae1099fc1faa8123ec767185ebed8c"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "src/perpetual_alpha/offline_quant/data.py",
+      "destination": "research/legacy/src/perpetual_alpha/offline_quant/data.py",
+      "blob": "591043482f019678055ba7ccf7757bb12fa444f1"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "src/perpetual_alpha/offline_quant/diagnostics.py",
+      "destination": "research/legacy/src/perpetual_alpha/offline_quant/diagnostics.py",
+      "blob": "7544c6994998805934e40fa3c63404bf68287a28"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "src/perpetual_alpha/offline_quant/relative.py",
+      "destination": "research/legacy/src/perpetual_alpha/offline_quant/relative.py",
+      "blob": "9fbf9b8a2a957862d4ab77caaaad612000b2d512"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "src/perpetual_alpha/offline_quant/replay.py",
+      "destination": "research/legacy/src/perpetual_alpha/offline_quant/replay.py",
+      "blob": "78bc79f4e0581a3e6fbf400daf6d64efa21e64ad"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "src/perpetual_alpha/offline_quant/run.py",
+      "destination": "research/legacy/src/perpetual_alpha/offline_quant/run.py",
+      "blob": "a6d9339878e159dcf89fe206c962d7b6cd847efa"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "src/perpetual_alpha/offline_quant/signals.py",
+      "destination": "research/legacy/src/perpetual_alpha/offline_quant/signals.py",
+      "blob": "be0931c40af68878683dfa31c6660ba22222a241"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "tests/test_asset_coverage.py",
+      "destination": "research/legacy/tests/test_asset_coverage.py",
+      "blob": "630a133a5de1baaaf42db0997762110d4ea44170"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "tests/test_candidate_validation.py",
+      "destination": "research/legacy/tests/test_candidate_validation.py",
+      "blob": "b40a6baf47888fec9d8f9f686ab04cecf7d0cda1"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "tests/test_long_history.py",
+      "destination": "research/legacy/tests/test_long_history.py",
+      "blob": "66ab264e6713804401a54338494b3ea35c0367be"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "tests/test_market_transfer.py",
+      "destination": "research/legacy/tests/test_market_transfer.py",
+      "blob": "43242917bdcb9171b4820129fdea65a2a02b9bb7"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "tests/test_official_cost_audit.py",
+      "destination": "research/legacy/tests/test_official_cost_audit.py",
+      "blob": "e194b5f39ac97c700ad1922d5f540168db41aa46"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "tests/test_offline_quant.py",
+      "destination": "research/legacy/tests/test_offline_quant.py",
+      "blob": "eb82568ad3ee2606fb861d7078221d196c057fad"
     }
   ],
   "manual_review": [
@@ -1296,6 +2460,12 @@
     },
     {
       "source": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "path": "docs/strategy-development.zh-CN.md",
+      "destination": "docs/strategy-development.zh-CN.md",
+      "reason": "Different existing version; not overwritten"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
       "path": "docs/strategy-development.zh-CN.md",
       "destination": "docs/strategy-development.zh-CN.md",
       "reason": "Different existing version; not overwritten"
@@ -2279,6 +3449,1170 @@
       "original_path": "tests/test_multi_asset_basis.py",
       "destination": "research/legacy/tests/test_multi_asset_basis.py",
       "blob": "48db3830b80f80a7148968580ccae2cd415f7602"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "config/requirements-quant-research.txt",
+      "destination": "research/legacy/config/requirements-quant-research.txt",
+      "blob": "0668f00b01a4222d36025bd7ae34a7f6bd5e6d59"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/artifact-hashes.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/artifact-hashes.json",
+      "blob": "c8931785d8ba579572d9df3b343784420de43e39"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/comparison.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/comparison.csv",
+      "blob": "0ea2105005f68bab5bade3410882a5869e706342"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-BTC-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-BTC-details.jsonl.gz",
+      "blob": "94837878eee9e69bacf28e848f1a56f617392203"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-BTC.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-BTC.json",
+      "blob": "e03d7832d58db5add41e7206b4f843de1b8a4a93"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-BTC.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-BTC.zh-CN.md",
+      "blob": "d4d93a732b63934236fbe56257d2ce8bfd22de7e"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-ETH-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-ETH-details.jsonl.gz",
+      "blob": "18afe43673d875b9827f841c9504ef807ad219c5"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-ETH.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-ETH.json",
+      "blob": "d004800d6efd9c0b8d43d245f43d39f3fddb5cae"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-ETH.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/external-ETH.zh-CN.md",
+      "blob": "09746992dfcfe5a46d1f229084941b87ca301a06"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/manifest.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/manifest.json",
+      "blob": "cedd33a6c5cc6fc6649c0c797404ee6b56211f13"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BRENT-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BRENT-details.jsonl.gz",
+      "blob": "d20b21e23685d6b171d24fa6b6d3428bf304b4d1"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BRENT.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BRENT.json",
+      "blob": "37db7d936d11e7b892d674a653596cac8d0acd40"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BRENT.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BRENT.zh-CN.md",
+      "blob": "b0bb5b447ebaa92d9a8a1b375db1d696c28e813f"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BTC-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BTC-details.jsonl.gz",
+      "blob": "0e538817198790fa290497ad6b2e2ced441ffd19"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BTC.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BTC.json",
+      "blob": "be29122e2f8f0dea00b448e515046ec8f4a8aab0"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BTC.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-BTC.zh-CN.md",
+      "blob": "9ddc3ffd2d58680266597aa11200fe48fd8b8f58"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-ETH-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-ETH-details.jsonl.gz",
+      "blob": "2c6435a3a9400fd77ec61cf4cbf7e464bbd1538e"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-ETH.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-ETH.json",
+      "blob": "cf12749a4ca2393df205a26576834c402675b22a"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-ETH.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-ETH.zh-CN.md",
+      "blob": "462484c45d065447619c8e1ebc88746d0d8dd762"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWJ-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWJ-details.jsonl.gz",
+      "blob": "cd3b1ebc9edb9cd3f2fb794e905694d54c383e32"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWJ.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWJ.json",
+      "blob": "2e404c1a0b0a7fc61e61c237fb2b68307a2f680c"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWJ.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWJ.zh-CN.md",
+      "blob": "0da0a12a8c7c5eee5ca30fe90991241d2cecb66b"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWY-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWY-details.jsonl.gz",
+      "blob": "fd2342a4f721cbf0bff4413389784af041228706"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWY.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWY.json",
+      "blob": "8aca5fdb6bca496f40665804c15489e67c0755cf"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWY.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-EWY.zh-CN.md",
+      "blob": "e4c44a15ff11742adf4eb59080645415a4872ed9"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-GOLD-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-GOLD-details.jsonl.gz",
+      "blob": "866f050cc9c56fb9bdb9e66b9223044c4af2e7fe"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-GOLD.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-GOLD.json",
+      "blob": "5537fed6315329c4030148c36a5f5f38c86de23a"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-GOLD.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-GOLD.zh-CN.md",
+      "blob": "24146add580568848dac25cba79260a0f994aae9"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-HYPE-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-HYPE-details.jsonl.gz",
+      "blob": "2d6d437c905389ca2018ce2f50484184f923f89c"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-HYPE.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-HYPE.json",
+      "blob": "04c60981660a938e8124d6de8888964dc1bfd216"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-HYPE.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-HYPE.zh-CN.md",
+      "blob": "1a6fb4d1f5866b161fe2e7dd84eae1aa909ea75a"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-SP500-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-SP500-details.jsonl.gz",
+      "blob": "7d24f215e706c7fdf38f2860ef4de9b014badb65"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-SP500.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-SP500.json",
+      "blob": "5af27a435f65a6f4030152c413c42706c9f690a0"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-SP500.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-SP500.zh-CN.md",
+      "blob": "7eaded68bc9fdb8a177381d7b353fa826a364668"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDEUR-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDEUR-details.jsonl.gz",
+      "blob": "220a7353540bcf4780d8de07a46b9a87cdc9101c"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDEUR.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDEUR.json",
+      "blob": "f1046bd50b3b41bed2197010a4e3b154c66e20a0"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDEUR.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDEUR.zh-CN.md",
+      "blob": "4dd5c9f35259181ae321a933ead079e873a5a441"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDJPY-details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDJPY-details.jsonl.gz",
+      "blob": "008c2b95fe63ce185624c98abd0dd64d60a2aa13"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDJPY.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDJPY.json",
+      "blob": "1f4766dac0a0f70376396f0f9f758b5aed37d42b"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDJPY.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/par-USDJPY.zh-CN.md",
+      "blob": "ed20c478b046de7e45745584b6f0823f2a3ad760"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/portfolio-existing.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/portfolio-existing.json",
+      "blob": "5903f24f6648972f8b77ebaad22c9b4c1e9c5a17"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/portfolio.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/portfolio.zh-CN.md",
+      "blob": "aabbda66ee0733e9cc52f9ee434534f7dca1e4b6"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/results.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/results.zh-CN.md",
+      "blob": "eb3d76092a1e9d296c483feece1d5351d1f36951"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/summary.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/asset-coverage/summary.json",
+      "blob": "5fcee31b309a71ffba0657e65304ee899e59cc6a"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/comparison.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/comparison.csv",
+      "blob": "c8d63f09a5afeeeb4026adfc4471e0731f9ff9c0"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/conditional-funding.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/conditional-funding.json",
+      "blob": "69422399a3ee0e65f51a40734027671d5c596de9"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/etf-fetch.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/etf-fetch.json",
+      "blob": "d8e1a03781eeb8574a08226dd55682faf79c99d9"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/etf-quality.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/etf-quality.json",
+      "blob": "5b37cc80ffe4ae5004ca249bb4e9140cfd27199c"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/ewy-trend-attribution.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/ewy-trend-attribution.json",
+      "blob": "afc1e327d8098f48e61ab5fd4f455ca184fa0f09"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/hashes.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/hashes.json",
+      "blob": "d962a0ebcfa8aa8310cfe05330f0e6e69d7e709c"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/issuer.response.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/issuer.response.gz",
+      "blob": "ff46faf9c069f9e1f6d4b3574c68d5591b2ee77f"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/ledgers.jsonl.gz",
+      "blob": "febb43f36e63a779e1b858d6bd00060ec25392e9"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/mainnet-conditional-labels.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/mainnet-conditional-labels.json",
+      "blob": "becb4f378524c8ad4be4ecf013bd2e67b0bbe598"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/manifest.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/manifest.json",
+      "blob": "c449e0c808271e75ac387b1a39b1cb7e38375f65"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/next-quote-diagnostics.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/next-quote-diagnostics.json",
+      "blob": "c7d1788f2de28b7a05dc4a4ed7dd5feedca6a1ba"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/official-guide.response.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/official-guide.response.gz",
+      "blob": "9e3e5baea2be74dd37c9e3692f1c943f07109cfb"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/par-conditional-labels.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/par-conditional-labels.json",
+      "blob": "fb4414058d658f8e45e5a3da0b9edceb0b57b8c7"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/pas-discovery.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/pas-discovery.jsonl.gz",
+      "blob": "014e6297e3b26034b5059dca8534f6dc742431e7"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/prior-pr-inputs.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/prior-pr-inputs.jsonl.gz",
+      "blob": "728f4e40e6c49a492c5071f67ee2ed0833a3ecfc"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/prior-source-inventory.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/prior-source-inventory.json",
+      "blob": "59e74e4f73f62f28bd2cac6d1da5e104725ec098"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/prior-source-provenance.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/prior-source-provenance.json",
+      "blob": "fbc22949bace1ce03407541a759e6bed616e0c42"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/prospective.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/prospective.json",
+      "blob": "e69f0f444188cd95a9ee49b752655533e3fa52da"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/protocol.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/protocol.json",
+      "blob": "b9ce39ddc3e9b0ec4e38adf8b1be310a4d80b2de"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/public-history.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/public-history.jsonl.gz",
+      "blob": "8ace8719a5158f15db8a5024937240755853dafb"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/quality.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/quality.json",
+      "blob": "d8f139e39dea147b77ec69843564f438f36261c3"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/quote-probe.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/quote-probe.jsonl.gz",
+      "blob": "e749648c505c3218b3ef403b5f3b0b7bfce88ce8"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/report.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/report.zh-CN.md",
+      "blob": "2257f8dee4c1dc26d480ad6e6927edc010d0097e"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/summary.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/summary.json",
+      "blob": "d16daea093106da30ec89a57e7a7e4223a5d0537"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/venue-identity-audit.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/venue-identity-audit.jsonl.gz",
+      "blob": "7bbfd83655b32926487371f5ca0350ae6cf81825"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/vps-readonly-export.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/vps-readonly-export.json.gz",
+      "blob": "ec728aa9d7c95eda4aeb7080bf00bd34bfb4301b"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/yahoo-daily.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/yahoo-daily.csv",
+      "blob": "eef3df43de7f6724b4d8451b0e0df8bbe17c9271"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/yahoo-daily.response.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/yahoo-daily.response.gz",
+      "blob": "eeb70ad275b6731b6f528b0f0cdeff3b81bcb681"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/yahoo-hourly.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/yahoo-hourly.csv",
+      "blob": "a57a92c2839d4421bf41d00f89ba6aec4cd45a66"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/yahoo-hourly.response.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/candidate-validation/yahoo-hourly.response.gz",
+      "blob": "1591412970b3fbf432631bef88893f44bc6dd05c"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/comparison-analysis.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/comparison-analysis.json",
+      "blob": "df5bafd3aab9fa5560d412c308bc06a52065a4aa"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/experiments/artifact-hashes.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/experiments/artifact-hashes.json",
+      "blob": "6c85a7426bf6c1a79f1b17a4737a377350ba1441"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/experiments/comparison.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/experiments/comparison.csv",
+      "blob": "6df4ce5b5a294394ee05e0601efe85cabc05ac30"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/experiments/details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/experiments/details.jsonl.gz",
+      "blob": "87b1b9068ec3664b3f955270aa13b6d5eac9d85d"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/experiments/diagnostics.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/experiments/diagnostics.json",
+      "blob": "b6fe87a6c8017cba56d051e03529ccffc919b74b"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/experiments/manifest.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/experiments/manifest.json",
+      "blob": "5e08d3dc01dc6783a5a08109fe57392f1b2826c3"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/experiments/results.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/experiments/results.zh-CN.md",
+      "blob": "d811283b0b4f751c69d75fc52a8c99488f8489aa"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/experiments/summary.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/experiments/summary.json",
+      "blob": "87ce9597246c9c973d199932c9f597f7f08dd69e"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/external-history.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/external-history.jsonl.gz",
+      "blob": "f8bee126429053c6713575802be064d94631bdbc"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/external-minute.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/external-minute.jsonl.gz",
+      "blob": "3b284f8a74df6f3968e48b7d65afe22b7ec509f0"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/paired-book-decoded-probe.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/paired-book-decoded-probe.jsonl.gz",
+      "blob": "b5f1477012a8893f25d830ce185e1e2a1b25e2d9"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/paired-book-probe.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/paired-book-probe.jsonl.gz",
+      "blob": "5fddf91fcfd4e8dbc8679a1ce900a0176b0eb3b6"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/par-minute.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/par-minute.jsonl.gz",
+      "blob": "3ee812d2d9f58e52283c636a4d7d70ced38f3849"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/association.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/association.json",
+      "blob": "13eee933cca61bcbef587e0a478d8442cb29855b"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/comparison.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/comparison.csv",
+      "blob": "ca8a54c2701466d84c7c6e1ad4181f8912753976"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/comparisons.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/comparisons.json",
+      "blob": "bb3362ebe952989b33783ceed8eb89f6368ff9f4"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/details.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/details.jsonl.gz",
+      "blob": "c852f4293bd97389a37d7ecc37ffcc032236592e"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/external-long-price.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/external-long-price.json",
+      "blob": "ee48314dc7317a0938ba3a753a1328e4434c8b23"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/hashes.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/hashes.json",
+      "blob": "7539bd965cbc67578358f2f39add32a4601c0a65"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/lead-lag.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/lead-lag.json",
+      "blob": "8ca461e6ce6c3e7058e524caa7224172cfbe42f2"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/manifest.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/manifest.json",
+      "blob": "f7046e27c9261ce38f08fe065cec99d266ee30e9"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/quote-transfer.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/quote-transfer.json",
+      "blob": "2ad86a5d8011d85953705a5e31a8ab150d177229"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/summary.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/external-transfer/results/summary.json",
+      "blob": "13ef6ca88baaee586d746518e7e6eaafbad9e6f6"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/input-audit.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/input-audit.json",
+      "blob": "59c45d7240615d024ce9c49fcf27c401a03ecf58"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/BRENT-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/BRENT-ledgers.jsonl.gz",
+      "blob": "35f0a6fbe5a515b16dd939cd77f4b0f0179f4baf"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/BTC-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/BTC-ledgers.jsonl.gz",
+      "blob": "f694cabd8dc5abe37bde8009278ee0b739ce375f"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/ETH-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/ETH-ledgers.jsonl.gz",
+      "blob": "78253f5a5c9f2074b0ae532d54fba26fe0111da9"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/EWJ-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/EWJ-ledgers.jsonl.gz",
+      "blob": "b4c2c993237eabb1d04b917473b6ab40b955384f"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/EWY-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/EWY-ledgers.jsonl.gz",
+      "blob": "a8f2f2d8fa95f1cec4a6f33f9cb8b280abc36bf4"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/GOLD-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/GOLD-ledgers.jsonl.gz",
+      "blob": "f46c02aa96f797852ab199760a63bbaa896913e3"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/HYPE-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/HYPE-ledgers.jsonl.gz",
+      "blob": "9da26ae782260e920aa32937613286fdad8ec623"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/SP500-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/SP500-ledgers.jsonl.gz",
+      "blob": "d8a2fb6753afbaeaebf87e8e7be190471b9d33e4"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/USDEUR-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/USDEUR-ledgers.jsonl.gz",
+      "blob": "54e9f81252a4416f4e30d6590637b834e0417835"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/USDJPY-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/USDJPY-ledgers.jsonl.gz",
+      "blob": "63b59a0b238783069e1e46d3a76da61d45a8a142"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/additional-public-history.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/additional-public-history.jsonl.gz",
+      "blob": "e7a8fc54871d95ef8b9871c16911fdcea6e4e76a"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/capture-errors.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/capture-errors.json",
+      "blob": "d02356b9a92b497621ca143cfd81e2e63359f526"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/comparison.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/comparison.csv",
+      "blob": "de90d9f3bad1857b28373712dabe09bd12c0b7e8"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/conclusions.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/conclusions.json",
+      "blob": "3709a69cc799a187e92b999980a6cb683e770832"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-BRENT-1d.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-BRENT-1d.json.gz",
+      "blob": "9c55d2b07f7f663bf9291d8609a70d021478d9dc"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-BRENT-1h.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-BRENT-1h.json.gz",
+      "blob": "14338c6bf24e0567cfe39024c1355ed259952cd4"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-BTC-1d.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-BTC-1d.json.gz",
+      "blob": "d78679fb9eaf6f3de35c1855c56da373e894002b"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-BTC-1h.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-BTC-1h.json.gz",
+      "blob": "d438855ac27a169b95e3c8e0a53b26bf5db73a6b"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-ETH-1d.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-ETH-1d.json.gz",
+      "blob": "81c06aa806ec5a0f51b2ce89104fafc5158f921d"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-ETH-1h.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-ETH-1h.json.gz",
+      "blob": "3dcae0b91f62a8abb3994ebac18db8fe866ffbf9"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-EWJ-1d.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-EWJ-1d.json.gz",
+      "blob": "65c0f44b4980258c154faba007fc075329ded4c6"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-EWJ-1h.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-EWJ-1h.json.gz",
+      "blob": "809bee6927ad1d411351930925353a48b803b0c1"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-GOLD-1d.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-GOLD-1d.json.gz",
+      "blob": "a3e7e0b6ff54d78897b907486bdfbe6c6860c5e7"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-GOLD-1h.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-GOLD-1h.json.gz",
+      "blob": "e7edbd0aaedcb69056cb9e3a8b145ad418e8ad21"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-SP500-1d.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-SP500-1d.json.gz",
+      "blob": "675ba5c1ac019ec6b13f366db5b254675a095267"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-SP500-1h.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-SP500-1h.json.gz",
+      "blob": "85d58cb2c27bd730d0737b115c5800b731b275c8"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-USDEUR-1d.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-USDEUR-1d.json.gz",
+      "blob": "f27e88d99d54e59d213513428298f12ff05d0caa"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-USDEUR-1h.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-USDEUR-1h.json.gz",
+      "blob": "ac39c79e3c074e95dcabe7d8b5e26cd4fbd74863"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-USDJPY-1d.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-USDJPY-1d.json.gz",
+      "blob": "77a801fd8d95a14f7757c7e3292346510b5c2845"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-USDJPY-1h.json.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-USDJPY-1h.json.gz",
+      "blob": "be51687aa74b29c08a190978718b6b66ded63f56"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-fetch.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-fetch.json",
+      "blob": "5aecfdc2e6d06bda38031635142053196893b303"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-quality.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/context-quality.json",
+      "blob": "cb92a5b0fce7d2f1ba8990d101fced2909bdcc8a"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/daily-pnl.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/daily-pnl.json",
+      "blob": "0309681dd9f1abdf670b870d5a60b04597da9fed"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/hashes.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/hashes.json",
+      "blob": "807d06e3f17ac5b77ef4db3fea53ffdd161592a4"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/long-universe-170.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/long-universe-170.json",
+      "blob": "2530b6d50a466f7d9024f734429383838d896a77"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/manifest.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/manifest.json",
+      "blob": "faa12613024fc6c02a1bd8a2cc03e8195eec5e52"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/matrix-37.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/matrix-37.csv",
+      "blob": "6a4506307b1d225011f5bd1dd276dc0f04afb4a4"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/matrix-37.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/matrix-37.json",
+      "blob": "57cbd8ccd24b7ef078f178f9ce19e24f417e1f5a"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/nonoverlap-amendment.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/nonoverlap-amendment.json",
+      "blob": "99dd884ac910c2a6a04f6c43e8497d31d2a05f92"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/nonoverlap-ledgers.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/nonoverlap-ledgers.jsonl.gz",
+      "blob": "f6940fa75167cf08bb605950cbafa95b5073db24"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/nonoverlap-summary.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/nonoverlap-summary.json",
+      "blob": "cd270c69116dd229f944f4de195a0b8f9a73f622"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/original-170.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/original-170.csv",
+      "blob": "cb9aa0020081f7a66935f7c8e9a43c02b5038cd6"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/original-direction-and-sizing.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/original-direction-and-sizing.json",
+      "blob": "7d6ae88ad48ef601f46a1fb3428527e0dc1c95d7"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/protocol.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/protocol.json",
+      "blob": "93200a97ed7b6cd1a797facb24052e5146406318"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/registry-170.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/registry-170.json",
+      "blob": "a51f9993d991589d689a1603bfa0d9f7aebcbc38"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/report.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/report.zh-CN.md",
+      "blob": "dde02c43899786c8ffb790b803aaca3ec90c7e72"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/rule-parameter-contract.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/rule-parameter-contract.json",
+      "blob": "46497f77db6a8031bfb13ee923df38dd5d050d59"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/selected-37.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/selected-37.csv",
+      "blob": "6d552377c01ea524192ed905176dd19b0c6ad9ca"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/source-quality.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/source-quality.json",
+      "blob": "36ea037a1edf4dc2c02182c6cebcd8c52f38ac3a"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/state-attribution.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/state-attribution.json",
+      "blob": "8ce9d8babf3ad11dec05f188c1f0a388414a3687"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/summary.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/long-history-37/summary.json",
+      "blob": "0d1baf7942bc2a68a0fd4d2447fd82b27dd5b239"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/comparison.csv",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/comparison.csv",
+      "blob": "0648f4b60d574cfde78033f256a5448f88834043"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/counts.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/counts.json",
+      "blob": "ce6e469b0de9ba2e2cc1cfa699bf579c05cb9f53"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/hashes.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/hashes.json",
+      "blob": "8a0ec2fcb2ce20b97e42ba426a0e21b4c985ed69"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/manifest.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/manifest.json",
+      "blob": "3e40599bba1bf46d234da8f581d6f3e448c457a8"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/summary.json",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/official-cost-audit/summary.json",
+      "blob": "a07317682038405ae7c7477106213b60ce7325dd"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/official-hourly.jsonl.gz",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/official-hourly.jsonl.gz",
+      "blob": "4fc8cf5c1bd4cd91cdcb1bf77304bf3387b002f0"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "docs/research/new-alpha-discovery-2026-10-18/report.zh-CN.md",
+      "destination": "docs/research/new-alpha-discovery-2026-10-18/report.zh-CN.md",
+      "blob": "a00b12e1854a1f825cd777d71e0571a38e6eb1e3"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/analyze_long_history.py",
+      "destination": "research/legacy/scripts/analyze_long_history.py",
+      "blob": "f19dcd5dbd93b1ec1a07e5c6c5286720e4b3703c"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/analyze_quant_results.py",
+      "destination": "research/legacy/scripts/analyze_quant_results.py",
+      "blob": "42f877850faadec80dc88ba09304d84b62b8f22f"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/audit_candidate_sources.py",
+      "destination": "research/legacy/scripts/audit_candidate_sources.py",
+      "blob": "e49266531cd6feb6a436734770a864c8ac5b946f"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/audit_official_quant_costs.py",
+      "destination": "research/legacy/scripts/audit_official_quant_costs.py",
+      "blob": "da2299364022e564b11244d9fff38131cc8fe964"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/capture_candidate_validation.py",
+      "destination": "research/legacy/scripts/capture_candidate_validation.py",
+      "blob": "561bacbd2f5e4d2d9b4254e1adc00e7151dddc9c"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/capture_long_history.py",
+      "destination": "research/legacy/scripts/capture_long_history.py",
+      "blob": "1b0a10dde495838d6c701722efea560704d4b1a2"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/capture_market_transfer.py",
+      "destination": "research/legacy/scripts/capture_market_transfer.py",
+      "blob": "b015455be1da5cf9f5ec15d0af5658c806fea0f6"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/capture_quant_history.py",
+      "destination": "research/legacy/scripts/capture_quant_history.py",
+      "blob": "b64efff3b3836bd818df7a0bb73f2c283282f20d"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/inventory_candidate_validation.py",
+      "destination": "research/legacy/scripts/inventory_candidate_validation.py",
+      "blob": "acaa5d93df47b8d5da0d9a6f5a398f8bf0abcae7"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/long_history_protocol.py",
+      "destination": "research/legacy/scripts/long_history_protocol.py",
+      "blob": "44ceecf439a3e7910d72e230d25f6448b9297f30"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/report_asset_coverage.py",
+      "destination": "research/legacy/scripts/report_asset_coverage.py",
+      "blob": "2505b8056cf5f9ee707123b6110871d75b73309a"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/report_candidate_validation.py",
+      "destination": "research/legacy/scripts/report_candidate_validation.py",
+      "blob": "b93574aeab77ed96e4dbc7e30a0da6c1e742d1e2"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/report_long_history.py",
+      "destination": "research/legacy/scripts/report_long_history.py",
+      "blob": "eac9a4a59bea4cabde5a81ffde4d91197c493e46"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/retry_long_history_capture.py",
+      "destination": "research/legacy/scripts/retry_long_history_capture.py",
+      "blob": "1075abf1c876a94491092abe39fe6830d34a9743"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/run_asset_coverage.py",
+      "destination": "research/legacy/scripts/run_asset_coverage.py",
+      "blob": "0e71f997203ae42b973207d2ae22effb28705460"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/run_candidate_validation.py",
+      "destination": "research/legacy/scripts/run_candidate_validation.py",
+      "blob": "3427290ca21a28eb492e2e87d7748dd567333031"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/run_long_history.py",
+      "destination": "research/legacy/scripts/run_long_history.py",
+      "blob": "6a4c26ad70d3aa7e5899708ede01013752d619f3"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/run_long_nonoverlap.py",
+      "destination": "research/legacy/scripts/run_long_nonoverlap.py",
+      "blob": "c3b4a1d3f43e6526339ee4b949894b94f8d4a481"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/run_market_transfer.py",
+      "destination": "research/legacy/scripts/run_market_transfer.py",
+      "blob": "4b2f36561aeaf0c89de4a1074ff380a23c87d93f"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/validate_asset_coverage.py",
+      "destination": "research/legacy/scripts/validate_asset_coverage.py",
+      "blob": "06b483a9488f083ea431f3af06fe1869ba8d6706"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/validate_candidate_validation.py",
+      "destination": "research/legacy/scripts/validate_candidate_validation.py",
+      "blob": "ba9a630d467b497c426a553a8826c9fd90495b54"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/validate_long_history.py",
+      "destination": "research/legacy/scripts/validate_long_history.py",
+      "blob": "7df81cc0f0b163c83288a9f9d074ec7c3973d703"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/validate_market_transfer.py",
+      "destination": "research/legacy/scripts/validate_market_transfer.py",
+      "blob": "25bea6a27e454dd970f3a66296e3d011e3c1b709"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "scripts/validate_quant_research.py",
+      "destination": "research/legacy/scripts/validate_quant_research.py",
+      "blob": "90c29d176b3cf880d86cc80db80eabbe9b944d08"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "src/perpetual_alpha/market_transfer.py",
+      "destination": "research/legacy/src/perpetual_alpha/market_transfer.py",
+      "blob": "bc143a4f610fd2670ec3afdaab325008609bf36f"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "src/perpetual_alpha/offline_quant/__init__.py",
+      "destination": "research/legacy/src/perpetual_alpha/offline_quant/__init__.py",
+      "blob": "89cbb9b525ae1099fc1faa8123ec767185ebed8c"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "src/perpetual_alpha/offline_quant/data.py",
+      "destination": "research/legacy/src/perpetual_alpha/offline_quant/data.py",
+      "blob": "591043482f019678055ba7ccf7757bb12fa444f1"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "src/perpetual_alpha/offline_quant/diagnostics.py",
+      "destination": "research/legacy/src/perpetual_alpha/offline_quant/diagnostics.py",
+      "blob": "7544c6994998805934e40fa3c63404bf68287a28"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "src/perpetual_alpha/offline_quant/relative.py",
+      "destination": "research/legacy/src/perpetual_alpha/offline_quant/relative.py",
+      "blob": "9fbf9b8a2a957862d4ab77caaaad612000b2d512"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "src/perpetual_alpha/offline_quant/replay.py",
+      "destination": "research/legacy/src/perpetual_alpha/offline_quant/replay.py",
+      "blob": "78bc79f4e0581a3e6fbf400daf6d64efa21e64ad"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "src/perpetual_alpha/offline_quant/run.py",
+      "destination": "research/legacy/src/perpetual_alpha/offline_quant/run.py",
+      "blob": "a6d9339878e159dcf89fe206c962d7b6cd847efa"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "src/perpetual_alpha/offline_quant/signals.py",
+      "destination": "research/legacy/src/perpetual_alpha/offline_quant/signals.py",
+      "blob": "be0931c40af68878683dfa31c6660ba22222a241"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "tests/test_asset_coverage.py",
+      "destination": "research/legacy/tests/test_asset_coverage.py",
+      "blob": "630a133a5de1baaaf42db0997762110d4ea44170"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "tests/test_candidate_validation.py",
+      "destination": "research/legacy/tests/test_candidate_validation.py",
+      "blob": "b40a6baf47888fec9d8f9f686ab04cecf7d0cda1"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "tests/test_long_history.py",
+      "destination": "research/legacy/tests/test_long_history.py",
+      "blob": "66ab264e6713804401a54338494b3ea35c0367be"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "tests/test_market_transfer.py",
+      "destination": "research/legacy/tests/test_market_transfer.py",
+      "blob": "43242917bdcb9171b4820129fdea65a2a02b9bb7"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "tests/test_official_cost_audit.py",
+      "destination": "research/legacy/tests/test_official_cost_audit.py",
+      "blob": "e194b5f39ac97c700ad1922d5f540168db41aa46"
+    },
+    {
+      "source": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "original_path": "tests/test_offline_quant.py",
+      "destination": "research/legacy/tests/test_offline_quant.py",
+      "blob": "eb82568ad3ee2606fb861d7078221d196c057fad"
     }
   ]
 }

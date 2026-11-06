@@ -1,0 +1,55 @@
+# 实际传统策略实验：Retrospective / Seen
+
+自动生成；所有收益均为 OHLC 线性估值和成本情景。
+历史可执行净收益 net_return 全部为 unknown；不是确认性测试。
+
+| 策略 | 资产 | 信号/成交段 | 毛回报% | 净情景% | 费用/摩擦 | 回撤% | 状态 |
+|---|---|---:|---:|---:|---:|---:|---|
+| NO-TRADE | par:BTC;par:ETH | 0/0 | 0.000 | 0.000 | 0.00/0.00 | 0.000 | INCONCLUSIVE |
+| DONCHIAN | par:BTC;par:ETH | 34/34 | -0.826 | -2.883 | 121.36/67.42 | 3.320 | REJECTED |
+| ATR | par:BTC;par:ETH | 39/39 | 1.897 | -0.377 | 139.64/77.58 | 2.322 | REJECTED |
+| DONCHIAN_COMPRESSION | par:BTC;par:ETH | 6/6 | 0.168 | -0.187 | 21.59/11.99 | 0.482 | REJECTED |
+| DONCHIAN_EXPANSION | par:BTC;par:ETH | 24/24 | 0.783 | -0.748 | 86.16/47.86 | 1.948 | REJECTED |
+| DONCHIAN_COMPRESSION_EXPANSION | par:BTC;par:ETH | 5/5 | 0.140 | -0.157 | 18.00/10.00 | 0.466 | REJECTED |
+| EMA | par:BTC;par:ETH | 62/62 | 1.959 | -1.652 | 220.23/122.35 | 2.749 | REJECTED |
+| TSM | par:BTC;par:ETH | 33/33 | 1.084 | -0.810 | 117.18/65.10 | 3.163 | REJECTED |
+| RISK_MOMENTUM | par:BTC;par:ETH | 33/33 | 0.115 | -1.202 | 79.60/44.22 | 2.761 | REJECTED |
+| SIMPLE_MR | par:BTC;par:ETH | 32/32 | -2.614 | -4.331 | 113.82/63.23 | 4.986 | REJECTED |
+| ROLLING_Z | par:BTC;par:ETH | 35/35 | 0.908 | -0.806 | 125.65/69.81 | 3.166 | REJECTED |
+| BOLLINGER | par:BTC;par:ETH | 35/35 | 0.908 | -0.806 | 125.65/69.81 | 3.166 | REJECTED |
+| REGIME-TREND | par:BTC;par:ETH | 11/11 | 0.317 | -0.373 | 39.41/21.89 | 1.209 | REJECTED |
+| REGIME-RANGE | par:BTC;par:ETH | 21/21 | 0.229 | -1.003 | 75.40/41.89 | 1.621 | REJECTED |
+| REGIME-COST | par:BTC;par:ETH | 34/34 | -0.826 | -2.883 | 121.36/67.42 | 3.320 | REJECTED |
+| REGIME-RANDOM | par:BTC;par:ETH | 14/14 | 1.667 | 0.794 | 50.25/27.92 | 1.202 | INCONCLUSIVE |
+| XSM-TEN-PRICE-SCENARIO-RISK | par:BRENT;par:BTC;par:ETH;par:EWJ;par:EWY;par:GOLD;par:HYPE;par:SP500;par:USDEUR;par:USDJPY | 10/52 | -0.874 | -2.439 | 96.31/53.50 | 4.292 | REJECTED |
+| XSM-TEN-PRICE-SCENARIO-RAW | par:BRENT;par:BTC;par:ETH;par:EWJ;par:EWY;par:GOLD;par:HYPE;par:SP500;par:USDEUR;par:USDJPY | 10/54 | -1.564 | -3.780 | 144.06/80.03 | 6.817 | REJECTED |
+| XSM-TEN-PRICE-SCENARIO-REVERSE | par:BRENT;par:BTC;par:ETH;par:EWJ;par:EWY;par:GOLD;par:HYPE;par:SP500;par:USDEUR;par:USDJPY | 10/52 | 0.874 | -0.557 | 96.31/53.50 | 2.269 | REJECTED |
+| XSM-TEN-PRICE-SCENARIO-EQUAL | par:BRENT;par:BTC;par:ETH;par:EWJ;par:EWY;par:GOLD;par:HYPE;par:SP500;par:USDEUR;par:USDJPY | 10/54 | -0.951 | -2.936 | 129.08/71.71 | 5.942 | REJECTED |
+| XSM-TEN-PRICE-SCENARIO-TSM | par:BRENT;par:BTC;par:ETH;par:EWJ;par:EWY;par:GOLD;par:HYPE;par:SP500;par:USDEUR;par:USDJPY | 10/82 | -0.950 | -2.475 | 105.96/58.87 | 4.122 | REJECTED |
+| XSM-TEN-PRICE-SCENARIO-EQUAL_LONG | par:BRENT;par:BTC;par:ETH;par:EWJ;par:EWY;par:GOLD;par:HYPE;par:SP500;par:USDEUR;par:USDJPY | 10/51 | -4.185 | -4.426 | 18.88/10.49 | 4.995 | REJECTED |
+| XSM-BTC-ETH-SUBSET-RISK | par:BTC;par:ETH | 10/18 | 1.338 | 0.486 | 57.59/31.99 | 0.741 | INCONCLUSIVE |
+| XSM-BTC-ETH-SUBSET-RAW | par:BTC;par:ETH | 10/18 | -0.157 | -0.962 | 50.40/28.00 | 1.990 | REJECTED |
+| XSM-BTC-ETH-SUBSET-REVERSE | par:BTC;par:ETH | 10/18 | -1.338 | -2.278 | 57.59/31.99 | 2.591 | REJECTED |
+| XSM-BTC-ETH-SUBSET-EQUAL | par:BTC;par:ETH | 10/18 | 1.338 | 0.486 | 57.59/31.99 | 0.741 | INCONCLUSIVE |
+| XSM-BTC-ETH-SUBSET-TSM | par:BTC;par:ETH | 10/19 | -2.025 | -2.666 | 41.79/23.22 | 4.409 | REJECTED |
+| XSM-BTC-ETH-SUBSET-EQUAL_LONG | par:BTC;par:ETH | 10/12 | -1.906 | -1.948 | 7.77/4.31 | 2.692 | REJECTED |
+| FUNDING-LAST | par:BTC;par:ETH | 34/35 | 1.300 | 0.920 | 48.03/26.68 | 3.204 | INCONCLUSIVE |
+| FUNDING-MEAN24 | par:BTC;par:ETH | 34/35 | 0.441 | -0.064 | 47.81/26.56 | 2.768 | REJECTED |
+| FUNDING-HEDGED | par:BTC;par:ETH | 21/34 | -0.305 | -1.747 | 86.55/48.08 | 2.346 | REJECTED |
+| PAIR_RATIO | par:BTC;par:ETH | 3/6 | 0.396 | 0.098 | 21.62/12.01 | 0.622 | INCONCLUSIVE |
+| PAIR_COINT | par:BTC;par:ETH | 0/0 | 0.000 | 0.000 | 0.00/0.00 | 0.000 | REJECTED |
+| VEX-SENS-12-72 | par:BTC;par:ETH | 15/15 | -0.675 | -1.559 | 53.95/29.97 | 2.281 | REJECTED |
+| VEX-SENS-48-168 | par:BTC;par:ETH | 2/2 | 0.224 | 0.102 | 7.21/4.01 | 0.326 | INCONCLUSIVE |
+| DONCHIAN-BTC | par:BTC | 15/15 | 0.353 | -0.618 | 53.80/29.89 | 1.040 | REJECTED |
+| TSM-BTC | par:BTC | 16/16 | 0.032 | -0.916 | 57.51/31.95 | 1.616 | REJECTED |
+| ROLLING_Z-BTC | par:BTC | 16/16 | -0.291 | -1.037 | 57.40/31.89 | 1.563 | REJECTED |
+| DONCHIAN-ETH | par:ETH | 19/19 | -1.178 | -2.264 | 67.56/37.53 | 2.452 | REJECTED |
+| TSM-ETH | par:ETH | 17/17 | 1.052 | 0.106 | 59.68/33.15 | 1.599 | INCONCLUSIVE |
+| ROLLING_Z-ETH | par:ETH | 19/19 | 1.199 | 0.232 | 68.25/37.92 | 1.812 | INCONCLUSIVE |
+| XSM-SUBSET-SENS-12 | par:BTC;par:ETH | 10/16 | -0.121 | -0.687 | 36.20/20.11 | 1.944 | REJECTED |
+| XSM-SUBSET-SENS-48 | par:BTC;par:ETH | 10/14 | 0.666 | 0.463 | 14.90/8.28 | 0.789 | INCONCLUSIVE |
+| FUNDING-LAST-24H | par:BTC;par:ETH | 17/20 | -0.022 | -0.330 | 40.28/22.38 | 3.274 | REJECTED |
+
+完整 split、压力情景、胜率、Profit Factor、风险与换手见 comparison.csv。
+逐次信号、成交、结算、净值与拒绝原因见 details.jsonl.gz。
+协整检验、数据覆盖、时间边界、依赖与源码摘要见 manifest.json。

@@ -1,0 +1,146 @@
+[
+  {
+    "asset": "EWJ",
+    "ticker": "EWJ",
+    "interval": "1d",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/EWJ?period1=946684800&period2=1792335600&interval=1d&events=div%2Csplits",
+    "started_ms": 1792337702220,
+    "received_ms": 1792337702519,
+    "bytes": 717236
+  },
+  {
+    "asset": "EWJ",
+    "ticker": "EWJ",
+    "interval": "1h",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/EWJ?period1=1729350000&period2=1792335600&interval=1h&events=div%2Csplits",
+    "started_ms": 1792337702519,
+    "received_ms": 1792337702724,
+    "bytes": 345196
+  },
+  {
+    "asset": "BRENT",
+    "ticker": "BZ=F",
+    "interval": "1d",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/BZ=F?period1=946684800&period2=1792335600&interval=1d&events=div%2Csplits",
+    "started_ms": 1792337702724,
+    "received_ms": 1792337702899,
+    "bytes": 503690
+  },
+  {
+    "asset": "BRENT",
+    "ticker": "BZ=F",
+    "interval": "1h",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/BZ=F?period1=1729350000&period2=1792335600&interval=1h&events=div%2Csplits",
+    "started_ms": 1792337702899,
+    "received_ms": 1792337703201,
+    "bytes": 1128808
+  },
+  {
+    "asset": "GOLD",
+    "ticker": "GC=F",
+    "interval": "1d",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/GC=F?period1=946684800&period2=1792335600&interval=1d&events=div%2Csplits",
+    "started_ms": 1792337703201,
+    "received_ms": 1792337703413,
+    "bytes": 604903
+  },
+  {
+    "asset": "GOLD",
+    "ticker": "GC=F",
+    "interval": "1h",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/GC=F?period1=1729350000&period2=1792335600&interval=1h&events=div%2Csplits",
+    "started_ms": 1792337703413,
+    "received_ms": 1792337703719,
+    "bytes": 1017584
+  },
+  {
+    "asset": "USDJPY",
+    "ticker": "JPY=X",
+    "interval": "1d",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/JPY=X?period1=946684800&period2=1792335600&interval=1d&events=div%2Csplits",
+    "started_ms": 1792337703719,
+    "received_ms": 1792337703954,
+    "bytes": 730403
+  },
+  {
+    "asset": "USDJPY",
+    "ticker": "JPY=X",
+    "interval": "1h",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/JPY=X?period1=1729350000&period2=1792335600&interval=1h&events=div%2Csplits",
+    "started_ms": 1792337703954,
+    "received_ms": 1792337704252,
+    "bytes": 1110590
+  },
+  {
+    "asset": "BTC",
+    "ticker": "BTC-USD",
+    "interval": "1d",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD?period1=946684800&period2=1792335600&interval=1d&events=div%2Csplits",
+    "started_ms": 1792337704252,
+    "received_ms": 1792337704417,
+    "bytes": 439677
+  },
+  {
+    "asset": "BTC",
+    "ticker": "BTC-USD",
+    "interval": "1h",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD?period1=1729350000&period2=1792335600&interval=1h&events=div%2Csplits",
+    "started_ms": 1792337704417,
+    "received_ms": 1792337704716,
+    "bytes": 1278253
+  },
+  {
+    "asset": "ETH",
+    "ticker": "ETH-USD",
+    "interval": "1d",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/ETH-USD?period1=946684800&period2=1792335600&interval=1d&events=div%2Csplits",
+    "started_ms": 1792337704716,
+    "received_ms": 1792337704862,
+    "bytes": 362638
+  },
+  {
+    "asset": "ETH",
+    "ticker": "ETH-USD",
+    "interval": "1h",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/ETH-USD?period1=1729350000&period2=1792335600&interval=1h&events=div%2Csplits",
+    "started_ms": 1792337704862,
+    "received_ms": 1792337705234,
+    "bytes": 1533510
+  },
+  {
+    "asset": "SP500",
+    "ticker": "^GSPC",
+    "interval": "1d",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/^GSPC?period1=946684800&period2=1792335600&interval=1d&events=div%2Csplits",
+    "started_ms": 1792337705234,
+    "received_ms": 1792337705449,
+    "bytes": 725622
+  },
+  {
+    "asset": "SP500",
+    "ticker": "^GSPC",
+    "interval": "1h",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/^GSPC?period1=1729350000&period2=1792335600&interval=1h&events=div%2Csplits",
+    "started_ms": 1792337705449,
+    "received_ms": 1792337705625,
+    "bytes": 328641
+  },
+  {
+    "asset": "USDEUR",
+    "ticker": "EURUSD=X",
+    "interval": "1d",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/EURUSD=X?period1=946684800&period2=1792335600&interval=1d&events=div%2Csplits",
+    "started_ms": 1792337705625,
+    "received_ms": 1792337705853,
+    "bytes": 636335
+  },
+  {
+    "asset": "USDEUR",
+    "ticker": "EURUSD=X",
+    "interval": "1h",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/EURUSD=X?period1=1729350000&period2=1792335600&interval=1h&events=div%2Csplits",
+    "started_ms": 1792337705853,
+    "received_ms": 1792337706110,
+    "bytes": 1127879
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "schema": "frozen-candidate-validation/1",
+  "parent_commit": "c69f76afbdc7bb82ccb0bc878848c1ab2bc265b6",
+  "runner_sources_normalized_sha256": {
+    "scripts/capture_candidate_validation.py": "8167a533b6c889edfa6dd846b516383bfceb3b73420dfdc830213e9d8f1876c9",
+    "scripts/audit_candidate_sources.py": "6e130a521ced267c8fc201edc93783127fd351547f8352af2fd2901e4af0e881",
+    "scripts/run_candidate_validation.py": "2572737968cf7dcb105b3256133027fc488d1ad3487741f3a499289f912d93a2",
+    "scripts/inventory_candidate_validation.py": "c18cd5c265a7fed39a7ec352d95b1256f70ef1cfcd716a66f3a2bb1a7b38c205",
+    "scripts/report_candidate_validation.py": "d1ace1027f37078d91c77681cd2a0e7465f1093d267a193f3249a46864566850"
+  },
+  "experiment_count": 459,
+  "actual_funding_cashflow": null,
+  "actual_executable_PnL": null,
+  "frozen_signals": "unchanged offline_quant; source checked by existing validator",
+  "selection_bias": "EWY/HYPE selected on prior results; all downloaded history is retrospective",
+  "market_identity": "par rehearsal/USDPR is NOT current official pas/USDP",
+  "source_urls": [
+    "https://perpetual-alpha26.github.io/docs/",
+    "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/info-endpoint",
+    "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/funding",
+    "https://docs.trade.xyz/perpetuals/specifications-and-schedules/specification-index.md",
+    "https://www.nyse.com/trade/hours-calendars"
+  ],
+  "input_sha256": {
+    "pas-discovery.jsonl.gz": "ce7977ea113ea08f0a930d39d8ba64b05360ba98adbac0bcc238e6b6ef159054",
+    "prior-pr-inputs.jsonl.gz": "21344f38055bfc5257ef7ec5e18fe62eb22edfb93b1fe41c752caac8ebc4bf24",
+    "protocol.json": "9368b8344213a33405aacae6c8fbb886e08e701d2b46f4946d7295defe8a8612",
+    "public-history.jsonl.gz": "e973cf51d1f1d13b1407969e103743d4fb77ed9510c15b9122c1366f9433a901",
+    "quote-probe.jsonl.gz": "83f6f3f7e725f388bddb42503a1d21a6eaf13dd2bec5d9acba7775196802dd9b",
+    "venue-identity-audit.jsonl.gz": "abb60ae52038eaed944d91fc34307d26fac577bc858acc838e77d7cc7f5a72f7",
+    "vps-readonly-export.json.gz": "4d8dcd5b2a5351d3f38c64742049775018a3107f9b4b8aef763d1d63580c8d58",
+    "yahoo-daily.response.gz": "984df68434f4c4464b47cc4889fbe7f1221d4d8d9f275e2ad1cc87f4a24a7ba9",
+    "yahoo-hourly.response.gz": "9360c40942cd849295781b092807c3b48913c0f29330bf167ef7b210f3245145"
+  }
+}
