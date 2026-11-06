@@ -1,5 +1,10 @@
 # Consolidated Research Index
 
+Start with the **[Research Findings](FINDINGS.md)** for conclusions, limitations
+and closed-PR coverage. The [competition report](../competition/README.md) is a
+separate historical account snapshot. Consolidation PR #44 is merged into main;
+this index navigates preserved evidence, not pending integration.
+
 All entries are **research-only**, except explicitly marked prototypes/proposals.
 All seen historical periods remain seen; no consolidated result establishes
 stable profitable alpha or authorizes deployment. Source commit and exact-file

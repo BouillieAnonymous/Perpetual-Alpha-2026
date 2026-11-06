@@ -1,5 +1,11 @@
 # Perpetual Alpha 2026
 
+**Team Anonymous · Hyperliquid Testnet**
+
+Research and trading infrastructure, execution reliability, and evidence-based alpha validation.
+
+**Competition completed · Research archived**
+
 [![CI](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/workflows/ci.yml)
 
 A Python research and trading-engineering project for the Perpetual Alpha 2026
@@ -10,8 +16,18 @@ architecture, data lineage, exploratory research and negative results.
 **No stable profitable alpha has been established.** Historical simulations,
 execution acceptance tests and actual trading results have different meanings.
 The research archive does not authorize deployment or changes to the competition
-account. The final consolidation is proposed on `integration/pa26-final` for
-human review; it does not update a running service.
+account. Consolidation [PR #44](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/44)
+was merged into `main` on 6 November 2026 as `4dd270fa5cce7dbaaa48bcc7bb420115922fca76`.
+The merged repository is the development baseline; a Git merge does not deploy a service.
+
+| Start here | What you will find |
+|---|---|
+| **[Technical Report — 6 November 2026](docs/competition/PA26-Anonymous-report.pdf)** | Team Anonymous's four-page report; [LaTeX and provenance](docs/competition/README.md) |
+| **[Research Findings](docs/research/FINDINGS.md)** | Hypotheses, baselines, negative results and limitations; [complete evidence index](docs/research/INDEX.md) |
+| **[Architecture & Implementation](#architecture-and-maturity)** | Independent Funding-LAST, collector, Agent-ready infrastructure, risk and synthetic execution |
+
+**Report context:** the 5 November account performance is a historical snapshot,
+not final official competition results or proof of stable profitable alpha.
 
 ## Architecture and maturity
 
