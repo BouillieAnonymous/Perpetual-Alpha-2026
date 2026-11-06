@@ -1,0 +1,26 @@
+{
+  "matched_output_bytes": [
+    "coefficients.json",
+    "cost-diagnostic.json",
+    "daily-paired-errors.csv",
+    "event-summary.json",
+    "events.csv",
+    "failures.json",
+    "metrics.json",
+    "predictions.csv",
+    "quality.json"
+  ],
+  "reserved_old_prefix_identical": true,
+  "old_prefix_sha256": "62b88879c03aff3cf6b43561409c4bef962704fa3df0e761097df6bc9cfc338b",
+  "reserved_new_rows_NOT_decoded_or_analyzed": true,
+  "historical_HYPE_metadata_versions": [
+    {
+      "available_ms": 1792417392948,
+      "seq": 1,
+      "szDecimals": 2,
+      "maxLeverage": 10,
+      "deployerFeeScale": "1.0"
+    }
+  ],
+  "historical_size_step": 0.01
+}

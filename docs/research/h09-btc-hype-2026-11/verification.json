@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checked_old_panel_returns": 47328,
+  "A_fresh_zero_counts": {
+    "pas:HYPE": 979,
+    "pas:ETH": 1425,
+    "pas:BTC": 3074
+  },
+  "max_coefficient_difference_vs_50digit_independent_solve": 4.440892098500626e-16,
+  "prediction_rows_checked": 2028,
+  "event_selection_rebuilt_from_BTC_past_only": true,
+  "missing_label_predictions_retained": true,
+  "freeze_and_output_hashes_verified": true,
+  "reserved_new_prefix_hash_only": true,
+  "checked_utc": "2026-11-05T03:13:45.443910+00:00"
+}
