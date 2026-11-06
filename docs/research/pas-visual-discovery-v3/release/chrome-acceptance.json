@@ -1,0 +1,33 @@
+{
+  "status": "PARTIAL_ACCEPTANCE",
+  "date": "2026-11-05",
+  "browser": "Chrome GPT extension",
+  "windows_computer_use": false,
+  "checks_passed": [
+    "real page render and initial two-bundle load",
+    "all ten market selections",
+    "single-market and four-market cap",
+    "matrix 90 off-diagonal cells and BTC/HYPE click direction",
+    "all B cells remain missing under fixed gate",
+    "arbitrary USDJPY/EWJ pair and true slope30",
+    "UTC gap visual discontinuity",
+    "canvas click cursor, keyboard step and double-click full reset",
+    "per-market fee/slip unknown defaults and explicit scenario arithmetic",
+    "cursor-synchronized cost summary",
+    "no console error/warn observed"
+  ],
+  "not_verified": [
+    "pure hover gesture",
+    "mouse drag gesture end-to-end",
+    "direct file protocol end-to-end",
+    "long-run and multi-device performance benchmark"
+  ],
+  "screenshots": [
+    "chrome-overview.jpg",
+    "chrome-gap.jpg"
+  ],
+  "capture_limitation": "Full-page/large matrix CDP screenshot timed out; not listed as delivered",
+  "observed_render_ms_four_markets": 68,
+  "performance_is_not_benchmark": true,
+  "no_actual_execution_or_future_labels": true
+}

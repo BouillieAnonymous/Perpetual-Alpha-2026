@@ -1,0 +1,6 @@
+* -text
+release/** linguist-generated
+audit-verified/** linguist-generated
+*.png binary
+*.jpg binary
+*.gz binary

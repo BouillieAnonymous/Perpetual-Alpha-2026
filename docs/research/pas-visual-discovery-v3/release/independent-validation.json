@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "frozen_payload_prefix_match": true,
+  "future_cutoff_utc": "2026-10-27T00:00:00Z",
+  "truncated_arrival_asset_minutes": 106980,
+  "pair_qualification_fields_checked": 180,
+  "feature_cells_full_and_future_truncated": 6893860,
+  "direct_pair_reference_points": 144,
+  "markets": 10,
+  "modes": [
+    "A",
+    "B"
+  ],
+  "gap_and_latest_invalid_preserved": true,
+  "future_labels_computed": 0
+}
