@@ -1,0 +1,699 @@
+{
+ "phase": "Live Trading",
+ "status": "live",
+ "generated_at": "2026-10-20T14:04:00.00056236Z",
+ "from": "2026-10-19T12:00:00Z",
+ "to": "2026-11-06T12:00:00Z",
+ "min_days": 1,
+ "scoring": {
+  "method": "fractional",
+  "w_financial": 0.8,
+  "w_jury": 0.2,
+  "lambda": 1.5,
+  "c": 0.05,
+  "epsilon": 0.005,
+  "std": "sample",
+  "horizon": "sqrt_n",
+  "sample_after_s": 240,
+  "teams": 0
+ },
+ "teams": [
+  {
+   "name": "ACLA trading",
+   "ranked": true,
+   "return": -0.000501671540000026,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "Algo Hedge",
+   "ranked": true,
+   "return": -0.008069647589999951,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "alpha one",
+   "ranked": true,
+   "return": -0.00008009195000002745,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "Alpha Seekers",
+   "ranked": true,
+   "return": -0.00015133972000003215,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "Anonynynynynymous",
+   "ranked": true,
+   "return": -0.00000262607000001136,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "B\u0026S",
+   "ranked": true,
+   "return": -0.00003868950999996734,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "BenBen",
+   "ranked": false,
+   "return": 0,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns",
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "BerserkerBots",
+   "ranked": true,
+   "return": -0.000029347779999966406,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "BishopGambit",
+   "ranked": false,
+   "return": 0,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns",
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "Blackswans",
+   "ranked": true,
+   "return": -0.0001456258199999949,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "BostonAlpha",
+   "ranked": true,
+   "return": -2.673200000247178e-7,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "Cavallo pazzo",
+   "ranked": true,
+   "return": -0.01674907106000001,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "ErmoColle",
+   "ranked": true,
+   "return": -6.525200000329079e-7,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "ETAL",
+   "ranked": false,
+   "return": 0,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns",
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "FINX",
+   "ranked": true,
+   "return": -0.009916251070000048,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "GradientAlpha",
+   "ranked": false,
+   "return": 0,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns",
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "HashStock",
+   "ranked": false,
+   "return": 0,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns",
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "Hedging Face",
+   "ranked": false,
+   "return": 0,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns",
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "I Sapienti",
+   "ranked": true,
+   "return": -0.00001058110999996309,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "Illini Quants",
+   "ranked": false,
+   "return": 0,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns",
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "KKTY",
+   "ranked": true,
+   "return": 0.0005844037600000185,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "Kolmogorov juniors",
+   "ranked": false,
+   "return": 0,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns",
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "lifeisluck",
+   "ranked": false,
+   "return": 0,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns",
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "Marimbalpha",
+   "ranked": true,
+   "return": -0.003201357959999984,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "Market Makers",
+   "ranked": false,
+   "return": 0,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns",
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "Need for spread",
+   "ranked": true,
+   "return": -0.00034462546000002536,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "Not Cheating",
+   "ranked": false,
+   "return": 0,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns",
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "Overfit \u0026 Overconfident",
+   "ranked": false,
+   "return": 0,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns",
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "Overfitting Anonymous",
+   "ranked": true,
+   "return": -0.000020396419999957338,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "Polenta e Osei",
+   "ranked": true,
+   "return": -0.00009556019000001026,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "QUANT TAIWAN",
+   "ranked": false,
+   "return": 0,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns",
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "Quantchester United",
+   "ranked": true,
+   "return": -0.000028897239999992053,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "Reinforcement Traders",
+   "ranked": true,
+   "return": 0.00006811480999990849,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "Rentech2",
+   "ranked": true,
+   "return": -0.015595052729999948,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "RoboQuant",
+   "ranked": true,
+   "return": -0.00020091268999999912,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "SAPS",
+   "ranked": false,
+   "return": 0,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns",
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "Secretive Plotter",
+   "ranked": true,
+   "return": -0.00040405037000001975,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "SFINX",
+   "ranked": true,
+   "return": -0.0001850599099999517,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "Slipstream",
+   "ranked": false,
+   "return": 0,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns",
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "sloppy31",
+   "ranked": false,
+   "return": 0,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns",
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "Team Anchorium",
+   "ranked": true,
+   "return": 2.30810000001469e-7,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "Team HyperTrading",
+   "ranked": true,
+   "return": -0.000058615579999976575,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "Thorp",
+   "ranked": true,
+   "return": -2.8477000002524733e-7,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  },
+  {
+   "name": "Tortellini al pesto e polenta",
+   "ranked": false,
+   "return": 0,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns",
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "Trade Brothers",
+   "ranked": false,
+   "return": 0,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns",
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "Vibe Trader",
+   "ranked": false,
+   "return": 0,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns",
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "White-Noise-Walkers",
+   "ranked": true,
+   "return": 0.010149566720000003,
+   "volatility": null,
+   "volatility_horizon": null,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_daily_returns"
+   ]
+  }
+ ]
+}

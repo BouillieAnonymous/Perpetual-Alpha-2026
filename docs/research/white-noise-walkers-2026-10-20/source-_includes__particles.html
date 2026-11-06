@@ -1,0 +1,149 @@
+<canvas id="particle-canvas"></canvas>
+<style>
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    pointer-events: none; /* Allows clicks to pass through */
+}
+@media (max-width: 768px) {
+    #particle-canvas {
+        display: none !important;
+    }
+}
+</style>
+<script>
+(function() {
+    // Only run on desktop to save battery/cpu on mobile
+    if (window.innerWidth <= 768) return;
+
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+    
+    // Accent color: #00FFD1 (0, 255, 209)
+    const particleColor = 'rgba(0, 255, 209, 0.6)';
+    const lineColor = 'rgba(0, 255, 209, 0.15)';
+    const mouseLineColor = 'rgba(0, 255, 209, 0.4)';
+    
+    let mouse = { x: null, y: null, radius: 180 };
+
+    window.addEventListener('mousemove', function(event) {
+        mouse.x = event.x;
+        mouse.y = event.y;
+    });
+
+    window.addEventListener('mouseout', function() {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
+    function resize() {
+        if (window.innerWidth <= 768) return; // Prevent resize issues when switching modes
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    }
+    
+    window.addEventListener('resize', resize);
+    
+    // Initial size
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.vx = (Math.random() - 0.5) * 1.5;
+            this.vy = (Math.random() - 0.5) * 1.5;
+            this.radius = Math.random() * 1.5 + 0.5;
+        }
+
+        update() {
+            // Bounce off edges
+            if (this.x > width || this.x < 0) this.vx = -this.vx;
+            if (this.y > height || this.y < 0) this.vy = -this.vy;
+            
+            this.x += this.vx;
+            this.y += this.vy;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = particleColor;
+            ctx.fill();
+        }
+    }
+
+    function init() {
+        particles = [];
+        // Calculate density based on screen size (approx 100 particles for 1080p)
+        let numParticles = Math.floor((width * height) / 12000); 
+        // Cap max particles for performance
+        if (numParticles > 150) numParticles = 150;
+        
+        for (let i = 0; i < numParticles; i++) {
+            particles.push(new Particle());
+        }
+    }
+
+    function animate() {
+        if (window.innerWidth <= 768) {
+            requestAnimationFrame(animate);
+            return;
+        }
+        
+        ctx.clearRect(0, 0, width, height);
+        
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
+            
+            // Connect to other particles
+            for (let j = i; j < particles.length; j++) {
+                let dx = particles[i].x - particles[j].x;
+                let dy = particles[i].y - particles[j].y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 130) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = lineColor;
+                    ctx.lineWidth = 1;
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+            
+            // Connect to mouse
+            if (mouse.x != null && mouse.y != null) {
+                let dx = particles[i].x - mouse.x;
+                let dy = particles[i].y - mouse.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < mouse.radius) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = mouseLineColor;
+                    ctx.lineWidth = 1;
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(mouse.x, mouse.y);
+                    ctx.stroke();
+                    
+                    // Extremely subtle magnetic attraction
+                    particles[i].x -= dx * 0.015;
+                    particles[i].y -= dy * 0.015;
+                }
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+
+    init();
+    animate();
+})();
+</script>

@@ -1,0 +1,17 @@
+{
+  "benchmark": {
+    "messages": 10000,
+    "elapsed_s": 27.87094580003759,
+    "messages_per_s": 358.79657876506343,
+    "database_bytes": 58322944,
+    "bytes_per_message": 5832.2944
+  },
+  "live_probe": {
+    "span_s": 179.629,
+    "messages": 2101,
+    "message_rate": 11.696329657237975,
+    "database_bytes": 9527296,
+    "projected_GB_per_day": 4.5825472189902525
+  },
+  "scope": "Local short public capture and offline writes; not VPS sustained validation"
+}

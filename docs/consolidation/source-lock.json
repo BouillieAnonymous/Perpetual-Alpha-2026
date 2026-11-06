@@ -2589,6 +2589,306 @@
       "original_path": "tests/test_regime_study.py",
       "destination": "research/legacy/tests/test_regime_study.py",
       "blob": "032306f08c4d224f402936bbda2ddbe1ffbf7d5e"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "docs/multi-asset-collection.zh-CN.md",
+      "destination": "docs/multi-asset-collection.zh-CN.md",
+      "blob": "9fe244b96197e72adaec3cbab3518fa63f7fc9f1"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "docs/research/collector-2026-10-18/final-code-probe-quality.json",
+      "destination": "docs/research/collector-2026-10-18/final-code-probe-quality.json",
+      "blob": "81a22d0bad2c14a06937a4064137f065ee7430a3"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "docs/research/collector-2026-10-18/hash-convention.txt",
+      "destination": "docs/research/collector-2026-10-18/hash-convention.txt",
+      "blob": "e806909ed14cb63d1a9978b954fe63ef5d5e0d91"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "docs/research/collector-2026-10-18/load.json",
+      "destination": "docs/research/collector-2026-10-18/load.json",
+      "blob": "f1054031a301fba5ffee4d67b66d726ddd74f1f3"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "docs/research/collector-2026-10-18/manifest.json",
+      "destination": "docs/research/collector-2026-10-18/manifest.json",
+      "blob": "2c20eaca9c177a02bf1f3850d50f76d4d84b4a7b"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "docs/research/collector-2026-10-18/messages.jsonl.gz",
+      "destination": "docs/research/collector-2026-10-18/messages.jsonl.gz",
+      "blob": "fe9b56f98cec2d3b051ee5e71573e4fe48824b4d"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "docs/research/collector-2026-10-18/observations.jsonl.gz",
+      "destination": "docs/research/collector-2026-10-18/observations.jsonl.gz",
+      "blob": "cad0be8547cc429f1695fcc2c797db138f27cabf"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "docs/research/collector-2026-10-18/quality.json",
+      "destination": "docs/research/collector-2026-10-18/quality.json",
+      "blob": "04e1c28dae55fa0f46a36de8a2232c1c62d8c98f"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "docs/research/collector-2026-10-18/report.zh-CN.md",
+      "destination": "docs/research/collector-2026-10-18/report.zh-CN.md",
+      "blob": "487a8fedc6f3a56f734eeebea49c6316f0cfb427"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "docs/research/collector-2026-10-18/rest-latency.json",
+      "destination": "docs/research/collector-2026-10-18/rest-latency.json",
+      "blob": "76183676bbcbd5b9aaf90326a86bc51ee98cbd14"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "scripts/benchmark_stream_store.py",
+      "destination": "research/experimental/websocket/scripts/benchmark_stream_store.py",
+      "blob": "961786d6ebfedb29ea83b84856cb4a84b7dd0793"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "src/perpetual_alpha/collection_quality.py",
+      "destination": "research/experimental/websocket/src/perpetual_alpha/collection_quality.py",
+      "blob": "13b28865dbe627e311385b13f7566265e09ce472"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "src/perpetual_alpha/stream_collection.py",
+      "destination": "research/experimental/websocket/src/perpetual_alpha/stream_collection.py",
+      "blob": "552dad967c6990114b5c3fefbbc2580fe431b048"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "tests/test_stream_collection.py",
+      "destination": "research/experimental/websocket/tests/test_stream_collection.py",
+      "blob": "16e5e6bb05a3cfd666e332eb8ec993c0a435eba4"
+    },
+    {
+      "source": "fe569b9efc710e2769c1c3ce4ccffbd928a87b68",
+      "original_path": "docs/research/news-event-agent-2026-10-18.zh-CN.md",
+      "destination": "docs/research/news-event-agent-2026-10-18.zh-CN.md",
+      "blob": "17156def1a391a1b18c7edf726f996126beca5d4"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/leaderboard-white-noise-walkers-analysis.md",
+      "destination": "docs/research/leaderboard-white-noise-walkers-analysis.md",
+      "blob": "4698b3ebc51956e071d3face65b02abbb9c5898f"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/.gitattributes",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/.gitattributes",
+      "blob": "13e7256252975f8f98c246aed70fe1d34a942c9b"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/chart.json",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/chart.json",
+      "blob": "3a78e1dce242c0395f23680a1129d2d32ead3fb9"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/faq.html",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/faq.html",
+      "blob": "43cdf918164cebde4cbb6761affce19b009f67b0"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/guide.html",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/guide.html",
+      "blob": "eb536b1e06a637e97ee2238ea35873ca8441a474"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/leaderboard.html",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/leaderboard.html",
+      "blob": "86eaead2878631c81544101f06ca9785be79c6d4"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/leaderboard.json",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/leaderboard.json",
+      "blob": "227488ae495e15e146635cae30fca45befad76b4"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/manifest.json",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/manifest.json",
+      "blob": "1d3266a9f76bb3f2fd742b1f71d9e1ebb463eed0"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/practice-chart.json",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/practice-chart.json",
+      "blob": "86f6ec11324924035949b05830a4a2c3b5957d8a"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/practice.json",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/practice.json",
+      "blob": "fc83678fb8622f04e58e1639c609f6c3032f762d"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/public-repos.json",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/public-repos.json",
+      "blob": "82196d72d150f7c311bececb5a81c0fa09862016"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-_config.yml",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-_config.yml",
+      "blob": "493bbcfa50f4befe57e5f50e01b3eb9284bdfc54"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-_data__leaderboard.yml",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-_data__leaderboard.yml",
+      "blob": "9949aae1011e309ca20b8512d82f0cc37ad678be"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-_data__venue.yml",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-_data__venue.yml",
+      "blob": "ab2d5ec8864b6ecc0adf76aaf4a8f4c2550edc23"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-_includes__footer.html",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-_includes__footer.html",
+      "blob": "6674523aa31f000bccdd6187f1250b08f43cb9fd"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-_includes__header.html",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-_includes__header.html",
+      "blob": "ce1b70126f2a0b6f9b6e800b0fe4c8b664e8dd68"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-_includes__particles.html",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-_includes__particles.html",
+      "blob": "2e9e7075a397fabfae4322ab025fa9e132be6ca7"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-_layouts__default.html",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-_layouts__default.html",
+      "blob": "587d60195f995e7c97432f8b3db15a58a57f0009"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-about.md",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-about.md",
+      "blob": "bc9674ac3a0f3a158f9a51e0ddfcb246b20d39df"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-assets__css__style.css",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-assets__css__style.css",
+      "blob": "692813dcd68c6441a92aa06d7f4061dceafcbab5"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-audit.json",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-audit.json",
+      "blob": "b923d2ca88e49566316332af2deea61a75209920"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-committee.md",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-committee.md",
+      "blob": "b8bfda07d291fa41e3b310d25a4993773c3d2951"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-docs__index.md",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-docs__index.md",
+      "blob": "0731f85785c37fadb7569060b425512f2ef0f923"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-docs__reference.md",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-docs__reference.md",
+      "blob": "f48a2de6ec376935827a112cab365f3adbb04245"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-faq.md",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-faq.md",
+      "blob": "088ed546d8d3fd982fc9068f260ec64a01863d6f"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-index.md",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-index.md",
+      "blob": "9faced5a06f3bad127e9d0ecc33501d9823f8389"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-leaderboard.md",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-leaderboard.md",
+      "blob": "9273d4eb998f132574bb2d8592e28ab2edc170fa"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-register.md",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-register.md",
+      "blob": "2070f53c0d595e4bb632e0ca8780da9a2ef09f57"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-robots.txt",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-robots.txt",
+      "blob": "36601bf70d101d8dd15976a1db28f62700b08d67"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-schedule.md",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-schedule.md",
+      "blob": "377ca276bef1aa6fac27c46b8050dd79160d10a1"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-sitemap.xml",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-sitemap.xml",
+      "blob": "b9b41d22567ca2228bd96fb77941c6d58781dc2e"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-thanks.md",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-thanks.md",
+      "blob": "36cbab10ece761c4149dfe8e944f54d0c71e7ce6"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/summary.json",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/summary.json",
+      "blob": "06143e1f509a515838e761f7b58367189f36655c"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/tree.json",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/tree.json",
+      "blob": "6caa9753cfe950602eed00c24956ebb36f91cdd5"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "scripts/study_leaderboard_white_noise_walkers.py",
+      "destination": "research/legacy/scripts/study_leaderboard_white_noise_walkers.py",
+      "blob": "a4f00aa60f23a264a388382440b2013e0c198f09"
     }
   ],
   "manual_review": [
@@ -4913,6 +5213,306 @@
       "original_path": "tests/test_regime_study.py",
       "destination": "research/legacy/tests/test_regime_study.py",
       "blob": "032306f08c4d224f402936bbda2ddbe1ffbf7d5e"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "docs/multi-asset-collection.zh-CN.md",
+      "destination": "docs/multi-asset-collection.zh-CN.md",
+      "blob": "9fe244b96197e72adaec3cbab3518fa63f7fc9f1"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "docs/research/collector-2026-10-18/final-code-probe-quality.json",
+      "destination": "docs/research/collector-2026-10-18/final-code-probe-quality.json",
+      "blob": "81a22d0bad2c14a06937a4064137f065ee7430a3"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "docs/research/collector-2026-10-18/hash-convention.txt",
+      "destination": "docs/research/collector-2026-10-18/hash-convention.txt",
+      "blob": "e806909ed14cb63d1a9978b954fe63ef5d5e0d91"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "docs/research/collector-2026-10-18/load.json",
+      "destination": "docs/research/collector-2026-10-18/load.json",
+      "blob": "f1054031a301fba5ffee4d67b66d726ddd74f1f3"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "docs/research/collector-2026-10-18/manifest.json",
+      "destination": "docs/research/collector-2026-10-18/manifest.json",
+      "blob": "2c20eaca9c177a02bf1f3850d50f76d4d84b4a7b"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "docs/research/collector-2026-10-18/messages.jsonl.gz",
+      "destination": "docs/research/collector-2026-10-18/messages.jsonl.gz",
+      "blob": "fe9b56f98cec2d3b051ee5e71573e4fe48824b4d"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "docs/research/collector-2026-10-18/observations.jsonl.gz",
+      "destination": "docs/research/collector-2026-10-18/observations.jsonl.gz",
+      "blob": "cad0be8547cc429f1695fcc2c797db138f27cabf"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "docs/research/collector-2026-10-18/quality.json",
+      "destination": "docs/research/collector-2026-10-18/quality.json",
+      "blob": "04e1c28dae55fa0f46a36de8a2232c1c62d8c98f"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "docs/research/collector-2026-10-18/report.zh-CN.md",
+      "destination": "docs/research/collector-2026-10-18/report.zh-CN.md",
+      "blob": "487a8fedc6f3a56f734eeebea49c6316f0cfb427"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "docs/research/collector-2026-10-18/rest-latency.json",
+      "destination": "docs/research/collector-2026-10-18/rest-latency.json",
+      "blob": "76183676bbcbd5b9aaf90326a86bc51ee98cbd14"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "scripts/benchmark_stream_store.py",
+      "destination": "research/experimental/websocket/scripts/benchmark_stream_store.py",
+      "blob": "961786d6ebfedb29ea83b84856cb4a84b7dd0793"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "src/perpetual_alpha/collection_quality.py",
+      "destination": "research/experimental/websocket/src/perpetual_alpha/collection_quality.py",
+      "blob": "13b28865dbe627e311385b13f7566265e09ce472"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "src/perpetual_alpha/stream_collection.py",
+      "destination": "research/experimental/websocket/src/perpetual_alpha/stream_collection.py",
+      "blob": "552dad967c6990114b5c3fefbbc2580fe431b048"
+    },
+    {
+      "source": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "original_path": "tests/test_stream_collection.py",
+      "destination": "research/experimental/websocket/tests/test_stream_collection.py",
+      "blob": "16e5e6bb05a3cfd666e332eb8ec993c0a435eba4"
+    },
+    {
+      "source": "fe569b9efc710e2769c1c3ce4ccffbd928a87b68",
+      "original_path": "docs/research/news-event-agent-2026-10-18.zh-CN.md",
+      "destination": "docs/research/news-event-agent-2026-10-18.zh-CN.md",
+      "blob": "17156def1a391a1b18c7edf726f996126beca5d4"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/leaderboard-white-noise-walkers-analysis.md",
+      "destination": "docs/research/leaderboard-white-noise-walkers-analysis.md",
+      "blob": "4698b3ebc51956e071d3face65b02abbb9c5898f"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/.gitattributes",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/.gitattributes",
+      "blob": "13e7256252975f8f98c246aed70fe1d34a942c9b"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/chart.json",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/chart.json",
+      "blob": "3a78e1dce242c0395f23680a1129d2d32ead3fb9"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/faq.html",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/faq.html",
+      "blob": "43cdf918164cebde4cbb6761affce19b009f67b0"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/guide.html",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/guide.html",
+      "blob": "eb536b1e06a637e97ee2238ea35873ca8441a474"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/leaderboard.html",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/leaderboard.html",
+      "blob": "86eaead2878631c81544101f06ca9785be79c6d4"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/leaderboard.json",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/leaderboard.json",
+      "blob": "227488ae495e15e146635cae30fca45befad76b4"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/manifest.json",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/manifest.json",
+      "blob": "1d3266a9f76bb3f2fd742b1f71d9e1ebb463eed0"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/practice-chart.json",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/practice-chart.json",
+      "blob": "86f6ec11324924035949b05830a4a2c3b5957d8a"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/practice.json",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/practice.json",
+      "blob": "fc83678fb8622f04e58e1639c609f6c3032f762d"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/public-repos.json",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/public-repos.json",
+      "blob": "82196d72d150f7c311bececb5a81c0fa09862016"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-_config.yml",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-_config.yml",
+      "blob": "493bbcfa50f4befe57e5f50e01b3eb9284bdfc54"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-_data__leaderboard.yml",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-_data__leaderboard.yml",
+      "blob": "9949aae1011e309ca20b8512d82f0cc37ad678be"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-_data__venue.yml",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-_data__venue.yml",
+      "blob": "ab2d5ec8864b6ecc0adf76aaf4a8f4c2550edc23"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-_includes__footer.html",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-_includes__footer.html",
+      "blob": "6674523aa31f000bccdd6187f1250b08f43cb9fd"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-_includes__header.html",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-_includes__header.html",
+      "blob": "ce1b70126f2a0b6f9b6e800b0fe4c8b664e8dd68"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-_includes__particles.html",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-_includes__particles.html",
+      "blob": "2e9e7075a397fabfae4322ab025fa9e132be6ca7"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-_layouts__default.html",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-_layouts__default.html",
+      "blob": "587d60195f995e7c97432f8b3db15a58a57f0009"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-about.md",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-about.md",
+      "blob": "bc9674ac3a0f3a158f9a51e0ddfcb246b20d39df"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-assets__css__style.css",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-assets__css__style.css",
+      "blob": "692813dcd68c6441a92aa06d7f4061dceafcbab5"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-audit.json",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-audit.json",
+      "blob": "b923d2ca88e49566316332af2deea61a75209920"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-committee.md",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-committee.md",
+      "blob": "b8bfda07d291fa41e3b310d25a4993773c3d2951"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-docs__index.md",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-docs__index.md",
+      "blob": "0731f85785c37fadb7569060b425512f2ef0f923"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-docs__reference.md",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-docs__reference.md",
+      "blob": "f48a2de6ec376935827a112cab365f3adbb04245"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-faq.md",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-faq.md",
+      "blob": "088ed546d8d3fd982fc9068f260ec64a01863d6f"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-index.md",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-index.md",
+      "blob": "9faced5a06f3bad127e9d0ecc33501d9823f8389"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-leaderboard.md",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-leaderboard.md",
+      "blob": "9273d4eb998f132574bb2d8592e28ab2edc170fa"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-register.md",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-register.md",
+      "blob": "2070f53c0d595e4bb632e0ca8780da9a2ef09f57"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-robots.txt",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-robots.txt",
+      "blob": "36601bf70d101d8dd15976a1db28f62700b08d67"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-schedule.md",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-schedule.md",
+      "blob": "377ca276bef1aa6fac27c46b8050dd79160d10a1"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-sitemap.xml",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-sitemap.xml",
+      "blob": "b9b41d22567ca2228bd96fb77941c6d58781dc2e"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/source-thanks.md",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/source-thanks.md",
+      "blob": "36cbab10ece761c4149dfe8e944f54d0c71e7ce6"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/summary.json",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/summary.json",
+      "blob": "06143e1f509a515838e761f7b58367189f36655c"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "docs/research/white-noise-walkers-2026-10-20/tree.json",
+      "destination": "docs/research/white-noise-walkers-2026-10-20/tree.json",
+      "blob": "6caa9753cfe950602eed00c24956ebb36f91cdd5"
+    },
+    {
+      "source": "a1df965971eb59d0114029e3168c506358735c5c",
+      "original_path": "scripts/study_leaderboard_white_noise_walkers.py",
+      "destination": "research/legacy/scripts/study_leaderboard_white_noise_walkers.py",
+      "blob": "a4f00aa60f23a264a388382440b2013e0c198f09"
     }
   ]
 }
