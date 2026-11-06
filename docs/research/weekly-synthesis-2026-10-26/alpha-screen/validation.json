@@ -1,0 +1,18 @@
+{
+  "scope": "offline research only",
+  "combinations": 324,
+  "active": 267,
+  "positive": 2,
+  "priority_candidates": 0,
+  "ledger_trades": 31868,
+  "validation": "causal/delayed-funding/depth checks; complete Decimal reconciliation and raw depth/lot/notional checks passed; deterministic main results reproduced; Ruff passed",
+  "artifacts": {
+    "diagnostics.json": "27df85384a600365db90aa981cb411e71cd54282a99cbeb78006965fbf3f5aac",
+    "report.zh-CN.md": "14f10005a033793a1a20060ff15c2608c77566a1df3221ee2ade17aa4921c692",
+    "results.json": "89db47cc4d571921228a29308a677fde40614a086901398a534979937cef3799",
+    "scenarios.csv": "f42bc38d1b1771c0cdc67702499e5f63a144e3128d9d43e879009420dffffa1e",
+    "screen-summary.pdf": "2658902b091598c136530e47eef33f8dbe0d3a14f2c27f07c698ee92fd2f0a68",
+    "screen-summary.png": "4a3ad8c694881af13ef96342c6614123a9effc584bab232479cb60db802fd086",
+    "trades.jsonl.gz": "936db13cb6d7993230e9a51efcdb73d978f4153ec2de0b18ef0adeca8060e8dd"
+  }
+}

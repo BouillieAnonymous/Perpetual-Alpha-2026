@@ -1,0 +1,17 @@
+{
+  "dashboard-validation.json": "7741c0ed88a23bcdd8dcffdc8b69277d5202420c88a8ae26c0ee0b24f593af9a",
+  "dashboard.html": "3f1531d3837a3b6b5581be29cb68640c9be479ea7970e4dbf2d374b45ca07e72",
+  "events.csv": "3895a95ac33ba3edc644578f01e982a5c29ff712648c825aff1728df6162f55d",
+  "figure-01.png": "c5c04ad2ccc3cf591605c467085c9a51bdda4bbe2e3753fedb5c663cdd4695bd",
+  "figure-02.png": "b8599376708f00121d5285026a7c6260af684b0ea2f61a8a7a3ff70d6fd6f626",
+  "figure-03.png": "e4963c1134d95cb7cb4071684fd5a683437b90af37a72c04cfefc94f887839f7",
+  "figure-04.png": "885b8459858075f5cfdb619b5eae8a75849ad8234d38134975744126dc2adbd9",
+  "figure-05.png": "391b0327c5c9268d7eb4cef528f65b8acad9fad04161f4f09910b15413ceae3a",
+  "observations.md": "2f3dce819cce57f68c41eefe128e15f5c3c9f7da436cced9f697a8f6b4fd9025",
+  "summary.json": "bfe9e0b20cc88a83e4e326f317ce34124ff498653e5c95bfa0ffc94adbc54c44",
+  "build_eda.py": "453cba6ade4e1bcedab4631a674370367c881845be9761730768a6e44c39a50c",
+  "dashboard-template.html": "da516d9d0122bff132a2a51586f5b4300725d3f1f95d78b44f0deecf9c2aef98",
+  "protocol.md": "a2c3a5ee59d68f5772eeff44b033c2702825f19cbf2832239b736ddbccd0a69a",
+  "README.md": "01659a6838f7156899f31381c51cba5a560e2db82cfe17853798427288e268ae",
+  "verify_dashboard.cjs": "566e41bd437a92317d75f8e155fb192774b1d65658eb1be73ebfc2f8d5602ebd"
+}

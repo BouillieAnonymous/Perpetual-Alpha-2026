@@ -1,0 +1,1772 @@
+[
+  {
+    "symbol": "pas:BRENT",
+    "rule": "TSM",
+    "orders": [
+      {
+        "time": 1793102400000,
+        "targets": {
+          "pas:BRENT": 0.2
+        },
+        "reason": "entry",
+        "features": {
+          "sigma": 0.005066974378182251,
+          "prior_sigma": 0.005073805253034611,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": -0.6840881993118619,
+          "score": 0.03292972744962218,
+          "efficiency": 0.009345739620292861,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793145600000,
+        "targets": {
+          "pas:BRENT": 0
+        },
+        "reason": "fixed-or-z-exit",
+        "features": {
+          "sigma": 0.003990427153500199,
+          "prior_sigma": 0.003986733253184046,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": -0.530520221159211,
+          "score": -0.32350473023089216,
+          "efficiency": 0.0998218654622435,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793188800000,
+        "targets": {
+          "pas:BRENT": 0.2
+        },
+        "reason": "entry",
+        "features": {
+          "sigma": 0.00404085308309558,
+          "prior_sigma": 0.0040468289591029305,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": 1.6112521074026098,
+          "score": 0.6107447245291837,
+          "efficiency": 0.2046265715757173,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793232000000,
+        "targets": {
+          "pas:BRENT": 0
+        },
+        "reason": "fixed-or-z-exit",
+        "features": {
+          "sigma": 0.0037978760183626737,
+          "prior_sigma": 0.0038020448006188994,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": -0.9128286329555705,
+          "score": 0.402433159076095,
+          "efficiency": 0.11720784361380304,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793275200000,
+        "targets": {
+          "pas:BRENT": -0.2
+        },
+        "reason": "entry",
+        "features": {
+          "sigma": 0.003367498017862708,
+          "prior_sigma": 0.0031768301744921814,
+          "compression": false,
+          "expansion": true,
+          "breakout": 0,
+          "z": -0.3287292090566325,
+          "score": -0.4226682760324309,
+          "efficiency": 0.10863628348161308,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793318400000,
+        "targets": {
+          "pas:BRENT": 0
+        },
+        "reason": "fixed-or-z-exit",
+        "features": {
+          "sigma": 0.003160927318367699,
+          "prior_sigma": 0.003166266724215391,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": 1.7005614605091348,
+          "score": 0.5577941394441128,
+          "efficiency": 0.14812979790795885,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793361600000,
+        "targets": {
+          "pas:BRENT": 0.2
+        },
+        "reason": "entry",
+        "features": {
+          "sigma": 0.0056965370060599865,
+          "prior_sigma": 0.005749065955047388,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": 1.6749811712573393,
+          "score": 0.8844765820115914,
+          "efficiency": 0.27102743591016965,
+          "state": "high_vol"
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "pas:BRENT",
+    "rule": "FUNDING-LAST",
+    "orders": [
+      {
+        "time": 1793059200000,
+        "targets": {
+          "pas:BRENT": -0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:BRENT": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793102400000,
+        "targets": {
+          "pas:BRENT": -0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:BRENT": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793145600000,
+        "targets": {
+          "pas:BRENT": -0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:BRENT": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793188800000,
+        "targets": {
+          "pas:BRENT": -0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:BRENT": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793232000000,
+        "targets": {
+          "pas:BRENT": -0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:BRENT": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793275200000,
+        "targets": {
+          "pas:BRENT": -0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:BRENT": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793318400000,
+        "targets": {
+          "pas:BRENT": -0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:BRENT": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793361600000,
+        "targets": {
+          "pas:BRENT": -0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:BRENT": 6.25e-06
+          }
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "pas:BRENT",
+    "rule": "FIXED-LONG",
+    "orders": [
+      {
+        "time": 1793059200000,
+        "targets": {
+          "pas:BRENT": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793102400000,
+        "targets": {
+          "pas:BRENT": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793145600000,
+        "targets": {
+          "pas:BRENT": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793188800000,
+        "targets": {
+          "pas:BRENT": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793232000000,
+        "targets": {
+          "pas:BRENT": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793275200000,
+        "targets": {
+          "pas:BRENT": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793318400000,
+        "targets": {
+          "pas:BRENT": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793361600000,
+        "targets": {
+          "pas:BRENT": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      }
+    ]
+  },
+  {
+    "symbol": "pas:BRENT",
+    "rule": "MATCHED-FIXED-LONG",
+    "orders": [
+      {
+        "time": 1793102400000,
+        "targets": {
+          "pas:BRENT": 0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.005066974378182251,
+          "prior_sigma": 0.005073805253034611,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": -0.6840881993118619,
+          "score": 0.03292972744962218,
+          "efficiency": 0.009345739620292861,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793145600000,
+        "targets": {
+          "pas:BRENT": 0
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.003990427153500199,
+          "prior_sigma": 0.003986733253184046,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": -0.530520221159211,
+          "score": -0.32350473023089216,
+          "efficiency": 0.0998218654622435,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793188800000,
+        "targets": {
+          "pas:BRENT": 0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.00404085308309558,
+          "prior_sigma": 0.0040468289591029305,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": 1.6112521074026098,
+          "score": 0.6107447245291837,
+          "efficiency": 0.2046265715757173,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793232000000,
+        "targets": {
+          "pas:BRENT": 0
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.0037978760183626737,
+          "prior_sigma": 0.0038020448006188994,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": -0.9128286329555705,
+          "score": 0.402433159076095,
+          "efficiency": 0.11720784361380304,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793275200000,
+        "targets": {
+          "pas:BRENT": 0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.003367498017862708,
+          "prior_sigma": 0.0031768301744921814,
+          "compression": false,
+          "expansion": true,
+          "breakout": 0,
+          "z": -0.3287292090566325,
+          "score": -0.4226682760324309,
+          "efficiency": 0.10863628348161308,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793318400000,
+        "targets": {
+          "pas:BRENT": 0
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.003160927318367699,
+          "prior_sigma": 0.003166266724215391,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": 1.7005614605091348,
+          "score": 0.5577941394441128,
+          "efficiency": 0.14812979790795885,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793361600000,
+        "targets": {
+          "pas:BRENT": 0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.0056965370060599865,
+          "prior_sigma": 0.005749065955047388,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": 1.6749811712573393,
+          "score": 0.8844765820115914,
+          "efficiency": 0.27102743591016965,
+          "state": "high_vol"
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "pas:BRENT",
+    "rule": "FIXED-SHORT",
+    "orders": [
+      {
+        "time": 1793059200000,
+        "targets": {
+          "pas:BRENT": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793102400000,
+        "targets": {
+          "pas:BRENT": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793145600000,
+        "targets": {
+          "pas:BRENT": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793188800000,
+        "targets": {
+          "pas:BRENT": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793232000000,
+        "targets": {
+          "pas:BRENT": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793275200000,
+        "targets": {
+          "pas:BRENT": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793318400000,
+        "targets": {
+          "pas:BRENT": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793361600000,
+        "targets": {
+          "pas:BRENT": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      }
+    ]
+  },
+  {
+    "symbol": "pas:BRENT",
+    "rule": "MATCHED-FIXED-SHORT",
+    "orders": [
+      {
+        "time": 1793102400000,
+        "targets": {
+          "pas:BRENT": -0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.005066974378182251,
+          "prior_sigma": 0.005073805253034611,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": -0.6840881993118619,
+          "score": 0.03292972744962218,
+          "efficiency": 0.009345739620292861,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793145600000,
+        "targets": {
+          "pas:BRENT": 0
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.003990427153500199,
+          "prior_sigma": 0.003986733253184046,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": -0.530520221159211,
+          "score": -0.32350473023089216,
+          "efficiency": 0.0998218654622435,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793188800000,
+        "targets": {
+          "pas:BRENT": -0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.00404085308309558,
+          "prior_sigma": 0.0040468289591029305,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": 1.6112521074026098,
+          "score": 0.6107447245291837,
+          "efficiency": 0.2046265715757173,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793232000000,
+        "targets": {
+          "pas:BRENT": 0
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.0037978760183626737,
+          "prior_sigma": 0.0038020448006188994,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": -0.9128286329555705,
+          "score": 0.402433159076095,
+          "efficiency": 0.11720784361380304,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793275200000,
+        "targets": {
+          "pas:BRENT": -0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.003367498017862708,
+          "prior_sigma": 0.0031768301744921814,
+          "compression": false,
+          "expansion": true,
+          "breakout": 0,
+          "z": -0.3287292090566325,
+          "score": -0.4226682760324309,
+          "efficiency": 0.10863628348161308,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793318400000,
+        "targets": {
+          "pas:BRENT": 0
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.003160927318367699,
+          "prior_sigma": 0.003166266724215391,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": 1.7005614605091348,
+          "score": 0.5577941394441128,
+          "efficiency": 0.14812979790795885,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793361600000,
+        "targets": {
+          "pas:BRENT": -0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.0056965370060599865,
+          "prior_sigma": 0.005749065955047388,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": 1.6749811712573393,
+          "score": 0.8844765820115914,
+          "efficiency": 0.27102743591016965,
+          "state": "high_vol"
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "pas:ETH",
+    "rule": "ROLLING_Z",
+    "orders": [
+      {
+        "time": 1793106000000,
+        "targets": {
+          "pas:ETH": -0.2
+        },
+        "reason": "entry",
+        "features": {
+          "sigma": 0.00450233656888047,
+          "prior_sigma": 0.004237403029158199,
+          "compression": false,
+          "expansion": true,
+          "breakout": 0,
+          "z": 2.464984605434712,
+          "score": 0.21540062882289376,
+          "efficiency": 0.05939771962743793,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793149200000,
+        "targets": {
+          "pas:ETH": 0
+        },
+        "reason": "fixed-or-z-exit",
+        "features": {
+          "sigma": 0.0032142502257409876,
+          "prior_sigma": 0.0031851504323681455,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": 1.0225590420978243,
+          "score": 0.5370363083472024,
+          "efficiency": 0.15110246308116335,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793239200000,
+        "targets": {
+          "pas:ETH": 0.2
+        },
+        "reason": "entry",
+        "features": {
+          "sigma": 0.005028231177493127,
+          "prior_sigma": 0.0034646428390483386,
+          "compression": false,
+          "expansion": true,
+          "breakout": -1,
+          "z": -3.4418357287869927,
+          "score": -1.0399318703581308,
+          "efficiency": 0.22869458856148064,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793271600000,
+        "targets": {
+          "pas:ETH": 0
+        },
+        "reason": "fixed-or-z-exit",
+        "features": {
+          "sigma": 0.005134123561881512,
+          "prior_sigma": 0.005074988733937573,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": -0.47825959838583565,
+          "score": -0.6847962687371671,
+          "efficiency": 0.20890092811063432,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793307600000,
+        "targets": {
+          "pas:ETH": 0.2
+        },
+        "reason": "entry",
+        "features": {
+          "sigma": 0.00853911135258558,
+          "prior_sigma": 0.0054206746433126405,
+          "compression": false,
+          "expansion": true,
+          "breakout": -1,
+          "z": -3.7615690397073127,
+          "score": -1.6446826371685601,
+          "efficiency": 0.36967638376905965,
+          "state": "trending"
+        }
+      },
+      {
+        "time": 1793350800000,
+        "targets": {
+          "pas:ETH": 0
+        },
+        "reason": "fixed-or-z-exit",
+        "features": {
+          "sigma": 0.00951134982325023,
+          "prior_sigma": 0.009571415885616535,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": -1.1483561746895345,
+          "score": -0.8621943374900551,
+          "efficiency": 0.2536731988885468,
+          "state": "high_vol"
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "pas:ETH",
+    "rule": "FUNDING-LAST",
+    "orders": [
+      {
+        "time": 1793059200000,
+        "targets": {
+          "pas:ETH": 0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:ETH": -0.0001078727
+          }
+        }
+      },
+      {
+        "time": 1793102400000,
+        "targets": {
+          "pas:ETH": 0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:ETH": -0.0001099669
+          }
+        }
+      },
+      {
+        "time": 1793145600000,
+        "targets": {
+          "pas:ETH": 0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:ETH": -8.66972e-05
+          }
+        }
+      },
+      {
+        "time": 1793188800000,
+        "targets": {
+          "pas:ETH": 0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:ETH": -4.90275e-05
+          }
+        }
+      },
+      {
+        "time": 1793232000000,
+        "targets": {
+          "pas:ETH": -0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:ETH": 1.25e-05
+          }
+        }
+      },
+      {
+        "time": 1793275200000,
+        "targets": {
+          "pas:ETH": -0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:ETH": 1.25e-05
+          }
+        }
+      },
+      {
+        "time": 1793318400000,
+        "targets": {
+          "pas:ETH": 0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:ETH": -2.08381e-05
+          }
+        }
+      },
+      {
+        "time": 1793361600000,
+        "targets": {
+          "pas:ETH": 0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:ETH": -2.89083e-05
+          }
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "pas:ETH",
+    "rule": "FIXED-LONG",
+    "orders": [
+      {
+        "time": 1793059200000,
+        "targets": {
+          "pas:ETH": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793102400000,
+        "targets": {
+          "pas:ETH": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793145600000,
+        "targets": {
+          "pas:ETH": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793188800000,
+        "targets": {
+          "pas:ETH": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793232000000,
+        "targets": {
+          "pas:ETH": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793275200000,
+        "targets": {
+          "pas:ETH": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793318400000,
+        "targets": {
+          "pas:ETH": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793361600000,
+        "targets": {
+          "pas:ETH": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      }
+    ]
+  },
+  {
+    "symbol": "pas:ETH",
+    "rule": "MATCHED-FIXED-LONG",
+    "orders": [
+      {
+        "time": 1793106000000,
+        "targets": {
+          "pas:ETH": 0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.00450233656888047,
+          "prior_sigma": 0.004237403029158199,
+          "compression": false,
+          "expansion": true,
+          "breakout": 0,
+          "z": 2.464984605434712,
+          "score": 0.21540062882289376,
+          "efficiency": 0.05939771962743793,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793149200000,
+        "targets": {
+          "pas:ETH": 0
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.0032142502257409876,
+          "prior_sigma": 0.0031851504323681455,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": 1.0225590420978243,
+          "score": 0.5370363083472024,
+          "efficiency": 0.15110246308116335,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793239200000,
+        "targets": {
+          "pas:ETH": 0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.005028231177493127,
+          "prior_sigma": 0.0034646428390483386,
+          "compression": false,
+          "expansion": true,
+          "breakout": -1,
+          "z": -3.4418357287869927,
+          "score": -1.0399318703581308,
+          "efficiency": 0.22869458856148064,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793271600000,
+        "targets": {
+          "pas:ETH": 0
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.005134123561881512,
+          "prior_sigma": 0.005074988733937573,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": -0.47825959838583565,
+          "score": -0.6847962687371671,
+          "efficiency": 0.20890092811063432,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793307600000,
+        "targets": {
+          "pas:ETH": 0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.00853911135258558,
+          "prior_sigma": 0.0054206746433126405,
+          "compression": false,
+          "expansion": true,
+          "breakout": -1,
+          "z": -3.7615690397073127,
+          "score": -1.6446826371685601,
+          "efficiency": 0.36967638376905965,
+          "state": "trending"
+        }
+      },
+      {
+        "time": 1793350800000,
+        "targets": {
+          "pas:ETH": 0
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.00951134982325023,
+          "prior_sigma": 0.009571415885616535,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": -1.1483561746895345,
+          "score": -0.8621943374900551,
+          "efficiency": 0.2536731988885468,
+          "state": "high_vol"
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "pas:ETH",
+    "rule": "FIXED-SHORT",
+    "orders": [
+      {
+        "time": 1793059200000,
+        "targets": {
+          "pas:ETH": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793102400000,
+        "targets": {
+          "pas:ETH": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793145600000,
+        "targets": {
+          "pas:ETH": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793188800000,
+        "targets": {
+          "pas:ETH": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793232000000,
+        "targets": {
+          "pas:ETH": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793275200000,
+        "targets": {
+          "pas:ETH": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793318400000,
+        "targets": {
+          "pas:ETH": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793361600000,
+        "targets": {
+          "pas:ETH": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      }
+    ]
+  },
+  {
+    "symbol": "pas:ETH",
+    "rule": "MATCHED-FIXED-SHORT",
+    "orders": [
+      {
+        "time": 1793106000000,
+        "targets": {
+          "pas:ETH": -0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.00450233656888047,
+          "prior_sigma": 0.004237403029158199,
+          "compression": false,
+          "expansion": true,
+          "breakout": 0,
+          "z": 2.464984605434712,
+          "score": 0.21540062882289376,
+          "efficiency": 0.05939771962743793,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793149200000,
+        "targets": {
+          "pas:ETH": 0
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.0032142502257409876,
+          "prior_sigma": 0.0031851504323681455,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": 1.0225590420978243,
+          "score": 0.5370363083472024,
+          "efficiency": 0.15110246308116335,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793239200000,
+        "targets": {
+          "pas:ETH": -0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.005028231177493127,
+          "prior_sigma": 0.0034646428390483386,
+          "compression": false,
+          "expansion": true,
+          "breakout": -1,
+          "z": -3.4418357287869927,
+          "score": -1.0399318703581308,
+          "efficiency": 0.22869458856148064,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793271600000,
+        "targets": {
+          "pas:ETH": 0
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.005134123561881512,
+          "prior_sigma": 0.005074988733937573,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": -0.47825959838583565,
+          "score": -0.6847962687371671,
+          "efficiency": 0.20890092811063432,
+          "state": "range"
+        }
+      },
+      {
+        "time": 1793307600000,
+        "targets": {
+          "pas:ETH": -0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.00853911135258558,
+          "prior_sigma": 0.0054206746433126405,
+          "compression": false,
+          "expansion": true,
+          "breakout": -1,
+          "z": -3.7615690397073127,
+          "score": -1.6446826371685601,
+          "efficiency": 0.36967638376905965,
+          "state": "trending"
+        }
+      },
+      {
+        "time": 1793350800000,
+        "targets": {
+          "pas:ETH": 0
+        },
+        "reason": "matched-direction",
+        "features": {
+          "sigma": 0.00951134982325023,
+          "prior_sigma": 0.009571415885616535,
+          "compression": false,
+          "expansion": false,
+          "breakout": 0,
+          "z": -1.1483561746895345,
+          "score": -0.8621943374900551,
+          "efficiency": 0.2536731988885468,
+          "state": "high_vol"
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "pas:GOLD",
+    "rule": "FUNDING-MEAN24",
+    "orders": [
+      {
+        "time": 1793059200000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "funding-mean24",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793102400000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "funding-mean24",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793145600000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "funding-mean24",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793188800000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "funding-mean24",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.820195833333334e-06
+          }
+        }
+      },
+      {
+        "time": 1793232000000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "funding-mean24",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 7.053325e-06
+          }
+        }
+      },
+      {
+        "time": 1793275200000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "funding-mean24",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.4831291666666665e-06
+          }
+        }
+      },
+      {
+        "time": 1793318400000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "funding-mean24",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793361600000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "funding-mean24",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.582283333333334e-06
+          }
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "pas:GOLD",
+    "rule": "FUNDING-LAST",
+    "orders": [
+      {
+        "time": 1793059200000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793102400000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793145600000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793188800000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793232000000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793275200000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793318400000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793361600000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "funding-last",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.25e-06
+          }
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "pas:GOLD",
+    "rule": "FIXED-LONG",
+    "orders": [
+      {
+        "time": 1793059200000,
+        "targets": {
+          "pas:GOLD": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793102400000,
+        "targets": {
+          "pas:GOLD": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793145600000,
+        "targets": {
+          "pas:GOLD": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793188800000,
+        "targets": {
+          "pas:GOLD": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793232000000,
+        "targets": {
+          "pas:GOLD": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793275200000,
+        "targets": {
+          "pas:GOLD": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793318400000,
+        "targets": {
+          "pas:GOLD": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793361600000,
+        "targets": {
+          "pas:GOLD": 0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      }
+    ]
+  },
+  {
+    "symbol": "pas:GOLD",
+    "rule": "MATCHED-FIXED-LONG",
+    "orders": [
+      {
+        "time": 1793059200000,
+        "targets": {
+          "pas:GOLD": 0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793102400000,
+        "targets": {
+          "pas:GOLD": 0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793145600000,
+        "targets": {
+          "pas:GOLD": 0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793188800000,
+        "targets": {
+          "pas:GOLD": 0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.820195833333334e-06
+          }
+        }
+      },
+      {
+        "time": 1793232000000,
+        "targets": {
+          "pas:GOLD": 0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 7.053325e-06
+          }
+        }
+      },
+      {
+        "time": 1793275200000,
+        "targets": {
+          "pas:GOLD": 0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.4831291666666665e-06
+          }
+        }
+      },
+      {
+        "time": 1793318400000,
+        "targets": {
+          "pas:GOLD": 0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793361600000,
+        "targets": {
+          "pas:GOLD": 0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.582283333333334e-06
+          }
+        }
+      }
+    ]
+  },
+  {
+    "symbol": "pas:GOLD",
+    "rule": "FIXED-SHORT",
+    "orders": [
+      {
+        "time": 1793059200000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793102400000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793145600000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793188800000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793232000000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793275200000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793318400000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      },
+      {
+        "time": 1793361600000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "fixed-direction",
+        "features": {}
+      }
+    ]
+  },
+  {
+    "symbol": "pas:GOLD",
+    "rule": "MATCHED-FIXED-SHORT",
+    "orders": [
+      {
+        "time": 1793059200000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793102400000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793145600000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793188800000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.820195833333334e-06
+          }
+        }
+      },
+      {
+        "time": 1793232000000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 7.053325e-06
+          }
+        }
+      },
+      {
+        "time": 1793275200000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.4831291666666665e-06
+          }
+        }
+      },
+      {
+        "time": 1793318400000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.25e-06
+          }
+        }
+      },
+      {
+        "time": 1793361600000,
+        "targets": {
+          "pas:GOLD": -0.2
+        },
+        "reason": "matched-direction",
+        "features": {
+          "known_rates": {
+            "pas:GOLD": 6.582283333333334e-06
+          }
+        }
+      }
+    ]
+  }
+]

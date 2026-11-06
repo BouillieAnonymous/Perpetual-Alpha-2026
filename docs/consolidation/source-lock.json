@@ -1,0 +1,1390 @@
+{
+  "baseline": "0c579d77282e7adffc8bd55b2b08e5f6cabc702a",
+  "phase1": [
+    {
+      "pr": 36,
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "integration": "ea2ffa84b0407024a3ed5cbe65c78c209a41de5d",
+      "files": [
+        "docs/final-sprint-2026-11-03.md",
+        "docs/research/btc-eth-volatility/README.md",
+        "docs/research/btc-eth-volatility/analyze_stage02a.py",
+        "docs/research/btc-eth-volatility/audit_diagnostics.py",
+        "docs/research/btc-eth-volatility/audit_stage01.py",
+        "docs/research/btc-eth-volatility/publication-manifest.json",
+        "docs/research/btc-eth-volatility/stage-01-data-audit.md",
+        "docs/research/btc-eth-volatility/stage-01-diagnostics.json",
+        "docs/research/btc-eth-volatility/stage-01-protocol.md",
+        "docs/research/btc-eth-volatility/stage-01-source-range.json",
+        "docs/research/btc-eth-volatility/stage-01-statistics.json",
+        "docs/research/btc-eth-volatility/stage-02a-metrics.csv",
+        "docs/research/btc-eth-volatility/stage-02a-predictions.csv",
+        "docs/research/btc-eth-volatility/stage-02a-protocol.md",
+        "docs/research/btc-eth-volatility/stage-02a-report.md",
+        "docs/research/btc-eth-volatility/stage-02a-results.json",
+        "docs/research/btc-eth-volatility/stage-02a-validation.json",
+        "docs/research/btc-eth-volatility/verify_stage02a.py",
+        "docs/research/btc-eth-volatility/visual-eda/.gitattributes",
+        "docs/research/btc-eth-volatility/visual-eda/README.md",
+        "docs/research/btc-eth-volatility/visual-eda/build_eda.py",
+        "docs/research/btc-eth-volatility/visual-eda/dashboard-template.html",
+        "docs/research/btc-eth-volatility/visual-eda/output-reviewed/dashboard.html",
+        "docs/research/btc-eth-volatility/visual-eda/output-reviewed/events.csv",
+        "docs/research/btc-eth-volatility/visual-eda/output-reviewed/figure-01.png",
+        "docs/research/btc-eth-volatility/visual-eda/output-reviewed/figure-02.png",
+        "docs/research/btc-eth-volatility/visual-eda/output-reviewed/figure-03.png",
+        "docs/research/btc-eth-volatility/visual-eda/output-reviewed/figure-04.png",
+        "docs/research/btc-eth-volatility/visual-eda/output-reviewed/figure-05.png",
+        "docs/research/btc-eth-volatility/visual-eda/output-reviewed/manifest.json",
+        "docs/research/btc-eth-volatility/visual-eda/output-reviewed/observations.md",
+        "docs/research/btc-eth-volatility/visual-eda/output-reviewed/summary.json",
+        "docs/research/btc-eth-volatility/visual-eda/output-reviewed/verification.json",
+        "docs/research/btc-eth-volatility/visual-eda/protocol.md",
+        "docs/research/btc-eth-volatility/visual-eda/verify_dashboard.cjs",
+        "docs/research/btc-eth-volatility/visual-eda/verify_eda.py"
+      ],
+      "frozen_blob_identity": "PASS",
+      "production_unchanged": "PASS"
+    },
+    {
+      "pr": 39,
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "integration": "ed04f80add4c2a14adc2d693e8b107a1cb29c14a",
+      "files": [
+        "docs/research/btc-eth-volatility/visual-eda-v2/.gitattributes",
+        "docs/research/btc-eth-volatility/visual-eda-v2/README.md",
+        "docs/research/btc-eth-volatility/visual-eda-v2/acceptance.md",
+        "docs/research/btc-eth-volatility/visual-eda-v2/build_v2.py",
+        "docs/research/btc-eth-volatility/visual-eda-v2/dashboard.css",
+        "docs/research/btc-eth-volatility/visual-eda-v2/dashboard.js",
+        "docs/research/btc-eth-volatility/visual-eda-v2/protocol.md",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/dashboard.html",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/data-dictionary.md",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/features.csv.gz",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/independent-validation.json",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/interaction-validation.json",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/manifest.json",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/metric-catalog.json",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/observations.md",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/dashboard.html",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/events.csv",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/figure-01.png",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/figure-02.png",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/figure-03.png",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/figure-04.png",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/figure-05.png",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/manifest.json",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/observations.md",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/summary.json",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/verification.json",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/v2-beta.png",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/v2-correlation.png",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/v2-cost.png",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/v2-residual.png",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/v2-slope.png",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/v2-zscore.png",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release/validation.json",
+        "docs/research/btc-eth-volatility/visual-eda-v2/render_png.py",
+        "docs/research/btc-eth-volatility/visual-eda-v2/seal.py",
+        "docs/research/btc-eth-volatility/visual-eda-v2/template.html",
+        "docs/research/btc-eth-volatility/visual-eda-v2/usage-guide.md",
+        "docs/research/btc-eth-volatility/visual-eda-v2/verify_interactions.cjs",
+        "docs/research/btc-eth-volatility/visual-eda-v2/verify_v2.py"
+      ],
+      "frozen_blob_identity": "PASS",
+      "production_unchanged": "PASS"
+    },
+    {
+      "pr": 41,
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "integration": "d3696122a139a2ed889d8a8cf2f9f3306d9216cf",
+      "files": [
+        "docs/research/pas-visual-discovery-v3/.gitattributes",
+        "docs/research/pas-visual-discovery-v3/README.md",
+        "docs/research/pas-visual-discovery-v3/acceptance.md",
+        "docs/research/pas-visual-discovery-v3/audit-verified/all-asset-data-audit.md",
+        "docs/research/pas-visual-discovery-v3/audit-verified/causal-panel.jsonl.gz",
+        "docs/research/pas-visual-discovery-v3/audit-verified/component-audit.json",
+        "docs/research/pas-visual-discovery-v3/audit-verified/coverage.csv",
+        "docs/research/pas-visual-discovery-v3/audit-verified/manifest.json",
+        "docs/research/pas-visual-discovery-v3/audit-verified/metadata.json",
+        "docs/research/pas-visual-discovery-v3/audit-verified/pair-eligibility.csv",
+        "docs/research/pas-visual-discovery-v3/audit-verified/prior-loader-differences.json",
+        "docs/research/pas-visual-discovery-v3/audit-verified/validation.json",
+        "docs/research/pas-visual-discovery-v3/audit.py",
+        "docs/research/pas-visual-discovery-v3/build_v3.py",
+        "docs/research/pas-visual-discovery-v3/dashboard.css",
+        "docs/research/pas-visual-discovery-v3/dashboard.js",
+        "docs/research/pas-visual-discovery-v3/hypothesis-registry.md",
+        "docs/research/pas-visual-discovery-v3/numeric.py",
+        "docs/research/pas-visual-discovery-v3/prior-evidence.json",
+        "docs/research/pas-visual-discovery-v3/prior-ten-asset-counts.json",
+        "docs/research/pas-visual-discovery-v3/protocol.md",
+        "docs/research/pas-visual-discovery-v3/release/all-asset-data-audit.md",
+        "docs/research/pas-visual-discovery-v3/release/assets/BRENT.js",
+        "docs/research/pas-visual-discovery-v3/release/assets/BTC.js",
+        "docs/research/pas-visual-discovery-v3/release/assets/ETH.js",
+        "docs/research/pas-visual-discovery-v3/release/assets/EWJ.js",
+        "docs/research/pas-visual-discovery-v3/release/assets/EWY.js",
+        "docs/research/pas-visual-discovery-v3/release/assets/GOLD.js",
+        "docs/research/pas-visual-discovery-v3/release/assets/HYPE.js",
+        "docs/research/pas-visual-discovery-v3/release/assets/SP500.js",
+        "docs/research/pas-visual-discovery-v3/release/assets/USDEUR.js",
+        "docs/research/pas-visual-discovery-v3/release/assets/USDJPY.js",
+        "docs/research/pas-visual-discovery-v3/release/build-summary.json",
+        "docs/research/pas-visual-discovery-v3/release/chrome-acceptance.json",
+        "docs/research/pas-visual-discovery-v3/release/chrome-gap.jpg",
+        "docs/research/pas-visual-discovery-v3/release/chrome-overview.jpg",
+        "docs/research/pas-visual-discovery-v3/release/component-audit.json",
+        "docs/research/pas-visual-discovery-v3/release/coverage-overview.png",
+        "docs/research/pas-visual-discovery-v3/release/coverage.csv",
+        "docs/research/pas-visual-discovery-v3/release/dashboard.html",
+        "docs/research/pas-visual-discovery-v3/release/final-validation.json",
+        "docs/research/pas-visual-discovery-v3/release/independent-validation.json",
+        "docs/research/pas-visual-discovery-v3/release/interaction-validation.json",
+        "docs/research/pas-visual-discovery-v3/release/manifest.json",
+        "docs/research/pas-visual-discovery-v3/release/matrix-asof.png",
+        "docs/research/pas-visual-discovery-v3/release/metadata.json",
+        "docs/research/pas-visual-discovery-v3/release/metric-catalog.json",
+        "docs/research/pas-visual-discovery-v3/release/numeric-reference.json",
+        "docs/research/pas-visual-discovery-v3/release/observations.md",
+        "docs/research/pas-visual-discovery-v3/release/pair-eligibility.csv",
+        "docs/research/pas-visual-discovery-v3/release/prices-overview.png",
+        "docs/research/pas-visual-discovery-v3/release/prior-loader-differences.json",
+        "docs/research/pas-visual-discovery-v3/release/validation.json",
+        "docs/research/pas-visual-discovery-v3/render_png.py",
+        "docs/research/pas-visual-discovery-v3/seal.py",
+        "docs/research/pas-visual-discovery-v3/template.html",
+        "docs/research/pas-visual-discovery-v3/usage-guide.md",
+        "docs/research/pas-visual-discovery-v3/verify_interactions.cjs",
+        "docs/research/pas-visual-discovery-v3/verify_v3.py"
+      ],
+      "frozen_blob_identity": "PASS",
+      "production_unchanged": "PASS"
+    },
+    {
+      "pr": 43,
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "integration": "5d846bd308b13d43ebed7d69903067a8fc2bd2e4",
+      "files": [
+        "docs/research/h09-btc-hype-2026-11/.gitattributes",
+        "docs/research/h09-btc-hype-2026-11/README.md",
+        "docs/research/h09-btc-hype-2026-11/anomaly-audit/anomaly-report.md",
+        "docs/research/h09-btc-hype-2026-11/anomaly-audit/anomaly-summary.json",
+        "docs/research/h09-btc-hype-2026-11/anomaly-audit/episode-minute-quotes.csv",
+        "docs/research/h09-btc-hype-2026-11/anomaly-audit/hype-episode-overview.png",
+        "docs/research/h09-btc-hype-2026-11/audit_anomaly.py",
+        "docs/research/h09-btc-hype-2026-11/chrome-h09-handoff.jpg",
+        "docs/research/h09-btc-hype-2026-11/chrome-v3-episode.jpg",
+        "docs/research/h09-btc-hype-2026-11/freeze.json",
+        "docs/research/h09-btc-hype-2026-11/index.html",
+        "docs/research/h09-btc-hype-2026-11/inventory_local.py",
+        "docs/research/h09-btc-hype-2026-11/new-data-inventory.json",
+        "docs/research/h09-btc-hype-2026-11/protocol.md",
+        "docs/research/h09-btc-hype-2026-11/publication-manifest.json",
+        "docs/research/h09-btc-hype-2026-11/render_report.py",
+        "docs/research/h09-btc-hype-2026-11/report.md",
+        "docs/research/h09-btc-hype-2026-11/reproduction.json",
+        "docs/research/h09-btc-hype-2026-11/reserve_public.py",
+        "docs/research/h09-btc-hype-2026-11/reserved-data.json",
+        "docs/research/h09-btc-hype-2026-11/results/coefficients.json",
+        "docs/research/h09-btc-hype-2026-11/results/cost-diagnostic.json",
+        "docs/research/h09-btc-hype-2026-11/results/daily-paired-errors.csv",
+        "docs/research/h09-btc-hype-2026-11/results/event-summary.json",
+        "docs/research/h09-btc-hype-2026-11/results/events.csv",
+        "docs/research/h09-btc-hype-2026-11/results/failures.json",
+        "docs/research/h09-btc-hype-2026-11/results/metrics.json",
+        "docs/research/h09-btc-hype-2026-11/results/predictions.csv",
+        "docs/research/h09-btc-hype-2026-11/results/quality.json",
+        "docs/research/h09-btc-hype-2026-11/results/run-manifest.json",
+        "docs/research/h09-btc-hype-2026-11/run_h09.py",
+        "docs/research/h09-btc-hype-2026-11/verification.json",
+        "docs/research/h09-btc-hype-2026-11/verify_h09.py"
+      ],
+      "frozen_blob_identity": "PASS",
+      "production_unchanged": "PASS"
+    },
+    {
+      "pr": 38,
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "integration": "169567416db80baf8d297e181f834f44b7c7f6c8",
+      "files": [
+        "docs/research/alpha-hypothesis-batch-2026-11/.gitattributes",
+        "docs/research/alpha-hypothesis-batch-2026-11/README.md",
+        "docs/research/alpha-hypothesis-batch-2026-11/daily-comparison.csv",
+        "docs/research/alpha-hypothesis-batch-2026-11/data-audit.json",
+        "docs/research/alpha-hypothesis-batch-2026-11/events.csv",
+        "docs/research/alpha-hypothesis-batch-2026-11/freeze.json",
+        "docs/research/alpha-hypothesis-batch-2026-11/frozen-protocol.md",
+        "docs/research/alpha-hypothesis-batch-2026-11/hypothesis-registry.md",
+        "docs/research/alpha-hypothesis-batch-2026-11/implementation-audit/before-rv-arithmetic-fix-results.csv",
+        "docs/research/alpha-hypothesis-batch-2026-11/implementation-audit/before-rv-arithmetic-fix-run-manifest.json",
+        "docs/research/alpha-hypothesis-batch-2026-11/implementation-audit/before-rv-arithmetic-fix-thresholds.json",
+        "docs/research/alpha-hypothesis-batch-2026-11/implementation-audit/initial-results.csv",
+        "docs/research/alpha-hypothesis-batch-2026-11/implementation-audit/initial-run-manifest.json",
+        "docs/research/alpha-hypothesis-batch-2026-11/implementation-audit/initial-thresholds.json",
+        "docs/research/alpha-hypothesis-batch-2026-11/implementation-audit/notes.md",
+        "docs/research/alpha-hypothesis-batch-2026-11/input-hashes.json",
+        "docs/research/alpha-hypothesis-batch-2026-11/model-comparison.csv",
+        "docs/research/alpha-hypothesis-batch-2026-11/models.json",
+        "docs/research/alpha-hypothesis-batch-2026-11/points.csv.gz",
+        "docs/research/alpha-hypothesis-batch-2026-11/prior-pr-snapshots.json",
+        "docs/research/alpha-hypothesis-batch-2026-11/publication-manifest.json",
+        "docs/research/alpha-hypothesis-batch-2026-11/reproduction.json",
+        "docs/research/alpha-hypothesis-batch-2026-11/results.csv",
+        "docs/research/alpha-hypothesis-batch-2026-11/run-manifest.json",
+        "docs/research/alpha-hypothesis-batch-2026-11/run_batch.py",
+        "docs/research/alpha-hypothesis-batch-2026-11/source-evidence.json",
+        "docs/research/alpha-hypothesis-batch-2026-11/summary.md",
+        "docs/research/alpha-hypothesis-batch-2026-11/thresholds.json",
+        "docs/research/alpha-hypothesis-batch-2026-11/verification.json",
+        "docs/research/alpha-hypothesis-batch-2026-11/verify_batch.py"
+      ],
+      "frozen_blob_identity": "PASS",
+      "production_unchanged": "PASS"
+    },
+    {
+      "pr": 27,
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "integration": "65e825dc87d9b65f3c35297ca760a1f742e4c4c5",
+      "files": [
+        "docs/README.md",
+        "docs/research/all-asset-momentum-2026-10-20/groups.csv",
+        "docs/research/all-asset-momentum-2026-10-20/protocol.zh-CN.md",
+        "docs/research/all-asset-momentum-2026-10-20/report.zh-CN.md",
+        "docs/research/all-asset-momentum-2026-10-20/results.json.gz",
+        "docs/research/all-asset-momentum-2026-10-20/scenarios.csv",
+        "docs/research/all-asset-momentum-2026-10-20/trades.csv.gz",
+        "docs/research/all-asset-momentum-2026-10-20/verification.json",
+        "docs/research/pas-mean-reversion-2026-10-19/report.zh-CN.md",
+        "docs/research/pas-mean-reversion-2026-10-19/results.json.gz",
+        "docs/research/pas-mean-reversion-2026-10-19/scenarios.csv",
+        "docs/research/pas-mean-reversion-2026-10-19/trades.csv.gz",
+        "docs/research/pas-research-pr-verification.json",
+        "docs/research/pas-research-records-2026-10-20.md",
+        "docs/research/pas-short-cycle-2026-10-19/protocol.zh-CN.md",
+        "docs/research/pas-short-cycle-2026-10-19/report.zh-CN.md",
+        "docs/research/pas-short-cycle-2026-10-19/results.json.gz",
+        "docs/research/pas-short-cycle-2026-10-19/scenarios.csv",
+        "docs/research/pas-short-cycle-2026-10-19/trades.csv.gz",
+        "docs/research/pas-short-cycle-2026-10-19/verification.json",
+        "scripts/pas_momentum_core.py",
+        "scripts/pas_research_costs.py",
+        "scripts/study_all_asset_momentum.py",
+        "scripts/study_pas_mean_reversion.py",
+        "scripts/study_pas_short_cycle.py",
+        "tests/test_pas_research_record.py"
+      ],
+      "frozen_blob_identity": "PASS",
+      "production_unchanged": "PASS"
+    }
+  ],
+  "sources": [
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/comparison.csv",
+      "destination": "docs/research/candidate-validation-2026-10-30/comparison.csv",
+      "blob": "064c0f6fd1e2ba7b5745318f4ceaf1c083c1a313"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/complete-window/comparison.csv",
+      "destination": "docs/research/candidate-validation-2026-10-30/complete-window/comparison.csv",
+      "blob": "054b9815dc5fe7251eb76aa5169817a4f6709094"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/complete-window/ledgers.jsonl.gz",
+      "destination": "docs/research/candidate-validation-2026-10-30/complete-window/ledgers.jsonl.gz",
+      "blob": "9064eea8474ad2b45bdf56643e7dec573fb00286"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/complete-window/results.json",
+      "destination": "docs/research/candidate-validation-2026-10-30/complete-window/results.json",
+      "blob": "74c25ab748ce05f42b3d50468d46da814edc06ad"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/complete-window/signals.json",
+      "destination": "docs/research/candidate-validation-2026-10-30/complete-window/signals.json",
+      "blob": "9aa68c87a00d1f1ef79c8e03171713359d7f93b6"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/independent-validation.json",
+      "destination": "docs/research/candidate-validation-2026-10-30/independent-validation.json",
+      "blob": "3de6465738b9352d6d55032fae4e5cedea8bd52b"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/ledgers.jsonl.gz",
+      "destination": "docs/research/candidate-validation-2026-10-30/ledgers.jsonl.gz",
+      "blob": "6b5b97d654c0497a4ef6aac4d7934c01f5f98210"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/protocol.zh-CN.md",
+      "destination": "docs/research/candidate-validation-2026-10-30/protocol.zh-CN.md",
+      "blob": "d355183d5d8a45bc56e9984dd04bb1e7c989ef46"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/report.zh-CN.md",
+      "destination": "docs/research/candidate-validation-2026-10-30/report.zh-CN.md",
+      "blob": "7ba3d0b2271f0b8a9acf76ca1e7580523a002469"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/results.json",
+      "destination": "docs/research/candidate-validation-2026-10-30/results.json",
+      "blob": "4544e4b13fbebc36513fd7b17339428fd79021a3"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/sample-use-audit.zh-CN.md",
+      "destination": "docs/research/candidate-validation-2026-10-30/sample-use-audit.zh-CN.md",
+      "blob": "6b32380bbcba9fe8a77f35d611f9f6939390cc8f"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/signals.json",
+      "destination": "docs/research/candidate-validation-2026-10-30/signals.json",
+      "blob": "afbc12d54aef6b6f53fcd88c4f8fc32ba7f5841e"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/eth-momentum-2026-10-20/protocol.zh-CN.md",
+      "destination": "docs/research/eth-momentum-2026-10-20/protocol.zh-CN.md",
+      "blob": "bba5167ab205ce75e914f22bc91fec5c51bf9c0f"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/eth-momentum-2026-10-20/results.json",
+      "destination": "docs/research/eth-momentum-2026-10-20/results.json",
+      "blob": "b5d4c46a5244b0417ecc9c593a22d2fb7c096985"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/README.md",
+      "destination": "docs/research/pas-ten-asset-visual-eda/README.md",
+      "blob": "27c061d4cc52206a83d93f41157c0651de6669ae"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/build_eda.py",
+      "destination": "docs/research/pas-ten-asset-visual-eda/build_eda.py",
+      "blob": "d861c8b1e5e4ea3858bc645cf9ceb3570ea002cf"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/dashboard-template.html",
+      "destination": "docs/research/pas-ten-asset-visual-eda/dashboard-template.html",
+      "blob": "d90d9be323151d5807074513fe239da137888813"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/dashboard-validation.json",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/dashboard-validation.json",
+      "blob": "814273847dfcae99b310db613039622efca75582"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/dashboard.html",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/dashboard.html",
+      "blob": "58338809018161ab425885bf2d33a67508bc9961"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/events.csv",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/events.csv",
+      "blob": "d5519ca69e3ff85439638fe350e30fa8d2d51cde"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/figure-01.png",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/figure-01.png",
+      "blob": "580df2ea58ab2e8d6b00ff249003d2f9694e8cd6"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/figure-02.png",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/figure-02.png",
+      "blob": "e78275e31cb5e26585743b51c2c3820f6791232c"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/figure-03.png",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/figure-03.png",
+      "blob": "b79365059fb47450260a6cf2bb3fdf7ba4421b3e"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/figure-04.png",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/figure-04.png",
+      "blob": "c86fac02531f9d0f1dc206f43cb7b64cab8f3b8f"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/figure-05.png",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/figure-05.png",
+      "blob": "31f2043d4e8b73234f7b0fb2dfa2d36b0568bece"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/manifest.json",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/manifest.json",
+      "blob": "386aba8e6049e950b50a6b1d4ab74759b8af961f"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/observations.md",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/observations.md",
+      "blob": "73f0d07b57fcdc3df57f549f18ad767f905ae803"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/summary.json",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/summary.json",
+      "blob": "0f19e180c76e8fb66e3efa207e9575590cfed762"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/protocol.md",
+      "destination": "docs/research/pas-ten-asset-visual-eda/protocol.md",
+      "blob": "b812d0a8213be91984a7a72f79bd305a947c8627"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/verify_dashboard.cjs",
+      "destination": "docs/research/pas-ten-asset-visual-eda/verify_dashboard.cjs",
+      "blob": "db31ad103889a9aaa20caa5d34d7b1651ffcf329"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/sp500-ewj-2026-11-05/analyze.py",
+      "destination": "docs/research/sp500-ewj-2026-11-05/analyze.py",
+      "blob": "a9c53054a5e7f6f5dc2d662c61fae9aab85c89be"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/sp500-ewj-2026-11-05/check_daily.py",
+      "destination": "docs/research/sp500-ewj-2026-11-05/check_daily.py",
+      "blob": "6b14441b279ac1a1021d879e7b602ffbfd1a7ba9"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/sp500-ewj-2026-11-05/correlations.csv",
+      "destination": "docs/research/sp500-ewj-2026-11-05/correlations.csv",
+      "blob": "99aa8db003b36eea86d9e10320169a46d701b00d"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/sp500-ewj-2026-11-05/daily-events.csv",
+      "destination": "docs/research/sp500-ewj-2026-11-05/daily-events.csv",
+      "blob": "3937cadd15bfe2565f66afed6bf7c2ad1d88ff44"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/sp500-ewj-2026-11-05/daily-horizons.csv",
+      "destination": "docs/research/sp500-ewj-2026-11-05/daily-horizons.csv",
+      "blob": "cd5c727096525c70ae0f0495e7200ff37ec82b95"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/sp500-ewj-2026-11-05/daily-report.zh-CN.md",
+      "destination": "docs/research/sp500-ewj-2026-11-05/daily-report.zh-CN.md",
+      "blob": "2b0a11103cc9100ce82b8a651896d021b9ab2cd9"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/sp500-ewj-2026-11-05/metadata.json",
+      "destination": "docs/research/sp500-ewj-2026-11-05/metadata.json",
+      "blob": "c8e4219f65d934ecd6474a368d4f064ab604b625"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/sp500-ewj-2026-11-05/report.zh-CN.md",
+      "destination": "docs/research/sp500-ewj-2026-11-05/report.zh-CN.md",
+      "blob": "67f1540f37a677fffdc79e72b6cbbcaaab414ddd"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/alpha-screen-protocol.zh-CN.md",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/alpha-screen-protocol.zh-CN.md",
+      "blob": "ae2c7af270711fde1b9cae453b789e65f1cd2987"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/diagnostics.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/diagnostics.json",
+      "blob": "7c3afb387e6a83885d6d6eddcfb55418708cd61f"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/report.zh-CN.md",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/report.zh-CN.md",
+      "blob": "fdcf836bf0518e8c1e2e20dfb69035f956f13e7d"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/results.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/results.json",
+      "blob": "09708968279b2609b5deec5ad8cf9d87fe79e78c"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/scenarios.csv",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/scenarios.csv",
+      "blob": "54d03ab03b7a23e48db0577354e3c7522128402c"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/screen-summary.pdf",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/screen-summary.pdf",
+      "blob": "fbbcb5c2fdfd0b336dd5ca79cc57d990799f1468"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/screen-summary.png",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/screen-summary.png",
+      "blob": "99184bd4d55c8c30748412f983c11a07ad425691"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/trades.jsonl.gz",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/trades.jsonl.gz",
+      "blob": "e5b2f19a8792ded055d9a0aa68532c38aa6966b7"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/validation.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/validation.json",
+      "blob": "12d8172098c449acae85c4db6d4d880f16201684"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/evidence.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/evidence.json",
+      "blob": "f3c81bb1d8c1a5a91409bf401edd87aa7263252e"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/export-alpha-prefix.py",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/export-alpha-prefix.py",
+      "blob": "7710fb73c0d24f5c2a101de8c75ffcf219c68a4c"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/news-agent-feasibility.zh-CN.md",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/news-agent-feasibility.zh-CN.md",
+      "blob": "4913ab3ef8a659e2ced7c9e88dfdae1fa7c0485e"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/news-event-probe.py",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/news-event-probe.py",
+      "blob": "6c71bc85f63e8dc0dfedd4aa1f60ceb2c9d51091"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/news-event-windows.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/news-event-windows.json",
+      "blob": "f0bb6796c7a556308a711684a937cfc6ed02d703"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/pr-sources.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/pr-sources.json",
+      "blob": "8a31b73611cc12c9f33b0f9d9c2b7ba90e662349"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/report.zh-CN.md",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/report.zh-CN.md",
+      "blob": "e1054136f5fc4734d7c8da9d9856679b61509b10"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17-protocol.zh-CN.md",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17-protocol.zh-CN.md",
+      "blob": "15075562b3e7539b680616b16f17c660a735a636"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/all17-heatmap.pdf",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/all17-heatmap.pdf",
+      "blob": "1b7a349f285782ccc45a3c398720ffd89e14ad0e"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/all17-heatmap.png",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/all17-heatmap.png",
+      "blob": "845c5dac0e181f538048ed37a5cd56eb735704b2"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/all17.zh-CN.md",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/all17.zh-CN.md",
+      "blob": "e40ae4b2347abd0fcb47fc20b48bc749042f5bd7"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/book-ledgers.jsonl.gz",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/book-ledgers.jsonl.gz",
+      "blob": "de17cbb9e1f047065dd5cca788d20872df1d4ec6"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/compact-manifest.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/compact-manifest.json",
+      "blob": "fccaa6ca83122224d8b928e3e8e72f9716e22541"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/comparison.csv",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/comparison.csv",
+      "blob": "f4c2057ea9b2c8c8325d133748ea79de5f51fca2"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/definitions.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/definitions.json",
+      "blob": "d2e62192f9fe685b0706c7dfa17f98b75474f4dd"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/direction-controls.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/direction-controls.json",
+      "blob": "3a5be7a9ffbc0c136188bc80669ca5bf6ab37ab9"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/episode-counts.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/episode-counts.json",
+      "blob": "cf2c9e94fbc600bc1284ed8f9fe595d60f85483a"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen-source-manifest.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen-source-manifest.json",
+      "blob": "2d45e72bfbca702a38a9f3bcbe8f752e84578952"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/__init__.py",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/__init__.py",
+      "blob": "e08a13ff144e3073177c9ec28171ef2958f6fbd4"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/data.py",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/data.py",
+      "blob": "3c45c2dc8ac35f8dc8d670516c8965e57bf6499d"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/relative.py",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/relative.py",
+      "blob": "9fbf9b8a2a957862d4ab77caaaad612000b2d512"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/replay.py",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/replay.py",
+      "blob": "78bc79f4e0581a3e6fbf400daf6d64efa21e64ad"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/run.py",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/run.py",
+      "blob": "c954d676ce8f5f67c179fe50da146384f58fa10e"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/signals.py",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/signals.py",
+      "blob": "be0931c40af68878683dfa31c6660ba22222a241"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/funding-attribution.png",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/funding-attribution.png",
+      "blob": "f0167e56c4460e838693e86118165c87c00af938"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/report-source.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/report-source.json",
+      "blob": "3f19f4e726c318a35c54bf8c944bd400d72896ea"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/report.zh-CN.md",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/report.zh-CN.md",
+      "blob": "f980c80901e1f73270947485877554582645b7c8"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/research-walkthrough.zh-CN.md",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/research-walkthrough.zh-CN.md",
+      "blob": "aa071fa0353505291ae6f2a771c992f9bbb40340"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/results.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/results.json",
+      "blob": "0e0ba84652da70cfbe9ce3983ee3cf5808d5e94d"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/sampled-bars.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/sampled-bars.json",
+      "blob": "e521136ad6536007b16f15120734f4ad17e471f2"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/signals.jsonl.gz",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/signals.jsonl.gz",
+      "blob": "fe86344a05c27bf9cd38600b1be52047b71a29dc"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/validation.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/validation.json",
+      "blob": "e50036833f050808061eae2cb72c5340a128d206"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/analyze_pas_traditional17.py",
+      "destination": "research/legacy/scripts/analyze_pas_traditional17.py",
+      "blob": "e1067dba6f4523a80fcd149a9859913ed4d6f7e8"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/check_pas_candidate_ledgers_20261030.py",
+      "destination": "research/legacy/scripts/check_pas_candidate_ledgers_20261030.py",
+      "blob": "57bb79a4057c436bbac6923a12dcd103154ba733"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/compact_pas_traditional17.py",
+      "destination": "research/legacy/scripts/compact_pas_traditional17.py",
+      "blob": "055827f1a581eb549f4ecb50576445cd313c9923"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/diagnose_pas_weekly_alpha.py",
+      "destination": "research/legacy/scripts/diagnose_pas_weekly_alpha.py",
+      "blob": "5cce2021b993020ac8e590e163f0256dff89a52e"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/plot_pas_weekly_alpha.py",
+      "destination": "research/legacy/scripts/plot_pas_weekly_alpha.py",
+      "blob": "c5b527d6253fc1d1ccb15976ba124ed6bfe8824c"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/report_pas_traditional17.py",
+      "destination": "research/legacy/scripts/report_pas_traditional17.py",
+      "blob": "e63ad26e92eddcc8f7efc47231660f26a6da4410"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/study_eth_momentum.py",
+      "destination": "research/legacy/scripts/study_eth_momentum.py",
+      "blob": "075979aca2b1ae2f595232221179daed2895998e"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/study_pas_traditional17.py",
+      "destination": "research/legacy/scripts/study_pas_traditional17.py",
+      "blob": "c126724a89691223779c1f4de27de598dec2b6fa"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/study_pas_weekly_alpha.py",
+      "destination": "research/legacy/scripts/study_pas_weekly_alpha.py",
+      "blob": "3be1deac109c3454122435bed41b4560a0ee99b7"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/validate_pas_candidates_20261030.py",
+      "destination": "research/legacy/scripts/validate_pas_candidates_20261030.py",
+      "blob": "f99ae9333f6aba5137da0f51258b1d3350a08d97"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/validate_pas_traditional17.py",
+      "destination": "research/legacy/scripts/validate_pas_traditional17.py",
+      "blob": "53bc0220c6be33ccd81dcbae721924303c5d97b8"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/validate_pas_weekly_alpha.py",
+      "destination": "research/legacy/scripts/validate_pas_weekly_alpha.py",
+      "blob": "a09a9f6f920bbef03faba707e4df81a0510a156a"
+    }
+  ],
+  "manual_review": [
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "path": "docs/research/btc-eth-volatility/visual-eda/output-reviewed",
+      "reason": "11 manifest mismatches; retain original PR36 version, do not normalize or re-sign"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "path": "momentum/mean-reversion/short-cycle variant reports and scripts",
+      "reason": "Conflicting archive versions; original PR27 preserved. Additional uncompressed outputs not selected until full source/output pairing approved."
+    }
+  ],
+  "final_files": [
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/comparison.csv",
+      "destination": "docs/research/candidate-validation-2026-10-30/comparison.csv",
+      "blob": "064c0f6fd1e2ba7b5745318f4ceaf1c083c1a313"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/complete-window/comparison.csv",
+      "destination": "docs/research/candidate-validation-2026-10-30/complete-window/comparison.csv",
+      "blob": "054b9815dc5fe7251eb76aa5169817a4f6709094"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/complete-window/ledgers.jsonl.gz",
+      "destination": "docs/research/candidate-validation-2026-10-30/complete-window/ledgers.jsonl.gz",
+      "blob": "9064eea8474ad2b45bdf56643e7dec573fb00286"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/complete-window/results.json",
+      "destination": "docs/research/candidate-validation-2026-10-30/complete-window/results.json",
+      "blob": "74c25ab748ce05f42b3d50468d46da814edc06ad"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/complete-window/signals.json",
+      "destination": "docs/research/candidate-validation-2026-10-30/complete-window/signals.json",
+      "blob": "9aa68c87a00d1f1ef79c8e03171713359d7f93b6"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/independent-validation.json",
+      "destination": "docs/research/candidate-validation-2026-10-30/independent-validation.json",
+      "blob": "3de6465738b9352d6d55032fae4e5cedea8bd52b"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/ledgers.jsonl.gz",
+      "destination": "docs/research/candidate-validation-2026-10-30/ledgers.jsonl.gz",
+      "blob": "6b5b97d654c0497a4ef6aac4d7934c01f5f98210"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/protocol.zh-CN.md",
+      "destination": "docs/research/candidate-validation-2026-10-30/protocol.zh-CN.md",
+      "blob": "d355183d5d8a45bc56e9984dd04bb1e7c989ef46"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/report.zh-CN.md",
+      "destination": "docs/research/candidate-validation-2026-10-30/report.zh-CN.md",
+      "blob": "7ba3d0b2271f0b8a9acf76ca1e7580523a002469"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/results.json",
+      "destination": "docs/research/candidate-validation-2026-10-30/results.json",
+      "blob": "4544e4b13fbebc36513fd7b17339428fd79021a3"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/sample-use-audit.zh-CN.md",
+      "destination": "docs/research/candidate-validation-2026-10-30/sample-use-audit.zh-CN.md",
+      "blob": "6b32380bbcba9fe8a77f35d611f9f6939390cc8f"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/candidate-validation-2026-10-30/signals.json",
+      "destination": "docs/research/candidate-validation-2026-10-30/signals.json",
+      "blob": "afbc12d54aef6b6f53fcd88c4f8fc32ba7f5841e"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/eth-momentum-2026-10-20/protocol.zh-CN.md",
+      "destination": "docs/research/eth-momentum-2026-10-20/protocol.zh-CN.md",
+      "blob": "bba5167ab205ce75e914f22bc91fec5c51bf9c0f"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/eth-momentum-2026-10-20/results.json",
+      "destination": "docs/research/eth-momentum-2026-10-20/results.json",
+      "blob": "b5d4c46a5244b0417ecc9c593a22d2fb7c096985"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/README.md",
+      "destination": "docs/research/pas-ten-asset-visual-eda/README.md",
+      "blob": "27c061d4cc52206a83d93f41157c0651de6669ae"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/build_eda.py",
+      "destination": "docs/research/pas-ten-asset-visual-eda/build_eda.py",
+      "blob": "d861c8b1e5e4ea3858bc645cf9ceb3570ea002cf"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/dashboard-template.html",
+      "destination": "docs/research/pas-ten-asset-visual-eda/dashboard-template.html",
+      "blob": "d90d9be323151d5807074513fe239da137888813"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/dashboard-validation.json",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/dashboard-validation.json",
+      "blob": "814273847dfcae99b310db613039622efca75582"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/dashboard.html",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/dashboard.html",
+      "blob": "58338809018161ab425885bf2d33a67508bc9961"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/events.csv",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/events.csv",
+      "blob": "d5519ca69e3ff85439638fe350e30fa8d2d51cde"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/figure-01.png",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/figure-01.png",
+      "blob": "580df2ea58ab2e8d6b00ff249003d2f9694e8cd6"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/figure-02.png",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/figure-02.png",
+      "blob": "e78275e31cb5e26585743b51c2c3820f6791232c"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/figure-03.png",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/figure-03.png",
+      "blob": "b79365059fb47450260a6cf2bb3fdf7ba4421b3e"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/figure-04.png",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/figure-04.png",
+      "blob": "c86fac02531f9d0f1dc206f43cb7b64cab8f3b8f"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/figure-05.png",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/figure-05.png",
+      "blob": "31f2043d4e8b73234f7b0fb2dfa2d36b0568bece"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/manifest.json",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/manifest.json",
+      "blob": "386aba8e6049e950b50a6b1d4ab74759b8af961f"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/observations.md",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/observations.md",
+      "blob": "73f0d07b57fcdc3df57f549f18ad767f905ae803"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/output/summary.json",
+      "destination": "docs/research/pas-ten-asset-visual-eda/output/summary.json",
+      "blob": "0f19e180c76e8fb66e3efa207e9575590cfed762"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/protocol.md",
+      "destination": "docs/research/pas-ten-asset-visual-eda/protocol.md",
+      "blob": "b812d0a8213be91984a7a72f79bd305a947c8627"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/pas-ten-asset-visual-eda/verify_dashboard.cjs",
+      "destination": "docs/research/pas-ten-asset-visual-eda/verify_dashboard.cjs",
+      "blob": "db31ad103889a9aaa20caa5d34d7b1651ffcf329"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/sp500-ewj-2026-11-05/analyze.py",
+      "destination": "docs/research/sp500-ewj-2026-11-05/analyze.py",
+      "blob": "a9c53054a5e7f6f5dc2d662c61fae9aab85c89be"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/sp500-ewj-2026-11-05/check_daily.py",
+      "destination": "docs/research/sp500-ewj-2026-11-05/check_daily.py",
+      "blob": "6b14441b279ac1a1021d879e7b602ffbfd1a7ba9"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/sp500-ewj-2026-11-05/correlations.csv",
+      "destination": "docs/research/sp500-ewj-2026-11-05/correlations.csv",
+      "blob": "99aa8db003b36eea86d9e10320169a46d701b00d"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/sp500-ewj-2026-11-05/daily-events.csv",
+      "destination": "docs/research/sp500-ewj-2026-11-05/daily-events.csv",
+      "blob": "3937cadd15bfe2565f66afed6bf7c2ad1d88ff44"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/sp500-ewj-2026-11-05/daily-horizons.csv",
+      "destination": "docs/research/sp500-ewj-2026-11-05/daily-horizons.csv",
+      "blob": "cd5c727096525c70ae0f0495e7200ff37ec82b95"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/sp500-ewj-2026-11-05/daily-report.zh-CN.md",
+      "destination": "docs/research/sp500-ewj-2026-11-05/daily-report.zh-CN.md",
+      "blob": "2b0a11103cc9100ce82b8a651896d021b9ab2cd9"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/sp500-ewj-2026-11-05/metadata.json",
+      "destination": "docs/research/sp500-ewj-2026-11-05/metadata.json",
+      "blob": "c8e4219f65d934ecd6474a368d4f064ab604b625"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/sp500-ewj-2026-11-05/report.zh-CN.md",
+      "destination": "docs/research/sp500-ewj-2026-11-05/report.zh-CN.md",
+      "blob": "67f1540f37a677fffdc79e72b6cbbcaaab414ddd"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/alpha-screen-protocol.zh-CN.md",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/alpha-screen-protocol.zh-CN.md",
+      "blob": "ae2c7af270711fde1b9cae453b789e65f1cd2987"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/diagnostics.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/diagnostics.json",
+      "blob": "7c3afb387e6a83885d6d6eddcfb55418708cd61f"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/report.zh-CN.md",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/report.zh-CN.md",
+      "blob": "fdcf836bf0518e8c1e2e20dfb69035f956f13e7d"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/results.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/results.json",
+      "blob": "09708968279b2609b5deec5ad8cf9d87fe79e78c"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/scenarios.csv",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/scenarios.csv",
+      "blob": "54d03ab03b7a23e48db0577354e3c7522128402c"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/screen-summary.pdf",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/screen-summary.pdf",
+      "blob": "fbbcb5c2fdfd0b336dd5ca79cc57d990799f1468"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/screen-summary.png",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/screen-summary.png",
+      "blob": "99184bd4d55c8c30748412f983c11a07ad425691"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/trades.jsonl.gz",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/trades.jsonl.gz",
+      "blob": "e5b2f19a8792ded055d9a0aa68532c38aa6966b7"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/validation.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/alpha-screen/validation.json",
+      "blob": "12d8172098c449acae85c4db6d4d880f16201684"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/evidence.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/evidence.json",
+      "blob": "f3c81bb1d8c1a5a91409bf401edd87aa7263252e"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/export-alpha-prefix.py",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/export-alpha-prefix.py",
+      "blob": "7710fb73c0d24f5c2a101de8c75ffcf219c68a4c"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/news-agent-feasibility.zh-CN.md",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/news-agent-feasibility.zh-CN.md",
+      "blob": "4913ab3ef8a659e2ced7c9e88dfdae1fa7c0485e"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/news-event-probe.py",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/news-event-probe.py",
+      "blob": "6c71bc85f63e8dc0dfedd4aa1f60ceb2c9d51091"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/news-event-windows.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/news-event-windows.json",
+      "blob": "f0bb6796c7a556308a711684a937cfc6ed02d703"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/pr-sources.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/pr-sources.json",
+      "blob": "8a31b73611cc12c9f33b0f9d9c2b7ba90e662349"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/report.zh-CN.md",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/report.zh-CN.md",
+      "blob": "e1054136f5fc4734d7c8da9d9856679b61509b10"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17-protocol.zh-CN.md",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17-protocol.zh-CN.md",
+      "blob": "15075562b3e7539b680616b16f17c660a735a636"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/all17-heatmap.pdf",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/all17-heatmap.pdf",
+      "blob": "1b7a349f285782ccc45a3c398720ffd89e14ad0e"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/all17-heatmap.png",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/all17-heatmap.png",
+      "blob": "845c5dac0e181f538048ed37a5cd56eb735704b2"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/all17.zh-CN.md",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/all17.zh-CN.md",
+      "blob": "e40ae4b2347abd0fcb47fc20b48bc749042f5bd7"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/book-ledgers.jsonl.gz",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/book-ledgers.jsonl.gz",
+      "blob": "de17cbb9e1f047065dd5cca788d20872df1d4ec6"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/compact-manifest.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/compact-manifest.json",
+      "blob": "fccaa6ca83122224d8b928e3e8e72f9716e22541"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/comparison.csv",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/comparison.csv",
+      "blob": "f4c2057ea9b2c8c8325d133748ea79de5f51fca2"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/definitions.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/definitions.json",
+      "blob": "d2e62192f9fe685b0706c7dfa17f98b75474f4dd"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/direction-controls.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/direction-controls.json",
+      "blob": "3a5be7a9ffbc0c136188bc80669ca5bf6ab37ab9"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/episode-counts.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/episode-counts.json",
+      "blob": "cf2c9e94fbc600bc1284ed8f9fe595d60f85483a"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen-source-manifest.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen-source-manifest.json",
+      "blob": "2d45e72bfbca702a38a9f3bcbe8f752e84578952"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/__init__.py",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/__init__.py",
+      "blob": "e08a13ff144e3073177c9ec28171ef2958f6fbd4"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/data.py",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/data.py",
+      "blob": "3c45c2dc8ac35f8dc8d670516c8965e57bf6499d"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/relative.py",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/relative.py",
+      "blob": "9fbf9b8a2a957862d4ab77caaaad612000b2d512"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/replay.py",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/replay.py",
+      "blob": "78bc79f4e0581a3e6fbf400daf6d64efa21e64ad"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/run.py",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/run.py",
+      "blob": "c954d676ce8f5f67c179fe50da146384f58fa10e"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/signals.py",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/frozen17/signals.py",
+      "blob": "be0931c40af68878683dfa31c6660ba22222a241"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/funding-attribution.png",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/funding-attribution.png",
+      "blob": "f0167e56c4460e838693e86118165c87c00af938"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/report-source.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/report-source.json",
+      "blob": "3f19f4e726c318a35c54bf8c944bd400d72896ea"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/report.zh-CN.md",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/report.zh-CN.md",
+      "blob": "f980c80901e1f73270947485877554582645b7c8"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/research-walkthrough.zh-CN.md",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/research-walkthrough.zh-CN.md",
+      "blob": "aa071fa0353505291ae6f2a771c992f9bbb40340"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/results.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/results.json",
+      "blob": "0e0ba84652da70cfbe9ce3983ee3cf5808d5e94d"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/sampled-bars.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/sampled-bars.json",
+      "blob": "e521136ad6536007b16f15120734f4ad17e471f2"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/signals.jsonl.gz",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/signals.jsonl.gz",
+      "blob": "fe86344a05c27bf9cd38600b1be52047b71a29dc"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "docs/research/weekly-synthesis-2026-10-26/traditional17/validation.json",
+      "destination": "docs/research/weekly-synthesis-2026-10-26/traditional17/validation.json",
+      "blob": "e50036833f050808061eae2cb72c5340a128d206"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/analyze_pas_traditional17.py",
+      "destination": "research/legacy/scripts/analyze_pas_traditional17.py",
+      "blob": "e1067dba6f4523a80fcd149a9859913ed4d6f7e8"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/check_pas_candidate_ledgers_20261030.py",
+      "destination": "research/legacy/scripts/check_pas_candidate_ledgers_20261030.py",
+      "blob": "57bb79a4057c436bbac6923a12dcd103154ba733"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/compact_pas_traditional17.py",
+      "destination": "research/legacy/scripts/compact_pas_traditional17.py",
+      "blob": "055827f1a581eb549f4ecb50576445cd313c9923"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/diagnose_pas_weekly_alpha.py",
+      "destination": "research/legacy/scripts/diagnose_pas_weekly_alpha.py",
+      "blob": "5cce2021b993020ac8e590e163f0256dff89a52e"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/plot_pas_weekly_alpha.py",
+      "destination": "research/legacy/scripts/plot_pas_weekly_alpha.py",
+      "blob": "c5b527d6253fc1d1ccb15976ba124ed6bfe8824c"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/report_pas_traditional17.py",
+      "destination": "research/legacy/scripts/report_pas_traditional17.py",
+      "blob": "e63ad26e92eddcc8f7efc47231660f26a6da4410"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/study_eth_momentum.py",
+      "destination": "research/legacy/scripts/study_eth_momentum.py",
+      "blob": "075979aca2b1ae2f595232221179daed2895998e"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/study_pas_traditional17.py",
+      "destination": "research/legacy/scripts/study_pas_traditional17.py",
+      "blob": "c126724a89691223779c1f4de27de598dec2b6fa"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/study_pas_weekly_alpha.py",
+      "destination": "research/legacy/scripts/study_pas_weekly_alpha.py",
+      "blob": "3be1deac109c3454122435bed41b4560a0ee99b7"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/validate_pas_candidates_20261030.py",
+      "destination": "research/legacy/scripts/validate_pas_candidates_20261030.py",
+      "blob": "f99ae9333f6aba5137da0f51258b1d3350a08d97"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/validate_pas_traditional17.py",
+      "destination": "research/legacy/scripts/validate_pas_traditional17.py",
+      "blob": "53bc0220c6be33ccd81dcbae721924303c5d97b8"
+    },
+    {
+      "source": "324526afe7396c44da91dd52897b675373f3e906",
+      "original_path": "scripts/validate_pas_weekly_alpha.py",
+      "destination": "research/legacy/scripts/validate_pas_weekly_alpha.py",
+      "blob": "a09a9f6f920bbef03faba707e4df81a0510a156a"
+    }
+  ]
+}

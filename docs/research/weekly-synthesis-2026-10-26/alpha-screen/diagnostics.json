@@ -1,0 +1,978 @@
+{
+  "schema": "pas-alpha-post-selection-diagnostics/1",
+  "designation": "Retrospective diagnostics after observing the main screen; no parameter selection",
+  "original_source_sha256": {
+    "D:\\development\\Perpetual Alpha 2026\\scripts\\study_pas_weekly_alpha.py": "501af8c6cc34a71d0424f785e32054e9f836a5dc8699e6635a1ad0de1839400f",
+    "docs\\research\\weekly-synthesis-2026-10-26\\alpha-screen-protocol.zh-CN.md": "2ba7675e0c9b6b2ff13752bb1b4d04787de383a1910a6fff7cd6dd5df356fc89"
+  },
+  "diagnostic_source_sha256": "8d37614fbf9287ad101d241be454ec8947bf6a3969bab0dfb39c21cfacfddcf1",
+  "symbol": "pas:HYPE",
+  "rule": "imbalance",
+  "hold_minutes": 240,
+  "cases": [
+    {
+      "start_offset_minutes": 0,
+      "decision_delay_minutes": 0,
+      "total": {
+        "mid_gross": 13.571109999999967,
+        "spread": 2.6201300000000534,
+        "slippage": 1.6325121399998606,
+        "fees": 7.3463026588236,
+        "funding": 0.7945810155299741,
+        "net": 2.766746216706427,
+        "stress_net": -6.212064639764193,
+        "touch_net": 11.745561015529889,
+        "n": 41,
+        "win_rate": 0.5609756097560976,
+        "mean_net_bps": 6.779444504238636,
+        "worst_trade": -2.134779187287116,
+        "daily": {
+          "2026-10-19": 1.7960286321445156,
+          "2026-10-20": 3.6413293699571847,
+          "2026-10-21": -2.1652099020620144,
+          "2026-10-22": -3.2339467745280275,
+          "2026-10-23": 1.6316056591820944,
+          "2026-10-24": -1.8551824615555905,
+          "2026-10-25": -0.5155844796305195,
+          "2026-10-26": 3.4677061731987835
+        },
+        "funding_incomplete": 0,
+        "rejects": {},
+        "paired_n": 38,
+        "paired_net": 2.4148530567247666,
+        "matched_long_net": -7.824999904499552,
+        "matched_short_net": -13.815634761389644,
+        "resolved": true,
+        "paired_direction_excess": 10.239852961224319
+      },
+      "splits": {
+        "development": {
+          "mid_gross": 5.369909999999988,
+          "spread": 1.2474000000000258,
+          "slippage": 0.7958779659998906,
+          "fees": 3.5814501049481997,
+          "funding": 0.29301939645978803,
+          "net": 0.0382013255116596,
+          "stress_net": -4.339125261332956,
+          "touch_net": 4.415529396459751,
+          "n": 20,
+          "win_rate": 0.55,
+          "mean_net_bps": 0.16541354486751142,
+          "worst_trade": -2.134779187287116,
+          "daily": {
+            "2026-10-19": 1.7960286321445156,
+            "2026-10-20": 3.6413293699571847,
+            "2026-10-21": -2.1652099020620144,
+            "2026-10-22": -3.2339467745280275
+          },
+          "funding_incomplete": 0,
+          "rejects": {},
+          "paired_n": 19,
+          "paired_net": -0.9972429714139119,
+          "matched_long_net": -7.666515200757311,
+          "matched_short_net": -3.0571119100299544,
+          "resolved": true,
+          "paired_direction_excess": 2.0598689386160425
+        },
+        "validation": {
+          "mid_gross": 2.9451849999999817,
+          "spread": 0.3190149999999973,
+          "slippage": 0.19924715399998694,
+          "fees": 0.8966117202894,
+          "funding": 0.101294533471497,
+          "net": 1.6316056591820944,
+          "stress_net": 0.535747730313962,
+          "touch_net": 2.7274645334714815,
+          "n": 5,
+          "win_rate": 0.8,
+          "mean_net_bps": 32.79134498362467,
+          "worst_trade": -0.8722668652034475,
+          "daily": {
+            "2026-10-23": 1.6316056591820944
+          },
+          "funding_incomplete": 0,
+          "rejects": {},
+          "paired_n": 4,
+          "paired_net": 0.597383703891895,
+          "matched_long_net": 0.597383703891895,
+          "matched_short_net": -2.930698467535902,
+          "resolved": true,
+          "paired_direction_excess": 0.0
+        },
+        "audit": {
+          "mid_gross": 5.256014999999998,
+          "spread": 1.0537150000000304,
+          "slippage": 0.637387019999983,
+          "fees": 2.868240833586,
+          "funding": 0.400267085598689,
+          "net": 1.096939232012673,
+          "stress_net": -2.4086871087451986,
+          "touch_net": 4.602567085598657,
+          "n": 16,
+          "win_rate": 0.5,
+          "mean_net_bps": 6.918264303644407,
+          "worst_trade": -1.7177730922341106,
+          "daily": {
+            "2026-10-24": -1.8551824615555905,
+            "2026-10-25": -0.5155844796305195,
+            "2026-10-26": 3.4677061731987835
+          },
+          "funding_incomplete": 0,
+          "rejects": {},
+          "paired_n": 15,
+          "paired_net": 2.8147123242467837,
+          "matched_long_net": -0.7558684076341359,
+          "matched_short_net": -7.827824383823788,
+          "resolved": true,
+          "paired_direction_excess": 3.5705807318809195
+        }
+      }
+    },
+    {
+      "start_offset_minutes": 15,
+      "decision_delay_minutes": 0,
+      "total": {
+        "mid_gross": 14.85091999999997,
+        "spread": 2.7313300000000136,
+        "slippage": 1.633161061999825,
+        "fees": 7.3492225974738,
+        "funding": 0.7072627095567889,
+        "net": 3.844469050083121,
+        "stress_net": -5.137910246337994,
+        "touch_net": 12.826852709556746,
+        "n": 41,
+        "win_rate": 0.5609756097560976,
+        "mean_net_bps": 9.376379301892177,
+        "worst_trade": -1.4604883952276402,
+        "daily": {
+          "2026-10-19": -0.8107414982274055,
+          "2026-10-20": 5.242476900839477,
+          "2026-10-21": 0.7667990357435852,
+          "2026-10-22": -2.075651524278424,
+          "2026-10-23": 1.0997918398406108,
+          "2026-10-24": 0.6413579638216365,
+          "2026-10-25": -0.639714388834023,
+          "2026-10-26": -0.37984927882233543
+        },
+        "funding_incomplete": 0,
+        "rejects": {},
+        "paired_n": 40,
+        "paired_net": 2.9056414254923997,
+        "matched_long_net": -9.936850427092685,
+        "matched_short_net": -12.912420606841891,
+        "resolved": true,
+        "paired_direction_excess": 12.842491852585084
+      },
+      "splits": {
+        "development": {
+          "mid_gross": 8.431394999999984,
+          "spread": 1.2196050000000278,
+          "slippage": 0.7956236219999183,
+          "fees": 3.5803050008778,
+          "funding": 0.287021536954995,
+          "net": 3.1228829140772327,
+          "stress_net": -1.2530431125560482,
+          "touch_net": 7.4988115369549515,
+          "n": 20,
+          "win_rate": 0.45,
+          "mean_net_bps": 15.63126225070047,
+          "worst_trade": -1.4604883952276402,
+          "daily": {
+            "2026-10-19": -0.8107414982274055,
+            "2026-10-20": 5.242476900839477,
+            "2026-10-21": 0.7667990357435852,
+            "2026-10-22": -2.075651524278424
+          },
+          "funding_incomplete": 0,
+          "rejects": {
+            "entry_depth": 1
+          },
+          "paired_n": 20,
+          "paired_net": 3.1228829140772327,
+          "matched_long_net": -7.330305653578647,
+          "matched_short_net": -3.8607689064790938,
+          "resolved": true,
+          "paired_direction_excess": 6.983651820556327
+        },
+        "validation": {
+          "mid_gross": 2.4860500000000214,
+          "spread": 0.39035000000000886,
+          "slippage": 0.19944474000001366,
+          "fees": 0.8975009527740001,
+          "funding": 0.101037532614612,
+          "net": 1.0997918398406106,
+          "stress_net": 0.0028469015186879804,
+          "touch_net": 2.1967375326146246,
+          "n": 5,
+          "win_rate": 0.8,
+          "mean_net_bps": 21.983470629491315,
+          "worst_trade": -0.9104087820614478,
+          "daily": {
+            "2026-10-23": 1.0997918398406108
+          },
+          "funding_incomplete": 0,
+          "rejects": {},
+          "paired_n": 4,
+          "paired_net": 0.16096421524988913,
+          "matched_long_net": 0.16096421524988913,
+          "matched_short_net": -2.5574315604319073,
+          "resolved": true,
+          "paired_direction_excess": 0.0
+        },
+        "audit": {
+          "mid_gross": 3.9334749999999654,
+          "spread": 1.121374999999977,
+          "slippage": 0.6380926999998928,
+          "fees": 2.871416643822,
+          "funding": 0.319203639987182,
+          "net": -0.3782057038347221,
+          "stress_net": -3.8877140353006343,
+          "touch_net": 3.1313036399871708,
+          "n": 16,
+          "win_rate": 0.625,
+          "mean_net_bps": -2.381940423992921,
+          "worst_trade": -1.4496498703269554,
+          "daily": {
+            "2026-10-24": 0.6413579638216365,
+            "2026-10-25": -0.639714388834023,
+            "2026-10-26": -0.37984927882233543
+          },
+          "funding_incomplete": 0,
+          "rejects": {
+            "entry_depth": 1
+          },
+          "paired_n": 16,
+          "paired_net": -0.3782057038347221,
+          "matched_long_net": -2.7675089887639266,
+          "matched_short_net": -6.494220139930891,
+          "resolved": true,
+          "paired_direction_excess": 2.3893032849292046
+        }
+      }
+    },
+    {
+      "start_offset_minutes": 60,
+      "decision_delay_minutes": 0,
+      "total": {
+        "mid_gross": -0.8300149999999655,
+        "spread": 2.6296950000000328,
+        "slippage": 1.6333685419998267,
+        "fees": 7.3501590617478,
+        "funding": 0.845828617919112,
+        "net": -11.597408985828514,
+        "stress_net": -20.58093783507174,
+        "touch_net": -2.6138813820808866,
+        "n": 41,
+        "win_rate": 0.36585365853658536,
+        "mean_net_bps": -28.431273928791732,
+        "worst_trade": -3.9431381084033403,
+        "daily": {
+          "2026-10-19": 0.13765600931529032,
+          "2026-10-20": -6.342788557124701,
+          "2026-10-21": -3.7612757344155923,
+          "2026-10-22": -6.307971713689833,
+          "2026-10-23": -3.942157487668407,
+          "2026-10-24": 2.756612470793894,
+          "2026-10-25": 3.1781138930767483,
+          "2026-10-26": 2.6844021338840856
+        },
+        "funding_incomplete": 0,
+        "rejects": {},
+        "paired_n": 40,
+        "paired_net": -10.752470292213456,
+        "matched_long_net": -7.128659429449248,
+        "matched_short_net": -15.557927330612403,
+        "resolved": true,
+        "paired_direction_excess": -3.6238108627642083
+      },
+      "splits": {
+        "development": {
+          "mid_gross": -10.958229999999974,
+          "spread": 1.2698300000000395,
+          "slippage": 0.7959279959999515,
+          "fees": 3.5816781830508,
+          "funding": 0.331286183135931,
+          "net": -16.274379995914835,
+          "stress_net": -20.65199057706713,
+          "touch_net": -11.896773816864084,
+          "n": 20,
+          "win_rate": 0.15,
+          "mean_net_bps": -81.75146639874981,
+          "worst_trade": -3.9431381084033403,
+          "daily": {
+            "2026-10-19": 0.13765600931529032,
+            "2026-10-20": -6.342788557124701,
+            "2026-10-21": -3.7612757344155923,
+            "2026-10-22": -6.307971713689833
+          },
+          "funding_incomplete": 0,
+          "rejects": {
+            "entry_depth": 1
+          },
+          "paired_n": 20,
+          "paired_net": -16.274379995914835,
+          "matched_long_net": -6.746886096860339,
+          "matched_short_net": -4.547860040278355,
+          "resolved": true,
+          "paired_direction_excess": -11.72651995563648
+        },
+        "validation": {
+          "mid_gross": -2.5781199999999953,
+          "spread": 0.36882000000000215,
+          "slippage": 0.19918361199998136,
+          "fees": 0.8963267844492,
+          "funding": 0.10029290878077202,
+          "net": -3.9421574876684065,
+          "stress_net": -5.037668945015988,
+          "touch_net": -2.8466470912192254,
+          "n": 5,
+          "win_rate": 0.2,
+          "mean_net_bps": -79.0884093338338,
+          "worst_trade": -1.645250790195181,
+          "daily": {
+            "2026-10-23": -3.942157487668407
+          },
+          "funding_incomplete": 0,
+          "rejects": {},
+          "paired_n": 5,
+          "paired_net": -3.9421574876684065,
+          "matched_long_net": -1.4589637284609818,
+          "matched_short_net": -1.4697214803141474,
+          "resolved": true,
+          "paired_direction_excess": -2.483193759207425
+        },
+        "audit": {
+          "mid_gross": 12.706335000000005,
+          "spread": 0.9910449999999911,
+          "slippage": 0.6382569339998938,
+          "fees": 2.8721540942478003,
+          "funding": 0.414249526002409,
+          "net": 8.619128497754728,
+          "stress_net": 5.108721687011379,
+          "touch_net": 12.129539526002421,
+          "n": 16,
+          "win_rate": 0.6875,
+          "mean_net_bps": 54.04932147273151,
+          "worst_trade": -0.8449386936150575,
+          "daily": {
+            "2026-10-24": 2.756612470793894,
+            "2026-10-25": 3.1781138930767483,
+            "2026-10-26": 2.6844021338840856
+          },
+          "funding_incomplete": 0,
+          "rejects": {
+            "entry_depth": 3
+          },
+          "paired_n": 15,
+          "paired_net": 9.464067191369786,
+          "matched_long_net": 1.0771903958720734,
+          "matched_short_net": -9.5403458100199,
+          "resolved": true,
+          "paired_direction_excess": 8.386876795497713
+        }
+      }
+    },
+    {
+      "start_offset_minutes": 0,
+      "decision_delay_minutes": 2,
+      "total": {
+        "mid_gross": 9.702635000000082,
+        "spread": 2.81504500000012,
+        "slippage": 1.6329775299998794,
+        "fees": 7.3483976452338,
+        "funding": 0.935110274039029,
+        "net": -1.1586749011946884,
+        "stress_net": -10.140047596895844,
+        "touch_net": 7.822700274038992,
+        "n": 41,
+        "win_rate": 0.5121951219512195,
+        "mean_net_bps": -2.881647162699071,
+        "worst_trade": -1.670692810106975,
+        "daily": {
+          "2026-10-19": 1.840054544911777,
+          "2026-10-20": 0.4124509382424235,
+          "2026-10-21": 1.2768685284718835,
+          "2026-10-22": -1.967450674865343,
+          "2026-10-23": -0.09485487582770036,
+          "2026-10-24": -1.844647827956356,
+          "2026-10-25": -0.9215810828005433,
+          "2026-10-26": 0.1404855486291703
+        },
+        "funding_incomplete": 0,
+        "rejects": {},
+        "paired_n": 39,
+        "paired_net": -1.7309321569344567,
+        "matched_long_net": -12.480115333306319,
+        "matched_short_net": -10.019518194193681,
+        "resolved": true,
+        "paired_direction_excess": 8.288586037259225
+      },
+      "splits": {
+        "development": {
+          "mid_gross": 6.895230000000036,
+          "spread": 1.3036100000000475,
+          "slippage": 0.7966920159999313,
+          "fees": 3.5851130655084,
+          "funding": 0.352108418269084,
+          "net": 1.5619233367607406,
+          "stress_net": -2.8198797317643405,
+          "touch_net": 5.943728418269072,
+          "n": 20,
+          "win_rate": 0.5,
+          "mean_net_bps": 7.753900390726249,
+          "worst_trade": -1.5425216651356133,
+          "daily": {
+            "2026-10-19": 1.840054544911777,
+            "2026-10-20": 0.4124509382424235,
+            "2026-10-21": 1.2768685284718835,
+            "2026-10-22": -1.967450674865343
+          },
+          "funding_incomplete": 0,
+          "rejects": {},
+          "paired_n": 19,
+          "paired_net": 1.5010958755853445,
+          "matched_long_net": -7.611208196192685,
+          "matched_short_net": -3.221692687250808,
+          "resolved": true,
+          "paired_direction_excess": 4.722788562836152
+        },
+        "validation": {
+          "mid_gross": 1.310340000000016,
+          "spread": 0.34817000000002846,
+          "slippage": 0.199130273999993,
+          "fees": 0.8960860598094,
+          "funding": 0.03819145798170501,
+          "net": -0.09485487582770039,
+          "stress_net": -1.1900708632558574,
+          "touch_net": 1.0003614579816928,
+          "n": 5,
+          "win_rate": 0.6,
+          "mean_net_bps": -1.9283993899370082,
+          "worst_trade": -1.024331612635445,
+          "daily": {
+            "2026-10-23": -0.09485487582770036
+          },
+          "funding_incomplete": 0,
+          "rejects": {},
+          "paired_n": 5,
+          "paired_net": -0.09485487582770039,
+          "matched_long_net": -1.7317339804215326,
+          "matched_short_net": -1.1551332089196569,
+          "resolved": true,
+          "paired_direction_excess": 1.0602783330919565
+        },
+        "audit": {
+          "mid_gross": 1.4970650000000307,
+          "spread": 1.163265000000044,
+          "slippage": 0.6371552399999549,
+          "fees": 2.867198519916,
+          "funding": 0.54481039778824,
+          "net": -2.6257433621277286,
+          "stress_net": -6.130097001875646,
+          "touch_net": 0.8786103977882266,
+          "n": 16,
+          "win_rate": 0.5,
+          "mean_net_bps": -16.473971533468866,
+          "worst_trade": -1.670692810106975,
+          "daily": {
+            "2026-10-24": -1.844647827956356,
+            "2026-10-25": -0.9215810828005433,
+            "2026-10-26": 0.1404855486291703
+          },
+          "funding_incomplete": 0,
+          "rejects": {
+            "entry_depth": 1
+          },
+          "paired_n": 15,
+          "paired_net": -3.137173156692101,
+          "matched_long_net": -3.137173156692101,
+          "matched_short_net": -5.642692298023217,
+          "resolved": true,
+          "paired_direction_excess": 0.0
+        }
+      }
+    },
+    {
+      "start_offset_minutes": 0,
+      "decision_delay_minutes": 5,
+      "total": {
+        "mid_gross": 13.990855000000092,
+        "spread": 2.6147049999999905,
+        "slippage": 1.5935199259997679,
+        "fees": 7.170837619293001,
+        "funding": 0.858838577988049,
+        "net": 3.470631032695381,
+        "stress_net": -5.293722417183546,
+        "touch_net": 12.23498857798815,
+        "n": 40,
+        "win_rate": 0.5,
+        "mean_net_bps": 8.753002376011297,
+        "worst_trade": -2.5448517772760186,
+        "daily": {
+          "2026-10-19": 2.190930749735631,
+          "2026-10-20": 4.6159496100168536,
+          "2026-10-21": -1.0927603903466083,
+          "2026-10-22": -5.378869926814229,
+          "2026-10-23": -2.2732663807456506,
+          "2026-10-24": 0.6055813574398599,
+          "2026-10-25": 2.456252136588688,
+          "2026-10-26": 2.3468138768208373
+        },
+        "funding_incomplete": 0,
+        "rejects": {},
+        "paired_n": 37,
+        "paired_net": 0.8122677329212644,
+        "matched_long_net": -8.094249392500618,
+        "matched_short_net": -12.95010802217163,
+        "resolved": true,
+        "paired_direction_excess": 8.906517125421882
+      },
+      "splits": {
+        "development": {
+          "mid_gross": 5.419055000000063,
+          "spread": 1.1986049999999917,
+          "slippage": 0.7561619859998966,
+          "fees": 3.402728177319,
+          "funding": 0.273690205910472,
+          "net": 0.33525004259164704,
+          "stress_net": -3.8236386013653187,
+          "touch_net": 4.494140205910543,
+          "n": 19,
+          "win_rate": 0.47368421052631576,
+          "mean_net_bps": 1.8187912664109536,
+          "worst_trade": -2.5448517772760186,
+          "daily": {
+            "2026-10-19": 2.190930749735631,
+            "2026-10-20": 4.6159496100168536,
+            "2026-10-21": -1.0927603903466083,
+            "2026-10-22": -5.378869926814229
+          },
+          "funding_incomplete": 0,
+          "rejects": {},
+          "paired_n": 17,
+          "paired_net": -1.8766014507205673,
+          "matched_long_net": -4.762622400814286,
+          "matched_short_net": -4.820986469802227,
+          "resolved": true,
+          "paired_direction_excess": 2.8860209500937186
+        },
+        "validation": {
+          "mid_gross": -1.0051000000000088,
+          "spread": 0.33859999999998247,
+          "slippage": 0.1992979799999458,
+          "fees": 0.8968411518660001,
+          "funding": 0.166572751120287,
+          "net": -2.2732663807456506,
+          "stress_net": -3.3694059963436684,
+          "touch_net": -1.1771272488797042,
+          "n": 5,
+          "win_rate": 0.6,
+          "mean_net_bps": -45.63907927418274,
+          "worst_trade": -2.039018244931597,
+          "daily": {
+            "2026-10-23": -2.2732663807456506
+          },
+          "funding_incomplete": 0,
+          "rejects": {},
+          "paired_n": 5,
+          "paired_net": -2.2732663807456506,
+          "matched_long_net": -2.2732663807456506,
+          "matched_short_net": -0.5962258211502909,
+          "resolved": true,
+          "paired_direction_excess": -1.6770405595953597
+        },
+        "audit": {
+          "mid_gross": 9.576900000000037,
+          "spread": 1.0775000000000166,
+          "slippage": 0.6380599599999255,
+          "fees": 2.8712682901080004,
+          "funding": 0.41857562095729,
+          "net": 5.408647370849384,
+          "stress_net": 1.8993221805254408,
+          "touch_net": 8.91797562095731,
+          "n": 16,
+          "win_rate": 0.5,
+          "mean_net_bps": 33.98490358434734,
+          "worst_trade": -1.155497532724405,
+          "daily": {
+            "2026-10-24": 0.6055813574398599,
+            "2026-10-25": 2.456252136588688,
+            "2026-10-26": 2.3468138768208373
+          },
+          "funding_incomplete": 0,
+          "rejects": {
+            "entry_depth": 3
+          },
+          "paired_n": 15,
+          "paired_net": 4.9621355643874825,
+          "matched_long_net": -1.0583606109406825,
+          "matched_short_net": -7.532895731219112,
+          "resolved": true,
+          "paired_direction_excess": 6.020496175328165
+        }
+      }
+    },
+    {
+      "start_offset_minutes": 15,
+      "decision_delay_minutes": 2,
+      "total": {
+        "mid_gross": 10.450555000000035,
+        "spread": 2.8706249999999636,
+        "slippage": 1.63378653399979,
+        "fees": 7.3520380386126,
+        "funding": 0.962422394596227,
+        "net": -0.44347217801609085,
+        "stress_net": -9.429294021853687,
+        "touch_net": 8.542352394596298,
+        "n": 41,
+        "win_rate": 0.4634146341463415,
+        "mean_net_bps": -1.094667760193123,
+        "worst_trade": -2.6395441847896324,
+        "daily": {
+          "2026-10-19": 0.015937155369716183,
+          "2026-10-20": 4.620601419050988,
+          "2026-10-21": 0.053244178215524185,
+          "2026-10-22": -6.083369480706639,
+          "2026-10-23": -1.7012531178576697,
+          "2026-10-24": -0.4480341315828016,
+          "2026-10-25": 2.2211411908886767,
+          "2026-10-26": 0.8782606086061153
+        },
+        "funding_incomplete": 0,
+        "rejects": {},
+        "paired_n": 39,
+        "paired_net": 0.7316998488893065,
+        "matched_long_net": -8.701049648051244,
+        "matched_short_net": -13.867875890681386,
+        "resolved": true,
+        "paired_direction_excess": 9.43274949694055
+      },
+      "splits": {
+        "development": {
+          "mid_gross": 3.883005000000022,
+          "spread": 1.3406749999999799,
+          "slippage": 0.796063333999917,
+          "fees": 3.5822845453806,
+          "funding": 0.442431151310063,
+          "net": -1.3935867280704115,
+          "stress_net": -5.771933692212096,
+          "touch_net": 2.984761151310105,
+          "n": 20,
+          "win_rate": 0.35,
+          "mean_net_bps": -6.970916407064045,
+          "worst_trade": -2.6395441847896324,
+          "daily": {
+            "2026-10-19": 0.015937155369716183,
+            "2026-10-20": 4.620601419050988,
+            "2026-10-21": 0.053244178215524185,
+            "2026-10-22": -6.083369480706639
+          },
+          "funding_incomplete": 0,
+          "rejects": {},
+          "paired_n": 19,
+          "paired_net": -1.9779770158046377,
+          "matched_long_net": -7.0563361161504385,
+          "matched_short_net": -3.7995675446604933,
+          "resolved": true,
+          "paired_direction_excess": 1.8215905288558556
+        },
+        "validation": {
+          "mid_gross": -0.407749999999974,
+          "spread": 0.3643500000000317,
+          "slippage": 0.19922285999995099,
+          "fees": 0.896503008978,
+          "funding": 0.166572751120287,
+          "net": -1.7012531178576697,
+          "stress_net": -2.7969792647916574,
+          "touch_net": -0.6055272488797188,
+          "n": 5,
+          "win_rate": 0.6,
+          "mean_net_bps": -34.1696255092541,
+          "worst_trade": -1.7595623146396235,
+          "daily": {
+            "2026-10-23": -1.7012531178576697
+          },
+          "funding_incomplete": 0,
+          "rejects": {},
+          "paired_n": 4,
+          "paired_net": 0.05830919678195384,
+          "matched_long_net": 0.05830919678195384,
+          "matched_short_net": -2.4166724550878524,
+          "resolved": true,
+          "paired_direction_excess": 0.0
+        },
+        "audit": {
+          "mid_gross": 6.975299999999987,
+          "spread": 1.165599999999952,
+          "slippage": 0.6385003399999221,
+          "fees": 2.873250484254,
+          "funding": 0.353418492165877,
+          "net": 2.65136766791199,
+          "stress_net": -0.8603810648499339,
+          "touch_net": 6.163118492165912,
+          "n": 16,
+          "win_rate": 0.5625,
+          "mean_net_bps": 16.586567344977084,
+          "worst_trade": -1.194995899852378,
+          "daily": {
+            "2026-10-24": -0.4480341315828016,
+            "2026-10-25": 2.2211411908886767,
+            "2026-10-26": 0.8782606086061153
+          },
+          "funding_incomplete": 0,
+          "rejects": {
+            "entry_depth": 5
+          },
+          "paired_n": 16,
+          "paired_net": 2.65136766791199,
+          "matched_long_net": -1.7030227286827584,
+          "matched_short_net": -7.651635890933041,
+          "resolved": true,
+          "paired_direction_excess": 4.354390396594749
+        }
+      }
+    },
+    {
+      "start_offset_minutes": 60,
+      "decision_delay_minutes": 2,
+      "total": {
+        "mid_gross": 10.881414999999908,
+        "spread": 2.6393249999999,
+        "slippage": 1.6326349659998591,
+        "fees": 7.346855863423801,
+        "funding": 0.815122282697773,
+        "net": 0.07772145327412318,
+        "stress_net": -8.901766408997048,
+        "touch_net": 9.057212282697781,
+        "n": 41,
+        "win_rate": 0.43902439024390244,
+        "mean_net_bps": 0.18940902849035793,
+        "worst_trade": -2.6473288012121907,
+        "daily": {
+          "2026-10-19": -0.11595683006802049,
+          "2026-10-20": 0.7832492076623219,
+          "2026-10-21": 1.2005524625124717,
+          "2026-10-22": -5.260735675133323,
+          "2026-10-23": -1.6211933348635759,
+          "2026-10-24": 3.343295469336935,
+          "2026-10-25": 0.41574329175481073,
+          "2026-10-26": 1.332766862072503
+        },
+        "funding_incomplete": 0,
+        "rejects": {},
+        "paired_n": 38,
+        "paired_net": -2.118321700131531,
+        "matched_long_net": -8.979385696481012,
+        "matched_short_net": -12.66770865903889,
+        "resolved": true,
+        "paired_direction_excess": 6.861063996349481
+      },
+      "splits": {
+        "development": {
+          "mid_gross": 1.7182550000000016,
+          "spread": 1.1706649999999825,
+          "slippage": 0.7960358259999449,
+          "fees": 3.5821611184338003,
+          "funding": 0.437716109407176,
+          "net": -3.39289083502655,
+          "stress_net": -7.771087582327826,
+          "touch_net": 0.9853061094071951,
+          "n": 20,
+          "win_rate": 0.3,
+          "mean_net_bps": -17.091634751922523,
+          "worst_trade": -2.6473288012121907,
+          "daily": {
+            "2026-10-19": -0.11595683006802049,
+            "2026-10-20": 0.7832492076623219,
+            "2026-10-21": 1.2005524625124717,
+            "2026-10-22": -5.260735675133323
+          },
+          "funding_incomplete": 0,
+          "rejects": {},
+          "paired_n": 18,
+          "paired_net": -4.628446129145785,
+          "matched_long_net": -7.9058181174421795,
+          "matched_short_net": -2.1036992395282947,
+          "resolved": true,
+          "paired_direction_excess": -2.5247468896174903
+        },
+        "validation": {
+          "mid_gross": -0.23968500000002402,
+          "spread": 0.3177149999999725,
+          "slippage": 0.19943207999997928,
+          "fees": 0.897444460332,
+          "funding": 0.033083205468400004,
+          "net": -1.6211933348635759,
+          "stress_net": -2.718070075859555,
+          "touch_net": -0.5243167945315964,
+          "n": 5,
+          "win_rate": 0.6,
+          "mean_net_bps": -32.4429377430399,
+          "worst_trade": -1.5527515516220174,
+          "daily": {
+            "2026-10-23": -1.6211933348635759
+          },
+          "funding_incomplete": 0,
+          "rejects": {},
+          "paired_n": 5,
+          "paired_net": -1.6211933348635759,
+          "matched_long_net": -1.306770744951459,
+          "matched_short_net": -1.5223653124258918,
+          "resolved": true,
+          "paired_direction_excess": -0.3144225899121169
+        },
+        "audit": {
+          "mid_gross": 9.402844999999932,
+          "spread": 1.150944999999945,
+          "slippage": 0.6371670599999348,
+          "fees": 2.867250284658,
+          "funding": 0.344322967822197,
+          "net": 5.091805623164249,
+          "stress_net": 1.5873912491903326,
+          "touch_net": 8.596222967822184,
+          "n": 16,
+          "win_rate": 0.5625,
+          "mean_net_bps": 31.988322120109665,
+          "worst_trade": -1.401256590063515,
+          "daily": {
+            "2026-10-24": 3.343295469336935,
+            "2026-10-25": 0.41574329175481073,
+            "2026-10-26": 1.332766862072503
+          },
+          "funding_incomplete": 0,
+          "rejects": {
+            "entry_depth": 3
+          },
+          "paired_n": 15,
+          "paired_net": 4.1313177638778305,
+          "matched_long_net": 0.2332031659126253,
+          "matched_short_net": -9.041644107084704,
+          "resolved": true,
+          "paired_direction_excess": 3.898114597965205
+        }
+      }
+    }
+  ],
+  "concentration": {
+    "leave_one_day_out": {
+      "2026-10-19": 0.9707175845619114,
+      "2026-10-20": -0.8745831532507577,
+      "2026-10-21": 4.931956118768442,
+      "2026-10-22": 6.000692991234454,
+      "2026-10-23": 1.1351405575243325,
+      "2026-10-24": 4.621928678262018,
+      "2026-10-25": 3.2823306963369463,
+      "2026-10-26": -0.7009599564923565
+    },
+    "without_best_trade": 1.4183960494545862,
+    "without_best_three": -1.1545967829220891,
+    "by_side": {
+      "1": {
+        "n": 33,
+        "net": -1.4544192052486271
+      },
+      "-1": {
+        "n": 8,
+        "net": 4.221165421955054
+      }
+    }
+  },
+  "families": [
+    {
+      "rule": "basis20",
+      "combinations": 27,
+      "active": 18,
+      "positive": 1,
+      "positive_mid_gross": 9,
+      "positive_touch": 7
+    },
+    {
+      "rule": "basis50",
+      "combinations": 27,
+      "active": 0,
+      "positive": 0,
+      "positive_mid_gross": 0,
+      "positive_touch": 0
+    },
+    {
+      "rule": "breakout60",
+      "combinations": 27,
+      "active": 27,
+      "positive": 0,
+      "positive_mid_gross": 10,
+      "positive_touch": 2
+    },
+    {
+      "rule": "btc_lead",
+      "combinations": 27,
+      "active": 6,
+      "positive": 0,
+      "positive_mid_gross": 5,
+      "positive_touch": 1
+    },
+    {
+      "rule": "funding_context",
+      "combinations": 27,
+      "active": 27,
+      "positive": 0,
+      "positive_mid_gross": 10,
+      "positive_touch": 2
+    },
+    {
+      "rule": "funding_last",
+      "combinations": 27,
+      "active": 27,
+      "positive": 0,
+      "positive_mid_gross": 7,
+      "positive_touch": 2
+    },
+    {
+      "rule": "imbalance",
+      "combinations": 27,
+      "active": 27,
+      "positive": 1,
+      "positive_mid_gross": 17,
+      "positive_touch": 4
+    },
+    {
+      "rule": "mom240",
+      "combinations": 27,
+      "active": 27,
+      "positive": 0,
+      "positive_mid_gross": 8,
+      "positive_touch": 2
+    },
+    {
+      "rule": "mom5",
+      "combinations": 27,
+      "active": 27,
+      "positive": 0,
+      "positive_mid_gross": 13,
+      "positive_touch": 1
+    },
+    {
+      "rule": "mom60",
+      "combinations": 27,
+      "active": 27,
+      "positive": 0,
+      "positive_mid_gross": 6,
+      "positive_touch": 0
+    },
+    {
+      "rule": "mr60",
+      "combinations": 27,
+      "active": 27,
+      "positive": 0,
+      "positive_mid_gross": 16,
+      "positive_touch": 2
+    },
+    {
+      "rule": "oracle5",
+      "combinations": 27,
+      "active": 27,
+      "positive": 0,
+      "positive_mid_gross": 10,
+      "positive_touch": 2
+    }
+  ]
+}
