@@ -1,0 +1,646 @@
+{
+  "code_revision": "d400010fc66aa0ec7a13ac6a56256bbcb203a398",
+  "baseline": "0c579d77282e7adffc8bd55b2b08e5f6cabc702a",
+  "results": [
+    {
+      "name": "validate-runtime",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.21,
+      "command": [
+        "scripts/validate_runtime.py"
+      ],
+      "evidence_excerpt": []
+    },
+    {
+      "name": "validate-schemas",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.94,
+      "command": [
+        "scripts/validate_schemas.py"
+      ],
+      "evidence_excerpt": []
+    },
+    {
+      "name": "validate-history",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.3,
+      "command": [
+        "scripts/validate_history.py"
+      ],
+      "evidence_excerpt": []
+    },
+    {
+      "name": "validate-account",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.46,
+      "command": [
+        "scripts/validate_account.py"
+      ],
+      "evidence_excerpt": []
+    },
+    {
+      "name": "validate-market_risk",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.37,
+      "command": [
+        "scripts/validate_market_risk.py"
+      ],
+      "evidence_excerpt": []
+    },
+    {
+      "name": "validate-portfolio_risk",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.51,
+      "command": [
+        "scripts/validate_portfolio_risk.py"
+      ],
+      "evidence_excerpt": []
+    },
+    {
+      "name": "validate-paper",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.79,
+      "command": [
+        "scripts/validate_paper.py"
+      ],
+      "evidence_excerpt": []
+    },
+    {
+      "name": "ruff",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.19,
+      "command": [
+        "-m",
+        "ruff",
+        "check",
+        ".",
+        "--no-cache",
+        "--output-format=concise"
+      ],
+      "evidence_excerpt": [
+        "All checks passed!"
+      ]
+    },
+    {
+      "name": "workspace-guard-tests",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 0.24,
+      "command": [
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "research/tools",
+        "-v"
+      ],
+      "evidence_excerpt": [
+        "Ran 5 tests in 0.037s",
+        "OK"
+      ]
+    },
+    {
+      "name": "runtime-focused-tests",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 7.52,
+      "command": [
+        "-m",
+        "unittest",
+        "test_funding_live",
+        "test_pas_research_record",
+        "test_pas_network_wait",
+        "test_pas_renewal",
+        "test_pas_spread_wait",
+        "test_pas_stale_book",
+        "test_system_separation",
+        "-v"
+      ],
+      "evidence_excerpt": [
+        "Ran 109 tests in 6.980s",
+        "OK (skipped=1)"
+      ]
+    },
+    {
+      "name": "legacy-research-tests",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 8.8,
+      "command": [
+        "-m",
+        "unittest",
+        "test_basis_research",
+        "test_basis_direction",
+        "test_basis_convergence",
+        "test_multi_asset_basis",
+        "test_offline_quant",
+        "test_official_cost_audit",
+        "test_market_transfer",
+        "test_asset_coverage",
+        "test_candidate_validation",
+        "test_long_history",
+        "test_regime_study",
+        "test_stream_collection",
+        "-v"
+      ],
+      "evidence_excerpt": [
+        "Ran 140 tests in 7.968s",
+        "OK"
+      ]
+    },
+    {
+      "name": "batch-independent-verifier",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 5.03,
+      "command": [
+        "docs/research/alpha-hypothesis-batch-2026-11/verify_batch.py",
+        "--output",
+        "docs/research/alpha-hypothesis-batch-2026-11"
+      ],
+      "evidence_excerpt": []
+    },
+    {
+      "name": "h09-independent-verifier",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 1.55,
+      "command": [
+        "docs/research/h09-btc-hype-2026-11/verify_h09.py"
+      ],
+      "evidence_excerpt": []
+    },
+    {
+      "name": "batch-full-rerun",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 6.85,
+      "command": [
+        "docs/research/alpha-hypothesis-batch-2026-11/run_batch.py",
+        "--output",
+        ".cache/consolidation-batch-rerun"
+      ],
+      "evidence_excerpt": []
+    },
+    {
+      "name": "h09-full-rerun",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 1.39,
+      "command": [
+        "docs/research/h09-btc-hype-2026-11/run_h09.py",
+        "--out",
+        ".cache/consolidation-h09-rerun"
+      ],
+      "evidence_excerpt": []
+    },
+    {
+      "name": "v2-independent-numerical-verifier",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 3.01,
+      "command": [
+        "docs/research/btc-eth-volatility/visual-eda-v2/verify_v2.py",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release"
+      ],
+      "evidence_excerpt": []
+    },
+    {
+      "name": "stage2a-full-rerun",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 2.68,
+      "command": [
+        "docs/research/btc-eth-volatility/analyze_stage02a.py",
+        "--pr-input",
+        "<LOCAL_REPOSITORY>\\.cache\\btc-eth-stage02a-pr36-input",
+        "--output",
+        ".cache/consolidation-stage2a-rerun"
+      ],
+      "evidence_excerpt": []
+    },
+    {
+      "name": "sp500-ewj-descriptive-rerun",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 8.59,
+      "command": [
+        "docs/research/sp500-ewj-2026-11-05/analyze.py"
+      ],
+      "evidence_excerpt": []
+    },
+    {
+      "name": "sp500-ewj-daily-rerun",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 1.16,
+      "command": [
+        "docs/research/sp500-ewj-2026-11-05/check_daily.py"
+      ],
+      "evidence_excerpt": []
+    },
+    {
+      "name": "v3-independent-causal-verifier",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 21.53,
+      "command": [
+        "docs/research/pas-visual-discovery-v3/verify_v3.py"
+      ],
+      "evidence_excerpt": []
+    },
+    {
+      "name": "oct30-raw-fill-ledger-verifier",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 2.75,
+      "command": [
+        "scripts/check_pas_candidate_ledgers_20261030.py"
+      ],
+      "evidence_excerpt": []
+    },
+    {
+      "name": "weekly-alpha-ledger-verifier",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 6.23,
+      "command": [
+        "scripts/validate_pas_weekly_alpha.py"
+      ],
+      "evidence_excerpt": [
+        "Causal prefix, delayed funding, new-event/depth fill and cost direction checks passed.",
+        "All 31868 trades independently reconciled with Decimal, raw book depth/lot/size and no overlap."
+      ]
+    },
+    {
+      "name": "legacy-quant-artifact-and-replay-verifier",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 1.69,
+      "command": [
+        "scripts/validate_quant_research.py"
+      ],
+      "evidence_excerpt": [
+        "352 archived ledgers AND official cost audits checked; 14 actual offline replays match"
+      ]
+    },
+    {
+      "name": "traditional17-causality-verifier",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 8.26,
+      "command": [
+        "scripts/validate_pas_traditional17.py"
+      ],
+      "evidence_excerpt": [
+        "17-rule source equivalence, causal prefix/Funding receipt, fill delay and unresolved-depth checks passed.",
+        "Verified 2880 book scenarios; 6748 fills: Decimal fees/friction, close accounting and causal timing."
+      ]
+    },
+    {
+      "name": "regime-artifact-and-causal-verifier",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 35.57,
+      "command": [
+        "scripts/validate_regime_study.py"
+      ],
+      "evidence_excerpt": [
+        "1200 regime ledgers reconciled; all170 attributions,10 causal feature prefixes/locked mappings,6 actual replays and40 portfolios verified"
+      ]
+    },
+    {
+      "name": "v2-dom-mock",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 2.66,
+      "command": [
+        "node",
+        "docs/research/btc-eth-volatility/visual-eda-v2/verify_interactions.cjs",
+        "docs/research/btc-eth-volatility/visual-eda-v2/release"
+      ],
+      "evidence_excerpt": []
+    },
+    {
+      "name": "v3-dom-mock",
+      "status": "PASS",
+      "exit_code": 0,
+      "seconds": 2.52,
+      "command": [
+        "node",
+        "docs/research/pas-visual-discovery-v3/verify_interactions.cjs",
+        "docs/research/pas-visual-discovery-v3/release"
+      ],
+      "evidence_excerpt": []
+    },
+    {
+      "name": "initial-full-Windows-suite",
+      "status": "BLOCKED",
+      "observed_failure": "test_paper_core.PaperCoreTests.test_independent_http_worker_feedback_and_restart_paused failed before interruption",
+      "reason": "Run was interrupted during test_pas_csv_export; no complete suite count/result. Not treated as passing or hidden by later Linux results."
+    },
+    {
+      "name": "local-Linux-Docker-equivalent",
+      "status": "BLOCKED",
+      "reason": "No Docker Desktop Linux daemon available; unchanged container/SSH checks executed successfully in disposable GitHub Linux CI instead."
+    },
+    {
+      "name": "real-browser-acceptance",
+      "status": "NOT RUN",
+      "reason": "DOM/Canvas mock tests pass, but no new actual browser acceptance performed."
+    },
+    {
+      "name": "historical-network-SSH-collectors",
+      "status": "NOT RUN",
+      "reason": "Capture/reservation/public scraper and VPS helpers not executed. Only pre-existing local public caches and committed evidence used."
+    }
+  ],
+  "reproduction_outputs": [
+    {
+      "study": "batch",
+      "file": "results.csv",
+      "status": "PASS",
+      "original_sha256": "c200887650ab250f29f83a431bc84377f2e7d212a88b99210fb3d7416092fd73",
+      "rerun_sha256": "c200887650ab250f29f83a431bc84377f2e7d212a88b99210fb3d7416092fd73",
+      "byte_identical": true,
+      "semantic_status": "PASS",
+      "byte_status": "PASS"
+    },
+    {
+      "study": "batch",
+      "file": "events.csv",
+      "status": "PASS",
+      "original_sha256": "d9a43f90b075b7032c4c5a7c40cd50551f81cf77c4ca260faffaec2523ed929c",
+      "rerun_sha256": "d9a43f90b075b7032c4c5a7c40cd50551f81cf77c4ca260faffaec2523ed929c",
+      "byte_identical": true,
+      "semantic_status": "PASS",
+      "byte_status": "PASS"
+    },
+    {
+      "study": "batch",
+      "file": "model-comparison.csv",
+      "status": "PASS",
+      "original_sha256": "e3d5209756608976c0396b680d4cb6c99d1daebb4d5f7050f830ece34f622d0b",
+      "rerun_sha256": "e3d5209756608976c0396b680d4cb6c99d1daebb4d5f7050f830ece34f622d0b",
+      "byte_identical": true,
+      "semantic_status": "PASS",
+      "byte_status": "PASS"
+    },
+    {
+      "study": "batch",
+      "file": "points.csv.gz",
+      "status": "PASS",
+      "original_sha256": "8eeeee4f858197bcbb19eda70648b3ceedadf80294a4dd049b01d6be1345af14",
+      "rerun_sha256": "8eeeee4f858197bcbb19eda70648b3ceedadf80294a4dd049b01d6be1345af14",
+      "byte_identical": true,
+      "semantic_status": "PASS",
+      "byte_status": "PASS"
+    },
+    {
+      "study": "batch",
+      "file": "models.json",
+      "status": "PASS",
+      "original_sha256": "8767454d3d393e658fd8b98ef840c0b4700576d2f7b8f7843fd3376c948b88b2",
+      "rerun_sha256": "8767454d3d393e658fd8b98ef840c0b4700576d2f7b8f7843fd3376c948b88b2",
+      "byte_identical": true,
+      "semantic_status": "PASS",
+      "byte_status": "PASS"
+    },
+    {
+      "study": "batch",
+      "file": "thresholds.json",
+      "status": "PASS",
+      "original_sha256": "2debc82d55756139d9999d7f644dbbc02e746a8473d5cbe19191ea8549db963e",
+      "rerun_sha256": "2debc82d55756139d9999d7f644dbbc02e746a8473d5cbe19191ea8549db963e",
+      "byte_identical": true,
+      "semantic_status": "PASS",
+      "byte_status": "PASS"
+    },
+    {
+      "study": "batch",
+      "file": "data-audit.json",
+      "status": "PASS",
+      "original_sha256": "e71387691dcee410b92ad82d9259527a5fc202f819f78f293cec86f43f198a5b",
+      "rerun_sha256": "e71387691dcee410b92ad82d9259527a5fc202f819f78f293cec86f43f198a5b",
+      "byte_identical": true,
+      "semantic_status": "PASS",
+      "byte_status": "PASS"
+    },
+    {
+      "study": "batch",
+      "file": "input-hashes.json",
+      "status": "PASS",
+      "original_sha256": "edfcb2d84c25592287b3b6e83a7a0bb8d2c4ac63a24bad2b50b23c80e4b6a682",
+      "rerun_sha256": "edfcb2d84c25592287b3b6e83a7a0bb8d2c4ac63a24bad2b50b23c80e4b6a682",
+      "byte_identical": true,
+      "semantic_status": "PASS",
+      "byte_status": "PASS"
+    },
+    {
+      "study": "batch",
+      "file": "daily-comparison.csv",
+      "status": "PASS",
+      "original_sha256": "d9cf31d530e259544576a5c7c4e4df392a6d7a25c4111fc7c80eda4ed056f7b3",
+      "rerun_sha256": "d9cf31d530e259544576a5c7c4e4df392a6d7a25c4111fc7c80eda4ed056f7b3",
+      "byte_identical": true,
+      "semantic_status": "PASS",
+      "byte_status": "PASS"
+    },
+    {
+      "study": "H09",
+      "file": "coefficients.json",
+      "status": "PASS",
+      "original_sha256": "db96b0ce6d001d60ca94ded11693deef9301015b83a91c48b354062effd24258",
+      "rerun_sha256": "db96b0ce6d001d60ca94ded11693deef9301015b83a91c48b354062effd24258",
+      "byte_identical": true,
+      "semantic_status": "PASS",
+      "byte_status": "PASS"
+    },
+    {
+      "study": "H09",
+      "file": "cost-diagnostic.json",
+      "status": "PASS",
+      "original_sha256": "5e1de0d2aa1d7b4484b66b1e97403f3a9e80f3f5c021b9b147fe25905a2838de",
+      "rerun_sha256": "5e1de0d2aa1d7b4484b66b1e97403f3a9e80f3f5c021b9b147fe25905a2838de",
+      "byte_identical": true,
+      "semantic_status": "PASS",
+      "byte_status": "PASS"
+    },
+    {
+      "study": "H09",
+      "file": "daily-paired-errors.csv",
+      "status": "PASS",
+      "original_sha256": "17564d5141d8b3bf2903a58b0caa2294171209994e7cc32465875e27572a0b13",
+      "rerun_sha256": "17564d5141d8b3bf2903a58b0caa2294171209994e7cc32465875e27572a0b13",
+      "byte_identical": true,
+      "semantic_status": "PASS",
+      "byte_status": "PASS"
+    },
+    {
+      "study": "H09",
+      "file": "event-summary.json",
+      "status": "PASS",
+      "original_sha256": "2aa8c8c6a692f0bc9a1a5d2914be64775444453f3d536019a2cd3f99b836dc78",
+      "rerun_sha256": "2aa8c8c6a692f0bc9a1a5d2914be64775444453f3d536019a2cd3f99b836dc78",
+      "byte_identical": true,
+      "semantic_status": "PASS",
+      "byte_status": "PASS"
+    },
+    {
+      "study": "H09",
+      "file": "events.csv",
+      "status": "PASS",
+      "original_sha256": "3125e68a85acb7cb0f2abda35363eb66880ce4619f1017a8cae6c9c6c503d51b",
+      "rerun_sha256": "3125e68a85acb7cb0f2abda35363eb66880ce4619f1017a8cae6c9c6c503d51b",
+      "byte_identical": true,
+      "semantic_status": "PASS",
+      "byte_status": "PASS"
+    },
+    {
+      "study": "H09",
+      "file": "failures.json",
+      "status": "PASS",
+      "original_sha256": "4da274ca0f5f1f5f1535ec11e6c32f1c50343dbc016170da452bb21dd2282a2b",
+      "rerun_sha256": "4da274ca0f5f1f5f1535ec11e6c32f1c50343dbc016170da452bb21dd2282a2b",
+      "byte_identical": true,
+      "semantic_status": "PASS",
+      "byte_status": "PASS"
+    },
+    {
+      "study": "H09",
+      "file": "metrics.json",
+      "status": "PASS",
+      "original_sha256": "1af2a4943da5493a7449509bac10f7bdd930ce6437a292a34e768c6583f55737",
+      "rerun_sha256": "1af2a4943da5493a7449509bac10f7bdd930ce6437a292a34e768c6583f55737",
+      "byte_identical": true,
+      "semantic_status": "PASS",
+      "byte_status": "PASS"
+    },
+    {
+      "study": "H09",
+      "file": "predictions.csv",
+      "status": "PASS",
+      "original_sha256": "8e90f5b8679752d69d94c8cd62d4f861bb4154d4ecf806a2ce7aa66560910b78",
+      "rerun_sha256": "8e90f5b8679752d69d94c8cd62d4f861bb4154d4ecf806a2ce7aa66560910b78",
+      "byte_identical": true,
+      "semantic_status": "PASS",
+      "byte_status": "PASS"
+    },
+    {
+      "study": "H09",
+      "file": "quality.json",
+      "status": "PASS",
+      "original_sha256": "4d9a6c6f9fff5c178b5a4af3feb4d1b66ea19d1c1dfeeea510e647b887271ae4",
+      "rerun_sha256": "4d9a6c6f9fff5c178b5a4af3feb4d1b66ea19d1c1dfeeea510e647b887271ae4",
+      "byte_identical": true,
+      "semantic_status": "PASS",
+      "byte_status": "PASS"
+    },
+    {
+      "study": "Stage2A",
+      "file": "stage-02a-metrics.csv",
+      "status": "FAIL",
+      "original_sha256": "a53376a60074a848cbbd6249d5f3e39a1ab5ffeb496f7f69187c94c25c4bebee",
+      "rerun_sha256": "91e5928eccb91fcbd0a50ed56be133def1b55b5f6ad75af6ebc7074caffd487e",
+      "byte_identical": false,
+      "semantic_status": "PASS",
+      "byte_status": "FAIL",
+      "reason": "CRLF/LF only; CSV/JSON parsed content exactly equal; frozen originals not modified"
+    },
+    {
+      "study": "Stage2A",
+      "file": "stage-02a-predictions.csv",
+      "status": "FAIL",
+      "original_sha256": "cc7870deb667fc0e82c0cb1319aef0930f52fad08a51c2e5f154fec303059789",
+      "rerun_sha256": "2882cde480b0972f37c02d5df9bb43a3be9410ea3db7277f005a6fa5ac492bbe",
+      "byte_identical": false,
+      "semantic_status": "PASS",
+      "byte_status": "FAIL",
+      "reason": "CRLF/LF only; CSV/JSON parsed content exactly equal; frozen originals not modified"
+    },
+    {
+      "study": "Stage2A",
+      "file": "stage-02a-results.json",
+      "status": "FAIL",
+      "original_sha256": "c9f0b9cb7b2a72a754907c4091c748bf0a459e77f1e2706f9d1933c11d7bd43b",
+      "rerun_sha256": "13b465b701969a8857e12ee2d2d71999b51e270ab3c26860ce110eb7b977dcab",
+      "byte_identical": false,
+      "semantic_status": "PASS",
+      "byte_status": "FAIL",
+      "reason": "CRLF/LF only; CSV/JSON parsed content exactly equal; frozen originals not modified"
+    },
+    {
+      "study": "SP500/EWJ",
+      "file": "correlations.csv",
+      "status": "FAIL",
+      "original_sha256": "11513c784b4d033e59a4dad5e019439e1100fa409a76dce10877dc624db263cf",
+      "rerun_sha256": "7fae0925a90c7c41eeeee85c28532da5c65dfe684f6499208df6878859cb4a87",
+      "byte_identical": false,
+      "semantic_status": "PASS",
+      "byte_status": "FAIL",
+      "reason": "CRLF/LF only; CSV/JSON parsed content exactly equal; frozen originals not modified"
+    },
+    {
+      "study": "SP500/EWJ",
+      "file": "metadata.json",
+      "status": "FAIL",
+      "original_sha256": "8d814f4003292a312476f1bc9a0f333a1c1d8d918f4d8fc39aeac56876738bcf",
+      "rerun_sha256": "9be6dbf72f9c04242e2a02a72bd5065d95ddba2239aa6627d0da02d40e4e0b15",
+      "byte_identical": false,
+      "semantic_status": "PASS",
+      "byte_status": "FAIL",
+      "reason": "CRLF/LF only; CSV/JSON parsed content exactly equal; frozen originals not modified"
+    },
+    {
+      "study": "SP500/EWJ",
+      "file": "daily-events.csv",
+      "status": "FAIL",
+      "original_sha256": "7fd8af32d64f99a3e94580bc4c9a18a48c93ec7378fce906cd9b71325cac88ca",
+      "rerun_sha256": "08912178483776842b8d9521dbfbc0fbb72f7813e545efabc630e52b697edbc0",
+      "byte_identical": false,
+      "semantic_status": "PASS",
+      "byte_status": "FAIL",
+      "reason": "CRLF/LF only; CSV/JSON parsed content exactly equal; frozen originals not modified"
+    },
+    {
+      "study": "SP500/EWJ",
+      "file": "daily-horizons.csv",
+      "status": "FAIL",
+      "original_sha256": "b53d7440bbb670c4d82bbb550979ee61887f66820802cea3e050d4e6dfd7b676",
+      "rerun_sha256": "0f19685b5900ff08b51dc381e00c10ec427da30f099b20848a1df831102372e2",
+      "byte_identical": false,
+      "semantic_status": "PASS",
+      "byte_status": "FAIL",
+      "reason": "CRLF/LF only; CSV/JSON parsed content exactly equal; frozen originals not modified"
+    }
+  ],
+  "secret_scan": {
+    "revision": "d400010fc66aa0ec7a13ac6a56256bbcb203a398",
+    "unique_blobs": 887,
+    "raw_bytes": 449606665,
+    "gzip_objects_streamed": 93,
+    "candidates": [],
+    "limitations": [
+      "Heuristic secret rules, not a proof of absence; no OCR/PDF semantics or arbitrary encoded/nested/encrypted payloads.",
+      "Historical operational host/user/path metadata is not a key but requires public-release review.",
+      "All current repository history was already checked in the prior audit; final snapshot repeats full tracked-blob scanning including gzip streams."
+    ]
+  },
+  "linux_ci": {
+    "runtime_run": 42232937810,
+    "research_run": 42232938027,
+    "status": "PASS",
+    "runtime_tests": 574,
+    "runtime_skipped": 1,
+    "research_tests": 140,
+    "workspace_guard_tests": 5
+  }
+}

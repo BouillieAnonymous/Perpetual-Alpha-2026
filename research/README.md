@@ -47,3 +47,13 @@ input hashes. A successful test suite is not a full historical-data rerun.
 Frozen legacy formatting exceptions are narrow per-file Ruff exceptions for
 style/import ordering only. Undefined names, syntax and other selected checks
 remain enabled. New maintained tooling has no such exceptions.
+
+## Historical collection helpers: NOT RUN
+
+The archive also preserves original SSH/public-HTTP/WebSocket capture and public
+leaderboard helpers, and some already-versioned infrastructure metadata. They
+are historical network tools, not offline reproduction commands. They were not
+executed during consolidation and must not be used against production services
+or accounts. Review metadata before any future public release; current
+repository visibility stays private. Original compaction/seal/report modules can
+write or rename outputs even on import: only import them in disposable copies.

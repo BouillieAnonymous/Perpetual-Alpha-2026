@@ -1,0 +1,26 @@
+{
+  "scanId": "64b164d9-5bc8-4f45-a23a-155509c10825",
+  "status": "completed",
+  "findingCount": 0,
+  "reviewedRevision": "d400010fc66aa0ec7a13ac6a56256bbcb203a398",
+  "baseRevision": "0c579d77282e7adffc8bd55b2b08e5f6cabc702a",
+  "coverageCompleteness": "complete",
+  "sourceInventoryItems": 74,
+  "supplementalResearchSourceFiles": 68,
+  "usage": {
+    "cacheWriteInputTokens": 0,
+    "cachedInputTokens": 19401984,
+    "coverage": "complete",
+    "inputTokens": 19686010,
+    "outputTokens": 44467,
+    "reasoningOutputTokens": 12057,
+    "source": "codex_rollout",
+    "threadCount": 4,
+    "totalTokens": 19730477
+  },
+  "usageNote": "Plugin-reported aggregated rollout counters across four threads; cached context is included; not a billing or unique-source-token estimate.",
+  "limitations": [
+    "Static source-boundary review only; no production, account, dependency-internals, OCR/PDF or every-payload-cell validation."
+  ],
+  "managedReportArtifact": "report.md in the local managed Codex Security scan directory"
+}

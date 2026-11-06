@@ -33,3 +33,13 @@ runtime rollout. Merge only after required CI is green and reviewers accept the
 explicit reproduction/browser/version limits. If CI or a preservation check
 fails, keep the Integration PR open and resolve or explicitly defer that item.
 Do not merge on the strength of AST parsing or historic CI claims.
+
+## Additional measured/publication limits
+
+- Seven regenerated Stage2A/SP500-EWJ files are semantically equal but fail exact
+  byte reproduction due solely to LF/CRLF. Frozen originals/hashes remain intact.
+- Historical capture/probe/reservation helpers retain infrastructure metadata
+  and explicit network/SSH entrypoints. They were NOT RUN; public-release review
+  is required. No new public audience or visibility change was authorized.
+- The interrupted Windows full suite is not claimed passing. Linux CI completed
+  the full574-test baseline separately; current final-head CI remains the gate.
