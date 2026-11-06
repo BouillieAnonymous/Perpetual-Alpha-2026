@@ -1,0 +1,11 @@
+{
+  "prefix_max_seq": 457619,
+  "query_utc": "2026-11-03T11:12:00.198373+00:00",
+  "query_mode": "SQLite URI mode=ro, query_only=ON, read transaction; fixed seq prefix",
+  "ranges": [
+    {"symbol": "pas:BTC", "raw_observations": 43612, "min_available_ms": 1792417392951, "max_available_ms": 1793704186200},
+    {"symbol": "pas:ETH", "raw_observations": 43612, "min_available_ms": 1792417393172, "max_available_ms": 1793704186422}
+  ],
+  "analysis_cutoff_ms": 1793700000000,
+  "note": "History after 10:00 UTC was counted for source extent only, not downloaded or analyzed for coverage, returns or H1."
+}

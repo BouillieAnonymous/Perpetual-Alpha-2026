@@ -1,0 +1,11 @@
+# Optional, OFFLINE research only; not imported by trading/runtime.
+numpy==2.2.6
+scipy==1.15.3
+statsmodels==0.14.4
+pandas==2.3.3
+patsy==1.0.3
+packaging==26.3
+python-dateutil==2.9.0.post0
+tzdata==2026.5
+pytz==2026.5
+six==1.17.0

@@ -1,0 +1,20 @@
+{
+  "classifier.jsonl.gz": "fdb94934c96b080e46ecb878d4b30a389992d228c1920ec8ee58a58e334f9ba7",
+  "conclusions.json": "70199f19de97742d134d927a836e58bec0f2b3e09126b95eee31bbd9871c3c7e",
+  "conditional-stability.json": "df26991861f4ffea6f64bc405abb92886f8f42c67927d7d8cd56e2dbdc016cfb",
+  "conditional.csv": "449d065e91593dfebd4280e22e85c8a9da777996b7df100d8ff748629c01c0cf",
+  "conditional.json": "a9056b10397412fea6309405df5e530bb8e8f655cbafb242442a0531538083a3",
+  "daily.json": "b6d12461ed99b6be4c9de0312a42735926bce2feea292b85c2a0e63be172207f",
+  "fold-portfolios.json": "bf115525cee807cea650da7a7d4af00cdc977237c5ae7bc840a4fc9e08c4ff3f",
+  "forward-ledgers.jsonl.gz": "e9a909c2a7cc264c016a2b53399c315d817c5618768c8d24def4daf4dfbbed34",
+  "implementation-note.json": "9778e9b0516a3fb450072fa6e508c39cb982e175e6d9c8b8968a8ee532d8f37b",
+  "incremental-costs.json": "b8abbf8e865a1dc5f93998045e9e12462481f4a2a08df2a8d53b7d6934aa5b35",
+  "manifest.json": "b2dd2cdcc260e47d31cc78b78d3cbc1b62af71f2644344519417f6e8dbfa5663",
+  "portfolio.json": "c00c9a6c37ec4f03ff078738e03e9518c9ffead56e63f7a9fac59d7491731e8b",
+  "protocol.json": "ad0344b8befd32f116084ed98150767d493a993c979d5fb1c9f37328942c869d",
+  "report.zh-CN.md": "5c799d62b23b7d54594a8869b767f5aebd8b5ccb754d0ec35271e30cfbf699ab",
+  "runs.json": "46d937d308bb1c7d0953d603fa5cad37feae9549e50ad99ad1c06597d5bc26f8",
+  "selection-audit.json": "da5c0de97c8fb6ccbc6d5e8e887e098df196fdbe1a61a2f037de685cf694b7f2",
+  "source-quality.json": "932e58db15674a7a5439c7a14ffb8663984e068d9ed58997954725582c3da689",
+  "state-coverage.json": "b73dd0d51814e237ee107a460170ba480c64b96121bc59cd0a234315420272af"
+}

@@ -1,0 +1,194 @@
+{
+  "yahoo-daily": {
+    "count": 6647,
+    "unique": 6647,
+    "first_ms": 958138200000,
+    "last_ms": 1792157400000,
+    "median_gap_ms": 86400000.0,
+    "max_gap_ms": 604800000,
+    "gap_count": null,
+    "missing_grid_points": null,
+    "null_ohlcv_rows": 0,
+    "max_consecutive_exact_hours": 1,
+    "dividend_events": 29,
+    "split_events": 0,
+    "annual_context": {
+      "2000": {
+        "observations": 161,
+        "close_change": -0.37777777777777777,
+        "adjclose_change": -0.3777777372770019
+      },
+      "2001": {
+        "observations": 248,
+        "close_change": 0.42391952437971114,
+        "adjclose_change": 0.43473205527929215
+      },
+      "2002": {
+        "observations": 252,
+        "close_change": -0.004340744567626897,
+        "adjclose_change": -0.004340688087979716
+      },
+      "2003": {
+        "observations": 252,
+        "close_change": 0.33333333333333326,
+        "adjclose_change": 0.34614031069831874
+      },
+      "2004": {
+        "observations": 252,
+        "close_change": 0.13813226193284023,
+        "adjclose_change": 0.1421768434998647
+      },
+      "2005": {
+        "observations": 252,
+        "close_change": 0.5511264959546689,
+        "adjclose_change": 0.5603175332273831
+      },
+      "2006": {
+        "observations": 251,
+        "close_change": 0.06442580668600284,
+        "adjclose_change": 0.07163202564750026
+      },
+      "2007": {
+        "observations": 251,
+        "close_change": 0.3277241443879759,
+        "adjclose_change": 0.335246155381727
+      },
+      "2008": {
+        "observations": 253,
+        "close_change": -0.5529806704527096,
+        "adjclose_change": -0.5447317112151865
+      },
+      "2009": {
+        "observations": 252,
+        "close_change": 0.6416264175799966,
+        "adjclose_change": 0.6555256280099686
+      },
+      "2010": {
+        "observations": 252,
+        "close_change": 0.2399189568120601,
+        "adjclose_change": 0.2506413328304815
+      },
+      "2011": {
+        "observations": 252,
+        "close_change": -0.15409518688682666,
+        "adjclose_change": -0.14322803210145063
+      },
+      "2012": {
+        "observations": 250,
+        "close_change": 0.1673115522345361,
+        "adjclose_change": 0.1741710617267458
+      },
+      "2013": {
+        "observations": 252,
+        "close_change": -0.004617562661553665,
+        "adjclose_change": 0.009852646465366544
+      },
+      "2014": {
+        "observations": 252,
+        "close_change": -0.10301749735558052,
+        "adjclose_change": -0.09231705060357587
+      },
+      "2015": {
+        "observations": 252,
+        "close_change": -0.0921221166124595,
+        "adjclose_change": -0.0702476188504938
+      },
+      "2016": {
+        "observations": 252,
+        "close_change": 0.09709344593152025,
+        "adjclose_change": 0.11029157004397794
+      },
+      "2017": {
+        "observations": 251,
+        "close_change": 0.38682217283127773,
+        "adjclose_change": 0.42798373084561203
+      },
+      "2018": {
+        "observations": 251,
+        "close_change": -0.22419930829641066,
+        "adjclose_change": -0.21355893544452986
+      },
+      "2019": {
+        "observations": 252,
+        "close_change": 0.07094883680965447,
+        "adjclose_change": 0.09434547110734304
+      },
+      "2020": {
+        "observations": 253,
+        "close_change": 0.38410818057158735,
+        "adjclose_change": 0.3947682984842267
+      },
+      "2021": {
+        "observations": 252,
+        "close_change": -0.11831971223222937,
+        "adjclose_change": -0.09959568775811434
+      },
+      "2022": {
+        "observations": 251,
+        "close_change": -0.2745954392565564,
+        "adjclose_change": -0.26580267128276736
+      },
+      "2023": {
+        "observations": 250,
+        "close_change": 0.18221177013376288,
+        "adjclose_change": 0.21306635376055105
+      },
+      "2024": {
+        "observations": 252,
+        "close_change": -0.21393263718150313,
+        "adjclose_change": -0.1951361077289272
+      },
+      "2025": {
+        "observations": 250,
+        "close_change": 0.9017997506268469,
+        "adjclose_change": 0.944514850959369
+      },
+      "2026": {
+        "observations": 199,
+        "close_change": 0.47172765256176574,
+        "adjclose_change": 0.47172765256176574
+      }
+    },
+    "timezone": "America/New_York",
+    "currency": "USD",
+    "timestamp_semantics": "provider session/bar-start, NOT actual historical receive; daily not exact UTC24h grid",
+    "strategy_status": "INSUFFICIENT_DATA: daily incompatible; regular-session hourly gaps break frozen continuous lookback",
+    "adjustment": "raw OHLC and provider adjclose kept separate; adjclose retrospective, not point-in-time feature"
+  },
+  "yahoo-hourly": {
+    "count": 3479,
+    "unique": 3479,
+    "first_ms": 1729517400000,
+    "last_ms": 1792180800000,
+    "median_gap_ms": 3600000.0,
+    "max_gap_ms": 333000000,
+    "gap_count": null,
+    "missing_grid_points": null,
+    "null_ohlcv_rows": 5,
+    "max_consecutive_exact_hours": 7,
+    "dividend_events": 2,
+    "split_events": 0,
+    "annual_context": {
+      "2024": {
+        "observations": 344,
+        "close_change": -0.1761372994574385,
+        "adjclose_change": null
+      },
+      "2025": {
+        "observations": 1741,
+        "close_change": 0.892196906376238,
+        "adjclose_change": null
+      },
+      "2026": {
+        "observations": 1394,
+        "close_change": 0.4872226212927049,
+        "adjclose_change": null
+      }
+    },
+    "timezone": "America/New_York",
+    "currency": "USD",
+    "timestamp_semantics": "provider session/bar-start, NOT actual historical receive; daily not exact UTC24h grid",
+    "strategy_status": "INSUFFICIENT_DATA: daily incompatible; regular-session hourly gaps break frozen continuous lookback",
+    "adjustment": "raw OHLC and provider adjclose kept separate; adjclose retrospective, not point-in-time feature"
+  }
+}

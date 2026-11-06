@@ -1,0 +1,102 @@
+{
+  "A_30m_BTC_to_ETH": {
+    "coefficients": {
+      "baseline": [
+        -0.7376051450652493,
+        -0.03967119974250579,
+        0.0
+      ],
+      "candidate": [
+        -0.725909447724484,
+        -0.11413658223309933,
+        0.11122577383427924
+      ]
+    },
+    "train_n": 325,
+    "train_utc_dates": 7,
+    "label_max_utc": "2026-10-26T23:30:00+00:00",
+    "train_times_sha256": "df75e026b571d73716ad3c21f30d6d3b69e7dac609ea865db5fdf521f1c1a679"
+  },
+  "A_30m_ETH_to_BTC": {
+    "coefficients": {
+      "baseline": [
+        -0.36601444830411806,
+        -0.059548970082883915,
+        0.0
+      ],
+      "candidate": [
+        -0.3674715574749881,
+        -0.07645935753020854,
+        0.014048954583287553
+      ]
+    },
+    "train_n": 325,
+    "train_utc_dates": 7,
+    "label_max_utc": "2026-10-26T23:30:00+00:00",
+    "train_times_sha256": "df75e026b571d73716ad3c21f30d6d3b69e7dac609ea865db5fdf521f1c1a679"
+  },
+  "A_90m_BTC_to_ETH": {
+    "coefficients": {
+      "baseline": [
+        -3.8268366875273903,
+        -0.045510367777421644,
+        0.0
+      ],
+      "candidate": [
+        -3.8814806569937415,
+        0.04056290273576436,
+        -0.13403729563150044
+      ]
+    },
+    "train_n": 110,
+    "train_utc_dates": 7,
+    "label_max_utc": "2026-10-26T23:00:00+00:00",
+    "train_times_sha256": "e45f4f864c942fd97075e3dc35ed2a8e1abe065fea3998c4fd4a342425dbeb90"
+  },
+  "A_90m_ETH_to_BTC": {
+    "coefficients": {
+      "baseline": [
+        -2.3161067868298373,
+        -0.28213657110164364,
+        0.0
+      ],
+      "candidate": [
+        -2.341607788236579,
+        -0.32728147686972764,
+        0.038394393037722824
+      ]
+    },
+    "train_n": 110,
+    "train_utc_dates": 7,
+    "label_max_utc": "2026-10-26T23:00:00+00:00",
+    "train_times_sha256": "e45f4f864c942fd97075e3dc35ed2a8e1abe065fea3998c4fd4a342425dbeb90"
+  },
+  "B_30m_BTC_to_ETH": {
+    "coefficients": null,
+    "train_n": 36,
+    "train_utc_dates": 6,
+    "label_max_utc": "2026-10-26T17:30:00+00:00",
+    "train_times_sha256": "b2dd3eae8febef68c33e0ee39662238f9854edaa4dabab79a5ec6d1022662447"
+  },
+  "B_30m_ETH_to_BTC": {
+    "coefficients": null,
+    "train_n": 27,
+    "train_utc_dates": 6,
+    "label_max_utc": "2026-10-26T17:00:00+00:00",
+    "train_times_sha256": "ebef22c15bc28f4ebf2977b70b0ac32e8af04fdd8cd98822b89c96df369dc0a7"
+  },
+  "B_90m_BTC_to_ETH": {
+    "coefficients": null,
+    "train_n": 12,
+    "train_utc_dates": 6,
+    "label_max_utc": "2026-10-26T17:00:00+00:00",
+    "train_times_sha256": "a295f34bd7119b72f588ab8e43999ae1e30bc1ddf21f0bd383182055cfeba028"
+  },
+  "B_90m_ETH_to_BTC": {
+    "coefficients": null,
+    "train_n": 10,
+    "train_utc_dates": 5,
+    "label_max_utc": "2026-10-26T17:00:00+00:00",
+    "train_times_sha256": "30f42d01569221b070c12a2f88841f12506b44ec4442658e7821acb9de0e9870"
+  }
+}

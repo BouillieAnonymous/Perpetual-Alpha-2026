@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "payload_hashes": 337657,
+  "independent_minutes": 158150,
+  "prior_tenasset_counts": 38,
+  "future_truncation": "PENDING_INDEPENDENT_VERIFIER",
+  "source_sha256": "fc5ab7a251de06813e9ab74e366d97faee242da96ef0c0f2cd1e722eb861d898"
+}

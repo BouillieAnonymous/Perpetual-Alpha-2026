@@ -1,0 +1,299 @@
+{
+  "BTC": {
+    "real_coin": "BTC",
+    "venue": "Hyperliquid mainnet native",
+    "bars": {
+      "count": 4392,
+      "unique": 4392,
+      "first_ms": 1776474000000,
+      "last_ms": 1792281600000,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600000,
+      "gap_count": 0,
+      "missing_grid_points": 0
+    },
+    "funding": {
+      "count": 4392,
+      "unique": 4392,
+      "first_ms": 1776470400064,
+      "last_ms": 1792278000018,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600130,
+      "gap_count": 2161,
+      "missing_grid_points": 0
+    },
+    "quantity_step": 1e-05,
+    "zero_volume_bars": 0,
+    "available_ms_min": 1792326843238,
+    "mapping_status": "conditional reference counterpart, not same execution venue",
+    "unit_warning": null
+  },
+  "ETH": {
+    "real_coin": "ETH",
+    "venue": "Hyperliquid mainnet native",
+    "bars": {
+      "count": 4392,
+      "unique": 4392,
+      "first_ms": 1776474000000,
+      "last_ms": 1792281600000,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600000,
+      "gap_count": 0,
+      "missing_grid_points": 0
+    },
+    "funding": {
+      "count": 4392,
+      "unique": 4392,
+      "first_ms": 1776470400064,
+      "last_ms": 1792278000018,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600130,
+      "gap_count": 2161,
+      "missing_grid_points": 0
+    },
+    "quantity_step": 0.0001,
+    "zero_volume_bars": 0,
+    "available_ms_min": 1792326858848,
+    "mapping_status": "conditional reference counterpart, not same execution venue",
+    "unit_warning": null
+  },
+  "HYPE": {
+    "real_coin": "HYPE",
+    "venue": "Hyperliquid mainnet native",
+    "bars": {
+      "count": 4998,
+      "unique": 4998,
+      "first_ms": 1774342800000,
+      "last_ms": 1792332000000,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600000,
+      "gap_count": 0,
+      "missing_grid_points": 0
+    },
+    "funding": {
+      "count": 4998,
+      "unique": 4998,
+      "first_ms": 1774339200033,
+      "last_ms": 1792328400028,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600149,
+      "gap_count": 2449,
+      "missing_grid_points": 0
+    },
+    "quantity_step": 0.01,
+    "zero_volume_bars": 0,
+    "available_ms_min": 1792333060602,
+    "mapping_status": "conditional reference counterpart, not same execution venue",
+    "unit_warning": null
+  },
+  "EWY": {
+    "real_coin": "xyz:EWY",
+    "venue": "Hyperliquid mainnet xyz",
+    "bars": {
+      "count": 4998,
+      "unique": 4998,
+      "first_ms": 1774342800000,
+      "last_ms": 1792332000000,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600000,
+      "gap_count": 0,
+      "missing_grid_points": 0
+    },
+    "funding": {
+      "count": 4998,
+      "unique": 4998,
+      "first_ms": 1774339200033,
+      "last_ms": 1792328400028,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600149,
+      "gap_count": 2449,
+      "missing_grid_points": 0
+    },
+    "quantity_step": 0.001,
+    "zero_volume_bars": 2,
+    "available_ms_min": 1792333072061,
+    "mapping_status": "conditional reference counterpart, not same execution venue",
+    "unit_warning": null
+  },
+  "EWJ": {
+    "real_coin": "xyz:EWJ",
+    "venue": "Hyperliquid mainnet xyz",
+    "bars": {
+      "count": 4998,
+      "unique": 4998,
+      "first_ms": 1774346400000,
+      "last_ms": 1792335600000,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600000,
+      "gap_count": 0,
+      "missing_grid_points": 0
+    },
+    "funding": {
+      "count": 4998,
+      "unique": 4998,
+      "first_ms": 1774342800051,
+      "last_ms": 1792332000030,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600149,
+      "gap_count": 2449,
+      "missing_grid_points": 0
+    },
+    "quantity_step": 0.001,
+    "zero_volume_bars": 268,
+    "available_ms_min": 1792337655398,
+    "mapping_status": "conditional reference counterpart, not same execution venue",
+    "unit_warning": null
+  },
+  "GOLD": {
+    "real_coin": "xyz:GOLD",
+    "venue": "Hyperliquid mainnet xyz",
+    "bars": {
+      "count": 4998,
+      "unique": 4998,
+      "first_ms": 1774346400000,
+      "last_ms": 1792335600000,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600000,
+      "gap_count": 0,
+      "missing_grid_points": 0
+    },
+    "funding": {
+      "count": 4998,
+      "unique": 4998,
+      "first_ms": 1774342800051,
+      "last_ms": 1792332000030,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600149,
+      "gap_count": 2449,
+      "missing_grid_points": 0
+    },
+    "quantity_step": 0.0001,
+    "zero_volume_bars": 0,
+    "available_ms_min": 1792337664466,
+    "mapping_status": "conditional reference counterpart, not same execution venue",
+    "unit_warning": null
+  },
+  "BRENT": {
+    "real_coin": "xyz:BRENTOIL",
+    "venue": "Hyperliquid mainnet xyz",
+    "bars": {
+      "count": 4998,
+      "unique": 4998,
+      "first_ms": 1774346400000,
+      "last_ms": 1792335600000,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600000,
+      "gap_count": 0,
+      "missing_grid_points": 0
+    },
+    "funding": {
+      "count": 4998,
+      "unique": 4998,
+      "first_ms": 1774342800051,
+      "last_ms": 1792332000030,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600149,
+      "gap_count": 2449,
+      "missing_grid_points": 0
+    },
+    "quantity_step": 0.01,
+    "zero_volume_bars": 0,
+    "available_ms_min": 1792337672969,
+    "mapping_status": "conditional reference counterpart, not same execution venue",
+    "unit_warning": null
+  },
+  "USDJPY": {
+    "real_coin": "xyz:JPY",
+    "venue": "Hyperliquid mainnet xyz",
+    "bars": {
+      "count": 4998,
+      "unique": 4998,
+      "first_ms": 1774346400000,
+      "last_ms": 1792335600000,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600000,
+      "gap_count": 0,
+      "missing_grid_points": 0
+    },
+    "funding": {
+      "count": 4998,
+      "unique": 4998,
+      "first_ms": 1774342800051,
+      "last_ms": 1792332000030,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600149,
+      "gap_count": 2449,
+      "missing_grid_points": 0
+    },
+    "quantity_step": 0.01,
+    "zero_volume_bars": 51,
+    "available_ms_min": 1792337682335,
+    "mapping_status": "conditional reference counterpart, not same execution venue",
+    "unit_warning": "old PAR USDJPY catalog says JPY/USD; do not infer inversion from name alone",
+    "current_oracle_unit_check": {
+      "par": 157.91,
+      "xyz": 157.89,
+      "ratio": 1.0001266704667808,
+      "inverse_product": 24932.4099,
+      "same_scale": true
+    }
+  },
+  "SP500": {
+    "real_coin": "xyz:SP500",
+    "venue": "Hyperliquid mainnet xyz",
+    "bars": {
+      "count": 4998,
+      "unique": 4998,
+      "first_ms": 1774346400000,
+      "last_ms": 1792335600000,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600000,
+      "gap_count": 0,
+      "missing_grid_points": 0
+    },
+    "funding": {
+      "count": 4998,
+      "unique": 4998,
+      "first_ms": 1774342800051,
+      "last_ms": 1792332000030,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600149,
+      "gap_count": 2449,
+      "missing_grid_points": 0
+    },
+    "quantity_step": 0.001,
+    "zero_volume_bars": 0,
+    "available_ms_min": 1792337690207,
+    "mapping_status": "conditional reference counterpart, not same execution venue",
+    "unit_warning": null
+  },
+  "USDEUR": {
+    "real_coin": "xyz:EUR",
+    "venue": "Hyperliquid mainnet xyz",
+    "bars": {
+      "count": 4998,
+      "unique": 4998,
+      "first_ms": 1774346400000,
+      "last_ms": 1792335600000,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600000,
+      "gap_count": 0,
+      "missing_grid_points": 0
+    },
+    "funding": {
+      "count": 4998,
+      "unique": 4998,
+      "first_ms": 1774342800051,
+      "last_ms": 1792332000030,
+      "median_gap_ms": 3600000,
+      "max_gap_ms": 3600149,
+      "gap_count": 2449,
+      "missing_grid_points": 0
+    },
+    "quantity_step": 0.1,
+    "zero_volume_bars": 87,
+    "available_ms_min": 1792337770418,
+    "mapping_status": "conditional reference counterpart, not same execution venue",
+    "unit_warning": null
+  }
+}

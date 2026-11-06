@@ -1,0 +1,17 @@
+{
+  "files": {
+    "final-code-probe-quality.json": "2eff22879680d4eaf2cb0df14de7c35baf49a88a63f08903063a65fd36d8f2d6",
+    "hash-convention.txt": "691c09cb318b4da97a7a16579b36252b74a50701ad476352aa7ccdadbb0a7c40",
+    "load.json": "28dbee72eddf61fdb49f25463bd079c3a4fd0cfc9780a01df14700563ccaf950",
+    "messages.jsonl.gz": "e3c3c66cbce8da8fa55f1ea074c1540f10104c2e4f9399bad0f84fb966b9a9a6",
+    "observations.jsonl.gz": "3581bfad2243bd354caaf60fa14df2f4ce8fd28a81712764a4e8a60b599c1cb6",
+    "quality.json": "2ce96eb5aa5314061945e0848db4a9be8a579c11033970f50837c936c4b5af11",
+    "report.zh-CN.md": "cd41bc4e7fde75b40637f3f9ecdcaeace21c101dd0c08bf48b3112fded0afc78",
+    "rest-latency.json": "79fa22652da9a87b5f12bbc2dc3237dc7036fe6bb7c9c37de49d8dd5898d8e60"
+  },
+  "sources": {
+    "src/perpetual_alpha/stream_collection.py": "6b122225378c8376750e04b005d5a5999a144b8ca1688af435658e86ad9fd0aa",
+    "src/perpetual_alpha/collection_quality.py": "9845f1b11a0efc6be56c35b492449174bb6bb06a12be7d03ce8e97e32ad9aa3d",
+    "scripts/benchmark_stream_store.py": "675e14671ce39cbe7b6d7ce4c2469a7c7e368aa5958f2c0e999df7f760a26343"
+  }
+}

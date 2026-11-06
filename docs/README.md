@@ -1,3 +1,26 @@
+# Documentation
+
+Maintained navigation for the completed competition project. Historical records
+below retain their original dates and maturity statements.
+
+- [Project overview and maturity](../README.md)
+- [Consolidated research index](research/INDEX.md)
+- [Repository structure and isolation](consolidation/repository-structure.md)
+- [Final integration report](consolidation/final-integration-report.md)
+- [PR disposition](consolidation/pr-disposition.md)
+- [Tests and security](consolidation/test-security-report.md)
+- [Reproducibility](consolidation/reproducibility-report.md)
+- [Remaining issues and merge recommendation](consolidation/remaining-issues.md)
+- [Historical research workspace](../research/README.md)
+
+Status vocabulary: **production** is the original competition runtime path;
+**research-only** is offline experimental evidence; **experimental** is an
+unadopted implementation; **proposal-only** is a design without implementation;
+**historical/deprecated** describes a retained earlier stage. None is a claim
+about the current state of a remote server or account.
+
+## Historical module index
+
 # Perpetual Alpha 2026｜文档入口
 
 更新：2026 年 10 月 19 日。项目维护四份核心正文，另设架构规范、开发基线、实现说明、独立学习资料与按用户要求保存的讨论分析；本页仅导航，不复制进度和参数。
@@ -68,3 +91,7 @@
 重组前的八份原稿已保存在仓库本地 `.cache/document-history/` ZIP 快照中。该目录不进入 Git，不作为团队共享文档；项目共享和后续维护以当前四份核心正文为准，学习资料以独立学习文档为准。
 
 原 research-ideas.zh-CN.md 只保留跳转入口；策略正文统一维护 strategy-development.zh-CN.md，学习资料统一维护 agent-learning-resources.zh-CN.md。
+
+## 2026-10-19–20 PAS 真实盘口研究记录
+
+[三轮研究归档、固定规则与复现入口](research/pas-research-records-2026-10-20.md)：参考价回归、短周期候选，以及全十资产5/10分钟动量、反转与外部领先诊断。

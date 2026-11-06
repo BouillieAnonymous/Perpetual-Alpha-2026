@@ -1,0 +1,14 @@
+{
+  "status": "OFFLINE_FEATURE_VERIFIED",
+  "grid": 21378,
+  "arrival_asset_points": 42756,
+  "pr38_past_cells_compared": 213780,
+  "future_columns_imported": 0,
+  "features_per_mode": 53,
+  "v1_groups": 5,
+  "v1_temporal_panels": 13,
+  "browser_acceptance": "PENDING_CHROME_EXTENSION",
+  "raw_sha256": "c606ebb4b5a273f9385438fa3c3d47e64bc341ec5107aec714e4f0233d2b63db",
+  "panel_sha256": "87bced947df20fdb6d8fe87e4655cbcfb943456478bd2147885ef7d1e01cf203",
+  "points_sha256": "8eeeee4f858197bcbb19eda70648b3ceedadf80294a4dd049b01d6be1345af14"
+}

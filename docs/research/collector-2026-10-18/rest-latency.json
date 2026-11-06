@@ -1,0 +1,10 @@
+{
+  "request": {
+    "type": "meta",
+    "dex": "par"
+  },
+  "received_ms": 1792287907370,
+  "elapsed_ms": 300.2107000211254,
+  "payload_sha256": "0d0b596e176f29b74c06b938f6159e3c590cc06a013dbb90855139ec689f0ff4",
+  "scope": "one local request, not latency percentile or VPS measurement"
+}

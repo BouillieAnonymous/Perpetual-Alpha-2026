@@ -1,0 +1,19 @@
+{
+  "written_before_new_results": true,
+  "forward_shadow": "each test block regenerates unchanged three rules with active_start=test_start and end=test_end, warmup uses earlier bars; zero initial holdings",
+  "training_labels": "original full-strategy, state-hour past PnL, all labels matured before training/validation end; completed position episodes counted separately",
+  "attribution_drawdown": "mark-PnL attributed-hour path zeroed outside state, NOT executable filtered-strategy drawdown",
+  "baseline_identity": "FIXED orders same regenerated original rule; overlay zero initial order harmless, executable PnL verified independently",
+  "inputs": {
+    "BRENT-ledgers.jsonl.gz": "446e09e2653fea12a1de8ee6f2ce825fdcb29861c650a43d2d564678a0b41714",
+    "BTC-ledgers.jsonl.gz": "04153edaeda55109cad62cac38af72e48cdfb13e0d0a968757acc4aba437194e",
+    "ETH-ledgers.jsonl.gz": "6ef5c34369de37e034dce8f92d482215ddb66d8fa0a4c004bacb969647362d58",
+    "EWJ-ledgers.jsonl.gz": "48e39ded67c5bfcd76f65670a276d68b8a11f6f057b5854e7bf6e86e2d6b851c",
+    "EWY-ledgers.jsonl.gz": "e7a20f0170f76e479abc6124130399b5056e3622eef2daced6b9c357c8bc9f56",
+    "GOLD-ledgers.jsonl.gz": "58787edf6098ff3785e1b90ca0e149ae856a9fa5325fd0d36d75b037597a4bf6",
+    "HYPE-ledgers.jsonl.gz": "def0cbf2e8fc71be277a0b4a8a4b72434505121fb357158d46fd4afac7bb2dd8",
+    "SP500-ledgers.jsonl.gz": "6ad1d10be066ae1a8ac69656e837561769bf865acdfcae917e1423903018dc51",
+    "USDEUR-ledgers.jsonl.gz": "b516361026c5c047a462e5a3b85419315513a37cebe3487136c8e308eaebf4ef",
+    "USDJPY-ledgers.jsonl.gz": "900a167e44c33e5d55ebda54be3ed71571e4819bbb9c0c2d7dd1f714f9d74196"
+  }
+}

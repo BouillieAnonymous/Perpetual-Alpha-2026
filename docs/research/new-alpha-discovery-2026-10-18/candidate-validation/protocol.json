@@ -1,0 +1,22 @@
+{
+  "freeze_ms": 1792333057733,
+  "parent_commit": "c69f76afbdc7bb82ccb0bc878848c1ab2bc265b6",
+  "rules": "unchanged ATR/Donchian lookback24 ATR1.5 hold12; FUNDING-MEAN24 rebalance12 target -0.2sign(mean24)",
+  "primary_interval": "1h",
+  "history_start_ms": 1774339200000,
+  "history_end_ms": 1792332000000,
+  "splits": "60/20/20 chronological +12h gap; downloaded past is retrospective, not prospective",
+  "funding_controls": [
+    "same-sign-funding",
+    "momentum24-exposure-matched",
+    "fixed-long",
+    "fixed-short",
+    "no-trade"
+  ],
+  "conditional_model": "OLS 12h forward executable-open return ~ intercept + past24h log momentum + funding direction; HAC lag2; chronological fit only",
+  "no_parameter_search": true,
+  "prospective_eligible": "decision availability AFTER freeze_ms only; historical response availability is current receipt, never backdated",
+  "etf_daily": "long-run context only; cannot substitute daily bars for frozen hourly rule",
+  "quote_probe_seconds": 120,
+  "quote_probe_interval_seconds": 5
+}

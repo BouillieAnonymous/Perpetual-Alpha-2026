@@ -1,0 +1,28 @@
+{
+  "sources": {
+    "guide": "https://perpetual-alpha26.github.io/docs/",
+    "fees": "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/fees#fee-formula-for-developers",
+    "funding": "https://hyperliquid.gitbook.io/hyperliquid-docs/trading/funding"
+  },
+  "retrieval_date": "2026-10-18",
+  "formula_inputs": {
+    "user_maker_base_fraction": ".00015",
+    "user_taker_base_fraction": ".00045",
+    "deployer_scale": 1,
+    "growth_mode": false,
+    "referral_discount": 0,
+    "aligned_quote_discount": false
+  },
+  "effective_fractional_rates": {
+    "maker": "0.00030",
+    "taker": "0.00090"
+  },
+  "input_sha256": "407e2da51a57ea4800bd3f979e0515532f0113c37eeb0a4533a9b14e46de0215",
+  "audit_script_sha256": "a0f7978d4ff7cb4e7a36a30b1f6b4823179e61e552d8ad7db420cc940c0f50ff",
+  "scope": "352 frozen experiments: all splits and both frozen execution schedules",
+  "fee_only": "optimistic zero-spread/slippage reference-price sensitivity; NOT an executable backtest",
+  "maker": "fee sensitivity on IDENTICAL hypothetical fills; NOT proof of maker fill probability",
+  "funding": "official signed payment formula, archived hourly rates, prior-close oracle PROXY",
+  "actual_historical_userFees": "UNKNOWN; no account requests made",
+  "official_exact_total_cost_and_executable_return": "UNKNOWN"
+}

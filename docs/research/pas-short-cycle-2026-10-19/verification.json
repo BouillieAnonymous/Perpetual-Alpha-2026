@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "checked_scenario_trade_records": 5961,
+  "prefix_feature_rows": 2500,
+  "causal_features": true,
+  "prefix_scheduled_trade_invariance": true,
+  "actual_top_depth_lot_and_notional_checks": true,
+  "decimal_accounting": true,
+  "no_unresolved_positions": true,
+  "prior_mean_reversion_experiments_unchanged": true
+}

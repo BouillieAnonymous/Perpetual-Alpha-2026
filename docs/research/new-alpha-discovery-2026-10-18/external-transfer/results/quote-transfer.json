@@ -1,0 +1,871 @@
+{
+  "status": "INSUFFICIENT_DATA",
+  "trials": [
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327014626,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327014626,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327019621,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327019621,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327024642,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327024642,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327029645,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327029645,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327034642,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327034642,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327039652,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327039652,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327044640,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327044640,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327049645,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327049645,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327054651,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327054651,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327059685,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327059685,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327064693,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327064693,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327069681,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327069681,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327074701,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327074701,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327079707,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327079707,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327084719,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327084719,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327089736,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327089736,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327094733,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327094733,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327099803,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327099803,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327104734,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327104734,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327109760,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327109760,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327114728,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327114728,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327119808,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327119808,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327124772,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327124772,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327129803,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:BTC",
+      "decision_ms": 1792327129803,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327014626,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327014626,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327019621,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327019621,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327024624,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327024624,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327029649,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327029649,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327034646,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327034646,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327039636,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327039636,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327044640,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327044640,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327049645,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327049645,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327054651,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327054651,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327059664,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327059664,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327064700,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327064700,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327069681,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327069681,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327074695,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327074695,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327079702,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327079702,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327084703,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327084703,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327089736,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327089736,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327094733,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327094733,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327099708,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327099708,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327104766,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327104766,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327109762,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327109762,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327114728,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327114728,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327119808,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327119808,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327124772,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327124772,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "external",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327129771,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    },
+    {
+      "source": "par",
+      "symbol": "par:ETH",
+      "decision_ms": 1792327129771,
+      "direction": null,
+      "status": "INSUFFICIENT_HISTORY",
+      "net_pnl": null,
+      "scenario_pnl": null
+    }
+  ],
+  "reason": "short concurrent probe lacks 24h signal history and 4h exits",
+  "net_return": null
+}

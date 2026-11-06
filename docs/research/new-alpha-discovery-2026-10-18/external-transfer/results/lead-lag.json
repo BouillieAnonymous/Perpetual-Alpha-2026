@@ -1,0 +1,288 @@
+{
+  "counts": {
+    "transfer-1792327014325112000/par:BTC": {
+      "par_observations": 24,
+      "matched_decisions": 8
+    },
+    "transfer-1792327014325112000/par:ETH": {
+      "par_observations": 24,
+      "matched_decisions": 7
+    }
+  },
+  "observations": [
+    {
+      "symbol": "par:BTC",
+      "decision_ms": 1792327049645,
+      "horizon_ms": 30000,
+      "external_available_ms": 1792327049645,
+      "external_change_past_30s": -0.0001952922371439971,
+      "par_change_past_30s": 0.0,
+      "future_par_change": 0.0
+    },
+    {
+      "symbol": "par:BTC",
+      "decision_ms": 1792327049645,
+      "horizon_ms": 60000,
+      "external_available_ms": 1792327049645,
+      "external_change_past_30s": -0.0001952922371439971,
+      "par_change_past_30s": 0.0,
+      "future_par_change": -0.0004704401757130644
+    },
+    {
+      "symbol": "par:BTC",
+      "decision_ms": 1792327064693,
+      "horizon_ms": 30000,
+      "external_available_ms": 1792327064665,
+      "external_change_past_30s": -0.00013426750990559562,
+      "par_change_past_30s": 0.0,
+      "future_par_change": 0.0
+    },
+    {
+      "symbol": "par:BTC",
+      "decision_ms": 1792327064693,
+      "horizon_ms": 60000,
+      "external_available_ms": 1792327064665,
+      "external_change_past_30s": -0.00013426750990559562,
+      "par_change_past_30s": 0.0,
+      "future_par_change": -0.00039099968118476533
+    },
+    {
+      "symbol": "par:BTC",
+      "decision_ms": 1792327094733,
+      "horizon_ms": 30000,
+      "external_available_ms": 1792327094733,
+      "external_change_past_30s": -0.0001342855400907451,
+      "par_change_past_30s": 0.0,
+      "future_par_change": -0.00039099968118476533
+    },
+    {
+      "symbol": "par:BTC",
+      "decision_ms": 1792327094733,
+      "horizon_ms": 60000,
+      "external_available_ms": 1792327094733,
+      "external_change_past_30s": -0.0001342855400907451,
+      "par_change_past_30s": 0.0,
+      "future_par_change": null
+    },
+    {
+      "symbol": "par:BTC",
+      "decision_ms": 1792327099803,
+      "horizon_ms": 30000,
+      "external_available_ms": 1792327099739,
+      "external_change_past_30s": -0.00014649421068874913,
+      "par_change_past_30s": -0.00034211635955331155,
+      "future_par_change": -4.8883321631481274e-05
+    },
+    {
+      "symbol": "par:BTC",
+      "decision_ms": 1792327099803,
+      "horizon_ms": 60000,
+      "external_available_ms": 1792327099739,
+      "external_change_past_30s": -0.00014649421068874913,
+      "par_change_past_30s": -0.00034211635955331155,
+      "future_par_change": null
+    },
+    {
+      "symbol": "par:BTC",
+      "decision_ms": 1792327109760,
+      "horizon_ms": 30000,
+      "external_available_ms": 1792327109743,
+      "external_change_past_30s": -0.000256378953913151,
+      "par_change_past_30s": -0.0004704401757130644,
+      "future_par_change": null
+    },
+    {
+      "symbol": "par:BTC",
+      "decision_ms": 1792327109760,
+      "horizon_ms": 60000,
+      "external_available_ms": 1792327109743,
+      "external_change_past_30s": -0.000256378953913151,
+      "par_change_past_30s": -0.0004704401757130644,
+      "future_par_change": null
+    },
+    {
+      "symbol": "par:BTC",
+      "decision_ms": 1792327119808,
+      "horizon_ms": 30000,
+      "external_available_ms": 1792327119743,
+      "external_change_past_30s": -7.935902331515914e-05,
+      "par_change_past_30s": -0.00039099968118476533,
+      "future_par_change": null
+    },
+    {
+      "symbol": "par:BTC",
+      "decision_ms": 1792327119808,
+      "horizon_ms": 60000,
+      "external_available_ms": 1792327119743,
+      "external_change_past_30s": -7.935902331515914e-05,
+      "par_change_past_30s": -0.00039099968118476533,
+      "future_par_change": null
+    },
+    {
+      "symbol": "par:BTC",
+      "decision_ms": 1792327124772,
+      "horizon_ms": 30000,
+      "external_available_ms": 1792327124772,
+      "external_change_past_30s": 6.104111731556017e-05,
+      "par_change_past_30s": -0.00039099968118476533,
+      "future_par_change": null
+    },
+    {
+      "symbol": "par:BTC",
+      "decision_ms": 1792327124772,
+      "horizon_ms": 60000,
+      "external_available_ms": 1792327124772,
+      "external_change_past_30s": 6.104111731556017e-05,
+      "par_change_past_30s": -0.00039099968118476533,
+      "future_par_change": null
+    },
+    {
+      "symbol": "par:BTC",
+      "decision_ms": 1792327129803,
+      "horizon_ms": 30000,
+      "external_available_ms": 1792327129787,
+      "external_change_past_30s": 7.324978791352472e-05,
+      "par_change_past_30s": -4.8883321631481274e-05,
+      "future_par_change": null
+    },
+    {
+      "symbol": "par:BTC",
+      "decision_ms": 1792327129803,
+      "horizon_ms": 60000,
+      "external_available_ms": 1792327129787,
+      "external_change_past_30s": 7.324978791352472e-05,
+      "par_change_past_30s": -4.8883321631481274e-05,
+      "future_par_change": null
+    },
+    {
+      "symbol": "par:ETH",
+      "decision_ms": 1792327049645,
+      "horizon_ms": 30000,
+      "external_available_ms": 1792327049645,
+      "external_change_past_30s": 0.0,
+      "par_change_past_30s": 0.0,
+      "future_par_change": -0.00041485169647041844
+    },
+    {
+      "symbol": "par:ETH",
+      "decision_ms": 1792327049645,
+      "horizon_ms": 60000,
+      "external_available_ms": 1792327049645,
+      "external_change_past_30s": 0.0,
+      "par_change_past_30s": 0.0,
+      "future_par_change": -0.00041485169647041844
+    },
+    {
+      "symbol": "par:ETH",
+      "decision_ms": 1792327064700,
+      "horizon_ms": 30000,
+      "external_available_ms": 1792327064665,
+      "external_change_past_30s": -0.0003314619574173512,
+      "par_change_past_30s": -0.0002281471351505322,
+      "future_par_change": -0.0001867045613198265
+    },
+    {
+      "symbol": "par:ETH",
+      "decision_ms": 1792327064700,
+      "horizon_ms": 60000,
+      "external_available_ms": 1792327064665,
+      "external_change_past_30s": -0.0003314619574173512,
+      "par_change_past_30s": -0.0002281471351505322,
+      "future_par_change": -8.297550153068563e-05
+    },
+    {
+      "symbol": "par:ETH",
+      "decision_ms": 1792327069681,
+      "horizon_ms": 30000,
+      "external_available_ms": 1792327069681,
+      "external_change_past_30s": -0.0003314619574173512,
+      "par_change_past_30s": -0.0002281471351505322,
+      "future_par_change": -0.0001867045613198265
+    },
+    {
+      "symbol": "par:ETH",
+      "decision_ms": 1792327069681,
+      "horizon_ms": 60000,
+      "external_available_ms": 1792327069681,
+      "external_change_past_30s": -0.0003314619574173512,
+      "par_change_past_30s": -0.0002281471351505322,
+      "future_par_change": -8.297550153068563e-05
+    },
+    {
+      "symbol": "par:ETH",
+      "decision_ms": 1792327074695,
+      "horizon_ms": 30000,
+      "external_available_ms": 1792327074687,
+      "external_change_past_30s": -0.0004557885220197507,
+      "par_change_past_30s": -0.0002281471351505322,
+      "future_par_change": -0.0001867045613198265
+    },
+    {
+      "symbol": "par:ETH",
+      "decision_ms": 1792327074695,
+      "horizon_ms": 60000,
+      "external_available_ms": 1792327074687,
+      "external_change_past_30s": -0.0004557885220197507,
+      "par_change_past_30s": -0.0002281471351505322,
+      "future_par_change": null
+    },
+    {
+      "symbol": "par:ETH",
+      "decision_ms": 1792327104766,
+      "horizon_ms": 30000,
+      "external_available_ms": 1792327104750,
+      "external_change_past_30s": -0.00016579280082768303,
+      "par_change_past_30s": -0.0001867045613198265,
+      "future_par_change": null
+    },
+    {
+      "symbol": "par:ETH",
+      "decision_ms": 1792327104766,
+      "horizon_ms": 60000,
+      "external_available_ms": 1792327104750,
+      "external_change_past_30s": -0.00016579280082768303,
+      "par_change_past_30s": -0.0001867045613198265,
+      "future_par_change": null
+    },
+    {
+      "symbol": "par:ETH",
+      "decision_ms": 1792327109762,
+      "horizon_ms": 30000,
+      "external_available_ms": 1792327109743,
+      "external_change_past_30s": -0.0001243471774793838,
+      "par_change_past_30s": 0.0,
+      "future_par_change": null
+    },
+    {
+      "symbol": "par:ETH",
+      "decision_ms": 1792327109762,
+      "horizon_ms": 60000,
+      "external_available_ms": 1792327109743,
+      "external_change_past_30s": -0.0001243471774793838,
+      "par_change_past_30s": 0.0,
+      "future_par_change": null
+    },
+    {
+      "symbol": "par:ETH",
+      "decision_ms": 1792327119808,
+      "horizon_ms": 30000,
+      "external_available_ms": 1792327119808,
+      "external_change_past_30s": 8.289640027121053e-05,
+      "par_change_past_30s": 0.00010372905978908144,
+      "future_par_change": null
+    },
+    {
+      "symbol": "par:ETH",
+      "decision_ms": 1792327119808,
+      "horizon_ms": 60000,
+      "external_available_ms": 1792327119808,
+      "external_change_past_30s": 8.289640027121053e-05,
+      "par_change_past_30s": 0.00010372905978908144,
+      "future_par_change": null
+    }
+  ],
+  "complete_overlapping_labels": 13,
+  "status": "INSUFFICIENT_DATA",
+  "reason": "bounded short REST probe; overlapping labels not independent",
+  "executable_net_return": null
+}

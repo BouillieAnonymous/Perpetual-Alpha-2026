@@ -1,0 +1,3 @@
+# Preserve captured HTTP response bytes and their manifest SHA-256 across platforms.
+# Upstream source whitespace is evidence and must not be cleaned up.
+* -text -whitespace

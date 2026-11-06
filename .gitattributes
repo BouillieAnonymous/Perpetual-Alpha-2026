@@ -5,3 +5,7 @@ deploy/*.txt text eol=lf
 
 # SSH launcher/config must remain Unix text even in Windows checkouts.
 deploy/ssh-export/* text eol=lf
+
+# Preserve frozen research blobs exactly on every platform.
+docs/research/** -text
+research/legacy/** -text

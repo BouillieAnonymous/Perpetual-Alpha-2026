@@ -1,0 +1,11 @@
+{
+  "status": "VERIFIED",
+  "independent_normal_equation_fits": 21,
+  "residual_orthogonality": true,
+  "paired_prediction_groups_checked": 4,
+  "paired_prediction_rows_checked": 427,
+  "pr36_published_script_hashes_match_normalized_tool_copies": true,
+  "stage1_local_results_equal_pr36_frozen_results": true,
+  "published_analysis_and_protocol_hashes_match_execution": true,
+  "verifier_sha256": "48f174fcfdab379ad7f1be36d747d41e1606c0b72ecebb3c1b8e526925305f97"
+}

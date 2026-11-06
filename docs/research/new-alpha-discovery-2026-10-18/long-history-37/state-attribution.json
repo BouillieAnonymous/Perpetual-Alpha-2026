@@ -1,0 +1,752 @@
+[
+  {
+    "asset": "BTC",
+    "rule": "DONCHIAN_EXPANSION",
+    "state": "range",
+    "closed_segments": 92,
+    "gross_price_pnl": -57.03579,
+    "fees": 165.39175965055276,
+    "funding_scenario": 1.1788385320773902,
+    "net_scenario": -405.0173186934548
+  },
+  {
+    "asset": "BTC",
+    "rule": "DONCHIAN_EXPANSION",
+    "state": "trending",
+    "closed_segments": 37,
+    "gross_price_pnl": 45.25218,
+    "fees": 66.1395396122595,
+    "funding_scenario": -1.124120608969213,
+    "net_scenario": -95.4998688812197
+  },
+  {
+    "asset": "BTC",
+    "rule": "REGIME-TREND",
+    "state": "trending",
+    "closed_segments": 52,
+    "gross_price_pnl": 33.88145999999999,
+    "fees": 93.62006405967149,
+    "funding_scenario": -2.0647128627502194,
+    "net_scenario": -165.82561879241013
+  },
+  {
+    "asset": "BTC",
+    "rule": "REGIME-RANGE",
+    "state": "range",
+    "closed_segments": 85,
+    "gross_price_pnl": 185.23483000000002,
+    "fees": 152.90614089566324,
+    "funding_scenario": 1.426322207496109,
+    "net_scenario": -136.14074710314765
+  },
+  {
+    "asset": "BTC",
+    "rule": "FUNDING-LAST",
+    "state": "unknown",
+    "closed_segments": 1,
+    "gross_price_pnl": -23.725699999999634,
+    "fees": 1.8345888642825,
+    "funding_scenario": 0.5393289694534362,
+    "net_scenario": -27.059386034829092
+  },
+  {
+    "asset": "BTC",
+    "rule": "FUNDING-LAST",
+    "state": "range",
+    "closed_segments": 173,
+    "gross_price_pnl": -400.2676100000014,
+    "fees": 102.78158591871225,
+    "funding_scenario": 54.55455834660573,
+    "net_scenario": -562.6962996370926
+  },
+  {
+    "asset": "BTC",
+    "rule": "FUNDING-LAST",
+    "state": "trending",
+    "closed_segments": 46,
+    "gross_price_pnl": 375.45786000000095,
+    "fees": 27.3841815559815,
+    "funding_scenario": 10.919467054652172,
+    "net_scenario": 328.56618323867445
+  },
+  {
+    "asset": "BTC",
+    "rule": "FUNDING-MEAN24",
+    "state": "unknown",
+    "closed_segments": 2,
+    "gross_price_pnl": 12.153470000000064,
+    "fees": 1.8377090429692502,
+    "funding_scenario": 0.26434564216106116,
+    "net_scenario": 8.538204624191712
+  },
+  {
+    "asset": "BTC",
+    "rule": "FUNDING-MEAN24",
+    "state": "trending",
+    "closed_segments": 34,
+    "gross_price_pnl": 322.73500000000064,
+    "fees": 9.460415858625,
+    "funding_scenario": 9.7208580615482,
+    "net_scenario": 312.483788342925
+  },
+  {
+    "asset": "BTC",
+    "rule": "FUNDING-MEAN24",
+    "state": "range",
+    "closed_segments": 156,
+    "gross_price_pnl": -555.9681999999972,
+    "fees": 34.567881940845,
+    "funding_scenario": 58.38016116790985,
+    "net_scenario": -570.5645394929298
+  },
+  {
+    "asset": "ETH",
+    "rule": "ATR",
+    "state": "range",
+    "closed_segments": 89,
+    "gross_price_pnl": -46.46475000000033,
+    "fees": 158.03903799106874,
+    "funding_scenario": -2.681139067986919,
+    "net_scenario": -382.78384654403715
+  },
+  {
+    "asset": "ETH",
+    "rule": "ATR",
+    "state": "trending",
+    "closed_segments": 39,
+    "gross_price_pnl": -6.177920000000788,
+    "fees": 69.962221777032,
+    "funding_scenario": -4.517284961267502,
+    "net_scenario": -158.3932271682911
+  },
+  {
+    "asset": "ETH",
+    "rule": "EMA",
+    "state": "trending",
+    "closed_segments": 64,
+    "gross_price_pnl": 178.61343000000105,
+    "fees": 110.93596993047825,
+    "funding_scenario": -1.6882135138970353,
+    "net_scenario": -57.27298690935954
+  },
+  {
+    "asset": "ETH",
+    "rule": "EMA",
+    "state": "range",
+    "closed_segments": 272,
+    "gross_price_pnl": 584.9109000000014,
+    "fees": 478.5905386820475,
+    "funding_scenario": -11.016875446187349,
+    "net_scenario": -436.463925558174
+  },
+  {
+    "asset": "ETH",
+    "rule": "TSM",
+    "state": "range",
+    "closed_segments": 143,
+    "gross_price_pnl": 221.0861000000039,
+    "fees": 250.8591239446275,
+    "funding_scenario": -4.058315588617121,
+    "net_scenario": -312.5637547432095
+  },
+  {
+    "asset": "ETH",
+    "rule": "TSM",
+    "state": "trending",
+    "closed_segments": 39,
+    "gross_price_pnl": -147.07420999999937,
+    "fees": 68.95148990719724,
+    "funding_scenario": -0.9467898530649991,
+    "net_scenario": -293.5852195552531
+  },
+  {
+    "asset": "ETH",
+    "rule": "ROLLING_Z",
+    "state": "trending",
+    "closed_segments": 44,
+    "gross_price_pnl": 286.7597000000009,
+    "fees": 77.3584123230675,
+    "funding_scenario": 2.4744350382656943,
+    "net_scenario": 125.92185955520866
+  },
+  {
+    "asset": "ETH",
+    "rule": "ROLLING_Z",
+    "state": "range",
+    "closed_segments": 141,
+    "gross_price_pnl": -312.54405000000145,
+    "fees": 251.80837069591124,
+    "funding_scenario": 3.265749257092068,
+    "net_scenario": -840.8736718537916
+  },
+  {
+    "asset": "ETH",
+    "rule": "BOLLINGER",
+    "state": "trending",
+    "closed_segments": 44,
+    "gross_price_pnl": 286.7597000000009,
+    "fees": 77.3584123230675,
+    "funding_scenario": 2.4744350382656943,
+    "net_scenario": 125.92185955520866
+  },
+  {
+    "asset": "ETH",
+    "rule": "BOLLINGER",
+    "state": "range",
+    "closed_segments": 141,
+    "gross_price_pnl": -312.54405000000145,
+    "fees": 251.80837069591124,
+    "funding_scenario": 3.265749257092068,
+    "net_scenario": -840.8736718537916
+  },
+  {
+    "asset": "ETH",
+    "rule": "REGIME-RANDOM",
+    "state": "range",
+    "closed_segments": 31,
+    "gross_price_pnl": -84.04320000000028,
+    "fees": 55.77854389272,
+    "funding_scenario": -0.7361577701692361,
+    "net_scenario": -202.5340405328828
+  },
+  {
+    "asset": "ETH",
+    "rule": "REGIME-RANDOM",
+    "state": "trending",
+    "closed_segments": 15,
+    "gross_price_pnl": -26.53919000000009,
+    "fees": 26.05398646481775,
+    "funding_scenario": 0.725276857138576,
+    "net_scenario": -80.81676682267654
+  },
+  {
+    "asset": "ETH",
+    "rule": "FUNDING-LAST",
+    "state": "unknown",
+    "closed_segments": 1,
+    "gross_price_pnl": -32.03215000000001,
+    "fees": 1.84547941473375,
+    "funding_scenario": 1.2203592847404192,
+    "net_scenario": -34.70779480499312
+  },
+  {
+    "asset": "ETH",
+    "rule": "FUNDING-LAST",
+    "state": "range",
+    "closed_segments": 189,
+    "gross_price_pnl": 467.3625300000014,
+    "fees": 96.10234125693076,
+    "funding_scenario": 59.5018520544386,
+    "net_scenario": 323.98154478251973
+  },
+  {
+    "asset": "ETH",
+    "rule": "FUNDING-LAST",
+    "state": "trending",
+    "closed_segments": 39,
+    "gross_price_pnl": 64.4932400000006,
+    "fees": 27.317463963021,
+    "funding_scenario": 10.120313001314445,
+    "net_scenario": 16.94333517829578
+  },
+  {
+    "asset": "HYPE",
+    "rule": "FUNDING-MEAN24",
+    "state": "trending",
+    "closed_segments": 95,
+    "gross_price_pnl": -333.3241799999984,
+    "fees": 15.890256414940499,
+    "funding_scenario": 39.748131459247965,
+    "net_scenario": -327.12206208569245
+  },
+  {
+    "asset": "HYPE",
+    "rule": "FUNDING-MEAN24",
+    "state": "range",
+    "closed_segments": 127,
+    "gross_price_pnl": -1366.180149999998,
+    "fees": 29.73768679803375,
+    "funding_scenario": 62.59945407352523,
+    "net_scenario": -1366.3599153995076
+  },
+  {
+    "asset": "EWY",
+    "rule": "DONCHIAN",
+    "state": "range",
+    "closed_segments": 131,
+    "gross_price_pnl": -550.8936900000008,
+    "fees": 439.7809720831605,
+    "funding_scenario": -2.1259846207227913,
+    "net_scenario": -1237.1232712488575
+  },
+  {
+    "asset": "EWY",
+    "rule": "DONCHIAN",
+    "state": "trending",
+    "closed_segments": 66,
+    "gross_price_pnl": -160.5888599999988,
+    "fees": 225.579476352987,
+    "funding_scenario": 5.44121177694653,
+    "net_scenario": -506.0490157360247
+  },
+  {
+    "asset": "EWY",
+    "rule": "ATR",
+    "state": "range",
+    "closed_segments": 114,
+    "gross_price_pnl": 80.3435099999997,
+    "fees": 390.9229916564205,
+    "funding_scenario": -0.8127255222148138,
+    "net_scenario": -528.5716670736106
+  },
+  {
+    "asset": "EWY",
+    "rule": "ATR",
+    "state": "trending",
+    "closed_segments": 40,
+    "gross_price_pnl": 223.65570000000045,
+    "fees": 141.907121326935,
+    "funding_scenario": 1.5627120642247927,
+    "net_scenario": 4.473945197297641
+  },
+  {
+    "asset": "EWY",
+    "rule": "DONCHIAN_EXPANSION",
+    "state": "range",
+    "closed_segments": 86,
+    "gross_price_pnl": -124.8905300000015,
+    "fees": 294.9571135577385,
+    "funding_scenario": -3.853536823272113,
+    "net_scenario": -587.5662122459927
+  },
+  {
+    "asset": "EWY",
+    "rule": "DONCHIAN_EXPANSION",
+    "state": "trending",
+    "closed_segments": 53,
+    "gross_price_pnl": -19.727039999999402,
+    "fees": 183.080764137168,
+    "funding_scenario": 3.2059353024248787,
+    "net_scenario": -301.3133995347318
+  },
+  {
+    "asset": "EWY",
+    "rule": "DONCHIAN_COMPRESSION_EXPANSION",
+    "state": "range",
+    "closed_segments": 30,
+    "gross_price_pnl": -414.15551000000045,
+    "fees": 107.9548351449795,
+    "funding_scenario": 0.3965345595475466,
+    "net_scenario": -581.6886154604254
+  },
+  {
+    "asset": "EWY",
+    "rule": "DONCHIAN_COMPRESSION_EXPANSION",
+    "state": "trending",
+    "closed_segments": 15,
+    "gross_price_pnl": 318.5596999999995,
+    "fees": 54.269014482135,
+    "funding_scenario": -0.939632933153973,
+    "net_scenario": 233.20152045471397
+  },
+  {
+    "asset": "EWY",
+    "rule": "EMA",
+    "state": "range",
+    "closed_segments": 282,
+    "gross_price_pnl": 39.37418000000322,
+    "fees": 931.557609749619,
+    "funding_scenario": 3.0995012028068816,
+    "net_scenario": -1406.6159438067498
+  },
+  {
+    "asset": "EWY",
+    "rule": "EMA",
+    "state": "trending",
+    "closed_segments": 101,
+    "gross_price_pnl": -286.0036500000008,
+    "fees": 345.8566862566425,
+    "funding_scenario": 7.455276834349354,
+    "net_scenario": -816.547591397273
+  },
+  {
+    "asset": "EWY",
+    "rule": "TSM",
+    "state": "range",
+    "closed_segments": 161,
+    "gross_price_pnl": -16.977009999999666,
+    "fees": 535.0867567186544,
+    "funding_scenario": -5.258205016981772,
+    "net_scenario": -854.592387890602
+  },
+  {
+    "asset": "EWY",
+    "rule": "TSM",
+    "state": "trending",
+    "closed_segments": 47,
+    "gross_price_pnl": 174.06484000000123,
+    "fees": 160.399128858822,
+    "funding_scenario": 4.416983861257407,
+    "net_scenario": -71.0279756575538
+  },
+  {
+    "asset": "EWY",
+    "rule": "RISK_MOMENTUM",
+    "state": "range",
+    "closed_segments": 160,
+    "gross_price_pnl": -209.61794000000026,
+    "fees": 278.383811174073,
+    "funding_scenario": -1.911859605536845,
+    "net_scenario": -644.5712312495924
+  },
+  {
+    "asset": "EWY",
+    "rule": "RISK_MOMENTUM",
+    "state": "trending",
+    "closed_segments": 47,
+    "gross_price_pnl": 173.8998000000012,
+    "fees": 159.75327667509,
+    "funding_scenario": 4.429712967840259,
+    "net_scenario": -70.17562755723898
+  },
+  {
+    "asset": "EWY",
+    "rule": "REGIME-TREND",
+    "state": "trending",
+    "closed_segments": 77,
+    "gross_price_pnl": 128.77819000000065,
+    "fees": 264.8351056688145,
+    "funding_scenario": 3.343183075776259,
+    "net_scenario": -279.84437904802127
+  },
+  {
+    "asset": "EWY",
+    "rule": "REGIME-RANGE",
+    "state": "range",
+    "closed_segments": 99,
+    "gross_price_pnl": -318.79430000000093,
+    "fees": 343.882772151435,
+    "funding_scenario": -1.7672391334503903,
+    "net_scenario": -855.4902161148658
+  },
+  {
+    "asset": "EWY",
+    "rule": "REGIME-COST",
+    "state": "range",
+    "closed_segments": 126,
+    "gross_price_pnl": -533.1027900000013,
+    "fees": 421.7804729652555,
+    "funding_scenario": -1.3962473757332472,
+    "net_scenario": -1190.6018620459643
+  },
+  {
+    "asset": "EWY",
+    "rule": "REGIME-COST",
+    "state": "trending",
+    "closed_segments": 65,
+    "gross_price_pnl": -126.82634999999848,
+    "fees": 221.9333379868575,
+    "funding_scenario": 5.941202938214258,
+    "net_scenario": -466.11475222362753
+  },
+  {
+    "asset": "EWY",
+    "rule": "REGIME-RANDOM",
+    "state": "trending",
+    "closed_segments": 25,
+    "gross_price_pnl": -218.40832000000015,
+    "fees": 83.766690687744,
+    "funding_scenario": 2.511063538976773,
+    "net_scenario": -346.20094292876195
+  },
+  {
+    "asset": "EWY",
+    "rule": "REGIME-RANDOM",
+    "state": "range",
+    "closed_segments": 42,
+    "gross_price_pnl": 80.68564000000065,
+    "fees": 140.941498749462,
+    "funding_scenario": -2.0990639466340415,
+    "net_scenario": -140.65577550608648
+  },
+  {
+    "asset": "EWY",
+    "rule": "FUNDING-LAST",
+    "state": "unknown",
+    "closed_segments": 3,
+    "gross_price_pnl": 135.24422999999962,
+    "fees": 3.9102091270965,
+    "funding_scenario": 1.9300590708879108,
+    "net_scenario": 131.0917077287916
+  },
+  {
+    "asset": "EWY",
+    "rule": "FUNDING-LAST",
+    "state": "range",
+    "closed_segments": 188,
+    "gross_price_pnl": -1006.3499999999964,
+    "fees": 269.2885440015,
+    "funding_scenario": 38.40451553500179,
+    "net_scenario": -1386.8385235464798
+  },
+  {
+    "asset": "EWY",
+    "rule": "FUNDING-LAST",
+    "state": "trending",
+    "closed_segments": 73,
+    "gross_price_pnl": 366.1404499999992,
+    "fees": 92.2882073217975,
+    "funding_scenario": 17.99168630048249,
+    "net_scenario": 240.57261115368928
+  },
+  {
+    "asset": "EWY",
+    "rule": "FUNDING-MEAN24",
+    "state": "range",
+    "closed_segments": 180,
+    "gross_price_pnl": -7.86922000000042,
+    "fees": 185.886119857149,
+    "funding_scenario": 25.310270846164947,
+    "net_scenario": -271.7151336309717
+  },
+  {
+    "asset": "EWY",
+    "rule": "FUNDING-MEAN24",
+    "state": "trending",
+    "closed_segments": 64,
+    "gross_price_pnl": -38.72649000000046,
+    "fees": 75.5120510579205,
+    "funding_scenario": 19.301639529685875,
+    "net_scenario": -136.8880313232319
+  },
+  {
+    "asset": "EWJ",
+    "rule": "ATR",
+    "state": "range",
+    "closed_segments": 152,
+    "gross_price_pnl": -68.03847699999956,
+    "fees": 547.0291274402147,
+    "funding_scenario": -11.103152659535013,
+    "net_scenario": -930.0758108902162
+  },
+  {
+    "asset": "EWJ",
+    "rule": "ATR",
+    "state": "trending",
+    "closed_segments": 31,
+    "gross_price_pnl": -36.63272500000006,
+    "fees": 111.78298692122625,
+    "funding_scenario": -3.3731651401329166,
+    "net_scenario": -213.8905273038512
+  },
+  {
+    "asset": "EWJ",
+    "rule": "DONCHIAN_COMPRESSION",
+    "state": "range",
+    "closed_segments": 44,
+    "gross_price_pnl": -153.97026800000023,
+    "fees": 158.4103526578206,
+    "funding_scenario": -8.407004300018453,
+    "net_scenario": -408.79333794182946
+  },
+  {
+    "asset": "EWJ",
+    "rule": "DONCHIAN_COMPRESSION",
+    "state": "trending",
+    "closed_segments": 12,
+    "gross_price_pnl": -88.71222000000012,
+    "fees": 43.270316695899,
+    "funding_scenario": -0.5933030994652184,
+    "net_scenario": -156.61488244836195
+  },
+  {
+    "asset": "EWJ",
+    "rule": "DONCHIAN_EXPANSION",
+    "state": "range",
+    "closed_segments": 105,
+    "gross_price_pnl": -96.36430900000036,
+    "fees": 377.87069443243905,
+    "funding_scenario": -23.436388460631694,
+    "net_scenario": -707.5995313755469
+  },
+  {
+    "asset": "EWJ",
+    "rule": "DONCHIAN_EXPANSION",
+    "state": "trending",
+    "closed_segments": 37,
+    "gross_price_pnl": -27.79612900000056,
+    "fees": 133.40782830875804,
+    "funding_scenario": -6.227594821110929,
+    "net_scenario": -241.5470053523604
+  },
+  {
+    "asset": "EWJ",
+    "rule": "DONCHIAN_COMPRESSION_EXPANSION",
+    "state": "range",
+    "closed_segments": 33,
+    "gross_price_pnl": -68.75152699999998,
+    "fees": 118.72113104408716,
+    "funding_scenario": -8.443677530852527,
+    "net_scenario": -261.87250230043156
+  },
+  {
+    "asset": "EWJ",
+    "rule": "DONCHIAN_COMPRESSION_EXPANSION",
+    "state": "trending",
+    "closed_segments": 9,
+    "gross_price_pnl": -83.34356700000032,
+    "fees": 32.47731147850515,
+    "funding_scenario": -0.08830924583029898,
+    "net_scenario": -133.95211770983354
+  },
+  {
+    "asset": "EWJ",
+    "rule": "SIMPLE_MR",
+    "state": "range",
+    "closed_segments": 162,
+    "gross_price_pnl": -11.748785000000465,
+    "fees": 581.9716537176532,
+    "funding_scenario": 15.140758764493663,
+    "net_scenario": -901.8972624146247
+  },
+  {
+    "asset": "EWJ",
+    "rule": "SIMPLE_MR",
+    "state": "trending",
+    "closed_segments": 38,
+    "gross_price_pnl": -137.54352800000095,
+    "fees": 136.7130327081876,
+    "funding_scenario": 2.4571411273316346,
+    "net_scenario": -347.7510700328493
+  },
+  {
+    "asset": "EWJ",
+    "rule": "FUNDING-MEAN24",
+    "state": "range",
+    "closed_segments": 188,
+    "gross_price_pnl": -73.36351499999981,
+    "fees": 287.04632996228173,
+    "funding_scenario": 58.30965777070903,
+    "net_scenario": -461.57035216305206
+  },
+  {
+    "asset": "EWJ",
+    "rule": "FUNDING-MEAN24",
+    "state": "trending",
+    "closed_segments": 45,
+    "gross_price_pnl": -116.55303000000032,
+    "fees": 61.7687927068635,
+    "funding_scenario": 11.759721879721805,
+    "net_scenario": -200.87806763713883
+  },
+  {
+    "asset": "GOLD",
+    "rule": "ROLLING_Z",
+    "state": "range",
+    "closed_segments": 159,
+    "gross_price_pnl": -53.67627000000168,
+    "fees": 572.1676259833215,
+    "funding_scenario": 1.8459986569083904,
+    "net_scenario": -941.8687872313827
+  },
+  {
+    "asset": "GOLD",
+    "rule": "ROLLING_Z",
+    "state": "trending",
+    "closed_segments": 55,
+    "gross_price_pnl": 45.67377999999901,
+    "fees": 198.030239102799,
+    "funding_scenario": -3.1661178551147358,
+    "net_scenario": -265.53938787790025
+  },
+  {
+    "asset": "GOLD",
+    "rule": "BOLLINGER",
+    "state": "range",
+    "closed_segments": 159,
+    "gross_price_pnl": -53.67627000000168,
+    "fees": 572.1676259833215,
+    "funding_scenario": 1.8459986569083904,
+    "net_scenario": -941.8687872313827
+  },
+  {
+    "asset": "GOLD",
+    "rule": "BOLLINGER",
+    "state": "trending",
+    "closed_segments": 55,
+    "gross_price_pnl": 45.67377999999901,
+    "fees": 198.030239102799,
+    "funding_scenario": -3.1661178551147358,
+    "net_scenario": -265.53938787790025
+  },
+  {
+    "asset": "BRENT",
+    "rule": "ROLLING_Z",
+    "state": "trending",
+    "closed_segments": 43,
+    "gross_price_pnl": 230.79618999999914,
+    "fees": 152.5573496807145,
+    "funding_scenario": -10.138406062022657,
+    "net_scenario": -16.653706597729304
+  },
+  {
+    "asset": "BRENT",
+    "rule": "ROLLING_Z",
+    "state": "range",
+    "closed_segments": 171,
+    "gross_price_pnl": -383.1121100000018,
+    "fees": 600.1482746574495,
+    "funding_scenario": -6.65961117889581,
+    "net_scenario": -1323.33560820131
+  },
+  {
+    "asset": "BRENT",
+    "rule": "BOLLINGER",
+    "state": "trending",
+    "closed_segments": 43,
+    "gross_price_pnl": 230.79618999999914,
+    "fees": 152.5573496807145,
+    "funding_scenario": -10.138406062022657,
+    "net_scenario": -16.653706597729304
+  },
+  {
+    "asset": "BRENT",
+    "rule": "BOLLINGER",
+    "state": "range",
+    "closed_segments": 171,
+    "gross_price_pnl": -383.1121100000018,
+    "fees": 600.1482746574495,
+    "funding_scenario": -6.65961117889581,
+    "net_scenario": -1323.33560820131
+  },
+  {
+    "asset": "USDJPY",
+    "rule": "FUNDING-LAST",
+    "state": "unknown",
+    "closed_segments": 3,
+    "gross_price_pnl": 10.057500000000143,
+    "fees": 3.607319584125,
+    "funding_scenario": 0.74245339432795,
+    "net_scenario": 5.188564860203193
+  },
+  {
+    "asset": "USDJPY",
+    "rule": "FUNDING-LAST",
+    "state": "range",
+    "closed_segments": 102,
+    "gross_price_pnl": -40.7005000000007,
+    "fees": 155.005361505225,
+    "funding_scenario": 44.346172142110284,
+    "net_scenario": -237.47376891310648
+  },
+  {
+    "asset": "USDJPY",
+    "rule": "FUNDING-LAST",
+    "state": "trending",
+    "closed_segments": 15,
+    "gross_price_pnl": 46.61919999999943,
+    "fees": 28.82495474136,
+    "funding_scenario": 5.4056836146307505,
+    "net_scenario": 7.186053473272155
+  }
+]

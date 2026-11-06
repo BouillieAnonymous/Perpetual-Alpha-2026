@@ -1,0 +1,1242 @@
+{
+  "baseline": "0c579d77282e7adffc8bd55b2b08e5f6cabc702a",
+  "production_files": {
+    ".github/workflows/ci.yml": "af68615194c9675dd1a2965e5db3caf35ba280dc",
+    "config/collector.toml": "f3ea865c328238213232e5b2e9df94c91221fd49",
+    "config/dry-run-lt.toml": "0602d4e3dc86f5b1ae4b949e5a9cb68aa78a82dc",
+    "config/dry-run.toml": "8bc64c07a9dae5ed6ad381fd7f92ae647a556c57",
+    "config/funding/par.toml": "55e8cea8fece9ae439006c10a5d3f4b4a421a060",
+    "config/funding/pas-live.toml": "87cb2df7239feb2e6c5762b17eea3cae4cf5be92",
+    "config/funding/pas.toml": "c408357d1d026f0117c24148002208cc343b485e",
+    "config/mock-http.toml": "7f08074ade7676627d88e8c276c1e502bc425cf0",
+    "config/paper-execution.synthetic.json": "e6cc2bc7180de1e1604be742bdeecf801979ad1f",
+    "config/requirements-ci.txt": "957e2ea44c05bcc84c0d77f7d4297ae8e824a853",
+    "config/systems/par.toml": "c346075c3b2ab27fd317571eb99af150c61f39f5",
+    "config/systems/pas.toml": "f2923e3f282346c20c42fd8581c784a9ee89d64b",
+    "deploy/Dockerfile": "895a66138647ef9b274c12bf4a4bc6377864dd05",
+    "deploy/Dockerfile.check": "3dc4b630a35f30bdecf53a61b8c269a51ed57c49",
+    "deploy/Dockerfile.ci": "aff466befca24b66b9b4328d4361b1ceb1e67bce",
+    "deploy/Dockerfile.funding": "5be368a4e3ba416bbdff4a4f5214d0d0f667513f",
+    "deploy/Dockerfile.mock-http": "7423bcfdf6dbe6b88b51b85dffe98ed38c04f666",
+    "deploy/Dockerfile.paper": "cd004e011f6140dd8656960fe381005341a75467",
+    "deploy/Dockerfile.venue-collector": "1ad39d1ed14792b15f33f9a1a3a3d86698c9cce3",
+    "deploy/bootstrap-server.sh": "8e1a6abc8b24d49f9c0d3447af46abee3897530e",
+    "deploy/check-venue.py": "911d4c447e47c5d2ea88f62b62f8a94b5a7bb210",
+    "deploy/compose.funding.yaml": "9c094c212b51513bab43f4a23ef813d8bf4418e4",
+    "deploy/compose.mock-http.yaml": "48261c119f3c0c0ae3604b6720615ade6b4f8a8a",
+    "deploy/compose.paper.yaml": "997c0d5b4e7057a4b9aca5c19808e51b512b076a",
+    "deploy/compose.pas-collector.yaml": "589892d92e59b51b4d23e46727768aba9f443d56",
+    "deploy/compose.pas-renewal.yaml": "6c0a8eaf804d7776ab4b033d9ee932c9813e312f",
+    "deploy/compose.pas-trading.yaml": "d0cf99cd02472a067057c7e0f0fba3ff3a9b9057",
+    "deploy/compose.yaml": "f4b694b9306e4dc23e6cc5017aa34b0e2ec809cd",
+    "deploy/requirements-check.txt": "0bd4bd4fcba47479b7adec3ed2238b53185102b1",
+    "deploy/ssh-export/alpha-csv-command": "07768e50cd52b7fa5b3bd721fa0869cb0cfd3384",
+    "deploy/ssh-export/sshd_config": "4ec87736e5bab6340b3dd3fb9365c9d00c307096",
+    "deploy/ssh-export/tmpfiles.conf": "b2999698bd218c255f32b2580fd4ed7683e82fde",
+    "pyproject.toml": "f5f94bfa6d5dc0e95fa8cc5a7f5bbab4f1338028",
+    "src/perpetual_alpha/__init__.py": "4ceb04da124260dac944d096e9fb9a243338b196",
+    "src/perpetual_alpha/accounts/__init__.py": "aefdccc61c42a2fe239573e33d4a50725a91c060",
+    "src/perpetual_alpha/accounts/capture.py": "a7f5932593de418c565f2b16ecea7e4dd1839963",
+    "src/perpetual_alpha/accounts/cli.py": "ed214e5e969490aa2432588af46e9e9e0c452cca",
+    "src/perpetual_alpha/accounts/client.py": "8a4c0b5e212476bf6d1d776c1173db790d5ed1b2",
+    "src/perpetual_alpha/accounts/normalize.py": "22060f42f59e5db0aa96bbce149f9bfbe8cc83d0",
+    "src/perpetual_alpha/accounts/schema.py": "69bc42c37a786cce5da4f95ad5da280f32e52c24",
+    "src/perpetual_alpha/accounts/store.py": "635b57b3e825390be2b1bd3a89bf8933a34b9e2d",
+    "src/perpetual_alpha/api_client.py": "7679e57d711fed62e4ca0ecb96c8833bb85ef3c3",
+    "src/perpetual_alpha/cli.py": "d25ac950214e2dbc72339f7d38892be379568953",
+    "src/perpetual_alpha/config.py": "ed401deaffcd8ff3289cefb7fe4bb25cd01a3268",
+    "src/perpetual_alpha/context.py": "a515ba53c6bb614d39f0dd18ab16acf99398c1e4",
+    "src/perpetual_alpha/contracts.py": "860d5c3c2fe42f55fb14bffc64a86511c82cb1bc",
+    "src/perpetual_alpha/dry_run.py": "9333411e94b390ddd4a33c19af0fa879182e2a72",
+    "src/perpetual_alpha/examples/__init__.py": "5016f7581918d48779e1799136490d73b3f95f8b",
+    "src/perpetual_alpha/examples/lt_adapter.py": "f09d8b7aa6c6f016632c46964c2ccb28ae41f078",
+    "src/perpetual_alpha/examples/pas_research_fixture.py": "80d5b248bc9758f928ae639d2d3feeb8cd0307da",
+    "src/perpetual_alpha/execution.py": "21cc0bc407ca4fb281b9724bf7966f2f16be8a33",
+    "src/perpetual_alpha/forecast_validation.py": "86ca732ff3067739678a70724d0ef1580cac3f00",
+    "src/perpetual_alpha/forecasting.py": "d33bcbe4606ee3ec35ab48b650e1b36c5f772b9b",
+    "src/perpetual_alpha/funding_live/__init__.py": "2337ff06b2b06781c9453093fea702f7271e4abc",
+    "src/perpetual_alpha/funding_live/__main__.py": "c3e21e0c308a400aa23ad5f56b879a5a7f33dee2",
+    "src/perpetual_alpha/funding_live/activation.py": "ceee28ed2bd38dc5857b1701478b8a0c455b2fa4",
+    "src/perpetual_alpha/funding_live/cli.py": "acbbc3fb8897cffe1d47aab7af32ddb2f8549cc4",
+    "src/perpetual_alpha/funding_live/engine.py": "3987f7830343c72b04f7a2287ba1edaa05ad14b9",
+    "src/perpetual_alpha/funding_live/leverage.py": "b967fa7d42e8e8d434c16c67a4323d5878f08911",
+    "src/perpetual_alpha/funding_live/ops.py": "ba46ee6d35912ae3d840fa9474832ebcce77f571",
+    "src/perpetual_alpha/funding_live/policy.py": "087dcfc66d0fcea08e39a461be39dd90ac5d8b7f",
+    "src/perpetual_alpha/funding_live/preparation.py": "b8c6dd9a121b043a1f66e2a7bc27282624b3eee2",
+    "src/perpetual_alpha/funding_live/renewal.py": "01b66653e3f892c4323d08a09cae684cfb960f1f",
+    "src/perpetual_alpha/funding_live/store.py": "f503f458ab7b93171c1daf58d7cd272e1b1a3c89",
+    "src/perpetual_alpha/funding_live/venue.py": "fe2ea233713861f7e9f12beb4776ba0a37564da7",
+    "src/perpetual_alpha/historical/__init__.py": "3f958e83cb471492f3494ee1d83b39d0e8b52164",
+    "src/perpetual_alpha/historical/cli.py": "c74ab4063ecad92cf74a731b3e6343d3bced3721",
+    "src/perpetual_alpha/historical/client.py": "dcf36a74fd4ae2f2ae17068b3531c856a237ba25",
+    "src/perpetual_alpha/historical/contracts.py": "af812afb6c7b256435db79a1a4edf508cf250ea9",
+    "src/perpetual_alpha/historical/ingest.py": "8b340a785ab72f3ed9ef3003c8c9723ce5741e4c",
+    "src/perpetual_alpha/historical/migrations/001_history.sql": "e5747845708adab3cd6caf92021444eed2c063b4",
+    "src/perpetual_alpha/historical/store.py": "e8df42256fd16c4ec2847c5562bcbcdc8d11fca6",
+    "src/perpetual_alpha/interfaces.py": "7eecf418207f40452c7a68d15373c76156beb683",
+    "src/perpetual_alpha/journal.py": "06ac146e080b127283e6d187ff13e388d96ea720",
+    "src/perpetual_alpha/market_data.py": "82ebcd054f6d08d95932395c1ee28234f89647a7",
+    "src/perpetual_alpha/market_risk.py": "33f67be4cab7c56f934ac35154d629b3ee9e2371",
+    "src/perpetual_alpha/models.py": "037d7e54ee2c61ee8dcfbc77e1ff187d2c13d062",
+    "src/perpetual_alpha/pas_csv_export.py": "39e400ec906d5dd086e1626a65c081e8f3de1d31",
+    "src/perpetual_alpha/pas_research.py": "2caf725f65ed24483807fee7f136acfb8e729bda",
+    "src/perpetual_alpha/portfolio.py": "cd70ce8a828c9aaf910dcc078e2491eba0c7ef82",
+    "src/perpetual_alpha/portfolio_policies.py": "9de9db412af47b810b6328ac3bf2774eb9a19dd2",
+    "src/perpetual_alpha/portfolio_simulation.py": "29e532da0c4eff6ab0dcdee006c4e0085040a527",
+    "src/perpetual_alpha/producers.py": "9c27d7068e6d9bed96ce717bfd017790316d238d",
+    "src/perpetual_alpha/research.py": "916b99bb1ec8d5891fa157b85b8521b1dce17f2c",
+    "src/perpetual_alpha/risk.py": "23ad57256986394f104966e4f14affb944d2218e",
+    "src/perpetual_alpha/risk_gate.py": "30150e2e66d59cef37a99f5678756a379072f935",
+    "src/perpetual_alpha/risk_policy.py": "3b123bcabab2c26fb65fa46ccb4057fb6de29f70",
+    "src/perpetual_alpha/risk_replay.py": "2611ec14f69139211ee6b8638f1cac9847bc1428",
+    "src/perpetual_alpha/runtime/__init__.py": "9597260aed23e0226a11a005dea0747bc6eb1981",
+    "src/perpetual_alpha/runtime/contracts.py": "feea59918d3a2c1795b5227f0a80e63f56a06bc2",
+    "src/perpetual_alpha/runtime/http_core.py": "5c4b850452ececf6111d66bcec90126e2c2ad28b",
+    "src/perpetual_alpha/runtime/ingress.py": "87154dfd2e9b095cdb0f0f3d12839288d22a9e7c",
+    "src/perpetual_alpha/runtime/jobs.py": "407db5df4113f552938e034ff5da60ec27d59906",
+    "src/perpetual_alpha/runtime/migrations/001_runtime.sql": "dd88fb7bb58353d8c73931617d6d1a3b0c6943aa",
+    "src/perpetual_alpha/runtime/migrations/002_mock_http.sql": "d9ca0103f45f76489826a137d33e90f92ac49d0d",
+    "src/perpetual_alpha/runtime/migrations/003_gateway.sql": "e263ce515e6ad7ba720ed86f021fd8e5236feb26",
+    "src/perpetual_alpha/runtime/migrations/004_paper.sql": "44788dfaebd50d5aa30d70f57ebf67b8afe7eb28",
+    "src/perpetual_alpha/runtime/mock_config.py": "7179648af0c393d0562ea0e74b4f3cef92d22965",
+    "src/perpetual_alpha/runtime/mock_consumer.py": "54a26714caa4bc601139558ce923c87f6aa6c547",
+    "src/perpetual_alpha/runtime/mock_fixture.py": "f4a3b20cc747bee4932d4fed3e0996841581bee0",
+    "src/perpetual_alpha/runtime/outbox.py": "f707816ecdde83e08a1173ba0a6151a103078d2d",
+    "src/perpetual_alpha/runtime/paper_core.py": "d07733e95fe5980b3bd7d2ade4ffb569777deec1",
+    "src/perpetual_alpha/runtime/paper_engine.py": "b9309b9ba12a6151abe611cf72d38fc034ab3145",
+    "src/perpetual_alpha/runtime/paper_health.py": "19b9a410519877bcb63cea00318c0706bf2b5c80",
+    "src/perpetual_alpha/runtime/paper_operator.py": "9d0ec57ebad226a9e877a4b2f98731486fde97e3",
+    "src/perpetual_alpha/runtime/paper_ops.py": "361ef5f8b4889dc0b733b62ed5ac33f3b4206409",
+    "src/perpetual_alpha/runtime/process_lock.py": "b877ee4f245b080b1a4e343c4059219882ea6c5e",
+    "src/perpetual_alpha/runtime/scheduler.py": "6a789688f6072f3ee763a9571aa15e5e8bcc671c",
+    "src/perpetual_alpha/runtime/store.py": "f12daf531ca0893ed5f1d7d3ca695a4295c7493a",
+    "src/perpetual_alpha/runtime/supervisor.py": "b85ae6b70e804cfecc179f6d1508228477e1b9b2",
+    "src/perpetual_alpha/schemas.py": "84df07e7a937fb808b2a196a1379e095cfde77a0",
+    "src/perpetual_alpha/simulation.py": "3e94589394e523e1fa13bfbd1238c684d64c9645",
+    "src/perpetual_alpha/storage.py": "cb64c59ca2b54456a32e54f0972c25a0d2e0ac98",
+    "src/perpetual_alpha/systems.py": "e747ffa3faa57248fcf1f00d4ba85b47294cf3dc",
+    "src/perpetual_alpha/transport/__init__.py": "3a6cd20982a89597affd0099882054c747528ce1",
+    "src/perpetual_alpha/transport/data_gateway.py": "21ed4a536edc5e6a286e3c8f0924fa2cc171dbe9",
+    "src/perpetual_alpha/transport/dummy_worker.py": "46a4b27ac50d5251c14d06592ca7b4dec079e79f",
+    "src/perpetual_alpha/transport/fixture_gateway.py": "135e4a814dbf81bb45e9d628e42eb16ab6a40fe2",
+    "src/perpetual_alpha/transport/history_worker.py": "bdf0cdc396c55ead5f455eabdf1dd90a348c3237",
+    "src/perpetual_alpha/transport/http_client.py": "37319757bb26fe27d9e34d0c308f4981e82b513f",
+    "src/perpetual_alpha/transport/http_server.py": "3ebae69b977d61e290164103ee82d4bfef6fbcbb",
+    "src/perpetual_alpha/transport/messages.py": "e0317774885019cf2b5056955fd71aa8bb8ce9e2",
+    "src/perpetual_alpha/transport/schemas.py": "1e7c2c8a42c03f70b66c9090b86d6e62cf62073d",
+    "src/perpetual_alpha/venue_collection.py": "52569382b90aa24d468704708ef86fde0aa67b95",
+    "src/perpetual_alpha/venues.py": "f6a633fa2fada3fa3cc1ae3c607afa3ca2b56298"
+  },
+  "phase1_frozen_files": [
+    {
+      "destination": "docs/final-sprint-2026-11-03.md",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "87fad3994df64b959891d18cb96d8d8ecb700fb8"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/README.md",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "079f48714275362241b78456c79d336807dc5ef1"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/analyze_stage02a.py",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "ecad620857da98dcdad6776b843d6fb801c6b437"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/audit_diagnostics.py",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "3ae0c15ab7d106527a5232b8abfe89f21017fbbc"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/audit_stage01.py",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "abd0e6f0786aefb57fe14768d242d11aca6a992e"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/publication-manifest.json",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "389192a3db12c0a72d4eadee03272f97cced135d"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/stage-01-data-audit.md",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "adc8feda73e162b9a566743b7cd51eac3de3c057"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/stage-01-diagnostics.json",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "78679d5aede16b0e52b7ee058871e83aa2786f64"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/stage-01-protocol.md",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "7799b7bb5ed0613b8411a2bd3fffb633f80264ec"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/stage-01-source-range.json",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "f57b59083cade41b7d8b49aaebaded8559e7bf3a"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/stage-01-statistics.json",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "fc7e3787dac5b7b7196b29ea193a68baf82a52c2"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/stage-02a-metrics.csv",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "b33eb70dfde2f1815bd99d791be7a683b58f9b93"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/stage-02a-predictions.csv",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "cc197b10fc630e7bd18248f52fa1eb9e6bad7f66"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/stage-02a-protocol.md",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "2e84e2cb29027c871014236c1f480642094cc095"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/stage-02a-report.md",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "61b8d0f7a8bdc09f2fcf4de5bc2777b87a71f851"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/stage-02a-results.json",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "9527895616dc4206b5d082140eadf9e5da30f02a"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/stage-02a-validation.json",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "eb41f9462e0d54fb67ee2df9f9123ecf8b593aa0"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/verify_stage02a.py",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "3b9947d2f262fc8f2249138062fa368b0dd1d777"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda/.gitattributes",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "d0c0c4c1dc29e90549cf4f36a2d8a0c397c3a8e6"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda/README.md",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "8ab5ae52c74d63fb422a6155e1a045fd3fccc7b2"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda/build_eda.py",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "d7e4a0f67ff3ac32928c7df675405dc332f52a28"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda/dashboard-template.html",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "9c8bd1dac007f7a6849c822b0803ee13fa0b20fe"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda/output-reviewed/dashboard.html",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "cd47737052ea569e7c6e73b20021556ab0ffdd59"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda/output-reviewed/events.csv",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "f8ee28ec8c11fed56fe648e6b993c2aae4e6c1d6"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda/output-reviewed/figure-01.png",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "29c7e9d722516dde683f709277446f657cc19c77"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda/output-reviewed/figure-02.png",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "8aa5cadbda17c049c3f3eb0340666c30d171be62"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda/output-reviewed/figure-03.png",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "24743829abd1bd9ed3b3ba02e009abea964b6a2d"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda/output-reviewed/figure-04.png",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "dc475c19d274a8fd20e92d9cb0ea7194d9f8f9aa"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda/output-reviewed/figure-05.png",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "2dbe94506f7e6dda64c237fe51d665f2c4b4dd8a"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda/output-reviewed/manifest.json",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "f96028b911e1e70c973455bca5c9ba039df45df8"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda/output-reviewed/observations.md",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "3713190d40c70f60f052b9267ccb9923a27b3cdf"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda/output-reviewed/summary.json",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "b82d31e4cfcb5f92221dd688600a390e54079b82"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda/output-reviewed/verification.json",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "447357b962bdd6722729be604dbd6704a13877fd"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda/protocol.md",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "acc9cbf2702ffc49c12ddd2a3dba995a76875097"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda/verify_dashboard.cjs",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "d4a0d2eeafaf83a58180a0d56543a164b355bf36"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda/verify_eda.py",
+      "source": "7322df45a1d057a304794c6739a204a94cd12e33",
+      "blob": "dc2bb3db83ce90196e175cb0c0b0c32b58ef155b"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/.gitattributes",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "cb57c23557b7837f82ea7316714ceb5c7d25565a"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/README.md",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "16039a7e269bc09b2ab4941f80a168311f94cc04"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/acceptance.md",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "dcc2b16627cea5346944d86c0bd43a9d14f8e041"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/build_v2.py",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "88ae23883b2be1648cd6b209b0d4411fee803c8e"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/dashboard.css",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "c13c27138bbb14f71c09ea846bed32b27af18434"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/dashboard.js",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "74b3a078dba93c601f89fafdec7897f47d673083"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/protocol.md",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "3b8c30e56fa0ee84cebcb495267c4e0d0611d401"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/dashboard.html",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "802c57417d526d3973033bdfe1ad0902845dbea6"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/data-dictionary.md",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "dcff8b34f88a406fa70adbbec1a72209725229b5"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/features.csv.gz",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "ee3835cc3058154821561e25dc178eb8e3bd6250"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/independent-validation.json",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "01f97867e51fe051ad5270015477986c60b5362a"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/interaction-validation.json",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "8ce741c5aa1cd7a093ec6b7ae9aaa55f475ce4ac"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/manifest.json",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "bc9f8738ee9a1209c4c2582b7cc2b75b90ef6240"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/metric-catalog.json",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "dd0828d353298efd21b4e064116a32c8da5a8d8e"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/observations.md",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "6a4cd754b303a0526900bff10fb0655d7d4b86a2"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/dashboard.html",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "cd47737052ea569e7c6e73b20021556ab0ffdd59"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/events.csv",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "f8ee28ec8c11fed56fe648e6b993c2aae4e6c1d6"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/figure-01.png",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "29c7e9d722516dde683f709277446f657cc19c77"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/figure-02.png",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "8aa5cadbda17c049c3f3eb0340666c30d171be62"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/figure-03.png",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "24743829abd1bd9ed3b3ba02e009abea964b6a2d"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/figure-04.png",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "dc475c19d274a8fd20e92d9cb0ea7194d9f8f9aa"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/figure-05.png",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "2dbe94506f7e6dda64c237fe51d665f2c4b4dd8a"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/manifest.json",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "f96028b911e1e70c973455bca5c9ba039df45df8"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/observations.md",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "3713190d40c70f60f052b9267ccb9923a27b3cdf"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/summary.json",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "b82d31e4cfcb5f92221dd688600a390e54079b82"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/v1-frozen/verification.json",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "447357b962bdd6722729be604dbd6704a13877fd"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/v2-beta.png",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "de6bd09b8e45ea2487c88e996450a71ca1636ba2"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/v2-correlation.png",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "626155b586d33534b0652ad45dfe0e6a3ce40df4"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/v2-cost.png",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "da6292be7f6babee5ed0814c2767d84061e95821"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/v2-residual.png",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "2c3d89fc33499831da20c96cca12b10edfb6072f"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/v2-slope.png",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "de56981e95329caceb735fbe514858a8d69233d1"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/v2-zscore.png",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "0a5cb6543ad01f0b28e6758ed17edb4534a941de"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/release/validation.json",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "93307bf0a895f0feca1cb46eb885b6a4fea7d8f0"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/render_png.py",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "570802d4e5b9bd099c3382c00f57a8c7c6d74e84"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/seal.py",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "d3f3ad61ad1c217f3e45f986caf1c61e20860e88"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/template.html",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "f7b89be3cdbf52c3ace146e0cc1524c0482850e0"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/usage-guide.md",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "51dfc717b7e86916c0690dab67399ef942637f13"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/verify_interactions.cjs",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "0de5be4b49f631743c9547ba1f6868d9665eea61"
+    },
+    {
+      "destination": "docs/research/btc-eth-volatility/visual-eda-v2/verify_v2.py",
+      "source": "73c3bf66ccb9fca5524b49483da442c6ce2244e8",
+      "blob": "727629cc896826aa77bcbd6259bdfbe9f7f2ecee"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/.gitattributes",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "5fbe267e9f4fbcf58496cea51839232c6a2c7cdb"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/README.md",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "5055eb56121bea77fcabe8c1ed3a0cba029b7e88"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/acceptance.md",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "8f474f6527dcaaeb039b03462be8e4c963c592f8"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/audit-verified/all-asset-data-audit.md",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "27110adef01772a8600433158368604358e63a32"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/audit-verified/causal-panel.jsonl.gz",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "0c8f2ed4588aa33838ac07a95ecdfaa42ab27537"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/audit-verified/component-audit.json",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "cbd4110009e03e9bcc57415ff915e5ec9dec80f5"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/audit-verified/coverage.csv",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "036f6e25c0c93924dca04373d885583677ff05cc"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/audit-verified/manifest.json",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "62ba33ed28bc1e0a222b2ab6daf9d5a97310ca6a"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/audit-verified/metadata.json",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "708914b4a2d380c237b85093ed0244c980f0422e"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/audit-verified/pair-eligibility.csv",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "af529782b54b7a660108c05f5c5953cb8cfc843f"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/audit-verified/prior-loader-differences.json",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "9a54296c101f7119a0c21eeefda275ab9239bc0c"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/audit-verified/validation.json",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "6d570b72b623e562cdcd5d2f56fcfa65ecd809d3"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/audit.py",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "a827424c8f67d44ea244183cd72de512ee280fd1"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/build_v3.py",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "2ba8577b764990c5c25b6786e6d808899cdb6ad8"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/dashboard.css",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "ebb91eb892c3d1467c74eb9b0173b1a296f1add5"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/dashboard.js",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "8552cc230145bdbcbb8a497cf991b5f2737ecdbf"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/hypothesis-registry.md",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "3c6ab60396c35024a671b8210726598a8226c758"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/numeric.py",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "2973a21dbe9c5e2079d28826b443cad7dd7dc6aa"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/prior-evidence.json",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "fab693b5b8e650ad63d65cc0094c216a98d2084d"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/prior-ten-asset-counts.json",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "e665285fafa0cdfefc06877ad041996060dd7031"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/protocol.md",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "ff64eab955bed45c879c7289688347d25fe97556"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/all-asset-data-audit.md",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "27110adef01772a8600433158368604358e63a32"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/assets/BRENT.js",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "a22a90e21a42dad58dc3b5540dd5e02718ad295e"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/assets/BTC.js",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "51e441c2b96cc25d02122c9b59ef11147d119d3e"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/assets/ETH.js",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "2809bb087cceec870d527aaf15f9d12f8bbfd34b"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/assets/EWJ.js",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "9c03a0e26c7376bf790f5051e8d15714cab9f28f"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/assets/EWY.js",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "3f685ff91d0eaf7e1fb6f91a55a17f1b311ce40d"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/assets/GOLD.js",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "93523845276ffb3ff3135ac7a1da297b12af9e56"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/assets/HYPE.js",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "924f6384ccdce4cfd4ba463fa9cb71fa2bd419b0"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/assets/SP500.js",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "e4b3396473dd80837dd1d207318e041da776dc97"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/assets/USDEUR.js",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "f170d82c5a7bff4b77258bfd18b26dae1ebfa589"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/assets/USDJPY.js",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "2943ca9e7f6b9a10d169830bc2b3039c7f243fa9"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/build-summary.json",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "0060052fd65542b4eb42b8aeae2c8ffe1a89bd82"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/chrome-acceptance.json",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "73d1c223678b377880597033258ca79b107f48a2"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/chrome-gap.jpg",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "5e50c936eef718f0b0401b5b30635b26298774a6"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/chrome-overview.jpg",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "96d79a7b4bd7d3199361225d13f7b1c34166eb0a"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/component-audit.json",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "cbd4110009e03e9bcc57415ff915e5ec9dec80f5"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/coverage-overview.png",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "7504877f4f31580c949354fef62c34df499cf5b0"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/coverage.csv",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "036f6e25c0c93924dca04373d885583677ff05cc"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/dashboard.html",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "ba6adb6b0cc06e9eccbf488fe3550b1aed0d1c3d"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/final-validation.json",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "ee55ddb61db845b1b416b000995c69a27edd4ae3"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/independent-validation.json",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "653073f11baffbb71332daa6a9d10994828890a9"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/interaction-validation.json",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "34e3a3ab0983867688fd70899490254b879633b8"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/manifest.json",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "71e1eb154374364ce0711a21d4fb49328aabb0a4"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/matrix-asof.png",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "ad6251d2aa7790e3dd067a69bb64b70aed01eb3d"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/metadata.json",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "708914b4a2d380c237b85093ed0244c980f0422e"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/metric-catalog.json",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "9984dea06752a86aa6f0e17a36042423877cbc6d"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/numeric-reference.json",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "d32483f06b36f811640fd8040f619ee82bc1e226"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/observations.md",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "4b5ec3bb2551ad57b409bfb51d9f50932366777f"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/pair-eligibility.csv",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "af529782b54b7a660108c05f5c5953cb8cfc843f"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/prices-overview.png",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "9d75b3153d108e7464dd5d3bd43185852eb6bcec"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/prior-loader-differences.json",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "9a54296c101f7119a0c21eeefda275ab9239bc0c"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/release/validation.json",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "6d570b72b623e562cdcd5d2f56fcfa65ecd809d3"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/render_png.py",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "59eb00a2cc2d6162f4ebc64baf1f9c66eef45846"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/seal.py",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "b8864b0f480192d69dcf15676ed70c005f00c245"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/template.html",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "2f5f2eb9fb4851f0eac1d3e375704f31bea0b1aa"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/usage-guide.md",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "d7dc90c6386163896af9c880b9cc485bfa21ae3f"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/verify_interactions.cjs",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "748d6a6aa99ff2fa843764e5459a85ca4043e12b"
+    },
+    {
+      "destination": "docs/research/pas-visual-discovery-v3/verify_v3.py",
+      "source": "4e90de056e6a8565c85c6a8001a6c7d76d96ce21",
+      "blob": "2b02adedf3cb01cd49d1ebe0ba3aa497d3d19e35"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/.gitattributes",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "e11c72b55f06e648f9ab243b05b210f5bdc3a420"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/README.md",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "23c922a83d37118df3467965438610ec9bb59646"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/anomaly-audit/anomaly-report.md",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "26cf52e307e636ae652a58c9715ad86616876ba4"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/anomaly-audit/anomaly-summary.json",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "d7ab050f0dc7bf1c7d95562f539a40311228c6c1"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/anomaly-audit/episode-minute-quotes.csv",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "8cd1f1763e42d6cccbd2c1e661311620e9ff1b68"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/anomaly-audit/hype-episode-overview.png",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "603ddc332d7fff1f7293c10ff797445a63927e64"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/audit_anomaly.py",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "39fa30f41f0c631521e53b61978db166823fcaf1"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/chrome-h09-handoff.jpg",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "b0876b360b3082cedec99e90b98559e1615f43bb"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/chrome-v3-episode.jpg",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "44a0cfa739e4b6f4bb9c5737e2de5b840c4b54fa"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/freeze.json",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "c16a518f862a8df46668a98c794fb534902889ab"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/index.html",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "9eb760be15f1e6ddb00888e30cd65c0d099daf40"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/inventory_local.py",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "ff1c1886037b3dabdca0922609f28bedee7c8b77"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/new-data-inventory.json",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "cf735661c019241055925853dc405d5379688e1b"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/protocol.md",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "92818432468fb6ed781894dc4d49590f957b3c16"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/publication-manifest.json",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "20c3bf2092c2b3b98cd9b4fbbff7e0c578e79f31"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/render_report.py",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "804691c4c2496041aa34e2056c5f261ea95d3681"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/report.md",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "8c4beec68414623939fa4386a6f16905094f5356"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/reproduction.json",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "d8349b01ab8b4ba03ed5cf58a48338765fff50ea"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/reserve_public.py",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "d2b48f62ddfe5d6185134ca4614a536297ae67fc"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/reserved-data.json",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "6d86ab8d2a9b4631727023e34cb28ea8f484141a"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/results/coefficients.json",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "a70fcbf16ef6885a311df95726587c45d61b9438"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/results/cost-diagnostic.json",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "c9f0d7f5a2803f17792ca8ff1c8655550abefdeb"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/results/daily-paired-errors.csv",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "f5f0e2bcf40e8f4e328d3294f38c8b0462b6fc63"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/results/event-summary.json",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "5c74c84965fffca6de0219ac9fcba528bf6e641f"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/results/events.csv",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "79b7493a460c01fec52c037c4ab0b61a1a69b4af"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/results/failures.json",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "e02fdc6a620d064d7ed05dfb54b2012792c07ac8"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/results/metrics.json",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "35a37cfb3fd48e21228cee3fd4f99dc6cb1fc7c1"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/results/predictions.csv",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "0b7a4148fd07c0aed9f815bdb99d4027da8c9a57"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/results/quality.json",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "fee610bb1af898c7ee395c2067fe0781340d4b11"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/results/run-manifest.json",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "9fa23eb8cf2cc9f995d54aead81198ae5196d88d"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/run_h09.py",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "31a43ca4af25fd77ce5287e900e45ddeae893536"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/verification.json",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "bde6778eccf139eda7222ab7166a55750ba3eb91"
+    },
+    {
+      "destination": "docs/research/h09-btc-hype-2026-11/verify_h09.py",
+      "source": "1cd52af25b6246d74d4abd84740035b154677448",
+      "blob": "ac8d59e4dab6f8749e7684f44a372d6d4c8f17fa"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/.gitattributes",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "5e7c0e5c9bf456dc3fa8496d664f335f4d6a6d0b"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/README.md",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "44f617d96b0242010dda59a8150df581198924de"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/daily-comparison.csv",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "d6bbad6bb669adbb6d7cca9f41af00621f68705b"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/data-audit.json",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "b8735d0a3f433f8a0bb5a7bd66427691dcb7fcc7"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/events.csv",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "a7b8af89b0b649f643a0209d67a44d9658b0e210"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/freeze.json",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "cae7832a54ba310ecbc9a80cdfed70a4051207fc"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/frozen-protocol.md",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "5adf75baee859a2739b3d76d275b3b19aafb58cc"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/hypothesis-registry.md",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "9fe9496cea8fa12a7a8af04a065653e983716e2a"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/implementation-audit/before-rv-arithmetic-fix-results.csv",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "70e1d7008f8b06d3b6654738b5135eec7b45ee0d"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/implementation-audit/before-rv-arithmetic-fix-run-manifest.json",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "e5177cd95bff1944bf2ad698ca1f9377528b2a11"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/implementation-audit/before-rv-arithmetic-fix-thresholds.json",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "d94877333581ea96763c0f4b7974e1a5069afff4"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/implementation-audit/initial-results.csv",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "65019852f9d9ea92fb93c6c4bbe8ab062b6671f1"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/implementation-audit/initial-run-manifest.json",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "2216f65c5c4f0b83fab412c6f5835ac325e515a9"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/implementation-audit/initial-thresholds.json",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "d94877333581ea96763c0f4b7974e1a5069afff4"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/implementation-audit/notes.md",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "40f7bb68aeb206adb9ff8720d2a7b269bc73cf6e"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/input-hashes.json",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "4c4b63f5457e3e343ba4a597275947b8cd357700"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/model-comparison.csv",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "492f3e952c3613ed2eaff94fbec94cb04283fa30"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/models.json",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "1cbbc9b0c86b3ead8a14bc878c1526bc68f2ca27"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/points.csv.gz",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "5a2654d85f5876851d620897d2592a276fd4d86e"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/prior-pr-snapshots.json",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "cad2ad3df37ad8438abaf0d18b1b7cfbf06958f1"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/publication-manifest.json",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "0ada06d53e11df2d18201734760d3b74f92f4f8d"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/reproduction.json",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "dac8c527a26a800c7ab0756221373fd2715a4989"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/results.csv",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "70e1d7008f8b06d3b6654738b5135eec7b45ee0d"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/run-manifest.json",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "8bcd95f57ce7c63722e935f10df2ab74fe59f2eb"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/run_batch.py",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "a36413d8c844bfbd02475aabdc081e295ee02af0"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/source-evidence.json",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "661c3ddfcea47e3d49e7b68f3073a31495a61560"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/summary.md",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "e3fa39328dbffb1817fe3e193c6f5a7eddf9eb4a"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/thresholds.json",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "167e946cd803a12be0b33564652275ee3f7bc013"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/verification.json",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "810fd018d638419ed11ded3e2ffe2ee9d03b512c"
+    },
+    {
+      "destination": "docs/research/alpha-hypothesis-batch-2026-11/verify_batch.py",
+      "source": "25730c16019cef4b255758e25c29c01a3635273d",
+      "blob": "8450fcd23f7d9c13590c056a1304eeda600bef78"
+    },
+    {
+      "destination": "docs/research/all-asset-momentum-2026-10-20/groups.csv",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "ea2709c67c38ad3021c973e23826229ab8a087d9"
+    },
+    {
+      "destination": "docs/research/all-asset-momentum-2026-10-20/protocol.zh-CN.md",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "7193f09a773b758a7e7e0a0d2bd4348adac72b71"
+    },
+    {
+      "destination": "docs/research/all-asset-momentum-2026-10-20/report.zh-CN.md",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "787751b4fc567ac472f0e4354a8f0fca954331e1"
+    },
+    {
+      "destination": "docs/research/all-asset-momentum-2026-10-20/results.json.gz",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "9bc63c60b7880973792e38d867083c096a23c582"
+    },
+    {
+      "destination": "docs/research/all-asset-momentum-2026-10-20/scenarios.csv",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "b74b0ba54c1af103ba7baef87647d2e00f844634"
+    },
+    {
+      "destination": "docs/research/all-asset-momentum-2026-10-20/trades.csv.gz",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "f6fa14e6efd13e6d41dd79293f67a42cf80e576c"
+    },
+    {
+      "destination": "docs/research/all-asset-momentum-2026-10-20/verification.json",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "eda61e41d1007f7d57ab4e9f42fbefca0baa4975"
+    },
+    {
+      "destination": "docs/research/pas-mean-reversion-2026-10-19/report.zh-CN.md",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "a3093d17e48d080878e04df3e26d6904968e790d"
+    },
+    {
+      "destination": "docs/research/pas-mean-reversion-2026-10-19/results.json.gz",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "7436076ce7745fd7475eec81eb8a44a750f04b85"
+    },
+    {
+      "destination": "docs/research/pas-mean-reversion-2026-10-19/scenarios.csv",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "8fcace4c874b17a1dcacf678ef478a7278f0da64"
+    },
+    {
+      "destination": "docs/research/pas-mean-reversion-2026-10-19/trades.csv.gz",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "6959aa3aa7078f7926081ac016932aaac85d9a61"
+    },
+    {
+      "destination": "docs/research/pas-research-pr-verification.json",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "654f3c25b57d583a7c4cdda5f00b63686e800190"
+    },
+    {
+      "destination": "docs/research/pas-research-records-2026-10-20.md",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "709f8c4783930557708f7daa17475d8f37f944fa"
+    },
+    {
+      "destination": "docs/research/pas-short-cycle-2026-10-19/protocol.zh-CN.md",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "bfe96deb554b6330d69a03b5a4a36ef10bcda738"
+    },
+    {
+      "destination": "docs/research/pas-short-cycle-2026-10-19/report.zh-CN.md",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "983d19e02bdd5977736da501f8e75f26003a7391"
+    },
+    {
+      "destination": "docs/research/pas-short-cycle-2026-10-19/results.json.gz",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "4bfb7f58424c7ffb86afecb3a1a5653415bcae77"
+    },
+    {
+      "destination": "docs/research/pas-short-cycle-2026-10-19/scenarios.csv",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "4689306c3f2d75913255c4f66245a68c8eeaa03b"
+    },
+    {
+      "destination": "docs/research/pas-short-cycle-2026-10-19/trades.csv.gz",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "b4f87e61600490ab1437f1657c5067ce8f5dbb24"
+    },
+    {
+      "destination": "docs/research/pas-short-cycle-2026-10-19/verification.json",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "9972515185a51f02ecf5ed44f49d7618591f8989"
+    },
+    {
+      "destination": "scripts/pas_momentum_core.py",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "92b1a63723766b883da5a5458944b3e9c6412466"
+    },
+    {
+      "destination": "scripts/pas_research_costs.py",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "d9eaeeaed51c59d83616ba0509e235dd985d5dcc"
+    },
+    {
+      "destination": "scripts/study_all_asset_momentum.py",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "643dd88b4daf1140c7d83e0c4762eaddcbf171d8"
+    },
+    {
+      "destination": "scripts/study_pas_mean_reversion.py",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "bdb22f6186ea3eb7c288cecffbe6737a484ea29f"
+    },
+    {
+      "destination": "scripts/study_pas_short_cycle.py",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "f1446902c05bc24ff3c629e5fdfae42808337559"
+    },
+    {
+      "destination": "tests/test_pas_research_record.py",
+      "source": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "blob": "5a9c2f32bd1ce826483a0fdeee4e3cbd1650f7e7"
+    }
+  ]
+}

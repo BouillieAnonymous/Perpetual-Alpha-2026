@@ -1,0 +1,64 @@
+{
+  "schema": "long-history-37/1",
+  "frozen_ms": 1792337638344,
+  "parent_commit": "9137e6e8abc279b0e91e7bca39a46032024a7ff8",
+  "original_csv_sha256": "562f543e8e0eb45c3518afd6df2a64db0ec89a063850b9b029e220035f11255e",
+  "frozen_engine_sha256": "23de35d84bc34300e23d96b5d7c2bd73315aa8d6c5a71fd89ac49ca740510cce",
+  "selected_count": 37,
+  "universe_count": 170,
+  "mapping_candidates": {
+    "BTC": [
+      "native",
+      "BTC"
+    ],
+    "ETH": [
+      "native",
+      "ETH"
+    ],
+    "HYPE": [
+      "native",
+      "HYPE"
+    ],
+    "EWY": [
+      "xyz",
+      "xyz:EWY"
+    ],
+    "EWJ": [
+      "xyz",
+      "xyz:EWJ"
+    ],
+    "GOLD": [
+      "xyz",
+      "xyz:GOLD"
+    ],
+    "BRENT": [
+      "xyz",
+      "xyz:BRENTOIL"
+    ],
+    "USDJPY": [
+      "xyz",
+      "xyz:JPY"
+    ],
+    "SP500": [
+      "xyz",
+      "xyz:SP500"
+    ],
+    "USDEUR": [
+      "xyz",
+      "xyz:EUR"
+    ]
+  },
+  "history_end_ms": 1792335600000,
+  "signal_alias": "PAR symbol retained ONLY inside offline engine to preserve random SHA seed; real venue/coin never relabelled in provenance",
+  "primary_sources": "BTC/ETH archived six months; HYPE/EWY archived4998h; other HIP3 public latest up to4998h; own-venue funding only",
+  "all_past_is_retrospective": true,
+  "parameter_search": false,
+  "windows": "full +60/20/20 chronological12h gaps; each complete/partial calendar month>=24h",
+  "costs": "native base4.5bps/HIP3 base9bps; spread6bps+slip2bps each fill+delay1h; fee_only zero friction; stress double fee/spread18/slip4/delay2h",
+  "run_plan": "all170 full/base;37 selected full/splits all3 costs+calendar base; all10 assets long/short/flat same windows;37 matched-absolute-exposure direction controls full/splits base",
+  "state": "past-only efficiency25>0.35 trending else range, attribution only, no new gate",
+  "statistics": "daily fixed-capital PnL; moving5day block bootstrap2000 samples seed20261018; descriptive after selection, not confirmatory",
+  "reject": "complete own-venue cost scenario<=0 and >=90days =>LONG_HISTORY_REJECTED; positive =>INCONCLUSIVE; missing equivalence/history/funding or<90days =>INSUFFICIENT_DATA",
+  "future_followup_gate": "base/stress positive, validation/test positive,>=60%positive months,>=30entrysignals, daily excess95% lower bound>0 vs BOTH fixed directions; still exploratory",
+  "no_transfer_claim": "external own-market test only; PAR/PAS execution and prospective remain unvalidated"
+}

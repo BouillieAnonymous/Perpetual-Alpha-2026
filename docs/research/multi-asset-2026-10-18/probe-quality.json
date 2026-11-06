@@ -1,0 +1,894 @@
+{
+  "schema": "collection-quality/0.1",
+  "integrity": "ok",
+  "channels": {
+    "stopped": 2,
+    "metadata": 1,
+    "connected": 1,
+    "subscriptionResponse": 20,
+    "l2Book": 350,
+    "activeAssetCtx": 1721,
+    "pong": 8
+  },
+  "metadata": [
+    {
+      "payload": {
+        "universe": [
+          {
+            "szDecimals": 4,
+            "name": "par:BTC",
+            "maxLeverage": 40,
+            "marginTableId": 40,
+            "deployerFeeScale": "1.0"
+          },
+          {
+            "szDecimals": 4,
+            "name": "par:ETH",
+            "maxLeverage": 25,
+            "marginTableId": 25,
+            "deployerFeeScale": "1.0"
+          },
+          {
+            "szDecimals": 2,
+            "name": "par:HYPE",
+            "maxLeverage": 10,
+            "marginTableId": 10,
+            "deployerFeeScale": "1.0"
+          },
+          {
+            "szDecimals": 3,
+            "name": "par:SP500",
+            "maxLeverage": 50,
+            "marginTableId": 50,
+            "deployerFeeScale": "1.0"
+          },
+          {
+            "szDecimals": 3,
+            "name": "par:EWY",
+            "maxLeverage": 20,
+            "marginTableId": 20,
+            "deployerFeeScale": "1.0"
+          },
+          {
+            "szDecimals": 3,
+            "name": "par:EWJ",
+            "maxLeverage": 20,
+            "marginTableId": 20,
+            "deployerFeeScale": "1.0"
+          },
+          {
+            "szDecimals": 2,
+            "name": "par:BRENT",
+            "maxLeverage": 20,
+            "marginTableId": 20,
+            "deployerFeeScale": "1.0"
+          },
+          {
+            "szDecimals": 4,
+            "name": "par:GOLD",
+            "maxLeverage": 25,
+            "marginTableId": 25,
+            "deployerFeeScale": "1.0"
+          },
+          {
+            "szDecimals": 1,
+            "name": "par:USDEUR",
+            "maxLeverage": 50,
+            "marginTableId": 50,
+            "deployerFeeScale": "1.0"
+          },
+          {
+            "szDecimals": 2,
+            "name": "par:USDJPY",
+            "maxLeverage": 50,
+            "marginTableId": 50,
+            "deployerFeeScale": "1.0"
+          }
+        ],
+        "marginTables": [
+          [
+            50,
+            {
+              "description": "",
+              "marginTiers": [
+                {
+                  "lowerBound": "0.0",
+                  "maxLeverage": 50
+                }
+              ]
+            }
+          ]
+        ],
+        "collateralToken": 3032
+      },
+      "received_ms": 1792286997179,
+      "markets": {
+        "par:BTC": {
+          "symbol": "par:BTC",
+          "status": "ready",
+          "price_unit": "USD/BTC",
+          "volume_unit": "venue-size",
+          "settlement_asset": "USDPR",
+          "catalog_version": "competition-units/2026-09-30",
+          "sz_decimals": 4,
+          "quantity_step": "0.0001",
+          "max_leverage": 40,
+          "valuation_multiplier": null,
+          "valuation_supported": false,
+          "raw": {
+            "szDecimals": 4,
+            "name": "par:BTC",
+            "maxLeverage": 40,
+            "marginTableId": 40,
+            "deployerFeeScale": "1.0"
+          }
+        },
+        "par:ETH": {
+          "symbol": "par:ETH",
+          "status": "ready",
+          "price_unit": "USD/ETH",
+          "volume_unit": "venue-size",
+          "settlement_asset": "USDPR",
+          "catalog_version": "competition-units/2026-09-30",
+          "sz_decimals": 4,
+          "quantity_step": "0.0001",
+          "max_leverage": 25,
+          "valuation_multiplier": null,
+          "valuation_supported": false,
+          "raw": {
+            "szDecimals": 4,
+            "name": "par:ETH",
+            "maxLeverage": 25,
+            "marginTableId": 25,
+            "deployerFeeScale": "1.0"
+          }
+        },
+        "par:HYPE": {
+          "symbol": "par:HYPE",
+          "status": "ready",
+          "price_unit": "USD/HYPE",
+          "volume_unit": "venue-size",
+          "settlement_asset": "USDPR",
+          "catalog_version": "competition-units/2026-09-30",
+          "sz_decimals": 2,
+          "quantity_step": "0.01",
+          "max_leverage": 10,
+          "valuation_multiplier": null,
+          "valuation_supported": false,
+          "raw": {
+            "szDecimals": 2,
+            "name": "par:HYPE",
+            "maxLeverage": 10,
+            "marginTableId": 10,
+            "deployerFeeScale": "1.0"
+          }
+        },
+        "par:SP500": {
+          "symbol": "par:SP500",
+          "status": "ready",
+          "price_unit": "index-points",
+          "volume_unit": "venue-size",
+          "settlement_asset": "USDPR",
+          "catalog_version": "competition-units/2026-09-30",
+          "sz_decimals": 3,
+          "quantity_step": "0.001",
+          "max_leverage": 50,
+          "valuation_multiplier": null,
+          "valuation_supported": false,
+          "raw": {
+            "szDecimals": 3,
+            "name": "par:SP500",
+            "maxLeverage": 50,
+            "marginTableId": 50,
+            "deployerFeeScale": "1.0"
+          }
+        },
+        "par:EWY": {
+          "symbol": "par:EWY",
+          "status": "ready",
+          "price_unit": "USD/share",
+          "volume_unit": "venue-size",
+          "settlement_asset": "USDPR",
+          "catalog_version": "competition-units/2026-09-30",
+          "sz_decimals": 3,
+          "quantity_step": "0.001",
+          "max_leverage": 20,
+          "valuation_multiplier": null,
+          "valuation_supported": false,
+          "raw": {
+            "szDecimals": 3,
+            "name": "par:EWY",
+            "maxLeverage": 20,
+            "marginTableId": 20,
+            "deployerFeeScale": "1.0"
+          }
+        },
+        "par:EWJ": {
+          "symbol": "par:EWJ",
+          "status": "ready",
+          "price_unit": "USD/share",
+          "volume_unit": "venue-size",
+          "settlement_asset": "USDPR",
+          "catalog_version": "competition-units/2026-09-30",
+          "sz_decimals": 3,
+          "quantity_step": "0.001",
+          "max_leverage": 20,
+          "valuation_multiplier": null,
+          "valuation_supported": false,
+          "raw": {
+            "szDecimals": 3,
+            "name": "par:EWJ",
+            "maxLeverage": 20,
+            "marginTableId": 20,
+            "deployerFeeScale": "1.0"
+          }
+        },
+        "par:BRENT": {
+          "symbol": "par:BRENT",
+          "status": "ready",
+          "price_unit": "USD/barrel",
+          "volume_unit": "venue-size",
+          "settlement_asset": "USDPR",
+          "catalog_version": "competition-units/2026-09-30",
+          "sz_decimals": 2,
+          "quantity_step": "0.01",
+          "max_leverage": 20,
+          "valuation_multiplier": null,
+          "valuation_supported": false,
+          "raw": {
+            "szDecimals": 2,
+            "name": "par:BRENT",
+            "maxLeverage": 20,
+            "marginTableId": 20,
+            "deployerFeeScale": "1.0"
+          }
+        },
+        "par:GOLD": {
+          "symbol": "par:GOLD",
+          "status": "ready",
+          "price_unit": "USD/troy-ounce",
+          "volume_unit": "venue-size",
+          "settlement_asset": "USDPR",
+          "catalog_version": "competition-units/2026-09-30",
+          "sz_decimals": 4,
+          "quantity_step": "0.0001",
+          "max_leverage": 25,
+          "valuation_multiplier": null,
+          "valuation_supported": false,
+          "raw": {
+            "szDecimals": 4,
+            "name": "par:GOLD",
+            "maxLeverage": 25,
+            "marginTableId": 25,
+            "deployerFeeScale": "1.0"
+          }
+        },
+        "par:USDEUR": {
+          "symbol": "par:USDEUR",
+          "status": "ready",
+          "price_unit": "USD/EUR",
+          "volume_unit": "venue-size",
+          "settlement_asset": "USDPR",
+          "catalog_version": "competition-units/2026-09-30",
+          "sz_decimals": 1,
+          "quantity_step": "0.1",
+          "max_leverage": 50,
+          "valuation_multiplier": null,
+          "valuation_supported": false,
+          "raw": {
+            "szDecimals": 1,
+            "name": "par:USDEUR",
+            "maxLeverage": 50,
+            "marginTableId": 50,
+            "deployerFeeScale": "1.0"
+          }
+        },
+        "par:USDJPY": {
+          "symbol": "par:USDJPY",
+          "status": "ready",
+          "price_unit": "JPY/USD",
+          "volume_unit": "venue-size",
+          "settlement_asset": "USDPR",
+          "catalog_version": "competition-units/2026-09-30",
+          "sz_decimals": 2,
+          "quantity_step": "0.01",
+          "max_leverage": 50,
+          "valuation_multiplier": null,
+          "valuation_supported": false,
+          "raw": {
+            "szDecimals": 2,
+            "name": "par:USDJPY",
+            "maxLeverage": 50,
+            "marginTableId": 50,
+            "deployerFeeScale": "1.0"
+          }
+        }
+      },
+      "sha256": "0d0b596e176f29b74c06b938f6159e3c590cc06a013dbb90855139ec689f0ff4"
+    }
+  ],
+  "raw_message_bytes": 1058712,
+  "assets": {
+    "par:BTC": {
+      "rows": 207,
+      "valid_receipt_rows": 104,
+      "start_ms": 1792286998043,
+      "end_ms": 1792287176809,
+      "interval_ms": {
+        "n": 206,
+        "min": 28,
+        "median": 992.0,
+        "p95": 1140,
+        "max": 1487
+      },
+      "gaps_over_limit": 0,
+      "gap_limit_ms": 10000,
+      "grid_5s_expected": 37,
+      "grid_5s_occupied": 37,
+      "grid_5s_missing": 0,
+      "grid_5s_coverage": 1.0,
+      "same_book_event_observations": 172,
+      "repeated_book_payloads": 172,
+      "quality_counts": {
+        "receipt_fresh_source_time_unknown": 104,
+        "invalid": 103
+      },
+      "quality_reasons": {
+        "null": 104,
+        "Asynchronous receipt skew": 103
+      },
+      "book_age_ms": {
+        "n": 207,
+        "min": 790,
+        "median": 2924,
+        "p95": 5690,
+        "max": 6212
+      },
+      "context_age_ms": {
+        "n": 207,
+        "min": 0,
+        "median": 0,
+        "p95": 695,
+        "max": 1118
+      },
+      "bid_levels": {
+        "n": 207,
+        "min": 18,
+        "median": 19,
+        "p95": 19,
+        "max": 19
+      },
+      "ask_levels": {
+        "n": 207,
+        "min": 16,
+        "median": 17,
+        "p95": 18,
+        "max": 19
+      },
+      "upstream_oracle_freshness": "unknown: API has no upstream source timestamp"
+    },
+    "par:ETH": {
+      "rows": 206,
+      "valid_receipt_rows": 103,
+      "start_ms": 1792286998075,
+      "end_ms": 1792287175778,
+      "interval_ms": {
+        "n": 205,
+        "min": 27,
+        "median": 994,
+        "p95": 1139,
+        "max": 1487
+      },
+      "gaps_over_limit": 0,
+      "gap_limit_ms": 10000,
+      "grid_5s_expected": 37,
+      "grid_5s_occupied": 37,
+      "grid_5s_missing": 0,
+      "grid_5s_coverage": 1.0,
+      "same_book_event_observations": 171,
+      "repeated_book_payloads": 171,
+      "quality_counts": {
+        "receipt_fresh_source_time_unknown": 103,
+        "invalid": 103
+      },
+      "quality_reasons": {
+        "null": 103,
+        "Asynchronous receipt skew": 103
+      },
+      "book_age_ms": {
+        "n": 206,
+        "min": 794,
+        "median": 2939.0,
+        "p95": 5696,
+        "max": 6219
+      },
+      "context_age_ms": {
+        "n": 206,
+        "min": 0,
+        "median": 0.0,
+        "p95": 692,
+        "max": 1114
+      },
+      "bid_levels": {
+        "n": 206,
+        "min": 15,
+        "median": 16.0,
+        "p95": 16,
+        "max": 16
+      },
+      "ask_levels": {
+        "n": 206,
+        "min": 14,
+        "median": 16.0,
+        "p95": 18,
+        "max": 18
+      },
+      "upstream_oracle_freshness": "unknown: API has no upstream source timestamp"
+    },
+    "par:HYPE": {
+      "rows": 206,
+      "valid_receipt_rows": 103,
+      "start_ms": 1792286998227,
+      "end_ms": 1792287175780,
+      "interval_ms": {
+        "n": 205,
+        "min": 18,
+        "median": 994,
+        "p95": 1138,
+        "max": 1490
+      },
+      "gaps_over_limit": 0,
+      "gap_limit_ms": 10000,
+      "grid_5s_expected": 37,
+      "grid_5s_occupied": 37,
+      "grid_5s_missing": 0,
+      "grid_5s_coverage": 1.0,
+      "same_book_event_observations": 171,
+      "repeated_book_payloads": 171,
+      "quality_counts": {
+        "receipt_fresh_source_time_unknown": 103,
+        "invalid": 103
+      },
+      "quality_reasons": {
+        "null": 103,
+        "Asynchronous receipt skew": 103
+      },
+      "book_age_ms": {
+        "n": 206,
+        "min": 799,
+        "median": 2940.5,
+        "p95": 5699,
+        "max": 6222
+      },
+      "context_age_ms": {
+        "n": 206,
+        "min": 0,
+        "median": 0.0,
+        "p95": 717,
+        "max": 1124
+      },
+      "bid_levels": {
+        "n": 206,
+        "min": 14,
+        "median": 15.0,
+        "p95": 15,
+        "max": 15
+      },
+      "ask_levels": {
+        "n": 206,
+        "min": 15,
+        "median": 17.0,
+        "p95": 18,
+        "max": 18
+      },
+      "upstream_oracle_freshness": "unknown: API has no upstream source timestamp"
+    },
+    "par:SP500": {
+      "rows": 206,
+      "valid_receipt_rows": 103,
+      "start_ms": 1792286998239,
+      "end_ms": 1792287175780,
+      "interval_ms": {
+        "n": 205,
+        "min": 18,
+        "median": 993,
+        "p95": 1139,
+        "max": 1488
+      },
+      "gaps_over_limit": 0,
+      "gap_limit_ms": 10000,
+      "grid_5s_expected": 37,
+      "grid_5s_occupied": 37,
+      "grid_5s_missing": 0,
+      "grid_5s_coverage": 1.0,
+      "same_book_event_observations": 171,
+      "repeated_book_payloads": 171,
+      "quality_counts": {
+        "receipt_fresh_source_time_unknown": 103,
+        "invalid": 103
+      },
+      "quality_reasons": {
+        "null": 103,
+        "Asynchronous receipt skew": 103
+      },
+      "book_age_ms": {
+        "n": 206,
+        "min": 803,
+        "median": 2942.0,
+        "p95": 5702,
+        "max": 6224
+      },
+      "context_age_ms": {
+        "n": 206,
+        "min": 0,
+        "median": 0.0,
+        "p95": 720,
+        "max": 1124
+      },
+      "bid_levels": {
+        "n": 206,
+        "min": 15,
+        "median": 15.0,
+        "p95": 15,
+        "max": 15
+      },
+      "ask_levels": {
+        "n": 206,
+        "min": 15,
+        "median": 15.0,
+        "p95": 15,
+        "max": 15
+      },
+      "upstream_oracle_freshness": "unknown: API has no upstream source timestamp"
+    },
+    "par:EWY": {
+      "rows": 206,
+      "valid_receipt_rows": 103,
+      "start_ms": 1792286998251,
+      "end_ms": 1792287175780,
+      "interval_ms": {
+        "n": 205,
+        "min": 29,
+        "median": 982,
+        "p95": 1138,
+        "max": 1488
+      },
+      "gaps_over_limit": 0,
+      "gap_limit_ms": 10000,
+      "grid_5s_expected": 37,
+      "grid_5s_occupied": 37,
+      "grid_5s_missing": 0,
+      "grid_5s_coverage": 1.0,
+      "same_book_event_observations": 171,
+      "repeated_book_payloads": 171,
+      "quality_counts": {
+        "receipt_fresh_source_time_unknown": 103,
+        "invalid": 103
+      },
+      "quality_reasons": {
+        "null": 103,
+        "Asynchronous receipt skew": 103
+      },
+      "book_age_ms": {
+        "n": 206,
+        "min": 799,
+        "median": 2943.5,
+        "p95": 5705,
+        "max": 6227
+      },
+      "context_age_ms": {
+        "n": 206,
+        "min": 0,
+        "median": 0.0,
+        "p95": 689,
+        "max": 1112
+      },
+      "bid_levels": {
+        "n": 206,
+        "min": 12,
+        "median": 13.0,
+        "p95": 13,
+        "max": 13
+      },
+      "ask_levels": {
+        "n": 206,
+        "min": 13,
+        "median": 16.0,
+        "p95": 16,
+        "max": 16
+      },
+      "upstream_oracle_freshness": "unknown: API has no upstream source timestamp"
+    },
+    "par:EWJ": {
+      "rows": 206,
+      "valid_receipt_rows": 103,
+      "start_ms": 1792286998261,
+      "end_ms": 1792287175780,
+      "interval_ms": {
+        "n": 205,
+        "min": 24,
+        "median": 980,
+        "p95": 1137,
+        "max": 1488
+      },
+      "gaps_over_limit": 0,
+      "gap_limit_ms": 10000,
+      "grid_5s_expected": 37,
+      "grid_5s_occupied": 37,
+      "grid_5s_missing": 0,
+      "grid_5s_coverage": 1.0,
+      "same_book_event_observations": 171,
+      "repeated_book_payloads": 171,
+      "quality_counts": {
+        "receipt_fresh_source_time_unknown": 103,
+        "invalid": 103
+      },
+      "quality_reasons": {
+        "null": 103,
+        "Asynchronous receipt skew": 103
+      },
+      "book_age_ms": {
+        "n": 206,
+        "min": 796,
+        "median": 2879.5,
+        "p95": 5708,
+        "max": 6230
+      },
+      "context_age_ms": {
+        "n": 206,
+        "min": 0,
+        "median": 0.0,
+        "p95": 683,
+        "max": 1106
+      },
+      "bid_levels": {
+        "n": 206,
+        "min": 13,
+        "median": 13.0,
+        "p95": 13,
+        "max": 13
+      },
+      "ask_levels": {
+        "n": 206,
+        "min": 15,
+        "median": 15.0,
+        "p95": 15,
+        "max": 15
+      },
+      "upstream_oracle_freshness": "unknown: API has no upstream source timestamp"
+    },
+    "par:BRENT": {
+      "rows": 206,
+      "valid_receipt_rows": 103,
+      "start_ms": 1792286998273,
+      "end_ms": 1792287175780,
+      "interval_ms": {
+        "n": 205,
+        "min": 12,
+        "median": 981,
+        "p95": 1137,
+        "max": 1488
+      },
+      "gaps_over_limit": 0,
+      "gap_limit_ms": 10000,
+      "grid_5s_expected": 37,
+      "grid_5s_occupied": 37,
+      "grid_5s_missing": 0,
+      "grid_5s_coverage": 1.0,
+      "same_book_event_observations": 171,
+      "repeated_book_payloads": 171,
+      "quality_counts": {
+        "receipt_fresh_source_time_unknown": 103,
+        "invalid": 103
+      },
+      "quality_reasons": {
+        "null": 103,
+        "Asynchronous receipt skew": 103
+      },
+      "book_age_ms": {
+        "n": 206,
+        "min": 786,
+        "median": 2887.0,
+        "p95": 5711,
+        "max": 6233
+      },
+      "context_age_ms": {
+        "n": 206,
+        "min": 0,
+        "median": 0.0,
+        "p95": 670,
+        "max": 1090
+      },
+      "bid_levels": {
+        "n": 206,
+        "min": 17,
+        "median": 17.0,
+        "p95": 17,
+        "max": 17
+      },
+      "ask_levels": {
+        "n": 206,
+        "min": 15,
+        "median": 15.0,
+        "p95": 15,
+        "max": 15
+      },
+      "upstream_oracle_freshness": "unknown: API has no upstream source timestamp"
+    },
+    "par:GOLD": {
+      "rows": 206,
+      "valid_receipt_rows": 103,
+      "start_ms": 1792286998281,
+      "end_ms": 1792287175796,
+      "interval_ms": {
+        "n": 205,
+        "min": 25,
+        "median": 978,
+        "p95": 1138,
+        "max": 1488
+      },
+      "gaps_over_limit": 0,
+      "gap_limit_ms": 10000,
+      "grid_5s_expected": 37,
+      "grid_5s_occupied": 37,
+      "grid_5s_missing": 0,
+      "grid_5s_coverage": 1.0,
+      "same_book_event_observations": 171,
+      "repeated_book_payloads": 171,
+      "quality_counts": {
+        "receipt_fresh_source_time_unknown": 103,
+        "invalid": 103
+      },
+      "quality_reasons": {
+        "null": 103,
+        "Asynchronous receipt skew": 103
+      },
+      "book_age_ms": {
+        "n": 206,
+        "min": 799,
+        "median": 2889.5,
+        "p95": 5714,
+        "max": 6236
+      },
+      "context_age_ms": {
+        "n": 206,
+        "min": 0,
+        "median": 0.0,
+        "p95": 689,
+        "max": 1106
+      },
+      "bid_levels": {
+        "n": 206,
+        "min": 17,
+        "median": 17.0,
+        "p95": 17,
+        "max": 17
+      },
+      "ask_levels": {
+        "n": 206,
+        "min": 18,
+        "median": 18.0,
+        "p95": 18,
+        "max": 18
+      },
+      "upstream_oracle_freshness": "unknown: API has no upstream source timestamp"
+    },
+    "par:USDEUR": {
+      "rows": 206,
+      "valid_receipt_rows": 104,
+      "start_ms": 1792286998307,
+      "end_ms": 1792287175796,
+      "interval_ms": {
+        "n": 205,
+        "min": 155,
+        "median": 981,
+        "p95": 1139,
+        "max": 1485
+      },
+      "gaps_over_limit": 0,
+      "gap_limit_ms": 10000,
+      "grid_5s_expected": 37,
+      "grid_5s_occupied": 37,
+      "grid_5s_missing": 0,
+      "grid_5s_coverage": 1.0,
+      "same_book_event_observations": 171,
+      "repeated_book_payloads": 171,
+      "quality_counts": {
+        "receipt_fresh_source_time_unknown": 104,
+        "invalid": 102
+      },
+      "quality_reasons": {
+        "null": 104,
+        "Asynchronous receipt skew": 102
+      },
+      "book_age_ms": {
+        "n": 206,
+        "min": 810,
+        "median": 2891.0,
+        "p95": 5717,
+        "max": 6239
+      },
+      "context_age_ms": {
+        "n": 206,
+        "min": 0,
+        "median": 0.0,
+        "p95": 716,
+        "max": 1113
+      },
+      "bid_levels": {
+        "n": 206,
+        "min": 16,
+        "median": 16.0,
+        "p95": 16,
+        "max": 16
+      },
+      "ask_levels": {
+        "n": 206,
+        "min": 16,
+        "median": 16.0,
+        "p95": 16,
+        "max": 16
+      },
+      "upstream_oracle_freshness": "unknown: API has no upstream source timestamp"
+    },
+    "par:USDJPY": {
+      "rows": 206,
+      "valid_receipt_rows": 104,
+      "start_ms": 1792286998381,
+      "end_ms": 1792287175796,
+      "interval_ms": {
+        "n": 205,
+        "min": 160,
+        "median": 978,
+        "p95": 1138,
+        "max": 1488
+      },
+      "gaps_over_limit": 0,
+      "gap_limit_ms": 10000,
+      "grid_5s_expected": 37,
+      "grid_5s_occupied": 37,
+      "grid_5s_missing": 0,
+      "grid_5s_coverage": 1.0,
+      "same_book_event_observations": 171,
+      "repeated_book_payloads": 171,
+      "quality_counts": {
+        "receipt_fresh_source_time_unknown": 104,
+        "invalid": 102
+      },
+      "quality_reasons": {
+        "null": 104,
+        "Asynchronous receipt skew": 102
+      },
+      "book_age_ms": {
+        "n": 206,
+        "min": 813,
+        "median": 2892.5,
+        "p95": 5720,
+        "max": 6242
+      },
+      "context_age_ms": {
+        "n": 206,
+        "min": 0,
+        "median": 0.0,
+        "p95": 720,
+        "max": 1113
+      },
+      "bid_levels": {
+        "n": 206,
+        "min": 16,
+        "median": 17.0,
+        "p95": 17,
+        "max": 17
+      },
+      "ask_levels": {
+        "n": 206,
+        "min": 13,
+        "median": 13.0,
+        "p95": 13,
+        "max": 13
+      },
+      "upstream_oracle_freshness": "unknown: API has no upstream source timestamp"
+    }
+  },
+  "rows_sha256": "bb7154f9e1c1014083e1b57f51b7512b6c9aea5c22787817983930201bb46246"
+}

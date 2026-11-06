@@ -1,0 +1,826 @@
+{
+ "phase": "Practice",
+ "status": "final",
+ "generated_at": "2026-10-18T12:36:41.029620936Z",
+ "from": "2026-10-05T12:00:00Z",
+ "to": "2026-10-18T12:00:00Z",
+ "min_days": 1,
+ "scoring": {
+  "method": "fractional",
+  "w_financial": 0.8,
+  "w_jury": 0.2,
+  "lambda": 1.5,
+  "c": 0.05,
+  "epsilon": 0.005,
+  "std": "sample",
+  "horizon": "sqrt_n",
+  "sample_after_s": 0,
+  "teams": 46
+ },
+ "teams": [
+  {
+   "name": "ACLA trading",
+   "ranked": true,
+   "return": -0.000001734692000043836,
+   "volatility": 0.0000031334182604231443,
+   "volatility_horizon": 0.000011297700205430821,
+   "rank": 28,
+   "q": 0.0999626514697225,
+   "score": 0.07997012117577801,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Algo Hedge",
+   "ranked": true,
+   "return": -0.0008389348400000829,
+   "volatility": 0.0004956117605764666,
+   "volatility_horizon": 0.00156726199858768,
+   "rank": 43,
+   "q": 0.09400293633661694,
+   "score": 0.07520234906929356,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "alpha one",
+   "ranked": true,
+   "return": -3.74869999486549e-8,
+   "volatility": 1.5304003643657283e-8,
+   "volatility_horizon": 3.74869999486549e-8,
+   "rank": 14,
+   "q": 0.09999981256535156,
+   "score": 0.07999985005228126,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Alpha Seekers",
+   "ranked": false,
+   "return": 0,
+   "volatility": 0,
+   "volatility_horizon": 0,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "AMAR",
+   "ranked": false,
+   "return": 0,
+   "volatility": 0,
+   "volatility_horizon": 0,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "Anonynynynynymous",
+   "ranked": true,
+   "return": -6.269999996977305e-8,
+   "volatility": 1.7389851143277487e-8,
+   "volatility_horizon": 6.269999996977305e-8,
+   "rank": 19,
+   "q": 0.09999968650098297,
+   "score": 0.07999974920078638,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Auror",
+   "ranked": false,
+   "return": 0,
+   "volatility": 0,
+   "volatility_horizon": 0,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "B\u0026S",
+   "ranked": true,
+   "return": -0.0000444627630000749,
+   "volatility": 0.000015525209993984324,
+   "volatility_horizon": 0.00004909502473339949,
+   "rank": 32,
+   "q": 0.09976434603943429,
+   "score": 0.07981147683154743,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Bean",
+   "ranked": false,
+   "return": 0,
+   "volatility": 0,
+   "volatility_horizon": 0,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "BenBen",
+   "ranked": true,
+   "return": -0.00034658706699997044,
+   "volatility": 0.00007904827138952502,
+   "volatility_horizon": 0.0002850125957317255,
+   "rank": 36,
+   "q": 0.09847539223792874,
+   "score": 0.078780313790343,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "BerserkerBots",
+   "ranked": true,
+   "return": -0.0013996234319998413,
+   "volatility": 0.0004520655985342898,
+   "volatility_horizon": 0.001429556943175632,
+   "rank": 44,
+   "q": 0.09338121625092068,
+   "score": 0.07470497300073654,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "BishopGambit",
+   "ranked": true,
+   "return": -1.4749000021296865e-8,
+   "volatility": 4.09063660296964e-9,
+   "volatility_horizon": 1.4749000021296864e-8,
+   "rank": 11,
+   "q": 0.09999992625505427,
+   "score": 0.07999994100404342,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Blackswans",
+   "ranked": true,
+   "return": -0.0002971253329999701,
+   "volatility": 0.00005729220765440844,
+   "volatility_horizon": 0.00018117386836726364,
+   "rank": 35,
+   "q": 0.09887502735570255,
+   "score": 0.07910002188456206,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "BostonAlpha",
+   "ranked": true,
+   "return": -0.001040853334000058,
+   "volatility": 0.00017387858072705274,
+   "volatility_horizon": 0.0006269281385162932,
+   "rank": 40,
+   "q": 0.0961885377675641,
+   "score": 0.07695083021405129,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "CatalystX",
+   "ranked": false,
+   "return": 0,
+   "volatility": 0,
+   "volatility_horizon": 0,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "Cavallo pazzo",
+   "ranked": true,
+   "return": -3.409899995698851e-8,
+   "volatility": 1.3920858438967897e-8,
+   "volatility_horizon": 3.409899995698851e-8,
+   "rank": 12,
+   "q": 0.09999982950529089,
+   "score": 0.07999986360423272,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Duck",
+   "ranked": false,
+   "return": 0,
+   "volatility": 0,
+   "volatility_horizon": 0,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "ErmoColle",
+   "ranked": true,
+   "return": -0.000008160215000052595,
+   "volatility": 0.000002004490755516888,
+   "volatility_horizon": 0.00000722729420020969,
+   "rank": 29,
+   "q": 0.09996201212367077,
+   "score": 0.07996960969893663,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "ETAL",
+   "ranked": true,
+   "return": 0.0000019194280000967012,
+   "volatility": 6.665101513064509e-7,
+   "volatility_horizon": 0.0000023088588916463853,
+   "rank": 7,
+   "q": 0.10002762015389773,
+   "score": 0.08002209612311818,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "ETHtrm",
+   "ranked": false,
+   "return": 0,
+   "volatility": 0,
+   "volatility_horizon": 0,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "FINX",
+   "ranked": true,
+   "return": -0.0005657183449998548,
+   "volatility": 0.0001431567898406937,
+   "volatility_horizon": 0.0005161591462014435,
+   "rank": 39,
+   "q": 0.0973900308046153,
+   "score": 0.07791202464369223,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "fjd",
+   "ranked": false,
+   "return": 0,
+   "volatility": 0,
+   "volatility_horizon": 0,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "GradientAlpha",
+   "ranked": true,
+   "return": -4.6146000021174416e-8,
+   "volatility": 1.2798597633377441e-8,
+   "volatility_horizon": 4.614600002117442e-8,
+   "rank": 17,
+   "q": 0.09999976927053225,
+   "score": 0.07999981541642581,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "HashStock",
+   "ranked": true,
+   "return": 9.320999994066881e-8,
+   "volatility": 3.8289318547068844e-8,
+   "volatility_horizon": 1.3805410132403105e-7,
+   "rank": 8,
+   "q": 0.10000126361010594,
+   "score": 0.08000101088808476,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Hedging Face",
+   "ranked": true,
+   "return": -0.0010730038380000195,
+   "volatility": 0.00029759771974451743,
+   "volatility_horizon": 0.0010730038380000195,
+   "rank": 41,
+   "q": 0.09490815905388333,
+   "score": 0.07592652724310667,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "I Sapienti",
+   "ranked": true,
+   "return": -0.00010767530799993263,
+   "volatility": 0.000027811879314752523,
+   "volatility_horizon": 0.00010027715693635649,
+   "rank": 33,
+   "q": 0.09948646866992704,
+   "score": 0.07958917493594164,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Illini Quants",
+   "ranked": true,
+   "return": -0.00042008815000005306,
+   "volatility": 0.00007893399122906924,
+   "volatility_horizon": 0.00028460055275343393,
+   "rank": 37,
+   "q": 0.09833423965482431,
+   "score": 0.07866739172385945,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "KKTY",
+   "ranked": true,
+   "return": -0.00010645800999997679,
+   "volatility": 0.000029526139518367266,
+   "volatility_horizon": 0.00010645800999997679,
+   "rank": 34,
+   "q": 0.09947052827530821,
+   "score": 0.07957642262024657,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Kolmogorov juniors",
+   "ranked": true,
+   "return": -4.076799997587699e-8,
+   "volatility": 1.1307008793164551e-8,
+   "volatility_horizon": 4.076799997587699e-8,
+   "rank": 15,
+   "q": 0.09999979616041563,
+   "score": 0.07999983692833251,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "lifeisluck",
+   "ranked": true,
+   "return": -4.4188000036804453e-8,
+   "volatility": 1.225554614560793e-8,
+   "volatility_horizon": 4.418800003680445e-8,
+   "rank": 16,
+   "q": 0.09999977906048796,
+   "score": 0.07999982324839038,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Marimbalpha",
+   "ranked": true,
+   "return": -3.616300003894679e-8,
+   "volatility": 1.0029811608848375e-8,
+   "volatility_horizon": 3.6163000038946784e-8,
+   "rank": 13,
+   "q": 0.09999981918532674,
+   "score": 0.0799998553482614,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Market Makers",
+   "ranked": true,
+   "return": 0.00011183423999994169,
+   "volatility": 0.0001681390606481547,
+   "volatility_horizon": 0.0006062340045752711,
+   "rank": 5,
+   "q": 0.10019042511981342,
+   "score": 0.08015234009585075,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Mlq",
+   "ranked": false,
+   "return": 0,
+   "volatility": 0,
+   "volatility_horizon": 0,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "MS",
+   "ranked": false,
+   "return": 0,
+   "volatility": 0,
+   "volatility_horizon": 0,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "Need for spread",
+   "ranked": true,
+   "return": -0.001056450918000107,
+   "volatility": 0.000477225605738235,
+   "volatility_horizon": 0.001720661391453568,
+   "rank": 45,
+   "q": 0.0932184630709761,
+   "score": 0.07457477045678089,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Not Cheating",
+   "ranked": true,
+   "return": -6.524700002508155e-8,
+   "volatility": 1.8096261858510127e-8,
+   "volatility_horizon": 6.524700002508152e-8,
+   "rank": 20,
+   "q": 0.09999967376606415,
+   "score": 0.07999973901285133,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Overfit \u0026 Overconfident",
+   "ranked": true,
+   "return": -9.124930000492526e-7,
+   "volatility": 2.530800230907342e-7,
+   "volatility_horizon": 9.124930000492525e-7,
+   "rank": 23,
+   "q": 0.09999543774315112,
+   "score": 0.0799963501945209,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Overfitting Anonymous",
+   "ranked": true,
+   "return": 0.000012355093000238071,
+   "volatility": 0.000011730506477484123,
+   "volatility_horizon": 0.000042294942591731466,
+   "rank": 6,
+   "q": 0.10009536228176491,
+   "score": 0.08007628982541193,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Polenta e Osei",
+   "ranked": true,
+   "return": -0.000001970517000127181,
+   "volatility": 3.957839667695705e-7,
+   "volatility_horizon": 0.000001427019386194222,
+   "rank": 27,
+   "q": 0.09999177858381357,
+   "score": 0.07999342286705086,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "PoseidonArb",
+   "ranked": false,
+   "return": 0,
+   "volatility": 0,
+   "volatility_horizon": 0,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "QUANT TAIWAN",
+   "ranked": true,
+   "return": -3.259220001661234e-7,
+   "volatility": 6.570375568566804e-7,
+   "volatility_horizon": 0.0000023689826011523473,
+   "rank": 26,
+   "q": 0.09999224181013801,
+   "score": 0.07999379344811042,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "quant-ctrypto",
+   "ranked": false,
+   "return": 0,
+   "volatility": 0,
+   "volatility_horizon": 0,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "Quantchester United",
+   "ranked": true,
+   "return": -0.000020810298000051297,
+   "volatility": 0.000003199211136709996,
+   "volatility_horizon": 0.000011534919794443325,
+   "rank": 30,
+   "q": 0.09992383270340909,
+   "score": 0.07993906616272728,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Reinforcement Traders",
+   "ranked": true,
+   "return": 0.001148404735000108,
+   "volatility": 0.0010152755639980526,
+   "volatility_horizon": 0.0036606281047206,
+   "rank": 2,
+   "q": 0.10855359520149663,
+   "score": 0.0868428761611973,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Rentech2",
+   "ranked": true,
+   "return": -4.948979994701119e-7,
+   "volatility": 5.776790792331733e-7,
+   "volatility_horizon": 0.0000018267816470057031,
+   "rank": 24,
+   "q": 0.09999353027766018,
+   "score": 0.07999482422212816,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "RoboQuant",
+   "ranked": true,
+   "return": -0.0000014520150000141285,
+   "volatility": 5.465591626146549e-7,
+   "volatility_horizon": 0.0000013387910626487603,
+   "rank": 25,
+   "q": 0.09999308007569868,
+   "score": 0.07999446406055895,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "SamwiseSquad 2.0",
+   "ranked": false,
+   "return": 0,
+   "volatility": 0,
+   "volatility_horizon": 0,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "SAPS",
+   "ranked": true,
+   "return": -0.0063188803679998795,
+   "volatility": 0.0021642612936718154,
+   "volatility_horizon": 0.0078033550678357575,
+   "rank": 46,
+   "q": 0.07350356340458133,
+   "score": 0.05880285072366507,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Secretive Plotter",
+   "ranked": true,
+   "return": 0.00015711898400017077,
+   "volatility": 0.000037579714214349236,
+   "volatility_horizon": 0.0001354955865171191,
+   "rank": 4,
+   "q": 0.10240432637771646,
+   "score": 0.08192346110217318,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Setsuna",
+   "ranked": false,
+   "return": 0,
+   "volatility": 0,
+   "volatility_horizon": 0,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "SFINX",
+   "ranked": true,
+   "return": -0.0001524756310001818,
+   "volatility": 0.00019624137579007906,
+   "volatility_horizon": 0.0007075583427787276,
+   "rank": 38,
+   "q": 0.09762991062249621,
+   "score": 0.07810392849799697,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Slipstream",
+   "ranked": true,
+   "return": 2.9521999955761657e-8,
+   "volatility": 8.553196384773168e-8,
+   "volatility_horizon": 3.0838988134412875e-7,
+   "rank": 21,
+   "q": 0.0999996062302307,
+   "score": 0.07999968498418457,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "sloppy31",
+   "ranked": true,
+   "return": 0.0003959002099997999,
+   "volatility": 0.00021077294023657482,
+   "volatility_horizon": 0.0007599526435032775,
+   "rank": 3,
+   "q": 0.10470191896302462,
+   "score": 0.0837615351704197,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Team Anchorium",
+   "ranked": true,
+   "return": 5.051200013816981e-8,
+   "volatility": 6.643340365606486e-8,
+   "volatility_horizon": 2.3952904328553867e-7,
+   "rank": 10,
+   "q": 0.10000019062731022,
+   "score": 0.08000015250184818,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Team HyperTrading",
+   "ranked": true,
+   "return": -0.0014455014419999523,
+   "volatility": 0.00025281221495877885,
+   "volatility_horizon": 0.0009115274040975013,
+   "rank": 42,
+   "q": 0.09467403177822503,
+   "score": 0.07573922542258003,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "The Boltzmann Constant",
+   "ranked": false,
+   "return": 0,
+   "volatility": 0,
+   "volatility_horizon": 0,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "Thiru Venkat Taral Thota",
+   "ranked": false,
+   "return": 0,
+   "volatility": 0,
+   "volatility_horizon": 0,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "Thorp",
+   "ranked": true,
+   "return": -4.7623999965829e-8,
+   "volatility": 1.3208521063037832e-8,
+   "volatility_horizon": 4.762399996582902e-8,
+   "rank": 18,
+   "q": 0.09999976188056718,
+   "score": 0.07999980950445375,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Three Of A Kind",
+   "ranked": false,
+   "return": 0,
+   "volatility": 0,
+   "volatility_horizon": 0,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "Tortellini al pesto e polenta",
+   "ranked": true,
+   "return": 6.614800018844846e-8,
+   "volatility": 1.8779078620650055e-8,
+   "volatility_horizon": 6.770893087272334e-8,
+   "rank": 9,
+   "q": 0.10000098753389836,
+   "score": 0.08000079002711868,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "Trade Brothers",
+   "ranked": true,
+   "return": -2.6044600009988983e-7,
+   "volatility": 6.431045267689469e-8,
+   "volatility_horizon": 2.3187463467484417e-7,
+   "rank": 22,
+   "q": 0.09999878349889471,
+   "score": 0.07999902679911577,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "TradeScaleUP",
+   "ranked": false,
+   "return": 0,
+   "volatility": 0,
+   "volatility_horizon": 0,
+   "rank": null,
+   "q": null,
+   "score": null,
+   "eligible": false,
+   "reasons": [
+    "few_trading_days"
+   ]
+  },
+  {
+   "name": "Vibe Trader",
+   "ranked": true,
+   "return": -0.000032800517000053375,
+   "volatility": 0.00000774336791171796,
+   "volatility_horizon": 0.00002791911005048162,
+   "rank": 31,
+   "q": 0.0998508643823673,
+   "score": 0.07988069150589384,
+   "eligible": true,
+   "reasons": null
+  },
+  {
+   "name": "White-Noise-Walkers",
+   "ranked": true,
+   "return": 0.0029101541109997076,
+   "volatility": 0.0012617660969176591,
+   "volatility_horizon": 0.004370885974258523,
+   "rank": 1,
+   "q": 0.13301869729492524,
+   "score": 0.1064149578359402,
+   "eligible": true,
+   "reasons": null
+  }
+ ]
+}

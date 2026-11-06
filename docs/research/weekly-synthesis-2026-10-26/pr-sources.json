@@ -1,0 +1,323 @@
+{
+  "checked_date": "2026-10-26",
+  "prs": [
+    {
+      "number": 35,
+      "title": "Fix repeated renewal alerts and safe stale-book waiting",
+      "merged": true,
+      "draft": false,
+      "head_sha": "1b9bc798ac8d6109d124a9e5ee4022b579148f1b",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/35",
+      "body": "The monitor recorded base issues before renewal checks and complete issues afterward, causing unchanged paused/renewal-blocked incidents to alternate fingerprints and enqueue two emails per poll. Record the complete incident only after all checks; a two-poll integration test verifies a single durable notification.\n\nPast stale PAS book timestamps now wait only on active pre-decision/pre-intent ticks after other snapshot checks and pending-order reconciliation. The existing book-age threshold is unchanged and stale quotes cannot be used for orders. Ownership/loss checks and authorization remain mandatory. Fresh captures recover within the original decision window; future timestamps, operator/startup pauses, account faults and post-submit uncertainty remain hard failures. PAR remains unchanged.\n\nValidation: 114 relevant tests passed (one Windows symlink skip); repository Ruff passed. Eight added tests cover complete-incident dedup, fresh recovery, no catch-up, future timestamps, account faults, expiry/revocation, operator races and post-submit stale quotes."
+    },
+    {
+      "number": 34,
+      "title": "Add line breaks and indentation to PAS email bodies",
+      "merged": true,
+      "draft": false,
+      "head_sha": "5f77748dd515267d6bc9c2d3a4b4bc9a2d7be45d",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/34",
+      "body": "PAS email bodies currently arrive as a single JSON line. Pretty-print JSON with two-space indentation at the email presentation boundary, preserving the stored outbox payload and existing English field names/content. Non-JSON bodies retain their original formatting. Trading, renewal decisions and notification queue semantics are unchanged.\n\nValidation: 30 existing PAS launch/renewal tests passed; Ruff passed. Deploy only the independent monitor."
+    },
+    {
+      "number": 33,
+      "title": "Add opt-in healthy PAS approval renewal and durable email notices",
+      "merged": true,
+      "draft": false,
+      "head_sha": "7597c37001ce5bb0da1a9018ffabbf3dbc9ae4d8",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/33",
+      "body": "An explicitly installed standing permission can renew the same PAS trading grant for 24 hours within its final 15 minutes, without daily operator messages. The unsigned monitor checks the exact policy/account identity, fresh public preflight, active trader heartbeat, no waits or pending orders/requests, position/risk/margin consistency, email availability and exchange authorization covering the new grant. Expired grants and paused traders are never auto-resumed; leverage and strategy parameters are unchanged.\n\nAn optional compose overlay mounts the standing permission read-only and grants the public-only monitor write access to the bounded trading approval directory. The monitor receives no API key. Grant publication is atomic/fsynced and serialized against trader pauses and intent creation. A recovery journal and idempotent durable outbox record each successful renewal and retry email delivery; messages identify the new expiry and unchanged limits.\n\nValidation: 14 renewal fault/boundary tests passed; 103 relevant tests passed before the final three added renewal cases (one Windows symlink skip); repository Ruff passed. Full Linux CI required before merge. Existing opt-out behavior remains the default."
+    },
+    {
+      "number": 32,
+      "title": "Recover transient PAS public-query outages before order intent",
+      "merged": true,
+      "draft": false,
+      "head_sha": "dc82700b9b317b8d117a45493bca80a6aa7d1347",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/32",
+      "body": "Transient public-info timeouts, connection failures and HTTP 408/429/500/502/503/504 previously latched PAS trading until operator recovery. Active PAS ticks now wait and recapture fresh evidence only before decision/intent creation, after pending-order reconciliation. Recovery checks local approval, exchange authorization, account consistency and market risk, and respects the original decision window and idempotency.\n\nUnknown or post-submit outcomes, operator requests, manual/startup pauses, authorization failures, TLS errors and other HTTP statuses remain hard failures. Notifications distinguish network waiting from spread waiting. Diagnostics persist only allowlisted query names and status codes; no request/response payloads. Strategy, limits, approval duration and collector/research data are unchanged.\n\nValidation: 92 relevant offline tests passed (one Windows symlink skip); repository Ruff passed. Added 13 tests covering retry classification, safe recovery, expiry/revocation, manual pause races, restart, PAR behavior and post-submit uncertainty. Full Linux CI required before merge."
+    },
+    {
+      "number": 30,
+      "title": "Automatically wait and recover from pre-order PAS spread limits",
+      "merged": true,
+      "draft": false,
+      "head_sha": "040d4757f2f7ad31495459ef41cc3515bdf8fd3c",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/30",
+      "body": "Transient wide spread previously latched a manual pause even before any order was submitted. Add a PAS-only market_wait state: each poll re-captures and validates non-spread market rules, account/position/loss constraints, local approval expiry and exchange authorization. Return to normal operation only when the unchanged spread limit passes. Waiting creates no decision or intent; recovery outside the normal window skips trading rather than catching up.\n\nManual/startup/restart pauses, account and authorization failures, loss stops and unknown/partial/post-submit reconciliation remain hard pauses. Atomic wait transitions cannot clear concurrent operator pauses; restart still requires explicit resume. There is no approval renewal, forced flatten or PAR behavior change. The optional JSON-state field requires no table migration or policy-identity change.\n\nValidation: 14 new spread-wait boundary/concurrency tests, 49 Funding tests (one Windows symlink skip), 16 PAS launch tests and Ruff passed locally. All three required CI jobs passed, then merged with the tested head pinned. [Passing CI](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/runs/39452979055).\n\nSpread limit, maximum notional, signal and decision clock remain unchanged. Detailed deployment, backup and recovery evidence is maintained separately from this code review."
+    },
+    {
+      "number": 29,
+      "title": "docs(research): archive White-Noise-Walkers public data audit",
+      "merged": false,
+      "draft": false,
+      "head_sha": "a1df965971eb59d0114029e3168c506358735c5c",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/29",
+      "body": "核查官方排行榜前端、四个公开 JSON、文档及固定版本网站源码，未能建立 White-Noise-Walkers 的可靠钱包关联。中文报告明确区分排名和收益事实、接口能力、策略推断边界；不能确定持续方向持仓或频繁短周期交易。\n\n包含报告、公开数据快照及查询时间/SHA-256、GET-only 调查与离线复算脚本。35 个新增文件，从最新 main ef85b06 建立独立分支；不包含其他本地研究。证据目录 Git 属性保留原始字节及上游空白。没有 Collector、策略、风控、交易配置或服务变更，无数据迁移，不自动合并或部署。回滚本提交即可移除产物。\n\n验证：离线复算摘要完全一致；29 份原始响应的 Git 暂存字节哈希全部匹配；Ruff 和 diff whitespace 检查通过。完整容器 CI 待 GitHub Actions；本地未重复运行全量交易系统回归。"
+    },
+    {
+      "number": 28,
+      "title": "Fix transient collateral hold false pauses with one full public recapture",
+      "merged": true,
+      "draft": false,
+      "head_sha": "f463100dfef82211bd806c79e1625e75fd6440ea",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/28",
+      "body": "Independent spot and position queries can observe different marks, causing a legitimate own cross-margin hold to exceed the captured position margin and incorrectly latch a pause. For that narrow case, capture the entire public snapshot once more and use only the fresh result. Existing tolerance, full validation and account/position ownership checks remain unchanged. Persistent unexplained holds, foreign orders/positions, flat accounts and negative holds remain blocked; a failed recapture never reuses stale data. Rejected public account endpoints remain in observation evidence.\n\nSeven regression tests cover the reproduced race, PAS path, persistent excess, foreign/negative/flat/changing-account boundaries, failed capture, fresh Funding/book/free-margin reuse and foreign orders appearing during recapture. Local Funding suite: 49 tests (one Windows-specific symlink skip); PAS launch suite: 16 passed; Ruff passed.\n\nAll three required CI checks passed, then merged with the tested head pinned. [Passing CI](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/runs/39435935645).\n\nNo strategy, decision clock, budget, policy hash, approval-duration rule or database schema changes. Deployment and recovery evidence is maintained separately from this code review."
+    },
+    {
+      "number": 27,
+      "title": "研究记录：PAS 均值回归、短周期与全资产 5–10 分钟动量比较",
+      "merged": false,
+      "draft": false,
+      "head_sha": "ccaa3ecf2d4d9d5160722caa0b14028cc42244f3",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/27",
+      "body": "## 研究记录\n\n归档 2026-10-19–20 PAS 真实盘口上的三轮离线研究：参考价偏离回归、分钟级短周期候选比较，以及全部十资产的 5/10 分钟本地动量、反转和外部领先诊断。统一入口为 `docs/research/pas-research-records-2026-10-20.md`。\n\n最新样本约 19 小时 9 分钟；旧段拟合参数，新增约 9 小时 16 分钟单列。新增段 40 个资产/方向/持有期基础成本组合全部亏损，模型成本过滤版均不交易。外部市场数据是事后下载的一分钟 K 线，缺少历史接收时间，只报告事件时间相关，不声称完成外部领先策略的可执行回测。\n\n## 内容与边界\n\n- 保存固定方案、完整失败结果、输入指纹、情景/分组 CSV、确定性压缩的逐笔账本及完整 JSON。\n- 五个标准库研究脚本可独立运行；从未合并的原型中提取计算函数，未引入生产 producer、钱包或运行配置。\n- 不提交原始行情、账户数据或密钥；不部署、不改变 Funding-LAST 或风险预算。\n- 小时级策略与 Trend V2 的实现状态说明保留为研究当时的本地盘点，不包含这些策略的实现。\n\n## 验证\n\n- 在干净的最新 main 上重跑三轮研究，除代码来源指纹外，所有结果字段与原研究记录逐项完全相等。\n- 全仓库 Ruff 检查通过；新增 6 项离线检查通过，包含未来数据前缀不变性、深度/成本过滤、仓位不重叠，以及全部 9,234 条全资产情景账本的 Decimal 核算。\n- 各轮已有逐笔/输入验证记录随 PR 保存；源码与协议采用 LF 指纹。\n- 本地 Windows 全量回归在既有 `test_pas_csv_export.test_live_wal_writer_during_streamed_export` 处被 KeyboardInterrupt 中断，未计作通过；完整 Linux CI 待 GitHub 运行。\n\n这些是单日已见样本上的研究情景，不构成长期或可投资盈利证据。"
+    },
+    {
+      "number": 26,
+      "title": "Deploy SSH CSV exporter on Python 3.14 without trading SDK dependencies",
+      "merged": true,
+      "draft": false,
+      "head_sha": "0815dab89ebc8015a21b3b87642453b953abd482",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/26",
+      "body": "The VPS already has Python 3.14, while installing the root trading project requires Python <3.14 and pulls in the trading SDK. Package only the SSH CSV export runtime as an independent stdlib-only wheel for a dedicated Python 3.14 venv, without installing Python 3.12 or the trading project.\n\nThe deterministic stdlib builder copies unchanged export/research/venue modules into alpha_csv_export and extracts the exact two constants and two normalization helpers required from venue_collection. It excludes Collector/Capture, HTTP client, ProcessLock, wallet and SDK code; static import checks reject new non-stdlib or unbundled dependencies. The wheel has its own Python >=3.14,<3.15 metadata, source SHA256 manifest and RECORD hashes, with no Requires-Dist. Root pyproject.toml retains >=3.11,<3.14; Collector/trading/risk source is unchanged.\n\nThe SSH launcher uses the independent namespace. Deployment documentation explicitly installs python3.14-venv and acl, builds/installs the reviewed wheel with --no-index --no-deps into a root-owned export-only venv, checks -I imports and dependencies, and retains account/ACL/SSH acceptance plus rollback guidance. requests is fixture-harness-only and is not installed in the deployment venv.\n\nValidation at head 0815dab89ebc8015a21b3b87642453b953abd482: CI run #167 SUCCESS; all three jobs passed:\n- Standalone CSV Python 3.14 / WAL / SSH: clean wheel install without external runtime dependencies, all 15 installed-wheel tests, background concurrent WAL writer/checkpoint during CSV output, prefix isolation, filters/panel parity, locks/timeout, artifact hashes/dependency boundaries, and real SSH/PAM acceptance through the installed Python 3.14.4 interpreter.\n- Disposable SSH CSV permission isolation: existing supported-runtime SSH acceptance retained and passed.\n- Server container / Python 3.12.15: full original regression/contracts/data/risk/Paper and container fault/recovery checks passed.\n\nLocal WSL Python 3.14.4 / SQLite 3.46.1 installed-wheel suite also passed all 15 tests. Related Python 3.12 tests, Ruff and whitespace checks passed.\n\nNo VPS connections/modifications, Collector changes, merge or deployment. This PR prepares the artifact and tests only. Existing large-history scan/time-limit behavior is unchanged; actual VPS installation and public-key/ACL/WAL acceptance remain a separate step."
+    },
+    {
+      "number": 25,
+      "title": "Prepare isolated PAS Funding-LAST baseline; keep signing disabled pending activation",
+      "merged": true,
+      "draft": false,
+      "head_sha": "c0553ca9429a0785300adedbef828b3f1b9591eb",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/25",
+      "body": "Integrates the Funding-LAST runner onto current main while preserving the PAS Collector, Research Pipeline and standalone CSV export. Adds isolated PAS deployment configuration, separate-purpose leverage/trading approval checks, a public monitor and durable alert outbox.\n\nStrategy and risk settings remain frozen: ETH Funding-LAST, maximum 25 USDP target/order notional, 1x Cross target, normal UTC 00:00/12:00 decision windows, no PAS bootstrap. Existing execution friction, collateral scope and exchange fill/position reconciliation gates remain in force. Pause/stop does not automatically flatten positions.\n\nSynchronized with latest main; all three required CI jobs passed on the tested head. Marked Ready and merged. Prior regression and container acceptance reused; no additional strategy research or architecture changes. [Passing CI](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/runs/39338241131).\n\nDetailed operational evidence is maintained separately from this code review. Private credentials and operational approvals are not committed to the repository."
+    },
+    {
+      "number": 24,
+      "title": "Add restricted read-only SSH CSV export for PAS research",
+      "merged": true,
+      "draft": false,
+      "head_sha": "dc23eecfc7b76eb75b0b1b3cd148ea4ceaab3f06",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/24",
+      "body": "Team members need PAS history without server administration or deployment access. This adds a fixed-path read-only SSH CSV exporter reusing pas_research normalization and causal minute-panel logic. Supports --all or UTC half-open --from/--to, --symbol, observations/funding/minute-panel and optional raw JSON, streaming stdout with short SQLite reads, flock and resource limits.\n\nDeployment uses a managed EOF Match block in the main sshd_config, an idempotent stdin/stdout renderer with removal support, candidate validation and administrator effective-config comparison. Dedicated system accounts use unusable '*' password hashes and publickey-only SSH, with root-owned code/keys and read-only data access. Installation, rollback and later VPS acceptance are documented.\n\nParser regression repair, based on actual CI output:\n- Diagnostic commit 3374bd1 reproduced the original failure and printed invalid.returncode=0, invalid.stdout='', invalid.stderr=''. The historical included configuration was accepted; this was an incorrect test expectation, not mismatched error wording.\n- OpenSSH restores outer Include context, and the measured Match-all same-file sample is accepted on Ubuntu OpenSSH 9.6 as well. Preserve both as positive cases, with sshd -T checks comparing exporter restrictions and unchanged administrator settings.\n- Keep an actual negative control: UsePAM directly inside a named Match User block. It must fail with nonzero status and diagnostics identifying the test file, UsePAM and Match. Final CI reports returncode=255 and the expected context rejection. All three cases print return code, stdout and stderr.\n- Real UsePAM=yes SSH tests also exposed lingering disposable PAM/user-manager processes. Cleanup now terminates sessions/processes only for test-created non-root accounts, waits for exit and requires successful userdel. It does not force deletion or suppress cleanup failure; PASS is printed only after cleanup completes.\n- Correct the deployment guide's earlier overbroad claim that the include layout must fail. EOF placement remains this project's explicit managed-install policy, rather than a claimed universal parser requirement.\n\nValidation at final head dc23eecfc7b76eb75b0b1b3cd148ea4ceaab3f06: CI run #164 SUCCESS, both 'Disposable SSH CSV permission isolation' and 'Server container / Python 3.12.15' passed. This covers actual Ubuntu main configuration and PAM, administrator publickey shell access, three CSV datasets/range filters, command/SFTP/SCP/password/PTY/forwarding denial, read-only permissions, strict session cleanup, full regression/contracts/data/risk/Paper checks and container backup/recovery/fault exercises. Local related suite: 31 tests (29 passed, 2 Linux-only skips); Ruff and diff whitespace checks passed.\n\nKnown limits: unindexed history/time paging and Python normalization scans can hit the 5-second query or 300-second export limits; no production-scale history benchmark is claimed. Prefix consistency assumes append-only history, partial CSV failures must be discarded, and actual VPS PAM/account policy/ACL/WAL behavior requires later onsite acceptance.\n\nNo Collector, raw database/schema, trading or risk code changes. No VPS connections, account creation, merge or deployment. Keep this PR open; do not auto-merge."
+    },
+    {
+      "number": 23,
+      "title": "feat: PAS research data pipeline and market statistics",
+      "merged": true,
+      "draft": false,
+      "head_sha": "73a0f71ff6185c13668090403a1ca6d27425c358",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/23",
+      "body": "PAS 的原始公共行情已持续采集，但缺少独立、可复现且保持实际可得时间的研究数据入口。本 PR 从最新 main 560caff4 开发，只读读取现有 public.sqlite3，生成独立派生 SQLite、十资产 UTC 分钟 as-of panel、每日市场质量/统计和 CSV；不要求 VPS 部署。\n\n### 实现与方法\n- 复用 Collector identity/observations Schema、十市场来源与盘口检查；mode=ro + query_only 一致读事务，无原库写入、清库或 checkpoint。\n- 原始事件/请求/接收/事务内存储时间及质量保留；available=max(requested,received,stored)。各组件独立 as-of，90 秒 book/context 时效，不将顺序请求当原子快照；异常/缺失盘口保留 NULL，不用 Oracle 冒充成交价。\n- spread/basis、连续有效分钟 log return 与样本波动率、已结算 Funding 历史/修订/变化、质量与延迟/缺口；按全天 1440 点报告覆盖和样本数，无年化或收益显著性结论。\n- 派生记录与增量游标原子提交；校验原始前缀/输入身份/管线源码哈希，重复运行无重复，中断恢复与新文件完整重建。\n- CLI、中文 Schema/方法/运行文档、227 条合成输入生成器，以及可重现的十资产日报/统计 CSV。参考 #15/#20 的因果前缀、来源隔离和样本不足报告，未引入策略选择器或其研究分支。\n\n### 验证\n- 本地固定 Python 3.12.15：19 项新增回归通过；覆盖未来接收/存储和 Oracle 隔离、空/交叉/零数量/NaN/过期盘口、重复/断档、Funding 重叠修订、增量批次崩溃恢复、原始前缀校验、PAR/PAS 隔离、输出别名保护及原 DB/WAL 字节不变。\n- 合成日报重新生成与已提交示例比对通过；Ruff/diff 通过。提交 73a0f71 的完整 Linux CI 已通过：[PR CI](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/runs/39268914955)、[Push CI](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/runs/39268857815)。包括全部离线回归、固定环境/Ruff、契约、数据/风险及所有既有容器运维验收。\n\n### 边界\n现有 raw 没有精确 commit 时间或 Oracle 上游事件时间，stored_ms 只是假定可得时标的事务内采样；分钟 REST 无法重建逐笔成交/队列或可执行净收益。示例明确标为 SYNTHETIC，缺失市场与不足样本保持 unknown。\n\n未访问 VPS、交易密钥、账户或真实订单；未修改 Collector、部署文件、Funding-LAST 参数/执行代码。仅创建 PR，禁止自动合并或部署。\n\n[使用说明](docs/pas-research-pipeline.zh-CN.md) · [合成日报](docs/research/pas-pipeline-example/2026-10-19-report.md)"
+    },
+    {
+      "number": 22,
+      "title": "feat: PAS 十市场每分钟只读采集与空盘口故障隔离",
+      "merged": true,
+      "draft": false,
+      "head_sha": "4d41d0e6f82dd5b5375a41f5ad1d2ddbccf953a4",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/22",
+      "body": "原公共 REST 采集器固定 PAR，空盘口还会中断后续市场。本 PR 新增独立 PAS 十市场公共采集服务，并按用户确认的数据量方案部署为每分钟一轮；不启用策略或交易。\n\n### 实现\n- 固定 Testnet/PAS，记录 metadata/context、完整返回盘口及已结算 Funding。行情每 60 秒启动一轮，单调时钟排除网络耗时漂移，错过时钟槽不追赶。Funding 每 30 分钟取最近一小时；即时交易事件记录逻辑不变。\n- 原始响应、独立请求/接收/存储时间、哈希及质量标签逐次追加。空/单边/错误/过期盘口和单市场失败不填造报价、不阻断其他市场；book time 未变也保留新 context/Oracle 观察。\n- 独立 FULL/WAL 数据库、application_id/schema/source 身份及进程锁，拒绝异库与跨环境重贴标签。alive 与市场 quote_ready 分开展示。\n- 独立 Compose、非 root/只读根/资源限制/存活检查，只挂载 PAS 行情目录。没有钱包/账户查询、密钥、签名或订单接口。\n\n### 最新部署与验证\n- 运行代码 b2e0d19，镜像 perpetual-alpha-pas-data:b2e0d19，命令参数 --poll-seconds 60。\n- 9 项采集测试通过，VPS 固定 Linux 环境完整 418 项回归通过，Ruff/diff 通过。GitHub CI 独立展示，不把进行中的结果视作通过。\n- 数据库 /opt/perpetual-alpha-pas-data/pas/public.sqlite3。更新前 online backup 完整性 ok、保留 1375 条原始记录；同库继续追加，没有删除数据。\n- 服务 alpha-pas-data-collector-1 running/healthy，十市场报价已读通。只更新该采集服务；原 PAR/Paper/策略 runner 未重启，PAS 策略仍未启用。\n\nPR #18 已以 76ccc1956cf75f6c24f6432bce0adbf191af1a0f 合并，当前目标为 main。最终 diff 为 PAS 公共采集实现、独立部署文件、9 项离线测试与相关文档入口/架构更新；与 PR #21 策略执行独立，不包含其配置。\n\n主分支集成验证：本地 Python 3.12.15 的 6 项隔离测试及 9 项采集测试、Ruff 通过。文档更新后的最新 GitHub CI 须完成后再合并。本次仅操作仓库和离线测试，未连接或修改 VPS、数据库或运行服务。\n\n[配置、质量语义、部署记录和启停说明](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/blob/codex/pas-public-collector/docs/pas-public-collection.zh-CN.md)"
+    },
+    {
+      "number": 21,
+      "title": "feat: Funding-LAST 双环境执行、PAR 小额验收与 PAS 禁用预备",
+      "merged": false,
+      "draft": false,
+      "head_sha": "99736bf1a9685b7d5846c64d0decba583cdf7caf",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/21",
+      "body": "ETH Funding-LAST 先前只存在于离线研究，无法自动完成交易所测试网调仓。本 PR 新增独立确定性 runner：PAR 已完成小额开仓、原订单对账、reduce-only 退出并恢复常驻；PAS 使用同一适配代码和独立配置，但保持 disabled、无签名凭据、零订单。\n\n基于 PR #18 堆叠；本 PR 不自动合并。通用 Forecast/Agent/Core 的真实执行升级不在本次范围，原协议、Collector 和 Synthetic Paper 服务保持独立。\n\n### 实现\n- 固定 Testnet、显式 dex/ETH/collateral，读取同市场已结算 Funding 及实际 available 时间；每 12h 决策，PAR 仅首次允许显式当前时点 bootstrap。\n- Decimal sizing、至多 5% 权益且新增名义至多 25、1x cross、盘口年龄/价差/深度/滑点/费用/可用保证金检查。统一账户直接使用 spot total，不重复加浮盈，辨别自有保证金 hold，并检查共享抵押品的其他 DEX/挂单。\n- 独立 FULL/WAL SQLite 与 schema/application_id/身份绑定；持久 deterministic cloid 后才发送；未知不重发、部分成交暂停，真实 fills/feeToken/仓位核对。反向先平后开，风险减少退出不受原入场名义预算错误阻挡。\n- 启动暂停、generation/pause_epoch、累计亏损/回撤、单写者锁、只读根容器和存活检查；在线备份、隔离恢复和运行手册。\n\n### 验证与现场结果\n- 部署代码 43dad96：VPS Linux **451 项全回归通过**；新增 42 项故障/策略/适配测试。Windows 新测试通过，跳过 1 项 OS symlink；不宣称 Windows 全仓通过。\n- [运行代码 CI 全绿](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/runs/39168631578)：固定依赖、Ruff、契约、全部既有容器链，以及新镜像/Compose 与 PAS 禁用检查通过。最终文档提交 99736bf 无运行代码变化，CI 独立展示。\n- PAR 实际买入 0.0105 ETH@2358.7，显式验收以 reduce-only 卖出 0.0105 ETH@2358.8。手续费 0.044579 USDPR，执行验收净损益 **−0.043529 USDPR**；这次人为验收退出不是 12h 策略回测/收益证明。\n- 初次成交暴露 unified hold/浮盈解释问题，系统暂停保留原 cloid；修正后在原账本核对成交，无重复入场。入场发生于早期版本，退出与最终运行使用最终版本。原问题和抵押品隔离误拒绝均有新增回归。\n- 在线备份/恢复、持仓后重启暂停和最终归零通过。最终 snapshot：generation 5、unpaused、healthy，2 笔 terminal、0 未决、0 仓位，等待下一正常 UTC 00:00。\n- PAS 公开行情/Funding/元数据可读；当前无 USDP，账户准入被阻断，未做签名订单验收。\n\n### 运维边界\n暂停不自动平仓；没有站外报警、异地灾备或托管止损验收。短期链路通过不代表多日稳定或正收益。取消/真实超时/部分成交的故障路径由 fake I/O 测试覆盖，现场没有人为制造这些故障。早期一次 VPS 全仓出现既有 SQLite 并发测试 flaky，后续全回归通过，完整披露见记录。\n\n[运行手册](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/blob/99736bf1a9685b7d5846c64d0decba583cdf7caf/docs/funding-release.zh-CN.md) · [精确代码/镜像/费用/备份/状态证据](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/blob/99736bf1a9685b7d5846c64d0decba583cdf7caf/docs/funding-release-acceptance.json)"
+    },
+    {
+      "number": 20,
+      "title": "Research：Regime Switching 与条件Alpha冻结可行性研究",
+      "merged": false,
+      "draft": false,
+      "head_sha": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/20",
+      "body": "基于PR #15提交6832145的独立、堆叠研究PR，base为codex/new-alpha-discovery-report；不覆盖原研究结果，不包含运行时策略启用。\n\n### 核心结果\n- 复用10资产×17固定规则与原生/HIP-3自身价格、Funding；四状态固定为25h价格效率趋势/震荡×RV24相对过去168个RV中位数的高/低波动，没有阈值搜索或新数据API。\n- 全段680条件单元：118个小时归因净正，但状态为415 INSUFFICIENT_DATA、22 INCONCLUSIVE、243 REJECTED。等价规则、共享资产与持仓依赖不当作独立证据。\n- 两项描述性线索在三个顺序分段都正：HYPE/EMA/TREND_HIGH（归因+3.718%，低于同状态固定多头+7.059%）；HYPE/SIMPLE_MR/RANGE_HIGH（归因+7.638%，后两段仅15/19完整持仓）。均是事后归因，不是可成交过滤收益；未事后加入选择器。\n- 事前只允许TSM、ATR、ROLLING_Z及FLAT；60d训练、14d验证、两侧12h隔离、五段14d滚动评估和锁定28d。720训练尝试中25达到最低独立持仓/天数，只有3个训练净正，0个区间下界高于零；240映射均FLAT，选择器0成交，结论INSUFFICIENT_DATA。\n- 三个预定义过滤器均未盈利：70d滚动TSM −1.356%、ATR −0.092%、Z −2.901%；锁定28d分别−0.596%、−0.813%、−1.458%。减亏不等于相对空仓的正Alpha。\n- 1200离线成本情景重放；完整价格/费用/价差/滑点/Funding、换手、资本占用、独立持仓、自然月、逐段与组合DD/日波动、切换次数、基准与配对区间均归档。增量成本差额不冒称纯切换成本。\n- 全部历史已由PR #15看过；本轮留出仅为算法时间隔离，全部Retrospective，不冒充真正独立前瞻。没有证据支持当前开发运行时Selector或增加ML复杂度。\n\n### 交付与验证\n- [中文报告](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/blob/31668b900e9142e716e59ee828c61ece8ce524ec/docs/research/regime-conditional-2026-10-18/report.zh-CN.md)\n- 独立目录regime-conditional-2026-10-18：冻结协议、11800归因单元CSV/JSON、classifier、选择审计、1200逐笔账本、40汇总组合与120分段组合、增量成本、全部输入/源码摘要及离线复现命令。\n- 本地1200账本独立Decimal费用/Funding/摩擦核对、全部170归因、10个因果特征前缀/锁定映射、6项独立离线重放、组合加总通过；原1892账本验证继续通过。\n- 新增6项回归：未来数据不改过去状态/选择、缺口、未成熟持仓剔除、验证失败不改选第二名。全仓Ruff、diff、18份Git blob证据摘要通过。提交31668b9的push与PR两轮Linux CI均成功：465项完整回归、旧研究与新增1200账本验证、全部容器验收通过。\n  - [PR CI](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/runs/39159218260)\n  - [Push CI](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/runs/39159193803)\n\n只新增离线scripts/tests/研究目录及CI步骤。没有修改offline_quant、原PR #15研究文件、生产执行/风控/交易开关/VPS；没有订单、LLM或新闻API。"
+    },
+    {
+      "number": 19,
+      "title": "docs: 新闻事件 Agent 与传统量化信号映射研究提案",
+      "merged": false,
+      "draft": false,
+      "head_sha": "fe569b9efc710e2769c1c3ce4ccffbd928a87b68",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/19",
+      "body": "将新闻理解与交易决策分层：Agent 提取可追溯的事件特征，传统规则／统计模型结合发布前预期、行情和成本生成 Forecast，复用现有组合与独立风控。\n\n新增中文 research doc 与文档导航，包含：\n- 核查 ACL FOMC、DistilBERT、FinBERT、FinGPT、Jev 与美联储研究，明确适用范围和证据边界。\n- 以 FOMC、BTC／ETH 为首轮切口，保留向一般市场新闻扩展的路线。\n- 定义时间可得性、修订、转载去重、训练污染、资产映射及既有 Forecast／证据接口约束。\n- 设计规则、日历过滤、轻量 NLP 和可选 LLM 对照，按会议分组进行时间外验证，并计入成本与延迟。\n- 提出 R1–R5 小 PR 与继续／停止标准；均为建议，尚未实现或验证盈利。\n\n验证：重新读取研究分支上的四个接口源码；检查研究文档 5 个本地链接、代码围栏及 UTF-8。仅文档变更，未运行运行时测试；未修改策略、交易配置或部署。\n\n分支从 main 独立创建，不包含本地其他研究的未提交修改。"
+    },
+    {
+      "number": 18,
+      "title": "隔离 PAR 与预留 PAS 环境，保留现有 PAR 研究流程",
+      "merged": true,
+      "draft": false,
+      "head_sha": "18d0998858710c0eedf768393b28506ea7a637a5",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/18",
+      "body": "PAR是当前可用的排练数据环境，现阶段继续采集和研究PAR即可。这个PR只把PAR和预留PAS的配置、数据及状态命名空间分开，不将正式市场适配视为现在的阻塞项。\n\n- 保留现有config/collector.toml、PAR采集/历史/账户/Portfolio/Risk/执行代码和旧数据路径；不迁移服务器。\n- 新增config/systems/par.toml、pas.toml：PAR用于现有研究，PAS保持competition-reserved且collector/trading disabled。\n- 独立<root>/par、<root>/pas工作区，quotes/history/account/runtime/paper/journal/logs/research路径全部分离；身份标记拒绝错配、已有无标记数据及目录别名，不重命名旧库。\n- inspect无文件副作用；init仅准备本地目录/标记。PAR可生成兼容当前Collector的配置，但不启动进程；PAS不生成可运行Collector配置。\n- 这是共享代码、隔离环境的准备工作，不宣称PAS运行链已支持。PAS开始后再按需要接入；新闻方向暂停。\n\n验证：6项新增隔离测试、Ruff通过。PR Linux全量CI通过（完整409项回归及全部现有容器验收），最新提交18d0998：https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/runs/39139377946。没有交易所请求、账户查询、付费LLM、真实订单、VPS修改或部署。\n\n说明：docs/rehearsal-competition-separation.zh-CN.md"
+    },
+    {
+      "number": 17,
+      "title": "Study all ten basis markets with explicit valuation gates and reproducible historical evidence",
+      "merged": false,
+      "draft": true,
+      "head_sha": "0e100aaeae1d12e01a96a553408f3b7aa1a88a1e",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/17",
+      "body": "Generalizes PR #13's existing convergence and matched-direction studies rather than replacing them. Per-market metadata supplies quantity precision; unverified valuation disables PnL. A clearly labeled legacy BTC/ETH linear scenario preserves comparability without claiming reliable valuation for the other markets.\n\nStacked on PR #13 (base codex/reference-basis-research, including its latest parallel configuration change). Independent of collector PR #16; no production strategy integration.\n\n- Reuses episode reset/onset rules, censoring/KM, next-quote rechecks, actual bid/ask and conservative top-level depth checks, independent original/opposite fills, costs, Oracle/Basis attribution, MAE/MFE and breakeven/profit first passages.\n- Adds asset/session/calendar/past-only volatility comparisons and price-precision eligibility. Different input/connection domains break continuity; no candle-generated books or out-of-sample claims.\n- Archives all public reproducibility inputs: 50,050 frozen snapshots, 30,622 newly exported VPS rows, 2,061 local stream observations, official metadata, ten-market hourly funding/recent-trade evidence. Raw gzip inputs, per-asset reports, full compressed results, comparison CSV, figures, and cross-platform hashes included.\n- BTC/ETH 20bps-onset five-minute matched scenarios: n=7/11, mean original net -26.17/-13.92 bps; opposite net -37.71/-45.71 bps. Eight other markets have only minutes of data and unverified valuation: insufficient evidence, no invented PnL or positive-expectation claim.\n- 121 targeted research/architecture/interface tests passed; Ruff/diff checks and committed artifact/source hashes verified. Full Windows suite is not claimed.\n\nReport: docs/research/multi-asset-2026-10-18/report.zh-CN.md\nComparison: docs/research/multi-asset-2026-10-18/comparison.csv\n\nThe VPS changed externally during this task; both read-only configuration observations and newly appearing short market histories are disclosed. This work did not modify/restart/deploy its service. No orders, strategy activation, deletion of old history, or merge. Keep draft."
+    },
+    {
+      "number": 16,
+      "title": "Collect ten markets through public WebSocket streams without losing Oracle observations",
+      "merged": false,
+      "draft": true,
+      "head_sha": "5584806592149ac241dfb4ad404b5b7800798ded",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/16",
+      "body": "Adds an independent public-only WebSocket collector for all ten par markets. The legacy (symbol, event_ms) key loses new Oracle observations on an unchanged book; additive v2 event/observation tables retain each receipt atomically while leaving snapshots/runtime and the existing service untouched.\n\n- Twenty subscriptions, receipt-skew/age/depth checks, raw evidence, unknown upstream Oracle timestamps, reconnect cache reset, resubscription, bounded backoff, ping and hourly metadata refresh.\n- Read-only quality/export CLI, per-market archived quality and public capture evidence, offline storage benchmark, compatible migration and non-destructive rollback instructions.\n- Local 180s probe: all ten markets observed, ~11.7 messages/s; approximately half of asynchronous joins fail the conservative 2s skew bound. Storage projection ~4.58 GB/day requires capacity planning; this is not VPS sustained validation.\n- 59 targeted collection/architecture/interface regression tests passed; Ruff and diff checks passed. Injected disconnection/restart/integrity tests included.\n\nReport: docs/research/collector-2026-10-18/report.zh-CN.md\nOperation/migration: docs/multi-asset-collection.zh-CN.md\n\nBased on current main, preserving the parallel ten-market REST configuration change. This PR does not automatically switch that service. No orders, auto trading, VPS modification/restart/deployment, or old-history deletion. Keep draft pending review and sustained operational validation."
+    },
+    {
+      "number": 15,
+      "title": "Quant Research：十资产筛查与37项正收益候选长期复核",
+      "merged": false,
+      "draft": false,
+      "head_sha": "6832145603b2bbd305fbbd91377d16538ecb5951",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/15",
+      "body": "本 PR 的传统策略、迁移研究和 EWY/HYPE 复核完整保留。本次新增：原 PAR 约17天中全部37个正收益「资产×规则」的冻结长期研究（6832145），回答短期筛选能否延续。\n\n### 结果与边界\n- 原 comparison.csv 的170项名单、状态与37项正收益筛选逐行锁定；保留规则版本、参数、多空目标和旧仓位/成交记录。3对 Z/Bollinger 结构等价，随机对照不当作Alpha。\n- BTC/ETH 各4392小时，其他八个原生/HIP-3参考永续各4998小时，均使用自身Funding。真实ETF、期货和FX替代资料另归档，不将日线冒充小时线，不混用场所Funding。\n- 37项对应外部永续的基础成本情景：**36 LONG_HISTORY_REJECTED、1 INCONCLUSIVE、0缺失该情景输入**。28项价格毛收益已负；8项毛正、费用/摩擦/Funding后转负，不能把失败全归因于手续费。\n- 唯一长期正项：主网ETH/FUNDING-LAST base +3.062%、stress +0.602%、最大回撤6.116%；验证+1.014%、末段+0.822%、PAR筛选窗之前+1.233%。但仅4/7个月为正，相对固定多头和空头的每日超额95%探索性区间均跨零。**没有任何项通过预设稳定性/方向超额观察门槛，没有已验证可交易Alpha。**\n- 原133项非正/无信号组合的长期对照为127负、6正；没有用这些事后正值替换原37项或扩展参数。\n- 1751组主实验+141组排除PAR筛选期的诊断，共1892账本；包括60/20/20时间分区、自然月、趋势/震荡、固定多/空/空仓及匹配仓位方向基准。价差、滑点、手续费、价格、Funding代理、换手、回撤和资本占用独立报告。\n- 全部新下载历史仍是 **Retrospective**。0项缺失仅指外部永续条件情景；真实标的等价执行、PAR/PAS迁移、可执行净收益和真正前瞻仍缺证据。PAR继续作当前排练研究，PAS独立保留。没有VPS、生产风控、开关、订单或部署变更。\n\n### 证据与验证\n- 新报告：[37项长期复核](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/blob/6832145603b2bbd305fbbd91377d16538ecb5951/docs/research/new-alpha-discovery-2026-10-18/long-history-37/report.zh-CN.md)，总报告第16节。\n- 完整矩阵、原170/37筛选、逐笔账本、原始公共输入、全部尝试、冻结协议/诊断声明、配置、源码与输入摘要和离线复现命令均在 long-history-37/。\n- 本地1892账本独立Decimal费用/Funding及价差/滑点核对、两项实际重放、旧BTC/ETH及EWY/HYPE一致性通过。原2544、459、352及144组验证继续通过。\n- 新增3项回归通过；全仓Ruff、diff及50份已提交Git blob证据摘要通过。提交6832145的push与PR两轮Linux CI均成功：459项完整回归、新旧证据验证及全部容器验收通过。\n  - [PR CI](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/runs/39143106335)\n  - [Push CI](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/runs/39143102478)\n\n此前报告：[十资产覆盖](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/blob/6832145603b2bbd305fbbd91377d16538ecb5951/docs/research/new-alpha-discovery-2026-10-18/asset-coverage/results.zh-CN.md)、[EWY/HYPE复核](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/blob/6832145603b2bbd305fbbd91377d16538ecb5951/docs/research/new-alpha-discovery-2026-10-18/candidate-validation/report.zh-CN.md)、[总报告](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/blob/6832145603b2bbd305fbbd91377d16538ecb5951/docs/research/new-alpha-discovery-2026-10-18/report.zh-CN.md)。Oracle-Basis继续保留PR #17独立研究。"
+    },
+    {
+      "number": 14,
+      "title": "docs: 更新仓库首页、当前能力与快速开始",
+      "merged": true,
+      "draft": false,
+      "head_sha": "d695b4a7feafc46400c3f510b04836beeb312d4a",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/14",
+      "body": "重写 README，更新数据、Transport、组合风控与 Synthetic Paper 状态，提供环境、运行、验证及文档入口。区分 main 已实现能力与独立研究 PR #13，明确真实交易尚未完成。\n\n仅修改 README，不包含研究分支未完成代码。运行命令已与 CLI/CI 核对，检查本地链接与格式；文档变更未重跑 Python 全回归。"
+    },
+    {
+      "number": 13,
+      "title": "Research: basis direction, convergence and official funding evidence",
+      "merged": false,
+      "draft": true,
+      "head_sha": "13888e7612d9f1d7251a1e699165c0cd77690bd3",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/13",
+      "body": "Tests whether oracle-basis deviations predict profitable price direction, rather than assuming convergence or a five-minute hold is sufficient. Adds independent offline convergence and direction studies; no trading strategy is enabled or reversed, and no stop/take-profit parameters are selected. Keep draft.\n\nReports:\n- [Direction, matched execution, MAE/MFE and official-history audit](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/blob/codex/reference-basis-research/docs/research/basis-direction-2026-10-17/report.zh-CN.md)\n- [Convergence / breakeven / profit-target first-passage study](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/blob/codex/reference-basis-research/docs/research/basis-convergence-2026-10-17/report.zh-CN.md)\n\nData and implementation:\n- Frozen 50,050 real BTC/ETH testnet snapshots; 50,044 valid rows, six invalid reference-time rows and 44 continuity breaks. Raw data stays local; archived event/observation evidence, complete CSVs, hashes and PNG/SVG figures are included.\n- Episodes require a prior observed reset; repeated snapshots within one deviation are not independent onsets. Convergence study: 10/20/50 bps triggers, +/-2/5 bps bands, 1/3/5/10/30/60 minute horizons, explicit censoring, KM counts/bounds and exploratory date-block intervals.\n- Direction audit uses frozen onsets without selecting successful convergences, +/-2 bps reset only. Separates signal-origin from next-quote-origin forward returns, signed-basis IC from magnitude/payoff correlation, and mid moves from tradable bid/ask payoffs.\n- Original, opposite, always-long and always-short comparisons use the same events/quotes/quantity and require both sides' entry/exit depth in the paired cohort. Opposite net PnL is computed from its own bid/ask, never a negation. No trade is the zero baseline. Full distributions, per-day results, leave-one-day-out/outlier sensitivity and sampled MAE/MFE are archived.\n- Actual official read-only requests obtained 217 hourly fundingHistory records per asset (434 total), complete requested hour buckets. Signed historical-rate funding cashflow uses the last eligible local oracle as a settlement-value approximation, not actual account payments or historical input availability.\n- Official recentTrades returned 10 per asset; only three BTC trades overlap the frozen local window, none for ETH. Retain only market fields, omit participant lists. An unsigned HEAD of the documented S3 asset-context object returned 403; testnet/par archive existence/coverage remains unconfirmed. No candles downloaded, credentials loaded or requester-pays download performed.\n- Correct prior prototype defaults to 9 bps taker/side, BTC/ETH quantity step 0.0001 and minimum entry value 10. Account-specific historical fees/rules remain unverified.\n- The branch also contains a separately committed collector poll configuration change from 30s to 5s. This analysis still uses the frozen approximately 30s sample; no newer collected prices are passed off as fresh validation. This research task did not deploy or change server services.\n\nMain directional findings (>=20 bps onsets):\n- From the next quote, 5m outcomes are available for 179 episodes: 122 original-direction moves, 38 opposite moves, 19 flat. Original hit rate 68.2%; signed-basis/forward-mid Pearson -0.329, Spearman -0.378. Association favors reversion in seen data, not a direction-mapping bug.\n- Absolute initial deviation vs favorable 5m move has Pearson +0.098 and an exploratory date-block interval crossing zero; larger deviations are not proven more profitable.\n- Only 17 episodes have retained signals and paired entry/exit depth at 5m. Original ideal mid movement +8.83 bps becomes -0.05 bps at executable touch quotes, then -22.10 bps after costs; opposite net is -39.76 bps. Original net-positive exits 3/17, opposite 0/17. Official funding-rate scenario: -22.05/-39.71 bps.\n- Original/reverse paired mean net is negative at every studied horizon. Leave-one-day-out and largest-move diagnostics do not turn the directional association into a positive-cost strategy.\n- Paired 5m sampled net MAE medians are -28.42/-45.65 bps; MFE medians zero. Unclamped best net value is separately retained so MFE=0 is not misrepresented as an observed breakeven exit.\n- Earlier convergence result remains: 180 onsets, 10m/60m KM convergence 55.8%/88.4%, median 8.22m. Financial/price cohorts and time origins differ; do not combine their denominators or PnL means.\n\nValidation: 62 basis/cost/convergence/direction tests; with existing forecast architecture/adapter/interfaces, 112 relevant tests pass. Ruff, diff and evidence/method/official hashes pass. All 810 direction group point summaries exactly reproduced from 9,985 archived observations; figures visually checked. Existing Windows Paper full-suite process-exit limitation remains; full regression is not claimed green. Linux CI runs separately.\n\nAll Oct 8-17 prices have already been seen. These are sampled retrospective associations/opportunities, not guaranteed fills, account returns, causal proof, fresh out-of-sample validation or hedged arbitrage. No merge or deployment."
+    },
+    {
+      "number": 12,
+      "title": "隔离 Synthetic Paper 运维与 VPS 首轮故障验收",
+      "merged": true,
+      "draft": false,
+      "head_sha": "ac468918a177e4f270986037ef32a53765266bf0",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/12",
+      "body": "Core 暂停接任务时，现有 HTTP readiness 会返回503，不能据此判定进程失活。本 PR 保留该协议，增加基于主循环进度的本地存活探测，并提供独立 Synthetic Paper 部署、WAL 一致备份和隔离恢复验证。\n\n- 独立 Compose：内部网络、无公开端口、无外网出口、UID1000、只读根目录、资源/PID/日志上限；Worker 无 Core 库或管理凭据。\n- SQLite online backup：先在临时恢复副本中验证配置、账本和启动暂停，再原子发布到新文件；不覆盖活动库、不自动 resume。恢复临时空间可显式选择磁盘目录。\n- 新增8项运维测试，完整403项在Linux VPS check layer通过；最终提交ac46891的两轮CI均通过，原7份Schema、13份Transport例子及三条容器链保留，新增第四条运维容器链。\n- VPS实测：运行提交0281816/脚本294f81b短跑900.8秒、70次采样、16个完成计划、3笔Fill；最新11f9835另跑60.8秒并通过只读卷等完整故障复验。网络中断、Worker重启、Core SIGKILL、备份恢复、受限SQLITE_FULL及17秒主循环停顿均有证据。\n\n详见 docs/paper-operations-pr9.zh-CN.md 和 docs/examples/paper-ops-vps.synthetic.json，分别记录各次提交/镜像ID、时长、CPU/内存/IO/WAL/命令延迟及测试限制。\n\nVPS最终保留最新Core健康且暂停，Worker停止；旧验收项目停止并保留证据；原Collector容器/镜像未改变。全程仅Dummy、合成账户/报价和Paper，没有真实账户交易、LLM、签名或订单。\n\n本次是PR9首轮运维交付。多日运行、主机断电/重启、真实存储故障、异地恢复、报警送达仍未验收；持续时长、证据保留、备份周期及RPO/RTO需后续确定。短跑不构成完整运维最终放行，也不授权真实交易。"
+    },
+    {
+      "number": 11,
+      "title": "PR8：持久 Paper Intent、故障对账与 Core 风控集成",
+      "merged": true,
+      "draft": false,
+      "head_sha": "5af3d79811a9eb344a0b3527e5762451a10d715d",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/11",
+      "body": "## 结果\n新增独立 synthetic Paper Core，复用 Scheduler/HTTP Pull/Dummy/Outbox，接回 PR7 Portfolio/Gate/Supervisor。持久 Intent、分段成交、现金/仓位、ExecutionReport、Processing/Outbox 终态及消费水位在同一 Runtime SQLite 事务域内提交，避免旧 Mock 跨库补写的恢复窗口。\n\n支持确定 Intent/Fill ID、部分成交、多资产、先平后开的反向腿、费用/滑点、步长/min-notional/dust、取消/到期/控制版本失效、unknown 本地账本对账；accepted 不代表成交，completed 仍精确确认全部目标。旧 Mock/历史 Shadow 路径和原协议保留。\n\n## PR7 审核反馈的落实\n- 暂停原因、权益峰值、会话基准、boot generation/pause epoch、操作回执持久化。每次启动重新暂停，恢复需要可信本地操作者显式请求，不提供 Agent 管理 HTTP 路由。\n- 执行前从当前本地账本、报价和 Intent/控制状态重新检查；原 Forecast/Job asof 不变，政策和目标不重绑。每次审批保存完整输入证据及 Verdict，ID 区分同毫秒的不同检查。\n- 仍保留风险 interval==horizon 的明确模拟限制，不自行引入期限换算或生产阈值。\n\n## 验证\n- 完整 unittest 395 项通过（原355 + 新40），最新 Paper 39项与校验脚本复验通过。\n- 覆盖提交前/后 os._exit 硬退出、终态反馈原子性、并发写/唯一成交、部分/反向/多腿/unknown/取消、成本预算回滚、quote/step/epoch变化、原始 Forecast与政策绑定、暂停/权益/会话/授权跨重启、v3→v4与模式隔离。\n- 实际独立 Paper Core + Dummy Worker HTTP 进程完成 Forecast→分段成交→Feedback，重启后账本保留且暂停。\n- Ruff、原7业务 Schema/13 DTO、历史/账户/市场 Replay/PR7模拟、Python3.12.15和31项固定依赖验证通过。\n- 首次本地全回归有一项既有 Mock HTTP 进程测试触发0.5秒超时；未修改断言，完整复跑395项通过。CI以当前提交为准。\n- CI增加离线 Paper 账本验收和第三条双容器验收，保留原 Mock 与历史 Shadow 两条链路；本地未运行 Docker，以 Actions 实际结果为准。\n\n## 必须保留的边界\n这是合成 Paper，不是真实交易所 exactly-once、实时行情 Paper 或 VPS 部署验收。报价来自配置的合成 tick，协方差明确标记 paper-risk-fixture/0.1，不重贴真实历史时间；账户/美元估值/流动性/费用模型均未校准。没有在线账户请求、LLM、签名、真实订单或真实撤单。PR5 risk_ready=false 不解除。\n\nunknown 只根据本地权威成交账本核对，不能代替未来交易所对账。峰值/固定合成 session 跨重启保留，不自动换日。恢复授权的边界是本地 OS/文件权限，actor仅审计标签，不是生产权限服务。自动取消仅涉及剩余 Paper Intent，不平掉已成交仓位。\n\n## 迁移与回滚\nRuntime schema 3→4 附加表事务迁移，保留旧数据；Paper使用独立空Runtime，与旧Mock相互拒绝混用。停止新入口保留账本即可停用；若退回只支持v3的旧二进制须恢复一致的升级前备份，不能改user_version/删表/清库处理unknown。\n\n详见 docs/paper-execution-pr8.zh-CN.md。生产风险政策、真实合约/保证金/全账户风险、外部数据刷新与真实网络订单状态机、VPS资源/备份/磁盘故障仍待后续。独立分支供审核，不自动合并或部署。"
+    },
+    {
+      "number": 10,
+      "title": "PR7：纯模拟资本组合、独立 Risk Gate 与暂停监督",
+      "merged": true,
+      "draft": false,
+      "head_sha": "69ea5ffb356c190e979d4af163a2b19cacae1cd7",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/10",
+      "body": "## 结果与范围\n新增固定资本预算 Portfolio、独立 SimulationRiskGate、默认暂停且锁存故障的 RiskSupervisor，以及接入原 MockExecution 的本地合成闭环。Portfolio 可按风险预算缩减目标；Gate 从最终不可变 Decision 重新计算，不信任 sizing 自报结果、不静默改目标。\n\n全敞口模型覆盖保留持仓、全部挂单与调仓过渡情景（最多十资产/1024角点），检查 asset/gross/net/sigma/leverage/合成保证金缓冲/回撤/会话亏损。neutral、abstain、未覆盖与空 Forecast 不隐式退出，error 整批阻断，dust 不偷偷舍入。\n\n## 明确边界\n这是 PR7 的纯模拟交付，不是完整真实账户风险准入或线上消费升级：\n- 只接受显式合成账户、synthetic USD/unit 和完整性假设；PR5 account-observation 无法自动变成 ready。真实合约估值、全账户保证金、其他 DEX/在途风险仍未知。\n- 每个资金/风险/退出/反向参数显式配置；仓库样例值仅供合成测试，不是批准的真实阈值。始终无真实交易权限。\n- Supervisor 不依赖 Agent/Forecast，启动 paused；故障恢复不自动解除暂停，只允许检查通过后的显式本地模拟 resume。无自动减仓/平仓/撤单动作。\n- 原 HTTP/Outbox Consumer、Demo Portfolio/Gate、Forecast/Decision/Report/Risk 协议及七业务 Schema/13 DTO 保留。没有新 HTTP 路由、签名客户端、订单或真实账户外发。\n- 在线新政策消费、持久政策/水位/权益峰值/暂停原因、恢复授权需要后续独立集成验收；新 Harness 只创建隔离的新 Mock Journal，不复用原运行库。PR8 可恢复 Paper 尚未实现。\n\n## 验证\n- 完整 unittest 355 项通过（原309 + 新46）。\n- 新测试覆盖预算缩量、额外持仓与挂单、reduce-only、十资产/FX、矩阵顺序、过渡风险、步长/dust、Forecast/退出语义、审批篡改/失效、epoch/水位/Shadow、数据未知、默认暂停/显式恢复/重启、真实账户合同拒绝、Mock 幂等和应用前重检、独立进程闭环。\n- Ruff、七业务及13 Transport Schema、历史/账户/市场 Replay、Python3.12.15/31项固定依赖验证通过。\n- 新 CI 校验在无网络只读 Linux 容器中跑正常与暂停两条模拟路径，复用原 Forecast/Risk JSON Schema 与 Decision/Report Python 契约；保留原离线示例及两种双容器检查，以当前 Actions 结果为准。\n- 不访问在线账户、不为测试开仓，不声称真实行情/保证金模型已校准。\n\n## 文档与未决项\n详见 docs/portfolio-risk-pr7.zh-CN.md。新增 risk_policy.py、portfolio_policies.py、risk_gate.py、runtime/supervisor.py、portfolio_simulation.py，无旧数据库迁移或新增依赖。\n\n生产预算/损失/杠杆/保证金/退出政策、模型频率/窗口/最低样本、真实估值与非空账户只读证据仍需确认。停止新 Harness 即可回滚，保留所有证据。独立分支提交审核，不自动合并或部署。"
+    },
+    {
+      "number": 9,
+      "title": "PR6：历史市场风险估计与冻结输入离线回放",
+      "merged": true,
+      "draft": false,
+      "head_sha": "63c383be2933919579ca8910246caca0b3d03ae7",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/9",
+      "body": "## 结果与范围\n新增独立市场统计模块：同一冻结窗口上的 simple returns、均值、波动率、N 资产样本协方差与相关性。使用显式有序资产集合及研究配置，pin 一次 asof/sequence/anchor，封存实际历史响应、配置和结果；支持删除源数据库后离线复算及摘要/版本校验。\n\n复用现有 RiskSnapshot 0.1，保留原七份业务 Schema、13 个 Transport DTO、Forecast、MockRiskEstimator、DemoRiskGate、Portfolio、账户和 HTTP 链路；没有新增运行依赖、自动注入控制链或发送订单。\n\n## 安全与统计语义\n- 缺口、无效修订、截断、未收盘、过期或样本不足均不输出有效矩阵；严格共同完整窗口，不 pairwise deletion/填充/缩小资产集合。\n- n 个收益读取 n+1 根 candle，协方差分母 n−1，单位仍是未年化 simple-return-per-interval；不换算 Forecast horizon 或美元合约风险。\n- 奇异 PSD 允许作为统计结果，不求逆/自动正则化。零方差相关性为 null；数值校验失败返回 error，不修补矩阵。\n- 市场 ready 不等于账户 risk_ready 或交易许可。PR5 未验证项与 PR7/PR8 Intent/Reconciliation 依然待解决；真实风险阈值没有自行确定。\n- Replay 是冻结输入的统计复算，不是策略收益回测。摘要不证明数据真实性，source-kind 是显式操作者声明。\n\n## 验证\n- 完整 unittest：309 项通过（原276 + 新33）。\n- 新测试覆盖手算正/负相关与 n−1 协方差、十资产/FX/顺序、零方差/奇异、最大1000样本/非默认频率、缺口/坏修订/迟到、读取资产之间新写入、时间边界、极端数值失败、摘要/版本篡改、独立进程及移除数据库后回放、禁止覆盖。\n- Ruff、原7业务及13 Transport Schema、历史/账户离线验证、Python3.12.15/31项固定依赖校验通过；新增合成 replay 结果通过原 RiskSnapshot Schema。\n- 对 PR3 留存的真实 BTC/ETH 历史库按既有接收/入库时点冻结，因缺口与过期正确返回 stale、无矩阵。ready/十资产主要由明确合成数据验证；不宣称已有长期真实行情覆盖，本 PR 不新发在线请求。\n- CI 增加无网络只读容器中的 replay 校验，保留 Linux 全回归、旧离线模拟与 Mock/历史 Shadow 双容器验收；以当前 Actions 结果为准。\n\n## 文件与未决项\n详见 docs/market-risk-replay-pr6.zh-CN.md；模块为 market_risk.py / risk_replay.py，不替换 risk.py。无数据库迁移；停止新入口即可回滚，保留证据文件。\n\n生产频率/窗口/最低样本、异常值/休市/高维稳定性政策、合约美元估值及资金/退出/风险权限仍待后续确认。独立分支供审核，不自动合并或部署。"
+    },
+    {
+      "number": 8,
+      "title": "PR5：只读账户状态、挂单与数量敞口证据",
+      "merged": true,
+      "draft": false,
+      "head_sha": "42ad9892a22fd5fe33ebce47838cdd6402feacdb",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/8",
+      "body": "## 结果与范围\n新增固定 Testnet `/info` 的只读账户 Adapter，保存显式公开地址的余额、par 持仓/挂单、十资产 buying power 来源数组及实际未知资产。21 次有界查询做前后核对，独立 SQLite 保留原始响应、时间、摘要和 as-of 读取；新增独立 AccountObservation Schema、合成样例、CLI 和开发说明。\n\n`observed` 只代表范围内观察完成，不是风险准入：`risk_ready=false`、`global_account_complete=false`，美元权益/全局可用保证金/名义价值保持 null；其他 DEX、在途订单和数组方向映射明确未验证。挂单包含人工/未知来源、reduce-only 和 trigger；端点失败不填零，消失订单不推断成交或撤销。\n\n保留现有七份业务 Schema、13 个 Transport DTO、Forecast 0.1 与 PR2/PR4 链路。没有向 Agent 外发账户数据，没有将新观察注入旧 Mock 风控，也没有签名、修改账户或发送/取消订单。\n\n## 验证\n- 完整 unittest：276 项通过（原235 + 新41），覆盖异常/时点/幂等/并发/硬退出恢复。\n- Ruff、AccountObservation 合成 Schema/SQLite 验证、旧业务与 Transport Schema、历史数据、Python3.12.15/31项固定依赖校验通过。\n- 原 dry-run 与 LT Adapter 离线 Mock 示例通过。\n- 使用用户提供、与既有仓库记录一致的公开地址完成只读验收：user/unifiedAccount，par 持仓0、挂单0，十资产响应有效，前后匹配；不证明私钥控制权。真实非空持仓/挂单未测试，由明确合成数据覆盖。真实响应仅保留本地忽略目录，不新增到 PR。\n- CI 新增无网络账户证据校验，并保留完整 Linux 回归及两种双容器验收；结果以当前提交 Actions 为准。\n\n## 审查重点与后续\n详见 `docs/read-only-account-pr5.zh-CN.md`。跨端点前后匹配不等于原子快照，账户采集尚非长期服务；PR6/PR7 接入前仍需核实估值/合约乘数、全局风险范围与用户批准的政策。持续采集、备份及部署验收留后续阶段。真实交易仍未授权。\n\n独立分支提交供审核，不自动合并。"
+    },
+    {
+      "number": 7,
+      "title": "PR4：固定快照的多轮历史 Data Gateway 与证据封存",
+      "merged": true,
+      "draft": false,
+      "head_sha": "2acfec244b98d154414698b158dcdc885f898bc3",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/7",
+      "body": "PR4 将 PR2 的 HTTP Agent 通信与 PR3 历史市场数据连接：同一 AnalysisJob 内可多轮请求不同窗口/资产/字段，随后提交原 ForecastBatch。基于已合并 main fd650ee，默认历史演示为 Shadow，不生成执行 Decision。\n\n### 实现\n- 固定 Job 创建时的 asof、历史 snapshot_seq 和 observation anchor，同毫秒的新入库也不能进入旧 Job；Gateway 只读本地预热历史，不在任务中联网补抓。\n- 可信 producer/version/role capability 区分读取与预测资产，限制 source/kind/fields/interval/window；认证与 lease 分离，查询前后重检 lease、权限、控制版本、输入及分析时限。\n- Job 全生命周期 Dataset ID 定义不可变；request_id 按 attempt 幂等；跨 attempt 复用内容但必须重新授权读取才能引用。查询数、完整 response+request+provenance 字节跨 attempt 累计，与 fixture 共用预算；alias 也有上限。\n- 不只看 history.status：同时检查 gaps/invalid/truncated/未收盘/完整窗口/新鲜度。仅完整 ready 响应有 evidence_ref；stale+gap 保留诊断；旧 DTO 无 partial，因此不完整映射为非 ready，原 13 DTO 和七份业务 Schema 不变。\n- 接受事务合并当前 attempt 证据，复用既有 Ingress 校验，并与 Submission/Job 终态/Outbox 一并保存 accepted_manifest。Outbox 使用封存内容，不能仅以 asof 重查可变数据。\n- 可选 --history-database / Worker --history：两个独立进程、两窗口、Shadow-only；拒绝混用旧 control Runtime/Decision journal；不调用 Mock Consumer 执行。旧 PR2 fixture/Mock 模式保留。\n\n### 验证\n- 本地 Python 3.12.15：**235 项 unittest 全通过**（旧 208 + 新 27）。\n- 新测试覆盖真正 HTTP、Core/Worker 独立进程、第一轮后杀 Worker 并重启 Core、缓存响应提交后硬退出、同毫秒快照、跨 attempt 证据、query/submit 竞争、权限撤销、控制切换、并发总额与字节预算、摘要/锚点损坏及 v2→v3 迁移。\n- Ruff、七份业务 Schema/13 Transport 样例、运行环境/31 pinned dependencies、PR3 离线实样、原 dry-run/LT Adapter 均通过。\n- 本机实际 HTTP 读取 PR3 保存的公开 BTC 5 根、ETH 10 根：捕获已超出演示新鲜度，两者正确 stale，无 evidence_ref，Dummy abstain 并收到 SHADOW_ONLY，Decision=null；没有放宽参数或重新抓取行情。\n- CI 保留原两容器 Mock 闭环并新增 --history 两容器 Shadow 验收：Core 独占空历史库、两轮明确 missing、abstain、manifest 封存、容器重启后证据保留且零 Mock Decision。空库验收与本机 ready/真实捕获 stale 路径分别报告。已在本提交两轮 GitHub Actions 实跑通过：[push](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/runs/38902780353)、[PR](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/runs/38902841770)。日志确认 Ran 235 tests / OK、原 Mock 两容器通过，以及 Shadow Gateway: two rounds, explicit missing, sealed manifest, zero Mock Decisions after restart。\n\n### 迁移与边界\nRuntime schema 2→3 新增五张 Gateway/manifest 表；历史 schema 1、Mock journal、Forecast 0.1 和旧调用返回语义保留。回滚先停新入口并保留 DB/spool；旧 runtime 拒绝 schema 3，不能清库强制降级。\n\nGateway 本版接入 candle，metadata 继续由 PR3 维护。没有真实 LLM/账户/风险估计/订单、扫描器或 VPS 部署；长期历史仍需持续采集，跨 VPS TLS、WAL/磁盘/备份运维、真实 order intent/reconcile 按后续阶段独立处理。\n\n运行命令、能力和预算、response digest、质量映射、跨 attempt/竞态、迁移/回滚及未解决边界见 [PR4 文档](docs/dynamic-data-gateway-pr4.zh-CN.md)。只提交审核，不自动合并。"
+    },
+    {
+      "number": 6,
+      "title": "PR3：历史 K 线、十资产 metadata 与数据质量",
+      "merged": true,
+      "draft": false,
+      "head_sha": "ed444a024880f2dd86632956cc3af2712735a1bb",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/6",
+      "body": "PR3 让系统保存和读取真实的公开市场历史，同时避免后来补抓的数据进入更早的 asof。基于已合并 PR2 的 main c4a9ad2；仅新增独立历史层，不改现有交易或 Forecast 链路。\n\n### 交付\n- 独立 historical 包和 WAL SQLite schema 1，拒绝打开 collector/runtime/journal 文件；原始响应、实际 received/available 时间、规范 JSON 摘要及追加修订保留。\n- 只读 testnet/par meta/candleSnapshot 客户端、有限分页和手动 metadata/backfill/collect/query 入口。固定 HTTPS /info，无钱包/.env/签名/Exchange，网络不持数据库写锁。\n- 十资产 metadata：精度、数量步长、杠杆上限、缺失/退市/TTL、完整 venue metadata；报价单位与 USDPR 结算分开。估值乘数未验证保持 null/valuation_supported=false。\n- 已收盘 bar、Decimal 字符串、缺口/迟到/无效修订隔离、A→B→A、重复/乱序和截断；按 close/received/available 与 asof 读取，snapshot_seq 固定版本上界。\n- 网络页超时、写事务进程硬退出、并发写和读期间写入均有真实 SQLite 测试；支持独立只读 WAL 连接。\n- 公开 BTC/ETH 实样和离线验收脚本；CI 保留原检查及 PR2 双容器，并新增无外网历史验收。\n\n### 验证\n- 本地 Python 3.12.15：208 项 unittest 全通过（旧 176 + 新 32）；Ruff、七份业务 Schema/Transport 样例、运行环境/31 pinned dependencies 通过。\n- validate_history.py、原 dry-run 和 LT Adapter 离线演练通过。\n- 提交 ed444a0 的两轮 GitHub Actions 全部成功：[push](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/runs/38846468561)、[PR](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/runs/38846501537)。Linux 日志确认 Ran 208 tests / OK、离线 public history + read-only WAL 验收及原 Core/Dummy 双容器/容器重启均通过。\n- 真实公开源只读验证：metadata 返回十资产；请求最近 120 根一分钟 bar，BTC 实返 119、ETH 116，均按尾部缺口报 partial。将 asof 设在接收之前，两者都返回 missing。捕获时间/范围/摘要见 examples/history/testnet-par-capture.json。\n- 实样仅保存完整 metadata 和各资产 8 根 bar，不冒充完整 120-bar 数据集；CI 不依赖在线行情。\n\n### 兼容、边界和回滚\n既有报价库、Runtime/Outbox、Mock journal、Forecast 0.1、LT Adapter、七份 Schema 均未修改。没有将真实历史接入 PR2 fixture。没有 Agent 动态 HTTP Gateway（PR4）、真实账户、量化风险、自动下单或 VPS 部署。\n\n支持十一种固定周期，明确拒绝尚未实现的 3d/1w/1M；上游最近 5,000 根限制如实保留，不靠分页宣称完整长历史。入库 available_ms 是事务内采样，不是精确 commit 时钟；PR4 仍须封存实际响应、快照和版本。这里只验证同机独立只读 WAL 连接，跨容器 sidecar 权限/VPS 备份运维留后续验收。\n\n新历史库独立初始化，无旧库迁移；回滚停用新入口并保留文件，原服务不受影响。详细命令、数据质量/时点语义、故障边界与官方依据见 [PR3 实现文档](docs/historical-market-data-pr3.zh-CN.md)。本 PR 提交审核，不自动合并。"
+    },
+    {
+      "number": 5,
+      "title": "PR2：Core 与 Dummy Agent 双进程 HTTP 通信闭环",
+      "merged": true,
+      "draft": false,
+      "head_sha": "c04fe57af4a02beb35fd20e7dce90caa56ae5672",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/5",
+      "body": "Trading Core 与 Dummy Agent 现在可以作为独立 Python 程序，通过有身份认证的 HTTP 完成 Scheduler → AnalysisJob → 固定 fixture 查询 → ForecastBatch → Portfolio → DemoRiskGate → MockExecution → Feedback。严格限定 PR2，不连接真实 LLM、不发送交易订单，不部署 VPS。\n\n### 实现与兼容\n- 复用 PR0 的 agent-transport/0.1 DTO、Forecast 0.1 和既有校验，复用 PR1 SQLite 事务、Scheduler、幂等与 Outbox。\n- 服务端 token 映射可信身份，检查 Worker 所有权、路由/lease 一致性；限制 body、JSON 深度、连接时长、并发、轮询和查询预算。\n- Worker 原子保存 claim ID 和完整提交后再发送；超时重放原内容，重启先查询原任务反馈，独立续租。\n- 消费端再次检查控制 epoch、水位与过期；执行前冻结稳定 Decision、输入和模拟配置版本。Mock 提交后反馈落库前崩溃时，先对账既有 Mock report，再恢复 Outbox，避免重复执行。unknown 暂停自动工作。\n- 独立容器/volume/凭证挂载；测试网络 internal、无公网端口、无外网服务依赖。CI 新增实际双容器闭环与 Core 容器重启验收。\n- 原七份业务 Schema、同步 Forecast/LT Adapter、collect/dry-run 保留；旧测试只将 schema version 断言更新到增量版本。\n\n### 验证\n- 本地 Python 3.12.15：**176 项 unittest 全通过**（152 项既有 + 24 项 PR2）。\n- 新测试包含真实 HTTP 并发、已提交但 HTTP 超时、重复/换 ID 提交、权限与撤销、查询预算竞争、控制切换、水位与到期、Core 重启、Worker 硬退出恢复、Mock 执行后反馈前硬退出、冻结配置/Decision 恢复。\n- Ruff、7 JSON Schema 与样例、Transport bundle/13 DTO 样例、服务器运行环境/31 pinned dependencies 均通过；uv pip check 通过。\n- 原 dry-run 与 LT adapter 离线演练通过。\n- 本地 Docker Linux daemon 未启动；已由 GitHub Actions 实际验证 Linux 双容器闭环及 Core 容器重启，均通过。\n- 当前提交 c04fe57 的 push / pull_request 两轮 CI 全部成功：[push](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/runs/38844126311)、[PR](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/runs/38844166225)。日志确认 176 tests / OK、two_containers=passed、Mock Decision survived Core container restart。\n\n### 迁移、运行与边界\nRuntime schema 1→2 在原迁移事务中新增 mock_configurations、mock_plans、fixture_queries 三张表，已验证旧数据保留。Mock journal 格式不变。回滚停用新入口并保留 DB/spool；PR1 不直接打开 schema 2，不能清库或自动降级消除已接受/执行事实。\n\n运行命令、API/错误码、凭证、故障策略及迁移/回滚说明见 [PR2 文档](docs/http-loop-pr2.zh-CN.md)。所有价格、账户和阈值是合成测试配置。历史数据/任意动态 Gateway/真实账户/量化风险/生产执行恢复仍属后续 PR3–PR8；Jev、新闻及事件扫描器未开发。此 PR 只提交审核，不自动合并。"
+    },
+    {
+      "number": 4,
+      "title": "PR1: SQLite AnalysisJob、Scheduler 与事务 Outbox 恢复",
+      "merged": true,
+      "draft": false,
+      "head_sha": "de154429152c9199c7fe5becf6bc9eb1c125a938",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/4",
+      "body": "将 PR0 的纯任务契约落到真实文件 SQLite：Forecast 接受时在 BEGIN IMMEDIATE 事务中重新读取身份、Job、租约、控制 epoch 和水位，一次性提交 Submission、Job 终态、Processing、Outbox 与审计，避免并发预校验产生重复处理。\n\n实现：\n- 独立版本化 runtime DB（WAL/FULL/外键）、每操作独立连接、锁后可信时间、迁移与容量边界。\n- Job 原子领取、续租、终态竞争、过期/尝试耗尽恢复；数据库唯一约束确保 Worker/控制范围串行。\n- 持久 claim/Submission/Batch/complete 身份与回执重放；新 submission ID 重发同 Batch 仍只生成一个处理单元。\n- Scheduler tick 去重与最新触发合并，provider 在写锁外构建冻结 Context，锁内再次复查才创建 Job。\n- Outbox 投递预留、delivery epoch fencing、同 processing_id 恢复；预留/完成时复查控制版本、水位和时效。\n\n验证：\n- 原 94 项保留，新增 58 项，共 152 项 unittest 本地通过。\n- 9 类独立进程竞争场景、6 个 os._exit 硬退出窗口；另测 SQL 中途失败、锁等待跨 lease 截止、迁移回滚、备份恢复和时钟回拨。\n- Ruff、原七业务 Schema、Transport bundle/13 消息样例、Python 3.12.15/31 锁定依赖核对与 uv pip check 通过。\n- 原 dry-run 和 LT Dummy smoke 均 simulated/completed；PR0/业务契约与 Schema、签名工具和部署配置未改动。\n\n边界：没有 HTTP/凭证认证服务/Agent Worker、常驻 Core 或 Portfolio/Risk/Execution 调用；不部署、不调用真实 LLM、不发送订单。Outbox.recover 仅在旧 Core/消费者已停止后使用，单活动 Core 的进程启动所有权由 PR2 落地；本 PR 不保证外部 exactly-once。PR2 仍须在副作用前复查版本/水位并冻结稳定 Decision/policy/config 身份；PR4 仍负责真实数据响应摘要、来源/权限与质量。\n\n详细实现与恢复/回滚说明：docs/runtime-jobs-pr1.zh-CN.md。\n分支从已合并 PR #3 的 main 54e2d91 创建。等待本 PR 审核，不自动合并或继续 PR2。"
+    },
+    {
+      "number": 3,
+      "title": "PR0: Agent Transport 0.1 契约与 Forecast Ingress 校验",
+      "merged": true,
+      "draft": false,
+      "head_sha": "dd60c792e18a0b2e114703af788a0e9f17b21023",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/3",
+      "body": "为独立 Agent/Core 接入固定可测试的任务、租约、处理状态与消息边界，避免将预测合法性、持久化接受及交易完成混为一谈。\n\n实现范围：\n- AnalysisJob、Lease、Processing、SubmissionReceipt 纯契约及状态迁移守卫。\n- 13 类 HTTP 消息的数据结构、严格 JSON 解码、独立 Transport Schema bundle 和样例。\n- 无副作用的 Forecast Ingress：验证认证主体绑定、租约、控制 epoch/接受水位、冻结 manifest、可信时间及现有 Forecast 语义；error 整批阻断，Shadow 不进入 Portfolio。\n- 抽取纯 Context/Forecast 校验供原 checked_forecast 与 Ingress 共用；保留 LT 现有签名、fixture/严格模式和原校验时钟顺序。\n- 文档明确 ID/幂等规则、HTTP 映射，以及 PR1 事务与 PR2 网络实现职责。\n\n验证：\n- 原 57 项测试保留；新增 37 项，共 94 项 unittest 通过。\n- Ruff、原七份业务 Schema/样例、独立 Transport bundle 与 13 类消息样例验证通过。\n- 原 dry-run 与独立 LT Dummy 两条离线 smoke run 均 simulated/completed。\n- Python 3.12.15 与 31 个锁定运行依赖核对通过，uv pip check 兼容性通过。\n- 确认原业务契约、七份 Schema、签名工具与部署配置无变更；远端容器 CI 见 Checks。\n\n范围边界：本 PR 不实现 SQLite/Outbox/Scheduler/HTTP 服务/Worker，不签发已持久化接受回执，不部署、不调用真实 LLM 或发送订单。validate_ingress 仅为预校验；PR1 必须事务性复查并保存结果+Outbox 后，PR2 才能返回 HTTP 202。真实数据库并发幂等、重放恢复与双进程通信分别留 PR1/PR2 验收。\n\nPR #2 已按用户授权合并。本 PR 从更新后的 main c2b2db3 建立，等待审核，不自动合并或继续 PR1。"
+    },
+    {
+      "number": 2,
+      "title": "docs: 归档 v0.3 架构审查与开发基线",
+      "merged": true,
+      "draft": false,
+      "head_sha": "d3373c30318ee979a3ceb93c65fcdf756d559cf2",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/2",
+      "body": "将已审阅的 v0.3 开发基线纳入仓库，统一记录架构共识、技术审查反馈、首轮 PR0–PR2 范围，以及后续实现、测试和授权边界。\n\n变更：\n- 新增 docs/development-baseline-v0.3.zh-CN.md。\n- 归档对应技术审查报告，补充历史审查记录与当前基线的关系说明，修正仓库内相互链接。\n- 更新文档导航及项目决定记录。\n\n验证：\n- git diff 检查通过。\n- 四份文档 UTF-8、代码块围栏以及 37 个本地文件链接检查通过。\n- 仅文档变更，本次未重新运行 Python 回归；文档中的 57 项通过记录明确归属于此前审查基线。\n\n本 PR 不包含 PR0 代码实现，不部署、不启用交易，也不修改协议或风险参数。测试配置数字仅为提案。等待审核后合并；后续代码开发使用独立 PR。"
+    },
+    {
+      "number": 1,
+      "title": "Stabilize Forecast integration v0.2.1 for independent LT adapters",
+      "merged": true,
+      "draft": false,
+      "head_sha": "36a14e76b002789b3da6f12c793c7c972af1ca0f",
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/1",
+      "body": "当前边界将 ForecastBatch.created_ms 强制等同于 Context.asof_ms，并只汇总第一个内置 Producer 的数据需求，导致带推理延迟的 LT Adapter 及独立数据需求无法正确集成。本改动保持 Architecture v0.2 和全部现有线协议，修复四项 P0：\n\n- 区分冻结信息时点、生成完成时间和可信接收/消费时刻，检查输入年龄、推理返回预算与预测有效期，保留结构化失败。\n- AgentAdapter 与 ForecastProducer 统一为 ID、版本、requirements()、forecast() 四项边界。\n- 增加显式 ProducerRegistry 白名单，拒绝重复 ID、版本冲突和身份漂移，保留唯一控制版本。\n- 汇总全部启用版本的 DataRequest，完全相同去重、同 ID 异义拒绝；各版本读取独立视图，控制版本先消费，影子数据缺失/延迟不阻断控制执行。\n\n附独立的 DummyLTProducer（不继承 Rule/Mock）、8 秒虚拟推理延迟及 BTC bid/ask + ETH funding 请求示例。原 CLI 与 config/dry-run.toml 保持可用，CI 追加 LT 示例 smoke run。\n\n兼容性：forecast/0.1、DataRequest/Decision/ExecutionReport 1.0、RiskSnapshot/RiskVerdict 的字段和 JSON Schema 均未变更；interfaces.Strategy 保留。未触及真实签名执行、交易授权或服务器采集部署。\n\n验证：\n- 先提交 50b37e9：首批 14 项新增回归在 main c6ca2ab 上失败，然后实施修复。\n- 原 35 项保留，最终 57 项 unittest 全通过；Ruff、七份 Schema/样例、Python 3.12.15 与 31 项锁定依赖检查通过。\n- 默认 Dry Run 和独立 DummyLT 多资产完整链路通过；服务器同镜像的分支 CI 和 PR 合并预览 CI 均全部通过。\n- [分支 CI：全部通过](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/runs/38727527189)\n- [PR CI：全部通过](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/runs/38727597440)\n\n限制：推理预算在同步 Adapter 返回时拒绝迟到结果，不会强杀阻塞调用；真实 Harness 需自行配置有限 I/O 超时。没有真实 LLM、交易、生产风险模型、回测或订单恢复验收。模拟成功不代表真实自动交易已通过验收。\n\n[LT 接口交接、完整 16 文件清单与限制](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/blob/codex/integration-stabilization-v0.2.1/docs/forecast-integration-v0.2.1.zh-CN.md)\n\n保留此 PR 供团队审核，不自动合入 main。"
+    },
+    {
+      "number": 31,
+      "title": "Add files via upload",
+      "merged": false,
+      "head_sha": "ff82523f33dc8acb8237975635f7160b885fe948",
+      "mergeable": false,
+      "changed_files": 91,
+      "additions": 12782,
+      "deletions": 4008,
+      "url": "https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/31",
+      "note": "Fetched separately: empty-query search omitted this PR. Patch read; archive implementation not extracted or executed."
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "ledgers": 144,
+  "fills": 424,
+  "distinct_raw_books": 29,
+  "passed": true,
+  "source_sha256": "b0d9446928748bcbbe0f301b913d83e883049406ac50a65b44d1afa4bc3af86a",
+  "final_runner_sha256": "0f30c2b0b507ad374dcaa8f8e9fe528d148ccdee472ad177ce20a15d7073b464",
+  "ledger_sha256": {
+    "docs\\research\\candidate-validation-2026-10-30\\ledgers.jsonl.gz": "ada210e81bb20cd19fd11fb7fb88761f0a345905b7f111dbfc523573a28744a1",
+    "docs\\research\\candidate-validation-2026-10-30\\complete-window\\ledgers.jsonl.gz": "3167a225e8649333dc1ec2f74352c85564a46eabb250bf8e1187a2092b76cd47"
+  }
+}

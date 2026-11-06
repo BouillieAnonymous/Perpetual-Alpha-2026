@@ -1,0 +1,21 @@
+{
+  "commit": "6832145603b2bbd305fbbd91377d16538ecb5951",
+  "original": {
+    "data.py": "5d7ffd03cad286384f5979b0e8232979a23e904552a8c0a71689dccac11a9c8b",
+    "diagnostics.py": "4c422885c7b3182bbed9a36b788f4d7b95efc07590089a25c50a2dce0c2dd7ae",
+    "relative.py": "ad8a94c8ff3403d09424f86f72569b504f49b39f3f913936e1619fb3f5210544",
+    "replay.py": "4ea658240f647446410e8086852b3bfe07c31b7dc4aa47718e10049594f17dd7",
+    "run.py": "0990d4b72c9af00c5dc29cf7026d6dff0ed3765e2675801ae20762990c835402",
+    "signals.py": "573e5a1a221270a8fd2e9166ee92c2acf2ba83088ba03ded662f6347acd6092c",
+    "__init__.py": "3e7d0bc5ea63a2699268000d22d1d68c54f707a1476b79bad8ba6caeba7ad9d9"
+  },
+  "vendored": {
+    "data.py": "9b35c2aa7620dfeff1b9d4e4d6abddc443e20e09bf15c08ba8ea2cb92237ca9c",
+    "relative.py": "ad8a94c8ff3403d09424f86f72569b504f49b39f3f913936e1619fb3f5210544",
+    "replay.py": "4ea658240f647446410e8086852b3bfe07c31b7dc4aa47718e10049594f17dd7",
+    "run.py": "17f4e3b2fc779ff75df349b2de76389ee7df17dd0a134878d21d9e769167a80c",
+    "signals.py": "573e5a1a221270a8fd2e9166ee92c2acf2ba83088ba03ded662f6347acd6092c",
+    "__init__.py": "68e0333203d1458976d13b318d3078fbd23c72a3c4a215746dd1a005550dc555"
+  },
+  "adapter_note": "signals/relative/replay byte copies; data extracts exact Bar+contiguous; run extracts exact orders_for; imports are minimal offline-only"
+}

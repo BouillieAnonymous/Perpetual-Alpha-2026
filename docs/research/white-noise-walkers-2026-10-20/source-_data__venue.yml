@@ -1,0 +1,8 @@
+# Venue values used by /docs/.
+# Switching phases (practice -> Live Trading) should only need edits here.
+dex: pas
+dex_index: 271
+collateral: USDP
+api_url: https://api.hyperliquid-testnet.xyz
+ws_url: wss://api.hyperliquid-testnet.xyz/ws
+sdk_version: 0.24.0

@@ -1,0 +1,24 @@
+# 组合与配对独立报告：保留原实验
+
+来源 ../experiments/summary.json，portfolio-existing.json原样保留其全部分段和压力情景。没有重选配对、调参或把组合结果当单资产结果。
+
+|组合/配对|base净情景%|stress净情景%|入场信号/成交段|状态|
+|---|---:|---:|---:|---|
+|XSM-TEN-PRICE-SCENARIO-RISK|-2.439|-3.527|10/52|REJECTED|
+|XSM-TEN-PRICE-SCENARIO-RAW|-3.780|-5.348|10/54|REJECTED|
+|XSM-TEN-PRICE-SCENARIO-REVERSE|-0.557|-3.112|10/52|REJECTED|
+|XSM-TEN-PRICE-SCENARIO-EQUAL|-2.936|-4.405|10/54|REJECTED|
+|XSM-TEN-PRICE-SCENARIO-TSM|-2.475|-4.455|10/82|REJECTED|
+|XSM-TEN-PRICE-SCENARIO-EQUAL_LONG|-4.426|-4.793|10/51|REJECTED|
+|XSM-BTC-ETH-SUBSET-RISK|0.486|-0.731|10/18|INCONCLUSIVE|
+|XSM-BTC-ETH-SUBSET-RAW|-0.962|-1.690|10/18|REJECTED|
+|XSM-BTC-ETH-SUBSET-REVERSE|-2.278|-3.234|10/18|REJECTED|
+|XSM-BTC-ETH-SUBSET-EQUAL|0.486|-0.731|10/18|INCONCLUSIVE|
+|XSM-BTC-ETH-SUBSET-TSM|-2.666|-2.651|10/19|REJECTED|
+|XSM-BTC-ETH-SUBSET-EQUAL_LONG|-1.948|-2.030|10/12|REJECTED|
+|PAIR_RATIO|0.098|-0.216|3/6|INCONCLUSIVE|
+|PAIR_COINT|0.000|0.000|0/0|REJECTED|
+
+XSM为六种预设排序/仓位对照，分别在十资产和BTC/ETH子集运行；组合风险预算按一份资本计算。完整差异和估值限制见原manifest；不能将等权、反向或多头对照当作独立发现。
+
+BTC/ETH配对具有共同加密风险因子的经济动机，但相关性不代表价差平稳。原开发段EG p约0.446、KPSS p约0.01，协整门槛未通过；PAIR_COINT不交易，REJECTED是门槛拒绝，不是亏损交易。比例价差仅3次入场，全段微正而压力转负，不足证明套利。其他标的尚无确认的事先经济配对依据，本轮不机械扫描45对；Oracle-Basis仍保留PR #17独立研究。

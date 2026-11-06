@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "assets": 10,
+  "scenario_trade_records_checked": 9234,
+  "old_snapshot_prefix_unchanged": true,
+  "features_causal_prefix_invariant": true,
+  "training_labels_end_before_cutoff": true,
+  "next_quote_latency_depth_lots_and_notional": true,
+  "no_overlapping_positions": true,
+  "decimal_accounting": true,
+  "no_unresolved_positions": true,
+  "no_future_timing_selection_rejections": true,
+  "source_hashes_verified": true,
+  "external_C_executable_returns": "not_claimed_missing_historical_receipts"
+}

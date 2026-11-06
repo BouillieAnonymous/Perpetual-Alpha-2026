@@ -1,0 +1,12 @@
+{
+  "counts37": {
+    "LONG_HISTORY_REJECTED": 36,
+    "INCONCLUSIVE": 1
+  },
+  "structural_equivalence_groups": 34,
+  "positive_after_base_costs": 1,
+  "positive_gross_erased_by_base_costs": 8,
+  "negative_gross": 28,
+  "followup_candidates": [],
+  "not_confirmatory": true
+}

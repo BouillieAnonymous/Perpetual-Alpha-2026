@@ -1,0 +1,21 @@
+{
+  "market_count": 10,
+  "grid": 15815,
+  "main_html_bytes": 86540,
+  "lazy_asset_bytes": {
+    "BTC": 3742286,
+    "ETH": 4111526,
+    "HYPE": 4165743,
+    "SP500": 2367188,
+    "EWY": 3753226,
+    "EWJ": 2790090,
+    "BRENT": 3311292,
+    "GOLD": 2828639,
+    "USDEUR": 1858161,
+    "USDJPY": 2138445
+  },
+  "pair_precomputed_strategy_count": 0,
+  "future_label_columns": 0,
+  "normalization_base_ms": 1792417440000,
+  "audit_panel_sha256": "d91a6accad6b3322ab814c4f97f1f6039e2f4a95cb0faae8976772ab580d9bc0"
+}

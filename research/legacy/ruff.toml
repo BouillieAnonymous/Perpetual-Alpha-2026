@@ -1,0 +1,32 @@
+# Frozen original source: style-only exceptions; do not rewrite evidence.
+line-length = 110
+target-version = "py311"
+
+[lint]
+select = ["E4","E7","E9","F","I"]
+
+[lint.per-file-ignores]
+"scripts/analyze_long_history.py" = ["I001"]
+"scripts/inventory_candidate_validation.py" = ["I001"]
+"scripts/long_history_protocol.py" = ["I001"]
+"scripts/regime_core.py" = ["I001"]
+"scripts/regime_protocol.py" = ["I001"]
+"scripts/report_asset_coverage.py" = ["I001"]
+"scripts/report_candidate_validation.py" = ["I001"]
+"scripts/report_long_history.py" = ["I001"]
+"scripts/report_regime_study.py" = ["I001"]
+"scripts/run_candidate_validation.py" = ["I001"]
+"scripts/run_long_history.py" = ["I001"]
+"scripts/run_long_nonoverlap.py" = ["I001"]
+"scripts/run_market_transfer.py" = ["I001"]
+"scripts/run_regime_study.py" = ["I001"]
+"scripts/study_eth_momentum.py" = ["I001"]
+"scripts/validate_asset_coverage.py" = ["I001"]
+"scripts/validate_candidate_validation.py" = ["I001"]
+"scripts/validate_long_history.py" = ["I001"]
+"scripts/validate_market_transfer.py" = ["I001"]
+"scripts/validate_quant_research.py" = ["I001"]
+"scripts/validate_regime_study.py" = ["I001"]
+"tests/test_basis_direction.py" = ["I001"]
+"tests/test_basis_research.py" = ["I001"]
+"tests/test_multi_asset_basis.py" = ["I001"]

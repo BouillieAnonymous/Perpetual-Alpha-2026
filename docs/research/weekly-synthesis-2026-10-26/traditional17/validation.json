@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "rules": 17,
+  "valued_asset_rule_combinations": 153,
+  "positive_full_base_small": 41,
+  "source_identity": "PR15 6832145; source/manifest hashes verified",
+  "tests": "original signal equivalence, causal prefix, Funding receipt, delay/depth unknown tests; 2880 book scenarios/6748 fills Decimal and raw price/depth/lot/budget checks; all Z/Bollinger summaries identical",
+  "scope": "offline research only; no deployment/orders; all samples retrospective",
+  "artifacts": {
+    "all17-heatmap.pdf": "c51608858a5355e895b549e71eea16e573d514c1c26b8bd54cd8a8d68c70ff1c",
+    "all17-heatmap.png": "e34a3cac52312f9170dba786c35923bd2ffe621ce3f31b6466d071ab5f00d258",
+    "all17.zh-CN.md": "54f531c0c047cfd1e0e84c50d90fca3c02acc2acbe6beca5e9de4b046b2eb0b0",
+    "book-ledgers.jsonl.gz": "aa89f9f7c8f37ee9320f19c6e96baddb874a7ce7caf6da26ed2722f434a81ba1",
+    "compact-manifest.json": "c42b3d2e2b1bc580ea1bd33fca8af0250dc2e8b82160a9dd1fcc5da4407f4607",
+    "comparison.csv": "076cedc84a2f430ccae7e10e6e189108374b6297b10cba8ea40a6c96f8756036",
+    "definitions.json": "8b4cf8b4d657a8b896a3337d7a278bf3f3960c6373598588a01d8e04785bf331",
+    "direction-controls.json": "2c050d3dbe22cdbfb2a8467e1aff6bc4b0e1066507d01a9965dd0dcd194ec419",
+    "episode-counts.json": "20a7aa0543174e58075803d922b5309b8f3dc0f53671e93aa1ddd7f119c48e86",
+    "frozen-source-manifest.json": "bef2e00663d053d3ab719981942b1930a32a92711a49cb60890593b05319b76c",
+    "funding-attribution.png": "2b6e313fee727168f69c469cf49aa7dc113783c3c81ac97790d9a1760526a964",
+    "report-source.json": "9171d467664e50a44040ee7335066f19056f0dcaa4bad422a09b30570e884a9f",
+    "report.zh-CN.md": "886e6842412718d4215ff3afa73760b79a29bcba981d00e826486c4f00f9a531",
+    "research-walkthrough.zh-CN.md": "8f91aceeb2c24ad9fd4875f224ba373ed8258f9f1ba188d66f6ceb7296557429",
+    "results.json": "4c3fde32183d76dbfbff39f039e27fdb1977e0dcb50d1ee73a45e6359aa0e500",
+    "sampled-bars.json": "fab16ab65ed4731c1577869178519bd71441929701b53c4279ec3ac141309908",
+    "signals.jsonl.gz": "83f39967675711b42d78ff2ce9b8e47fa747b337357103e07ee4545f870915a8"
+  }
+}

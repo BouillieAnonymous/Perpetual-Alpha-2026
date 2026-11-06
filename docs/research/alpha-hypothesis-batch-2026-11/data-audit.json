@@ -1,0 +1,58 @@
+{
+  "main": {
+    "pas:BTC": {
+      "A_valid": 21332,
+      "A_zero": 3832,
+      "B_valid": 17539
+    },
+    "pas:ETH": {
+      "A_valid": 21332,
+      "A_zero": 2744,
+      "B_valid": 18675
+    }
+  },
+  "supplemental": {
+    "header": {
+      "kind": "export-header",
+      "schema": "pas-alpha-prefix/1",
+      "path": "/opt/perpetual-alpha-pas-data/pas/public.sqlite3",
+      "captured_utc": "2026-10-26T20:24:06.239624+00:00",
+      "identity": {
+        "collateral": "USDP",
+        "dex": "pas",
+        "endpoint": "https://api.hyperliquid-testnet.xyz/info",
+        "schema": "public-venue-collection/1",
+        "source": "hyperliquid-testnet/pas",
+        "symbols": [
+          "pas:BTC",
+          "pas:ETH",
+          "pas:HYPE",
+          "pas:SP500",
+          "pas:EWY",
+          "pas:EWJ",
+          "pas:BRENT",
+          "pas:GOLD",
+          "pas:USDEUR",
+          "pas:USDJPY"
+        ]
+      },
+      "max_seq": 224063
+    },
+    "selected_raw_counts": {
+      "metadata-context": 10507,
+      "context": 21014,
+      "book": 21014,
+      "settled-funding": 678
+    },
+    "settlement_events": 352,
+    "lot_decimals": {
+      "pas:BTC": 5,
+      "pas:ETH": 4
+    }
+  },
+  "grid_points": 21378,
+  "first_utc": "2026-10-19T13:43:00+00:00",
+  "last_utc": "2026-11-03T10:00:00+00:00",
+  "normalized_funding_receipts": 1380,
+  "normalized_funding_values_available": false
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "symbol": "par:EWY",
+    "freeze_ms": 1792333057733,
+    "quotes": 24,
+    "quote_available": {
+      "count": 24,
+      "unique": 24,
+      "first_ms": 1792333098444,
+      "last_ms": 1792333213476,
+      "median_gap_ms": 5001,
+      "max_gap_ms": 5099,
+      "gap_count": null,
+      "missing_grid_points": null
+    },
+    "fresh_nonempty_books_2s": 0,
+    "old_transfer_10s_age_only_pass": 24,
+    "postfreeze_eligible_12h_decisions": 0,
+    "complete_entry_exit_pairs": 0,
+    "status": "INSUFFICIENT_DATA",
+    "executable_net_return": null,
+    "reason": "two-minute session cannot mature frozen 12h position; received historical features not backdated"
+  },
+  {
+    "symbol": "par:HYPE",
+    "freeze_ms": 1792333057733,
+    "quotes": 24,
+    "quote_available": {
+      "count": 24,
+      "unique": 24,
+      "first_ms": 1792333098446,
+      "last_ms": 1792333213468,
+      "median_gap_ms": 5006,
+      "max_gap_ms": 5031,
+      "gap_count": null,
+      "missing_grid_points": null
+    },
+    "fresh_nonempty_books_2s": 0,
+    "old_transfer_10s_age_only_pass": 24,
+    "postfreeze_eligible_12h_decisions": 0,
+    "complete_entry_exit_pairs": 0,
+    "status": "INSUFFICIENT_DATA",
+    "executable_net_return": null,
+    "reason": "two-minute session cannot mature frozen 12h position; received historical features not backdated"
+  }
+]

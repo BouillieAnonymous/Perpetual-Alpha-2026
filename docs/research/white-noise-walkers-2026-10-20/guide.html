@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="8SC6aDf0lhU8oSL496rmS0_QrUduoHIWdnqtErCUa1c" />
+    <title>Participant Guide</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Perpetual Alpha">
+    <meta property="og:description" content="The AI Trading Competition on Hyperliquid">
+    <meta property="og:image" content="https://perpetual-alpha26.github.io/assets/images/hero_image.png">
+    <meta property="og:url" content="https://perpetual-alpha26.github.io/docs/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Perpetual Alpha">
+    <meta name="twitter:description" content="The AI Trading Competition on Hyperliquid">
+    <meta name="twitter:image" content="https://perpetual-alpha26.github.io/assets/images/hero_image.png">
+
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="/assets/css/style.css?v=8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="site-header" id="site-header">
+    <div class="container header-content">
+        <a href="/" class="mobile-brand">
+            <img src="/assets/images/logo.png" alt="Logo" class="mobile-logo">
+            <span class="mobile-title">Perpetual <span class="highlight">Alpha</span></span>
+        </a>
+        <button id="mobile-menu-btn" class="mobile-menu-btn">☰</button>
+        <nav class="main-nav" id="main-nav">
+            <a href="/" class="">Home</a>
+            <a href="/about" class="">About</a>
+            <a href="/schedule" class="">Schedule</a>
+            <a href="/docs/" class="active">Docs</a>
+            <a href="/leaderboard" class="">Leaderboard</a>
+            <a href="/faq" class="">FAQ</a>
+            <a href="/committee" class="">Committee</a>
+        </nav>
+    </div>
+</header>
+
+<script>
+    let lastScrollTop = 0;
+    const header = document.getElementById("site-header");
+    const menuBtn = document.getElementById("mobile-menu-btn");
+    const nav = document.getElementById("main-nav");
+
+    // Hamburger toggle
+    menuBtn.addEventListener("click", function() {
+        nav.classList.toggle("nav-open");
+    });
+
+    // Scroll hide
+    window.addEventListener("scroll", function() {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (currentScroll > lastScrollTop && currentScroll > 80) {
+            // Scrolling down - only hide if menu isn't open
+            if (!nav.classList.contains("nav-open")) {
+                header.classList.add("header-hidden");
+            }
+        } else {
+            // Scrolling up
+            header.classList.remove("header-hidden");
+        }
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    }, false);
+</script>
+
+    <main class="container">
+        
+<div class="page-content docs">
+
+  <h1 class="no_toc" id="participant-guide">Participant Guide</h1>
+
+  <p>This guide covers the venue, its assets and pricing, account setup, and the interfaces for trading and market data.</p>
+
+<ul id="markdown-toc">
+  <li><a href="#venue" id="markdown-toc-venue">Venue</a></li>
+  <li><a href="#markets" id="markdown-toc-markets">Markets</a></li>
+  <li><a href="#asset-references-and-pricing" id="markdown-toc-asset-references-and-pricing">Asset references and pricing</a>    <ul>
+      <li><a href="#oracle-and-mark-prices" id="markdown-toc-oracle-and-mark-prices">Oracle and mark prices</a></li>
+    </ul>
+  </li>
+  <li><a href="#venue-mechanics" id="markdown-toc-venue-mechanics">Venue mechanics</a></li>
+  <li><a href="#setup" id="markdown-toc-setup">Setup</a></li>
+  <li><a href="#team-wallet" id="markdown-toc-team-wallet">Team wallet</a></li>
+  <li><a href="#set-up-the-account" id="markdown-toc-set-up-the-account">Set up the account</a></li>
+  <li><a href="#client" id="markdown-toc-client">Client</a></li>
+  <li><a href="#trade" id="markdown-toc-trade">Trade</a></li>
+  <li><a href="#price-and-size-rules" id="markdown-toc-price-and-size-rules">Price and size rules</a></li>
+  <li><a href="#orders-and-leverage" id="markdown-toc-orders-and-leverage">Orders and leverage</a></li>
+  <li><a href="#info-queries" id="markdown-toc-info-queries">Info queries</a></li>
+  <li><a href="#streams" id="markdown-toc-streams">Streams</a>    <ul>
+      <li><a href="#websocket" id="markdown-toc-websocket">WebSocket</a></li>
+    </ul>
+  </li>
+  <li><a href="#rate-limits" id="markdown-toc-rate-limits">Rate limits</a></li>
+  <li><a href="#other-languages" id="markdown-toc-other-languages">Other languages</a></li>
+  <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+  <li><a href="#monitored-behaviour" id="markdown-toc-monitored-behaviour">Monitored behaviour</a></li>
+  <li><a href="#questions" id="markdown-toc-questions">Questions</a></li>
+</ul>
+
+  <h2 id="venue">Venue</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Network</td>
+        <td>Hyperliquid <strong>testnet</strong></td>
+      </tr>
+      <tr>
+        <td>REST</td>
+        <td><code class="language-plaintext highlighter-rouge">https://api.hyperliquid-testnet.xyz/info</code> for queries. <code class="language-plaintext highlighter-rouge">https://api.hyperliquid-testnet.xyz/exchange</code> for signed actions.</td>
+      </tr>
+      <tr>
+        <td>WebSocket</td>
+        <td><code class="language-plaintext highlighter-rouge">wss://api.hyperliquid-testnet.xyz/ws</code></td>
+      </tr>
+      <tr>
+        <td>Dex</td>
+        <td><code class="language-plaintext highlighter-rouge">pas</code> (dex index 271)</td>
+      </tr>
+      <tr>
+        <td>Coins</td>
+        <td>The dex name, a colon and the coin: <code class="language-plaintext highlighter-rouge">pas:BTC</code>, <code class="language-plaintext highlighter-rouge">pas:ETH</code>, …</td>
+      </tr>
+      <tr>
+        <td>Collateral</td>
+        <td><code class="language-plaintext highlighter-rouge">USDP</code></td>
+      </tr>
+      <tr>
+        <td>Account mode</td>
+        <td>Unified (<code class="language-plaintext highlighter-rouge">unifiedAccount</code>). One <code class="language-plaintext highlighter-rouge">USDP</code> balance is the margin for all positions.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>The scored phase runs on <code class="language-plaintext highlighter-rouge">pas</code>. The scored phase does not use the practice dex <code class="language-plaintext highlighter-rouge">par</code> or its collateral <code class="language-plaintext highlighter-rouge">USDPR</code>. Change the dex, the coin prefix and the asset IDs in your bot to the values on this page.</p>
+
+  <div class="callout warn">
+    <p><strong>WARNING:</strong> Set the <code class="language-plaintext highlighter-rouge">dex</code> parameter to <code class="language-plaintext highlighter-rouge">pas</code> in market-wide and position queries. Use the dex prefix on coin names. Without this selection, raw API queries default to the native Hyperliquid markets and may return data without an error.</p>
+  </div>
+
+  <h2 id="markets">Markets</h2>
+
+  <p>Use the <code class="language-plaintext highlighter-rouge">meta</code> info query with the <code class="language-plaintext highlighter-rouge">dex</code> parameter set to <code class="language-plaintext highlighter-rouge">pas</code>. Read <code class="language-plaintext highlighter-rouge">szDecimals</code> and <code class="language-plaintext highlighter-rouge">maxLeverage</code> at runtime; the table describes the current <code class="language-plaintext highlighter-rouge">pas</code> markets.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Coin</th>
+        <th>Price units</th>
+        <th>Lot</th>
+        <th>Max leverage</th>
+        <th>Asset ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">pas:BTC</code></td>
+        <td>USD per BTC</td>
+        <td>0.00001</td>
+        <td>40x</td>
+        <td>2810000</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">pas:ETH</code></td>
+        <td>USD per ETH</td>
+        <td>0.0001</td>
+        <td>25x</td>
+        <td>2810001</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">pas:HYPE</code></td>
+        <td>USD per HYPE</td>
+        <td>0.01</td>
+        <td>10x</td>
+        <td>2810002</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">pas:SP500</code></td>
+        <td>S&amp;P 500 index points</td>
+        <td>0.001</td>
+        <td>50x</td>
+        <td>2810003</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">pas:EWY</code></td>
+        <td>USD per share of the iShares MSCI South Korea ETF</td>
+        <td>0.001</td>
+        <td>20x</td>
+        <td>2810004</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">pas:EWJ</code></td>
+        <td>USD per share of the iShares MSCI Japan ETF</td>
+        <td>0.001</td>
+        <td>20x</td>
+        <td>2810005</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">pas:BRENT</code></td>
+        <td>USD per barrel of Brent crude</td>
+        <td>0.01</td>
+        <td>20x</td>
+        <td>2810006</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">pas:GOLD</code></td>
+        <td>USD per troy ounce of gold</td>
+        <td>0.0001</td>
+        <td>25x</td>
+        <td>2810007</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">pas:USDEUR</code></td>
+        <td><strong>USD per EUR (EUR/USD)</strong></td>
+        <td>0.1</td>
+        <td>50x</td>
+        <td>2810008</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">pas:USDJPY</code></td>
+        <td><strong>JPY per USD (USD/JPY)</strong></td>
+        <td>0.01</td>
+        <td>50x</td>
+        <td>2810009</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Despite its ticker, <code class="language-plaintext highlighter-rouge">USDEUR</code> tracks EUR/USD. All markets trade 24/7 and settle in <code class="language-plaintext highlighter-rouge">USDP</code>, including the FX contracts.</p>
+
+  <h2 id="asset-references-and-pricing">Asset references and pricing</h2>
+
+  <p>The table combines the venue’s oracle and mark specification with live <code class="language-plaintext highlighter-rouge">pas</code> asset annotations (<code class="language-plaintext highlighter-rouge">perpAnnotation</code>) and market metadata, checked on 19 October 2026. Market specifications come from <code class="language-plaintext highlighter-rouge">meta</code>; oracle and mark prices come from <code class="language-plaintext highlighter-rouge">metaAndAssetCtxs</code>.</p>
+
+  <p>All ten assets use <strong>SEDA Signal</strong>, delivered through SEDA Fast. The oracle is the median of quotes returned by the configured sources: Binance, Binance Futures, Lighter and Hydromancer. <strong>EWJ excludes Lighter.</strong> Only sources returning a quote participate; the feed requires at least one source.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Asset</th>
+        <th>Reference instrument and mainnet counterpart</th>
+        <th>Oracle computation</th>
+        <th>Mark methodology</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">pas:BTC</code></td>
+        <td>Bitcoin; Hyperliquid <code class="language-plaintext highlighter-rouge">BTC</code></td>
+        <td><code class="language-plaintext highlighter-rouge">BTC/USD</code> feed, venue median</td>
+        <td>Median method below; EMA basis bound ±2.5% of oracle</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">pas:ETH</code></td>
+        <td>Ethereum; Hyperliquid <code class="language-plaintext highlighter-rouge">ETH</code></td>
+        <td><code class="language-plaintext highlighter-rouge">ETH/USD</code> feed, venue median</td>
+        <td>Median method below; EMA basis bound ±4% of oracle</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">pas:HYPE</code></td>
+        <td>Hyperliquid’s HYPE token; Hyperliquid <code class="language-plaintext highlighter-rouge">HYPE</code></td>
+        <td><code class="language-plaintext highlighter-rouge">HYPE/USD</code> feed, venue median</td>
+        <td>Median method below; EMA basis bound ±10% of oracle</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">pas:SP500</code></td>
+        <td>S&amp;P 500 index; <code class="language-plaintext highlighter-rouge">xyz:SP500</code></td>
+        <td><code class="language-plaintext highlighter-rouge">SP500/USD</code> feed, venue median</td>
+        <td>Median method below; EMA basis bound ±2% of oracle</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">pas:EWY</code></td>
+        <td>iShares MSCI South Korea ETF; <code class="language-plaintext highlighter-rouge">xyz:EWY</code></td>
+        <td><code class="language-plaintext highlighter-rouge">EWY/USD</code> feed, venue median</td>
+        <td>Median method below; EMA basis bound ±5% of oracle</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">pas:EWJ</code></td>
+        <td>iShares MSCI Japan ETF; <code class="language-plaintext highlighter-rouge">xyz:EWJ</code></td>
+        <td><code class="language-plaintext highlighter-rouge">EWJ/USD</code> feed, venue median excluding Lighter</td>
+        <td>Median method below; EMA basis bound ±5% of oracle</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">pas:BRENT</code></td>
+        <td>Brent crude; <code class="language-plaintext highlighter-rouge">xyz:BRENTOIL</code></td>
+        <td><code class="language-plaintext highlighter-rouge">BRENT/USD</code> feed, venue median</td>
+        <td>Median method below; EMA basis bound ±5% of oracle</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">pas:GOLD</code></td>
+        <td>Gold (XAU); <code class="language-plaintext highlighter-rouge">xyz:GOLD</code></td>
+        <td><code class="language-plaintext highlighter-rouge">XAU/USD</code> feed, venue median</td>
+        <td>Median method below; EMA basis bound ±4% of oracle</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">pas:USDEUR</code></td>
+        <td>EUR/USD: USD per EUR; <code class="language-plaintext highlighter-rouge">xyz:EUR</code></td>
+        <td><code class="language-plaintext highlighter-rouge">EUR/USD</code> feed, venue median</td>
+        <td>Median method below; EMA basis bound ±2% of oracle</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">pas:USDJPY</code></td>
+        <td>USD/JPY: JPY per USD; <code class="language-plaintext highlighter-rouge">xyz:JPY</code></td>
+        <td><code class="language-plaintext highlighter-rouge">USD/JPY</code> feed, venue median</td>
+        <td>Median method below; EMA basis bound ±2% of oracle</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 id="oracle-and-mark-prices">Oracle and mark prices</h3>
+
+  <p>The <strong>oracle</strong> is the SEDA composite submitted by the venue’s authorized oracle relayers, rounded to the market’s price precision. The upstream feed computation is part of the venue’s operator specification. The public API returns the resulting <code class="language-plaintext highlighter-rouge">oraclePx</code>; it does not return the individual upstream quotes.</p>
+
+  <p>The <strong>mark</strong> is the price used for unrealized PnL, margin and liquidations. The venue computes it as follows:</p>
+
+  <ol>
+    <li>The relayer maintains a <strong>150-second exponential moving average (EMA)</strong> of the local book mid price minus the oracle price, using the mid and oracle from the same on-chain snapshot. This is the book basis. The EMA starts at zero and decays toward zero when there is no two-sided book.</li>
+    <li>The basis adjustment is capped at <strong>±oracle price / maximum leverage</strong>. The table expresses this bound as a percentage of the oracle.</li>
+    <li>The relayer prepares two mark inputs: the oracle, and the oracle plus the capped basis. Each input is limited to a <strong>±0.5% move from the previous on-chain mark</strong> and rounded to the market’s price precision.</li>
+    <li>HyperCore takes the <strong>median of those two submitted inputs and the local book mark</strong>. The local book mark is the median of the best bid, best ask and last trade price. Accepted live <code class="language-plaintext highlighter-rouge">pas</code> oracle-update transactions confirm the two submitted input lists.</li>
+  </ol>
+
+  <p>HyperCore also applies its own price clamps, including a 1% limit on each mark update. After 10 seconds without a mark update, the protocol falls back to the local book mark. See the <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/hip-3-deployer-actions">HIP-3 mark calculation</a>.</p>
+
+  <p>Read <code class="language-plaintext highlighter-rouge">oraclePx</code> and <code class="language-plaintext highlighter-rouge">markPx</code> separately from <code class="language-plaintext highlighter-rouge">metaAndAssetCtxs</code>. A reference instrument identifies what the contract tracks; the published oracle, the local execution price and the mark can differ.</p>
+
+  <h2 id="venue-mechanics">Venue mechanics</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Detail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Fees</td>
+        <td>At the undiscounted base tier, <strong>0.09% taker and 0.03% maker</strong>, charged in <code class="language-plaintext highlighter-rouge">USDP</code> on each fill. This venue has <code class="language-plaintext highlighter-rouge">deployerFeeScale=1</code> and no growth mode, so positive base rates from <code class="language-plaintext highlighter-rouge">userFees</code> are doubled. The actual charge is in each fill’s <code class="language-plaintext highlighter-rouge">fee</code> and <code class="language-plaintext highlighter-rouge">feeToken</code> fields. See the <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/trading/fees#fee-formula-for-developers">fee formula</a> for tiers and discounts.</td>
+      </tr>
+      <tr>
+        <td>Funding</td>
+        <td>Paid every hour. A positive rate means longs pay shorts; a negative rate means shorts pay longs. <code class="language-plaintext highlighter-rouge">funding</code> in <code class="language-plaintext highlighter-rouge">metaAndAssetCtxs</code> is the hourly rate as a decimal. Payment magnitude is <code class="language-plaintext highlighter-rouge">abs(position size) × oracle price × abs(hourly rate)</code>. Get rates from <code class="language-plaintext highlighter-rouge">fundingHistory</code> and account payments from <code class="language-plaintext highlighter-rouge">userFunding</code>.</td>
+      </tr>
+      <tr>
+        <td>Oracle price</td>
+        <td>The SEDA Signal venue median described in <a href="#asset-references-and-pricing">Asset references and pricing</a>. Available as <code class="language-plaintext highlighter-rouge">oraclePx</code> in <code class="language-plaintext highlighter-rouge">metaAndAssetCtxs</code>.</td>
+      </tr>
+      <tr>
+        <td>Mark price</td>
+        <td>The median calculation and basis limits described in <a href="#asset-references-and-pricing">Asset references and pricing</a>. It can differ from the oracle. Available as <code class="language-plaintext highlighter-rouge">markPx</code> in <code class="language-plaintext highlighter-rouge">metaAndAssetCtxs</code>.</td>
+      </tr>
+      <tr>
+        <td>Margin</td>
+        <td>Cross positions share the unified collateral balance. Losses on one position reduce the margin available to others. Set leverage with <code class="language-plaintext highlighter-rouge">update_leverage</code>; check leverage and available buying power with <code class="language-plaintext highlighter-rouge">activeAssetData</code>. The spot balance’s <code class="language-plaintext highlighter-rouge">total</code> is not free margin.</td>
+      </tr>
+      <tr>
+        <td>Liquidation</td>
+        <td>Triggered when collateral no longer covers maintenance margin. Check <code class="language-plaintext highlighter-rouge">liquidationPx</code> in each position and the account’s margin state. See <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/trading/account-abstraction-modes#unified-account-ratio">unified account risk</a> for the maintenance-margin ratio.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 id="setup">Setup</h2>
+
+  <p>Python users need Python 3.10 or later and the official <a href="https://github.com/hyperliquid-dex/hyperliquid-python-sdk">Hyperliquid Python SDK</a>, version <strong>0.24.0</strong>. The SDK handles asset IDs, serialization and request signing. Configure it for the testnet endpoint listed above.</p>
+
+  <p>For other languages, refer to <a href="#other-languages">Other languages</a>.</p>
+
+  <h2 id="team-wallet">Team wallet</h2>
+
+  <p>The team wallet is your account. The organizers fund it. Use its address for all account queries; these queries do not require a private key.</p>
+
+  <p>Create and manage the wallet with your own wallet tooling. Give only its public address to the organizers. Keep the team wallet’s private key outside the bot and never share it with organizers or support.</p>
+
+  <p>For the scored phase, the organizers send <strong>100,000 <code class="language-plaintext highlighter-rouge">USDP</code></strong> to the team wallet at <strong>12:00 UTC on 19 October 2026</strong>. They use a spot transfer (<code class="language-plaintext highlighter-rouge">spotSend</code>) to the spot balance, the same method as in the practice phase. In unified mode, this balance is the margin for <code class="language-plaintext highlighter-rouge">pas</code>; do not transfer it to the dex. The sending address can be different from the practice phase. To confirm the funds, read the <code class="language-plaintext highlighter-rouge">USDP</code> balance with <code class="language-plaintext highlighter-rouge">spotClearinghouseState</code>. Do not monitor a specific sending address.</p>
+
+  <p>The API wallet approval and unified mode from the practice phase stay valid if the approval did not expire.</p>
+
+  <h2 id="set-up-the-account">Set up the account</h2>
+
+  <p>Do this step one time, after the organizers fund the team wallet.</p>
+
+  <p>Your bot signs trading actions with an <strong>API wallet</strong>, a separate key authorized by the team wallet. It can trade, modify and cancel orders, and set leverage. It cannot withdraw or send funds to another address. A compromised API wallet can still damage the account through trading.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Operation</th>
+        <th>API action or query</th>
+        <th>Python SDK</th>
+        <th>Signing wallet</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Approve an API wallet</td>
+        <td><code class="language-plaintext highlighter-rouge">approveAgent</code></td>
+        <td><code class="language-plaintext highlighter-rouge">approve_agent</code></td>
+        <td>Team wallet</td>
+      </tr>
+      <tr>
+        <td>Set unified mode</td>
+        <td><code class="language-plaintext highlighter-rouge">userSetAbstraction</code>, account mode <code class="language-plaintext highlighter-rouge">unifiedAccount</code></td>
+        <td><code class="language-plaintext highlighter-rouge">user_set_abstraction</code></td>
+        <td>Team wallet</td>
+      </tr>
+      <tr>
+        <td>Check approved API wallets</td>
+        <td><code class="language-plaintext highlighter-rouge">extraAgents</code></td>
+        <td><code class="language-plaintext highlighter-rouge">Info.post</code></td>
+        <td>None</td>
+      </tr>
+      <tr>
+        <td>Check account mode</td>
+        <td><code class="language-plaintext highlighter-rouge">userAbstraction</code></td>
+        <td><code class="language-plaintext highlighter-rouge">query_user_abstraction_state</code></td>
+        <td>None</td>
+      </tr>
+      <tr>
+        <td>Check collateral balance</td>
+        <td><code class="language-plaintext highlighter-rouge">spotClearinghouseState</code></td>
+        <td><code class="language-plaintext highlighter-rouge">spot_user_state</code></td>
+        <td>None</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>The approval identifies the API wallet’s public address, name and expiry. The SDK’s <code class="language-plaintext highlighter-rouge">approve_agent</code> generates a new API wallet key and returns it with the approval response. Handle private keys through your own credential management; exclude them from source code, logs and shared files. Check the approval response and <code class="language-plaintext highlighter-rouge">extraAgents</code> before trading. Account administration is signed by the team wallet; bot trading is signed by the approved API wallet.</p>
+
+  <p>In unified mode, one <code class="language-plaintext highlighter-rouge">USDP</code> balance backs cross-margin positions and is shared with spot. You do not move funds between spot and the dex. If the balance is zero, ask in <code class="language-plaintext highlighter-rouge">#general</code> on Discord using only the public account address.</p>
+
+  <ul>
+    <li>Use a separate API wallet for each process to avoid nonce collisions.</li>
+    <li>An account supports up to 3 named API wallets. Approving a new wallet under an existing name replaces the previous approval.</li>
+    <li>Set an expiry for the approval. Replace compromised or expired wallets with fresh keys; never reuse a removed API wallet’s key because its nonce history may have been pruned.</li>
+    <li>Use the team wallet address for queries. The API wallet address has no balance, positions or orders for your account.</li>
+    <li>Hyperliquid may remove an API wallet when it expires or the account no longer has funds. See <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/nonces-and-api-wallets">API wallet lifecycle</a>.</li>
+  </ul>
+
+  <h2 id="client">Client</h2>
+
+  <p>The Python SDK separates reads and signed actions:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Client</th>
+        <th>Purpose</th>
+        <th>Configuration</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">Info</code></td>
+        <td>Market data and account queries</td>
+        <td>Testnet API URL; select <code class="language-plaintext highlighter-rouge">pas</code> through <code class="language-plaintext highlighter-rouge">perp_dexs</code>. Enable its WebSocket manager if using subscriptions.</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">Exchange</code></td>
+        <td>Signed trading actions</td>
+        <td>Testnet API URL; approved API wallet signer; team wallet address as <code class="language-plaintext highlighter-rouge">account_address</code>; select <code class="language-plaintext highlighter-rouge">pas</code> through <code class="language-plaintext highlighter-rouge">perp_dexs</code>.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Selecting only this dex means plain native coin names are absent from the SDK’s market mapping. Use the prefixed coin names listed in <a href="#markets">Markets</a>.</p>
+
+  <p>Inspect both the request status and the result of every order. A request-level status of <code class="language-plaintext highlighter-rouge">ok</code> can contain rejected orders in <code class="language-plaintext highlighter-rouge">response.data.statuses</code>. Batch results correspond to individual operations; some may succeed while others fail.</p>
+
+  <h2 id="trade">Trade</h2>
+
+  <p>Use the <a href="#price-and-size-rules">price and size rules</a> for every order.</p>
+
+  <p>Read the market specifications before constructing an order. An order identifies the market, side, quantity, limit price, time in force and whether it is reduce-only. Set leverage for the market explicitly. Track the returned order ID or your client order ID to reconcile updates, fills and cancellations.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Operation</th>
+        <th>Python SDK method</th>
+        <th>Required selection or inputs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Market specifications</td>
+        <td><code class="language-plaintext highlighter-rouge">meta</code></td>
+        <td>Dex</td>
+      </tr>
+      <tr>
+        <td>Mark, oracle, funding and open interest</td>
+        <td><code class="language-plaintext highlighter-rouge">Info.post</code>, query type <code class="language-plaintext highlighter-rouge">metaAndAssetCtxs</code></td>
+        <td>Dex</td>
+      </tr>
+      <tr>
+        <td>Mid prices</td>
+        <td><code class="language-plaintext highlighter-rouge">all_mids</code></td>
+        <td>Dex</td>
+      </tr>
+      <tr>
+        <td>Order book</td>
+        <td><code class="language-plaintext highlighter-rouge">l2_snapshot</code></td>
+        <td>Coin</td>
+      </tr>
+      <tr>
+        <td>Candles</td>
+        <td><code class="language-plaintext highlighter-rouge">candles_snapshot</code></td>
+        <td>Coin, interval and time range</td>
+      </tr>
+      <tr>
+        <td>Collateral balance</td>
+        <td><code class="language-plaintext highlighter-rouge">spot_user_state</code></td>
+        <td>Team wallet address</td>
+      </tr>
+      <tr>
+        <td>Positions</td>
+        <td><code class="language-plaintext highlighter-rouge">user_state</code></td>
+        <td>Team wallet address and dex; positions are in <code class="language-plaintext highlighter-rouge">assetPositions</code></td>
+      </tr>
+      <tr>
+        <td>Open orders</td>
+        <td><code class="language-plaintext highlighter-rouge">open_orders</code></td>
+        <td>Team wallet address and dex</td>
+      </tr>
+      <tr>
+        <td>Fills</td>
+        <td><code class="language-plaintext highlighter-rouge">user_fills</code></td>
+        <td>Team wallet address</td>
+      </tr>
+      <tr>
+        <td>Leverage</td>
+        <td><code class="language-plaintext highlighter-rouge">update_leverage</code></td>
+        <td>Coin, leverage and margin mode</td>
+      </tr>
+      <tr>
+        <td>Limit or post-only order</td>
+        <td><code class="language-plaintext highlighter-rouge">order</code></td>
+        <td>Coin, side, size, price and time in force (<code class="language-plaintext highlighter-rouge">Gtc</code> or <code class="language-plaintext highlighter-rouge">Alo</code>)</td>
+      </tr>
+      <tr>
+        <td>Market execution</td>
+        <td><code class="language-plaintext highlighter-rouge">order</code> or <code class="language-plaintext highlighter-rouge">market_open</code></td>
+        <td>IOC time in force and a price limit; the helper uses a slippage limit</td>
+      </tr>
+      <tr>
+        <td>Modify</td>
+        <td><code class="language-plaintext highlighter-rouge">modify_order</code></td>
+        <td>Order ID and replacement order parameters</td>
+      </tr>
+      <tr>
+        <td>Cancel</td>
+        <td><code class="language-plaintext highlighter-rouge">cancel</code></td>
+        <td>Coin and order ID</td>
+      </tr>
+      <tr>
+        <td>Close a position</td>
+        <td><code class="language-plaintext highlighter-rouge">market_close</code></td>
+        <td>Coin; optional size and slippage limit</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>For the underlying instruments, oracles and mark calculation, refer to <a href="#asset-references-and-pricing">Asset references and pricing</a>. For other order types, batch orders and <code class="language-plaintext highlighter-rouge">cloid</code>, refer to <a href="#orders-and-leverage">Orders and leverage</a>. For fees, funding and margin, refer to <a href="#venue-mechanics">Venue mechanics</a>.</p>
+
+  <h2 id="price-and-size-rules">Price and size rules</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Rule</th>
+        <th>Detail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Size</td>
+        <td>A multiple of the lot (<code class="language-plaintext highlighter-rouge">10^-szDecimals</code>). If necessary, decrease the size to a multiple of the lot.</td>
+      </tr>
+      <tr>
+        <td>Price</td>
+        <td>A maximum of 5 significant figures <strong>and</strong> a maximum of <code class="language-plaintext highlighter-rouge">6 − szDecimals</code> decimals. Integer prices are always correct.</td>
+      </tr>
+      <tr>
+        <td>Minimum value</td>
+        <td>$10 for each order (price × size)</td>
+      </tr>
+      <tr>
+        <td>Price band</td>
+        <td>Not more than 80% from the reference price</td>
+      </tr>
+      <tr>
+        <td>Format</td>
+        <td>Decimal strings. Remove trailing zeros from the fractional part and an empty decimal point; preserve integer zeros. The SDK handles conversion.</td>
+      </tr>
+      <tr>
+        <td>Open interest limit</td>
+        <td>$10M notional for each market, for all participants together. The API rejects orders that increase open interest above this limit. Get the values with <code class="language-plaintext highlighter-rouge">perpDexLimits</code>.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 id="orders-and-leverage">Orders and leverage</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Function</th>
+        <th>How to use</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Good-till-cancel</td>
+        <td>Limit order with time in force <code class="language-plaintext highlighter-rouge">Gtc</code>; the unfilled remainder stays on the book.</td>
+      </tr>
+      <tr>
+        <td>Immediate-or-cancel</td>
+        <td>Limit order with time in force <code class="language-plaintext highlighter-rouge">Ioc</code>; available liquidity fills within the price limit and the remainder is cancelled. <code class="language-plaintext highlighter-rouge">market_open</code> and <code class="language-plaintext highlighter-rouge">market_close</code> use a default slippage limit of 5%.</td>
+      </tr>
+      <tr>
+        <td>Post-only</td>
+        <td>Limit order with time in force <code class="language-plaintext highlighter-rouge">Alo</code>. The API rejects it if it would immediately cross the book.</td>
+      </tr>
+      <tr>
+        <td>Stop or take-profit</td>
+        <td>Trigger order with a trigger price (<code class="language-plaintext highlighter-rouge">triggerPx</code>), market-or-limit execution (<code class="language-plaintext highlighter-rouge">isMarket</code>) and stop-loss or take-profit designation (<code class="language-plaintext highlighter-rouge">tpsl</code>: <code class="language-plaintext highlighter-rouge">sl</code> or <code class="language-plaintext highlighter-rouge">tp</code>). TP/SL orders must be reduce-only. Raw JSON prices are decimal strings; the SDK accepts numeric prices and serializes them.</td>
+      </tr>
+      <tr>
+        <td>Reduce-only</td>
+        <td>Set the reduce-only flag. The order may reduce an existing position but must not increase exposure.</td>
+      </tr>
+      <tr>
+        <td>Client order ID</td>
+        <td>A user-assigned 16-byte hexadecimal ID (<code class="language-plaintext highlighter-rouge">cloid</code>). The SDK represents it with <code class="language-plaintext highlighter-rouge">Cloid</code> from <code class="language-plaintext highlighter-rouge">hyperliquid.utils.types</code>; cancellation by this ID uses <code class="language-plaintext highlighter-rouge">cancel_by_cloid</code>.</td>
+      </tr>
+      <tr>
+        <td>Change an order</td>
+        <td><code class="language-plaintext highlighter-rouge">modify_order</code> replaces an order’s parameters, identifying it by order ID or client order ID.</td>
+      </tr>
+      <tr>
+        <td>Batch</td>
+        <td><code class="language-plaintext highlighter-rouge">bulk_orders</code> and <code class="language-plaintext highlighter-rouge">bulk_cancel</code> submit several operations together. Each operation counts against the account budget.</td>
+      </tr>
+      <tr>
+        <td>Leverage</td>
+        <td><code class="language-plaintext highlighter-rouge">update_leverage</code> selects leverage and cross or isolated margin for a coin. Leverage must not exceed the market’s maximum.</td>
+      </tr>
+      <tr>
+        <td>Dead man’s switch</td>
+        <td><code class="language-plaintext highlighter-rouge">schedule_cancel</code> schedules cancellation of all open orders at a future timestamp, at least 5 seconds ahead. Up to 10 triggers per day, resetting at 00:00 UTC. Requires $1,000,000 of account trade volume.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>The request-level <code class="language-plaintext highlighter-rouge">status</code> can be <code class="language-plaintext highlighter-rouge">ok</code> even when an order is rejected. Inspect each result in <code class="language-plaintext highlighter-rouge">response.data.statuses</code>:</p>
+
+  <ul>
+    <li><code class="language-plaintext highlighter-rouge">resting.oid</code>: the order ID of the remaining order on the book.</li>
+    <li><code class="language-plaintext highlighter-rouge">filled.totalSz</code>, <code class="language-plaintext highlighter-rouge">filled.avgPx</code>, <code class="language-plaintext highlighter-rouge">filled.oid</code>: the executed size, average fill price and order ID. An IOC can fill partially; <code class="language-plaintext highlighter-rouge">totalSz</code> may be smaller than the requested size. Its unfilled remainder is cancelled.</li>
+    <li><code class="language-plaintext highlighter-rouge">error</code>: the reason the API rejected the order.</li>
+  </ul>
+
+  <p>If the full request fails, <code class="language-plaintext highlighter-rouge">status</code> is <code class="language-plaintext highlighter-rouge">err</code> and <code class="language-plaintext highlighter-rouge">response</code> contains the reason.</p>
+
+  <p>The SDK’s <code class="language-plaintext highlighter-rouge">market_close</code> submits a reduce-only IOC. It can partially fill or be rejected; read the position again to confirm the remaining size. It returns no result if it finds no position for the coin.</p>
+
+  <h2 id="info-queries">Info queries</h2>
+
+  <p>Send <code class="language-plaintext highlighter-rouge">POST https://api.hyperliquid-testnet.xyz/info</code> with a JSON body. The <code class="language-plaintext highlighter-rouge">user</code> is always the <strong>team wallet</strong> address.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th><code class="language-plaintext highlighter-rouge">type</code></th>
+        <th>Parameters</th>
+        <th>Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">meta</code></td>
+        <td><code class="language-plaintext highlighter-rouge">dex</code></td>
+        <td>Markets: name, szDecimals, maxLeverage</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">metaAndAssetCtxs</code></td>
+        <td><code class="language-plaintext highlighter-rouge">dex</code></td>
+        <td>Markets, mark, oracle, mid, funding, open interest, 24h volume</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">allMids</code></td>
+        <td><code class="language-plaintext highlighter-rouge">dex</code></td>
+        <td>Mid price for each coin</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">l2Book</code></td>
+        <td><code class="language-plaintext highlighter-rouge">coin</code></td>
+        <td>Order book, maximum 20 levels on each side</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">recentTrades</code></td>
+        <td><code class="language-plaintext highlighter-rouge">coin</code></td>
+        <td>Latest public trades</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">candleSnapshot</code></td>
+        <td><code class="language-plaintext highlighter-rouge">req</code> object containing <code class="language-plaintext highlighter-rouge">coin</code>, <code class="language-plaintext highlighter-rouge">interval</code>, <code class="language-plaintext highlighter-rouge">startTime</code>, <code class="language-plaintext highlighter-rouge">endTime</code></td>
+        <td>OHLCV, maximum 5000 candles, <code class="language-plaintext highlighter-rouge">1m</code> to <code class="language-plaintext highlighter-rouge">1M</code></td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">fundingHistory</code></td>
+        <td><code class="language-plaintext highlighter-rouge">coin, startTime, endTime?</code></td>
+        <td>Funding rates for each hour</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">perpDexs</code></td>
+        <td> </td>
+        <td>Dex list and funding parameters</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">perpDexLimits</code></td>
+        <td><code class="language-plaintext highlighter-rouge">dex</code></td>
+        <td>Open interest limits</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">spotClearinghouseState</code></td>
+        <td><code class="language-plaintext highlighter-rouge">user</code></td>
+        <td>Balance. In unified mode, this is the balance for all positions.</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">clearinghouseState</code></td>
+        <td><code class="language-plaintext highlighter-rouge">user, dex</code></td>
+        <td>Positions on the dex</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">openOrders</code></td>
+        <td><code class="language-plaintext highlighter-rouge">user, dex</code></td>
+        <td>Open orders</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">orderStatus</code></td>
+        <td><code class="language-plaintext highlighter-rouge">user, oid</code> (or cloid)</td>
+        <td>Status of one order</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">userFills</code> / <code class="language-plaintext highlighter-rouge">userFillsByTime</code></td>
+        <td><code class="language-plaintext highlighter-rouge">user</code> (<code class="language-plaintext highlighter-rouge">startTime</code>, <code class="language-plaintext highlighter-rouge">endTime</code>)</td>
+        <td>Fills</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">userFunding</code></td>
+        <td><code class="language-plaintext highlighter-rouge">user, startTime, endTime?</code></td>
+        <td>Funding payments</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">activeAssetData</code></td>
+        <td><code class="language-plaintext highlighter-rouge">user, coin</code></td>
+        <td>Leverage, margin mode, maximum order sizes</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">userFees</code></td>
+        <td><code class="language-plaintext highlighter-rouge">user</code></td>
+        <td>Base fee rates</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">userRateLimit</code></td>
+        <td><code class="language-plaintext highlighter-rouge">user</code></td>
+        <td>Account budget</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">userAbstraction</code></td>
+        <td><code class="language-plaintext highlighter-rouge">user</code></td>
+        <td>Account mode</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">extraAgents</code></td>
+        <td><code class="language-plaintext highlighter-rouge">user</code></td>
+        <td>Approved API wallets</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 id="streams">Streams</h2>
+
+  <p>Connect to the WebSocket endpoint and subscribe to the channels your algorithm needs. Market channels identify a prefixed coin; account channels identify the team wallet address. The SDK’s <code class="language-plaintext highlighter-rouge">subscribe</code> method associates a subscription with your message handler.</p>
+
+  <ul>
+    <li>In the raw protocol, use the <code class="language-plaintext highlighter-rouge">subscribe</code> method with a subscription specifying the channel type and its parameters.</li>
+    <li>Send the <code class="language-plaintext highlighter-rouge">ping</code> method at intervals of 60 seconds or less. The Python SDK’s WebSocket manager sends these heartbeats automatically.</li>
+    <li>If the connection stops, do these steps:
+      <ol>
+        <li>Connect again.</li>
+        <li>Subscribe again.</li>
+        <li>Read the account state again through REST.</li>
+      </ol>
+    </li>
+    <li>The first <code class="language-plaintext highlighter-rouge">userFills</code> and <code class="language-plaintext highlighter-rouge">trades</code> messages contain recent history. Reconcile that history with events already processed. For public trades, identify duplicates by block time (<code class="language-plaintext highlighter-rouge">time</code>), <code class="language-plaintext highlighter-rouge">coin</code> and <code class="language-plaintext highlighter-rouge">tid</code> together; <code class="language-plaintext highlighter-rouge">tid</code> alone is not globally unique.</li>
+  </ul>
+
+  <p>The supported channels are listed below.</p>
+
+  <h3 id="websocket">WebSocket</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th><code class="language-plaintext highlighter-rouge">type</code></th>
+        <th>Parameters</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">l2Book</code></td>
+        <td><code class="language-plaintext highlighter-rouge">coin</code></td>
+        <td>Order book</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">bbo</code></td>
+        <td><code class="language-plaintext highlighter-rouge">coin</code></td>
+        <td>Best bid and offer</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">trades</code></td>
+        <td><code class="language-plaintext highlighter-rouge">coin</code></td>
+        <td>Public trades</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">candle</code></td>
+        <td><code class="language-plaintext highlighter-rouge">coin, interval</code></td>
+        <td>Candles</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">activeAssetCtx</code></td>
+        <td><code class="language-plaintext highlighter-rouge">coin</code></td>
+        <td>Mark, oracle, funding, open interest</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">allMids</code></td>
+        <td><code class="language-plaintext highlighter-rouge">dex</code></td>
+        <td>Mid prices</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">userFills</code></td>
+        <td><code class="language-plaintext highlighter-rouge">user</code></td>
+        <td>Your fills</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">orderUpdates</code></td>
+        <td><code class="language-plaintext highlighter-rouge">user</code></td>
+        <td>Changes to the status of your orders</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">userEvents</code></td>
+        <td><code class="language-plaintext highlighter-rouge">user</code></td>
+        <td>Fills, funding, liquidations</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">userFundings</code></td>
+        <td><code class="language-plaintext highlighter-rouge">user</code></td>
+        <td>Your funding payments</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>The <code class="language-plaintext highlighter-rouge">coin</code> has the dex prefix (<code class="language-plaintext highlighter-rouge">pas:BTC</code>). The <code class="language-plaintext highlighter-rouge">user</code> is the team wallet address.</p>
+
+  <p>The Python SDK does not send data for all channels. If a channel sends no data, use a raw WebSocket client.</p>
+
+  <h2 id="rate-limits">Rate limits</h2>
+
+  <p><strong>Each IP address:</strong> a maximum weight of 1200 each minute, shared by all clients using that IP.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Request</th>
+        <th>Weight</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Exchange action</td>
+        <td>1 + floor(orders in the batch / 40)</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">l2Book</code>, <code class="language-plaintext highlighter-rouge">allMids</code>, <code class="language-plaintext highlighter-rouge">clearinghouseState</code>, <code class="language-plaintext highlighter-rouge">orderStatus</code>, <code class="language-plaintext highlighter-rouge">spotClearinghouseState</code>, <code class="language-plaintext highlighter-rouge">exchangeStatus</code></td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">userRole</code></td>
+        <td>60</td>
+      </tr>
+      <tr>
+        <td>Other info requests</td>
+        <td>20</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>History queries also have response-size charges: <code class="language-plaintext highlighter-rouge">recentTrades</code>, <code class="language-plaintext highlighter-rouge">userFills</code>, <code class="language-plaintext highlighter-rouge">userFillsByTime</code>, <code class="language-plaintext highlighter-rouge">fundingHistory</code> and <code class="language-plaintext highlighter-rouge">userFunding</code> add weight per 20 returned items; <code class="language-plaintext highlighter-rouge">candleSnapshot</code> adds weight per 60 returned items. See the <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/rate-limits-and-user-limits">full rate-limit specification</a> for all endpoints.</p>
+
+  <p><strong>Each account:</strong></p>
+
+  <ul>
+    <li>Each order, cancel and change uses one request from the account budget.</li>
+    <li>The budget starts at <strong>10,000</strong>. It increases by <strong>1 for each $1 that you trade</strong>.</li>
+    <li>When the budget is empty, you can send one request each 10 seconds.</li>
+    <li>The cancel limit is <code class="language-plaintext highlighter-rouge">min(budget + 100,000, 2 × budget)</code>.</li>
+    <li>Get the status with <code class="language-plaintext highlighter-rouge">userRateLimit</code> (<code class="language-plaintext highlighter-rouge">nRequestsUsed</code>, <code class="language-plaintext highlighter-rouge">nRequestsCap</code>).</li>
+    <li>In unified mode, the account can send a maximum of 50,000 actions each day.</li>
+  </ul>
+
+  <p><strong>Other limits:</strong></p>
+
+  <ul>
+    <li>1000 open orders.</li>
+    <li>WebSocket: 10 connections for each IP address, 1000 subscriptions and 2000 sent messages each minute.</li>
+  </ul>
+
+  <p><strong>Nonces:</strong></p>
+
+  <ul>
+    <li>Use the current time in ms.</li>
+    <li>Do not use the same nonce two times with one key.</li>
+    <li>The nonce must be between 2 days before and 1 day after the server time.</li>
+    <li>Hyperliquid keeps the 100 highest nonces for each key. A new nonce must be higher than the lowest of these.</li>
+    <li>Use one API wallet for each process.</li>
+    <li>Keep your clock correct (NTP).</li>
+  </ul>
+
+  <h2 id="other-languages">Other languages</h2>
+
+  <ul>
+    <li><strong>TypeScript:</strong> <a href="https://github.com/nktkas/hyperliquid"><code class="language-plaintext highlighter-rouge">@nktkas/hyperliquid</code></a></li>
+    <li><strong>Rust:</strong> <a href="https://github.com/hyperliquid-dex/hyperliquid-rust-sdk"><code class="language-plaintext highlighter-rouge">hyperliquid_rust_sdk</code></a></li>
+    <li><strong>Raw API:</strong> <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api">Hyperliquid API documentation</a>, <a href="https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/signing">signatures</a></li>
+  </ul>
+
+  <p>Use the <strong>testnet</strong> URLs and the dex <code class="language-plaintext highlighter-rouge">pas</code>.</p>
+
+  <p>When you sign actions without an SDK:</p>
+
+  <ul>
+    <li>Set unified mode through <code class="language-plaintext highlighter-rouge">userSetAbstraction</code>, using the account mode <code class="language-plaintext highlighter-rouge">unifiedAccount</code> and a team-wallet signature. The agent-signed equivalent is <code class="language-plaintext highlighter-rouge">agentSetAbstraction</code>, using mode <code class="language-plaintext highlighter-rouge">u</code>.</li>
+    <li>Send <code class="language-plaintext highlighter-rouge">POST https://api.hyperliquid-testnet.xyz/exchange</code> with a JSON object containing <code class="language-plaintext highlighter-rouge">action</code> (object), <code class="language-plaintext highlighter-rouge">nonce</code> (integer timestamp in ms), and <code class="language-plaintext highlighter-rouge">signature</code> (object with hex strings <code class="language-plaintext highlighter-rouge">r</code> and <code class="language-plaintext highlighter-rouge">s</code>, and integer <code class="language-plaintext highlighter-rouge">v</code>).</li>
+    <li>The asset ID <code class="language-plaintext highlighter-rouge">a</code> is <code class="language-plaintext highlighter-rouge">100000 + 10000 × 271 + the index in meta</code>. For <code class="language-plaintext highlighter-rouge">pas:BTC</code>, the asset ID is 2810000.</li>
+    <li>Send prices and sizes as decimal strings. Remove trailing zeros only from the fractional part and remove an empty decimal point. Preserve integer zeros. The Python SDK handles this conversion.</li>
+    <li>Use the current time in ms as the <code class="language-plaintext highlighter-rouge">nonce</code>. Do not use the same nonce two times with one API wallet.</li>
+  </ul>
+
+  <h2 id="errors">Errors</h2>
+
+  <p>Order errors may end with <code class="language-plaintext highlighter-rouge">asset=&lt;asset ID&gt;</code>. This ID shows the market.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Error</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">User or API Wallet 0x… does not exist.</code></td>
+        <td>Check the approval with <code class="language-plaintext highlighter-rouge">extraAgents</code> and use the testnet URL. If the approval expired or was removed, authorize a fresh API wallet through the team wallet.</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">KeyError: 'BTC'</code> (Python SDK)</td>
+        <td>Use <code class="language-plaintext highlighter-rouge">pas:BTC</code>.</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">Order must have minimum value of $10.</code></td>
+        <td>Increase the size.</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">Order has invalid price.</code></td>
+        <td>Decrease the number of decimals. Refer to the <a href="#price-and-size-rules">rules</a>.</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">Price must be divisible by tick size.</code></td>
+        <td>Use a maximum of 5 significant figures.</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">Order has invalid size.</code></td>
+        <td>Decrease the size to a multiple of the lot.</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">Order price cannot be more than 80% away from the reference price</code></td>
+        <td>Move the price nearer to the market price.</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">Post only order would have immediately matched, bbo was &lt;bid&gt;@&lt;ask&gt;.</code></td>
+        <td>The <code class="language-plaintext highlighter-rouge">Alo</code> price crosses the book. Move the price away from the other side.</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">Order could not immediately match against any resting orders.</code></td>
+        <td>No order is available at your <code class="language-plaintext highlighter-rouge">Ioc</code> price. Move the price limit further into the book.</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">Insufficient margin to place order.</code></td>
+        <td>Decrease the size, or increase the leverage.</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">Reduce only order would increase position.</code></td>
+        <td>Make sure that the side and the size are correct.</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">Invalid leverage value</code></td>
+        <td>Use a leverage that is not more than the <a href="#markets">max leverage</a>.</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">Cannot set scheduled cancel time until enough volume traded. Required: $1000000.</code></td>
+        <td><code class="language-plaintext highlighter-rouge">schedule_cancel</code> is available after a trade volume of $1,000,000.</td>
+      </tr>
+      <tr>
+        <td><code class="language-plaintext highlighter-rouge">Too many cumulative requests sent</code></td>
+        <td>The account budget is empty. Refer to <a href="#rate-limits">Rate limits</a>.</td>
+      </tr>
+      <tr>
+        <td>An error about the <code class="language-plaintext highlighter-rouge">nonce</code></td>
+        <td>Use one API wallet for each process. Make sure that your clock is correct.</td>
+      </tr>
+      <tr>
+        <td>The balance is zero</td>
+        <td>Get the balance with <code class="language-plaintext highlighter-rouge">spotClearinghouseState</code>. Use the team wallet address.</td>
+      </tr>
+      <tr>
+        <td>No positions or orders</td>
+        <td>Use the team wallet address and set the <code class="language-plaintext highlighter-rouge">dex</code> parameter to <code class="language-plaintext highlighter-rouge">pas</code>.</td>
+      </tr>
+      <tr>
+        <td>The prices are not correct</td>
+        <td>You read a native market. Add the dex prefix to the coin, and add <code class="language-plaintext highlighter-rouge">dex</code>.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 id="monitored-behaviour">Monitored behaviour</h2>
+
+  <p>The organizers record all activity on <code class="language-plaintext highlighter-rouge">pas</code>: every trade with both counterparties, the order book, the oracle and mark prices, and each team wallet’s equity, fills, funding and transfers. The table lists the behaviour that is <strong>prohibited</strong> and the data used to find it.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Behaviour</th>
+        <th>What it means</th>
+        <th>What the organizers check</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Wash trading and self-crossing</strong></td>
+        <td>Trading with yourself: your team on both sides of a trade, or accounts controlled by the same people</td>
+        <td>The buyer and seller of every trade</td>
+      </tr>
+      <tr>
+        <td><strong>USDP transfers between teams</strong></td>
+        <td>Sending or receiving <code class="language-plaintext highlighter-rouge">USDP</code> to or from another team’s wallet, directly or through an intermediate address</td>
+        <td>Every transfer in and out of each team wallet</td>
+      </tr>
+      <tr>
+        <td><strong>Value transfer through trading</strong></td>
+        <td>One account losing on purpose to another, also when split over many trades, counterparties or days</td>
+        <td>Each team’s net gain or loss against each counterparty, measured against the oracle</td>
+      </tr>
+      <tr>
+        <td><strong>Coordinated or mirrored trading</strong></td>
+        <td>Teams trading in step: the same market at the same time, on the same side or on opposite sides</td>
+        <td>The timing and direction of fills across teams</td>
+      </tr>
+      <tr>
+        <td><strong>Off-market trades</strong></td>
+        <td>Trades at prices far from the oracle, used to move value between accounts</td>
+        <td>The trade price against the oracle at the time of the trade</td>
+      </tr>
+      <tr>
+        <td><strong>Book or price manipulation</strong></td>
+        <td>Moving the mark, the oracle or the book, for example with orders on a thin book</td>
+        <td>Book depth and spread over time, abnormal premium episodes, and who traded in them</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Moving <code class="language-plaintext highlighter-rouge">USDP</code> between the spot balance and <code class="language-plaintext highlighter-rouge">pas</code> of the <strong>same</strong> team wallet is not a transfer between teams.</p>
+
+  <div class="callout warn">
+    <p><strong>WARNING:</strong> A flag is not a verdict. The committee reviews the evidence and asks the team for an explanation before it decides. Confirmed violations result in <strong>disqualification</strong>.</p>
+  </div>
+
+  <h2 id="questions">Questions</h2>
+
+  <p>Ask in <code class="language-plaintext highlighter-rouge">#ask-anything</code> on Discord. Do not post a private key.</p>
+
+</div>
+
+    </main>
+    <footer class="site-footer">
+    <div class="container footer-content">
+        <div class="footer-section">
+            <h4>Perpetual Alpha</h4>
+            <p>The AI Trading Competition on Hyperliquid.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p><a href="mailto:perpetual-alpha@googlegroups.com">perpetual-alpha@googlegroups.com</a></p>
+        </div>
+        <div class="footer-section">
+            <h4>Organized within</h4>
+            <p><a href="https://icaif2026.org/" target="_blank">ICAIF 2026</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026. Built with Jekyll and GitHub Pages.</p>
+    </div>
+</footer>
+
+</body>
+</html>
