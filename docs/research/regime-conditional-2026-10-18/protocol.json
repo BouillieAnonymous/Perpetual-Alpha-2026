@@ -1,0 +1,131 @@
+{
+  "frozen_ms": 1792340794653,
+  "parent_commit": "6832145603b2bbd305fbbd91377d16538ecb5951",
+  "frozen_engine_sha256": "23de35d84bc34300e23d96b5d7c2bd73315aa8d6c5a71fd89ac49ca740510cce",
+  "prior_hashes_sha256": "dfe319205e9b57e9306b41cdfa6ad29b530f67d0397a3a471bc76ef87ddb9324",
+  "scope": "all170 fixed rules attribution; causal overlays for three predeclared representatives; all past already seen in PR15",
+  "feature": "25 closes efficiency>.35; RV24 stdev vs median strictly previous168 RV values; HIGH if >median; UNKNOWN until193h continuous history",
+  "states": [
+    "TREND_HIGH",
+    "TREND_LOW",
+    "RANGE_HIGH",
+    "RANGE_LOW"
+  ],
+  "families": [
+    "TSM",
+    "ATR",
+    "ROLLING_Z"
+  ],
+  "simple_filter": {
+    "TSM": "TREND_LOW",
+    "ATR": "TREND_HIGH",
+    "ROLLING_Z": "RANGE_LOW"
+  },
+  "selector": "asset-specific state->TSM/ATR/ROLLING_Z/FLAT, evaluated at UTC12h; held family until next12h, follow causal original shadow target",
+  "training_gate": ">=30 completed independent entry episodes in state,>=10 entry days; positive state-hour net; daily5day block bootstrap lower95>0; rank by mean daily conditional PnL, frozen family order ties",
+  "validation_gate": "choose best TRAIN-qualified family only, require >=5 completed entry episodes and>=3entrydays in same state and positive state-hour net in14d validation; failure->FLAT, no runner-up search",
+  "costs": "reuse native4.5bps/HIP3 9bps, full spread6+slip2/side delay1h; stress doublefee/spread18/slip4 delay2h; own funding only",
+  "capital": "10000 each of10 sleeves, total100000; fixed equal10% sleeve weights; original max.2 sleeve initial capital; no optimized risk weights",
+  "holdout": "last28d frozen before any new regime outcomes, no within-holdout retraining; algorithmic retrospective holdout, NOT genuinely unseen history",
+  "folds": [
+    {
+      "name": "walk-1",
+      "train": [
+        1777248000000,
+        1782432000000
+      ],
+      "validation": [
+        1782475200000,
+        1783684800000
+      ],
+      "test": [
+        1783728000000,
+        1784937600000
+      ]
+    },
+    {
+      "name": "walk-2",
+      "train": [
+        1778457600000,
+        1783641600000
+      ],
+      "validation": [
+        1783684800000,
+        1784894400000
+      ],
+      "test": [
+        1784937600000,
+        1786147200000
+      ]
+    },
+    {
+      "name": "walk-3",
+      "train": [
+        1779667200000,
+        1784851200000
+      ],
+      "validation": [
+        1784894400000,
+        1786104000000
+      ],
+      "test": [
+        1786147200000,
+        1787356800000
+      ]
+    },
+    {
+      "name": "walk-4",
+      "train": [
+        1780876800000,
+        1786060800000
+      ],
+      "validation": [
+        1786104000000,
+        1787313600000
+      ],
+      "test": [
+        1787356800000,
+        1788566400000
+      ]
+    },
+    {
+      "name": "walk-5",
+      "train": [
+        1782086400000,
+        1787270400000
+      ],
+      "validation": [
+        1787313600000,
+        1788523200000
+      ],
+      "test": [
+        1788566400000,
+        1789776000000
+      ]
+    },
+    {
+      "name": "final_locked28d",
+      "train": [
+        1783382400000,
+        1788566400000
+      ],
+      "validation": [
+        1788609600000,
+        1789819200000
+      ],
+      "test": [
+        1789862400000,
+        1792281600000
+      ]
+    }
+  ],
+  "purge_hours": 12,
+  "common_start_ms": 1777248000000,
+  "common_end_ms": 1792281600000,
+  "conditional_status": ">=30 completed episodes,>=10entrydays,>=3months with>=5episodes: else INSUFFICIENT_DATA; adequate and nonpositive=>REJECTED; positive=>INCONCLUSIVE; never PROMISING here",
+  "attribution": "PnL hour label from classifier at previous hour; entry episode counts separately; NOT entry-state PnL or executable filter",
+  "all_attempts_recorded": true,
+  "threshold_search": false,
+  "prospective_status": "INSUFFICIENT_DATA",
+  "stop": "no positive stable selector excess over FLAT and each fixed family in both rolling and locked28d, or inadequate active support => no runtime/ML development justified"
+}

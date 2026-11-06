@@ -2439,6 +2439,156 @@
       "original_path": "tests/test_offline_quant.py",
       "destination": "research/legacy/tests/test_offline_quant.py",
       "blob": "eb82568ad3ee2606fb861d7078221d196c057fad"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/classifier.jsonl.gz",
+      "destination": "docs/research/regime-conditional-2026-10-18/classifier.jsonl.gz",
+      "blob": "79e236ec2a1e9ca2e3536119f25c07818050fd30"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/conclusions.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/conclusions.json",
+      "blob": "0e428f90049656cb14abce4b6f80b80fd678e535"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/conditional-stability.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/conditional-stability.json",
+      "blob": "9ecb5007806e30d54d351c1461fc1c5d4f42c663"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/conditional.csv",
+      "destination": "docs/research/regime-conditional-2026-10-18/conditional.csv",
+      "blob": "9c51b8a662cc8630832b2be782adf20d6ead7a4c"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/conditional.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/conditional.json",
+      "blob": "97abfd26cc5036c43c8b7481577d7d89ce0bf8e1"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/daily.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/daily.json",
+      "blob": "6e4e468cf596e2624698ae69e6ec2f51e829ed8d"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/fold-portfolios.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/fold-portfolios.json",
+      "blob": "31641806506dadc7e5f15e31c0c4938939a71f2a"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/forward-ledgers.jsonl.gz",
+      "destination": "docs/research/regime-conditional-2026-10-18/forward-ledgers.jsonl.gz",
+      "blob": "3ef2cafca8599b9b2f169e8fb22375b723d723a1"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/hashes.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/hashes.json",
+      "blob": "5079e04914e79f9b587445012f79bf5a815f0b7d"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/implementation-note.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/implementation-note.json",
+      "blob": "d78a77f5065a1287c39f0706d679ac37136aef66"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/incremental-costs.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/incremental-costs.json",
+      "blob": "05e9a6ae9ab0ea44e261f96ea09d2dd312de5113"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/manifest.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/manifest.json",
+      "blob": "9f2f129200580e0ecca701be1675ae2d3f97d586"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/portfolio.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/portfolio.json",
+      "blob": "de29578eb976753dd371b2c4270df545f02b54ea"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/protocol.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/protocol.json",
+      "blob": "2b80e5d2ab7545f7807c5fcc3e18932c5c2f6841"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/report.zh-CN.md",
+      "destination": "docs/research/regime-conditional-2026-10-18/report.zh-CN.md",
+      "blob": "1618d12a3cfcc6a92635d25407ff2016ae2feec2"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/runs.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/runs.json",
+      "blob": "501bd3b53ee369a2e64674959b2c8c8a75004603"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/selection-audit.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/selection-audit.json",
+      "blob": "a33a23bd41280c160d52c971131be7f226170879"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/source-quality.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/source-quality.json",
+      "blob": "36ea037a1edf4dc2c02182c6cebcd8c52f38ac3a"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/state-coverage.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/state-coverage.json",
+      "blob": "72439f5ec0ec0a235080fc72b943fef74853bdd5"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "scripts/regime_core.py",
+      "destination": "research/legacy/scripts/regime_core.py",
+      "blob": "6411220ba535c49c64e936659cdcb482c4192e5d"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "scripts/regime_protocol.py",
+      "destination": "research/legacy/scripts/regime_protocol.py",
+      "blob": "2ba3570f1b3c454909b650e035e204a00ba16a62"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "scripts/report_regime_study.py",
+      "destination": "research/legacy/scripts/report_regime_study.py",
+      "blob": "2e560a589754623772400837585e9520a06fe40f"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "scripts/run_regime_study.py",
+      "destination": "research/legacy/scripts/run_regime_study.py",
+      "blob": "e0dd2e0f064f9cf114c74a021d9c5ef280b24f2b"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "scripts/validate_regime_study.py",
+      "destination": "research/legacy/scripts/validate_regime_study.py",
+      "blob": "11d6d09031fafa93de21ceec235b8922b62766bf"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "tests/test_regime_study.py",
+      "destination": "research/legacy/tests/test_regime_study.py",
+      "blob": "032306f08c4d224f402936bbda2ddbe1ffbf7d5e"
     }
   ],
   "manual_review": [
@@ -4613,6 +4763,156 @@
       "original_path": "tests/test_offline_quant.py",
       "destination": "research/legacy/tests/test_offline_quant.py",
       "blob": "eb82568ad3ee2606fb861d7078221d196c057fad"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/classifier.jsonl.gz",
+      "destination": "docs/research/regime-conditional-2026-10-18/classifier.jsonl.gz",
+      "blob": "79e236ec2a1e9ca2e3536119f25c07818050fd30"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/conclusions.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/conclusions.json",
+      "blob": "0e428f90049656cb14abce4b6f80b80fd678e535"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/conditional-stability.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/conditional-stability.json",
+      "blob": "9ecb5007806e30d54d351c1461fc1c5d4f42c663"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/conditional.csv",
+      "destination": "docs/research/regime-conditional-2026-10-18/conditional.csv",
+      "blob": "9c51b8a662cc8630832b2be782adf20d6ead7a4c"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/conditional.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/conditional.json",
+      "blob": "97abfd26cc5036c43c8b7481577d7d89ce0bf8e1"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/daily.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/daily.json",
+      "blob": "6e4e468cf596e2624698ae69e6ec2f51e829ed8d"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/fold-portfolios.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/fold-portfolios.json",
+      "blob": "31641806506dadc7e5f15e31c0c4938939a71f2a"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/forward-ledgers.jsonl.gz",
+      "destination": "docs/research/regime-conditional-2026-10-18/forward-ledgers.jsonl.gz",
+      "blob": "3ef2cafca8599b9b2f169e8fb22375b723d723a1"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/hashes.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/hashes.json",
+      "blob": "5079e04914e79f9b587445012f79bf5a815f0b7d"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/implementation-note.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/implementation-note.json",
+      "blob": "d78a77f5065a1287c39f0706d679ac37136aef66"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/incremental-costs.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/incremental-costs.json",
+      "blob": "05e9a6ae9ab0ea44e261f96ea09d2dd312de5113"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/manifest.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/manifest.json",
+      "blob": "9f2f129200580e0ecca701be1675ae2d3f97d586"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/portfolio.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/portfolio.json",
+      "blob": "de29578eb976753dd371b2c4270df545f02b54ea"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/protocol.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/protocol.json",
+      "blob": "2b80e5d2ab7545f7807c5fcc3e18932c5c2f6841"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/report.zh-CN.md",
+      "destination": "docs/research/regime-conditional-2026-10-18/report.zh-CN.md",
+      "blob": "1618d12a3cfcc6a92635d25407ff2016ae2feec2"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/runs.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/runs.json",
+      "blob": "501bd3b53ee369a2e64674959b2c8c8a75004603"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/selection-audit.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/selection-audit.json",
+      "blob": "a33a23bd41280c160d52c971131be7f226170879"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/source-quality.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/source-quality.json",
+      "blob": "36ea037a1edf4dc2c02182c6cebcd8c52f38ac3a"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "docs/research/regime-conditional-2026-10-18/state-coverage.json",
+      "destination": "docs/research/regime-conditional-2026-10-18/state-coverage.json",
+      "blob": "72439f5ec0ec0a235080fc72b943fef74853bdd5"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "scripts/regime_core.py",
+      "destination": "research/legacy/scripts/regime_core.py",
+      "blob": "6411220ba535c49c64e936659cdcb482c4192e5d"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "scripts/regime_protocol.py",
+      "destination": "research/legacy/scripts/regime_protocol.py",
+      "blob": "2ba3570f1b3c454909b650e035e204a00ba16a62"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "scripts/report_regime_study.py",
+      "destination": "research/legacy/scripts/report_regime_study.py",
+      "blob": "2e560a589754623772400837585e9520a06fe40f"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "scripts/run_regime_study.py",
+      "destination": "research/legacy/scripts/run_regime_study.py",
+      "blob": "e0dd2e0f064f9cf114c74a021d9c5ef280b24f2b"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "scripts/validate_regime_study.py",
+      "destination": "research/legacy/scripts/validate_regime_study.py",
+      "blob": "11d6d09031fafa93de21ceec235b8922b62766bf"
+    },
+    {
+      "source": "31668b900e9142e716e59ee828c61ece8ce524ec",
+      "original_path": "tests/test_regime_study.py",
+      "destination": "research/legacy/tests/test_regime_study.py",
+      "blob": "032306f08c4d224f402936bbda2ddbe1ffbf7d5e"
     }
   ]
 }
