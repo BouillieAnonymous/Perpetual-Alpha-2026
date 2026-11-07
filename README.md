@@ -66,18 +66,26 @@ explicit review; independent monitoring reads the dedicated ledger.
 Implemented and tested with Dummy/example Workers and synthetic execution.
 
 ```text
-Historical Shadow demo
-History -> Gateway -> Jobs
-(no trade execution)
+History (Shadow)
+       |
+       v
+As-of Gateway
+       |
+       v
+Shadow jobs
+(no execution)
 
-Synthetic Paper demo
-Fixtures -> Jobs / forecasts
-                 |
-                 v
-        Portfolio / Risk Gate
-                 |
-                 v
-        Paper / feedback
+Synthetic Paper
+Fixture context
+       |
+       v
+Forecast jobs
+       |
+       v
+Portfolio / Risk
+       |
+       v
+Paper / feedback
 ```
 
 This diagram groups two tested entry points. The
