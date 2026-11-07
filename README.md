@@ -1,81 +1,90 @@
 # Perpetual Alpha 2026
 
-**Quantitative Research · Agent-Based Trading Infrastructure · Perpetual Futures**
+**Quantitative Research · Agent-Ready Infrastructure · Perpetual Futures**
+
+Research-driven perpetual futures infrastructure with explicit risk boundaries
+and recoverable execution.
 
 [![CI](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/workflows/ci.yml)
 
 ## Overview
 
-Perpetual Alpha 2026 is a Python-based quantitative research and trading
-infrastructure project developed by **Team Anonymous** for the Perpetual Alpha
-2026 competition on Hyperliquid Testnet.
+Developed by **Team Anonymous** for Perpetual Alpha 2026 on Hyperliquid Testnet,
+this Python project combines multi-asset data collection, strategy research,
+forecasting interfaces, portfolio construction and trading execution.
 
-The project combines multi-asset market data collection, reproducible strategy
-research, agent-oriented forecasting interfaces, portfolio and risk management,
-and fault-tolerant trading execution.
+The engineering work addresses what happens when processes restart, requests
+are repeated, exchange outcomes are unknown or historical data changes.
+An independent deterministic **ETH Funding-LAST** runner was deployed during the
+competition; the separate **Agent/Core and Synthetic Paper** framework was
+implemented and tested without controlling the competition wallet.
 
-During the competition, we deployed an independent, deterministic **ETH
-Funding-LAST** strategy with constrained position sizing, persistent order
-intents, exchange reconciliation and operational monitoring. In parallel, we
-implemented and tested an extensible **Agent/Core architecture with synthetic
-execution**, keeping experimental AI-driven strategies separate from live trading.
+**Explore:** [Engineering decisions](#engineering-highlights) ·
+[System architecture](#system-architecture) · [Quick start](#getting-started) ·
+[Research findings](docs/research/FINDINGS.md) ·
+[Technical report](docs/competition/PA26-Anonymous-report.pdf)
 
-Our research identified candidate signals and positive exploratory results
-alongside failed robustness tests. Persistent, executable risk-adjusted excess
-returns remain unproven. The evidence preserves what worked in simulations,
-what failed further validation, and what still needs investigation.
+## Engineering Highlights
 
-**Project resources:** [Technical Report](docs/competition/PA26-Anonymous-report.pdf) ·
-[Research Findings](docs/research/FINDINGS.md) ·
-[Architecture](#system-architecture) · [Getting Started](#getting-started)
+| Engineering problem | Design decision | Trade-off / boundary | Implementation and tests |
+|---|---|---|---|
+| **Restarted workers and repeated submissions** can lose work or process stale results. | Persist jobs and leases; commit the accepted forecast, receipt and Outbox entry in one SQLite transaction. Delivery epochs reject stale consumer completions. | SQLite serializes writers. Outbox recovery requires the former consumer to have stopped; its local transaction does not cover external side effects. | [Job acceptance](src/perpetual_alpha/runtime/jobs.py), [Outbox](src/perpetual_alpha/runtime/outbox.py); [lease/replay tests](tests/test_jobs.py), [rollback/fencing tests](tests/test_scheduler_outbox.py) |
+| **A timeout does not reveal whether an exchange order filled.** Blind retries risk duplicate exposure. | Persist an intent before sending, derive a deterministic client-order ID, then reconcile order status, fills and account position. | Unknown or partial outcomes pause the runner rather than trigger automatic resends/chasing. Recovery can require operator review; no exactly-once exchange guarantee. | [Funding engine](src/perpetual_alpha/funding_live/engine.py), [ledger](src/perpetual_alpha/funding_live/store.py); [timeout, pre-send crash and partial-fill tests](tests/test_funding_live.py) |
+| **Later backfills or revisions** can leak into an earlier analysis. | Bind each job to an as-of cutoff, history sequence and anchor; persist query responses and seal the accepted evidence manifest. | Visibility follows recorded receipt/availability times. Freezing cannot repair missing inputs or establish that an upstream timestamp is truthful. | [Gateway](src/perpetual_alpha/transport/data_gateway.py), [versioned history](src/perpetual_alpha/historical/store.py); [backfill, same-millisecond write and restart tests](tests/test_data_gateway.py) |
+| **A forecast or prior approval must not bypass current risk state.** | The synthetic Risk Gate recomputes exposure independently of Portfolio metrics and binds approval to state/policy; execution rechecks it. The live runner uses its own admission and signing checks. | Synthetic approval grants no live authority. Restarted supervision stays paused until explicit resume; this trades automatic availability for explicit recovery. | [Risk Gate](src/perpetual_alpha/risk_gate.py), [Paper engine](src/perpetual_alpha/runtime/paper_engine.py), [live venue checks](src/perpetual_alpha/funding_live/venue.py); [state-change/risk tests](tests/test_portfolio_risk.py), [Paper restart tests](tests/test_paper_execution.py) |
 
-## Key Features
-
-- **Multi-asset data pipeline:** a ten-market PAS collector, independent SQLite
-  storage, normalization, as-of research panels and CSV export. Freshness and
-  historical availability are explicit parts of the data model.
-- **Reproducible research:** frozen protocols, source provenance, cost-aware
-  baselines, chronological validation and archived results across momentum,
-  reversal, basis, funding, volatility and regime studies.
-- **Agent-ready interfaces:** versioned forecast contracts, authenticated
-  Core/Worker HTTP, persistent jobs and leases, transactional Outbox and a
-  multi-round Data Gateway with frozen as-of context.
-- **Portfolio, risk and synthetic execution:** portfolio construction, an
-  independent Risk Gate, restart-paused Supervisor, recoverable Paper ledger
-  and reconciliation/feedback, tested with synthetic policies and fills.
-- **Competition execution:** a separate deterministic Funding-LAST runner with
-  Decimal sizing, pre-order checks, durable order identity, partial-fill handling
-  and exchange reconciliation before retrying unknown outcomes.
+The linked tests exercise these failure paths. Local Paper commits synthetic
+fills and terminal feedback in the same database transaction
+([hard-exit and atomic-feedback tests](tests/test_paper_execution.py)); this
+local atomicity does not extend to an exchange.
 
 ## System Architecture
 
 <a id="architecture-and-maturity"></a>
 
+The two execution paths have separate state and responsibilities. There is **no
+automatic deployment or live-trading authorization** from Agent/Core research
+to the competition runner.
+
 ```mermaid
-flowchart LR
-  DATA[Public data / versioned history] --> GW[As-of Context / Data Gateway]
-  GW --> JOB[Jobs / leases / authenticated Core-Worker HTTP]
-  JOB --> FORECAST[ForecastProducer / Dummy or external adapter]
-  FORECAST --> PORT[Portfolio construction]
-  PORT --> RISK[Independent Risk Gate / Supervisor]
-  RISK --> PAPER[Synthetic Paper / Mock execution]
-  PAPER --> FEEDBACK[Journal / reconciliation / feedback]
-  FEEDBACK --> JOB
-  FUNDING[Independent ETH Funding-LAST runner] --> ORDERS[Gated Testnet order lifecycle]
-  RESEARCH[Offline strategy research] -. candidate interfaces .-> FORECAST
+flowchart TB
+  subgraph LIVE["Competition trading"]
+    direction TB
+    LDATA["Venue snapshots / settled funding"] --> STRAT["Deterministic ETH Funding-LAST"]
+    STRAT --> ADMIT["Live admission / explicit authorization"]
+    ADMIT --> ENGINE["Execution engine / persist intent before send"]
+    ENGINE -->|"authorized IOC"| VENUE["Hyperliquid Testnet"]
+    VENUE -->|"order status / fills / position"| RECON["Reconcile before further orders"]
+    RECON -->|"confirmed state"| ENGINE
+    ENGINE --> LEDGER[("Dedicated SQLite ledger")]
+    LEDGER --> RECON
+    RECON -->|"unknown / partial"| PAUSE["Pause / operator review"]
+    LEDGER --> MON["Independent monitoring"]
+  end
+  subgraph LAB["Agent/Core - synthetic"]
+    direction TB
+    HISTORY[("Versioned public history")] --> GATEWAY["As-of Data Gateway"]
+    GATEWAY --> JOBS["Analysis jobs / forecast producers"]
+    JOBS --> RUNTIME[("Runtime DB / leases / receipts / Outbox")]
+    RUNTIME --> PORT["Portfolio / independent synthetic Risk Gate"]
+    PORT --> PAPER["Synthetic Paper execution"]
+    PAPER --> RUNTIME
+    PAPER -->|"reports / feedback"| JOBS
+    PAPER -->|"failure / restart"| RESUME["Paused / explicit resume"]
+  end
 ```
 
-| Component | Implementation and role |
-|---|---|
-| ETH Funding-LAST | Historically deployed competition trading path, independent of generic Agent/Core; deterministic funding signal and dedicated execution safeguards |
-| Public data / research | Implemented collection and offline analysis; research outputs are reviewed separately from deployment |
-| Agent/Core | Implemented and tested transport, scheduling, forecasting interfaces and Data Gateway; supplied Workers are Dummy/examples |
-| Portfolio / Risk / Paper | Implemented synthetic execution and recovery framework; separate from the competition runner's live order controls |
-| LLM / news Agents | Experimental or proposed extensions; no autonomous LLM trader is deployed by this mainline framework |
+Public data collection and CSV export support offline studies; the Gateway's
+pinned context serves Agent/Core analysis, while execution checks use fresh
+state. Supplied Workers are Dummy/examples. LLM/news extensions remain
+experimental or proposed, not deployed autonomous traders. Paper fills and
+feedback demonstrate the local lifecycle, not venue execution quality.
 
-See [Funding-LAST implementation](docs/funding-release.zh-CN.md),
-[competition launch and safeguards](docs/pas-launch-preparation.zh-CN.md),
-[forecast integration contracts](docs/forecast-integration-v0.2.1.zh-CN.md) and
+For implementation details, see [Funding-LAST](docs/funding-release.zh-CN.md),
+[competition admission and safeguards](docs/pas-launch-preparation.zh-CN.md),
+[job/Outbox contracts](docs/runtime-jobs-pr1.zh-CN.md),
+[as-of Gateway](docs/dynamic-data-gateway-pr4.zh-CN.md),
+[forecast integration](docs/forecast-integration-v0.2.1.zh-CN.md) and
 [Paper execution](docs/paper-execution-pr8.zh-CN.md).
 
 ## Getting Started
