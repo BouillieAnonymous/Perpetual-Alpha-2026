@@ -19,14 +19,69 @@ An independent deterministic **ETH Funding-LAST** runner was deployed during the
 competition; the separate **Agent/Core and Synthetic Paper** framework was
 implemented and tested without controlling the competition wallet.
 
-**Explore:** [Engineering decisions](#engineering-highlights) ·
-[System architecture](#system-architecture) · [Quick start](#getting-started) ·
+**Explore:** [System design](#system-design) ·
+[Architecture](#architecture) · [Design decisions](#design-decisions) · [Quick start](#getting-started) ·
 [Research findings](docs/research/FINDINGS.md) ·
 [Technical report](docs/competition/PA26-Anonymous-report.pdf)
 
-## Engineering Highlights
+## System Design
 
-| Engineering problem | Design decision | Trade-off / boundary | Implementation and tests |
+### Architecture
+
+<a id="system-architecture"></a>
+<a id="architecture-and-maturity"></a>
+
+The two systems have separate state and execution responsibilities. There is
+**no automatic deployment or live-trading authorization** from Agent/Core
+research to the competition runner.
+
+#### Competition Trading System
+
+Historically deployed on Hyperliquid Testnet with a deterministic Funding-LAST signal.
+
+```mermaid
+flowchart TD
+  A[Market data / funding] --> B[Funding-LAST / risk]
+  B --> C[Execute / reconcile]
+  C --- D[Ledger / monitoring]
+```
+
+The runner applies its own admission and authorization checks, persists an
+order intent **before sending**, then reconciles order status, fills and account
+position. The ledger connection represents persistent state, not a write that
+waits until after execution. Unknown or partial outcomes pause further orders
+for explicit review; independent monitoring reads the dedicated ledger.
+
+#### Agent/Core Research and Synthetic Paper System
+
+Implemented and tested with Dummy/example Workers and synthetic execution.
+
+```mermaid
+flowchart TD
+  A[As-of Data Gateway] --> B[Jobs / forecasts]
+  B --> C[Portfolio / Risk Gate]
+  C --> D[Paper / feedback]
+```
+
+The Gateway pins historical analysis context. Jobs, leases, accepted forecasts
+and Outbox delivery are persisted in the runtime database. The Risk Gate checks
+fresh execution state independently of Portfolio metrics; Paper persists local
+synthetic fills and returns reports/feedback. Restarted supervision remains
+paused until explicit resume. LLM/news extensions remain experimental or proposed;
+this framework does not control the competition wallet.
+
+Public collection and CSV export support offline studies. Detailed lifecycle,
+recovery and authorization behavior is documented in
+[Funding-LAST](docs/funding-release.zh-CN.md),
+[competition admission and safeguards](docs/pas-launch-preparation.zh-CN.md),
+[job/Outbox contracts](docs/runtime-jobs-pr1.zh-CN.md),
+[as-of Gateway](docs/dynamic-data-gateway-pr4.zh-CN.md),
+[forecast integration](docs/forecast-integration-v0.2.1.zh-CN.md) and
+[Paper execution](docs/paper-execution-pr8.zh-CN.md).
+
+### Design Decisions
+
+| Problem | Design decision | Trade-off / boundary | Implementation and tests |
 |---|---|---|---|
 | **Restarted workers and repeated submissions** can lose work or process stale results. | Persist jobs and leases; commit the accepted forecast, receipt and Outbox entry in one SQLite transaction. Delivery epochs reject stale consumer completions. | SQLite serializes writers. Outbox recovery requires the former consumer to have stopped; its local transaction does not cover external side effects. | [Job acceptance](src/perpetual_alpha/runtime/jobs.py), [Outbox](src/perpetual_alpha/runtime/outbox.py); [lease/replay tests](tests/test_jobs.py), [rollback/fencing tests](tests/test_scheduler_outbox.py) |
 | **A timeout does not reveal whether an exchange order filled.** Blind retries risk duplicate exposure. | Persist an intent before sending, derive a deterministic client-order ID, then reconcile order status, fills and account position. | Unknown or partial outcomes pause the runner rather than trigger automatic resends/chasing. Recovery can require operator review; no exactly-once exchange guarantee. | [Funding engine](src/perpetual_alpha/funding_live/engine.py), [ledger](src/perpetual_alpha/funding_live/store.py); [timeout, pre-send crash and partial-fill tests](tests/test_funding_live.py) |
@@ -37,55 +92,6 @@ The linked tests exercise these failure paths. Local Paper commits synthetic
 fills and terminal feedback in the same database transaction
 ([hard-exit and atomic-feedback tests](tests/test_paper_execution.py)); this
 local atomicity does not extend to an exchange.
-
-## System Architecture
-
-<a id="architecture-and-maturity"></a>
-
-The two execution paths have separate state and responsibilities. There is **no
-automatic deployment or live-trading authorization** from Agent/Core research
-to the competition runner.
-
-```mermaid
-flowchart TB
-  subgraph LIVE["Competition trading"]
-    direction TB
-    LDATA["Venue snapshots / settled funding"] --> STRAT["Deterministic ETH Funding-LAST"]
-    STRAT --> ADMIT["Live admission / explicit authorization"]
-    ADMIT --> ENGINE["Execution engine / persist intent before send"]
-    ENGINE -->|"authorized IOC"| VENUE["Hyperliquid Testnet"]
-    VENUE -->|"order status / fills / position"| RECON["Reconcile before further orders"]
-    RECON -->|"confirmed state"| ENGINE
-    ENGINE --> LEDGER[("Dedicated SQLite ledger")]
-    LEDGER --> RECON
-    RECON -->|"unknown / partial"| PAUSE["Pause / operator review"]
-    LEDGER --> MON["Independent monitoring"]
-  end
-  subgraph LAB["Agent/Core - synthetic"]
-    direction TB
-    HISTORY[("Versioned public history")] --> GATEWAY["As-of Data Gateway"]
-    GATEWAY --> JOBS["Analysis jobs / forecast producers"]
-    JOBS --> RUNTIME[("Runtime DB / leases / receipts / Outbox")]
-    RUNTIME --> PORT["Portfolio / independent synthetic Risk Gate"]
-    PORT --> PAPER["Synthetic Paper execution"]
-    PAPER --> RUNTIME
-    PAPER -->|"reports / feedback"| JOBS
-    PAPER -->|"failure / restart"| RESUME["Paused / explicit resume"]
-  end
-```
-
-Public data collection and CSV export support offline studies; the Gateway's
-pinned context serves Agent/Core analysis, while execution checks use fresh
-state. Supplied Workers are Dummy/examples. LLM/news extensions remain
-experimental or proposed, not deployed autonomous traders. Paper fills and
-feedback demonstrate the local lifecycle, not venue execution quality.
-
-For implementation details, see [Funding-LAST](docs/funding-release.zh-CN.md),
-[competition admission and safeguards](docs/pas-launch-preparation.zh-CN.md),
-[job/Outbox contracts](docs/runtime-jobs-pr1.zh-CN.md),
-[as-of Gateway](docs/dynamic-data-gateway-pr4.zh-CN.md),
-[forecast integration](docs/forecast-integration-v0.2.1.zh-CN.md) and
-[Paper execution](docs/paper-execution-pr8.zh-CN.md).
 
 ## Getting Started
 
