@@ -1,35 +1,55 @@
 # Perpetual Alpha 2026
 
-**Team Anonymous · Hyperliquid Testnet**
-
-Research and trading infrastructure, execution reliability, and evidence-based alpha validation.
-
-**Competition completed · Research archived**
+**Quantitative Research · Agent-Based Trading Infrastructure · Perpetual Futures**
 
 [![CI](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/workflows/ci.yml)
 
-A Python research and trading-engineering project for the Perpetual Alpha 2026
-competition on Hyperliquid Testnet. The competition and technical report are
-complete. This repository preserves the trading infrastructure, Agent-ready
-architecture, data lineage, exploratory research and negative results.
+## Overview
 
-**No stable profitable alpha has been established.** Historical simulations,
-execution acceptance tests and actual trading results have different meanings.
-The research archive does not authorize deployment or changes to the competition
-account. Consolidation [PR #44](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/44)
-was merged into `main` on 6 November 2026 as `4dd270fa5cce7dbaaa48bcc7bb420115922fca76`.
-The merged repository is the development baseline; a Git merge does not deploy a service.
+Perpetual Alpha 2026 is a Python-based quantitative research and trading
+infrastructure project developed by **Team Anonymous** for the Perpetual Alpha
+2026 competition on Hyperliquid Testnet.
 
-| Start here | What you will find |
-|---|---|
-| **[Technical Report — 6 November 2026](docs/competition/PA26-Anonymous-report.pdf)** | Team Anonymous's four-page report; [LaTeX and provenance](docs/competition/README.md) |
-| **[Research Findings](docs/research/FINDINGS.md)** | Hypotheses, baselines, negative results and limitations; [complete evidence index](docs/research/INDEX.md) |
-| **[Architecture & Implementation](#architecture-and-maturity)** | Independent Funding-LAST, collector, Agent-ready infrastructure, risk and synthetic execution |
+The project combines multi-asset market data collection, reproducible strategy
+research, agent-oriented forecasting interfaces, portfolio and risk management,
+and fault-tolerant trading execution.
 
-**Report context:** the 5 November account performance is a historical snapshot,
-not final official competition results or proof of stable profitable alpha.
+During the competition, we deployed an independent, deterministic **ETH
+Funding-LAST** strategy with constrained position sizing, persistent order
+intents, exchange reconciliation and operational monitoring. In parallel, we
+implemented and tested an extensible **Agent/Core architecture with synthetic
+execution**, keeping experimental AI-driven strategies separate from live trading.
 
-## Architecture and maturity
+Our research identified candidate signals and positive exploratory results
+alongside failed robustness tests. Persistent, executable risk-adjusted excess
+returns remain unproven. The evidence preserves what worked in simulations,
+what failed further validation, and what still needs investigation.
+
+**Project resources:** [Technical Report](docs/competition/PA26-Anonymous-report.pdf) ·
+[Research Findings](docs/research/FINDINGS.md) ·
+[Architecture](#system-architecture) · [Getting Started](#getting-started)
+
+## Key Features
+
+- **Multi-asset data pipeline:** a ten-market PAS collector, independent SQLite
+  storage, normalization, as-of research panels and CSV export. Freshness and
+  historical availability are explicit parts of the data model.
+- **Reproducible research:** frozen protocols, source provenance, cost-aware
+  baselines, chronological validation and archived results across momentum,
+  reversal, basis, funding, volatility and regime studies.
+- **Agent-ready interfaces:** versioned forecast contracts, authenticated
+  Core/Worker HTTP, persistent jobs and leases, transactional Outbox and a
+  multi-round Data Gateway with frozen as-of context.
+- **Portfolio, risk and synthetic execution:** portfolio construction, an
+  independent Risk Gate, restart-paused Supervisor, recoverable Paper ledger
+  and reconciliation/feedback, tested with synthetic policies and fills.
+- **Competition execution:** a separate deterministic Funding-LAST runner with
+  Decimal sizing, pre-order checks, durable order identity, partial-fill handling
+  and exchange reconciliation before retrying unknown outcomes.
+
+## System Architecture
+
+<a id="architecture-and-maturity"></a>
 
 ```mermaid
 flowchart LR
@@ -42,103 +62,114 @@ flowchart LR
   PAPER --> FEEDBACK[Journal / reconciliation / feedback]
   FEEDBACK --> JOB
   FUNDING[Independent ETH Funding-LAST runner] --> ORDERS[Gated Testnet order lifecycle]
-  RESEARCH[Isolated offline research] -. no automatic deployment .-> FORECAST
+  RESEARCH[Offline strategy research] -. candidate interfaces .-> FORECAST
 ```
 
-| Area | Implemented | Maturity / limits |
-|---|---|---|
-| Competition trading line | Independent ETH Funding-LAST runner, identity-bound authorization, sizing, limits, reconciliation and monitoring | Production competition path; historical deployment/acceptance records are time-stamped, not a claim about the server's current state |
-| Public data | PAS ten-market collector, independent SQLite, normalization, causal minute panels and CSV export | Separate from trading/account state; quotes are not executable fills |
-| Agent-ready infrastructure | Versioned contracts, SQLite jobs/leases/transactional Outbox, authenticated Core/Worker, multi-round frozen Data Gateway | Implemented and tested infrastructure; shipped Workers are Dummy/examples, not a deployed autonomous LLM trader |
-| Risk and Paper | Market-risk replay, Portfolio, independent Risk Gate, restart-paused Supervisor and recoverable synthetic ledger | Synthetic policies and fills; not a complete live Agent/Core execution stack |
-| Alpha research | Basis/cost studies, traditional rules, regimes, momentum, volatility, hypothesis batches and H09 | Research-only; negative, insufficient and unknown results retained |
-| News/event Agent | Protocol/design proposal | Proposal-only, no implemented/deployed news trader |
-| WebSocket collector | Isolated prototype with original tests | Experimental; not substituted for PAS collector |
-| External Agent fork | PR #31 retained separately | ZIP/configuration not imported or executed |
+| Component | Implementation and role |
+|---|---|
+| ETH Funding-LAST | Historically deployed competition trading path, independent of generic Agent/Core; deterministic funding signal and dedicated execution safeguards |
+| Public data / research | Implemented collection and offline analysis; research outputs are reviewed separately from deployment |
+| Agent/Core | Implemented and tested transport, scheduling, forecasting interfaces and Data Gateway; supplied Workers are Dummy/examples |
+| Portfolio / Risk / Paper | Implemented synthetic execution and recovery framework; separate from the competition runner's live order controls |
+| LLM / news Agents | Experimental or proposed extensions; no autonomous LLM trader is deployed by this mainline framework |
 
-The competition runner is independent of generic Forecast/Agent/Core. Read
-[PAS implementation and safeguards](docs/pas-launch-preparation.zh-CN.md),
-[Funding-LAST history](docs/funding-release.zh-CN.md), and
-[Agent integration contracts](docs/forecast-integration-v0.2.1.zh-CN.md).
-Earlier records saying PAS was disabled describe their original dates; they
-have not been rewritten to imply later acceptance or present account status.
+See [Funding-LAST implementation](docs/funding-release.zh-CN.md),
+[competition launch and safeguards](docs/pas-launch-preparation.zh-CN.md),
+[forecast integration contracts](docs/forecast-integration-v0.2.1.zh-CN.md) and
+[Paper execution](docs/paper-execution-pr8.zh-CN.md).
 
-## Trading safeguards and order lifecycle
+## Getting Started
 
-The original runtime preserves explicit signing gates, dedicated identities,
-collateral isolation, Decimal sizing, spread/depth/staleness checks, persisted
-intent and deterministic order identity before submission. Unknown outcomes
-require reconciliation; they are not blindly resent. Restart/pause semantics,
-partial fills, risk-reducing exits, authorization expiry and notifications have
-separate checks. Research scripts cannot enable these services.
-
-This consolidation keeps existing `src/`, `config/`, `deploy/`, `pyproject.toml`
-and the original CI workflow unchanged. Optional historical research modules
-live outside the installable production package.
-
-## Research and dashboards
-
-Start at the [consolidated research index](docs/research/INDEX.md). It includes
-protocols, source commits, negative results, data limitations and reproduction
-requirements. Seen historical splits are not clean out-of-sample evidence.
-Gross/hypothetical returns are not actual account returns.
-
-- [V2 BTC/ETH Dashboard](docs/research/btc-eth-volatility/visual-eda-v2/README.md):
-  download the complete release and open its HTML in modern Chrome.
-- [V3 all-asset Dashboard](docs/research/pas-visual-discovery-v3/README.md): keep
-  `release/dashboard.html` beside its `assets/` directory. No CDN/server needed.
-- [H09 BTC→HYPE](docs/research/h09-btc-hype-2026-11/report.md):
-  **NO_INCREMENTAL_EVIDENCE**, with fixed-spec falsification and a stop gate.
-- [Batch hypothesis research](docs/research/alpha-hypothesis-batch-2026-11/summary.md):
-  negative, duplicate, insufficient-data and execution-unknown outcomes retained.
-
-GitHub's source viewer does not execute dashboard HTML. Browser interaction
-acceptance is distinct from numeric or DOM/mock tests. Remaining browser and
-data conditions are listed in the final reports.
-
-## Local installation and offline checks
-
-Use **Python 3.12.15**, matching the pinned runtime. From the repository root:
+Use **Python 3.12.15**. From the repository root, install the pinned runtime and
+check dependencies, then run the offline demonstration:
 
 ```powershell
 python -m venv .venv
 .venv/Scripts/python.exe -m pip install -r deploy/requirements-check.txt -r config/requirements-ci.txt
 $env:PYTHONPATH="$PWD/src"
-.venv/Scripts/python.exe -m unittest discover -s tests -v
-.venv/Scripts/python.exe scripts/validate_schemas.py
 .venv/Scripts/python.exe -m perpetual_alpha.cli dry-run --journal .cache/demo.sqlite3
 ```
 
-On Linux/macOS use `.venv/bin/python` and `PYTHONPATH=src`. Some permission and
-file-lock tests require Linux. Offline demonstrations do not need `.env`,
-wallets, an account or signing. Do not run the manual account/order tools as
-test discovery. Environment details: [ENVIRONMENT.md](ENVIRONMENT.md).
+The demo uses the shipped synthetic configuration and writes a local SQLite
+journal. It needs no credentials, wallet or exchange connection. To run the
+regression suite and schema checks in the same environment:
 
-For historical modules, use the [separate research workspace](research/README.md)
-and optional dependency pins. Full numerical reproduction additionally requires
-the exact public raw snapshots/source versions recorded by each study. Missing
-inputs are **BLOCKED**, not replaced with fresh data or synthetic evidence.
-Never run an original writer on frozen outputs.
-
-## Repository map
-
-```text
-src/perpetual_alpha/      maintained runtime, transport, risk and execution
-config/                  existing runtime and synthetic-demo configuration
-deploy/                  existing runtime pins, images and service definitions
-scripts/                 existing checks plus canonical PAS research scripts
-tests/                   maintained runtime and PAS archive regression tests
-research/legacy/         isolated original research source/scripts/tests/pins
-research/experimental/   archived collector prototype, disabled by design
-research/tools/          disposable workspace and evidence/navigation checks
-docs/research/           frozen protocols, results, dashboards and negative evidence
-docs/consolidation/      provenance, disposition, test and merge reports
+```powershell
+.venv/Scripts/python.exe -m unittest discover -s tests -v
+.venv/Scripts/python.exe scripts/validate_schemas.py
 ```
 
-See the [structure overview](docs/consolidation/repository-structure.md),
-[documentation index](docs/README.md), and
-[final review report](docs/consolidation/final-integration-report.md).
+On Linux/macOS use `.venv/bin/python` and `export PYTHONPATH=src`. Some permission
+and file-lock checks require Linux; CI runs the container and SSH isolation
+checks there. See [environment setup](ENVIRONMENT.md) and
+[CI documentation](docs/continuous-integration.zh-CN.md).
 
-The consolidation changes repository organization, research preservation and
-review documentation. It does not deploy, trade, change strategy/risk settings,
-delete remote branches, rewrite history or change repository visibility.
+Historical research uses a [separate workspace and optional dependencies](research/README.md).
+Each study records its required inputs and reproduction entry points; published
+derived evidence can be checked even when original raw caches are unavailable.
+
+## Research & Results
+
+The research pipeline moves from observed patterns to frozen hypotheses,
+matched baselines, availability/cost checks and longer-history validation.
+Some candidates showed positive exploratory behavior; the follow-up tests help
+distinguish promising observations from robust executable signals.
+
+| Study | Main finding |
+|---|---|
+| Traditional strategies | 37 short-window candidates were selected for longer-history validation: 36 failed and ETH Funding-LAST remained inconclusive |
+| ETH Funding-LAST | Positive modeled net returns in the long-history study and an actual deterministic competition deployment; excess-return evidence remains inconclusive |
+| Weekly traditional-17 screen | 41 of 153 valued combinations had positive simulated net results; dependent rules and thin samples make these candidates, not 41 independent alphas |
+| H03 relative residual | Small positive cost-precheck observations in validation/late periods; execution feasibility and complete net returns remain unknown |
+| BTC/ETH volatility | Modest validation improvement did not persist in the late period; useful evidence about data activity and weak predictive stability |
+| H09 BTC → HYPE | Fixed-spec incremental prediction failed the stop gate, providing a documented negative result for that hypothesis |
+
+Read [Research Findings](docs/research/FINDINGS.md) for sample periods, baselines,
+numerical results and limits, and the [complete Research Index](docs/research/INDEX.md)
+for original reports, protocols, scripts and frozen outputs. Simulated returns
+and account performance are reported separately.
+
+### Interactive dashboards
+
+- [V2 BTC/ETH Visual Discovery](docs/research/btc-eth-volatility/visual-eda-v2/README.md)
+  links past-only visual diagnostics to the underlying numerical evidence.
+- [V3 All-Asset Dashboard](docs/research/pas-visual-discovery-v3/README.md)
+  explores ten-market quote activity, relationships and hypothesis support.
+
+Download the complete dashboard release and open its HTML in modern Chrome;
+keep `dashboard.html` beside its `assets/` directory. GitHub's source viewer
+does not run interactive HTML. The dashboard guides explain remaining manual
+acceptance items.
+
+## Competition Report
+
+**Team Anonymous · Yunfei Zhou and Zhengkai Sun · 6 November 2026**
+
+[Read the four-page Technical Report](docs/competition/PA26-Anonymous-report.pdf) ·
+[Display-version LaTeX and provenance](docs/competition/README.md)
+
+The GitHub display edition preserves the authors' names and report content
+while omitting personal email addresses. Its account-performance example is a
+**5 November historical snapshot**, not final official competition results.
+
+## Documentation & Repository Structure
+
+| Path | Contents |
+|---|---|
+| `src/perpetual_alpha/` | Maintained data, transport, portfolio, risk and execution modules |
+| `config/`, `deploy/` | Runtime configuration, synthetic demo, pinned dependencies and service definitions |
+| `scripts/`, `tests/` | Checks, canonical PAS research scripts and regression tests |
+| `research/legacy/` | Isolated historical research source, scripts, tests and dependency pins |
+| `research/experimental/` | Archived collector prototype |
+| `research/tools/` | Disposable workspace and evidence/navigation checks |
+| `docs/research/` | Findings, protocols, results and dashboard releases |
+| `docs/competition/` | Email-free display report, LaTeX, figures and provenance |
+| `docs/consolidation/` | Source mappings, PR dispositions, integration and reproducibility records |
+
+Start with the [documentation index](docs/README.md),
+[structure overview](docs/consolidation/repository-structure.md) or
+[research workspace guide](research/README.md).
+Consolidation [PR #44](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/44)
+was merged into `main` on 6 November 2026 (`4dd270f`); the integrated mainline
+is the development baseline. Historical research and operational documents
+retain their original dates and context.

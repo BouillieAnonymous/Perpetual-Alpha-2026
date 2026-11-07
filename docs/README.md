@@ -4,7 +4,7 @@ Maintained navigation for the completed competition project. Historical records
 below retain their original dates and maturity statements.
 
 - [Project overview and maturity](../README.md)
-- [Competition Technical Report and original sources](competition/README.md)
+- [Competition Technical Report, display source and provenance](competition/README.md)
 - [Research findings and limitations](research/FINDINGS.md)
 - [Consolidated research index](research/INDEX.md)
 - [Repository structure and isolation](consolidation/repository-structure.md)
