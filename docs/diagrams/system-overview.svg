@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1048" height="408" viewBox="0 0 1048 408" role="img" aria-labelledby="title desc">
+<title id="title">System overview in two rows</title>
+<desc id="desc">Top row: public data, As-of Data Gateway, Jobs, ForecastProducer and Portfolio. Continue down to Risk Gate, then left through Synthetic Paper and Journal feedback, returning up to Jobs. Independent Funding-LAST leads only to gated Testnet orders. Offline research supplies candidate interfaces to ForecastProducer. This is a module overview; runnable historical Shadow and fixture Paper demos remain separate.</desc>
+<defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 Z" fill="#475569"/></marker></defs>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#0f172a}.edge{fill:none;stroke:#475569;stroke-width:1.7;marker-end:url(#arrow)}.research{fill:#eff6ff;stroke:#64748b}.live{fill:#fff7ed;stroke:#c2410c}.candidate{fill:#f8fafc;stroke:#64748b;stroke-dasharray:5 4}</style>
+<rect x=".5" y=".5" width="1047" height="407" rx="8" fill="white" stroke="#cbd5e1"/>
+<text x="18" y="28" font-size="15" font-weight="bold">Research / synthetic module map</text>
+<text x="18" y="262" font-size="14" font-weight="bold" fill="#9a3412">Independent competition path</text>
+<text x="952" y="307" font-size="12" text-anchor="middle">Blue: research / synthetic</text>
+<text x="952" y="330" font-size="12" text-anchor="middle">Amber: competition runner</text>
+<text x="952" y="353" font-size="12" text-anchor="middle">No automatic live authority</text>
+<path class="edge" data-from="DATA" data-to="GW" d="M168 119 H190"/>
+<path class="edge" data-from="GW" data-to="JOB" d="M340 119 H362"/>
+<path class="edge" data-from="JOB" data-to="FORECAST" d="M512 119 H534"/>
+<path class="edge" data-from="FORECAST" data-to="PORT" d="M684 119 H706"/>
+<path class="edge" data-from="PORT" data-to="RISK" d="M781 168 V280"/>
+<path class="edge" data-from="RISK" data-to="PAPER" d="M706 329 H684"/>
+<path class="edge" data-from="PAPER" data-to="FEEDBACK" d="M534 329 H512"/>
+<path class="edge" data-from="FEEDBACK" data-to="JOB" d="M437 280 V168"/>
+<path class="edge" data-from="FUNDING" data-to="ORDERS" d="M168 329 H190"/>
+<path class="edge" data-from="RESEARCH" data-to="FORECAST" d="M953 70 V45 H609 V70" stroke-dasharray="5 4"/>
+<text x="781" y="34" text-anchor="middle" font-size="13">candidate interfaces</text>
+<g id="DATA"><rect class="research" x="18" y="70" width="150" height="98" rx="6" stroke-width="1.3"/>
+<text x="93" y="114" font-size="16" text-anchor="middle">Public data /</text>
+<text x="93" y="134" font-size="16" text-anchor="middle">versioned history</text>
+</g>
+<g id="GW"><rect class="research" x="190" y="70" width="150" height="98" rx="6" stroke-width="1.3"/>
+<text x="265" y="114" font-size="16" text-anchor="middle">As-of Context /</text>
+<text x="265" y="134" font-size="16" text-anchor="middle">Data Gateway</text>
+</g>
+<g id="JOB"><rect class="research" x="362" y="70" width="150" height="98" rx="6" stroke-width="1.3"/>
+<text x="437" y="104" font-size="16" text-anchor="middle">Jobs / leases /</text>
+<text x="437" y="124" font-size="16" text-anchor="middle">authenticated</text>
+<text x="437" y="144" font-size="16" text-anchor="middle">Core-Worker HTTP</text>
+</g>
+<g id="FORECAST"><rect class="research" x="534" y="70" width="150" height="98" rx="6" stroke-width="1.3"/>
+<text x="609" y="104" font-size="16" text-anchor="middle">ForecastProducer</text>
+<text x="609" y="124" font-size="16" text-anchor="middle">Dummy or external</text>
+<text x="609" y="144" font-size="16" text-anchor="middle">adapter</text>
+</g>
+<g id="PORT"><rect class="research" x="706" y="70" width="150" height="98" rx="6" stroke-width="1.3"/>
+<text x="781" y="114" font-size="16" text-anchor="middle">Portfolio</text>
+<text x="781" y="134" font-size="16" text-anchor="middle">construction</text>
+</g>
+<g id="RESEARCH"><rect class="candidate" x="878" y="70" width="150" height="98" rx="6" stroke-width="1.3"/>
+<text x="953" y="114" font-size="16" text-anchor="middle">Offline strategy</text>
+<text x="953" y="134" font-size="16" text-anchor="middle">research</text>
+</g>
+<g id="FUNDING"><rect class="live" x="18" y="280" width="150" height="98" rx="6" stroke-width="1.3"/>
+<text x="93" y="314" font-size="16" text-anchor="middle">Independent ETH</text>
+<text x="93" y="334" font-size="16" text-anchor="middle">Funding-LAST</text>
+<text x="93" y="354" font-size="16" text-anchor="middle">runner</text>
+</g>
+<g id="ORDERS"><rect class="live" x="190" y="280" width="150" height="98" rx="6" stroke-width="1.3"/>
+<text x="265" y="324" font-size="16" text-anchor="middle">Gated Testnet</text>
+<text x="265" y="344" font-size="16" text-anchor="middle">order lifecycle</text>
+</g>
+<g id="FEEDBACK"><rect class="research" x="362" y="280" width="150" height="98" rx="6" stroke-width="1.3"/>
+<text x="437" y="314" font-size="16" text-anchor="middle">Journal /</text>
+<text x="437" y="334" font-size="16" text-anchor="middle">reconciliation /</text>
+<text x="437" y="354" font-size="16" text-anchor="middle">feedback</text>
+</g>
+<g id="PAPER"><rect class="research" x="534" y="280" width="150" height="98" rx="6" stroke-width="1.3"/>
+<text x="609" y="324" font-size="16" text-anchor="middle">Synthetic Paper /</text>
+<text x="609" y="344" font-size="16" text-anchor="middle">Mock execution</text>
+</g>
+<g id="RISK"><rect class="research" x="706" y="280" width="150" height="98" rx="6" stroke-width="1.3"/>
+<text x="781" y="314" font-size="16" text-anchor="middle">Independent</text>
+<text x="781" y="334" font-size="16" text-anchor="middle">Risk Gate /</text>
+<text x="781" y="354" font-size="16" text-anchor="middle">Supervisor</text>
+</g>
+</svg>

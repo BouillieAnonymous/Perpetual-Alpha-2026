@@ -35,11 +35,16 @@ The two systems have separate state and execution responsibilities. There is
 **no automatic deployment or live-trading authorization** from Agent/Core
 research to the competition runner.
 
+![System overview in two rows](docs/diagrams/system-overview.svg)
+
+[Open the full-size diagram](docs/diagrams/system-overview.svg).
+The upper flow continues down through Risk Gate and returns left through Paper
+and feedback. This is a module-responsibility overview; the runnable demo
+boundaries are described below.
+
 #### Competition Trading System
 
 Historically deployed on Hyperliquid Testnet with a deterministic Funding-LAST signal.
-
-![Competition trading system architecture](docs/diagrams/competition-trading.svg)
 
 The runner applies its own admission and authorization checks, persists an
 order intent **before sending**, then reconciles order status, fills and account
@@ -51,9 +56,7 @@ explicit review; independent monitoring reads the dedicated ledger.
 
 Implemented and tested with Dummy/example Workers and synthetic execution.
 
-![Agent/Core research and Synthetic Paper architecture](docs/diagrams/agent-core-research.svg)
-
-This diagram groups two tested entry points. The
+The research components have two tested entry points. The
 [historical Shadow demo](src/perpetual_alpha/runtime/http_core.py) pins history
 through the Data Gateway and runs Shadow jobs without trade execution. The
 [Paper Core](src/perpetual_alpha/runtime/paper_core.py) supplies synthetic fixture
