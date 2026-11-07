@@ -49,14 +49,11 @@ implemented and tested without controlling the competition wallet.
 system: trading and research infrastructure, market data collection and storage,
 execution and exchange integration, order lifecycle and risk controls,
 monitoring/deployment tooling, quantitative experiments, and the Agent/Core
-framework and integration interfaces. Development included AI assistance;
-this describes responsibility for the work, not a claim of unaided authorship.
+framework and integration interfaces.
 
-**Zhengkai Sun** contributed the separate Agent strategy/model work submitted
-in [PR #31](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/31).
-That fork is not integrated into the mainline; its strategy/model implementation
-is distinct from Yunfei's Agent/Core infrastructure. This division of work is
-recorded from Yunfei's confirmation, rather than inferred from commit counts.
+**Zhengkai Sun** developed the separate Agent strategy and model components,
+submitted through [PR #31](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/31),
+which remain outside the integrated mainline.
 
 ## System Design
 
