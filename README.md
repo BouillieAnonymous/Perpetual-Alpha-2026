@@ -51,12 +51,9 @@ execution and exchange integration, order lifecycle and risk controls,
 monitoring/deployment tooling, quantitative experiments, and the Agent/Core
 framework and integration interfaces.
 
-**Zhengkai Sun** developed the separate Agent strategy and model components,
-submitted through [PR #31](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/31),
-They were not adopted for competition trading: the
-[reported three-round offline backtests](https://github.com/nopperab0/Perpetual-Alpha-2026/blob/ff82523f33dc8acb8237975635f7160b885fe948/docs/agent-tuning-results.zh-CN.md)
-did not achieve profitability after transaction costs in the evaluated sample.
-These experimental components remain outside the integrated mainline.
+**Zhengkai Sun** developed the experimental Agent strategy and model components,
+submitted through [PR #31](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/31).
+These components were not integrated into the competition trading system.
 
 ## System Design
 
@@ -159,6 +156,13 @@ Each study records its required inputs and reproduction entry points; published
 derived evidence can be checked even when original raw caches are unavailable.
 
 ## Research & Results
+
+The separate experimental Agent's
+[three-round offline evaluation](https://github.com/nopperab0/Perpetual-Alpha-2026/blob/ff82523f33dc8acb8237975635f7160b885fe948/docs/agent-tuning-results.zh-CN.md)
+reported negative net P&L after modeled transaction costs in all three rounds.
+These limited, repeatedly seen historical samples did not support deployment;
+they do not establish that the approach cannot be profitable in other settings.
+
 
 ![Ten-market valid and active return coverage](docs/research/pas-visual-discovery-v3/release/coverage-overview.png)
 
