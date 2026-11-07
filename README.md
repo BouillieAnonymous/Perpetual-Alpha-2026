@@ -24,6 +24,37 @@ implemented and tested without controlling the competition wallet.
 [Research findings](docs/research/FINDINGS.md) ·
 [Technical report](docs/competition/PA26-Anonymous-report.pdf)
 
+## Project Outcomes
+
+- **Trading execution:** an independent ETH Funding-LAST runner historically
+  deployed on Hyperliquid Testnet, with durable order intents, exchange
+  reconciliation and explicit pauses on unknown outcomes.
+  [Implementation and failure tests](#design-decisions) ·
+  [deployment record](docs/funding-release.zh-CN.md).
+- **Data and research:** multi-asset collection, versioned historical inputs,
+  as-of query boundaries and archived cost-aware strategy experiments.
+  [Data documentation](docs/README.md#data-collection-and-data-gateway) ·
+  [findings and limitations](docs/research/FINDINGS.md).
+- **Agent-ready interfaces:** persistent jobs, authenticated Core/Worker
+  communication, independent synthetic risk checks and Paper execution,
+  implemented and tested separately from the competition runner.
+  [Architecture and boundaries](#architecture) ·
+  [component documentation](docs/README.md#core-worker-scheduler-and-outbox).
+
+## Team & Contributions
+
+**Team Anonymous — Yunfei Zhou and Zhengkai Sun.**
+
+**Yunfei Zhou** led the design, implementation and validation of the mainline
+system: trading and research infrastructure, market data collection and storage,
+execution and exchange integration, order lifecycle and risk controls,
+monitoring/deployment tooling, quantitative experiments, and the Agent/Core
+framework and integration interfaces.
+
+**Zhengkai Sun** developed the experimental Agent strategy and model components,
+submitted through [PR #31](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/31).
+These components were not integrated into the competition trading system.
+
 ## System Design
 
 ### Architecture
@@ -125,6 +156,25 @@ Each study records its required inputs and reproduction entry points; published
 derived evidence can be checked even when original raw caches are unavailable.
 
 ## Research & Results
+
+The separate experimental Agent's
+[three-round offline evaluation](https://github.com/nopperab0/Perpetual-Alpha-2026/blob/ff82523f33dc8acb8237975635f7160b885fe948/docs/agent-tuning-results.zh-CN.md)
+reported negative net P&L after modeled transaction costs in all three rounds.
+These limited, repeatedly seen historical samples did not support deployment;
+they do not establish that the approach cannot be profitable in other settings.
+
+
+![Ten-market valid and active return coverage](docs/research/pas-visual-discovery-v3/release/coverage-overview.png)
+
+**Saved ten-market data audit, 19–30 October 2026 (UTC).** Quote-valid returns
+(A) and strictly active returns (B) have different coverage; high quote coverage
+alone does not establish tradability. The dashed 90% line is an engineering
+pair gate, not statistical power. This is historical data analysis, not a
+performance chart or alpha claim.
+[Study and methodology](docs/research/pas-visual-discovery-v3/README.md) ·
+[coverage data](docs/research/pas-visual-discovery-v3/release/coverage.csv) ·
+[data audit](docs/research/pas-visual-discovery-v3/release/all-asset-data-audit.md).
+
 
 The research pipeline moves from observed patterns to frozen hypotheses,
 matched baselines, availability/cost checks and longer-history validation.
