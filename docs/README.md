@@ -1,120 +1,142 @@
-# Documentation
+# Technical Documentation
 
-Maintained navigation for the completed competition project. Historical records
-below retain their original dates and maturity statements.
+Maintained navigation · 7 November 2026.
 
-- [Project overview and maturity](../README.md)
-- [Competition Technical Report, display source and provenance](competition/README.md)
-- [Research findings and limitations](research/FINDINGS.md)
-- [Consolidated research index](research/INDEX.md)
-- [Repository structure and isolation](consolidation/repository-structure.md)
-- [Final integration report](consolidation/final-integration-report.md)
-- [PR disposition](consolidation/pr-disposition.md)
-- [Tests and security](consolidation/test-security-report.md)
-- [Reproducibility](consolidation/reproducibility-report.md)
-- [Remaining issues and merge recommendation](consolidation/remaining-issues.md)
-- [Historical research workspace](../research/README.md)
+[Project overview](../README.md) · [System design](../README.md#system-design) ·
+[Research findings](research/FINDINGS.md) · [Competition report](competition/README.md)
 
-Status vocabulary: **production** is the original competition runtime path;
-**research-only** is offline experimental evidence; **experimental** is an
-unadopted implementation; **proposal-only** is a design without implementation;
-**historical/deprecated** describes a retained earlier stage. None is a claim
-about the current state of a remote server or account.
+This index points to the canonical component explanations already in the
+repository. It is not a new unified architecture specification. PR0–PR9
+implementation records describe their own stages; statements such as “HTTP
+pending” or “PR9 awaiting review” retain their original dates and do not describe
+the current integrated mainline. Use the later component record for its scope.
 
-## Current repository status — 6 November 2026
+**Reading labels:** *implementation record* explains implemented code and its
+dated tests; *historical deployment record* describes a past acceptance, not
+current server status; *synthetic* means local simulation without live trading
+authority; *experimental/proposal* is not adopted or deployed; *historical design*
+and *snapshot* retain an earlier plan or observation.
+
+## System Architecture & Design
+
+| Document | Purpose and status |
+|---|---|
+| [System design overview](../README.md#system-design) | Current reader-facing boundaries, separate execution paths and code/test links. |
+| [Forecast integration v0.2.1](forecast-integration-v0.2.1.zh-CN.md) | Implementation/interface record: ForecastProducer/AgentAdapter, time semantics, registry and selected/shadow roles. |
+| [Repository structure and isolation](consolidation/repository-structure.md) | Maintained module map; installable runtime versus isolated legacy research and prototypes. |
+| [Architecture v0.2](architecture-v0.2.zh-CN.md) | **Historical design baseline** for the first simulation architecture, not a complete current implementation specification. |
+
+## Core, Worker, Scheduler and Outbox
+
+| Document | Purpose and status |
+|---|---|
+| [PR0 — Agent Transport and Ingress](agent-transport-v0.1.zh-CN.md) | Implementation record: wire contracts, status axes, ingress validation, identity and idempotency boundaries. |
+| [PR1 — SQLite jobs, scheduler and Outbox](runtime-jobs-pr1.zh-CN.md) | Implementation record: job admission/leases, trigger coalescing, atomic receipts, delivery fencing and crash/concurrency tests. |
+| [PR2 — Core ↔ Worker HTTP](http-loop-pr2.zh-CN.md) | Implementation record: authenticated processes, Dummy Worker spool, frozen inputs and Mock execution. Synthetic only. |
+| [Schema definitions](schemas/) and [contract examples](examples/) | Machine-readable contract references and fixtures; validation is described in the testing section. |
+
+## Data Collection and Data Gateway
+
+| Document | Purpose and status |
+|---|---|
+| [PR3 — Historical market data](historical-market-data-pr3.zh-CN.md) | Implementation record: public collection, metadata, closed-candle versions and as-of availability. |
+| [PR4 — Dynamic Data Gateway](dynamic-data-gateway-pr4.zh-CN.md) | Implementation record: capability-bounded multi-round reads, pinned snapshots, query budgets and sealed evidence. |
+| [PAS public collector](pas-public-collection.zh-CN.md) | Implementation and historical deployment record: separate ten-market quotes/funding collection and quality labels. |
+| [PAS research data pipeline](pas-research-pipeline.zh-CN.md) | Implementation record: incremental extraction, causal minute panels, quality/volatility/funding reports and exports. |
+| [Read-only SSH CSV export](pas-ssh-csv-export.zh-CN.md) | Implementation/operations record: restricted export capability, installation, bounds and rollback. |
+| [CSV download guide and delivery](pas-ssh-csv-delivery.zh-CN.md) | Historical delivery record and usage guide for full/ranged exports and datasets. Remote access is not part of local setup. |
+| [PAR/PAS environment separation](rehearsal-competition-separation.zh-CN.md) | Environment identity, collateral/source separation and independent public collection; dated activation statements remain historical. |
+| [Ten-asset WebSocket collector](multi-asset-collection.zh-CN.md) | **Experimental historical prototype** from PR #16, isolated under research; not a replacement for the maintained PAS collector. |
+| [Data sources and trading rules](data-development.zh-CN.md) | **Historical reference** to markets, data providers and competition assumptions; verify dated venue rules before reuse. |
+
+## Portfolio and Risk Management
+
+| Document | Purpose and status |
+|---|---|
+| [PR5 — Read-only account Adapter](read-only-account-pr5.zh-CN.md) | Implementation record: balances, positions, order evidence and unknown/unverified state; observation does not grant execution authority. |
+| [PR6 — Market risk and frozen replay](market-risk-replay-pr6.zh-CN.md) | Implementation record: returns/covariance, explicit windows/units, PSD/singular cases and reproducible inputs. |
+| [PR7 — Portfolio, Risk Gate and Supervisor](portfolio-risk-pr7.zh-CN.md) | **Synthetic implementation**: sizing, independent exposure checks, state-bound approval and pause/resume behavior. |
+
+## Live Trading and Execution
+
+The competition runner is deterministic and independent of generic Agent/Core.
+The following are dated implementation and acceptance records, not permission
+to operate an account or assertions about a currently running service.
+
+| Document | Purpose and status |
+|---|---|
+| [Funding-LAST dual-environment release](funding-release.zh-CN.md) | Dedicated runner, fixed signal, durable intents, reconciliation, risk policy, PAR acceptance and environment gates at that stage. |
+| [PAS launch preparation](pas-launch-preparation.zh-CN.md) | Later competition admission, separate signing/leverage approval, monitoring and launch limitations. |
+| [19 October independent launch acceptance](operations/pas-launch-2026-10-19.zh-CN.md) | **Historical deployment record**: checks and unresolved conditions on that date; preserve the original evidence. |
+
+## Synthetic Paper and Operations
+
+| Document | Purpose and status |
+|---|---|
+| [PR8 — Recoverable Paper execution](paper-execution-pr8.zh-CN.md) | **Synthetic implementation**: persistent intents/partial fills, ledger recovery, atomic local feedback and Core integration. |
+| [PR9 — Isolated Paper operations](paper-operations-pr9.zh-CN.md) | **Synthetic implementation/acceptance record**: readiness versus liveness, WAL backup, isolated restore and fault tests. |
+
+Local transaction guarantees apply to the synthetic ledger, not exactly-once
+exchange execution. Live reconciliation is documented in the separate runner records above.
+
+## Testing, Deployment and CI
+
+| Document | Purpose and status |
+|---|---|
+| [Environment and pinned runtime](../ENVIRONMENT.md) | Local Python/dependency setup and platform requirements. |
+| [Quick start and offline checks](../README.md#getting-started) | Credential-free Demo, regression-suite and Schema commands. |
+| [Continuous integration](continuous-integration.zh-CN.md) | CI usage and environment record; [current workflows](../.github/workflows/) define the executable checks. |
+| [Consolidation tests and security](consolidation/test-security-report.md) | Dated validation evidence with PASS/FAIL/BLOCKED/NOT RUN distinctions; not an ongoing security certification. |
+| [Reproducibility report](consolidation/reproducibility-report.md) | Dated numerical/byte checks, raw-input requirements and known reproduction limits. |
+| [Remaining integration issues](consolidation/remaining-issues.md) | Preserved browser/manual acceptance gaps, historical inputs and manifest/line-ending issues. |
+| [Final integration report](consolidation/final-integration-report.md) | **Pre-merge snapshot** of integration scope, checks and limits; later merge state is in PR disposition. |
+| [PR disposition](consolidation/pr-disposition.md) and [source lock](consolidation/source-lock.json) | Final source-PR decisions and exact provenance/file mappings; original dated evidence remains intact. |
+
+## Research, Competition Report and Historical Records
+
+### Research and competition evidence
+
+| Document | Purpose and status |
+|---|---|
+| [Research Findings](research/FINDINGS.md) | Maintained synthesis of hypotheses, exploratory positives, failed validation, execution unknowns and limits. |
+| [Complete Research Index](research/INDEX.md) | Canonical entry points for **all archived study groups**: reports, protocols, scripts, frozen results, dashboards and source PRs. |
+| [Disposable research workspace](../research/README.md) | Isolated legacy dependencies, reconstruction/check commands and missing-input policy. |
+| [Competition report and display source](competition/README.md) | Four-page report, matching email-free display TeX, hashes and historical-snapshot context. |
+| [Original report evidence checklist](competition/report-evidence-checklist.md) | **Historical submission evidence** and support-package provenance; original ZIP-relative paths are not current repository paths. |
+| [Reference-basis study](reference-basis-research.zh-CN.md) | Original basis/cost study; follow the Research Index for subsequent direction and multi-asset evidence. |
+| [PAS research records, 19–20 October](research/pas-research-records-2026-10-20.md) | Historical research-round record linking frozen rules and reproduction evidence. |
+| [News/event Agent proposal](research/news-event-agent-2026-10-18.zh-CN.md) | **Proposal only**; no implemented/deployed news trader established by this document. |
+
+### Historical design and planning records
+
+These remain discoverable without presenting their old “pending” statements as
+the current state of main. They supplement, rather than replace, the later
+component implementation records above.
+
+| Document | Purpose and status |
+|---|---|
+| [Initial architecture implementation](architecture-implementation.zh-CN.md) | **Historical first-stage snapshot**: Dry Run, demonstration policies, contracts and gaps at that time. |
+| [Architecture v0.3 review](architecture-v0.3-review.zh-CN.md) | **Historical review** against its fixed baseline; findings are not automatically current unresolved defects. |
+| [Development baseline v0.3](development-baseline-v0.3.zh-CN.md) | **Historical plan** and accepted sequencing; later PR records describe what was subsequently implemented. |
+| [System interfaces and deployment plan](technical-plan.zh-CN.md) | **Historical plan, last updated 14 October**: early combined architecture/interface/deployment context, not current unified architecture. |
+| [Project plan and meeting decisions](project-plan.zh-CN.md) | **Historical project record** of responsibilities, milestones and decisions; not individual contribution verification. |
+| [Strategy development and brainstorming](strategy-development.zh-CN.md) | **Historical hypotheses/proposals**; measured research conclusions are indexed separately above. |
+| [Research-ideas redirect](research-ideas.zh-CN.md) | Legacy navigation pointer to the consolidated strategy discussion, not another canonical research report. |
+| [Agent learning resources](agent-learning-resources.zh-CN.md) | Background reading and an earlier learning plan; reference material, not implemented functionality. |
+| [14 October discussion analysis](meeting-2026-10-14-analysis.zh-CN.md) | **Historical discussion/commentary**, separate from implementation evidence. |
+| [3 November sprint audit](final-sprint-2026-11-03.md) | **Dated readiness snapshot**, not the current acceptance state. |
+| [Earlier documentation navigation](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/blob/efc9889cdc4d0c82454bc51f584fbf06be3cde04/docs/README.md#historical-module-index) | Immutable copy of the original October module index and document consolidation notes. |
+
+### Maintenance and review boundaries
 
 Consolidation [PR #44](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/44)
-is merged into main (`4dd270f`); its [main CI run](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/runs/42291760542) passed.
-Only PRs #16 and #31 remain open. Issues #37, #40 and #42 retain outstanding
-browser acceptance or researcher review; archive presence is not their acceptance.
-See the maintained [PR disposition](consolidation/pr-disposition.md).
-The integration reports remain dated pre-merge records, including their original
-limitations and the disclosed same-SHA CI failure/retry.
+and presentation [PR #45](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/45)
+are merged. This navigation update does not rerun research or resolve the manual
+acceptance/researcher-review issues #37, #40 and #42.
 
-## Historical module index
-
-> **Historical/deprecated status text — 19 October 2026.** All development-state
-> statements below (including “PR9 requires review”, pending stages and disabled
-> PAS references) describe that earlier date, not current main. Use the current
-> overview above for implemented scope. Linked original reports are unchanged.
-
-<details>
-<summary>Read the original 19 October navigation and development context</summary>
-
-
-# Perpetual Alpha 2026｜文档入口
-
-更新：2026 年 10 月 19 日。项目维护四份核心正文，另设架构规范、开发基线、实现说明、独立学习资料与按用户要求保存的讨论分析；本页仅导航，不复制进度和参数。
-
-| 文档 | 回答什么 | 放什么信息 |
-|---|---|---|
-| [PAS CSV 下载与交付记录](pas-ssh-csv-delivery.zh-CN.md) | 队友怎样下载全部或指定区间的数据？ | 已部署入口、Windows/Linux 命令、三类 dataset、验收结果与回滚入口 |
-| [PAS Research Data Pipeline](pas-research-pipeline.zh-CN.md) | 原始数据如何变成可复现研究集？ | 只读增量提取、point-in-time 分钟网格、质量/波动/Funding 日报和 CSV；合成示例 |
-| [PAS 十资产只读采集](pas-public-collection.zh-CN.md) | 正式比赛数据如何独立记录？ | 每分钟行情、每 30 分钟 Funding、质量标签、独立数据库与部署记录；无交易授权 |
-| [PAR/PAS 环境隔离](rehearsal-competition-separation.zh-CN.md) | 排练与正式比赛如何隔离？ | 配置、来源、抵押品、目录身份；预留配置与独立采集入口的区别 |
-| [Funding-LAST 双环境交付](funding-release.zh-CN.md) | ETH 策略如何接入 PAR/PAS 并隔离上线？ | 独立真实测试网 runner、冻结信号、订单与账户对账、风险政策、PAR 排练验收、PAS 禁用、备份回滚与限制 |
-| [PAS 首次小仓位上线准备](pas-launch-preparation.zh-CN.md) | 正式比赛基准策略何时可以激活？ | 25 USDP、独立只读监控、分离杠杆/下单审批、通知及待验收门槛；[VPS 独立验收](operations/pas-launch-2026-10-19.zh-CN.md) |
-| [项目总览与任务](project-plan.zh-CN.md) | 谁做什么、现在到哪一步？ | 分工、节点、任务、会议与决定 |
-| [开发基线与分阶段实施计划 v0.3](development-baseline-v0.3.zh-CN.md) | 架构审查后决定怎样开发？ | 已确认架构与工程政策、审查反馈、PR0–PR2 首轮范围、后续阶段及验收与权限边界 |
-| [Agent Transport 0.1 / PR0](agent-transport-v0.1.zh-CN.md) | 跨进程接入的消息、状态和校验怎样定义？ | 纯契约与 Ingress、三轴状态、Schema、幂等/事务职责和 HTTP 映射；数据库见 PR1，网络待 PR2 |
-| [SQLite 任务与 Outbox / PR1](runtime-jobs-pr1.zh-CN.md) | 任务如何原子领取、去重、调度与恢复？ | 真实文件数据库、事务接受与回执、触发合并、Outbox fencing、并发/崩溃测试；HTTP 与执行仍待后续 |
-| [双进程 HTTP 闭环 / PR2](http-loop-pr2.zh-CN.md) | Core 和 Dummy 如何独立运行与恢复？ | HTTP 身份与消息、固定 fixture、Worker spool、冻结 Mock Decision、双容器及故障验收；仅模拟 |
-| [历史市场数据 / PR3](historical-market-data-pr3.zh-CN.md) | 历史数据何时可见、如何保留修订和质量？ | 独立公开采集、十资产 metadata、已收盘 candle、asof/快照、BTC/ETH 实样；动态 Gateway 待 PR4 |
-| [多轮 Data Gateway / PR4](dynamic-data-gateway-pr4.zh-CN.md) | Agent 如何在一次 Job 内多轮查询历史？ | Capability、固定快照、跨 attempt 幂等/额度、质量与 manifest 封存、Shadow 独立进程及容器验收 |
-| [只读账户 Adapter / PR5](read-only-account-pr5.zh-CN.md) | 账户信息有哪些可信来源与未验证项？ | Unified 余额/buying power 来源数组、par 持仓/挂单、前后核对、独立账户证据与 unknown；风险就绪仍为 false |
-| [市场风险与回放 / PR6](market-risk-replay-pr6.zh-CN.md) | 历史收益与协方差如何可重复计算？ | 显式研究配置、完整窗口、顺序与单位、PSD/奇异、冻结输入封存和离线复算；不批准账户交易 |
-| [纯模拟组合与独立风控 / PR7](portfolio-risk-pr7.zh-CN.md) | 组合如何缩量、独立审批和暂停？ | 显式合成预算、完整敞口与过渡角点、审批绑定、默认暂停/显式恢复和旧 Mock 闭环；不接真实账户风险许可 |
-| [可恢复合成 Paper / PR8](paper-execution-pr8.zh-CN.md) | 执行中断后如何核对与恢复？ | 同库 Intent/分段成交/报告/Outbox、持久暂停/权益/操作回执、独立 Paper Core HTTP 集成；无真实 venue |
-| [隔离 Paper 运维 / PR9](paper-operations-pr9.zh-CN.md) | 如何部署、观察及验证故障恢复？ | 独立容器、存活与就绪分离、WAL 一致备份、隔离恢复、资源及局部故障验收；仅 Synthetic Paper |
-| [架构 v0.3 技术审查报告](architecture-v0.3-review.zh-CN.md) | 当前代码与设计还有哪些差距？ | 固定 main 基线的代码证据、19 项问题、兼容性与恢复建议；后续决定见开发基线 |
-| [系统架构设计 v0.2](architecture-v0.2.zh-CN.md) | 研究与交易模块如何分工？ | 用户批准用于首轮模拟的架构、Forecast／Portfolio／Risk 边界与开放决策 |
-| [架构首轮实现与运行](architecture-implementation.zh-CN.md) | 架构哪些部分已运行，如何替换？ | 离线 Dry Run、演示政策、契约与样例、研究 Registry、异常处理、测试与真实交易缺口 |
-| [GitHub Actions 自动检查](continuous-integration.zh-CN.md) | 每次提交自动检查什么，失败如何处理？ | CI 触发条件、服务器同镜像环境、测试与静态检查、查看结果与本地复现 |
-| [Forecast 集成稳定化 v0.2.1](forecast-integration-v0.2.1.zh-CN.md) | LT 如何独立接入与对照？ | 时间语义、统一 Adapter、白名单注册、请求协调与 selected/shadow 隔离、可运行 Dummy 示例 |
-| [系统接口与部署](technical-plan.zh-CN.md) | 程序怎么接、怎么跑？ | 三段结构、信号接口、成本与风险检查、环境、服务器、部署和恢复 |
-| [数据来源与交易规则](data-development.zh-CN.md) | 能交易什么、数据从哪里来？ | 资产、官方接口与限制、外部和历史数据、标准格式与质量 |
-| [策略开发与头脑风暴](strategy-development.zh-CN.md) | 哪些想法值得验证、结果怎样？ | 三份外部资料、宏观假设、全部策略候选、Agent／RL、筛选与实验 |
-| [Agent 与交易系统学习资料](agent-learning-resources.zh-CN.md) | Agent 怎么工作，传统框架怎样接入？ | 44 个资料条目、逐项说明、结构解释、学习安排；新增 Fin-R1／DeepSeek／Jev |
-| [10 月 14 日讨论总结与评论](meeting-2026-10-14-analysis.zh-CN.md) | 本次讨论收敛到什么，还有什么问题？ | 录音独立分析、与网页 ChatGPT 评论的对照、核实结果与首版建议 |
-
-第一次阅读：项目总览 → 系统与部署；查市场和数据时看数据文档，讨论策略时看研究文档。发给队友也使用这套文档，不另写内容重复的版本。
-
-**开发入口：** 先读[开发基线 v0.3](development-baseline-v0.3.zh-CN.md)，再看各 PR 的实现和验收。PR0–PR8 已合并；本分支新增 [PR9 隔离 Paper 运维](paper-operations-pr9.zh-CN.md)，须经过 PR 审核。真实账户/行情风险准入与多日 VPS 运维验收仍未完成。
-
-**找程序结构：** [技术文档第 8 节](technical-plan.zh-CN.md#8-实际程序结构与后续模块)列出本地与服务器路径、实际文件、启动链路和已实现范围。实际代码在项目根目录的 `src/perpetual_alpha/`，不是 `docs/`；启动入口是 `cli.py`。
-
-**与队友对接接口：** [技术文档第 12 节](technical-plan.zh-CN.md#12-三段之间的固定接口协议-10)集中规定可扩展数据需求、输入上下文、目标仓位 Decision 和 ExecutionReport 的 JSON 格式及固定语义。
-
-**10 月 11 日录音讨论：** [会议纪要与会前交付](project-plan.zh-CN.md#9-10-月-11-日队友讨论录音纪要)记录 Agent 方向、未决事项及周三讨论安排；[策略研究拆解](strategy-development.zh-CN.md#17-10-月-11-日录音agent-自适应策略讨论)记录 baseline、自适应与 RL 的待验证问题。
-
-**10 月 14 日录音讨论：** [最新会议纪要](project-plan.zh-CN.md#10-10-月-14-日队友讨论录音纪要)维护事实与交付意向；[独立总结与评论](meeting-2026-10-14-analysis.zh-CN.md)保存录音分析、网页评论对照和建议。Agent 输出与仓位责任见[技术文档第 15 节](technical-plan.zh-CN.md#15-10-月-14-日agent-信号与传统仓位底座讨论记录)。
-
-**Agent 学习与资料：** 独立的[学习资料文档](agent-learning-resources.zh-CN.md)解释 Agent 结构、传统框架接入位置，并逐项介绍综述、论文、公开项目和官方课程；第 10 节已按用户后续要求加入 4–5 小时学习安排。
-
-## 更新规则
-
-- 项目消息放进对应核心文档的现有章节；按用户要求，学习资料集中在独立学习文档维护，本次讨论的分析另存日期明确的评论文档。
-- 同一事实只在一个地方详细维护，其他文档用链接引用。例如服务器状态只写技术文档，负责人只在项目总览统一确认。
-- 区分官方要求、已确认团队决定、待验证建议和实际完成。配置建议不是官方规则，命令存在不等于部署可用。
-- 改动相关章节，清除被替代的旧说法，不靠叠加“以新版本为准”的段落维持多个现行方案。
-- 数据、策略或接口发生重要变更时，在项目总览的决定记录中注明；细节仍留在对应文档。
-
-## 原文合并位置
-
-| 旧文档 | 现在的位置 |
-|---|---|
-| 总规划、队友讨论稿 | 项目总览；技术和研究细节分别归入对应正文 |
-| 技术方案、基础结构与部署 | 系统接口与部署 |
-| 决策框架 | 技术文档的成本／账户检查；研究文档的策略筛选 |
-| 数据开发、资产与交易信息 | 数据来源与交易规则 |
-| 研究想法 | 策略研究与实验 |
-
-重组前的八份原稿已保存在仓库本地 `.cache/document-history/` ZIP 快照中。该目录不进入 Git，不作为团队共享文档；项目共享和后续维护以当前四份核心正文为准，学习资料以独立学习文档为准。
-
-原 research-ideas.zh-CN.md 只保留跳转入口；策略正文统一维护 strategy-development.zh-CN.md，学习资料统一维护 agent-learning-resources.zh-CN.md。
-
-## 2026-10-19–20 PAS 真实盘口研究记录
-
-[三轮研究归档、固定规则与复现入口](research/pas-research-records-2026-10-20.md)：参考价回归、短周期候选，以及全十资产5/10分钟动量、反转与外部领先诊断。
-
-</details>
+Maintain one detailed explanation per component and link to it from this index.
+Preserve dated protocols, deployment evidence and negative/unknown results.
+Historical deployment documents contain host/IP and other operational metadata;
+the report provenance also records email-bearing Git history. Review those in
+a separate **Privacy & Public Release Audit** before changing visibility.
+This update does not alter those records or publish the repository.
