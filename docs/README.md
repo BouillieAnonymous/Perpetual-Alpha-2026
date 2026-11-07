@@ -4,6 +4,8 @@ Maintained navigation for the completed competition project. Historical records
 below retain their original dates and maturity statements.
 
 - [Project overview and maturity](../README.md)
+- [Competition Technical Report, display source and provenance](competition/README.md)
+- [Research findings and limitations](research/FINDINGS.md)
 - [Consolidated research index](research/INDEX.md)
 - [Repository structure and isolation](consolidation/repository-structure.md)
 - [Final integration report](consolidation/final-integration-report.md)
@@ -19,7 +21,26 @@ unadopted implementation; **proposal-only** is a design without implementation;
 **historical/deprecated** describes a retained earlier stage. None is a claim
 about the current state of a remote server or account.
 
+## Current repository status — 6 November 2026
+
+Consolidation [PR #44](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/44)
+is merged into main (`4dd270f`); its [main CI run](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/actions/runs/42291760542) passed.
+Only PRs #16 and #31 remain open. Issues #37, #40 and #42 retain outstanding
+browser acceptance or researcher review; archive presence is not their acceptance.
+See the maintained [PR disposition](consolidation/pr-disposition.md).
+The integration reports remain dated pre-merge records, including their original
+limitations and the disclosed same-SHA CI failure/retry.
+
 ## Historical module index
+
+> **Historical/deprecated status text — 19 October 2026.** All development-state
+> statements below (including “PR9 requires review”, pending stages and disabled
+> PAS references) describe that earlier date, not current main. Use the current
+> overview above for implemented scope. Linked original reports are unchanged.
+
+<details>
+<summary>Read the original 19 October navigation and development context</summary>
+
 
 # Perpetual Alpha 2026｜文档入口
 
@@ -66,7 +87,7 @@ about the current state of a remote server or account.
 
 **10 月 11 日录音讨论：** [会议纪要与会前交付](project-plan.zh-CN.md#9-10-月-11-日队友讨论录音纪要)记录 Agent 方向、未决事项及周三讨论安排；[策略研究拆解](strategy-development.zh-CN.md#17-10-月-11-日录音agent-自适应策略讨论)记录 baseline、自适应与 RL 的待验证问题。
 
-**10 月 14 日录音讨论：** [最新会议纪要](project-plan.zh-CN.md#10-10-月-14-日队友讨论录音纪要)维护事实与交付意向；[独立总结与评论](meeting-2026-10-14-analysis.zh-CN.md)保存录音分析、网页评论对照和建议。Agent 输出与仓位责任见[技术文档第 15 节](technical-plan.zh-CN.md#15-10-月-14-日agent-信号与传统仓位底座对接讨论)。
+**10 月 14 日录音讨论：** [最新会议纪要](project-plan.zh-CN.md#10-10-月-14-日队友讨论录音纪要)维护事实与交付意向；[独立总结与评论](meeting-2026-10-14-analysis.zh-CN.md)保存录音分析、网页评论对照和建议。Agent 输出与仓位责任见[技术文档第 15 节](technical-plan.zh-CN.md#15-10-月-14-日agent-信号与传统仓位底座讨论记录)。
 
 **Agent 学习与资料：** 独立的[学习资料文档](agent-learning-resources.zh-CN.md)解释 Agent 结构、传统框架接入位置，并逐项介绍综述、论文、公开项目和官方课程；第 10 节已按用户后续要求加入 4–5 小时学习安排。
 
@@ -95,3 +116,5 @@ about the current state of a remote server or account.
 ## 2026-10-19–20 PAS 真实盘口研究记录
 
 [三轮研究归档、固定规则与复现入口](research/pas-research-records-2026-10-20.md)：参考价回归、短周期候选，以及全十资产5/10分钟动量、反转与外部领先诊断。
+
+</details>
