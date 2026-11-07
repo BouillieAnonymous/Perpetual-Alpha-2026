@@ -37,7 +37,7 @@ research to the competition runner.
 
 ![System overview in two rows](docs/diagrams/system-overview.svg)
 
-[Open the full-size diagram](docs/diagrams/system-overview.svg).
+[Open the full-size diagram](docs/diagrams/system-overview.svg?raw=1).
 The upper flow continues down through Risk Gate and returns left through Paper
 and feedback. This is a module-responsibility overview; the runnable demo
 boundaries are described below.
