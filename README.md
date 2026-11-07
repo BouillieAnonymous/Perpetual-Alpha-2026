@@ -39,21 +39,7 @@ research to the competition runner.
 
 Historically deployed on Hyperliquid Testnet with a deterministic Funding-LAST signal.
 
-```text
-Market data / funding
-          |
-          v
-Funding-LAST / risk
-          |
-          v
-Persist order intent
-          |
-          v
-Send IOC / reconcile
-          |
-          v
-Ledger / monitoring
-```
+![Competition trading system architecture](docs/diagrams/competition-trading.svg)
 
 The runner applies its own admission and authorization checks, persists an
 order intent **before sending**, then reconciles order status, fills and account
@@ -65,28 +51,7 @@ explicit review; independent monitoring reads the dedicated ledger.
 
 Implemented and tested with Dummy/example Workers and synthetic execution.
 
-```text
-History (Shadow)
-       |
-       v
-As-of Gateway
-       |
-       v
-Shadow jobs
-(no execution)
-
-Synthetic Paper
-Fixture context
-       |
-       v
-Forecast jobs
-       |
-       v
-Portfolio / Risk
-       |
-       v
-Paper / feedback
-```
+![Agent/Core research and Synthetic Paper architecture](docs/diagrams/agent-core-research.svg)
 
 This diagram groups two tested entry points. The
 [historical Shadow demo](src/perpetual_alpha/runtime/http_core.py) pins history
