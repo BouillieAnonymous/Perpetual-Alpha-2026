@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "perpetual-alpha"
 version = "0.1.0"
-description = "Quantitative trading and research infrastructure with Testnet execution and reproducible experiments"
+description = "Single-market, testnet-only Perpetual Alpha competition toolkit"
 requires-python = ">=3.11,<3.14"
 dependencies = ["hyperliquid-python-sdk==0.24.0"]
 
