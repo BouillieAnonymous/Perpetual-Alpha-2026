@@ -39,44 +39,60 @@ research to the competition runner.
 
 Historically deployed on Hyperliquid Testnet with a deterministic Funding-LAST signal.
 
-```mermaid
----
-config:
-  htmlLabels: false
----
-flowchart TD
-  A[Market data / funding] --> B[Funding-LAST / risk]
-  B --> C[Execute / reconcile]
-  C --- D[Ledger / monitoring]
+```text
+Market data / funding
+          |
+          v
+Funding-LAST / risk
+          |
+          v
+Persist order intent
+          |
+          v
+Send IOC / reconcile
+          |
+          v
+Ledger / monitoring
 ```
 
 The runner applies its own admission and authorization checks, persists an
 order intent **before sending**, then reconciles order status, fills and account
-position. The ledger connection represents persistent state, not a write that
-waits until after execution. Unknown or partial outcomes pause further orders
-for explicit review; independent monitoring reads the dedicated ledger.
+position. The ledger stores the intent before network submission and the reconciled
+outcome afterward. Unknown or partial outcomes pause further orders for
+explicit review; independent monitoring reads the dedicated ledger.
 
 #### Agent/Core Research and Synthetic Paper System
 
 Implemented and tested with Dummy/example Workers and synthetic execution.
 
-```mermaid
----
-config:
-  htmlLabels: false
----
-flowchart TD
-  A[As-of Data Gateway] --> B[Jobs / forecasts]
-  B --> C[Portfolio / Risk Gate]
-  C --> D[Paper / feedback]
+```text
+Historical Shadow demo
+History -> Gateway -> Jobs
+(no trade execution)
+
+Synthetic Paper demo
+Fixtures -> Jobs / forecasts
+                 |
+                 v
+        Portfolio / Risk Gate
+                 |
+                 v
+        Paper / feedback
 ```
 
-The Gateway pins historical analysis context. Jobs, leases, accepted forecasts
-and Outbox delivery are persisted in the runtime database. The Risk Gate checks
-fresh execution state independently of Portfolio metrics; Paper persists local
-synthetic fills and returns reports/feedback. Restarted supervision remains
-paused until explicit resume. LLM/news extensions remain experimental or proposed;
-this framework does not control the competition wallet.
+This diagram groups two tested entry points. The
+[historical Shadow demo](src/perpetual_alpha/runtime/http_core.py) pins history
+through the Data Gateway and runs Shadow jobs without trade execution. The
+[Paper Core](src/perpetual_alpha/runtime/paper_core.py) supplies synthetic fixture
+context to forecast jobs, Portfolio, Risk Gate and Paper execution. These paths
+reuse the job/forecast contracts; they are not a single deployed historical-data
+trading pipeline.
+
+Jobs, leases, accepted forecasts and Outbox delivery are persisted in the runtime
+database. The synthetic Risk Gate rechecks execution state independently of
+Portfolio metrics; Paper persists local fills and returns reports/feedback.
+Restarted supervision stays paused until explicit resume. LLM/news extensions
+remain experimental or proposed; this framework does not control the competition wallet.
 
 Public collection and CSV export support offline studies. Detailed lifecycle,
 recovery and authorization behavior is documented in
