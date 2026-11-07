@@ -53,9 +53,10 @@ framework and integration interfaces.
 
 **Zhengkai Sun** developed the separate Agent strategy and model components,
 submitted through [PR #31](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/31),
-These components were not adopted for competition trading because the available
-evidence did not sufficiently support a profitability claim; they remain outside
-the integrated mainline.
+They were not adopted for competition trading: the
+[reported three-round offline backtests](https://github.com/nopperab0/Perpetual-Alpha-2026/blob/ff82523f33dc8acb8237975635f7160b885fe948/docs/agent-tuning-results.zh-CN.md)
+did not achieve profitability after transaction costs in the evaluated sample.
+These experimental components remain outside the integrated mainline.
 
 ## System Design
 
