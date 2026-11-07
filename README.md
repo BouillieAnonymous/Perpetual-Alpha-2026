@@ -24,6 +24,40 @@ implemented and tested without controlling the competition wallet.
 [Research findings](docs/research/FINDINGS.md) ·
 [Technical report](docs/competition/PA26-Anonymous-report.pdf)
 
+## Project Outcomes
+
+- **Trading execution:** an independent ETH Funding-LAST runner historically
+  deployed on Hyperliquid Testnet, with durable order intents, exchange
+  reconciliation and explicit pauses on unknown outcomes.
+  [Implementation and failure tests](#design-decisions) ·
+  [deployment record](docs/funding-release.zh-CN.md).
+- **Data and research:** multi-asset collection, versioned historical inputs,
+  as-of query boundaries and archived cost-aware strategy experiments.
+  [Data documentation](docs/README.md#data-collection-and-data-gateway) ·
+  [findings and limitations](docs/research/FINDINGS.md).
+- **Agent-ready interfaces:** persistent jobs, authenticated Core/Worker
+  communication, independent synthetic risk checks and Paper execution,
+  implemented and tested separately from the competition runner.
+  [Architecture and boundaries](#architecture) ·
+  [component documentation](docs/README.md#core-worker-scheduler-and-outbox).
+
+## Team & Contributions
+
+**Team Anonymous — Yunfei Zhou and Zhengkai Sun.**
+
+**Yunfei Zhou** led the design, implementation and validation of the mainline
+system: trading and research infrastructure, market data collection and storage,
+execution and exchange integration, order lifecycle and risk controls,
+monitoring/deployment tooling, quantitative experiments, and the Agent/Core
+framework and integration interfaces. Development included AI assistance;
+this describes responsibility for the work, not a claim of unaided authorship.
+
+**Zhengkai Sun** contributed the separate Agent strategy/model work submitted
+in [PR #31](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/31).
+That fork is not integrated into the mainline; its strategy/model implementation
+is distinct from Yunfei's Agent/Core infrastructure. This division of work is
+recorded from Yunfei's confirmation, rather than inferred from commit counts.
+
 ## System Design
 
 ### Architecture
@@ -125,6 +159,18 @@ Each study records its required inputs and reproduction entry points; published
 derived evidence can be checked even when original raw caches are unavailable.
 
 ## Research & Results
+
+![Ten-market valid and active return coverage](docs/research/pas-visual-discovery-v3/release/coverage-overview.png)
+
+**Saved ten-market data audit, 19–30 October 2026 (UTC).** Quote-valid returns
+(A) and strictly active returns (B) have different coverage; high quote coverage
+alone does not establish tradability. The dashed 90% line is an engineering
+pair gate, not statistical power. This is historical data analysis, not a
+performance chart or alpha claim.
+[Study and methodology](docs/research/pas-visual-discovery-v3/README.md) ·
+[coverage data](docs/research/pas-visual-discovery-v3/release/coverage.csv) ·
+[data audit](docs/research/pas-visual-discovery-v3/release/all-asset-data-audit.md).
+
 
 The research pipeline moves from observed patterns to frozen hypotheses,
 matched baselines, availability/cost checks and longer-history validation.

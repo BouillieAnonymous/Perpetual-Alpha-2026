@@ -17,6 +17,9 @@ current server status; *synthetic* means local simulation without live trading
 authority; *experimental/proposal* is not adopted or deployed; *historical design*
 and *snapshot* retain an earlier plan or observation.
 
+[English documentation coverage and translation batches](english-documentation-coverage.md).
+Chinese originals remain available; translations are not yet complete.
+
 ## System Architecture & Design
 
 | Document | Purpose and status |
