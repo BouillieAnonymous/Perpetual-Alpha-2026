@@ -53,7 +53,9 @@ framework and integration interfaces.
 
 **Zhengkai Sun** developed the separate Agent strategy and model components,
 submitted through [PR #31](https://github.com/BouillieAnonymous/Perpetual-Alpha-2026/pull/31),
-which remain outside the integrated mainline.
+These components were not adopted for competition trading because the available
+evidence did not sufficiently support a profitability claim; they remain outside
+the integrated mainline.
 
 ## System Design
 
