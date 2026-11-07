@@ -40,6 +40,10 @@ research to the competition runner.
 Historically deployed on Hyperliquid Testnet with a deterministic Funding-LAST signal.
 
 ```mermaid
+---
+config:
+  htmlLabels: false
+---
 flowchart TD
   A[Market data / funding] --> B[Funding-LAST / risk]
   B --> C[Execute / reconcile]
@@ -57,6 +61,10 @@ for explicit review; independent monitoring reads the dedicated ledger.
 Implemented and tested with Dummy/example Workers and synthetic execution.
 
 ```mermaid
+---
+config:
+  htmlLabels: false
+---
 flowchart TD
   A[As-of Data Gateway] --> B[Jobs / forecasts]
   B --> C[Portfolio / Risk Gate]
